@@ -6,23 +6,29 @@
     "marque": "Medtronic",
     "type": "qcu",
     "difficulte": 2,
-    "question": "Chez un patient porteur d'un stimulateur Medtronic double chambre programmé en mode MVP, le tracé montre une stimulation atriale suivie de QRS fins conduits spontanément. Dans quel mode fonctionne le boîtier à ce moment ?",
+    "question": "Patient porteur d'un stimulateur Medtronic double chambre programmé en mode MVP, rythme sinusal lent au repos. Au vu du tracé, dans quel mode fonctionne le boîtier à ce moment ?",
     "ecg": {
       "preset": "aai",
       "fc": 70,
-      "legende": "Stimulation atriale, conduction AV spontanée"
+      "legende": "Bande de rythme DII, 25 mm/s"
     },
     "options": [
-      "DDD(R) avec allongement de l'intervalle AV",
-      "VVI(R) de sécurité",
-      "AAI(R) avec surveillance ventriculaire (fonctionnement « AAI+ »)",
-      "DDI(R) après mode switch"
+      "AAI(R) avec surveillance du canal ventriculaire",
+      "DDI(R) après repli sur arythmie atriale",
+      "VVI(R) de secours tournant sous la fréquence de base",
+      "DDD(R) avec délai AV allongé par recherche d'hystérésis"
     ],
     "reponses": [
-      2
+      0
+    ],
+    "commentaires": [
+      "Juste : spike atrial suivi d'un QRS fin conduit, sans spike ventriculaire : le MVP fonctionne en AAI(R) tout en surveillant le ventricule.",
+      "Faux : le DDI(R) est le mode de repli du mode switch sur arythmie atriale ; ici l'oreillette est stimulée et conduite normalement.",
+      "Faux : un VVI de secours à fréquence réduite est la logique de RYTHMIQ (Boston Scientific) ; ce n'est pas le repli du MVP.",
+      "Faux : rester en DDD en allongeant le délai AV est le principe des hystérésis AV (VIP d'Abbott, AV Search+ de Boston Scientific), pas du MVP."
     ],
     "reponseAttendue": null,
-    "explication": "Le MVP est un mode à base atriale : tant que la conduction AV est présente, le boîtier fonctionne en AAI(R) tout en surveillant le canal ventriculaire (fonctionnement souvent appelé AAI/R+). Il ne bascule en DDD(R) qu'en cas de perte de conduction AV avérée. Le DDD avec AV long est la logique des algorithmes d'hystérésis AV (type VIP chez Abbott), pas du MVP. Le DDI(R) n'intervient qu'en cas de mode switch sur arythmie atriale, et le VVI n'est pas le mode de repli du MVP. Le but est de réduire la stimulation ventriculaire droite inutile, délétère pour la fonction VG et associée à la FA.",
+    "explication": "Le tracé montre un spike atrial suivi d'une onde P puis d'un QRS fin conduit, sans spike ventriculaire. Le MVP est un mode à base atriale : tant que la conduction AV est présente, le boîtier fonctionne en AAI(R) tout en surveillant le canal ventriculaire (fonctionnement souvent appelé AAI/R+). Il ne bascule en DDD(R) qu'en cas de perte de conduction AV avérée. Rester en DDD avec un délai AV allongé est la logique des hystérésis AV (VIP chez Abbott, AV Search+ chez Boston Scientific). Le VVI de secours à fréquence réduite est propre à RYTHMIQ (Boston Scientific), et le DDI(R) n'intervient qu'en cas de mode switch sur arythmie atriale. Le but du MVP est de réduire la stimulation ventriculaire droite inutile, délétère pour la fonction VG et associée à la FA.",
     "aRetenir": "Le MVP fonctionne en AAI(R) avec surveillance ventriculaire et ne passe en DDD(R) qu'en cas de BAV.",
     "sources": [
       {
@@ -44,16 +50,22 @@
     "difficulte": 5,
     "question": "Quel critère fait basculer un stimulateur Medtronic du fonctionnement AAI(R)+ vers le DDD(R) en mode MVP ?",
     "options": [
-      "Absence d'événement ventriculaire détecté dans 2 des 4 derniers intervalles A-A",
-      "Une seule onde P non conduite",
-      "Un intervalle PR supérieur à 300 ms sur 8 cycles consécutifs",
-      "Trois ondes P bloquées consécutives"
+      "Trois battements ventriculaires lents dans une fenêtre de 11 cycles",
+      "Absence de conduction sur 3 des 8 derniers cycles atriaux",
+      "Aucun événement ventriculaire détecté dans 2 des 4 derniers cycles A-A",
+      "Deux ondes P consécutives non conduites (critère de BAV complet)"
     ],
     "reponses": [
-      0
+      2
+    ],
+    "commentaires": [
+      "Faux : 3 battements lents sur 11 est le critère de bascule de RYTHMIQ (Boston Scientific).",
+      "Faux : la reprise de la stimulation après 3 cycles sur 8 sans conduction correspond au réglage standard de Vp suppression (Biotronik).",
+      "Juste : le MVP passe en DDD(R) quand 2 des 4 derniers intervalles A-A n'ont pas de détection ventriculaire (BAV 2:1 ou pire que 4:3).",
+      "Faux : « 2 P bloquées consécutives » est le critère de BAV complet de SafeR (MicroPort), pas celui du MVP."
     ],
     "reponseAttendue": null,
-    "explication": "Le MVP tolère volontairement une onde P isolée non conduite : c'est ce qui le distingue des algorithmes d'hystérésis AV. La bascule en DDD(R) survient quand le boîtier constate l'absence de détection ventriculaire dans 2 des 4 derniers intervalles A-A, ce qui correspond à un BAV 2:1 ou à un rapport A:V inférieur à 4:3. Une P isolée bloquée ne suffit donc pas. Une limite programmable de l'intervalle A-V conduit n'existe qu'en option dans la version récente (« MVP 2.0 », boîtiers commercialisés à partir de 2017) : la bascule survient alors si 2 des 4 intervalles A-V dépassent cette limite ; « 8 cycles consécutifs à plus de 300 ms » n'est pas un critère du MVP. Attendre trois P bloquées consécutives exposerait à des pauses beaucoup trop longues.",
+    "explication": "Le MVP tolère volontairement une onde P isolée non conduite : c'est ce qui le distingue des algorithmes d'hystérésis AV. La bascule en DDD(R) survient quand le boîtier constate l'absence de détection ventriculaire dans 2 des 4 derniers intervalles A-A, ce qui correspond à un BAV 2:1 ou à un rapport A:V inférieur à 4:3. Chaque constructeur a ses propres critères, source fréquente de confusion en consultation : 2 P bloquées consécutives pour SafeR (MicroPort), 3 battements lents sur 11 pour RYTHMIQ (Boston Scientific), cycles sans conduction sur une fenêtre de 8 pour Vp suppression (Biotronik). Une limite programmable de l'intervalle A-V conduit n'existe qu'en option dans la version récente (« MVP 2.0 », boîtiers commercialisés à partir de 2017) : la bascule survient alors aussi si 2 des 4 intervalles A-V dépassent cette limite.",
     "aRetenir": "MVP : bascule en DDD(R) si pas de détection ventriculaire dans 2 des 4 derniers cycles A-A.",
     "sources": [
       {
@@ -76,6 +88,10 @@
     ],
     "reponses": [
       0
+    ],
+    "commentaires": [
+      "Juste : le MVP tolère une P isolée non conduite puis délivre un back-up ventriculaire à AV 80 ms après l'événement atrial suivant : c'est son fonctionnement normal.",
+      "Faux : conclure à une sous-détection, une perte de capture ou une panne est le piège classique ; seule la répétition (2 cycles sur 4) fait basculer en DDD(R)."
     ],
     "reponseAttendue": null,
     "explication": "C'est le comportement normal du MVP. Après une onde P non conduite, le boîtier ne stimule pas le ventricule dans le même cycle, mais délivre une stimulation ventriculaire de sécurité avec un délai AV de 80 ms après l'événement atrial suivant. Ce délai de 80 ms a été choisi comme le plus court délai AV connu pour être asymptomatique. Le piège classique est de conclure à une sous-détection, à une perte de capture ou à une panne du boîtier. En revanche, si ces cycles se répètent (2 sur 4), le boîtier bascule en DDD(R).",
@@ -100,16 +116,22 @@
     "difficulte": 7,
     "question": "Après une bascule MVP en DDD(R) pour BAV, comment le boîtier Medtronic teste-t-il le retour de la conduction AV ?",
     "options": [
-      "Il reste définitivement en DDD(R) jusqu'à la prochaine programmation",
-      "Il allonge progressivement le délai AV de 10 ms à chaque cycle",
-      "Il effectue un test de conduction toutes les 24 h exactement, à heure fixe",
-      "Il supprime ponctuellement une stimulation ventriculaire à des intervalles qui doublent (1 min, 2, 4, 8 min…) jusqu'à 16 h au maximum"
+      "Allongement périodique du délai AV, pendant 8 cycles au plus, pour chercher un QRS",
+      "Retour en AAI après 25 cycles d'hystérésis avec moins de 2 V stimulés sur 10",
+      "Retour en AAI après 12 QRS spontanés ou tous les 100 cycles stimulés",
+      "Suppression d'un stimulus V à 1 min, puis à intervalles doublés jusqu'à 16 h"
     ],
     "reponses": [
       3
     ],
+    "commentaires": [
+      "Faux : l'allongement périodique du délai AV pendant 8 cycles au plus est le fonctionnement d'AV Search+ (Boston Scientific).",
+      "Faux : c'est la condition de retour de RYTHMIQ en AAI(R), qui s'appuie sur AV Search+ (Boston Scientific).",
+      "Faux : 12 événements ventriculaires spontanés ou un test tous les 100 cycles stimulés sont les critères de retour en AAI de SafeR (MicroPort).",
+      "Juste : le MVP supprime ponctuellement une stimulation ventriculaire pour tester la conduction, à 1 min puis à intervalles qui doublent, jusqu'à 16 h."
+    ],
     "reponseAttendue": null,
-    "explication": "Le MVP effectue des tests de conduction périodiques en supprimant ponctuellement une stimulation ventriculaire. Le premier test a lieu 1 minute après la bascule, puis l'intervalle double à chaque échec (2, 4, 8 minutes…) jusqu'à 16 heures au maximum. Si la conduction est retrouvée, le boîtier revient en AAI(R)+. Le boîtier ne reste donc pas bloqué en DDD, et il n'allonge pas l'AV cycle par cycle (principe de l'hystérésis AV). Chez un patient en BAV complet permanent, le boîtier reste donc presque tout le temps en DDD(R), avec seulement des tests très espacés.",
+    "explication": "Le MVP effectue des tests de conduction périodiques en supprimant ponctuellement une stimulation ventriculaire. Le premier test a lieu 1 minute après la bascule, puis l'intervalle double à chaque échec (2, 4, 8 minutes…) jusqu'à 16 heures au maximum. Si la conduction est retrouvée, le boîtier revient en AAI(R)+. Les autres constructeurs testent la conduction autrement : SafeR (MicroPort) revient en AAI après 12 QRS spontanés ou tous les 100 cycles stimulés, AV Search+ (Boston Scientific) allonge périodiquement le délai AV, et RYTHMIQ s'appuie sur AV Search+ pour revenir en AAI(R). Chez un patient en BAV complet permanent, le MVP reste donc presque tout le temps en DDD(R), avec seulement des tests très espacés.",
     "aRetenir": "Tests de conduction MVP : à 1 min puis à intervalles qui doublent, jusqu'à 16 h.",
     "sources": [
       {
@@ -127,16 +149,22 @@
     "difficulte": 6,
     "question": "Dans l'essai SAVE PACe (maladie du sinus, conduction AV conservée), quel a été l'effet de la stimulation minimisant la stimulation ventriculaire par rapport au DDD conventionnel ?",
     "options": [
-      "Réduction significative de la mortalité totale",
-      "Réduction relative d'environ 40 % du risque de FA persistante, sans différence de mortalité",
-      "Aucune différence de FA persistante, mais moins d'hospitalisations pour insuffisance cardiaque",
-      "Augmentation des syncopes liées aux pauses"
+      "Réduction significative de la mortalité totale et des hospitalisations pour IC",
+      "Moins de FA persistante (réduction relative d'environ 40 %), mortalité inchangée",
+      "Moins d'hospitalisations pour IC, sans effet significatif sur la FA persistante",
+      "Stimulation VD très réduite, mais aucun effet significatif sur la FA persistante"
     ],
     "reponses": [
       1
     ],
+    "commentaires": [
+      "Faux : la mortalité n'a pas différé (4,9 % contre 5,4 %), et les hospitalisations pour IC n'étaient pas le résultat marquant de l'essai.",
+      "Juste : FA persistante 7,9 % contre 12,7 % (HR 0,60), sans différence de mortalité.",
+      "Faux : c'est l'inverse : le bénéfice porte sur la FA persistante.",
+      "Faux : la stimulation VD a bien chuté (99 % à 9,1 %), mais avec un bénéfice significatif sur la FA persistante ; un critère principal neutre est le résultat d'ANSWER (SafeR)."
+    ],
     "reponseAttendue": null,
-    "explication": "SAVE PACe (1065 patients) a comparé une stimulation double chambre minimisant la stimulation ventriculaire au DDD conventionnel. Le pourcentage médian de stimulation ventriculaire est passé de 99 % à 9,1 %. La FA persistante est survenue chez 7,9 % contre 12,7 % des patients (HR 0,60 : réduction relative de 40 %, réduction absolue de 4,8 %). La mortalité n'était pas différente (4,9 % contre 5,4 %). Le bénéfice porte donc sur la FA et non sur la survie.",
+    "explication": "SAVE PACe (1065 patients) a comparé une stimulation double chambre minimisant la stimulation ventriculaire au DDD conventionnel. Le pourcentage médian de stimulation ventriculaire est passé de 99 % à 9,1 %. La FA persistante est survenue chez 7,9 % contre 12,7 % des patients (HR 0,60 : réduction relative de 40 %, réduction absolue de 4,8 %). La mortalité n'était pas différente (4,9 % contre 5,4 %). Le bénéfice porte donc sur la FA et non sur la survie. Ne pas confondre avec ANSWER (SafeR), où la forte réduction de la stimulation VD ne s'est pas traduite par un effet significatif sur le critère principal composite.",
     "aRetenir": "SAVE PACe : réduire la stimulation VD inutile diminue de 40 % la FA persistante, sans effet sur la mortalité.",
     "sources": [
       {
@@ -159,18 +187,23 @@
     "question": "Quelles sont les limites ou les précautions reconnues du mode MVP ? (plusieurs réponses)",
     "options": [
       "Un PR très long toléré durablement peut donner un tableau de « pseudo-syndrome du pacemaker »",
-      "Les séquences court-long-court créées par une P bloquée peuvent, chez certains patients porteurs de DAI, favoriser une arythmie ventriculaire dépendante des pauses",
-      "Les versions récentes du MVP proposent en option une limite programmable de l'intervalle A-R, au-delà de laquelle le boîtier passe en DDD(R)",
+      "Après une P non conduite, une stimulation V de sécurité est délivrée dans le même cycle, 80 ms après cette P",
+      "Une P bloquée crée une séquence court-long-court, pro-arythmique chez certains porteurs de DAI",
       "En BAV complet permanent, le MVP maintient le boîtier en AAI(R) la plupart du temps"
     ],
     "reponses": [
       0,
-      1,
       2
     ],
+    "commentaires": [
+      "Juste : le MVP respecte un PR même très long ; la contraction atriale sur valve AV fermée peut donner des symptômes proches du syndrome du pacemaker.",
+      "Faux : le back-up ventriculaire à AV 80 ms est délivré après l'événement atrial suivant, pas dans le cycle de la P bloquée : c'est ce qui crée la pause.",
+      "Juste : la pause liée à la P bloquée peut créer une séquence court-long-court et favoriser une TV dépendante des pauses.",
+      "Faux : en BAV complet permanent, le boîtier reste en DDD(R) et ne fait que des tests de conduction espacés."
+    ],
     "reponseAttendue": null,
-    "explication": "Le MVP favorise la conduction spontanée, même avec un PR très long : certains patients décrivent alors des symptômes proches du syndrome du pacemaker (contraction atriale sur valve AV fermée). La P bloquée tolérée crée une pause, et une séquence court-long-court peut déclencher une TV dépendante des pauses. C'est pourquoi l'évolution « MVP 2.0 » a ajouté, en option, une limite programmable de l'intervalle A-R (bascule en DDD(R) si 2 des 4 intervalles la dépassent) et des aménagements qui réduisent les longs intervalles V-V. En revanche, en BAV complet permanent, le boîtier reste en DDD(R) et ne fait que des tests de conduction espacés. Le maintien en AAI(R) en BAV complet est donc faux.",
-    "aRetenir": "MVP : attention au PR très long et aux pauses (court-long-court) ; en BAV complet, le boîtier reste en DDD(R).",
+    "explication": "Le MVP favorise la conduction spontanée, même avec un PR très long : certains patients décrivent alors des symptômes proches du syndrome du pacemaker (contraction atriale sur valve AV fermée). Après une P bloquée, le back-up ventriculaire n'est délivré qu'après l'événement atrial suivant, à AV 80 ms : la P bloquée crée donc une pause, et une séquence court-long-court peut déclencher une TV dépendante des pauses. C'est pourquoi l'évolution « MVP 2.0 » a ajouté, en option, une limite programmable de l'intervalle A-R (bascule en DDD(R) si 2 des 4 intervalles la dépassent) et des aménagements qui réduisent les longs intervalles V-V. En BAV complet permanent, le boîtier reste en DDD(R) et ne fait que des tests de conduction espacés.",
+    "aRetenir": "MVP : attention au PR très long et aux pauses (le back-up V arrive au cycle suivant) ; en BAV complet, le boîtier reste en DDD(R).",
     "sources": [
       {
         "titre": "Casavant DA, et al. The Story of Managed Ventricular Pacing. J Innov Card Rhythm Manag 2021;12:4625-4632",
@@ -209,18 +242,24 @@
     "marque": "Medtronic",
     "type": "qcu",
     "difficulte": 3,
-    "question": "À quoi sert l'algorithme Rate Drop Response des stimulateurs Medtronic ?",
+    "question": "Quel est le principe de l'algorithme Rate Drop Response des stimulateurs Medtronic ?",
     "options": [
-      "À détecter une chute brutale de la fréquence cardiaque et à y répondre par une stimulation temporaire à fréquence élevée (syncope réflexe cardio-inhibitrice)",
-      "À baisser la fréquence de base la nuit",
-      "À stabiliser la fréquence ventriculaire en FA conduite",
-      "À déclencher un mode switch lors d'une tachycardie atriale"
+      "Abaisser la fréquence de base pendant les heures de sommeil programmées sur l'horloge",
+      "Régulariser la réponse ventriculaire en FA conduite en accélérant la stimulation",
+      "Répondre à une chute brutale de fréquence par une stimulation rapide transitoire",
+      "Détecter la hausse de contractilité qui précède la syncope et accélérer avant la chute"
     ],
     "reponses": [
-      0
+      2
+    ],
+    "commentaires": [
+      "Faux : la baisse nocturne programmée de la fréquence de base est la fonction Sleep.",
+      "Faux : la régularisation de la FA conduite relève de Conducted AF Response.",
+      "Juste : le Rate Drop Response détecte une chute brutale (ou une fréquence basse persistante) et délivre une stimulation d'intervention rapide.",
+      "Faux : anticiper la syncope par la contractilité (impédance intracardiaque) est le principe du Closed Loop Stimulation de Biotronik."
     ],
     "reponseAttendue": null,
-    "explication": "Le Rate Drop Response a été conçu pour la syncope réflexe (vasovagale) cardio-inhibitrice. Il détecte une chute brutale de fréquence (« drop detection ») ou une fréquence basse persistante (« low rate detection »). Il répond par une stimulation d'intervention à fréquence élevée pendant une durée programmée. La baisse nocturne de fréquence relève de la fonction Sleep, et la régularisation en FA relève de Conducted AF Response. Il a été évalué dans VPS et VPS II. Selon l'ESC 2018, la stimulation se discute seulement dans des formes sélectionnées de syncope réflexe cardio-inhibitrice documentée.",
+    "explication": "Le Rate Drop Response a été conçu pour la syncope réflexe (vasovagale) cardio-inhibitrice. Il détecte une chute brutale de fréquence (« drop detection ») ou une fréquence basse persistante (« low rate detection »). Il répond par une stimulation d'intervention à fréquence élevée pendant une durée programmée. La baisse nocturne de fréquence relève de la fonction Sleep, et la régularisation en FA relève de Conducted AF Response. L'anticipation de la syncope par la mesure de la contractilité est le principe du Closed Loop Stimulation de Biotronik (essai SPAIN), pas du Rate Drop Response. Ce dernier a été évalué dans VPS et VPS II. Selon l'ESC 2018, la stimulation se discute seulement dans des formes sélectionnées de syncope réflexe cardio-inhibitrice documentée.",
     "aRetenir": "Le Rate Drop Response répond à une chute brutale de fréquence par une stimulation d'intervention rapide (syncope cardio-inhibitrice).",
     "sources": [
       {
@@ -248,6 +287,10 @@
     "reponses": [
       1
     ],
+    "commentaires": [
+      "Faux : c'est VPS I, essai ouvert, qui avait montré un bénéfice important ; en double aveugle, la réduction n'était pas significative.",
+      "Juste : VPS II n'a montré qu'une réduction relative non significative de 30 % (p unilatéral = 0,14), en faveur d'un effet placebo de l'implantation."
+    ],
     "reponseAttendue": null,
     "explication": "C'est faux. VPS I, essai ouvert, avait montré un bénéfice important. Mais VPS II, en double aveugle (tous les patients implantés, boîtier actif ou non), n'a montré qu'une réduction relative non significative de 30 % du délai avant récidive de syncope (p unilatéral = 0,14). Cet écart suggère un effet placebo important de l'implantation dans les essais ouverts. Les auteurs concluent que la stimulation ne doit pas être proposée en première intention dans la syncope vasovagale récidivante. Les recommandations ESC 2018 la réservent à des patients sélectionnés : âgés de plus de 40 ans, avec des syncopes sévères et une asystolie documentée.",
     "aRetenir": "VPS II (double aveugle) : pas de réduction significative des syncopes vasovagales avec la stimulation rate drop response.",
@@ -269,17 +312,21 @@
     "marque": "Medtronic",
     "type": "vf",
     "difficulte": 1,
-    "question": "La fonction Sleep des stimulateurs Medtronic permet d'appliquer une fréquence de base plus basse pendant les heures de sommeil programmées.",
+    "question": "La fonction Sleep des stimulateurs Medtronic abaisse la fréquence de base quand l'accéléromètre détecte une période de repos prolongée.",
     "options": [
       "Vrai",
       "Faux"
     ],
     "reponses": [
-      0
+      1
+    ],
+    "commentaires": [
+      "Faux : la fonction Sleep ne dépend pas de l'activité mesurée ; l'abaissement sur détection de repos par le capteur correspond à la Rest Rate d'Abbott.",
+      "Juste : la fonction Sleep applique une fréquence plus basse entre une heure de coucher et une heure de lever programmées, sur l'horloge du boîtier."
     ],
     "reponseAttendue": null,
-    "explication": "C'est vrai. La fonction Sleep applique une fréquence de base plus basse (Sleep Rate) entre une heure de coucher et une heure de lever programmées, pour respecter la baisse physiologique de la fréquence cardiaque nocturne. Elle évite une stimulation nocturne inutile, qui peut être mal tolérée et use la batterie. Le piège : elle repose sur l'horloge du boîtier et non sur l'activité réelle du patient. Il faut donc l'adapter aux horaires d'un travailleur de nuit ou après un changement de fuseau horaire.",
-    "aRetenir": "La fonction Sleep abaisse la fréquence de base selon des horaires programmés.",
+    "explication": "C'est faux. La fonction Sleep applique une fréquence de base plus basse (Sleep Rate) entre une heure de coucher et une heure de lever programmées, pour respecter la baisse physiologique de la fréquence cardiaque nocturne. Elle repose sur l'horloge du boîtier et non sur l'activité réelle du patient. L'abaissement de fréquence déclenché par le capteur d'activité est la logique de la Rest Rate d'Abbott. Conséquence pratique : il faut adapter les horaires de la fonction Sleep chez un travailleur de nuit ou après un changement de fuseau horaire. Elle évite une stimulation nocturne inutile, qui peut être mal tolérée et use la batterie.",
+    "aRetenir": "La fonction Sleep de Medtronic abaisse la fréquence de base selon des horaires programmés, pas selon l'activité détectée.",
     "sources": [
       {
         "titre": "Medtronic. Manuel de référence (Reference Manual) des stimulateurs cardiaques double chambre (plateformes Adapta/Advisa/Azure) — bibliothèque officielle des manuels techniques Medtronic",
@@ -320,16 +367,22 @@
     "difficulte": 7,
     "question": "Atrial Preference Pacing (APP, Medtronic) stimule l'oreillette légèrement au-dessus de la fréquence sinusale pour prévenir la FA. Que montre la méta-analyse des essais randomisés sur ce type d'algorithme ?",
     "options": [
-      "Réduction significative du fardeau de FA et de la progression vers la FA permanente",
-      "Augmentation significative des hospitalisations pour insuffisance cardiaque",
-      "Réduction des extrasystoles atriales, sans diminution du fardeau de FA",
-      "Réduction de la mortalité cardiovasculaire"
+      "Moins d'extrasystoles atriales, mais pas de baisse du fardeau de FA",
+      "Moins de FA permanente à 2 ans, sans effet sur les extrasystoles atriales",
+      "Baisse de la mortalité cardiovasculaire en cas de dysfonction sinusale",
+      "Baisse significative du fardeau de FA et de la progression vers la FA permanente"
     ],
     "reponses": [
-      2
+      0
+    ],
+    "commentaires": [
+      "Juste : dans la méta-analyse de Munawar, ces algorithmes réduisaient la charge en ESA sans réduire le fardeau ni le nombre d'épisodes de FA.",
+      "Faux : c'est l'inverse ; la réduction de la FA permanente observée dans MINERVA est attribuée à l'ATP atrial réactif, pas à la stimulation préventive.",
+      "Faux : aucun effet sur la mortalité n'a été montré avec la stimulation préventive atriale.",
+      "Faux : la méta-analyse ne montre ni baisse du fardeau de FA ni frein à la progression vers la FA permanente."
     ],
     "reponseAttendue": null,
-    "explication": "Atrial Preference Pacing maintient une stimulation atriale légèrement supérieure à la fréquence sinusale, en accélérant après une détection atriale spontanée puis en redescendant progressivement. Dans la méta-analyse de Munawar (21 essais randomisés), les algorithmes APP réduisaient la charge en extrasystoles atriales mais pas le fardeau ni le nombre d'épisodes de FA. Les algorithmes de prévention seuls n'empêchaient pas la progression de la FA. Aucun effet sur la mortalité ni sur l'insuffisance cardiaque n'a été montré. En pratique, ces algorithmes ne sont pas activés pour prévenir la FA en routine.",
+    "explication": "Atrial Preference Pacing maintient une stimulation atriale légèrement supérieure à la fréquence sinusale, en accélérant après une détection atriale spontanée puis en redescendant progressivement. Dans la méta-analyse de Munawar (21 essais randomisés), les algorithmes APP réduisaient la charge en extrasystoles atriales mais pas le fardeau ni le nombre d'épisodes de FA. Les algorithmes de prévention seuls n'empêchaient pas la progression de la FA ; dans MINERVA, le frein à la FA permanente est plutôt attribué à l'ATP atrial réactif. Aucun effet sur la mortalité ni sur l'insuffisance cardiaque n'a été montré. En pratique, ces algorithmes ne sont pas activés pour prévenir la FA en routine.",
     "aRetenir": "La stimulation préventive atriale réduit les ESA mais pas le fardeau de FA.",
     "sources": [
       {
@@ -371,16 +424,22 @@
     "difficulte": 5,
     "question": "Qu'est-ce qui caractérise le Reactive ATP des stimulateurs Medtronic par rapport à un ATP atrial classique ?",
     "options": [
-      "Il délivre une cardioversion interne de faible énergie",
-      "Il n'est délivré qu'une fois, au début de l'épisode",
-      "Il stimule simultanément les deux oreillettes",
-      "Il relance des séquences d'ATP atrial pendant l'épisode quand le rythme atrial change (cycle plus long ou plus régulier) ou après un délai programmé"
+      "Il évite de stimuler l'oreillette dans sa période vulnérable après une ESA",
+      "Il relance l'ATP atrial quand le rythme s'organise ou après un délai programmé",
+      "Il délivre une cardioversion atriale de faible énergie en cas d'échec de l'ATP",
+      "Il stimule l'oreillette juste au-dessus de la fréquence sinusale pour prévenir la FA"
     ],
     "reponses": [
-      3
+      1
+    ],
+    "commentaires": [
+      "Faux : éviter la période vulnérable atriale après une ESA est le rôle de PAC Response (Abbott).",
+      "Juste : le Reactive ATP relance des séquences d'ATP en cours d'épisode quand le cycle s'allonge ou se régularise, ou après un délai.",
+      "Faux : un stimulateur ne délivre pas de choc ; la cardioversion atriale interne n'existait que sur d'anciens défibrillateurs atriaux.",
+      "Faux : la stimulation atriale juste au-dessus du rythme sinusal est le principe préventif d'Atrial Preference Pacing, pas un traitement."
     ],
     "reponseAttendue": null,
-    "explication": "L'ATP atrial classique est délivré au début de l'épisode de tachycardie atriale, puis abandonné en cas d'échec. Le Reactive ATP relance des tentatives pendant l'épisode quand le rythme évolue vers une forme plus organisée (cycle plus long, plus régulier) ou après un délai programmé. Dans MINERVA, une efficacité élevée du Reactive ATP était associée à moins de FA persistante ou permanente. Un stimulateur ne délivre pas de choc : la cardioversion interne n'est pas une option. Le Reactive ATP est surtout efficace sur les tachycardies atriales organisées et les flutters, beaucoup moins sur la FA.",
+    "explication": "L'ATP atrial classique est délivré au début de l'épisode de tachycardie atriale, puis abandonné en cas d'échec. Le Reactive ATP relance des tentatives pendant l'épisode quand le rythme évolue vers une forme plus organisée (cycle plus long, plus régulier) ou après un délai programmé. Dans MINERVA, une efficacité élevée du Reactive ATP était associée à moins de FA persistante ou permanente. Un stimulateur ne délivre pas de choc. Atrial Preference Pacing (prévention par surentraînement) et PAC Response d'Abbott (éviter la période vulnérable après une ESA) sont des fonctions préventives distinctes. Le Reactive ATP est surtout efficace sur les tachycardies atriales organisées et les flutters, beaucoup moins sur la FA.",
     "aRetenir": "Le Reactive ATP relance l'ATP atrial quand l'arythmie s'organise, pour agir sur les tachycardies atriales et flutters.",
     "sources": [
       {
@@ -402,13 +461,19 @@
     "difficulte": 8,
     "question": "Dans l'essai MINERVA (stimulateurs Medtronic, antécédents de tachyarythmies atriales), quel résultat a été observé ?",
     "options": [
-      "Le MVP seul a significativement réduit le critère composite (décès, hospitalisation cardiovasculaire, FA permanente)",
-      "La combinaison stimulation préventive + ATP atrial + MVP (DDDRP + MVP) a réduit le critère composite, surtout en réduisant la progression vers la FA permanente",
-      "Aucune stratégie n'a modifié la progression de la FA",
-      "Le DDDR conventionnel était supérieur aux deux autres bras"
+      "Le DDDR conventionnel a fait mieux que les deux autres bras sur la FA permanente",
+      "Le MVP seul a réduit significativement le critère composite par rapport au DDDR",
+      "Aucun bras n'a modifié la progression vers la FA permanente ni le composite",
+      "DDDRP + MVP a réduit le critère composite, surtout via la FA permanente"
     ],
     "reponses": [
-      1
+      3
+    ],
+    "commentaires": [
+      "Faux : le DDDR conventionnel était le bras de référence et n'a fait mieux sur aucun critère.",
+      "Faux : le bras MVP seul n'était pas significativement différent du DDDR (HR 0,89).",
+      "Faux : le bras DDDRP + MVP a réduit la FA permanente (HR 0,39) et le critère composite.",
+      "Juste : 19,8 % contre 26,5 % (HR 0,74), bénéfice porté surtout par la réduction de la FA permanente."
     ],
     "reponseAttendue": null,
     "explication": "MINERVA a randomisé 1166 patients entre DDDR conventionnel, MVP seul et DDDRP + MVP (algorithmes préventifs et ATP atrial, dont le Reactive ATP). Le critère composite à 2 ans a été réduit dans le bras DDDRP + MVP (19,8 % contre 26,5 % ; HR 0,74). Le bras MVP seul n'était pas significativement différent du DDDR (HR 0,89). Le bénéfice venait surtout d'une réduction de la FA permanente (HR 0,39) et de la FA de plus de 7 jours. Ce résultat est souvent attribué à l'ATP atrial réactif plutôt qu'à la stimulation préventive, qui est peu efficace en méta-analyse.",
@@ -433,16 +498,22 @@
     "difficulte": 3,
     "question": "Quel est le principe de l'algorithme AdaptivCRT de Medtronic ?",
     "options": [
-      "Mesure de l'impédance thoracique pour optimiser les délais AV",
-      "Stimulation multisite du VG par deux pôles de la sonde quadripolaire",
-      "Stimulation VG seule synchronisée sur la conduction spontanée du VD quand la conduction AV est normale, stimulation biventriculaire sinon, avec ajustement automatique et régulier des délais",
-      "Stimulation du faisceau de His en cas d'échec de la CRT"
+      "Délai AV réglé sur l'AV spontané moins un décalage, pour une BiV en fusion",
+      "Optimisation hebdomadaire des délais AV et VV par l'accélération endocardiaque",
+      "Stimulation de deux sites VG par les pôles d'une même sonde quadripolaire",
+      "Stimulation VG seule synchronisée si la conduction AV est normale, BiV sinon"
     ],
     "reponses": [
-      2
+      3
+    ],
+    "commentaires": [
+      "Faux : le délai AV égal à l'AV spontané moins un delta est le principe de SyncAV (Abbott), qui reste en stimulation biventriculaire.",
+      "Faux : l'optimisation hebdomadaire par accélération endocardiaque est le SonR de MicroPort, avec la sonde SonRtip.",
+      "Faux : la stimulation de deux sites VG par une sonde quadripolaire est le MultiPoint Pacing d'Abbott.",
+      "Juste : AdaptivCRT alterne automatiquement entre VG seul synchronisé (conduction AV normale) et stimulation biventriculaire, avec délais ajustés."
     ],
     "reponseAttendue": null,
-    "explication": "AdaptivCRT mesure régulièrement la conduction AV spontanée. Quand elle est normale, il délivre une stimulation VG seule synchronisée, qui fusionne avec l'activation spontanée du VD par la branche droite. Sinon, il repasse en stimulation biventriculaire, avec des délais AV et VV optimisés automatiquement. L'essai adaptive CRT a montré sa non-infériorité par rapport à une optimisation échographique complète, avec 44 % de stimulation VD en moins. La stimulation multisite VG correspond au MultiPoint Pacing d'Abbott. L'impédance thoracique sert à surveiller la congestion (OptiVol), pas à régler les délais.",
+    "explication": "AdaptivCRT mesure régulièrement la conduction AV spontanée. Quand elle est normale, il délivre une stimulation VG seule synchronisée, qui fusionne avec l'activation spontanée du VD par la branche droite. Sinon, il repasse en stimulation biventriculaire, avec des délais AV et VV optimisés automatiquement. L'essai adaptive CRT a montré sa non-infériorité par rapport à une optimisation échographique complète, avec 44 % de stimulation VD en moins. Les confusions fréquentes : la stimulation multisite VG correspond au MultiPoint Pacing d'Abbott, le délai AV calé sur la conduction spontanée moins un delta à SyncAV (Abbott), et l'optimisation par accélération endocardiaque au SonR de MicroPort.",
     "aRetenir": "AdaptivCRT alterne automatiquement entre stimulation VG seule synchronisée (conduction AV normale) et stimulation biventriculaire.",
     "sources": [
       {
@@ -466,6 +537,10 @@
     "reponses": [
       1
     ],
+    "commentaires": [
+      "Faux : AdaptResponse a été arrêté pour futilité ; HR 0,89 (IC95 % 0,78-1,01 ; p = 0,077), sans différence significative.",
+      "Juste : la supériorité clinique de l'AdaptivCRT n'est pas démontrée, même si sa non-infériorité l'avait été dans l'essai adaptive CRT."
+    ],
     "reponseAttendue": null,
     "explication": "C'est faux. AdaptResponse (3617 patients avec BBG, FEVG ≤ 35 % et PR ≤ 200 ms) a été arrêté pour futilité à la troisième analyse intermédiaire. Le critère principal est survenu chez 23,5 % contre 25,7 % des patients à 60 mois (HR 0,89 ; IC95 % 0,78-1,01 ; p = 0,077), sans différence significative. Les taux d'événements étaient bas dans les deux bras, ce qui traduit une très bonne réponse à la CRT dans cette population. L'algorithme reste utilisable, puisque l'essai adaptive CRT avait démontré sa non-infériorité, mais sa supériorité clinique n'est pas démontrée.",
     "aRetenir": "AdaptResponse : pas de supériorité clinique démontrée de l'AdaptivCRT sur la CRT conventionnelle.",
@@ -485,16 +560,22 @@
     "difficulte": 7,
     "question": "Sur quel signal repose l'algorithme EffectivCRT de Medtronic pour classer chaque battement stimulé comme « CRT effective » ?",
     "options": [
-      "La morphologie de l'EGM unipolaire VG (cathode VG vers boîtier ou bobine) : un aspect QS ou QS-r signe une capture VG effective, une onde R initiale traduit une pseudo-fusion ou une perte de capture",
-      "L'amplitude de l'onde R sur le dipôle bipolaire VD",
-      "L'impédance entre la sonde VG et le boîtier",
-      "Le signal de l'accéléromètre au moment de la stimulation"
+      "L'EGM bobine VD – boîtier comparé à un gabarit de rythme de base",
+      "La morphologie de l'EGM unipolaire VG : un aspect QS ou QS-r",
+      "L'accélération endocardiaque mesurée à la pointe d'une sonde dédiée",
+      "L'impédance intracardiaque VD – boîtier au cours de chaque contraction"
     ],
     "reponses": [
-      0
+      1
+    ],
+    "commentaires": [
+      "Faux : la comparaison de l'EGM bobine VD – boîtier à un gabarit est le principe de Wavelet, un discriminateur TV/TSV.",
+      "Juste : sur l'EGM unipolaire VG, un aspect QS ou QS-r signe une capture VG effective ; une onde R initiale, une pseudo-fusion ou une perte de capture.",
+      "Faux : l'accélération endocardiaque mesurée par une sonde dédiée est le signal du SonR (MicroPort), utilisé pour optimiser les délais.",
+      "Faux : l'impédance intracardiaque au cours de la contraction est le signal du Closed Loop Stimulation (Biotronik), un capteur d'asservissement."
     ],
     "reponseAttendue": null,
-    "explication": "Le pourcentage de stimulation biventriculaire affiché par le boîtier surestime souvent la CRT réellement délivrée : les cycles en pseudo-fusion ou avec perte de capture VG sont comptés comme stimulés. EffectivCRT analyse battement par battement l'EGM unipolaire issu de la cathode VG. Une capture VG effective donne une déflexion initiale négative (QS ou QS-r). Une onde R positive initiale signale une activation spontanée arrivée avant le stimulus (pseudo-fusion) ou une perte de capture. Lors de la validation, l'algorithme a correctement classé 98,2 % des battements effectifs et 100 % des pertes de capture VG. L'amplitude de R, l'impédance et l'accéléromètre ne renseignent pas sur l'efficacité de la capture VG.",
+    "explication": "Le pourcentage de stimulation biventriculaire affiché par le boîtier surestime souvent la CRT réellement délivrée : les cycles en pseudo-fusion ou avec perte de capture VG sont comptés comme stimulés. EffectivCRT analyse battement par battement l'EGM unipolaire issu de la cathode VG (vers le boîtier ou la bobine). Une capture VG effective donne une déflexion initiale négative (QS ou QS-r). Une onde R positive initiale signale une activation spontanée arrivée avant le stimulus (pseudo-fusion) ou une perte de capture. Lors de la validation, l'algorithme a correctement classé 98,2 % des battements effectifs et 100 % des pertes de capture VG. L'accélération endocardiaque (SonR), l'impédance intracardiaque (CLS) et l'EGM bobine – boîtier (Wavelet) servent à d'autres fonctions.",
     "aRetenir": "EffectivCRT : un aspect QS/QS-r sur l'EGM unipolaire VG signe une CRT effective, une onde R initiale une CRT inefficace.",
     "sources": [
       {
@@ -526,6 +607,12 @@
       1,
       2
     ],
+    "commentaires": [
+      "Juste : PR Logic reconnaît la FA et le flutter conduits à partir des motifs A-V et retient la thérapie sous la limite TSV.",
+      "Juste : la tachycardie sinusale fait partie des trois familles de TSV reconnues par PR Logic.",
+      "Juste : les autres TSV 1:1 (réentrées nodales, voies accessoires) sont reconnues par l'analyse des intervalles PR et RP.",
+      "Faux : une FV avec dissociation AV et V plus rapide que A doit être traitée ; PR Logic ne la retient pas."
+    ],
     "reponseAttendue": null,
     "explication": "PR Logic analyse, cycle par cycle, la séquence des événements A et V (motifs, intervalles PR et RP, dissociation AV) pour reconnaître trois familles de TSV : FA ou flutter, tachycardie sinusale et autres TSV 1:1. Quand le rythme est classé TSV, la thérapie est retenue tant que la fréquence reste sous la limite TSV programmée. Une FV, avec dissociation AV et une fréquence ventriculaire supérieure à la fréquence atriale, doit au contraire être traitée. PR Logic utilise le canal atrial : il n'existe pas en DAI simple chambre, où la discrimination repose sur la morphologie (Wavelet), la stabilité et l'onset. Piège : un double comptage ou un far-field sur le canal A peut fausser l'analyse.",
     "aRetenir": "PR Logic reconnaît FA/flutter, tachycardie sinusale et autres TSV 1:1 en analysant les séquences A-V.",
@@ -549,16 +636,22 @@
     "difficulte": 6,
     "question": "Le discriminateur morphologique Wavelet (Medtronic) compare les complexes de la tachycardie à un gabarit (template) de rythme de base. Dans l'étude de validation de référence, quel EGM et quel seuil de correspondance (match threshold) étaient utilisés ?",
     "options": [
-      "EGM bipolaire atrial, seuil 50 %",
-      "EGM de l'ECG de surface, seuil 60 %",
-      "EGM unipolaire VG, seuil 90 %",
-      "EGM bobine VD – boîtier (champ lointain), seuil de correspondance 70 %"
+      "EGM bobine VD – boîtier (champ lointain), seuil de 70 %",
+      "EGM unipolaire VG (cathode VG – boîtier), seuil de 70 %",
+      "EGM bobine VD – boîtier (champ lointain), seuil de 94 %",
+      "EGM bipolaire pointe-anneau VD (champ proche), seuil de 70 %"
     ],
     "reponses": [
-      3
+      0
+    ],
+    "commentaires": [
+      "Juste : dans l'étude de Klein, Wavelet utilisait l'EGM bobine VD – boîtier avec un seuil de correspondance de 70 %.",
+      "Faux : l'EGM unipolaire VG est le signal analysé par EffectivCRT pour juger la capture VG, pas par Wavelet.",
+      "Faux : le bon EGM, mais pas le bon seuil : une corrélation de 94 % évoque le seuil de Rhythm ID (Boston Scientific).",
+      "Faux : le dipôle de détection pointe-anneau voit mal la morphologie globale ; Wavelet utilise un EGM de champ lointain."
     ],
     "reponseAttendue": null,
-    "explication": "Wavelet compare la morphologie de l'EGM ventriculaire en tachycardie à un gabarit du rythme de base, mis à jour automatiquement. Dans l'étude de Klein (1122 patients), l'algorithme utilisait l'EGM bobine VD – boîtier (vision « champ lointain » du ventricule) avec un seuil de correspondance de 70 %. Les thérapies inappropriées pour TSV ont été réduites de 78 %, avec une sensibilité de 98,6 % pour les TV soutenues. Un complexe suffisamment semblable au gabarit oriente vers une TSV conduite ; un complexe différent oriente vers une TV. Pièges : un bloc de branche fréquence-dépendant peut faire classer une TSV comme TV, et un gabarit ancien ou acquis pendant une stimulation doit être vérifié.",
+    "explication": "Wavelet compare la morphologie de l'EGM ventriculaire en tachycardie à un gabarit du rythme de base, mis à jour automatiquement. Dans l'étude de Klein (1122 patients), l'algorithme utilisait l'EGM bobine VD – boîtier (vision « champ lointain » du ventricule) avec un seuil de correspondance de 70 %. Les thérapies inappropriées pour TSV ont été réduites de 78 %, avec une sensibilité de 98,6 % pour les TV soutenues. Un complexe suffisamment semblable au gabarit oriente vers une TSV conduite ; un complexe différent oriente vers une TV. L'EGM unipolaire VG est celui d'EffectivCRT, et le seuil de corrélation de 94 % appartient à Rhythm ID (Boston Scientific). Pièges : un bloc de branche fréquence-dépendant peut faire classer une TSV comme TV, et un gabarit ancien ou acquis pendant une stimulation doit être vérifié.",
     "aRetenir": "Wavelet compare la morphologie de l'EGM (bobine VD – boîtier) à un gabarit de base, avec un seuil de correspondance de 70 % dans l'étude de validation.",
     "sources": [
       {
@@ -576,13 +669,19 @@
     "difficulte": 3,
     "question": "Dans l'essai PainFree SST (DAI Medtronic avec la suite d'algorithmes SmartShock et une programmation moderne), quel était le taux de chocs inappropriés à 1 an chez les porteurs de DAI double ou triple chambre ?",
     "options": [
-      "Environ 10 %",
       "Environ 1,5 %",
+      "Environ 10 %",
       "Environ 20 %",
       "Environ 30 %"
     ],
     "reponses": [
-      1
+      0
+    ],
+    "commentaires": [
+      "Juste : 1,5 % à 1 an en double ou triple chambre (2,5 % en simple chambre) dans PainFree SST.",
+      "Faux : 10 % correspond aux séries plus anciennes, avant les détections longues et les discriminateurs modernes.",
+      "Faux : ce taux se voyait dans les séries anciennes à détection courte, pas avec SmartShock.",
+      "Faux : 30 % est un ordre de grandeur des toutes premières séries de DAI, sans commune mesure avec PainFree SST."
     ],
     "reponseAttendue": null,
     "explication": "PainFree SST (2790 patients) a combiné les algorithmes SmartShock (PR Logic, Wavelet, discrimination de l'onde T, discrimination du bruit de sonde VD…) et une programmation moderne. Le taux de chocs inappropriés à 1 an était de 1,5 % en double ou triple chambre et de 2,5 % en simple chambre. À 2 ans, il atteignait 2,8 % et 3,7 %. La première cause restait la FA ou le flutter. Les chiffres de 10 à 30 % correspondent aux séries anciennes, avant les détections longues et les discriminateurs modernes.",
@@ -607,19 +706,24 @@
     "difficulte": 7,
     "question": "Parmi ces algorithmes, lesquels servent chez Medtronic à éviter qu'une surdétection non arythmique déclenche une thérapie ? (plusieurs réponses)",
     "options": [
-      "TWave Discrimination (surdétection de l'onde T)",
-      "RV Lead Noise Discrimination (bruit sur la sonde VD)",
-      "RV Lead Integrity Alert (alerte d'intégrité et allongement du NID de la zone FV)",
-      "AdaptivCRT"
+      "TWave Discrimination",
+      "Wavelet",
+      "RV Lead Noise Discrimination",
+      "SecureSense"
     ],
     "reponses": [
       0,
-      1,
       2
     ],
+    "commentaires": [
+      "Juste : TWave Discrimination repère le double comptage R/T (alternance d'amplitude, signature fréquentielle) et retient la détection.",
+      "Faux : Wavelet est un discriminateur morphologique TV/TSV ; il ne protège pas d'une surdétection de l'onde T ou d'un bruit.",
+      "Juste : RV Lead Noise Discrimination compare champ proche et champ lointain pour reconnaître un bruit de sonde VD.",
+      "Faux : SecureSense a le même objectif, mais c'est l'algorithme d'Abbott, pas de Medtronic."
+    ],
     "reponseAttendue": null,
-    "explication": "La suite SmartShock ne comprend pas que des discriminateurs TV/TSV : elle comprend aussi des algorithmes contre la surdétection. TWave Discrimination repère un double comptage R/T (typiquement une alternance d'amplitude et une signature fréquentielle de l'onde T) et retient la détection. RV Lead Noise Discrimination compare le signal de détection bipolaire (champ proche) à l'EGM de champ lointain : un bruit visible uniquement en champ proche évoque un problème de sonde. RV Lead Integrity Alert alerte et prolonge le nombre d'intervalles nécessaires à la détection FV. AdaptivCRT est un algorithme de resynchronisation sans rapport avec la détection.",
-    "aRetenir": "Contre la surdétection : TWave Discrimination, RV Lead Noise Discrimination et Lead Integrity Alert.",
+    "explication": "La suite SmartShock ne comprend pas que des discriminateurs TV/TSV : elle comprend aussi des algorithmes contre la surdétection. TWave Discrimination repère un double comptage R/T (typiquement une alternance d'amplitude et une signature fréquentielle de l'onde T) et retient la détection. RV Lead Noise Discrimination compare le signal de détection bipolaire (champ proche) à l'EGM de champ lointain : un bruit visible uniquement en champ proche évoque un problème de sonde. La RV Lead Integrity Alert complète le dispositif en alertant et en prolongeant le nombre d'intervalles nécessaires à la détection FV. Wavelet, lui, discrimine TV et TSV sur la morphologie, et SecureSense est l'équivalent Abbott de la discrimination du bruit de sonde.",
+    "aRetenir": "Contre la surdétection chez Medtronic : TWave Discrimination, RV Lead Noise Discrimination et Lead Integrity Alert ; Wavelet discrimine TV et TSV.",
     "sources": [
       {
         "titre": "Auricchio A, et al. Low inappropriate shock rates in patients with single- and dual/triple-chamber implantable cardioverter-defibrillators using a novel suite of detection algorithms: PainFree SST trial primary results. Heart Rhythm 2015;12:926-36",
@@ -640,16 +744,22 @@
     "difficulte": 6,
     "question": "Qu'est-ce qui déclenche la Lead Integrity Alert (LIA) de Medtronic, et comment le boîtier réagit-il ?",
     "options": [
-      "Une surdétection rapide (intervalles courts, épisodes non soutenus très rapides) ou une élévation anormale d'impédance ; il déclenche une alerte et allonge le nombre d'intervalles nécessaires à la détection FV (NID)",
-      "Une baisse de l'amplitude de l'onde R ; il passe automatiquement en VVI 40",
-      "Une élévation du seuil de stimulation ; il augmente l'amplitude à 5 V",
-      "Une batterie en ERI ; il désactive les thérapies"
+      "Bruit vu en champ proche mais absent en champ lointain ; thérapie retenue",
+      "Courant excessif pendant un choc ; changement automatique du vecteur de choc",
+      "Surdétection rapide ou impédance anormale ; alerte et allongement du NID FV",
+      "Double comptage R/T avec alternance d'amplitude ; détection FV retenue"
     ],
     "reponses": [
-      0
+      2
+    ],
+    "commentaires": [
+      "Faux : la comparaison champ proche / champ lointain est le principe de RV Lead Noise Discrimination, algorithme distinct de la LIA.",
+      "Faux : le changement de vecteur sur surintensité pendant un choc est le rôle de DynamicTx (Abbott).",
+      "Juste : la LIA se déclenche sur une surdétection rapide ou une impédance anormale, alerte et allonge le NID de la zone FV.",
+      "Faux : la reconnaissance du double comptage R/T relève de TWave Discrimination."
     ],
     "reponseAttendue": null,
-    "explication": "La LIA a été conçue après les fractures de sondes Sprint Fidelis, qui se manifestaient souvent par des chocs inappropriés liés à une surdétection. Elle se déclenche sur des signes de surdétection rapide ou sur une hausse excessive d'impédance. Sa réponse est double : alerte au patient et au centre, et allongement du NID de la zone FV pour gagner du temps avant un choc inapproprié. Dans l'étude prospective de 2010, elle a réduit de 46 % la proportion de patients ayant reçu au moins un choc inapproprié. Elle ne désactive pas les thérapies. Une alerte LIA impose une analyse rapide des EGM et de la sonde.",
+    "explication": "La LIA a été conçue après les fractures de sondes Sprint Fidelis, qui se manifestaient souvent par des chocs inappropriés liés à une surdétection. Elle se déclenche sur des signes de surdétection rapide (intervalles courts, épisodes non soutenus très rapides) ou sur une hausse excessive d'impédance. Sa réponse est double : alerte au patient et au centre, et allongement du NID de la zone FV pour gagner du temps avant un choc inapproprié. Dans l'étude prospective de 2010, elle a réduit de 46 % la proportion de patients ayant reçu au moins un choc inapproprié. Elle ne se confond pas avec RV Lead Noise Discrimination (champ proche contre champ lointain), TWave Discrimination (double comptage R/T) ou DynamicTx d'Abbott (surintensité pendant le choc). Une alerte LIA impose une analyse rapide des EGM et de la sonde.",
     "aRetenir": "Lead Integrity Alert : déclenchée par une surdétection ou une impédance anormale, elle alerte et allonge le NID FV.",
     "sources": [
       {
@@ -677,6 +787,10 @@
     "reponses": [
       0
     ],
+    "commentaires": [
+      "Juste : une vraie TV/FV se voit sur les deux signaux ; un signal isolé au canal de détection évoque une fracture ou un défaut de connexion.",
+      "Faux : c'est bien le principe de l'algorithme ; seul un bruit d'origine externe (IEM) peut apparaître sur les deux canaux."
+    ],
     "reponseAttendue": null,
     "explication": "C'est vrai. Une vraie arythmie ventriculaire est visible à la fois sur le dipôle de détection (pointe-anneau ou pointe-bobine) et sur l'EGM de champ lointain (bobine – boîtier). Un bruit lié à une fracture de conducteur ou à un défaut de connexion n'apparaît souvent que sur le canal de détection. L'algorithme retient alors la thérapie et génère une alerte. Ce principe de comparaison champ proche / champ lointain est aussi celui de SecureSense chez Abbott, dont les alertes peuvent révéler d'autres causes qu'une fracture (problème de connexion, surdétection de myopotentiels ou d'ondes T). Piège : un bruit d'origine externe (IEM) peut apparaître sur les deux canaux.",
     "aRetenir": "Un signal vu en champ proche mais pas en champ lointain oriente vers un bruit de sonde, pas vers une TV/FV.",
@@ -696,16 +810,22 @@
     "difficulte": 2,
     "question": "Que mesure la fonction OptiVol des DAI et CRT Medtronic ?",
     "options": [
-      "La pression artérielle pulmonaire",
-      "La saturation veineuse en oxygène",
-      "L'impédance intrathoracique (entre la sonde VD et le boîtier), dont la baisse traduit une accumulation de liquide",
-      "La variabilité de la fréquence cardiaque uniquement"
+      "L'impédance intrathoracique entre la sonde VD et le boîtier",
+      "La ventilation-minute, déduite de l'impédance transthoracique",
+      "Les bruits cardiaques S3 captés par l'accéléromètre du boîtier",
+      "La pression artérielle pulmonaire transmise par un capteur dédié"
     ],
     "reponses": [
-      2
+      0
+    ],
+    "commentaires": [
+      "Juste : OptiVol suit chaque jour l'impédance sonde VD – boîtier, dont la baisse traduit une accumulation de liquide.",
+      "Faux : la ventilation-minute sert à l'asservissement de fréquence chez Boston Scientific, pas à la surveillance de la congestion.",
+      "Faux : les bruits cardiaques (S1, S3) font partie de l'index HeartLogic de Boston Scientific.",
+      "Faux : la pression artérielle pulmonaire nécessite un capteur implanté dans l'artère pulmonaire, distinct du DAI."
     ],
     "reponseAttendue": null,
-    "explication": "OptiVol mesure chaque jour l'impédance intrathoracique entre la sonde VD et le boîtier. Quand les poumons se chargent en liquide, l'impédance baisse, parce que l'eau conduit mieux le courant. Un index de fluide cumule les écarts sous la valeur de référence et déclenche une alerte au-delà d'un seuil. Dans l'étude de Yu, l'impédance baissait en moyenne de 12 % sur environ 18 jours avant une hospitalisation, et la baisse commençait environ 15 jours avant les symptômes. Piège : la spécificité est imparfaite (pneumopathie, hématome de loge, épanchement…), ce qui impose d'interpréter l'alerte avec la clinique.",
+    "explication": "OptiVol mesure chaque jour l'impédance intrathoracique entre la sonde VD et le boîtier. Quand les poumons se chargent en liquide, l'impédance baisse, parce que l'eau conduit mieux le courant. Un index de fluide cumule les écarts sous la valeur de référence et déclenche une alerte au-delà d'un seuil. Dans l'étude de Yu, l'impédance baissait en moyenne de 12 % sur environ 18 jours avant une hospitalisation, et la baisse commençait environ 15 jours avant les symptômes. À ne pas confondre avec la ventilation-minute (asservissement Boston Scientific), les bruits cardiaques de HeartLogic ou un capteur de pression artérielle pulmonaire. Piège : la spécificité est imparfaite (pneumopathie, hématome de loge, épanchement…), ce qui impose d'interpréter l'alerte avec la clinique.",
     "aRetenir": "OptiVol : une baisse de l'impédance intrathoracique traduit une surcharge hydrique.",
     "sources": [
       {
@@ -728,17 +848,22 @@
     "question": "Le score TriageHF (Medtronic) estime le risque d'hospitalisation pour insuffisance cardiaque dans les 30 jours. Quels paramètres combine-t-il ? (plusieurs réponses)",
     "options": [
       "Impédance intrathoracique (OptiVol)",
-      "Fardeau de FA et fréquence ventriculaire en FA",
-      "Pourcentage de stimulation CRT, activité physique, fréquence cardiaque nocturne et variabilité de fréquence",
-      "Poids et pression artérielle transmis par une balance et un tensiomètre connectés"
+      "Bruits cardiaques S1 et S3 captés par l'accéléromètre",
+      "Fardeau de FA, activité physique et fréquence cardiaque nocturne",
+      "Poids et pression artérielle transmis par des capteurs connectés"
     ],
     "reponses": [
       0,
-      1,
       2
     ],
+    "commentaires": [
+      "Juste : l'impédance intrathoracique mesurée par OptiVol est l'un des paramètres du score.",
+      "Faux : les bruits cardiaques sont un paramètre de HeartLogic (Boston Scientific), pas de TriageHF.",
+      "Juste : fardeau de FA, activité et fréquence nocturne font partie des paramètres combinés, avec le % de CRT et la variabilité de fréquence.",
+      "Faux : le score n'intègre que des paramètres mesurés par le boîtier, pas de capteurs externes."
+    ],
     "reponseAttendue": null,
-    "explication": "Le score TriageHF combine, par un modèle bayésien, des paramètres mesurés par le boîtier : impédance intrathoracique, fardeau de FA, fréquence rapide en FA, pourcentage de CRT, TV, fréquence cardiaque nocturne, variabilité de fréquence et activité. On retient le risque maximal sur les 30 jours précédents pour classer le patient en risque bas, moyen ou haut. Dans la cohorte de validation, les évaluations à haut risque étaient associées à un risque d'hospitalisation pour IC dans les 30 jours 10 fois plus élevé que les évaluations à bas risque (6,8 % contre 0,6 %). Le score n'intègre pas de capteurs externes comme le poids ou la pression artérielle.",
+    "explication": "Le score TriageHF combine, par un modèle bayésien, des paramètres mesurés par le boîtier : impédance intrathoracique, fardeau de FA, fréquence rapide en FA, pourcentage de CRT, TV, fréquence cardiaque nocturne, variabilité de fréquence et activité. On retient le risque maximal sur les 30 jours précédents pour classer le patient en risque bas, moyen ou haut. Dans la cohorte de validation, les évaluations à haut risque étaient associées à un risque d'hospitalisation pour IC dans les 30 jours 10 fois plus élevé que les évaluations à bas risque (6,8 % contre 0,6 %). Le score n'intègre pas de capteurs externes comme le poids ou la pression artérielle. Les bruits cardiaques (S1, S3) sont propres à l'index HeartLogic de Boston Scientific.",
     "aRetenir": "TriageHF combine plusieurs paramètres du boîtier ; un statut « haut risque » multiplie par environ 10 le risque d'hospitalisation pour IC à 30 jours.",
     "sources": [
       {
@@ -759,19 +884,25 @@
       "preset": "vdd",
       "fc": 70,
       "av": 120,
-      "legende": "P sinusale suivie d'une stimulation ventriculaire synchronisée"
+      "legende": "Bande de rythme DII, 25 mm/s"
     },
     "options": [
-      "Grâce à une petite électrode flottante dans l'oreillette droite",
-      "Grâce à la détection de l'onde P en champ lointain par les électrodes du Micra",
-      "Grâce à la communication avec un second boîtier implanté dans l'oreillette",
-      "Grâce à l'accéléromètre, qui détecte mécaniquement la contraction atriale (signal A4) et déclenche la stimulation ventriculaire"
+      "Un dipôle atrial flottant qui recueille l'onde P sans stimuler l'oreillette",
+      "La communication i2i avec une seconde capsule implantée dans l'oreillette",
+      "L'accéléromètre, qui détecte la contraction atriale (signal mécanique A4)",
+      "La détection de l'onde P en champ lointain par les électrodes de la capsule"
     ],
     "reponses": [
-      3
+      2
+    ],
+    "commentaires": [
+      "Faux : le dipôle atrial flottant est la solution des systèmes DX de Biotronik, sur une sonde de DAI.",
+      "Faux : la communication i2i entre deux capsules est la technologie de l'Aveir DR (Abbott).",
+      "Juste : le Micra AV reconnaît la contraction atriale par son accéléromètre (A4) et déclenche la stimulation ventriculaire.",
+      "Faux : l'onde P recueillie en champ lointain par la capsule est trop petite et peu fiable ; le Micra AV utilise un signal mécanique."
     ],
     "reponseAttendue": null,
-    "explication": "Le Micra AV n'a pas d'électrode atriale : il utilise son accéléromètre à trois axes pour reconnaître la contraction atriale (signal A4, qui correspond à l'onde A du remplissage) et déclenche la stimulation ventriculaire (VDD mécanique). Dans MARVEL 2, chez les patients en BAV complet et en rythme sinusal, la synchronie AV passait de 26,8 % en VVI à 89,2 % en VDD. Dans AccelAV, la synchronie AV au repos atteignait 85,4 % à 1 mois. La communication entre deux boîtiers correspond à l'Aveir DR (Abbott). Piège : la synchronie baisse à l'effort et aux fréquences sinusales élevées, où le signal A4 fusionne avec le remplissage passif.",
+    "explication": "Le Micra AV n'a pas d'électrode atriale : il utilise son accéléromètre à trois axes pour reconnaître la contraction atriale (signal A4, qui correspond à l'onde A du remplissage) et déclenche la stimulation ventriculaire (VDD mécanique). Dans MARVEL 2, chez les patients en BAV complet et en rythme sinusal, la synchronie AV passait de 26,8 % en VVI à 89,2 % en VDD. Dans AccelAV, la synchronie AV au repos atteignait 85,4 % à 1 mois. La communication entre deux capsules correspond à l'Aveir DR (Abbott), et le dipôle atrial flottant aux systèmes DX de Biotronik. Piège : la synchronie baisse à l'effort et aux fréquences sinusales élevées, où le signal A4 fusionne avec le remplissage passif.",
     "aRetenir": "Le Micra AV obtient un VDD en détectant la contraction atriale avec son accéléromètre (A4), sans électrode atriale.",
     "sources": [
       {
@@ -793,16 +924,22 @@
     "difficulte": 3,
     "question": "Sur quelle base le moniteur implantable Reveal LINQ détecte-t-il automatiquement la FA ?",
     "options": [
-      "Sur la seule fréquence cardiaque supérieure à 150 bpm",
-      "Sur l'irrégularité des intervalles RR, avec un filtre de recherche d'onde P pour limiter les faux positifs",
-      "Sur l'impédance thoracique",
-      "Sur la mesure de l'onde T"
+      "La comparaison morphologique des QRS à un gabarit de rythme sinusal",
+      "La variation de l'impédance sous-cutanée mesurée entre les deux électrodes",
+      "Une fréquence ventriculaire supérieure à la limite de détection des tachycardies",
+      "L'irrégularité des intervalles RR, avec un filtre de recherche d'onde P"
     ],
     "reponses": [
-      1
+      3
+    ],
+    "commentaires": [
+      "Faux : la comparaison à un gabarit est une méthode de discrimination TV/TSV des DAI, pas de détection de FA.",
+      "Faux : l'impédance sert à surveiller la congestion sur certains DAI ; elle ne détecte pas la FA.",
+      "Faux : une limite de fréquence seule ne distinguerait pas la FA d'une tachycardie sinusale ; elle sert à la détection des tachycardies.",
+      "Juste : l'algorithme de FA analyse l'irrégularité des RR successifs, avec un filtre d'onde P pour limiter les faux positifs."
     ],
     "reponseAttendue": null,
-    "explication": "Les moniteurs implantables ne voient qu'un ECG sous-cutané à une dérivation. L'algorithme de FA du Reveal LINQ analyse l'irrégularité des intervalles RR successifs, et la version évaluée dans la LINQ Usability Study ajoutait un filtre d'onde P. Face au Holter, pour des épisodes de FA de 2 minutes ou plus, la précision globale de classification des durées de FA et hors FA atteignait 99,4 %, et le fardeau de FA était très bien corrélé (r = 0,995). Une simple limite de fréquence ne distinguerait pas la FA d'une tachycardie sinusale. Piège : les extrasystoles fréquentes et l'arythmie sinusale restent des causes classiques de faux positifs, à vérifier sur les tracés transmis.",
+    "explication": "Les moniteurs implantables ne voient qu'un ECG sous-cutané à une dérivation. L'algorithme de FA du Reveal LINQ analyse l'irrégularité des intervalles RR successifs, et la version évaluée dans la LINQ Usability Study ajoutait un filtre d'onde P. Face au Holter, pour des épisodes de FA de 2 minutes ou plus, la précision globale de classification des durées de FA et hors FA atteignait 99,4 %, et le fardeau de FA était très bien corrélé (r = 0,995). Une simple limite de fréquence ne distinguerait pas la FA d'une tachycardie sinusale, et la comparaison morphologique à un gabarit relève de la discrimination TV/TSV des DAI. Piège : les extrasystoles fréquentes et l'arythmie sinusale restent des causes classiques de faux positifs, à vérifier sur les tracés transmis.",
     "aRetenir": "Le Reveal LINQ détecte la FA sur l'irrégularité RR, avec un filtre d'onde P ; les tracés restent à vérifier.",
     "sources": [
       {
@@ -827,6 +964,12 @@
     ],
     "reponses": [
       2
+    ],
+    "commentaires": [
+      "Faux : 12/16 est une détection très courte, source de thérapies pour des TV non soutenues qui se seraient arrêtées seules.",
+      "Faux : 18/24 est l'ancien réglage standard, qui servait de comparateur dans ADVANCE III.",
+      "Juste : 30/40 a réduit de 37 % les thérapies et de 45 % les premiers chocs inappropriés dans ADVANCE III.",
+      "Faux : 60/80 retarderait excessivement le traitement d'une FV ; ce réglage n'a pas été validé."
     ],
     "reponseAttendue": null,
     "explication": "ADVANCE III (1902 patients, DAI Medtronic) a comparé une détection longue à 30/40 intervalles à la détection standard à 18/24. La détection longue a réduit de 37 % les thérapies délivrées (ATP et chocs) et de 45 % les premiers chocs inappropriés, sans augmenter significativement la mortalité ni les syncopes arythmiques. Le consensus HRS/EHRA/APHRS/SOLAECE de 2015, actualisé en 2019, recommande (classe I) une durée de détection d'au moins 6 à 12 secondes ou 30 intervalles ; chez Medtronic, cela correspond au réglage 30/40 testé dans PREPARE et ADVANCE III. 18/24 correspond à l'ancien réglage standard, et 60/80 retarderait excessivement le traitement.",
@@ -855,16 +998,22 @@
     "difficulte": 3,
     "question": "Comment fonctionne l'AutoCapture ventriculaire des stimulateurs Abbott (ex-St. Jude Medical) ?",
     "options": [
-      "Il confirme la capture cycle par cycle par l'analyse de la réponse évoquée et délivre une impulsion de secours à haute énergie en cas de perte de capture",
-      "Il mesure le seuil une fois par mois et fixe l'amplitude au double du seuil",
-      "Il fixe l'amplitude à 5 V en permanence",
-      "Il utilise l'accéléromètre pour vérifier la contraction ventriculaire"
+      "Capture confirmée par la conduction AV ou la réinitialisation du rythme sinusal",
+      "Réponse évoquée analysée à chaque cycle, impulsion de secours si perte de capture",
+      "Seuil mesuré périodiquement, amplitude à 2 fois le seuil, sans contrôle cycle à cycle",
+      "Contraction ventriculaire vérifiée par l'accéléromètre après chaque stimulus"
     ],
     "reponses": [
-      0
+      1
+    ],
+    "commentaires": [
+      "Faux : la confirmation par conduction AV ou par réinitialisation sinusale est la méthode de l'Atrial Capture Management de Medtronic.",
+      "Juste : l'AutoCapture analyse la réponse évoquée après chaque stimulus et délivre une impulsion de secours en cas de perte de capture.",
+      "Faux : une mesure périodique avec marge de sécurité, sans contrôle battement par battement, correspond au Capture Management de Medtronic.",
+      "Faux : aucun algorithme de capture ventriculaire n'utilise l'accéléromètre ; il sert à l'asservissement."
     ],
     "reponseAttendue": null,
-    "explication": "L'AutoCapture vérifie la capture à chaque cycle en analysant la réponse évoquée ventriculaire après le stimulus. En cas de perte de capture, une impulsion de secours (5,0 V sur l'Assurity MRI) est délivrée, puis une recherche de seuil est lancée. Le reste du temps, l'amplitude reste juste au-dessus du seuil mesuré, ce qui économise la batterie tout en garantissant la sécurité. Des recherches de seuil périodiques (toutes les 8 ou 24 h) complètent la surveillance. La première étude multicentrique (Microny) a montré une bonne corrélation entre l'amplitude adaptée et les seuils mesurés. L'amplitude fixe au double du seuil correspond à une programmation manuelle classique.",
+    "explication": "L'AutoCapture vérifie la capture à chaque cycle en analysant la réponse évoquée ventriculaire après le stimulus. En cas de perte de capture, une impulsion de secours (5,0 V sur l'Assurity MRI) est délivrée, puis une recherche de seuil est lancée. Le reste du temps, l'amplitude reste juste au-dessus du seuil mesuré, ce qui économise la batterie tout en garantissant la sécurité. Des recherches de seuil périodiques (toutes les 8 ou 24 h) complètent la surveillance. La première étude multicentrique (Microny) a montré une bonne corrélation entre l'amplitude adaptée et les seuils mesurés. À l'inverse, le Capture Management de Medtronic mesure le seuil périodiquement et applique une marge de sécurité, sans confirmation cycle par cycle.",
     "aRetenir": "AutoCapture : confirmation de capture cycle par cycle par la réponse évoquée, avec impulsion de secours en cas de perte.",
     "sources": [
       {
@@ -886,16 +1035,22 @@
     "difficulte": 5,
     "question": "Qu'est-ce qui distingue l'ACap Confirm (seuil atrial automatique Abbott) de l'AutoCapture ventriculaire ?",
     "options": [
-      "L'ACap Confirm fonctionne cycle par cycle, l'AutoCapture seulement la nuit",
-      "Les deux algorithmes sont identiques",
-      "L'ACap Confirm ne fonctionne qu'en stimulation unipolaire",
-      "L'ACap Confirm effectue des recherches de seuil atrial périodiques (par exemple toutes les 8 ou 24 h) et adapte l'amplitude, sans confirmation de capture à chaque cycle"
+      "Il confirme la capture atriale à chaque cycle par l'analyse de l'onde P évoquée",
+      "Il confirme la capture atriale par la conduction AV ou la réinitialisation sinusale",
+      "Il mesure le seuil atrial périodiquement (8 ou 24 h), sans contrôle à chaque cycle",
+      "Il ne fonctionne qu'en stimulation unipolaire, faute de signal bipolaire suffisant"
     ],
     "reponses": [
-      3
+      2
+    ],
+    "commentaires": [
+      "Faux : l'onde P évoquée est trop petite pour une analyse fiable à chaque cycle ; la confirmation cycle par cycle est propre à l'AutoCapture ventriculaire.",
+      "Faux : la conduction AV (AVC) et la réinitialisation sinusale (ACR) sont les méthodes de l'Atrial Capture Management de Medtronic.",
+      "Juste : l'ACap Confirm fait des recherches de seuil périodiques (8 ou 24 h) puis adapte l'amplitude.",
+      "Faux : les spécifications Abbott indiquent au contraire une configuration de stimulation bipolaire pour l'ACap Confirm."
     ],
     "reponseAttendue": null,
-    "explication": "Au niveau atrial, l'onde P évoquée est petite et difficile à analyser à chaque cycle : l'ACap Confirm fait donc des mesures périodiques de seuil (intervalle de recherche de 8 ou 24 h sur l'Assurity MRI) puis adapte l'amplitude. Il peut aussi fonctionner en mode « Monitor », qui mesure sans modifier la programmation. Les spécifications Abbott indiquent une configuration de stimulation bipolaire pour l'ACap Confirm. L'AutoCapture ventriculaire, lui, confirme la capture à chaque cycle. Piège : ne pas confondre adaptation périodique et confirmation cycle par cycle, qui ne protègent pas de la même façon contre une perte de capture brutale.",
+    "explication": "Au niveau atrial, l'onde P évoquée est petite et difficile à analyser à chaque cycle : l'ACap Confirm fait donc des mesures périodiques de seuil (intervalle de recherche de 8 ou 24 h sur l'Assurity MRI) puis adapte l'amplitude. Il peut aussi fonctionner en mode « Monitor », qui mesure sans modifier la programmation. Les spécifications Abbott indiquent une configuration de stimulation bipolaire pour l'ACap Confirm. L'AutoCapture ventriculaire, lui, confirme la capture à chaque cycle. Les méthodes par conduction AV ou par réinitialisation sinusale appartiennent à l'Atrial Capture Management de Medtronic. Piège : ne pas confondre adaptation périodique et confirmation cycle par cycle, qui ne protègent pas de la même façon contre une perte de capture brutale.",
     "aRetenir": "ACap Confirm = seuil atrial mesuré périodiquement ; AutoCapture = capture ventriculaire confirmée à chaque cycle.",
     "sources": [
       {
@@ -915,19 +1070,25 @@
     "marque": "Abbott",
     "type": "qcu",
     "difficulte": 3,
-    "question": "Quel est l'objectif de la fonction VIP (Ventricular Intrinsic Preference) d'Abbott ?",
+    "question": "Quel est le principe de la fonction VIP (Ventricular Intrinsic Preference) d'Abbott ?",
     "options": [
-      "Favoriser la stimulation biventriculaire en CRT",
-      "Favoriser la conduction AV spontanée en allongeant périodiquement le délai AV pour la rechercher, afin de limiter la stimulation VD inutile",
-      "Accélérer la fréquence de base après une ESV",
-      "Détecter les TV lentes"
+      "Allonger périodiquement le délai AV pour favoriser la conduction spontanée",
+      "Accélérer la stimulation atriale dès que des ondes P spontanées sont détectées",
+      "Raccourcir le délai AV dès qu'un QRS spontané survient, pour garder la stimulation V",
+      "Fonctionner en AAI(R) avec back-up ventriculaire et passer en DDD(R) en cas de BAV"
     ],
     "reponses": [
-      1
+      0
+    ],
+    "commentaires": [
+      "Juste : le VIP allonge périodiquement le délai AV pour rechercher un QRS conduit et réduire la stimulation VD inutile.",
+      "Faux : l'accélération atriale sur détection de P spontanées est l'AF Suppression d'Abbott.",
+      "Faux : raccourcir le délai AV pour garder la stimulation ventriculaire est l'hystérésis AV négative, utile en CRT.",
+      "Faux : le fonctionnement en AAI(R) avec back-up ventriculaire est celui du MVP de Medtronic ; le VIP reste en DDD(R)."
     ],
     "reponseAttendue": null,
-    "explication": "VIP est un algorithme d'hystérésis AV avec recherche : le boîtier allonge périodiquement le délai AV d'une valeur programmable (50 à 200 ms sur le Gallant) pour voir si un QRS conduit apparaît. Si la conduction est présente, le délai AV allongé est conservé, ce qui réduit la stimulation VD. Si des stimulations ventriculaires réapparaissent, le délai AV revient à sa valeur de base. L'objectif est le même que celui du MVP de Medtronic, mais le boîtier reste en DDD. Favoriser la stimulation biventriculaire est l'objectif inverse, propre à la CRT (SyncAV, hystérésis AV négative).",
-    "aRetenir": "VIP allonge périodiquement le délai AV pour favoriser la conduction spontanée et réduire la stimulation VD.",
+    "explication": "VIP est un algorithme d'hystérésis AV avec recherche : le boîtier allonge périodiquement le délai AV d'une valeur programmable (50 à 200 ms sur le Gallant) pour voir si un QRS conduit apparaît. Si la conduction est présente, le délai AV allongé est conservé, ce qui réduit la stimulation VD. Si des stimulations ventriculaires réapparaissent, le délai AV revient à sa valeur de base. L'objectif est le même que celui du MVP de Medtronic, mais le boîtier reste en DDD au lieu de passer en AAI(R). L'hystérésis AV négative fait l'inverse (raccourcir l'AV pour garantir la stimulation, en CRT), et l'AF Suppression est un algorithme de surentraînement atrial.",
+    "aRetenir": "VIP allonge périodiquement le délai AV pour favoriser la conduction spontanée, en restant en DDD(R).",
     "sources": [
       {
         "titre": "Abbott. Gallant™ Dual Chamber ICD (CDDRA500T) — Product Highlights & Product Specifications (MAT-2400586 v4.0)",
@@ -950,13 +1111,18 @@
     "options": [
       "Le VIP reste un mode DDD(R) avec un délai AV allongé, alors que le MVP fonctionne en AAI(R) avec back-up ventriculaire",
       "Le MVP tolère une onde P isolée non conduite, alors que le VIP stimule le ventricule dès que le délai AV allongé expire",
-      "Avec le VIP, un PR spontané plus long que le délai AV maximal allongé entraîne une stimulation ventriculaire",
+      "Avec le VIP, l'extension du délai AV n'est pas plafonnée : tout PR spontané, même très long, est respecté",
       "Les deux algorithmes sont recommandés en cas de BAV complet permanent pour réduire la stimulation VD"
     ],
     "reponses": [
       0,
-      1,
-      2
+      1
+    ],
+    "commentaires": [
+      "Juste : le VIP reste en DDD(R) avec un AV allongé ; le MVP est un mode à base atriale, AAI(R) avec back-up ventriculaire.",
+      "Juste : le MVP accepte une P bloquée isolée ; le VIP ne laisse jamais passer une P sans stimuler le ventricule.",
+      "Faux : l'extension du VIP est plafonnée (jusqu'à 200 ms sur le Gallant) ; un PR plus long entraîne une stimulation ventriculaire.",
+      "Faux : en BAV complet permanent, ces algorithmes n'ont aucun intérêt : la stimulation ventriculaire est indispensable."
     ],
     "reponseAttendue": null,
     "explication": "Les deux algorithmes visent à limiter la stimulation VD inutile, par des voies différentes. Le VIP reste en DDD(R) : il prolonge l'AV d'une valeur plafonnée (jusqu'à 200 ms d'extension sur le Gallant), et tout PR plus long entraîne une stimulation ventriculaire. Il ne laisse jamais passer une P sans QRS. Le MVP, à base atriale, accepte un PR très long et même une P bloquée isolée, ce qui réduit encore la stimulation VD mais expose aux pauses et au pseudo-syndrome du pacemaker. En BAV complet permanent, ces algorithmes n'ont aucun intérêt : la stimulation ventriculaire est indispensable, et une stimulation physiologique ou une CRT se discute selon la FEVG et le pourcentage de stimulation attendu.",
@@ -990,16 +1156,22 @@
       "legende": "Stimulation biventriculaire"
     },
     "options": [
-      "Il mesure périodiquement l'intervalle AV spontané et programme un délai AV égal à cet intervalle diminué d'un décalage (delta) programmable, afin d'obtenir une stimulation biventriculaire en fusion avec la conduction spontanée",
-      "Il fixe un délai AV de 100 ms quelle que soit la conduction",
-      "Il allonge le délai AV pour favoriser la conduction spontanée",
-      "Il supprime la stimulation VD et ne stimule que le VG"
+      "Il l'allonge périodiquement pour laisser s'exprimer la conduction",
+      "Il le règle sur l'AV spontané mesuré, diminué d'un delta programmable",
+      "Il l'optimise chaque semaine à partir de l'accélération endocardiaque",
+      "Il le calcule une fois à partir des intervalles mesurés sur les EGM"
     ],
     "reponses": [
-      0
+      1
+    ],
+    "commentaires": [
+      "Faux : allonger le délai AV pour favoriser la conduction spontanée est le principe du VIP, opposé à l'objectif de la CRT.",
+      "Juste : SyncAV mesure périodiquement l'AV spontané et stimule avec cet intervalle moins un delta, pour une stimulation BiV en fusion.",
+      "Faux : l'optimisation hebdomadaire par accélération endocardiaque est le SonR de MicroPort (sonde SonRtip).",
+      "Faux : un calcul ponctuel à partir des intervalles EGM correspond à SmartDelay (Boston Scientific), lancé à la demande."
     ],
     "reponseAttendue": null,
-    "explication": "SyncAV adapte en continu le délai AV à la conduction AV spontanée du patient : il mesure périodiquement l'intervalle AV spontané, puis stimule avec un délai égal à cet intervalle moins un delta (50 ms par défaut dans l'étude de Thibault). La stimulation biventriculaire fusionne ainsi avec l'activation spontanée par la branche droite, ce qui affine le QRS. Sur le Gallant HF, le delta de SyncAV Plus se programme en valeur fixe (−10 à −120 ms) ou en pourcentage (−10 à −70 %). Allonger le délai AV pour favoriser la conduction spontanée correspond au VIP. La stimulation VG seule correspond à l'AdaptivCRT de Medtronic. Piège : SyncAV suppose une conduction AV présente, il est inopérant en BAV complet.",
+    "explication": "SyncAV adapte en continu le délai AV à la conduction AV spontanée du patient : il mesure périodiquement l'intervalle AV spontané, puis stimule avec un délai égal à cet intervalle moins un delta (50 ms par défaut dans l'étude de Thibault). La stimulation biventriculaire fusionne ainsi avec l'activation spontanée par la branche droite, ce qui affine le QRS. Sur le Gallant HF, le delta de SyncAV Plus se programme en valeur fixe (−10 à −120 ms) ou en pourcentage (−10 à −70 %). Allonger le délai AV pour favoriser la conduction spontanée correspond au VIP. Le calcul ponctuel à partir des EGM est SmartDelay (Boston Scientific), et l'optimisation par accélération endocardiaque est le SonR (MicroPort). Piège : SyncAV suppose une conduction AV présente, il est inopérant en BAV complet.",
     "aRetenir": "SyncAV : délai AV = AV spontané mesuré moins un delta programmable, pour une stimulation biventriculaire en fusion.",
     "sources": [
       {
@@ -1021,16 +1193,22 @@
     "difficulte": 9,
     "question": "Dans l'étude multicentrique de Thibault et al. (CRT avec conduction AV conservée, QRS spontané moyen d'environ 155 ms, stimulation depuis l'électrode VG la plus tardive), quel réglage a permis la plus forte réduction aiguë de la durée du QRS ?",
     "options": [
-      "La stimulation biventriculaire nominale sans SyncAV",
-      "La stimulation biventriculaire avec SyncAV et un delta par défaut de 50 ms (environ −35 %)",
-      "La stimulation biventriculaire avec SyncAV et un delta optimisé pour chaque patient (environ −20 % de durée de QRS)",
-      "La stimulation VG seule"
+      "Stimulation VG seule, synchronisée sur la conduction spontanée du VD",
+      "Stimulation biventriculaire nominale, sans SyncAV",
+      "Stimulation biventriculaire avec SyncAV, delta nominal de 50 ms",
+      "Stimulation biventriculaire avec SyncAV, delta optimisé par patient"
     ],
     "reponses": [
-      2
+      3
+    ],
+    "commentaires": [
+      "Faux : la stimulation VG seule synchronisée (logique de l'AdaptivCRT de Medtronic) n'était pas évaluée dans cette étude.",
+      "Faux : la stimulation biventriculaire nominale ne réduisait le QRS que de 9 % environ.",
+      "Faux : le delta nominal de 50 ms apportait un gain intermédiaire (environ −13 %), pas maximal.",
+      "Juste : le delta optimisé pour chaque patient donnait la plus forte réduction, environ −20 % (QRS moyen de 123 ms)."
     ],
     "reponseAttendue": null,
-    "explication": "Chez 90 patients, le QRS spontané de 155 ± 29 ms était réduit de 9 % en stimulation biventriculaire nominale et de 13 % avec SyncAV et un delta par défaut de 50 ms. La réduction maximale, de 20 % (QRS moyen de 123 ms), était obtenue avec un delta optimisé pour chaque patient. Le principal facteur prédictif du gain était la durée du QRS spontané. Le delta par défaut de 50 ms n'apporte qu'un gain intermédiaire (−13 %), pas maximal. La stimulation VG seule n'était pas évaluée dans cette étude.",
+    "explication": "Chez 90 patients, le QRS spontané de 155 ± 29 ms était réduit de 9 % en stimulation biventriculaire nominale et de 13 % avec SyncAV et un delta par défaut de 50 ms. La réduction maximale, de 20 % (QRS moyen de 123 ms), était obtenue avec un delta optimisé pour chaque patient. Le principal facteur prédictif du gain était la durée du QRS spontané. Le delta par défaut n'apporte donc qu'un gain intermédiaire. La stimulation VG seule synchronisée, logique de l'AdaptivCRT de Medtronic, n'était pas évaluée dans cette étude.",
     "aRetenir": "SyncAV avec un delta optimisé pour chaque patient réduit le plus la durée du QRS (≈ −20 %).",
     "sources": [
       {
@@ -1046,18 +1224,24 @@
     "marque": "Abbott",
     "type": "qcu",
     "difficulte": 6,
-    "question": "Quel est l'effet de l'hystérésis AV négative (Negative AV Hysteresis with Search) chez Abbott ?",
+    "question": "Quel est le principe de l'hystérésis AV négative (Negative AV Hysteresis with Search) chez Abbott ?",
     "options": [
-      "Elle allonge le délai AV quand une conduction spontanée est détectée",
-      "Elle déclenche un mode switch",
-      "Elle abaisse la fréquence de base la nuit",
-      "Elle raccourcit le délai AV quand une activité ventriculaire spontanée est détectée, pour maintenir une stimulation ventriculaire (CRT, cardiomyopathie hypertrophique obstructive stimulée)"
+      "Allonger le délai AV quand une conduction spontanée est détectée, pour limiter la stimulation V",
+      "Régler le délai AV sur l'AV spontané moins un delta, recalculé périodiquement",
+      "Passer en ADI(R) tant que la conduction AV spontanée est présente",
+      "Raccourcir l'AV dès qu'un QRS spontané survient, pour garder la stimulation V"
     ],
     "reponses": [
       3
     ],
+    "commentaires": [
+      "Faux : allonger l'AV pour favoriser la conduction spontanée est l'hystérésis AV positive (VIP chez Abbott), l'inverse.",
+      "Faux : régler l'AV sur l'AV spontané moins un delta est le principe de SyncAV, autre algorithme Abbott de CRT.",
+      "Faux : la bascule en ADI(R) en présence de conduction est le principe de Vp suppression (Biotronik).",
+      "Juste : l'hystérésis AV négative raccourcit l'AV après un QRS spontané pour reprendre le contrôle du ventricule (CRT, CMH obstructive)."
+    ],
     "reponseAttendue": null,
-    "explication": "L'hystérésis AV négative fait l'inverse du VIP. Quand un QRS spontané est détecté avant la fin du délai AV, le boîtier raccourcit le délai AV des cycles suivants pour reprendre le contrôle du ventricule par la stimulation. Elle recherche ensuite périodiquement la valeur d'origine (« with Search »). Elle est utile quand la stimulation ventriculaire est l'objectif thérapeutique : CRT (on veut près de 100 % de stimulation biventriculaire) ou stimulation d'une cardiomyopathie hypertrophique obstructive. Piège : un intervalle AV spontané très court peut rester en fusion malgré l'algorithme, ce qu'il faut vérifier sur l'ECG.",
+    "explication": "L'hystérésis AV négative fait l'inverse du VIP. Quand un QRS spontané est détecté avant la fin du délai AV, le boîtier raccourcit le délai AV des cycles suivants pour reprendre le contrôle du ventricule par la stimulation. Elle recherche ensuite périodiquement la valeur d'origine (« with Search »). Elle est utile quand la stimulation ventriculaire est l'objectif thérapeutique : CRT (on veut près de 100 % de stimulation biventriculaire) ou stimulation d'une cardiomyopathie hypertrophique obstructive. SyncAV poursuit un objectif voisin en CRT mais par un calcul continu (AV spontané moins un delta). Piège : un intervalle AV spontané très court peut rester en fusion malgré l'algorithme, ce qu'il faut vérifier sur l'ECG.",
     "aRetenir": "L'hystérésis AV négative raccourcit l'AV pour garantir la stimulation ventriculaire (CRT, CMH obstructive).",
     "sources": [
       {
@@ -1079,16 +1263,22 @@
     "difficulte": 3,
     "question": "Quel est le principe de l'algorithme AF Suppression d'Abbott ?",
     "options": [
-      "Il délivre des chocs atriaux",
-      "Il augmente la fréquence de stimulation atriale (surentraînement) dès que des ondes P spontanées sont détectées, puis la réduit périodiquement pour rechercher l'activité atriale spontanée",
-      "Il bascule en DDI dès la première ESA",
-      "Il bloque la conduction AV"
+      "Relancer l'ATP atrial quand le rythme atrial s'organise en cours d'épisode",
+      "Accélérer la stimulation atriale à chaque P spontanée détectée, puis redescendre",
+      "Éviter de stimuler l'oreillette dans sa période vulnérable après une ESA",
+      "Raccourcir l'échappement après une ESA pour supprimer la pause compensatrice"
     ],
     "reponses": [
       1
     ],
+    "commentaires": [
+      "Faux : relancer l'ATP atrial quand l'arythmie s'organise est le Reactive ATP de Medtronic, un traitement et non une prévention.",
+      "Juste : AF Suppression surentraîne l'oreillette dès que des P spontanées apparaissent, puis redescend pour rechercher l'activité spontanée.",
+      "Faux : éviter la période vulnérable atriale après une ESA est le rôle de PAC Response, autre fonction Abbott.",
+      "Faux : supprimer la pause post-extrasystolique est le principe de la Rate Stabilization de Medtronic."
+    ],
     "reponseAttendue": null,
-    "explication": "AF Suppression est un algorithme de surentraînement atrial dynamique : quand le rythme atrial spontané réapparaît, le boîtier augmente la fréquence de stimulation pour garder une stimulation atriale quasi permanente. Il redescend ensuite périodiquement pour rechercher l'activité spontanée. Dans ADOPT, la stimulation atriale est passée de 67,9 % à 92,9 %, avec une réduction relative de 25 % du fardeau de FA symptomatique. La différence absolue était faible (2,50 % contre 1,87 %). Un stimulateur ne délivre pas de choc, et le mode switch est un autre mécanisme. Piège : les méta-analyses récentes ne montrent pas de réduction du fardeau global de FA avec la stimulation préventive.",
+    "explication": "AF Suppression est un algorithme de surentraînement atrial dynamique : quand le rythme atrial spontané réapparaît, le boîtier augmente la fréquence de stimulation pour garder une stimulation atriale quasi permanente. Il redescend ensuite périodiquement pour rechercher l'activité spontanée. Dans ADOPT, la stimulation atriale est passée de 67,9 % à 92,9 %, avec une réduction relative de 25 % du fardeau de FA symptomatique. La différence absolue était faible (2,50 % contre 1,87 %). Ne pas le confondre avec PAC Response (Abbott), la Rate Stabilization ou le Reactive ATP (Medtronic). Piège : les méta-analyses récentes ne montrent pas de réduction du fardeau global de FA avec la stimulation préventive.",
     "aRetenir": "AF Suppression : surentraînement atrial dynamique, avec un bénéfice modeste sur la FA symptomatique (ADOPT).",
     "sources": [
       {
@@ -1108,16 +1298,20 @@
     "marque": "Abbott",
     "type": "vf",
     "difficulte": 8,
-    "question": "Sur l'Assurity MRI, le nombre de cycles de surentraînement de l'AF Suppression est programmable (15 à 40), tandis que les incréments de fréquence de surentraînement ne sont pas programmables.",
+    "question": "Sur l'Assurity MRI, les incréments de fréquence de surentraînement de l'AF Suppression sont programmables, tandis que le nombre de cycles de surentraînement est fixe.",
     "options": [
       "Vrai",
       "Faux"
     ],
     "reponses": [
-      0
+      1
+    ],
+    "commentaires": [
+      "Faux : c'est l'inverse : le nombre de cycles se programme (15 à 40), alors que les incréments de fréquence sont fixes.",
+      "Juste : les incréments (10 bpm, puis 5 bpm) ne sont pas programmables ; on règle le nombre de cycles et la fréquence maximale."
     ],
     "reponseAttendue": null,
-    "explication": "C'est vrai d'après les spécifications officielles de l'Assurity MRI. Le nombre de cycles de surentraînement se programme de 15 à 40 par pas de 5, et la fréquence maximale d'AF Suppression de 80 à 180 bpm. En revanche, les incréments de fréquence (« Lower Rate Overdrive » 10 bpm, « Upper Rate Overdrive » 5 bpm) et la récupération de fréquence sont indiqués comme non programmables. Le nombre de cycles détermine la durée du surentraînement avant que la fréquence ne redescende. La fréquence maximale d'AF Suppression est la limite à adapter à la tolérance du patient, car la stimulation atriale rapide peut être mal supportée.",
+    "explication": "C'est faux : l'affirmation inverse les deux paramètres. D'après les spécifications officielles de l'Assurity MRI, le nombre de cycles de surentraînement se programme de 15 à 40 par pas de 5, et la fréquence maximale d'AF Suppression de 80 à 180 bpm. En revanche, les incréments de fréquence (« Lower Rate Overdrive » 10 bpm, « Upper Rate Overdrive » 5 bpm) et la récupération de fréquence sont indiqués comme non programmables. Le nombre de cycles détermine la durée du surentraînement avant que la fréquence ne redescende. La fréquence maximale d'AF Suppression est la limite à adapter à la tolérance du patient, car la stimulation atriale rapide peut être mal supportée.",
     "aRetenir": "AF Suppression : on programme le nombre de cycles de surentraînement et la fréquence maximale, pas les incréments de fréquence.",
     "sources": [
       {
@@ -1135,16 +1329,22 @@
     "difficulte": 5,
     "question": "À quoi sert la fonction PAC Response des DAI Abbott (Gallant) ?",
     "options": [
-      "À délivrer un ATP atrial après une ESA",
-      "À compter les ESA pour le diagnostic de FA",
-      "À éviter de stimuler l'oreillette dans sa période vulnérable après une extrasystole atriale",
-      "À déclencher un mode switch dès la première ESA"
+      "Éviter de stimuler l'oreillette dans sa période vulnérable après une ESA",
+      "Accélérer la stimulation atriale après chaque ESA pour maintenir un surentraînement",
+      "Déclencher un repli en DDI dès la première ESA tombant dans une fenêtre dédiée",
+      "Raccourcir l'échappement atrial après une ESA pour supprimer la pause qui suit"
     ],
     "reponses": [
-      2
+      0
+    ],
+    "commentaires": [
+      "Juste : PAC Response décale la stimulation atriale pour ne pas tomber dans la période vulnérable qui suit l'ESA (200 à 400 ms sur le Gallant).",
+      "Faux : l'accélération atriale sur détection de P spontanées est l'AF Suppression.",
+      "Faux : une ESA dans la fenêtre WARAD (MicroPort) n'ouvre qu'une phase de suspicion ; le repli exige une confirmation, et ce n'est pas PAC Response.",
+      "Faux : raccourcir l'échappement pour supprimer la pause est la Rate Stabilization atriale de Medtronic ; cela rapproche au contraire le stimulus."
     ],
     "reponseAttendue": null,
-    "explication": "Après une extrasystole atriale, le stimulus atrial suivant peut tomber dans la période vulnérable de l'oreillette et déclencher une FA. PAC Response modifie le calendrier de stimulation pour éviter de stimuler l'oreillette trop tôt après l'ESA, avec un intervalle programmable de 200 à 400 ms sur le Gallant. Elle ne délivre pas de thérapie antitachycardique et ne sert pas au diagnostic. Le mode switch repose sur la fréquence atriale filtrée et non sur une ESA isolée. Cette fonction illustre le principe de ne pas provoquer l'arythmie par une stimulation mal placée.",
+    "explication": "Après une extrasystole atriale, le stimulus atrial suivant peut tomber dans la période vulnérable de l'oreillette et déclencher une FA. PAC Response modifie le calendrier de stimulation pour éviter de stimuler l'oreillette trop tôt après l'ESA, avec un intervalle programmable de 200 à 400 ms sur le Gallant. Elle ne délivre pas de thérapie antitachycardique et ne sert pas au diagnostic. La Rate Stabilization (Medtronic), qui raccourcit l'échappement, et l'AF Suppression, qui accélère la stimulation atriale, reposent sur d'autres logiques. Le mode switch repose sur la fréquence atriale filtrée et non sur une ESA isolée. Cette fonction illustre le principe de ne pas provoquer l'arythmie par une stimulation mal placée.",
     "aRetenir": "PAC Response évite de stimuler l'oreillette dans sa période vulnérable après une ESA.",
     "sources": [
       {
@@ -1162,18 +1362,23 @@
     "difficulte": 6,
     "question": "Quels paramètres de la sensibilité automatique SenseAbility (Abbott) peut-on programmer pour gérer une surdétection de l'onde T sans dégrader la sensibilité maximale ? (plusieurs réponses)",
     "options": [
-      "Threshold Start après détection (en % du pic de l'événement détecté : 50 ; 62,5 ; 75 ; 100 %)",
-      "Decay Delay (délai avant le début de la décroissance du seuil, 0 à 220 ms)",
-      "Réglages post-stimulation distincts (Threshold Start et Decay Delay post-stimulation)",
-      "La durée de la période réfractaire atriale post-ventriculaire (PVARP)"
+      "Threshold Start après détection (en % du pic de l'événement détecté)",
+      "SMART Pass (filtre passe-haut supplémentaire)",
+      "Decay Delay (délai avant le début de la décroissance du seuil)",
+      "PVARP (période réfractaire atriale post-ventriculaire)"
     ],
     "reponses": [
       0,
-      1,
       2
     ],
+    "commentaires": [
+      "Juste : relever le Threshold Start (50 ; 62,5 ; 75 ou 100 %) fait démarrer le seuil au-dessus de l'onde T.",
+      "Faux : SMART Pass est le filtre anti-surdétection du S-ICD de Boston Scientific, pas un paramètre de SenseAbility.",
+      "Juste : allonger le Decay Delay (0 à 220 ms) retarde la décroissance du seuil jusqu'après l'onde T.",
+      "Faux : la PVARP concerne le canal atrial et le suivi atrial, pas la détection de l'onde T ventriculaire."
+    ],
     "reponseAttendue": null,
-    "explication": "SenseAbility est une sensibilité automatique : après chaque événement, le seuil démarre à un pourcentage du pic détecté (Threshold Start), reste en plateau pendant un délai (Decay Delay), puis décroît jusqu'à la sensibilité maximale programmée. En cas de surdétection de l'onde T, augmenter le Threshold Start ou allonger le Decay Delay permet de « passer au-dessus » de l'onde T. La sensibilité maximale reste inchangée, et donc la détection des FV de faible amplitude aussi. Des réglages spécifiques existent après une stimulation. La PVARP concerne le canal atrial et le suivi atrial, pas la détection de l'onde T ventriculaire.",
+    "explication": "SenseAbility est une sensibilité automatique : après chaque événement, le seuil démarre à un pourcentage du pic détecté (Threshold Start), reste en plateau pendant un délai (Decay Delay), puis décroît jusqu'à la sensibilité maximale programmée. En cas de surdétection de l'onde T, augmenter le Threshold Start ou allonger le Decay Delay permet de « passer au-dessus » de l'onde T. La sensibilité maximale reste inchangée, et donc la détection des FV de faible amplitude aussi. Des réglages spécifiques existent après une stimulation. SMART Pass est un filtre du S-ICD de Boston Scientific, et la PVARP concerne le canal atrial.",
     "aRetenir": "SenseAbility : on agit sur le Threshold Start et le Decay Delay plutôt que de réduire la sensibilité maximale.",
     "sources": [
       {
@@ -1223,16 +1428,22 @@
     "difficulte": 6,
     "question": "Qu'est-ce que le discriminateur Far Field MD des DAI Abbott ?",
     "options": [
-      "Une discrimination morphologique TV/TSV sur l'EGM de champ lointain (vecteur de choc), comparé à un gabarit de rythme de base mis à jour automatiquement",
-      "Un algorithme de protection contre la détection du far-field ventriculaire sur le canal atrial",
-      "Une mesure de l'impédance thoracique",
-      "Un algorithme de détection du bruit de sonde"
+      "Une orientation de l'analyse selon le rapport des fréquences A et V",
+      "Une protection contre la détection de l'onde R lointaine sur le canal atrial",
+      "Une discrimination morphologique TV/TSV sur l'EGM de champ lointain",
+      "Une comparaison champ proche / champ lointain pour reconnaître un bruit de sonde"
     ],
     "reponses": [
-      0
+      2
+    ],
+    "commentaires": [
+      "Faux : l'orientation selon le rapport des fréquences A et V est le rôle de Rate Branch.",
+      "Faux : c'est la confusion classique sur le terme « far-field » ; il ne s'agit pas du far-field R sur le canal atrial.",
+      "Juste : Far Field MD compare les complexes de la tachycardie, sur un EGM de champ lointain, à un gabarit mis à jour automatiquement.",
+      "Faux : la comparaison champ proche / champ lointain pour le bruit de sonde est le principe de SecureSense."
     ],
     "reponseAttendue": null,
-    "explication": "La Morphology Discrimination (MD) d'Abbott compare la morphologie des complexes en tachycardie à un gabarit du rythme de base. La version Far Field MD utilise un EGM de champ lointain, qui donne une vision plus globale de l'activation ventriculaire. Le gabarit est mis à jour automatiquement. Les spécifications du Gallant proposent au choix « Far Field MD » ou l'« Original MD ». La confusion classique porte sur le terme « far-field » : il ne s'agit pas ici de la détection du far-field R sur le canal atrial. Le bruit de sonde relève de SecureSense.",
+    "explication": "La Morphology Discrimination (MD) d'Abbott compare la morphologie des complexes en tachycardie à un gabarit du rythme de base. La version Far Field MD utilise un EGM de champ lointain, qui donne une vision plus globale de l'activation ventriculaire. Le gabarit est mis à jour automatiquement. Les spécifications du Gallant proposent au choix « Far Field MD » ou l'« Original MD ». La confusion classique porte sur le terme « far-field » : il ne s'agit pas ici de la détection du far-field R sur le canal atrial. Le bruit de sonde relève de SecureSense, et l'orientation selon les fréquences A et V de Rate Branch.",
     "aRetenir": "Far Field MD = discrimination morphologique TV/TSV sur un EGM de champ lointain, avec gabarit mis à jour automatiquement.",
     "sources": [
       {
@@ -1254,13 +1465,19 @@
     "difficulte": 7,
     "question": "Dans un DAI double chambre Abbott, l'algorithme Rate Branch compare les fréquences atriale (A) et ventriculaire (V) en zone TV. Que se passe-t-il si V > A ?",
     "options": [
-      "Le rythme est classé TSV et la thérapie est retenue",
-      "Le boîtier applique les discriminateurs de morphologie et de stabilité",
-      "Le boîtier teste l'association AV puis le démarrage brutal (onset)",
-      "Le rythme est classé comme ventriculaire et la thérapie est délivrée, sans autre discriminateur"
+      "Rythme classé ventriculaire : thérapie délivrée sans autre discriminateur",
+      "Rythme classé TSV : thérapie retenue tant que la limite TSV n'est pas franchie",
+      "Analyse de la stabilité des cycles et de la morphologie avant décision",
+      "Analyse du démarrage (onset) et de la morphologie avant décision"
     ],
     "reponses": [
-      3
+      0
+    ],
+    "commentaires": [
+      "Juste : V > A signe une origine ventriculaire quasi certaine ; la thérapie est délivrée sans autre discriminateur.",
+      "Faux : un rythme plus rapide au ventricule qu'à l'oreillette ne peut pas être classé TSV par Rate Branch.",
+      "Faux : la stabilité et la morphologie sont appliquées dans la branche V < A (FA ou flutter conduits).",
+      "Faux : le critère de démarrage et la morphologie sont appliqués dans la branche V = A."
     ],
     "reponseAttendue": null,
     "explication": "Rate Branch oriente l'analyse selon le rapport entre fréquences atriale et ventriculaire. Si V > A, une origine ventriculaire est quasi certaine et la thérapie est délivrée sans autre discriminateur. Si V < A (FA ou flutter conduits), le boîtier utilise la stabilité des intervalles et/ou la morphologie. Si V = A, il utilise le critère de démarrage (démarrage brutal ou Chamber Onset, qui identifie la cavité qui a accéléré en premier) et la morphologie pour distinguer tachycardie sinusale, TSV 1:1 et TV à conduction rétrograde 1:1. Piège : une sous-détection atriale (P de faible amplitude, blanking) peut faire croire à V > A et entraîner une thérapie inappropriée.",
@@ -1283,23 +1500,29 @@
     "marque": "Abbott",
     "type": "qcu",
     "difficulte": 9,
-    "question": "DAI double chambre Abbott, zone TV à partir de 170 bpm. L'EGM atrial montre une activité rapide et désorganisée à plus de 300/min, et la fréquence ventriculaire moyenne est de 180 bpm avec des cycles irréguliers et des QRS identiques au gabarit. Quelle branche de l'algorithme s'applique, et quelle décision attendre ?",
+    "question": "DAI double chambre Abbott, zone TV à partir de 170 bpm. Sur l'épisode enregistré, l'EGM atrial mesure plus de 300/min, la fréquence ventriculaire moyenne est de 180 bpm et les QRS sont identiques au gabarit. Le tracé ci-dessous a été enregistré pendant l'épisode. Quelle branche de l'algorithme s'applique, et quelle décision attendre ?",
     "ecg": {
       "preset": "fa",
       "fc": 180,
-      "legende": "FA à réponse ventriculaire rapide"
+      "legende": "Tracé enregistré pendant l'épisode"
     },
     "options": [
-      "Branche V > A : thérapie délivrée",
-      "Branche V < A : instabilité des intervalles et morphologie concordante, rythme classé TSV et thérapie retenue (dans la limite TSV et le délai de discrimination programmés)",
-      "Branche V = A : analyse de l'onset, thérapie délivrée",
-      "Aucune branche : le mode switch suspend la détection ventriculaire"
+      "Branche V > A : origine ventriculaire, thérapie délivrée sans autre critère",
+      "Branche V = A : critère de démarrage et morphologie, thérapie délivrée",
+      "Branche V < A : instabilité et morphologie concordante, thérapie retenue",
+      "Aucune branche : le mode switch suspend la détection des arythmies ventriculaires"
     ],
     "reponses": [
-      1
+      2
+    ],
+    "commentaires": [
+      "Faux : l'oreillette (plus de 300/min) est plus rapide que le ventricule (180 bpm) : on est dans la branche V < A.",
+      "Faux : les fréquences A et V ne sont pas égales ; le critère de démarrage n'est pas la règle ici.",
+      "Juste : V < A, cycles irréguliers sur le tracé et morphologie concordante : FA conduite, thérapie retenue sous la limite TSV et le délai programmés.",
+      "Faux : le mode switch ne concerne que la stimulation ; il ne suspend jamais la détection des tachycardies ventriculaires."
     ],
     "reponseAttendue": null,
-    "explication": "La fréquence atriale (plus de 300/min) dépasse la fréquence ventriculaire (180 bpm) : on est dans la branche V < A. L'irrégularité des cycles (critère de stabilité) et la concordance morphologique avec le gabarit orientent vers une FA conduite, donc une TSV, et la thérapie est retenue. Cette retenue ne vaut que sous la limite TSV programmée et tant qu'un éventuel délai maximal de discrimination (SVT Discrimination Timeout) n'est pas écoulé. Piège : une TV survenant pendant une FA serait régulière et morphologiquement différente, et serait traitée. Le mode switch ne concerne que la stimulation et ne suspend jamais la détection des tachycardies ventriculaires.",
+    "explication": "La fréquence atriale (plus de 300/min) dépasse la fréquence ventriculaire (180 bpm) : on est dans la branche V < A. Le tracé montre une activité atriale désorganisée et des cycles ventriculaires irréguliers : le critère de stabilité et la concordance morphologique avec le gabarit orientent vers une FA conduite, donc une TSV, et la thérapie est retenue. Cette retenue ne vaut que sous la limite TSV programmée et tant qu'un éventuel délai maximal de discrimination (SVT Discrimination Timeout) n'est pas écoulé. Piège : une TV survenant pendant une FA serait régulière et morphologiquement différente, et serait traitée. Le mode switch ne concerne que la stimulation et ne suspend jamais la détection des tachycardies ventriculaires.",
     "aRetenir": "FA rapide conduite = branche V < A ; instabilité des cycles et morphologie concordante → TSV, thérapie retenue.",
     "sources": [
       {
@@ -1331,6 +1554,10 @@
     "reponses": [
       0
     ],
+    "commentaires": [
+      "Juste : à l'expiration du SVT Discrimination Timeout (20 s à 60 min, ou Off), la thérapie est délivrée quelle que soit la classification.",
+      "Faux : c'est précisément le rôle de ce délai, qui protège d'une TV mal classée mais peut causer un choc inapproprié en FA rapide prolongée."
+    ],
     "reponseAttendue": null,
     "explication": "C'est vrai. Le SVT Discrimination Timeout (de 20 s à 60 min, ou Off, sur le Gallant) fixe une durée maximale pendant laquelle les discriminateurs peuvent retenir la thérapie. À son expiration, la thérapie est délivrée quelle que soit la classification. Il protège contre une TV mal classée en TSV, mais peut provoquer un choc inapproprié au cours d'une FA rapide prolongée ou d'une tachycardie sinusale d'effort. Son activation et sa durée doivent donc se discuter selon le profil du patient. L'analyse de ce paramètre fait partie de l'enquête sur tout choc inapproprié survenu après une longue phase de discrimination.",
     "aRetenir": "Le SVT Discrimination Timeout fait délivrer la thérapie à son expiration, même si le rythme est classé TSV.",
@@ -1355,17 +1582,21 @@
     "question": "À propos de l'algorithme SecureSense d'Abbott, quelles affirmations sont exactes ? (plusieurs réponses)",
     "options": [
       "Il discrimine le bruit sur la sonde VD d'une vraie arythmie ventriculaire",
-      "Il peut être programmé en On, On with Timeout, Passive ou Off",
-      "Il enregistre aussi les courtes salves de surdétection qui passeraient sinon inaperçues",
-      "Il optimise la forme d'onde du choc"
+      "Il allonge automatiquement le NID de la zone FV quand il suspecte une fracture de sonde",
+      "Il compare la morphologie des QRS en tachycardie à un gabarit de rythme de base",
+      "Il optimise la forme d'onde du choc (largeur d'impulsion, tilt)"
     ],
     "reponses": [
-      0,
-      1,
-      2
+      0
+    ],
+    "commentaires": [
+      "Juste : SecureSense compare le signal de détection VD à un EGM de champ lointain pour reconnaître un bruit et retenir la thérapie.",
+      "Faux : l'allongement du NID FV sur suspicion de fracture est la réponse de la Lead Integrity Alert de Medtronic.",
+      "Faux : la comparaison à un gabarit de rythme de base est la Morphology Discrimination (Far Field MD), un discriminateur TV/TSV.",
+      "Faux : l'optimisation de la forme d'onde du choc relève de DeFT Response."
     ],
     "reponseAttendue": null,
-    "explication": "SecureSense est l'algorithme de discrimination du bruit de sonde VD d'Abbott, qui fait partie de ShockGuard. Il compare le signal de détection VD à un EGM de champ lointain : un signal rapide absent en champ lointain évoque un bruit, et la thérapie est retenue. D'après les spécifications du Gallant, il se programme en On, On with Timeout, Passive ou Off. Il détecte le bruit soutenu et enregistre les courtes salves de surdétection, qui peuvent aussi déclencher une alerte patient. Comme tout algorithme de ce type, il a des faux positifs (myopotentiels, surdétection d'ondes P ou T, problèmes de cycles) et de rares faux négatifs : chaque alerte impose de relire les EGM. L'optimisation de la forme d'onde du choc relève de DeFT Response.",
+    "explication": "SecureSense est l'algorithme de discrimination du bruit de sonde VD d'Abbott, qui fait partie de ShockGuard. Il compare le signal de détection VD à un EGM de champ lointain : un signal rapide absent en champ lointain évoque un bruit, et la thérapie est retenue. D'après les spécifications du Gallant, il se programme en On, On with Timeout, Passive ou Off. Il détecte le bruit soutenu et enregistre les courtes salves de surdétection, qui peuvent aussi déclencher une alerte patient. Comme tout algorithme de ce type, il a des faux positifs (myopotentiels, surdétection d'ondes P ou T) et de rares faux négatifs : chaque alerte impose de relire les EGM. L'allongement du NID FV est la réponse de la Lead Integrity Alert de Medtronic, la comparaison à un gabarit relève de la Far Field MD, et l'optimisation de l'onde de choc de DeFT Response.",
     "aRetenir": "SecureSense discrimine et signale le bruit de sonde VD pour éviter les chocs inappropriés.",
     "sources": [
       {
@@ -1415,16 +1646,22 @@
     "difficulte": 6,
     "question": "Quel est le rôle de l'algorithme DynamicTx des DAI Abbott ?",
     "options": [
-      "Il détecte un courant excessif lors de la délivrance d'un choc (par exemple court-circuit sur un conducteur) et change automatiquement la configuration du choc pour garantir la délivrance de la thérapie haute énergie",
-      "Il ajuste la fréquence de l'ATP selon le cycle de la TV",
-      "Il adapte la sensibilité après chaque événement",
-      "Il optimise dynamiquement le délai AV en CRT"
+      "Comparer champ proche et champ lointain pour retenir un choc sur bruit",
+      "Rendre programmables la largeur des phases et le tilt de l'onde de choc",
+      "Allonger le NID de la zone FV après une surdétection rapide ou une impédance anormale",
+      "Changer automatiquement de vecteur de choc en cas de courant excessif"
     ],
     "reponses": [
-      0
+      3
+    ],
+    "commentaires": [
+      "Faux : la comparaison champ proche / champ lointain est le principe de SecureSense.",
+      "Faux : la programmation de la largeur d'impulsion et du tilt relève de DeFT Response.",
+      "Faux : l'allongement du NID FV sur surdétection ou impédance anormale est la Lead Integrity Alert de Medtronic.",
+      "Juste : DynamicTx détecte une surintensité au moment du choc (court-circuit) et change de configuration pour délivrer la thérapie."
     ],
     "reponseAttendue": null,
-    "explication": "DynamicTx est un algorithme de détection de surintensité (over-current). Si un courant anormalement élevé est détecté au moment du choc, ce qui évoque une chute d'impédance par défaut d'isolant ou un court-circuit, le boîtier change automatiquement de configuration de choc pour réussir à délivrer la thérapie. Il s'agit d'une sécurité face à une défaillance de la sonde haute énergie, pas d'un traitement du problème : une telle alerte impose un bilan rapide de la sonde. L'ATP adaptatif, SenseAbility (sensibilité) et SyncAV (délai AV) sont d'autres fonctions.",
+    "explication": "DynamicTx est un algorithme de détection de surintensité (over-current). Si un courant anormalement élevé est détecté au moment du choc, ce qui évoque une chute d'impédance par défaut d'isolant ou un court-circuit, le boîtier change automatiquement de configuration de choc pour réussir à délivrer la thérapie. Il s'agit d'une sécurité face à une défaillance de la sonde haute énergie, pas d'un traitement du problème : une telle alerte impose un bilan rapide de la sonde. SecureSense (bruit de sonde), DeFT Response (forme d'onde) et la Lead Integrity Alert de Medtronic (surdétection, NID) sont d'autres fonctions.",
     "aRetenir": "DynamicTx change automatiquement le vecteur de choc en cas de surintensité pour que la thérapie soit délivrée.",
     "sources": [
       {
@@ -1446,13 +1683,19 @@
     "difficulte": 3,
     "question": "Quelles options d'ATP dans la zone FV proposent les DAI Abbott de la gamme Gallant ?",
     "options": [
-      "ATP uniquement après échec du premier choc",
-      "Aucun ATP en zone FV",
-      "ATP pendant la charge (ATP While Charging) ou ATP avant la charge (ATP Prior to Charging)",
-      "ATP atrial uniquement"
+      "ATP uniquement après échec du premier choc, avant le deuxième",
+      "ATP pendant la charge ou ATP avant la charge des condensateurs",
+      "ATP atrial automatique si l'EGM atrial montre une tachycardie organisée",
+      "Aucun ATP en zone FV : choc d'emblée, l'ATP étant réservé à la zone TV"
     ],
     "reponses": [
-      2
+      1
+    ],
+    "commentaires": [
+      "Faux : l'ATP en zone FV est délivré avant le premier choc, pendant ou avant la charge, pas entre deux chocs.",
+      "Juste : ATP While Charging (pendant la charge) ou ATP Prior to Charging (avant la charge).",
+      "Faux : l'ATP atrial n'existe pas sur ces DAI ; il est proposé par certains stimulateurs (Reactive ATP de Medtronic).",
+      "Faux : les DAI Gallant proposent bien un ATP en zone FV, utile sur les TV monomorphes rapides."
     ],
     "reponseAttendue": null,
     "explication": "Les DAI Gallant permettent de délivrer un ATP dans la zone FV, soit pendant la charge des condensateurs (ATP While Charging), soit avant la charge (ATP Prior to Charging). L'ATP pendant la charge ne retarde pas le choc si la tachycardie persiste. Cette approche repose sur la fréquence élevée de TV monomorphes rapides, souvent terminées par ATP, dans la zone dite de FV. Le consensus 2015, actualisé en 2019, recommande d'activer l'ATP chez les patients avec cardiopathie structurelle, y compris pour les tachycardies rapides. L'ATP atrial n'existe pas sur ces DAI.",
@@ -1477,16 +1720,22 @@
     "difficulte": 3,
     "question": "En quoi consiste le MultiPoint Pacing (MPP) d'Abbott ?",
     "options": [
-      "Stimulation simultanée des deux oreillettes",
-      "Stimulation de plusieurs sites du VD",
-      "Stimulation hisienne et VG combinée",
-      "Stimulation de deux sites du VG à partir des pôles d'une même sonde quadripolaire, en plus du VD"
+      "Stimulation de deux veines coronaires par deux sondes VG distinctes",
+      "Stimulation hisienne associée à la stimulation VG par sinus coronaire",
+      "Stimulation de deux sites VG par une même sonde quadripolaire, avec le VD",
+      "Stimulation VG seule synchronisée sur la conduction spontanée du VD"
     ],
     "reponses": [
-      3
+      2
+    ],
+    "commentaires": [
+      "Faux : la stimulation multisite par deux sondes VG existe, mais le MPP utilise une seule sonde quadripolaire.",
+      "Faux : l'association His + VG (HOT-CRT) est une stratégie de stimulation du système de conduction, pas le MPP.",
+      "Juste : le MPP stimule deux sites VG à partir de deux pôles d'une même sonde quadripolaire, en plus du VD.",
+      "Faux : la stimulation VG seule synchronisée est le principe de l'AdaptivCRT de Medtronic."
     ],
     "reponseAttendue": null,
-    "explication": "Le MPP utilise deux électrodes de la sonde VG quadripolaire pour stimuler deux sites du VG, en plus du VD. L'objectif est de recruter plus de myocarde VG, notamment en présence de cicatrices ou chez les non-répondeurs. Dans l'essai MPP, la non-infériorité par rapport à la stimulation biventriculaire classique a été démontrée. Le meilleur taux de réponse était obtenu avec des pôles anatomiquement éloignés. Ce n'est ni une stimulation biatriale ni une stimulation du système de conduction. Contrepartie : le MPP consomme davantage la batterie.",
+    "explication": "Le MPP utilise deux électrodes de la sonde VG quadripolaire pour stimuler deux sites du VG, en plus du VD. L'objectif est de recruter plus de myocarde VG, notamment en présence de cicatrices ou chez les non-répondeurs. Dans l'essai MPP, la non-infériorité par rapport à la stimulation biventriculaire classique a été démontrée. Le meilleur taux de réponse était obtenu avec des pôles anatomiquement éloignés. Ce n'est ni une stimulation par deux sondes VG, ni une association avec la stimulation hisienne, ni la stimulation VG seule de l'AdaptivCRT. Contrepartie : le MPP consomme davantage la batterie.",
     "aRetenir": "MultiPoint Pacing : deux sites VG stimulés par la même sonde quadripolaire.",
     "sources": [
       {
@@ -1514,6 +1763,10 @@
     "reponses": [
       0
     ],
+    "commentaires": [
+      "Juste : dans le sous-groupe à pôles éloignés (MPP-AS), 87 % des patients étaient répondeurs à 9 mois.",
+      "Faux : c'est bien ce qu'a montré l'analyse de sous-groupe, même si la supériorité générale du MPP n'est pas démontrée."
+    ],
     "reponseAttendue": null,
     "explication": "C'est vrai. L'essai MPP (381 patients randomisés à 3 mois entre stimulation biventriculaire et MPP) a atteint son critère de non-infériorité sur le taux de non-répondeurs. Dans le sous-groupe programmé avec des pôles anatomiquement éloignés (MPP-AS), 87 % des patients étaient répondeurs à 9 mois. Tous les non-répondeurs de ce sous-groupe à 3 mois sont devenus répondeurs à 9 mois. Ces données restent des analyses de sous-groupes : la supériorité du MPP sur la CRT classique n'est pas démontrée de façon générale. Les recommandations ESC 2021 ne comportent aucune recommandation en faveur d'un usage systématique du MPP.",
     "aRetenir": "Le MPP est non inférieur à la CRT classique ; le bénéfice semble meilleur avec des pôles VG très espacés.",
@@ -1537,16 +1790,22 @@
     "difficulte": 3,
     "question": "Que surveille la fonction CorVue des DAI et CRT-D Abbott ?",
     "options": [
-      "La pression dans l'artère pulmonaire",
-      "Les variations de l'impédance thoracique au cours du temps, avec une alerte de congestion quand la baisse persiste un nombre de jours programmable (8 à 18 jours sur Gallant)",
-      "La saturation en oxygène",
-      "Le pourcentage de stimulation atriale"
+      "Les variations de l'impédance thoracique au fil des jours",
+      "Les bruits cardiaques et la respiration, combinés en un index composite",
+      "La ventilation-minute utilisée pour l'asservissement de fréquence",
+      "La pression artérielle pulmonaire transmise par un capteur implanté"
     ],
     "reponses": [
-      1
+      0
+    ],
+    "commentaires": [
+      "Juste : CorVue suit l'impédance thoracique ; une baisse persistante (8 à 18 jours programmables sur Gallant) déclenche l'alerte.",
+      "Faux : l'index combinant bruits cardiaques et respiration est HeartLogic (Boston Scientific).",
+      "Faux : la ventilation-minute est un capteur d'asservissement (Boston Scientific), pas une surveillance de la congestion.",
+      "Faux : la pression artérielle pulmonaire se mesure avec un capteur implantable dédié, distinct du DAI."
     ],
     "reponseAttendue": null,
-    "explication": "CorVue est l'équivalent Abbott de l'OptiVol : il suit l'évolution de l'impédance thoracique mesurée par le boîtier. Une baisse persistante évoque une accumulation de liquide. Le seuil d'alerte s'exprime en nombre de jours consécutifs de baisse, programmable de 8 à 18 jours sur le Gallant. La pression artérielle pulmonaire se mesure avec un capteur implantable dédié, distinct du DAI. Comme pour l'OptiVol, une alerte CorVue se confronte à la clinique (poids, signes congestifs, traitement) pour limiter les faux positifs.",
+    "explication": "CorVue est l'équivalent Abbott de l'OptiVol : il suit l'évolution de l'impédance thoracique mesurée par le boîtier. Une baisse persistante évoque une accumulation de liquide. Le seuil d'alerte s'exprime en nombre de jours consécutifs de baisse, programmable de 8 à 18 jours sur le Gallant. La pression artérielle pulmonaire se mesure avec un capteur implantable dédié, distinct du DAI, et l'index composite bruits cardiaques + respiration correspond à HeartLogic (Boston Scientific). Comme pour l'OptiVol, une alerte CorVue se confronte à la clinique (poids, signes congestifs, traitement) pour limiter les faux positifs.",
     "aRetenir": "CorVue surveille l'impédance thoracique ; une baisse prolongée fait suspecter une congestion.",
     "sources": [
       {
@@ -1592,16 +1851,22 @@
     "difficulte": 9,
     "question": "Dans l'essai pivot du stimulateur sans sonde double chambre Aveir DR (300 patients), quels ont été les principaux résultats à 3 mois ?",
     "options": [
-      "Succès d'implantation de 75 % et synchronie AV ≥ 70 % chez 60 % des patients",
-      "Aucune complication, et synchronie AV de 100 %",
-      "Absence de complication chez 90,3 % des patients, et synchronie AV ≥ 70 % (en position assise) chez 97,3 %",
-      "Critère de sécurité non atteint en raison de nombreuses perforations"
+      "Synchronie AV proche de celle du Micra AV, soit environ 85 % au repos",
+      "90,3 % sans complication ; synchronie AV ≥ 70 % chez 97,3 % des patients",
+      "Critère de sécurité non atteint en raison de perforations atriales fréquentes",
+      "98,3 % d'implantations réussies, mais synchronie AV ≥ 70 % chez 60 % seulement"
     ],
     "reponses": [
-      2
+      1
+    ],
+    "commentaires": [
+      "Faux : environ 85 % au repos est le chiffre du Micra AV dans AccelAV ; l'Aveir DR, avec sa capsule atriale, fait mieux.",
+      "Juste : 90,3 % sans complication à 90 jours et synchronie AV ≥ 70 % (position assise) chez 97,3 % des patients.",
+      "Faux : le critère de sécurité a été atteint (90,3 %, au-delà de l'objectif de 78 %), même si des complications graves sont survenues.",
+      "Faux : le taux d'implantation est exact, mais la synchronie AV ≥ 70 % concernait 97,3 % des patients."
     ],
     "reponseAttendue": null,
-    "explication": "L'implantation a réussi chez 98,3 % des patients : deux capsules fonctionnelles avec communication i2i établie. Le critère de sécurité (absence de complication liée au dispositif ou à la procédure à 90 jours) a été atteint chez 90,3 % des patients, au-delà de l'objectif de 78 %. Le seuil atrial moyen était de 0,82 V et l'onde P moyenne de 3,58 mV. Une synchronie AV d'au moins 70 % était obtenue chez 97,3 % des patients. Il y a toutefois eu 35 événements graves chez 29 patients : les complications existent, d'où l'intérêt du suivi à long terme.",
+    "explication": "L'implantation a réussi chez 98,3 % des patients : deux capsules fonctionnelles avec communication i2i établie. Le critère de sécurité (absence de complication liée au dispositif ou à la procédure à 90 jours) a été atteint chez 90,3 % des patients, au-delà de l'objectif de 78 %. Le seuil atrial moyen était de 0,82 V et l'onde P moyenne de 3,58 mV. Une synchronie AV d'au moins 70 % était obtenue chez 97,3 % des patients, bien au-delà de ce que permet la détection mécanique du Micra AV (environ 85 % au repos dans AccelAV). Il y a toutefois eu 35 événements graves chez 29 patients : les complications existent, d'où l'intérêt du suivi à long terme.",
     "aRetenir": "Aveir DR : 90,3 % sans complication et 97,3 % de synchronie AV adéquate à 3 mois.",
     "sources": [
       {
@@ -1620,18 +1885,23 @@
     "question": "Quelles caractéristiques distinguent la capsule ventriculaire Aveir VR d'Abbott ? (plusieurs réponses)",
     "options": [
       "Fixation active par une hélice (vis)",
-      "Possibilité de mesurer les paramètres électriques (cartographie) avant la fixation définitive",
-      "Conception prévue pour être récupérable",
+      "Asservissement de fréquence par un accéléromètre, comme le Micra",
+      "Mesure des paramètres électriques (cartographie) avant la fixation définitive",
       "Fixation par barbes en nitinol"
     ],
     "reponses": [
       0,
-      1,
       2
     ],
+    "commentaires": [
+      "Juste : l'Aveir VR se visse dans le myocarde, ce qui facilite repositionnement et récupération.",
+      "Faux : l'Aveir VR asservit sa fréquence sur la température sanguine ; l'accéléromètre est le capteur du Micra.",
+      "Juste : seuil, détection et impédance se mesurent au contact du site avant de visser.",
+      "Faux : les barbes en nitinol sont le mode de fixation du Micra (Medtronic)."
+    ],
     "reponseAttendue": null,
-    "explication": "L'Aveir VR se fixe par une hélice vissée dans le myocarde. Contrairement aux barbes en nitinol du Micra, la vis rend plus simples le repositionnement et la récupération. Le système permet de mesurer seuil, détection et impédance au contact du site avant de visser : c'est la « cartographie » avant fixation. Il a été conçu pour pouvoir être récupéré, et il est aussi le composant ventriculaire de l'Aveir DR. Les résultats de l'essai LEADLESS II phase 2 ont montré son efficacité et sa sécurité en VVIR. Les barbes en nitinol caractérisent le Micra (Medtronic).",
-    "aRetenir": "Aveir VR : fixation par hélice, cartographie électrique avant fixation, conception récupérable ; les barbes en nitinol sont propres au Micra.",
+    "explication": "L'Aveir VR se fixe par une hélice vissée dans le myocarde. Contrairement aux barbes en nitinol du Micra, la vis rend plus simples le repositionnement et la récupération : la capsule a été conçue pour pouvoir être récupérée. Le système permet de mesurer seuil, détection et impédance au contact du site avant de visser : c'est la « cartographie » avant fixation. Son asservissement de fréquence repose sur un capteur de température sanguine, alors que le Micra utilise un accéléromètre. L'Aveir VR est aussi le composant ventriculaire de l'Aveir DR. Les résultats de l'essai LEADLESS II phase 2 ont montré son efficacité et sa sécurité en VVIR.",
+    "aRetenir": "Aveir VR : fixation par hélice, cartographie électrique avant fixation, asservissement thermique ; barbes en nitinol et accéléromètre sont propres au Micra.",
     "sources": [
       {
         "titre": "Reddy VY, et al. Primary Results on Safety and Efficacy From the LEADLESS II-Phase 2 Worldwide Clinical Trial. JACC Clin Electrophysiol 2022;8:115-117",
@@ -1652,13 +1922,19 @@
     "difficulte": 2,
     "question": "Quelle est la particularité de télésurveillance du moniteur implantable Confirm Rx d'Abbott ?",
     "options": [
-      "Il se connecte directement au smartphone du patient (Bluetooth, application myMerlin), sans transmetteur dédié",
-      "Il nécessite un transmetteur de chevet branché sur secteur",
-      "Il n'a aucune capacité de télésurveillance",
-      "Il transmet uniquement via le réseau téléphonique fixe"
+      "Transmission par modem de chevet relié à la ligne téléphonique fixe",
+      "Aucune télésurveillance : lecture des données en consultation seulement",
+      "Transmission quotidienne automatique par un transmetteur de chevet dédié",
+      "Transmission directe par le smartphone du patient (Bluetooth)"
     ],
     "reponses": [
-      0
+      3
+    ],
+    "commentaires": [
+      "Faux : la ligne téléphonique fixe correspond aux premières générations de télésurveillance.",
+      "Faux : le Confirm Rx est télésurveillé ; c'est même l'un des premiers moniteurs connectés au smartphone.",
+      "Faux : le transmetteur de chevet dédié est le modèle des générations antérieures et d'autres systèmes (Home Monitoring, par exemple).",
+      "Juste : le Confirm Rx transmet par Bluetooth basse consommation via l'application myMerlin, sans boîtier de chevet."
     ],
     "reponseAttendue": null,
     "explication": "Le Confirm Rx a été l'un des premiers moniteurs implantables à se connecter directement au smartphone du patient par Bluetooth basse consommation, grâce à l'application dédiée. Les tracés sont transmis au centre de suivi sans boîtier de chevet. Son algorithme a ensuite été amélioré par une mise à jour logicielle (SharpSense), qui a fortement réduit les fausses détections de bradycardie et de pause. Le transmetteur de chevet et la ligne téléphonique fixe correspondent à des générations plus anciennes de télésurveillance. Piège : la transmission dépend du téléphone (batterie, Bluetooth, mises à jour de l'application), qu'il faut expliquer au patient.",
@@ -1685,17 +1961,21 @@
     "marque": "Medtronic",
     "type": "vf",
     "difficulte": 2,
-    "question": "Le Micra VR (Medtronic) est un stimulateur sans sonde implanté par voie fémorale dans le ventricule droit, dont l'asservissement de fréquence utilise un accéléromètre.",
+    "question": "Le Micra VR (Medtronic) est un stimulateur sans sonde implanté par voie fémorale et fixé dans le ventricule droit par une hélice (vis), dont l'asservissement de fréquence utilise un accéléromètre.",
     "options": [
       "Vrai",
       "Faux"
     ],
     "reponses": [
-      0
+      1
+    ],
+    "commentaires": [
+      "Faux : la voie fémorale et l'accéléromètre sont exacts, mais le Micra se fixe par des barbes en nitinol ; l'hélice est la fixation de l'Aveir (Abbott).",
+      "Juste : le Micra est fixé par quatre barbes en nitinol ; l'hélice vissée caractérise l'Aveir VR d'Abbott."
     ],
     "reponseAttendue": null,
-    "explication": "C'est vrai. Le Micra est une capsule implantée par voie veineuse fémorale et fixée dans le VD par des barbes en nitinol. Il stimule en VVI(R), et l'asservissement repose sur son accéléromètre. L'étude pivot (NEJM 2016) a montré un succès d'implantation de 99,2 % et un taux de complications majeures inférieur à celui d'une cohorte historique de stimulateurs avec sonde. Le même accéléromètre sert, sur le Micra AV, à détecter la contraction atriale. Piège : le Micra VR ne détecte pas l'oreillette et ne convient pas si une synchronie AV est indispensable.",
-    "aRetenir": "Micra : capsule VD implantée par voie fémorale, VVIR asservi par accéléromètre.",
+    "explication": "C'est faux, à cause du mode de fixation. Le Micra est une capsule implantée par voie veineuse fémorale et fixée dans le VD par des barbes en nitinol ; la fixation par hélice est celle de l'Aveir VR d'Abbott. Il stimule en VVI(R), et l'asservissement repose bien sur son accéléromètre. L'étude pivot (NEJM 2016) a montré un succès d'implantation de 99,2 % et un taux de complications majeures inférieur à celui d'une cohorte historique de stimulateurs avec sonde. Le même accéléromètre sert, sur le Micra AV, à détecter la contraction atriale. Piège : le Micra VR ne détecte pas l'oreillette et ne convient pas si une synchronie AV est indispensable.",
+    "aRetenir": "Micra : capsule VD implantée par voie fémorale, fixée par barbes en nitinol, VVIR asservi par accéléromètre.",
     "sources": [
       {
         "titre": "Reynolds D, et al. A Leadless Intracardiac Transcatheter Pacing System. N Engl J Med 2016;374:533-41",
@@ -1716,13 +1996,19 @@
     "difficulte": 8,
     "question": "Chez un patient porteur d'un Micra AV en BAV complet, la synchronie AV diminue nettement à l'effort. Quelle est l'explication physiologique la plus probable ?",
     "options": [
-      "Une perte de capture ventriculaire à l'effort",
-      "Une surdétection de l'onde T",
-      "Une sous-détection de l'onde R spontanée",
-      "La fusion des signaux mécaniques de remplissage passif (A3) et de contraction atriale (A4) quand la fréquence sinusale augmente, qui gêne la détection de l'A4"
+      "Une baisse d'amplitude de l'onde P recueillie en champ lointain par la capsule",
+      "Une surdétection de l'onde T qui inhibe la stimulation à l'effort",
+      "Une perte de capture ventriculaire liée à la hausse du seuil à l'effort",
+      "La fusion des signaux mécaniques A3 et A4 quand la fréquence sinusale augmente"
     ],
     "reponses": [
       3
+    ],
+    "commentaires": [
+      "Faux : le Micra AV ne détecte pas l'onde P électrique ; il repère la contraction atriale par l'accéléromètre.",
+      "Faux : une surdétection de l'onde T inhiberait la stimulation ; elle n'explique pas une perte sélective de synchronie à l'effort.",
+      "Faux : une perte de capture donnerait des spikes non suivis de QRS, pas une perte de synchronie avec stimulation efficace.",
+      "Juste : la diastole raccourcit, A3 (remplissage passif) et A4 (contraction atriale) se rapprochent puis fusionnent, et l'A4 est moins bien détecté."
     ],
     "reponseAttendue": null,
     "explication": "Le Micra AV repère la contraction atriale par un signal mécanique (A4) détecté par l'accéléromètre après la fin du remplissage passif (A3). Quand la fréquence augmente, la diastole raccourcit et les signaux A3 et A4 se rapprochent puis fusionnent : la détection de l'A4 devient moins fiable. Le boîtier stimule alors plus souvent sans synchronisation atriale, à la fréquence minimale programmée. Dans AccelAV, la synchronie AV était de 85,4 % au repos mais de 74,8 % en ambulatoire, et une optimisation de la programmation l'améliorait. Les paramètres prédictifs de bonne synchronie ont été étudiés dans MARVEL 2 (amplitude de l'A4, entre autres).",
@@ -1747,13 +2033,19 @@
     "difficulte": 5,
     "question": "Après la mise à jour logicielle SharpSense du moniteur implantable Confirm Rx, quel effet a été observé en vie réelle ?",
     "options": [
-      "Une augmentation des fausses détections de FA",
-      "Une réduction importante des fausses détections de bradycardie et de pause",
-      "Un allongement de la durée de vie de la batterie à 10 ans",
-      "Une capacité nouvelle de stimulation antibradycardique"
+      "Hausse des fausses détections de FA, faute de discriminateur d'onde P",
+      "Forte baisse des fausses détections de bradycardie et de pause",
+      "Ajout d'une stimulation antibradycardique de secours en cas de pause",
+      "Passage d'un transmetteur de chevet à une transmission par smartphone"
     ],
     "reponses": [
       1
+    ],
+    "commentaires": [
+      "Faux : SharpSense a au contraire ajouté un discriminateur d'onde P qui améliore la détection de la FA.",
+      "Juste : détections de bradycardie −86,8 % et de pause −93,1 %, avec une forte baisse des faux positifs.",
+      "Faux : un moniteur implantable ne stimule jamais ; il est purement diagnostique.",
+      "Faux : le Confirm Rx transmettait déjà par smartphone ; SharpSense est une mise à jour de l'algorithme de détection."
     ],
     "reponseAttendue": null,
     "explication": "Dans l'analyse de 197 moniteurs Confirm Rx suivis 90 jours avant et après la mise à jour SharpSense, les détections de bradycardie ont diminué de 86,8 % et celles de pause de 93,1 %. Les épisodes faussement positifs ont diminué de 91,5 % pour la bradycardie et de 82,8 % pour les pauses. SharpSense a aussi amélioré la détection de la FA grâce à un discriminateur d'onde P, évalué en vie réelle dans l'étude UK Confirm Rx. Un moniteur implantable ne stimule jamais. Pour les équipes de télésurveillance, moins de faux positifs signifie une charge de relecture bien plus faible.",
