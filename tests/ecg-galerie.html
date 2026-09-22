@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Galerie ECG</title><link rel="stylesheet" href="../css/styles.css">
+<style>h3{margin:18px 0 6px}</style></head>
+<body><main id="g"><h1>Galerie des presets ECG</h1></main>
+<script type="module">
+import { dessinerECG, PRESETS } from '../js/ecg.js';
+const g = document.getElementById('g');
+for (const p of PRESETS) {
+  const h = document.createElement('h3'); h.textContent = p; g.append(h);
+  const d = document.createElement('div'); d.className = 'ecg-cadre'; const c = document.createElement('canvas'); d.append(c); g.append(d);
+  dessinerECG(c, { preset: p }, 'galerie');
+}
+</script></body></html>
