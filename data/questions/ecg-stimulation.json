@@ -35,7 +35,7 @@
     "difficulte": 3,
     "question": "Explicitez chacune des lettres du mode DDDR.",
     "reponseAttendue": "D : stimulation atriale et ventriculaire ; D : détection atriale et ventriculaire ; D : réponse double à la détection (inhibition et déclenchement : une P détectée inhibe la stimulation atriale et déclenche une stimulation ventriculaire après le délai AV) ; R : asservissement de fréquence (capteur d'activité).",
-    "explication": "Le mode DDD associe la stimulation et la détection des deux cavités. La troisième lettre D signifie que le boîtier inhibe la stimulation dans la cavité où un événement est détecté, mais qu'une détection atriale déclenche (« trigger ») une stimulation ventriculaire à la fin du délai AV si aucun QRS spontané n'est détecté : c'est le suivi (« tracking ») de l'oreillette. Le R en quatrième position correspond à l'asservissement, qui accélère la fréquence de stimulation à l'effort grâce à un capteur (accéléromètre, ventilation-minute…). Le R ne concerne que la fréquence de stimulation minimale « capteur », pas la fréquence maximale de suivi atrial.",
+    "explication": "Le mode DDD associe la stimulation et la détection des deux cavités. La troisième lettre D signifie que le boîtier inhibe la stimulation dans la cavité où un événement est détecté, mais qu'une détection atriale déclenche (« trigger ») une stimulation ventriculaire à la fin du délai AV si aucun QRS spontané n'est détecté : c'est le suivi (« tracking ») de l'oreillette. Le R en quatrième position correspond à l'asservissement, qui accélère la fréquence de stimulation à l'effort grâce à un capteur (accéléromètre, ventilation-minute…). L'asservissement module la fréquence de stimulation indépendamment du suivi atrial : il est plafonné par la fréquence maximale capteur, distincte de la fréquence maximale de suivi (FMS).",
     "aRetenir": "DDDR = stimulation et détection double chambre, inhibition + déclenchement, avec asservissement de fréquence.",
     "sources": [
       {
@@ -415,7 +415,7 @@
   {
     "id": "ecg-stim-015",
     "theme": "ecg",
-    "sousTheme": "Morphologie du QRS stimulé",
+    "sousTheme": "Stimulation de la voie de conduction",
     "marque": null,
     "type": "qcu",
     "difficulte": 6,
@@ -486,7 +486,7 @@
       0
     ],
     "reponseAttendue": null,
-    "explication": "En capture non sélective, le QRS résulte de l'activation simultanée du His et du myocarde septal. Si l'amplitude descend sous le seuil de capture hissienne tout en restant au-dessus du seuil myocardique, seul le myocarde septal est capturé : le QRS s'élargit brutalement (aspect de stimulation septale VD, type retard gauche). Ce changement de morphologie lors du test de seuil permet de mesurer séparément les deux seuils. Le seuil hissien étant souvent plus élevé et susceptible d'augmenter au cours du suivi, cet élargissement du QRS sur un ECG de contrôle doit faire suspecter une perte de capture hissienne.",
+    "explication": "En capture non sélective, le QRS résulte de l'activation simultanée du His et du myocarde septal. Si l'amplitude descend sous le seuil de capture hissienne tout en restant au-dessus du seuil myocardique, seul le myocarde septal est capturé : le QRS s'élargit brutalement (aspect de stimulation septale VD, type retard gauche). Ce changement de morphologie lors du test de seuil permet de mesurer séparément les deux seuils. Le seuil de capture hissienne pouvant être plus élevé que le seuil myocardique et augmenter au cours du suivi, cet élargissement du QRS sur un ECG de contrôle doit faire suspecter une perte de capture hissienne.",
     "aRetenir": "Perte de capture hissienne avec capture myocardique conservée = élargissement brutal du QRS.",
     "sources": [
       {
@@ -513,7 +513,7 @@
       2
     ],
     "reponseAttendue": null,
-    "explication": "En stimulation de la branche gauche, le VG est activé rapidement par le système de conduction gauche alors que le VD est activé plus tardivement, à travers le septum : on observe classiquement un aspect de pseudo-retard droit en V1 (qR, rSR' ou Qr). Cet aspect est attendu et même nécessaire, mais il n'est pas suffisant pour affirmer la capture de la branche gauche (une stimulation septale profonde du VG peut le donner). Une sonde endocavitaire gauche via un shunt donne aussi un aspect de retard droit, mais le contexte, la profondeur de vissage dans le septum et l'imagerie permettent de trancher. La stimulation apicale du VD produit au contraire un aspect de retard gauche.",
+    "explication": "En stimulation de la branche gauche, le VG est activé rapidement par le système de conduction gauche alors que le VD est activé plus tardivement, à travers le septum : on observe classiquement un aspect de pseudo-retard droit en V1 (qR, rSR' ou Qr). Cet aspect est attendu et quasi constant, mais il ne suffit pas pour affirmer la capture de la branche gauche (une stimulation septale profonde du VG peut le donner). Une sonde endocavitaire gauche via un shunt donne aussi un aspect de retard droit, mais le contexte, la profondeur de vissage dans le septum et l'imagerie permettent de trancher. La stimulation apicale du VD produit au contraire un aspect de retard gauche.",
     "aRetenir": "En LBBAP, un pseudo-retard droit (qR/rSR') en V1 est attendu, mais ne prouve pas à lui seul la capture de la branche gauche.",
     "sources": [
       {
@@ -644,7 +644,7 @@
       3
     ],
     "reponseAttendue": null,
-    "explication": "Le problème est une perte de capture : il faut restaurer la capture en augmentant la marge de sécurité (amplitude et durée d'impulsion maximales), puis rechercher la cause (seuil, impédance, radiographie à la recherche d'un déplacement de sonde, ionogramme). Si la programmation ne suffit pas, une stimulation temporaire (isoprénaline, stimulation externe ou sonde d'entraînement) est nécessaire en attendant la révision. L'aimant provoque une stimulation asynchrone, utile en cas de sur-détection mais inefficace contre une perte de capture. Modifier la sensibilité ou le mode ne change rien à l'énergie délivrée.",
+    "explication": "Le problème est une perte de capture : il faut restaurer la capture en augmentant la marge de sécurité (amplitude et durée d'impulsion maximales), puis rechercher la cause (seuil, impédance, radiographie à la recherche d'un déplacement de sonde, ionogramme). Si la programmation ne suffit pas, un support chronotrope (isoprénaline) ou une stimulation temporaire (externe ou par sonde endocavitaire) est nécessaire en attendant la révision. L'aimant provoque une stimulation asynchrone, utile en cas de sur-détection mais inefficace contre une perte de capture. Modifier la sensibilité ou le mode ne change rien à l'énergie délivrée.",
     "aRetenir": "Perte de capture chez un patient dépendant : augmenter d'emblée amplitude et durée, puis chercher la cause.",
     "sources": [
       {
@@ -703,7 +703,7 @@
     "marque": null,
     "type": "qcu",
     "difficulte": 3,
-    "question": "Chez ce patient porteur d'un stimulateur double chambre, certains spikes atriaux ne sont suivis d'aucune onde P. Quel est le diagnostic ?",
+    "question": "Chez ce patient porteur d'un stimulateur programmé en AAI (dysfonction sinusale, conduction AV normale), certains spikes atriaux ne sont suivis ni d'une onde P ni d'un QRS. Quel est le diagnostic ?",
     "ecg": {
       "preset": "perte-capture-a",
       "fc": 70
@@ -718,7 +718,7 @@
       2
     ],
     "reponseAttendue": null,
-    "explication": "Un spike atrial non suivi d'onde P témoigne d'une perte de capture atriale. Elle est plus difficile à reconnaître qu'une perte de capture ventriculaire car l'onde P stimulée est de faible amplitude : il faut analyser plusieurs dérivations et, si le patient a une conduction AV, constater que le QRS attendu ne suit pas. Les causes principales sont le déplacement de la sonde atriale (fréquent dans les premières semaines) et l'élévation du seuil. Un bloc sino-atrial concerne le rythme spontané et ne produit pas de spike. Le mode switch est un changement de mode lors d'une arythmie atriale.",
+    "explication": "Un spike atrial non suivi d'onde P témoigne d'une perte de capture atriale. Elle est plus difficile à reconnaître qu'une perte de capture ventriculaire car l'onde P stimulée est de faible amplitude : il faut analyser plusieurs dérivations et, en AAI avec conduction AV conservée, constater que le QRS attendu ne suit pas (en DDD, un spike ventriculaire serait délivré à la fin du délai AV). Les causes principales sont le déplacement de la sonde atriale (fréquent dans les premières semaines) et l'élévation du seuil. Un bloc sino-atrial concerne le rythme spontané et ne produit pas de spike. Le mode switch est un changement de mode lors d'une arythmie atriale, et une sous-détection ventriculaire se traduirait par des spikes émis malgré des QRS spontanés.",
     "aRetenir": "Spike atrial sans onde P = perte de capture atriale.",
     "sources": [
       {
@@ -735,10 +735,6 @@
     "type": "qcu",
     "difficulte": 6,
     "question": "Patient porteur d'un DDD avec conduction rétrograde VA préservée. Une perte de capture atriale intermittente apparaît. Quelle complication spécifique en découle ?",
-    "ecg": {
-      "preset": "perte-capture-a",
-      "fc": 70
-    },
     "options": [
       "Une tachycardie par réentrée électronique, favorisée par la dissociation AV qui permet une conduction rétrograde",
       "Un crosstalk",
@@ -815,7 +811,7 @@
       1
     ],
     "reponseAttendue": null,
-    "explication": "La sensibilité correspond au seuil d'amplitude au-dessus duquel un signal est reconnu. Un QRS de 2,5 mV n'est pas détecté si le seuil est de 4 mV : il faut abaisser la valeur programmée (en gardant une marge de sécurité d'environ 2 à 3 fois l'amplitude du signal, soit ici ~1 mV). Le piège classique est la confusion de vocabulaire : diminuer la valeur en mV rend l'appareil plus sensible. Augmenter la valeur aggraverait la sous-détection. L'amplitude de stimulation concerne la capture, et allonger la période réfractaire favoriserait la non-détection de signaux précoces.",
+    "explication": "La sensibilité correspond au seuil d'amplitude au-dessus duquel un signal est reconnu. Un QRS de 2,5 mV n'est pas détecté si le seuil est de 4 mV : il faut abaisser la valeur programmée, idéalement à la moitié ou au tiers de l'amplitude du signal (marge de sécurité de 2 à 3), soit ici environ 1 mV. Le piège classique est la confusion de vocabulaire : diminuer la valeur en mV rend l'appareil plus sensible. Augmenter la valeur aggraverait la sous-détection. L'amplitude de stimulation concerne la capture, et allonger la période réfractaire favoriserait la non-détection de signaux précoces.",
     "aRetenir": "Sous-détection : diminuer la valeur de sensibilité (en mV) pour rendre le boîtier plus sensible.",
     "sources": [
       {
@@ -1150,19 +1146,19 @@
     "sousTheme": "Fusion et pseudo-fusion",
     "marque": null,
     "type": "qcu",
-    "difficulte": 8,
-    "question": "Chez un patient en DDD, un spike ATRIAL apparaît superposé à un QRS spontané (par exemple une ESV), sans spike ventriculaire. Comment appelle-t-on ce phénomène ?",
+    "difficulte": 6,
+    "question": "Chez un patient en DDD, un spike ATRIAL apparaît superposé au début d'un QRS spontané (typiquement une ESV). Comment appelle-t-on ce phénomène ?",
     "options": [
       "Pseudo-pseudo-fusion",
       "Crosstalk",
       "Fusion atriale",
-      "Stimulation de sécurité"
+      "Pseudo-fusion"
     ],
     "reponses": [
       0
     ],
     "reponseAttendue": null,
-    "explication": "La pseudo-pseudo-fusion désigne un spike atrial tombant dans un QRS spontané, observée en stimulation double chambre. Elle survient quand un QRS (souvent une ESV) débute mais n'a pas encore été détecté par la sonde ventriculaire au moment où l'intervalle VA se termine : le spike atrial est émis et se superpose au QRS. Le spike atrial n'a évidemment aucun effet ventriculaire. Ce phénomène est normal et ne témoigne pas d'une dysfonction. La stimulation de sécurité impliquerait un spike V précoce après le spike A, et le crosstalk une inhibition du spike V.",
+    "explication": "La pseudo-pseudo-fusion désigne un spike atrial tombant dans un QRS spontané, en stimulation double chambre. Elle survient quand un QRS (souvent une ESV) a débuté sur l'ECG de surface mais n'a pas encore été détecté par la sonde ventriculaire au moment où l'intervalle VA se termine : le spike atrial est émis et se superpose au QRS, sans aucun effet sur le ventricule. Selon le moment où l'ESV est ensuite détectée, le canal ventriculaire s'inhibe ou délivre une stimulation de sécurité. Ce phénomène est normal et ne témoigne pas d'une dysfonction. La pseudo-fusion concerne un spike VENTRICULAIRE tombant dans un QRS spontané, le crosstalk est la détection du spike A par le canal V, et la « fusion atriale » ne décrit pas cette situation.",
     "aRetenir": "Pseudo-pseudo-fusion = spike atrial superposé à un QRS spontané en DDD, phénomène normal.",
     "sources": [
       {
@@ -1240,7 +1236,7 @@
       2
     ],
     "reponseAttendue": null,
-    "explication": "Le stimulateur ne peut pas stimuler le ventricule plus vite que la fréquence maximale de suivi (FMS). Quand la fréquence sinusale la dépasse, le spike V est retardé jusqu'à la fin de l'intervalle de la FMS : l'intervalle P-spike V s'allonge à chaque cycle. Une P finit par tomber dans la PVARP : elle n'est pas suivie, ce qui recrée un cycle. C'est un pseudo-Wenckebach électronique, qui survient tant que la fréquence sinusale reste entre la FMS et la fréquence de bloc 2:1. Il ne s'agit pas d'un BAV spontané (le patient est en BAV et c'est le stimulateur qui conduit) ni d'un mode switch, qui répond à une arythmie atriale.",
+    "explication": "Le stimulateur ne peut pas stimuler le ventricule plus vite que la fréquence maximale de suivi (FMS). Quand la fréquence sinusale la dépasse, le spike V est retardé jusqu'à la fin de l'intervalle de la FMS : l'intervalle P-spike V s'allonge à chaque cycle. Une P finit par tomber dans la PVARP : elle n'est pas suivie, ce qui recrée un cycle. C'est un pseudo-Wenckebach électronique, qui survient tant que la fréquence sinusale reste entre la FMS et la fréquence de bloc 2:1. Il ne s'agit pas d'un BAV spontané (le spike V retardé est délivré par le stimulateur, qui limite lui-même sa fréquence) ni d'un mode switch, qui répond à une arythmie atriale.",
     "aRetenir": "Fréquence sinusale > FMS : allongement progressif AS-VP puis P bloquée = Wenckebach électronique.",
     "sources": [
       {
@@ -1388,7 +1384,7 @@
       3
     ],
     "reponseAttendue": null,
-    "explication": "Dans la TRE (PMT des Anglo-Saxons), le stimulateur constitue le bras antérograde d'un circuit dont le bras rétrograde est la conduction VA du patient. Un événement qui dissocie oreillette et ventricule (typiquement une ESV) entraîne une P rétrograde tombant hors PVARP : elle est détectée et suivie, le QRS stimulé est à nouveau conduit à l'oreillette, et ainsi de suite, souvent à la FMS. Une tachycardie sinusale suivie aurait des P antérogrades et une fréquence variable. L'emballement (runaway) est une panne exceptionnelle de circuit. Une TV aurait des QRS non précédés de spikes.",
+    "explication": "Dans la TRE (PMT, « pacemaker-mediated tachycardia » en anglais), le stimulateur constitue le bras antérograde d'un circuit dont le bras rétrograde est la conduction VA du patient. Un événement qui dissocie oreillette et ventricule (typiquement une ESV) entraîne une P rétrograde tombant hors PVARP : elle est détectée et suivie, le QRS stimulé est à nouveau conduit à l'oreillette, et ainsi de suite, souvent à la FMS. Une tachycardie sinusale suivie aurait des P antérogrades et une fréquence variable. L'emballement (runaway) est une panne exceptionnelle de circuit. Une TV aurait des QRS non précédés de spikes.",
     "aRetenir": "TRE = boucle stimulateur (antérograde) + conduction VA (rétrograde), souvent à la FMS.",
     "sources": [
       {
@@ -1648,7 +1644,7 @@
       1
     ],
     "reponseAttendue": null,
-    "explication": "Les compteurs de mode switch et d'épisodes de fréquence atriale élevée (AHRE) sont très utiles pour dépister une FA infraclinique, mais ils peuvent être faussés par une sur-détection atriale (ondes R lointaines, bruit). Les recommandations insistent sur la nécessité de vérifier les électrogrammes mémorisés pour confirmer qu'il s'agit bien d'une arythmie atriale avant toute décision, notamment d'anticoagulation. La durée et la charge des épisodes comptent aussi dans la décision thérapeutique. Un épisode de mode switch n'est donc pas synonyme de FA confirmée.",
+    "explication": "Les compteurs de mode switch et d'épisodes de fréquence atriale élevée (AHRE) sont très utiles pour dépister une FA infraclinique, mais ils peuvent être faussés par une sur-détection atriale (ondes R lointaines, bruit). Les recommandations (ESC 2024 sur la FA) insistent sur la nécessité de vérifier les électrogrammes mémorisés pour confirmer qu'il s'agit bien d'une arythmie atriale avant toute décision, notamment d'anticoagulation. La durée et la charge des épisodes comptent aussi dans la décision thérapeutique. Un épisode de mode switch n'est donc pas synonyme de FA confirmée.",
     "aRetenir": "Un épisode de mode switch doit être confirmé sur les EGM avant de conclure à une FA.",
     "sources": [
       {
@@ -1658,6 +1654,10 @@
       {
         "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
         "url": null
+      },
+      {
+        "titre": "Van Gelder IC et al. 2024 ESC Guidelines for the management of atrial fibrillation developed in collaboration with EACTS. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
       }
     ]
   },
@@ -1731,7 +1731,7 @@
       0
     ],
     "reponseAttendue": null,
-    "explication": "La fréquence aimant sert historiquement d'indicateur de l'état de la batterie : lorsqu'elle atteint l'ERI, la plupart des stimulateurs abaissent leur fréquence aimant à une valeur prédéfinie, propre à chaque fabricant et à chaque modèle. Mesurer cette fréquence (par ECG ou téléphone chez les patients anciennement suivis) permettait ainsi de dépister l'usure avant la télésurveillance. Il faut toujours se référer au manuel du fabricant, car les valeurs nominales et en fin de vie diffèrent. Certains modèles modifient aussi leur mode de fonctionnement à l'ERI (par exemple passage en VVI).",
+    "explication": "La fréquence aimant sert historiquement d'indicateur de l'état de la batterie : lorsqu'elle atteint l'ERI, la plupart des stimulateurs abaissent leur fréquence aimant à une valeur prédéfinie, propre à chaque fabricant et à chaque modèle. Avant la télésurveillance, mesurer cette fréquence (sur un ECG ou par transmission téléphonique) permettait ainsi de dépister l'usure de la batterie. Il faut toujours se référer au manuel du fabricant, car les valeurs nominales et en fin de vie diffèrent. Certains modèles modifient aussi leur mode de fonctionnement à l'ERI (par exemple passage en VVI).",
     "aRetenir": "Une baisse de la fréquence aimant signe souvent l'ERI (valeurs propres à chaque fabricant).",
     "sources": [
       {
