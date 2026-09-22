@@ -18,7 +18,7 @@ export async function chargerECG12(fichier) {
 export function dessinerECG12(canvas, ecg, opts = {}) {
   const marge = 10, colonne = 62.5, ligne = 30;
   const mmL = marge + 4 * colonne + 2, mmH = 4 * ligne + 6;
-  const largeurDispo = canvas.parentElement?.clientWidth || 700;
+  const largeurDispo = (canvas.closest('.ecg-cadre') || canvas.parentElement)?.clientWidth || 700;
   const pxmm = opts.pxmm || Math.max(2.6, largeurDispo / mmL);
   const { ctx } = papier(canvas, mmL, mmH, pxmm);
   const idx = Object.fromEntries(ecg.derivations.map((d, i) => [d.toLowerCase(), i]));

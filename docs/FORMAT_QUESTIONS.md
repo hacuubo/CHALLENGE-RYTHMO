@@ -79,7 +79,15 @@ Paramètres communs optionnels : `fc` (fréquence en bpm), `legende` (texte affi
 | `fusion` | `fc` | spikes V tombant dans un QRS spontané (fusion/pseudo-fusion) |
 | `asystolie` | — | asystolie avec P isolées éventuelles |
 
-Si le preset ne suffit pas, **décrire le tracé dans l'énoncé** plutôt que de forcer un preset inadapté.
+L'énoncé ne doit **pas décrire le tracé** (c'est à l'utilisateur de le lire) ; la `legende` ne doit pas donner la réponse.
+Si aucun preset ne convient, préférer un vrai ECG (`ecg12`) ou une question sans tracé.
+
+## Règles de construction (contrôlées par `scripts/audit-biais.mjs`, bloquant en CI)
+
+- QCU : propositions homogènes (longueur, précision) ; la bonne réponse n'est la plus longue que dans ≤ 35 % des QCU d'un fichier, rapport médian de longueur ≤ 1,3 ; distracteurs plausibles ; position de la bonne réponse équilibrée.
+- QCM : nombre de bonnes réponses varié ; au plus 35 % des QCM avec n-1 bonnes réponses ; jamais toutes justes.
+- Vrai/faux : entre 35 et 65 % de « Vrai » par fichier.
+- `commentaires` : une phrase par proposition (« Juste : … » / « Faux : … »).
 
 ## Sources acceptées
 

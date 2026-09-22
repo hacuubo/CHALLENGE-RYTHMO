@@ -1,0 +1,2943 @@
+[
+  {
+    "id": "ecg-reel-001",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Homme de 54 ans, bilan préopératoire d'une hernie inguinale, aucun symptôme. Quelle est votre interprétation ?",
+    "ecg12": {
+      "fichier": "ptbxl-00272"
+    },
+    "options": [
+      "Rythme jonctionnel accéléré à 64/min",
+      "Bradycardie sinusale avec BAV du 1er degré",
+      "Rythme sinusal à 64/min, ECG normal",
+      "Rythme sinusal avec hémibloc antérieur gauche"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Un rythme jonctionnel n'aurait pas d'onde P sinusale positive en DII précédant chaque QRS avec un PR normal.",
+      "La fréquence dépasse 60/min et le PR reste inférieur à 200 ms.",
+      "Une onde P positive en DI-DII précède chaque QRS fin, avec PR, QRS, axe et repolarisation normaux.",
+      "L'axe reste au-dessus de −30° : les critères d'hémibloc antérieur gauche (axe ≤ −45°) ne sont pas réunis."
+    ],
+    "explication": "Lecture systématique : rythme régulier (RR ≈ 0,93 s, soit ≈ 64/min), onde P positive en DI et DII et négative en aVR avant chaque QRS, PR constant et normal, QRS fins. L'axe frontal est légèrement gauche mais reste dans les limites normales (au-dessus de −30°) : DI positif, aVF faiblement négatif, DII positif. Pas d'onde Q pathologique, progression normale de l'onde R de V1 à V6, repolarisation concordante. Le piège est de sur-interpréter un axe « un peu gauche » en hémibloc : il faut un axe entre −45° et −90° avec un aspect qR en aVL et rS en inférieur. Tracé PTB-XL annoté « ECG normal » (vraisemblance 100 %).",
+    "aRetenir": "Un axe entre −30° et +90° est normal : l'hémibloc antérieur gauche exige un axe ≤ −45°.",
+    "sources": [
+      {
+        "titre": "Mason JW, et al. Recommendations for the standardization and interpretation of the electrocardiogram. Part II: electrocardiography diagnostic statement list (AHA/ACC/HRS). J Am Coll Cardiol 2007;49:1128-1135",
+        "url": "https://doi.org/10.1016/j.jacc.2007.01.025"
+      },
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-reel-002",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 2,
+    "question": "Femme de 35 ans, palpitations brèves ressenties au repos, disparues à l'arrivée. Vrai ou faux : ce tracé montre une tachycardie sinusale.",
+    "ecg12": {
+      "fichier": "ptbxl-00278"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "La fréquence est d'environ 95/min : c'est un rythme sinusal normal, pas une tachycardie.",
+      "Rythme sinusal à ≈ 95/min : le seuil de la tachycardie sinusale est fixé à 100/min."
+    ],
+    "explication": "Les RR mesurent environ 0,63 s (un peu plus de 3 grands carreaux), soit ≈ 95/min. Chaque QRS fin est précédé d'une onde P positive en DI et DII : le rythme est sinusal. Par convention (AHA/ACC/HRS), on parle de tachycardie sinusale au-delà de 100/min ; entre 60 et 100/min il s'agit d'un rythme sinusal normal. Le reste du tracé est normal (annotation PTB-XL « ECG normal »). Un ECG intercritique normal n'élimine pas une arythmie paroxystique : c'est l'enregistrement pendant les symptômes (Holter, moniteur d'événements) qui fera le diagnostic.",
+    "aRetenir": "Tachycardie sinusale = rythme sinusal > 100/min ; un ECG intercritique normal n'exclut pas une arythmie paroxystique.",
+    "sources": [
+      {
+        "titre": "Mason JW, et al. Recommendations for the standardization and interpretation of the electrocardiogram. Part II: electrocardiography diagnostic statement list (AHA/ACC/HRS). J Am Coll Cardiol 2007;49:1128-1135",
+        "url": "https://doi.org/10.1016/j.jacc.2007.01.025"
+      },
+      {
+        "titre": "Brugada J, et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2019 TSV"
+    ]
+  },
+  {
+    "id": "ecg-reel-003",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 1,
+    "question": "Homme de 59 ans, consultation de médecine du travail. Estimez la fréquence cardiaque sur ce tracé (25 mm/s) et indiquez la méthode utilisée.",
+    "ecg12": {
+      "fichier": "ptbxl-00280"
+    },
+    "reponseAttendue": "Environ 60/min : rythme régulier avec un RR d'environ 5 grands carreaux (≈ 0,98 s), donc 300/5 ≈ 60/min (ou 10 QRS sur 10 s × 6).",
+    "explication": "En rythme régulier, la méthode la plus rapide est 300 divisé par le nombre de grands carreaux (5 mm = 200 ms) séparant deux QRS : ici un peu moins de 5 grands carreaux, soit ≈ 61/min. On peut vérifier en comptant les QRS sur la bande DII longue de 10 s et en multipliant par 6. Le rythme est sinusal (P positive en DII avant chaque QRS) et le tracé est annoté normal dans PTB-XL. Piège : en rythme irrégulier, la règle « 300/nombre de carreaux » n'est plus valable et seule la méthode du comptage sur 10 s est fiable.",
+    "aRetenir": "Rythme régulier : FC = 300 / nombre de grands carreaux entre deux QRS ; rythme irrégulier : QRS sur 10 s × 6.",
+    "sources": [
+      {
+        "titre": "Kligfield P, et al. Recommendations for the standardization and interpretation of the electrocardiogram. Part I: the electrocardiogram and its technology (AHA/ACC/HRS). J Am Coll Cardiol 2007;49:1109-1127",
+        "url": "https://doi.org/10.1016/j.jacc.2007.01.024"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-reel-004",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Homme de 78 ans, bilan d'une fatigue, pas de traitement bradycardisant. Quelle est votre interprétation ?",
+    "ecg12": {
+      "fichier": "ptbxl-05697"
+    },
+    "options": [
+      "Bradycardie sinusale à environ 48/min",
+      "BAV 2:1 avec une fréquence atriale de 96/min",
+      "Rythme d'échappement jonctionnel à 48/min",
+      "Bloc sino-atrial du 2e degré de type 2:1"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Chaque QRS fin est précédé d'une onde P sinusale avec un PR constant, à ≈ 48/min.",
+      "Aucune onde P bloquée n'est visible entre les QRS, notamment dans l'onde T.",
+      "Un échappement jonctionnel ne serait pas précédé d'une onde P sinusale avec PR normal.",
+      "Un BSA 2:1 est indiscernable d'une bradycardie sinusale sur un seul tracé : il se démasque par un doublement brutal de la fréquence, non visible ici."
+    ],
+    "explication": "Le rythme est régulier avec des RR d'environ 1,25 s (≈ 48/min). Une onde P positive en DI, DII, aVF précède chaque QRS fin avec un PR constant : c'est une bradycardie sinusale (< 50/min selon les recommandations ACC/AHA/HRS 2018). Le piège principal devant une bradycardie régulière est le BAV 2:1 : il faut chercher une onde P « cachée » dans l'onde T ou au milieu du RR, ce qui n'est pas le cas ici (ondes T lisses, ligne isoélectrique propre). Tracé annoté bradycardie sinusale dans PTB-XL. La conduite dépend des symptômes et de la recherche d'une cause (médicaments, hypothyroïdie).",
+    "aRetenir": "Devant une bradycardie régulière, chercher systématiquement une onde P bloquée cachée dans l'onde T (BAV 2:1).",
+    "sources": [
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS guideline on the evaluation and management of patients with bradycardia and cardiac conduction delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ACC/AHA/HRS 2018 bradycardie"
+    ]
+  },
+  {
+    "id": "ecg-reel-005",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Homme de 54 ans, cycliste amateur, totalement asymptomatique, ECG fait pour un certificat de sport. Quelle est la conduite la plus adaptée ?",
+    "ecg12": {
+      "fichier": "ptbxl-07004"
+    },
+    "options": [
+      "Implanter un stimulateur double chambre",
+      "Prescrire de la théophylline au long cours",
+      "Contre-indiquer toute activité sportive",
+      "Rassurer, sans traitement ni stimulation"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "La stimulation n'est pas indiquée pour une bradycardie sinusale asymptomatique (ESC 2021, classe III).",
+      "Un traitement chronotrope n'a aucune justification en l'absence de symptômes.",
+      "La bradycardie sinusale est une adaptation fréquente à l'entraînement d'endurance et n'impose pas d'arrêt du sport.",
+      "Une bradycardie sinusale asymptomatique, sans pause ni trouble conductif, ne relève d'aucun traitement."
+    ],
+    "explication": "Le tracé montre un rythme sinusal régulier à environ 48/min : onde P positive en DII devant chaque QRS, PR normal, QRS fins, pas de pause ni de bloc. L'axe est à la limite gauche (DII quasi isodiphasique, vers −30°), sans critère d'hémibloc (axe ≤ −45°). Chez un sportif asymptomatique, c'est une bradycardie sinusale physiologique (tonus vagal). Les recommandations ESC 2021 et ACC/AHA/HRS 2018 réservent la stimulation aux bradycardies symptomatiques corrélées ; chez l'asymptomatique elle n'est pas indiquée. Le bilan se limite à vérifier l'absence de symptômes à l'effort et, si besoin, une accélération adaptée à l'épreuve d'effort.",
+    "aRetenir": "Une bradycardie sinusale asymptomatique ne justifie jamais une stimulation cardiaque.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS guideline on the evaluation and management of patients with bradycardia and cardiac conduction delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ]
+  },
+  {
+    "id": "ecg-reel-006",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Homme de 63 ans, découverte d'un pouls lent lors d'une consultation d'anesthésie. Quelle est la fréquence ventriculaire approximative sur ce tracé (25 mm/s) ?",
+    "ecg12": {
+      "fichier": "ptbxl-00611"
+    },
+    "options": [
+      "Environ 50/min",
+      "Environ 40/min",
+      "Environ 60/min",
+      "Environ 30/min"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "50/min correspondrait à un RR de 6 grands carreaux (1,2 s), plus court que celui mesuré.",
+      "Les RR mesurent environ 7 grands carreaux (≈ 1,45 s), soit ≈ 41/min.",
+      "60/min correspondrait à 5 grands carreaux entre deux QRS.",
+      "30/min correspondrait à un RR de 10 grands carreaux (2 s)."
+    ],
+    "explication": "Les QRS sont séparés d'environ 7 grands carreaux (≈ 1,45 s) : 300/7 ≈ 43, et le comptage sur la bande DII longue donne 7 QRS en 10 s, soit ≈ 41/min. Chaque QRS est précédé d'une onde P sinusale avec un PR constant : il s'agit d'une bradycardie sinusale marquée (annotation PTB-XL). À cette fréquence, il faut rechercher des symptômes (lipothymies, dyspnée d'effort), une cause iatrogène (bêtabloquant, antiarythmique), une hypothyroïdie, et évaluer l'incompétence chronotrope à l'effort avant toute décision.",
+    "aRetenir": "FC = 300 / nombre de grands carreaux ; une bradycardie sinusale < 50/min impose la recherche de symptômes et de causes réversibles.",
+    "sources": [
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS guideline on the evaluation and management of patients with bradycardia and cardiac conduction delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      },
+      {
+        "titre": "Kligfield P, et al. Recommendations for the standardization and interpretation of the electrocardiogram. Part I: the electrocardiogram and its technology (AHA/ACC/HRS). J Am Coll Cardiol 2007;49:1109-1127",
+        "url": "https://doi.org/10.1016/j.jacc.2007.01.024"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ACC/AHA/HRS 2018 bradycardie"
+    ]
+  },
+  {
+    "id": "ecg-reel-007",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Homme de 70 ans hospitalisé pour une pneumopathie fébrile (39 °C). Quelle est votre interprétation ?",
+    "ecg12": {
+      "fichier": "ptbxl-03420"
+    },
+    "options": [
+      "Flutter atrial avec conduction 2:1",
+      "Tachycardie sinusale",
+      "Tachycardie par réentrée intranodale",
+      "Fibrillation atriale à réponse rapide"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Un flutter 2:1 donnerait une fréquence proche de 150/min et des ondes F en dents de scie, absentes ici.",
+      "Rythme régulier à ≈ 113/min, chaque QRS précédé d'une onde P positive en DII et négative en aVR.",
+      "Dans une réentrée intranodale, l'onde P est cachée dans le QRS ou rétrograde juste après, pas sinusale avant le QRS.",
+      "Les RR sont parfaitement réguliers et des ondes P organisées sont visibles."
+    ],
+    "explication": "Le rythme est régulier à ≈ 113/min. On identifie une onde P avant chaque QRS, positive en DI, DII et aVF, négative en aVR, avec un PR constant : l'activation atriale naît du nœud sinusal. Dans ce contexte fébrile, la tachycardie sinusale est une réponse physiologique et se traite par la cause. Pièges : ne pas conclure trop vite à un flutter 2:1 (fréquence typique ≈ 150/min, ondes F négatives en inférieur) ni à une tachycardie jonctionnelle (P absente ou rétrograde). Tracé PTB-XL annoté tachycardie sinusale.",
+    "aRetenir": "Tachycardie régulière avec P positive en DII/aVF et négative en aVR avant chaque QRS : tachycardie sinusale, traiter la cause.",
+    "sources": [
+      {
+        "titre": "Brugada J, et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2019 TSV"
+    ]
+  },
+  {
+    "id": "ecg-reel-008",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 3,
+    "question": "Femme de 57 ans, ECG systématique. Vrai ou faux : la variation progressive des intervalles RR observée sur ce tracé, avec une onde P identique devant chaque QRS, correspond à une arythmie sinusale.",
+    "ecg12": {
+      "fichier": "ptbxl-00322"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Les RR varient de ≈ 1,03 à ≈ 1,30 s avec des ondes P de morphologie identique et un PR constant : arythmie sinusale.",
+      "Une variation de plus de 120-160 ms des cycles avec P sinusales identiques et PR fixe définit bien l'arythmie sinusale."
+    ],
+    "explication": "Sur la bande DII longue, les RR passent d'environ 1,03 s à 1,30 s de façon progressive, sans complexe prématuré ni pause brutale. Chaque QRS est précédé d'une onde P de même morphologie, avec un PR constant : le pacemaker reste sinusal et c'est sa fréquence qui fluctue. L'arythmie sinusale respiratoire (accélération à l'inspiration) est physiologique, surtout chez le sujet jeune. Diagnostics différentiels : extrasystoles atriales (P prématurée de morphologie différente) et bloc sino-atrial (pause égale à un multiple du cycle de base). Annotation PTB-XL : arythmie sinusale, ECG normal.",
+    "aRetenir": "Arythmie sinusale = variation progressive des cycles avec P identiques et PR constant ; c'est le plus souvent physiologique.",
+    "sources": [
+      {
+        "titre": "Mason JW, et al. Recommendations for the standardization and interpretation of the electrocardiogram. Part II: electrocardiography diagnostic statement list (AHA/ACC/HRS). J Am Coll Cardiol 2007;49:1128-1135",
+        "url": "https://doi.org/10.1016/j.jacc.2007.01.025"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-reel-009",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Homme de 61 ans, palpitations irrégulières depuis la veille, hémodynamique stable. Quelle est votre interprétation ?",
+    "ecg12": {
+      "fichier": "ptbxl-00330"
+    },
+    "options": [
+      "Rythme sinusal avec extrasystoles atriales fréquentes",
+      "Flutter atrial à conduction variable",
+      "Tachycardie atriale multifocale",
+      "Fibrillation atriale à réponse ventriculaire modérée"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Il n'existe aucune onde P sinusale reproductible servant de rythme de base.",
+      "Aucune onde F régulière en dents de scie n'est visible en DII, DIII, aVF ou V1.",
+      "Elle suppose au moins trois morphologies d'ondes P distinctes, qui n'existent pas ici.",
+      "RR irrégulièrement irréguliers, absence d'onde P organisée, QRS fins, FC moyenne ≈ 63/min."
+    ],
+    "explication": "Les RR varient sans aucune périodicité (de ≈ 0,7 à 1,4 s) et aucune onde P organisée n'est identifiable : c'est la définition ECG de la fibrillation atriale (ESC 2024), qui doit être documentée sur un ECG 12 dérivations ou un tracé d'au moins 30 s. Les QRS sont fins, la réponse ventriculaire moyenne est ≈ 63/min. Les diagnostics différentiels d'un rythme irrégulier à QRS fins sont les extrasystoles atriales nombreuses (P prématurées visibles), le flutter à conduction variable (ondes F régulières) et la tachycardie atriale multifocale (P de morphologies multiples). La suite : évaluation du risque thromboembolique (CHA2DS2-VA) et de la stratégie rythme/fréquence.",
+    "aRetenir": "FA = RR irrégulièrement irréguliers + absence d'onde P organisée, à documenter sur un ECG 12 dérivations.",
+    "sources": [
+      {
+        "titre": "Van Gelder IC, et al. 2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2024 FA"
+    ]
+  },
+  {
+    "id": "ecg-reel-010",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Homme de 69 ans, rythme irrégulier à l'auscultation. Quel élément de ce tracé permet d'affirmer une fibrillation atriale plutôt qu'un flutter à conduction variable ?",
+    "ecg12": {
+      "fichier": "ptbxl-00759"
+    },
+    "options": [
+      "Une activité atriale anarchique, sans onde F régulière",
+      "L'irrégularité des intervalles RR",
+      "La présence de QRS fins",
+      "Une fréquence ventriculaire moyenne inférieure à 100/min"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Les oscillations de la ligne de base varient en amplitude et en fréquence : pas de circuit organisé comme dans le flutter.",
+      "Un flutter à conduction variable donne aussi des RR irréguliers : ce critère ne les distingue pas.",
+      "FA et flutter conduisent tous deux des QRS fins en l'absence de bloc de branche.",
+      "La fréquence ventriculaire dépend de la conduction nodale, pas du mécanisme atrial."
+    ],
+    "explication": "Ce tracé montre une FA à « grosses mailles » : les ondes f sont bien visibles en DII, DIII et aVF, mais leur amplitude, leur morphologie et leur intervalle changent en permanence, et les RR sont irrégulièrement irréguliers (≈ 94/min en moyenne). Dans un flutter, même à conduction variable, les ondes F sont régulières (≈ 250-350/min), de morphologie constante, et les RR sont souvent des multiples d'un même cycle. Le piège est de nommer « flutter » toute FA à grosses mailles : ce qui compte est la régularité de l'activité atriale, pas son amplitude. Annotation PTB-XL : fibrillation atriale.",
+    "aRetenir": "FA ou flutter : c'est la régularité de l'activité atriale (ondes F identiques et régulières) qui tranche, pas l'irrégularité des RR.",
+    "sources": [
+      {
+        "titre": "Van Gelder IC, et al. 2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "Brugada J, et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2024 FA",
+      "ESC 2019 TSV"
+    ]
+  },
+  {
+    "id": "ecg-reel-011",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Homme de 81 ans, sans antécédent notable, palpitations depuis quelques jours. Après interprétation de ce tracé, quelle est la conduite pour la prévention thromboembolique ?",
+    "ecg12": {
+      "fichier": "ptbxl-01889"
+    },
+    "options": [
+      "Aspirine au long cours à faible dose",
+      "Aucun traitement, le score étant nul",
+      "Anticoagulation orale, de préférence par un AOD",
+      "Anticoagulation seulement si la FA devient permanente"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "L'aspirine n'est pas recommandée pour prévenir les AVC de la FA.",
+      "L'âge ≥ 75 ans vaut 2 points dans le CHA2DS2-VA : le score n'est pas nul.",
+      "FA avec un score CHA2DS2-VA à 2 (âge ≥ 75 ans) : anticoagulation recommandée, AOD en première intention.",
+      "L'indication dépend du risque thromboembolique, pas du caractère paroxystique ou permanent de la FA."
+    ],
+    "explication": "Le tracé montre une fibrillation atriale : RR irrégulièrement irréguliers (≈ 90/min), absence d'onde P, fines oscillations de la ligne de base, QRS fins. Selon l'ESC 2024, le risque thromboembolique s'évalue par le score CHA2DS2-VA (le sexe n'est plus compté) : l'âge ≥ 75 ans vaut à lui seul 2 points, ce qui impose une anticoagulation orale (classe I), les AOD étant préférés aux AVK hors valve mécanique ou rétrécissement mitral modéré à serré. Le type de FA (paroxystique, persistante, permanente) ne modifie pas l'indication. L'aspirine n'a pas de place dans cette indication.",
+    "aRetenir": "FA et âge ≥ 75 ans : CHA2DS2-VA ≥ 2, anticoagulation orale (AOD de préférence), quel que soit le type de FA.",
+    "sources": [
+      {
+        "titre": "Van Gelder IC, et al. 2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2024 FA"
+    ]
+  },
+  {
+    "id": "ecg-reel-012",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 3,
+    "question": "Homme de 83 ans, dyspnée d'effort récente. Quelles propositions décrivent correctement ce tracé ?",
+    "ecg12": {
+      "fichier": "ptbxl-02032"
+    },
+    "options": [
+      "Les intervalles RR sont irrégulièrement irréguliers",
+      "Des ondes F en dents de scie sont visibles en DII",
+      "Aucune onde P organisée n'est identifiable",
+      "Il existe une pause de plus de 3 secondes",
+      "Les QRS sont fins"
+    ],
+    "reponses": [
+      0,
+      2,
+      4
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Les RR varient de ≈ 0,6 à 1,2 s sans aucune périodicité.",
+      "Il n'y a pas d'activité atriale régulière en dents de scie : ce n'est pas un flutter.",
+      "La ligne de base montre de fines ondulations irrégulières, sans onde P reproductible.",
+      "Le plus long RR mesure environ 1,2 s.",
+      "Les QRS durent moins de 120 ms : pas de bloc de branche associé."
+    ],
+    "explication": "Il s'agit d'une fibrillation atriale à réponse ventriculaire contrôlée (≈ 73/min en moyenne) : RR irrégulièrement irréguliers, absence d'onde P, fines oscillations de la ligne de base (FA « à petites mailles »), QRS fins. Aucune pause significative n'est enregistrée sur ces 10 secondes. L'absence d'onde F régulière élimine un flutter. Chez ce patient âgé et dyspnéique, il faut évaluer la fonction ventriculaire (échocardiographie), le contrôle de fréquence à l'effort et l'anticoagulation (âge ≥ 75 ans). Annotation PTB-XL : fibrillation atriale.",
+    "aRetenir": "FA à petites mailles : la ligne de base peut paraître presque plate, c'est l'irrégularité totale des RR qui oriente.",
+    "sources": [
+      {
+        "titre": "Van Gelder IC, et al. 2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2024 FA"
+    ]
+  },
+  {
+    "id": "ecg-reel-013",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Femme de 23 ans, palpitations rapides depuis 2 heures, pression artérielle normale. Quelle est votre interprétation ?",
+    "ecg12": {
+      "fichier": "ptbxl-02304"
+    },
+    "options": [
+      "Tachycardie sinusale à 115/min",
+      "Tachycardie par réentrée intranodale",
+      "Flutter atrial avec conduction 2:1",
+      "Fibrillation atriale rapide"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Une tachycardie sinusale est régulière avec une onde P visible avant chaque QRS.",
+      "Une réentrée intranodale est une tachycardie strictement régulière.",
+      "Un flutter 2:1 est régulier, typiquement autour de 150/min.",
+      "Tachycardie à QRS fins, irrégulièrement irrégulière (RR de 0,38 à 0,60 s), sans onde P organisée."
+    ],
+    "explication": "La fréquence moyenne est ≈ 114/min avec des RR totalement irréguliers (0,38 à 0,60 s) et aucune onde P organisée : c'est une fibrillation atriale à réponse rapide, à QRS fins. La première question devant une tachycardie à QRS fins est « régulière ou irrégulière ? » : les tachycardies régulières (sinusale, réentrée intranodale ou atrioventriculaire, flutter 2:1) s'opposent à la FA. Chez une patiente de 23 ans, la FA doit faire rechercher une cause (hyperthyroïdie, alcool, cardiopathie, préexcitation — ici QRS fins sans onde delta). Annotation PTB-XL : fibrillation atriale à réponse rapide.",
+    "aRetenir": "Tachycardie à QRS fins : d'abord « régulière ou irrégulière ? » ; irrégulière = FA jusqu'à preuve du contraire.",
+    "sources": [
+      {
+        "titre": "Van Gelder IC, et al. 2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "Brugada J, et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2024 FA",
+      "ESC 2019 TSV"
+    ]
+  },
+  {
+    "id": "ecg-reel-014",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 3,
+    "question": "Homme de 64 ans en rythme irrégulier. Estimez la fréquence ventriculaire moyenne sur ce tracé et justifiez la méthode.",
+    "ecg12": {
+      "fichier": "ptbxl-00866"
+    },
+    "reponseAttendue": "Environ 90/min : 15 QRS sur les 10 s de la bande DII longue × 6. En rythme irrégulier (ici fibrillation atriale), la règle « 300/nombre de carreaux » n'est pas utilisable.",
+    "explication": "Le rythme est une fibrillation atriale (RR irrégulièrement irréguliers de 0,49 à 1,0 s, absence d'onde P organisée). Dans ce cas, mesurer un seul RR donnerait une fréquence fausse (de 60 à 120/min selon le cycle choisi). La méthode recommandée est de compter les QRS sur une durée connue : 15 QRS sur les 10 s de la bande DII longue, soit ≈ 90/min. En FA, l'objectif initial de contrôle de fréquence est une FC de repos < 110/min (contrôle « souple »), resserré si les symptômes persistent (ESC 2024). Le rapport PTB-XL mentionne aussi un bloc de branche droit incomplet.",
+    "aRetenir": "En rythme irrégulier, la fréquence se mesure en comptant les QRS sur 10 s (× 6), jamais sur un seul RR.",
+    "sources": [
+      {
+        "titre": "Van Gelder IC, et al. 2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "Kligfield P, et al. Recommendations for the standardization and interpretation of the electrocardiogram. Part I: the electrocardiogram and its technology (AHA/ACC/HRS). J Am Coll Cardiol 2007;49:1109-1127",
+        "url": "https://doi.org/10.1016/j.jacc.2007.01.024"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2024 FA"
+    ]
+  },
+  {
+    "id": "ecg-reel-015",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Femme de 75 ans, palpitations et dyspnée depuis 24 heures. Quelle est votre interprétation ?",
+    "ecg12": {
+      "fichier": "ptbxl-03306"
+    },
+    "options": [
+      "Tachycardie sinusale",
+      "Tachycardie par réentrée intranodale",
+      "Flutter atrial avec conduction 2:1",
+      "Tachycardie ventriculaire"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Aucune onde P sinusale isolée ne précède les QRS ; l'activité atriale est continue en inférieur.",
+      "La réentrée intranodale n'explique pas l'activité atriale ondulante visible entre les QRS.",
+      "Tachycardie régulière à ≈ 141/min avec activité atriale en dents de scie à ≈ 280/min dans le territoire inférieur.",
+      "Les QRS sont fins et identiques aux QRS habituels : ce n'est pas une TV."
+    ],
+    "explication": "La tachycardie est strictement régulière à ≈ 141/min (RR 0,42 s) avec des QRS fins. En DII, DIII et aVF, la ligne de base n'est jamais isoélectrique : on devine une onde F entre deux QRS et une autre masquée dans le QRS ou l'onde T, soit une activité atriale à ≈ 280/min conduite en 2:1. Toute tachycardie régulière à QRS fins autour de 140-150/min doit faire évoquer un flutter 2:1 ; les manœuvres vagales ou l'adénosine, en ralentissant transitoirement la conduction, démasquent les ondes F. Le flutter impose la même évaluation du risque thromboembolique que la FA. Annotation PTB-XL : flutter atrial avec bloc 2:1.",
+    "aRetenir": "Tachycardie régulière à QRS fins vers 140-150/min : penser flutter 2:1 et chercher les ondes F en DII, DIII, aVF et V1.",
+    "sources": [
+      {
+        "titre": "Brugada J, et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Van Gelder IC, et al. 2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2024 FA",
+      "ESC 2019 TSV"
+    ]
+  },
+  {
+    "id": "ecg-reel-016",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Homme de 60 ans, palpitations depuis 3 jours. Quel est le mécanisme le plus probable de cette arythmie ?",
+    "ecg12": {
+      "fichier": "ptbxl-12986"
+    },
+    "options": [
+      "Réentrée intranodale utilisant les voies lente et rapide",
+      "Macroréentrée atriale droite dépendante de l'isthme cavo-tricuspide",
+      "Foyer automatique atrial gauche à décharge rapide",
+      "Réentrée atrioventriculaire par une voie accessoire"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "La réentrée intranodale n'engendre pas d'activité atriale continue en dents de scie à 300/min.",
+      "Ondes F négatives en dents de scie en inférieur et positives en V1 : flutter typique antihoraire, qui tourne autour de l'anneau tricuspide.",
+      "Une tachycardie focale donne des ondes P séparées par une ligne isoélectrique, pas un aspect en dents de scie.",
+      "Une réentrée orthodromique donne une P rétrograde après chaque QRS, sans activité atriale 2:1."
+    ],
+    "explication": "Le tracé montre une tachycardie régulière à 150/min, à QRS fins, avec en DII, DIII et aVF des ondes F négatives en dents de scie sans retour à la ligne isoélectrique, et des ondes F positives en V1 : c'est l'aspect du flutter typique « antihoraire » conduit en 2:1 (fréquence atriale ≈ 300/min). Le circuit est une macroréentrée de l'oreillette droite autour de l'anneau tricuspide, passant par l'isthme cavo-tricuspide. L'ablation de l'isthme est très efficace (> 90 %) et recommandée en cas de flutter typique récidivant ou symptomatique (ESC 2019). La prévention thromboembolique suit les règles de la FA. Annotation PTB-XL : flutter atrial 2:1.",
+    "aRetenir": "Flutter typique antihoraire : F négatives en dents de scie en inférieur, positives en V1 ; traitement curatif = ablation de l'isthme cavo-tricuspide.",
+    "sources": [
+      {
+        "titre": "Brugada J, et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2019 TSV"
+    ]
+  },
+  {
+    "id": "ecg-reel-017",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Homme de 65 ans, bilan d'un pouls irrégulier et lent. Quelle est votre interprétation ?",
+    "ecg12": {
+      "fichier": "ptbxl-01773"
+    },
+    "options": [
+      "Flutter atrial à conduction variable",
+      "Fibrillation atriale à réponse lente",
+      "Rythme sinusal avec BAV 2 Mobitz I",
+      "Tachycardie atriale multifocale"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Ondes F régulières et identiques (≈ 300/min) en inférieur, avec des rapports de conduction qui changent d'un cycle à l'autre.",
+      "L'activité atriale est organisée et régulière, ce qui exclut une FA.",
+      "Il n'existe pas d'onde P sinusale séparée par une ligne isoélectrique, mais une ondulation continue.",
+      "Elle comporte des ondes P de morphologies différentes séparées par une ligne isoélectrique."
+    ],
+    "explication": "Les RR sont irréguliers (0,82 à 1,6 s, ≈ 54/min) mais l'activité atriale est parfaitement régulière : en DII, DIII et aVF, on retrouve entre les QRS des ondes F identiques espacées d'environ 200 ms (≈ 300/min), sans ligne isoélectrique. Les QRS surviennent après 4 à 8 ondes F selon les cycles : c'est un flutter à conduction variable. Le piège est de conclure à une FA devant des RR irréguliers : il faut toujours regarder l'activité atriale. Une conduction lente et variable sans traitement freinateur peut témoigner d'une atteinte du nœud AV. Annotation PTB-XL : flutter atrial à conduction variable.",
+    "aRetenir": "RR irréguliers ne veut pas dire FA : des ondes F régulières et identiques signent un flutter à conduction variable.",
+    "sources": [
+      {
+        "titre": "Brugada J, et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Van Gelder IC, et al. 2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2024 FA",
+      "ESC 2019 TSV"
+    ]
+  },
+  {
+    "id": "ecg-reel-018",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Homme de 70 ans, palpitations mal définies. Quel est le rapport de conduction atrioventriculaire prédominant sur ce tracé ?",
+    "ecg12": {
+      "fichier": "ptbxl-16401"
+    },
+    "options": [
+      "4:1",
+      "2:1",
+      "3:1",
+      "1:1"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Quatre ondes F (≈ 270/min) pour un QRS sur la plupart des cycles (RR ≈ 0,9 s).",
+      "En 2:1, la fréquence ventriculaire serait d'environ 135/min et non 68/min.",
+      "Seul le dernier cycle, plus court (≈ 0,65 s), correspond à une conduction 3:1.",
+      "Une conduction 1:1 d'un flutter donnerait une fréquence ventriculaire d'environ 270/min."
+    ],
+    "explication": "On compte en DII, DIII et aVF des ondes F régulières en dents de scie, espacées d'environ 220-225 ms (≈ 270/min). Entre deux QRS (RR ≈ 0,9 s, FC ≈ 68/min), il y a quatre ondes F : la conduction est 4:1, avec un dernier cycle plus court en 3:1. Une conduction 4:1 spontanée traduit un nœud AV freinant physiologiquement ou sous traitement. Méthode : diviser la fréquence atriale par la fréquence ventriculaire, ou compter les ondes F entre deux QRS en n'oubliant pas celle qui est cachée dans le QRS ou l'onde T. Annotation PTB-XL : flutter atrial avec bloc 4:1.",
+    "aRetenir": "Rapport de conduction du flutter = fréquence atriale / fréquence ventriculaire ; penser à l'onde F masquée dans le QRS ou la T.",
+    "sources": [
+      {
+        "titre": "Brugada J, et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2019 TSV"
+    ]
+  },
+  {
+    "id": "ecg-reel-019",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Homme de 77 ans, bilan d'une bradycardie découverte en consultation, peu symptomatique. Quelle est votre interprétation ?",
+    "ecg12": {
+      "fichier": "ptbxl-02430"
+    },
+    "options": [
+      "Bradycardie sinusale avec ESA non conduites",
+      "Flutter atrial lent à conduction variable",
+      "BAV 2:1 sur rythme sinusal",
+      "Fibrillation atriale à petites mailles"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "L'activité atriale est continue et régulière, sans onde P sinusale suivie d'une P prématurée.",
+      "Ondes atriales régulières et identiques à ≈ 215/min en DIII et aVF, conduites de façon variable (≈ 47/min).",
+      "En 2:1, on compterait exactement deux P par QRS avec des RR réguliers, ce qui n'est pas le cas.",
+      "Les oscillations atriales sont régulières et de morphologie constante."
+    ],
+    "explication": "Les RR alternent entre ≈ 1,1 et 1,5 s (≈ 47/min). En DIII et aVF, on voit une activité atriale régulière, de morphologie constante, espacée d'environ 280 ms (≈ 215/min), plus lente que dans le flutter typique non traité (250-350/min). Les QRS surviennent après 4 à 6 ondes F : conduction variable. Un flutter « lent » s'observe sous antiarythmique (classe IC ou amiodarone) ou en cas de cardiopathie atriale ; il expose au risque de conduction 1:1 si le cycle atrial s'allonge encore. Le piège est de prendre ces ondes pour des P sinusales. Annotation PTB-XL : flutter atrial bradycarde.",
+    "aRetenir": "Un flutter peut être lent (< 250/min) sous antiarythmique : l'aspect régulier et répétitif de l'activité atriale reste la clé.",
+    "sources": [
+      {
+        "titre": "Brugada J, et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2019 TSV"
+    ]
+  },
+  {
+    "id": "ecg-reel-020",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Homme de 80 ans, sensation de « ratés » cardiaques. Quelle est votre interprétation ?",
+    "ecg12": {
+      "fichier": "ptbxl-00628"
+    },
+    "options": [
+      "Bigéminisme atrial avec conduction aberrante",
+      "BAV du 2e degré de type Mobitz II",
+      "Bigéminisme ventriculaire",
+      "Rythme idioventriculaire accéléré"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Une ESA aberrante serait précédée d'une onde P prématurée, absente ici.",
+      "Il n'y a pas d'onde P bloquée : les complexes supplémentaires sont des QRS larges prématurés.",
+      "Chaque QRS sinusal est suivi d'un complexe prématuré large, non précédé d'onde P, puis d'un repos compensateur.",
+      "Les complexes larges sont isolés et prématurés, pas une succession de battements ventriculaires."
+    ],
+    "explication": "Le rythme alterne régulièrement un QRS sinusal fin (précédé d'une onde P) et un QRS large prématuré (couplage ≈ 0,48 s), non précédé d'onde P, avec une repolarisation discordante, puis une pause longue de ≈ 1,4 s : c'est un bigéminisme ventriculaire. Cette pause correspond au repos compensateur habituel des ESV : l'ESV ne réinitialise pas le nœud sinusal, dont l'onde P suivante tombe en période réfractaire ventriculaire. La conduite dépend de la charge extrasystolique au Holter, des symptômes et de la recherche d'une cardiopathie sous-jacente (ESC 2022). Annotation PTB-XL : extrasystoles ventriculaires, bigéminisme.",
+    "aRetenir": "ESV : QRS large prématuré, non précédé d'onde P, suivi d'un repos compensateur.",
+    "sources": [
+      {
+        "titre": "Zeppenfeld K, et al. 2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ]
+  },
+  {
+    "id": "ecg-reel-021",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Homme de 69 ans ; l'infirmière compte un pouls radial à 36/min alors que le scope affiche 72/min. Quelle explication ce tracé apporte-t-il ?",
+    "ecg12": {
+      "fichier": "ptbxl-13841"
+    },
+    "options": [
+      "Le scope double-compte les ondes T amples",
+      "Il s'agit d'un BAV 2:1 avec P comptées comme QRS",
+      "La fréquence réelle est de 36/min, le scope est faux",
+      "Les ESV précoces du bigéminisme sont peu éjectives"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Le tracé montre de vrais complexes QRS larges prématurés, pas une onde T comptée à tort.",
+      "Les complexes supplémentaires sont des QRS larges, pas des ondes P bloquées.",
+      "L'ECG montre bien 72 complexes QRS par minute, dont la moitié sont des ESV.",
+      "Une ESV sur deux battements survient tôt, avant un remplissage suffisant : l'onde de pouls est absente ou très faible."
+    ],
+    "explication": "Le tracé montre un bigéminisme ventriculaire : chaque QRS sinusal fin est suivi d'une ESV large (positive en inférieur), puis d'une pause. La fréquence électrique est de 72/min, mais les ESV précoces (couplage ≈ 0,63 s) surviennent avant un remplissage ventriculaire suffisant et génèrent peu ou pas d'onde de pouls : c'est le « déficit pulsatile ». Le pouls palpé (36/min) peut faire croire à tort à une bradycardie sévère. À l'inverse, un scope peut sur-compter des ondes T amples ; d'où l'intérêt de regarder le tracé. Annotation PTB-XL : ESV en bigéminisme.",
+    "aRetenir": "Bigéminisme ventriculaire : pouls palpé souvent moitié moindre que la fréquence électrique (ESV peu éjectives).",
+    "sources": [
+      {
+        "titre": "Zeppenfeld K, et al. 2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ]
+  },
+  {
+    "id": "ecg-reel-022",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Homme de 53 ans, palpitations isolées au repos. Quel argument, sur ce tracé, est en faveur de l'origine ventriculaire des complexes prématurés ?",
+    "ecg12": {
+      "fichier": "ptbxl-06012"
+    },
+    "options": [
+      "QRS identique au QRS sinusal, précédé d'une onde P",
+      "Pause non compensatrice avec réinitialisation sinusale",
+      "QRS large, sans onde P prématurée, et repos compensateur",
+      "Survenue après une onde P avec un PR allongé"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Ce serait la description d'une extrasystole atriale conduite normalement.",
+      "La pause non compensatrice est l'argument classique en faveur d'une ESA, pas d'une ESV.",
+      "Les deux complexes prématurés sont larges, non précédés d'une P, et encadrés par un intervalle proche de deux cycles de base.",
+      "Un QRS conduit après une P avec PR allongé évoque une conduction AV, pas une ESV."
+    ],
+    "explication": "Deux complexes prématurés sont visibles (vers 7 et 9 s). Ils sont larges, de morphologie différente des QRS sinusaux, non précédés d'une onde P prématurée, avec une onde T discordante. Autour du premier, couplage (≈ 0,49 s) + pause (≈ 0,94 s) ≈ 1,42 s, proche de deux cycles de base (≈ 2 × 0,74 s) : repos (quasi) compensateur. Ces trois éléments orientent vers des ESV. À l'inverse, l'ESA est précédée d'une P prématurée, a le plus souvent un QRS fin identique au QRS de base, et suivie d'une pause non compensatrice. Annotation PTB-XL : extrasystoles ventriculaires.",
+    "aRetenir": "ESV : QRS large, pas de P prématurée, repos compensateur ; ESA : P prématurée, QRS fin, repos non compensateur.",
+    "sources": [
+      {
+        "titre": "Zeppenfeld K, et al. 2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ]
+  },
+  {
+    "id": "ecg-reel-023",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Homme de 73 ans, ECG systématique. Vrai ou faux : le complexe prématuré large enregistré sur ce tracé est suivi d'un repos compensateur.",
+    "ecg12": {
+      "fichier": "ptbxl-01993"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Couplage (≈ 0,50 s) + pause (≈ 1,20 s) ≈ 1,70 s, soit environ deux cycles sinusaux (≈ 2 × 0,86 s).",
+      "La somme du couplage et de la pause est bien égale à environ deux RR de base : le repos est compensateur."
+    ],
+    "explication": "Le complexe prématuré survient vers 3 s : il est large, non précédé d'onde P, avec une repolarisation discordante (ESV). Pour juger du repos, on mesure l'intervalle entre le QRS qui précède et celui qui suit l'ESV : ≈ 0,50 + 1,20 = 1,70 s, pour un cycle sinusal de base ≈ 0,86 s (2 cycles = 1,72 s). Le repos est donc compensateur : l'ESV n'a pas pénétré le nœud sinusal, dont le rythme continue ; l'onde P sinusale suivante tombe dans la période réfractaire du ventricule. Annotation PTB-XL : extrasystole ventriculaire.",
+    "aRetenir": "Repos compensateur : l'intervalle encadrant l'extrasystole vaut deux cycles de base.",
+    "sources": [
+      {
+        "titre": "Zeppenfeld K, et al. 2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ]
+  },
+  {
+    "id": "ecg-reel-024",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Femme de 65 ans, sensation de « coups » dans la poitrine. Quelle est la nature la plus probable des battements prématurés ?",
+    "ecg12": {
+      "fichier": "ptbxl-00763"
+    },
+    "options": [
+      "Extrasystoles atriales",
+      "Extrasystoles ventriculaires",
+      "Échappements jonctionnels",
+      "Captures ventriculaires d'une TV"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "QRS fins identiques aux QRS sinusaux, avec pause non compensatrice.",
+      "Des ESV auraient des QRS larges et de morphologie différente.",
+      "Un échappement est tardif (après une pause), jamais prématuré.",
+      "Il n'y a pas de tachycardie ventriculaire sur ce tracé."
+    ],
+    "explication": "Le rythme de base est sinusal (≈ 68/min, RR ≈ 0,88 s). Deux battements surviennent prématurément (couplage ≈ 0,56-0,57 s) avec un QRS fin de même morphologie que les QRS sinusaux. L'intervalle encadrant (≈ 0,56 + 1,04 = 1,60 s) est inférieur à deux cycles de base (1,76 s) : la pause est non compensatrice, car l'ESA a « réinitialisé » le nœud sinusal. L'onde P prématurée peut être déformée ou cachée dans l'onde T précédente, d'où l'intérêt de comparer les T. Les ESA isolées sont le plus souvent bénignes, mais leur fréquence élevée est associée à un risque ultérieur de FA. Annotation PTB-XL : extrasystoles atriales.",
+    "aRetenir": "ESA : QRS fin prématuré, P prématurée souvent cachée dans la T, pause non compensatrice.",
+    "sources": [
+      {
+        "titre": "Brugada J, et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Van Gelder IC, et al. 2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2024 FA",
+      "ESC 2019 TSV"
+    ]
+  },
+  {
+    "id": "ecg-reel-025",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 4,
+    "question": "Homme de 71 ans, palpitations. Vrai ou faux : les pauses qui suivent les complexes prématurés fins de ce tracé sont non compensatrices, ce qui oriente vers des extrasystoles atriales.",
+    "ecg12": {
+      "fichier": "ptbxl-00896"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Couplage (≈ 0,56 s) + pause (≈ 1,04 s) ≈ 1,60 s, inférieur à deux cycles de base (≈ 1,76 s) : pause non compensatrice.",
+      "La somme couplage + pause est bien inférieure à deux RR de base, ce qui est typique de l'ESA."
+    ],
+    "explication": "Trois complexes prématurés à QRS fins, de même morphologie que les QRS sinusaux, surviennent avec un couplage de ≈ 0,56 s. L'intervalle qui les encadre (≈ 1,60 s) est inférieur à deux cycles sinusaux (≈ 1,76 s) : la pause est non compensatrice. L'ESA dépolarise le nœud sinusal, qui repart d'un nouveau cycle ; d'où ce raccourcissement. Une ESV, qui ne pénètre habituellement pas le nœud sinusal, laisse un repos compensateur. Ce critère est utile mais non absolu : une ESV peut être interpolée, et une ESA peut ne pas réinitialiser le sinus. Annotation PTB-XL : extrasystoles atriales.",
+    "aRetenir": "Pause non compensatrice (< 2 cycles) : argument en faveur d'une extrasystole atriale.",
+    "sources": [
+      {
+        "titre": "Brugada J, et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2019 TSV"
+    ]
+  },
+  {
+    "id": "ecg-reel-026",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Homme de 65 ans, palpitations de début brutal depuis 30 minutes, PA 125/80 mmHg, pas de signe de gravité. Quelle est la première mesure thérapeutique recommandée ?",
+    "ecg12": {
+      "fichier": "ptbxl-01919"
+    },
+    "options": [
+      "Choc électrique externe synchronisé immédiat",
+      "Amiodarone IV en première intention",
+      "Digoxine IV puis surveillance",
+      "Manœuvres vagales, puis adénosine IV si échec"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "La cardioversion électrique est réservée aux patients instables ou en cas d'échec des mesures pharmacologiques.",
+      "L'amiodarone n'est pas le traitement de première ligne d'une tachycardie régulière à QRS fins stable.",
+      "La digoxine n'a pas de place dans la réduction aiguë d'une tachycardie jonctionnelle.",
+      "Tachycardie régulière à QRS fins chez un patient stable : manœuvres vagales puis adénosine (ESC 2019, classe I)."
+    ],
+    "explication": "Le tracé montre une tachycardie régulière à QRS fins à ≈ 172/min (RR 0,35 s), sans onde P visible avant les QRS ni activité atriale en dents de scie : aspect de tachycardie jonctionnelle par réentrée (intranodale ou atrioventriculaire). Chez un patient stable, l'ESC 2019 recommande en première intention les manœuvres vagales (idéalement la manœuvre de Valsalva modifiée, jambes surélevées), puis l'adénosine IV (classe I) ; en cas d'échec, vérapamil/diltiazem ou bêtabloquant IV (classe IIa), et cardioversion si instabilité. L'enregistrement d'un ECG pendant l'adénosine aide au diagnostic (démasquage d'un flutter ou d'une tachycardie atriale). Annotation PTB-XL : tachycardie supraventriculaire paroxystique.",
+    "aRetenir": "Tachycardie régulière à QRS fins stable : manœuvres vagales, puis adénosine IV, sous enregistrement ECG.",
+    "sources": [
+      {
+        "titre": "Brugada J, et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2019 TSV"
+    ]
+  },
+  {
+    "id": "ecg-reel-027",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Femme de 29 ans, palpitations à début et fin brutaux depuis l'adolescence, épisode en cours. Quel est le mécanisme le plus probable de cette tachycardie ?",
+    "ecg12": {
+      "fichier": "ptbxl-14286"
+    },
+    "options": [
+      "Flutter atrial conduit en 2:1",
+      "Réentrée intranodale commune",
+      "Tachycardie sinusale inappropriée",
+      "Tachycardie ventriculaire fasciculaire"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Un flutter 2:1 donne typiquement une fréquence ventriculaire proche de 150/min et des ondes F visibles.",
+      "Tachycardie régulière à QRS fins à 200/min sans P visible (P rétrograde cachée dans le QRS) chez une femme jeune : TRIN la plus probable.",
+      "Une tachycardie sinusale à 200/min au repos est exclue et s'accompagnerait d'une P sinusale visible.",
+      "La TV fasciculaire donne des QRS relativement larges avec aspect de BBD et axe gauche, pas des QRS fins normaux."
+    ],
+    "explication": "Tachycardie strictement régulière à ≈ 200/min (RR ≈ 0,29-0,30 s), QRS fins identiques à un QRS normal, sans onde P visible avant les QRS : l'activation atriale rétrograde est simultanée au QRS, ce qui est typique de la réentrée intranodale commune (lente-rapide), la plus fréquente des tachycardies jonctionnelles, avec une prédominance féminine. Une réentrée atrioventriculaire orthodromique donnerait plutôt une P rétrograde visible dans le segment ST (RP > 70 ms). Le traitement curatif est l'ablation de la voie lente (taux de succès > 95 %, risque de BAV < 1 %). Annotation PTB-XL : tachycardie supraventriculaire paroxystique.",
+    "aRetenir": "Tachycardie régulière à QRS fins sans P visible chez une femme jeune : réentrée intranodale jusqu'à preuve du contraire.",
+    "sources": [
+      {
+        "titre": "Brugada J, et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2019 TSV"
+    ]
+  },
+  {
+    "id": "ecg-reel-028",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 4,
+    "question": "Femme de 78 ans, palpitations rapides depuis 1 heure, hémodynamique stable. Quelles propositions sont exactes concernant ce tracé ?",
+    "ecg12": {
+      "fichier": "ptbxl-09866"
+    },
+    "options": [
+      "L'aspect des QRS impose de traiter comme une TV",
+      "Il s'agit d'une tachycardie régulière à QRS fins",
+      "L'irrégularité des RR oriente vers une FA",
+      "La fréquence ventriculaire est d'environ 160/min",
+      "Des ondes delta sont visibles sur les QRS"
+    ],
+    "reponses": [
+      1,
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Les QRS sont fins : il ne s'agit pas d'une tachycardie à QRS larges.",
+      "Les RR sont constants (≈ 0,375 s) et les QRS mesurent moins de 120 ms.",
+      "Les RR sont parfaitement réguliers.",
+      "Un RR de ≈ 0,375 s correspond à 60/0,375 ≈ 160/min.",
+      "Les QRS ne montrent pas d'empâtement initial : pas de préexcitation visible."
+    ],
+    "explication": "Tachycardie strictement régulière à ≈ 160/min (RR ≈ 0,375 s) à QRS fins, sans onde P clairement identifiable avant les QRS. Les diagnostics possibles sont la réentrée intranodale, la réentrée atrioventriculaire orthodromique, la tachycardie atriale et le flutter 2:1 (fréquence compatible) : c'est l'enregistrement ECG pendant une manœuvre vagale ou l'adénosine qui tranchera (arrêt brutal = réentrée impliquant le nœud AV ; démasquage d'ondes F ou P = arythmie atriale). Il n'y a ni irrégularité (FA), ni QRS larges (TV, aberration), ni onde delta. Annotation PTB-XL : tachycardie supraventriculaire paroxystique.",
+    "aRetenir": "Tachycardie régulière à QRS fins : l'adénosine sous enregistrement est à la fois un traitement et un test diagnostique.",
+    "sources": [
+      {
+        "titre": "Brugada J, et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2019 TSV"
+    ]
+  },
+  {
+    "id": "ecg-reel-029",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Femme de 81 ans, bilan de chutes. Quelle anomalie de la conduction atrioventriculaire présente ce tracé ?",
+    "ecg12": {
+      "fichier": "ptbxl-03196"
+    },
+    "options": [
+      "BAV du 2e degré Mobitz I",
+      "BAV du 1er degré",
+      "BAV du 2e degré 2:1",
+      "Préexcitation ventriculaire"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Il n'y a ni allongement progressif du PR ni onde P bloquée.",
+      "Chaque P est conduite avec un PR constant d'environ 260 ms (> 200 ms).",
+      "Chaque onde P est suivie d'un QRS.",
+      "La préexcitation raccourcit le PR (< 120 ms) : ici il est allongé."
+    ],
+    "explication": "Rythme sinusal régulier à ≈ 63/min. L'onde P, de faible amplitude, se voit en DII et V1 bien en avant du QRS, séparée de la fin de l'onde T ; le PR mesure environ 6,5 petits carreaux, soit ≈ 260 ms, constant d'un cycle à l'autre, et chaque P est conduite. C'est un BAV du 1er degré (PR > 200 ms). Les voltages précordiaux sont par ailleurs élevés (grande R en V5-V6), signalés dans PTB-XL. Isolé et asymptomatique, le BAV 1 ne justifie pas de stimulation ; chez une patiente qui chute, il faut toutefois rechercher un trouble conductif paroxystique plus sévère (Holter, ECG répétés). Annotation PTB-XL : BAV du 1er degré.",
+    "aRetenir": "BAV 1 = PR > 200 ms constant avec toutes les P conduites ; isolé, il ne justifie pas de stimulation.",
+    "sources": [
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS guideline on the evaluation and management of patients with bradycardia and cardiac conduction delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ]
+  },
+  {
+    "id": "ecg-reel-030",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 4,
+    "question": "Homme de 67 ans, ECG avant introduction d'un bêtabloquant. Mesurez l'intervalle PR et concluez.",
+    "ecg12": {
+      "fichier": "ptbxl-10772"
+    },
+    "reponseAttendue": "PR ≈ 270-280 ms (≈ 7 petits carreaux), constant, toutes les P conduites : BAV du 1er degré ; prudence avec les freinateurs nodaux (surveillance du PR).",
+    "explication": "En DII, l'onde P est bien individualisée après l'onde T ; du début de la P au début du QRS, on compte environ 7 petits carreaux, soit ≈ 270-280 ms, identique sur tous les cycles, avec un rythme sinusal à ≈ 73/min et des QRS fins. Il s'agit d'un BAV du 1er degré (PR > 200 ms), qualifié de « marqué » dans le compte rendu PTB-XL. Les médicaments ralentissant la conduction nodale (bêtabloquants, inhibiteurs calciques bradycardisants, digoxine, amiodarone) peuvent l'aggraver : un contrôle ECG après introduction est prudent. Un PR très long (> 300 ms) peut, à lui seul, entraîner des symptômes par perte du synchronisme AV (« pseudo-syndrome du pacemaker »).",
+    "aRetenir": "Le PR se mesure du début de l'onde P au début du QRS ; > 200 ms = BAV 1, à surveiller sous freinateurs nodaux.",
+    "sources": [
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS guideline on the evaluation and management of patients with bradycardia and cardiac conduction delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      },
+      {
+        "titre": "Kligfield P, et al. Recommendations for the standardization and interpretation of the electrocardiogram. Part I: the electrocardiogram and its technology (AHA/ACC/HRS). J Am Coll Cardiol 2007;49:1109-1127",
+        "url": "https://doi.org/10.1016/j.jacc.2007.01.024"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ACC/AHA/HRS 2018 bradycardie"
+    ]
+  },
+  {
+    "id": "ecg-reel-031",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Homme de 58 ans, lipothymies répétées depuis une semaine. Quel est le trouble conductif ?",
+    "ecg12": {
+      "fichier": "ptbxl-08048"
+    },
+    "options": [
+      "BAV complet avec échappement ventriculaire",
+      "BAV du 2e degré de type Mobitz I",
+      "Bradycardie sinusale à 37/min",
+      "BAV du 2e degré de haut degré (3:1)"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Le PR des P conduites est fixe : il n'y a pas de dissociation atrioventriculaire.",
+      "Il n'y a pas d'allongement progressif du PR avant l'onde P bloquée.",
+      "Les ondes P sont à ≈ 110/min : c'est la conduction AV qui est défaillante, pas le sinus.",
+      "Une P sur trois est conduite avec un PR constant ; les autres P sont bloquées."
+    ],
+    "explication": "Les ondes P, bien visibles en DII, DIII et aVF, sont régulières à ≈ 110/min. Les QRS sont réguliers à ≈ 37/min (RR 1,6 s) : sur trois ondes P, une seule est conduite, toujours avec le même PR (≈ 200 ms), l'une des P bloquées étant en partie cachée dans l'onde T. Le PR constant des battements conduits distingue ce BAV 2 de haut degré (3:1) d'un BAV complet (PR variable, dissociation). Les QRS présentent en outre un trouble conductif intraventriculaire avec axe droit (annotation PTB-XL). Un BAV 2 de haut degré symptomatique, sans cause réversible, est une indication de stimulation définitive (ESC 2021, classe I).",
+    "aRetenir": "PR fixe des battements conduits = BAV 2 (ici 3:1) ; PR variable avec dissociation = BAV 3.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS guideline on the evaluation and management of patients with bradycardia and cardiac conduction delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ]
+  },
+  {
+    "id": "ecg-reel-032",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Femme de 88 ans, malaise avec chute. Quelle est votre interprétation ?",
+    "ecg12": {
+      "fichier": "ptbxl-00959"
+    },
+    "options": [
+      "BAV complet avec échappement à 40/min",
+      "BAV du 2e degré 2:1",
+      "Bradycardie sinusale à 40/min",
+      "Rythme jonctionnel avec conduction rétrograde"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Les P (≈ 98/min) et les QRS (≈ 40/min) battent chacun à leur rythme avec un PR variable : dissociation AV complète.",
+      "Dans un BAV 2:1, les P conduites auraient un PR constant, ce qui n'est pas le cas.",
+      "Les ondes P sont bien plus rapides que les QRS : le sinus n'est pas lent.",
+      "Les P sont positives en DII, régulières et indépendantes des QRS, pas rétrogrades."
+    ],
+    "explication": "Les ondes P sont régulières à ≈ 98/min (bien visibles en DII et V1) ; les QRS sont réguliers à ≈ 40/min (RR ≈ 1,5 s). La position de la P par rapport au QRS change à chaque cycle (P juste avant, dans ou après le QRS) : il n'y a aucune relation fixe, c'est une dissociation atrioventriculaire complète par BAV du 3e degré. L'échappement a un aspect de retard droit en V1 (annotation PTB-XL : BBD incomplet). Chez une patiente symptomatique, l'indication de stimulation définitive est formelle après exclusion d'une cause réversible (ESC 2021, classe I) ; en attendant, surveillance scopée et possibilité de stimulation temporaire.",
+    "aRetenir": "BAV 3 : P plus rapides que les QRS, sans aucune relation fixe entre eux (PR variable), échappement régulier.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS guideline on the evaluation and management of patients with bradycardia and cardiac conduction delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ]
+  },
+  {
+    "id": "ecg-reel-033",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Homme de 68 ans, dyspnée et asthénie depuis 15 jours. Quelles propositions sont exactes ?",
+    "ecg12": {
+      "fichier": "ptbxl-08911"
+    },
+    "options": [
+      "Les ondes P sont dissociées des QRS",
+      "Le rythme de base est une fibrillation atriale lente",
+      "L'échappement à QRS fins suggère un siège haut du bloc",
+      "L'atropine est le traitement définitif de ce trouble",
+      "Une stimulation définitive est indiquée sans cause réversible"
+    ],
+    "reponses": [
+      0,
+      2,
+      4
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Les P (≈ 82/min) et les QRS (≈ 38/min) n'ont aucune relation fixe.",
+      "Des ondes P régulières sont visibles : le rythme atrial est sinusal.",
+      "Un échappement à QRS fins naît le plus souvent de la jonction (nodo-hisien).",
+      "L'atropine n'est qu'une mesure transitoire et souvent inefficace dans les blocs de bas siège.",
+      "Le BAV complet acquis, symptomatique ou non, est une indication de stimulation (ESC 2021, classe I)."
+    ],
+    "explication": "Les ondes P, de faible amplitude mais régulières (≈ 82/min), sont visibles en DII et V1 ; les QRS, fins, sont réguliers à ≈ 38/min (RR ≈ 1,57 s) et le PR change à chaque cycle : BAV complet avec échappement à QRS fins. Un échappement fin, relativement rapide, évoque un bloc nodal ou hisien haut ; un échappement large et lent (< 40/min) évoque un bloc infrahisien, plus instable. L'axe est dévié à droite (annotation PTB-XL). Le BAV complet acquis non réversible est une indication de stimulation définitive (ESC 2021). L'atropine et l'isoprénaline ne sont que des mesures d'attente.",
+    "aRetenir": "BAV 3 : échappement fin = siège plutôt haut ; échappement large et lent = siège bas, plus dangereux ; dans les deux cas, stimulation définitive.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS guideline on the evaluation and management of patients with bradycardia and cardiac conduction delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ]
+  },
+  {
+    "id": "ecg-reel-034",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Homme de 73 ans, ECG préopératoire. Quel trouble de la conduction intraventriculaire est présent ?",
+    "ecg12": {
+      "fichier": "ptbxl-03953"
+    },
+    "options": [
+      "Bloc de branche gauche complet",
+      "Hémibloc antérieur gauche isolé",
+      "Bloc de branche droit complet",
+      "Bloc de branche droit incomplet"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Un BBG donnerait un aspect QS ou rS en V1 et une R large crochetée en V6.",
+      "L'axe est normal et le QRS est élargi avec un aspect de retard droit.",
+      "QRS ≥ 120 ms avec aspect rsR' en V1 et onde S large et empâtée en V6.",
+      "La durée du QRS atteint ou dépasse 120 ms : le bloc est complet."
+    ],
+    "explication": "En V1, le QRS a un aspect rsR' avec une onde R' large et ample, suivie d'une onde T négative (trouble secondaire attendu) ; en V6 et DI, l'onde S terminale est large et empâtée. La durée du QRS est d'environ 130-140 ms. Ce sont les critères AHA/ACCF/HRS 2009 du bloc de branche droit complet : QRS ≥ 120 ms, rsR' en V1-V2 avec R' plus large que R, S terminale élargie (> 40 ms ou plus large que R) en DI et V6. L'axe frontal est normal : pas d'hémibloc associé. Isolé, le BBD est fréquent et souvent sans conséquence, mais doit faire rechercher une cardiopathie droite selon le contexte. Annotation PTB-XL : BBD complet.",
+    "aRetenir": "BBD complet : QRS ≥ 120 ms, rsR' en V1, S large en DI et V6.",
+    "sources": [
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-reel-035",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Homme de 86 ans, bilan de dyspnée. Dans quelle dérivation l'aspect caractéristique du trouble conductif de ce tracé est-il le mieux visible ?",
+    "ecg12": {
+      "fichier": "ptbxl-03155"
+    },
+    "options": [
+      "V6",
+      "aVL",
+      "DIII",
+      "V1"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "V6 montre l'onde S large, critère associé mais moins spécifique.",
+      "aVL n'est pas une dérivation clé pour reconnaître un bloc de branche droit.",
+      "DIII renseigne sur l'axe mais pas sur le type de bloc de branche.",
+      "V1 montre l'aspect rsR' (en « M ») typique du bloc de branche droit."
+    ],
+    "explication": "Ce tracé montre un bloc de branche droit complet : en V1, aspect rsR' avec une onde R' dominante et élargie ; en DI et V6, onde S terminale large. La dérivation V1, située en regard du ventricule droit, enregistre l'activation tardive et lente de ce ventricule sous forme d'une onde R' positive terminale. Réflexe de lecture : devant un QRS ≥ 120 ms, regarder V1 (R' terminale = retard droit ; QS/rS = retard gauche) puis DI et V6 pour confirmer. L'axe est ici légèrement gauche, sans atteindre −45°. Annotation PTB-XL : BBD complet.",
+    "aRetenir": "QRS large : regarder V1 d'abord — R' terminale = bloc droit, QS ou rS profond = bloc gauche.",
+    "sources": [
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-reel-036",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Homme de 65 ans, bilan d'une syncope unique. Quelle est la description la plus précise des troubles conductifs sur ce tracé ?",
+    "ecg12": {
+      "fichier": "ptbxl-07682"
+    },
+    "options": [
+      "BBD complet associé à un hémibloc antérieur gauche",
+      "BBD complet associé à un hémibloc postérieur gauche",
+      "BBD complet isolé, axe frontal normal",
+      "Bloc de branche gauche avec axe normal"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Il faudrait un axe ≤ −45° avec rS en DII, DIII, aVF : l'axe est ici normal.",
+      "Il faudrait un axe ≥ +90° avec rS en DI : DI est ici positif.",
+      "rsR' en V1 et S large en V6, avec un axe frontal normal (≈ +60°) : aucun hémibloc associé.",
+      "L'aspect de V1 (R' terminale) est celui d'un retard droit, pas gauche."
+    ],
+    "explication": "En V1, aspect rsR' avec R' dominante ; en DI et V6, onde S terminale élargie : bloc de branche droit complet (QRS ≈ 120 ms). Dans le plan frontal, DI et aVF sont positifs, DII est le plus ample : axe ≈ +60°, donc normal. Il n'y a ni hémibloc antérieur (axe ≤ −45°) ni hémibloc postérieur (axe ≥ +90° après élimination d'autres causes) : ce n'est pas un bloc bifasciculaire. Chez un patient ayant fait une syncope, un bloc bifasciculaire orienterait vers une exploration électrophysiologique ; un BBD isolé n'a pas la même valeur. Annotation PTB-XL : BBD complet.",
+    "aRetenir": "Devant un BBD, toujours déterminer l'axe : BBD + axe ≤ −45° (HBAG) ou ≥ +90° (HBPG) = bloc bifasciculaire.",
+    "sources": [
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ]
+  },
+  {
+    "id": "ecg-reel-037",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Homme de 50 ans, ECG systématique, examen clinique normal. Quelle est votre interprétation ?",
+    "ecg12": {
+      "fichier": "ptbxl-02191"
+    },
+    "options": [
+      "Bloc de branche droit complet",
+      "Bloc de branche droit incomplet",
+      "Aspect de Brugada de type 1",
+      "Hypertrophie ventriculaire droite"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "La durée du QRS est inférieure à 120 ms : le bloc n'est pas complet.",
+      "Aspect rSr' en V1 avec un QRS d'environ 90-100 ms (< 120 ms).",
+      "Le type 1 comporte un sus-décalage ST en dôme ≥ 2 mm suivi d'une T négative en V1-V2, absent ici.",
+      "Il n'y a ni grande onde R en V1, ni axe droit, ni surcharge droite."
+    ],
+    "explication": "En V1, le QRS a un aspect rSr' avec une petite onde r' terminale, et la durée totale du QRS est d'environ 90-100 ms ; l'onde S de V6 et DI est discrètement élargie. Selon l'AHA/ACCF/HRS 2009, le bloc de branche droit incomplet associe un aspect rsr'/rSR' en V1-V2 et une durée de QRS comprise entre 110 et 119 ms chez l'adulte ; en pratique, l'aspect rSr' à QRS fin est une variante fréquente, sans signification pathologique chez un sujet asymptomatique. Le compte rendu PTB-XL le qualifie d'ailleurs de « probable variante normale ». Le principal diagnostic différentiel à ne pas manquer est l'aspect de Brugada (sus-décalage ST en V1-V2).",
+    "aRetenir": "rSr' en V1 avec QRS < 120 ms : BBD incomplet, le plus souvent une variante normale chez l'asymptomatique.",
+    "sources": [
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-reel-038",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Femme de 75 ans, hypertendue, ECG annuel. Quel est l'axe électrique frontal approximatif du QRS ?",
+    "ecg12": {
+      "fichier": "ptbxl-01005"
+    },
+    "options": [
+      "Environ −70°",
+      "Environ 0°",
+      "Environ +60°",
+      "Environ +120°"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "DI positif, DII, DIII et aVF négatifs avec aspect rS : axe très gauche, vers −70°.",
+      "Un axe à 0° donnerait un aVF isodiphasique et un DII positif.",
+      "Un axe à +60° donnerait un DII très positif et un aVL faible, soit l'inverse du tracé.",
+      "Un axe droit donnerait un DI négatif et un DIII positif."
+    ],
+    "explication": "Méthode rapide : DI est positif (axe entre −90° et +90°) et aVF est négatif (axe entre 0° et −90°). DII est lui aussi nettement négatif (rS) : l'axe est donc au-delà de −30°. La dérivation la plus isodiphasique étant proche de aVR/DI, et aVL étant positif, l'axe se situe vers −60° à −75°. Cet axe très gauche, avec aspect rS en DII, DIII, aVF, qR en aVL et QRS fins, répond aux critères de l'hémibloc antérieur gauche (axe entre −45° et −90°, AHA/ACCF/HRS 2009), annoté dans PTB-XL. Le calcul de l'axe est la première étape pour reconnaître un hémibloc.",
+    "aRetenir": "DI positif + DII négatif = axe au-delà de −30° ; entre −45° et −90° avec rS inférieurs, penser hémibloc antérieur gauche.",
+    "sources": [
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      },
+      {
+        "titre": "Kligfield P, et al. Recommendations for the standardization and interpretation of the electrocardiogram. Part I: the electrocardiogram and its technology (AHA/ACC/HRS). J Am Coll Cardiol 2007;49:1109-1127",
+        "url": "https://doi.org/10.1016/j.jacc.2007.01.024"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-reel-039",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Homme de 81 ans, ECG de suivi d'une hypertension. Quel diagnostic rend compte de l'aspect des dérivations frontales ?",
+    "ecg12": {
+      "fichier": "ptbxl-00940"
+    },
+    "options": [
+      "Hémibloc antérieur gauche",
+      "Séquelle d'infarctus inférieur",
+      "Hémibloc postérieur gauche",
+      "Bloc de branche gauche complet"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Axe au-delà de −45°, rS en DII, DIII et aVF (S de DIII > S de DII), qR en aVL, QRS fins.",
+      "Les dérivations inférieures débutent par une petite onde r : il n'y a pas d'onde Q de nécrose.",
+      "L'hémibloc postérieur donne un axe droit (≥ +90°), l'inverse de ce tracé.",
+      "Les QRS sont fins et V1 ne montre pas l'aspect QS large du BBG."
+    ],
+    "explication": "Le plan frontal montre DI positif et DII, DIII, aVF négatifs de type rS, avec une onde S plus profonde en DIII qu'en DII, et un aspect qR en aVL : l'axe est d'environ −50°. Les QRS restent fins. Ce sont les critères de l'hémibloc antérieur gauche (AHA/ACCF/HRS 2009). Le piège classique est la confusion avec un infarctus inférieur : dans l'hémibloc, les dérivations inférieures commencent par une petite onde r (rS) ; dans la nécrose inférieure, elles commencent par une onde Q (QS ou Qr). L'hémibloc isolé est fréquent chez le sujet âgé hypertendu et n'impose pas d'exploration spécifique. Annotation PTB-XL : hémibloc antérieur gauche.",
+    "aRetenir": "HBAG : axe −45° à −90°, rS inférieurs (petite r initiale), qR en aVL ; une Q initiale en inférieur oriente vers une nécrose.",
+    "sources": [
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      },
+      {
+        "titre": "Wagner GS, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part VI: acute ischemia/infarction. J Am Coll Cardiol 2009;53:1003-1011",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.016"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-reel-040",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Femme de 63 ans, ECG de bilan. Devant l'axe frontal de ce tracé, quels diagnostics doivent être évoqués ?",
+    "ecg12": {
+      "fichier": "ptbxl-06938"
+    },
+    "options": [
+      "Hémibloc antérieur gauche",
+      "Hémibloc postérieur gauche",
+      "Bloc de branche gauche complet",
+      "Hypertrophie ventriculaire droite ou cœur pulmonaire",
+      "Préexcitation ventriculaire"
+    ],
+    "reponses": [
+      1,
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "L'hémibloc antérieur dévie l'axe à gauche (≤ −45°), à l'opposé de ce tracé.",
+      "L'axe est dévié à droite (≈ +110°) avec un rS en DI et une R dominante en inférieur : c'est l'annotation PTB-XL.",
+      "Les QRS sont fins et l'axe est droit : aucun critère de BBG.",
+      "L'hémibloc postérieur est un diagnostic d'élimination : une surcharge droite doit être écartée.",
+      "Il n'y a ni PR court ni onde delta."
+    ],
+    "explication": "DI est à peine négatif (rS), DII, DIII et aVF sont franchement positifs avec R de DIII > R de DII : l'axe frontal est d'environ +110°. Les QRS sont fins. L'AHA/ACCF/HRS 2009 définit l'hémibloc postérieur gauche par un axe entre +90° et +180°, un aspect rS en DI et aVL et qR en DIII et aVF, chez l'adulte, après exclusion des autres causes d'axe droit : hypertrophie ou surcharge ventriculaire droite (BPCO, embolie pulmonaire, cardiopathie congénitale), infarctus latéral étendu, morphotype longiligne. C'est donc un diagnostic d'élimination, qui nécessite la confrontation clinique et échographique. Annotation PTB-XL : hémibloc postérieur gauche probable.",
+    "aRetenir": "Axe droit (> +90°) : l'hémibloc postérieur gauche n'est retenu qu'après avoir éliminé une cause droite ou un infarctus latéral.",
+    "sources": [
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      },
+      {
+        "titre": "Hancock EW, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part V: electrocardiogram changes associated with cardiac chamber hypertrophy. J Am Coll Cardiol 2009;53:992-1002",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.015"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-reel-041",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Femme de 81 ans, deux épisodes de perte de connaissance brève sans prodrome. Quelle est l'interprétation la plus complète des troubles conductifs ?",
+    "ecg12": {
+      "fichier": "ptbxl-03455"
+    },
+    "options": [
+      "BBD complet avec axe normal",
+      "BBD complet + HBAG + BAV du 1er degré",
+      "BBG complet avec BAV du 1er degré",
+      "Hémibloc postérieur gauche et BAV 2 Mobitz I"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "L'axe est très gauche (DII, DIII, aVF profondément négatifs) : il existe un hémibloc antérieur associé.",
+      "Retard droit en V1, axe ≈ −80/−90° avec rS inférieurs, et PR allongé : atteinte des trois « fascicules » (au sens large).",
+      "V1 montre une onde R dominante (retard droit), pas un aspect QS de BBG.",
+      "L'axe est gauche et toutes les ondes P sont conduites."
+    ],
+    "explication": "En V1-V2, onde R dominante élargie (retard droit) et, en DI et V6, onde S large : bloc de branche droit complet (QRS ≈ 130 ms). Dans le plan frontal, DII, DIII et aVF sont de type rS profondément négatifs, aVL positif, DI quasi isodiphasique : axe ≈ −80/−90°, soit un hémibloc antérieur gauche associé (bloc bifasciculaire). Le PR est en outre allongé (BAV 1, annotation PTB-XL). Chez une patiente présentant des syncopes inexpliquées, un bloc bifasciculaire fait suspecter un BAV paroxystique : l'ESC 2021 recommande une exploration électrophysiologique (mesure du HV) ou un moniteur implantable, et une stimulation si HV ≥ 70 ms ou BAV documenté. Le BAV 1 n'indique pas à lui seul le siège du bloc.",
+    "aRetenir": "BBD + HBAG = bloc bifasciculaire ; associé à des syncopes, il impose de rechercher un BAV paroxystique (EEP, holter implantable).",
+    "sources": [
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ]
+  },
+  {
+    "id": "ecg-reel-042",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Femme de 81 ans, bilan de chute. Comment qualifier le trouble conductif intraventriculaire de ce tracé ?",
+    "ecg12": {
+      "fichier": "ptbxl-05003"
+    },
+    "options": [
+      "BBD complet isolé",
+      "Hémibloc antérieur gauche isolé, sans bloc droit",
+      "Bloc bifasciculaire : BBD complet et HBAG",
+      "Bloc de branche gauche complet"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "L'axe est au-delà de −45° : un hémibloc antérieur gauche est associé.",
+      "La morphologie de V1 (R' terminale) et la S large en V6 témoignent d'un BBD associé.",
+      "Retard droit en V1 et axe frontal ≈ −55° avec rS en DII, DIII et aVF.",
+      "V1 est positif en fin de QRS : c'est un retard droit."
+    ],
+    "explication": "En V1, aspect rsR' avec R' terminale et, en DI et V6, onde S élargie : bloc de branche droit complet. Dans le plan frontal, DI et aVL sont positifs, DII, DIII et aVF de type rS avec S de DIII > S de DII : axe ≈ −55°, critère d'hémibloc antérieur gauche. L'association BBD + HBAG définit le bloc bifasciculaire, la plus fréquente des associations, qui témoigne d'une atteinte étendue du tissu de conduction. Chez un patient asymptomatique, elle ne justifie pas de stimulation ; en cas de syncope inexpliquée, une exploration à la recherche d'un BAV paroxystique est recommandée (ESC 2021). Annotation PTB-XL : BBD + HBAG.",
+    "aRetenir": "Bloc bifasciculaire le plus fréquent : BBD + HBAG ; pas de stimulation sans symptôme ni BAV documenté.",
+    "sources": [
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ]
+  },
+  {
+    "id": "ecg-reel-043",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Homme de 85 ans, asymptomatique, ECG avant chirurgie de la cataracte. Quelle conduite est adaptée vis-à-vis du trouble conductif de ce tracé ?",
+    "ecg12": {
+      "fichier": "ptbxl-12098"
+    },
+    "options": [
+      "Stimulateur définitif avant l'intervention",
+      "Sonde de stimulation temporaire pendant l'anesthésie",
+      "Exploration électrophysiologique systématique",
+      "Pas de stimulation ; surveillance clinique et ECG"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Un bloc bifasciculaire asymptomatique n'est pas une indication de stimulation.",
+      "Le risque de BAV complet périopératoire est faible et ne justifie pas de stimulation prophylactique systématique.",
+      "L'EEP est réservée aux blocs bifasciculaires avec syncope inexpliquée.",
+      "Bloc bifasciculaire asymptomatique, sans BAV : la stimulation n'est pas indiquée (ESC 2021, classe III)."
+    ],
+    "explication": "Le tracé montre un bloc de branche droit complet (rsR' en V1, S large en DI et V6) associé à un hémibloc antérieur gauche (axe très gauche avec rS en DII, DIII, aVF) : c'est un bloc bifasciculaire, en rythme sinusal, sans BAV. Chez un patient asymptomatique, l'ESC 2021 ne recommande pas de stimulation (classe III), ni d'EEP systématique ; celle-ci est réservée aux patients présentant des syncopes inexpliquées. Il faut informer le patient des symptômes devant faire consulter (malaise, syncope). Annotation PTB-XL : BBD + HBAG, bloc bifasciculaire.",
+    "aRetenir": "Bloc bifasciculaire asymptomatique : ni stimulation ni EEP systématique ; information et surveillance.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ]
+  },
+  {
+    "id": "ecg-reel-044",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Homme de 78 ans, ECG de suivi. Vrai ou faux : ce tracé montre un bloc de branche droit complet avec un axe frontal normal.",
+    "ecg12": {
+      "fichier": "ptbxl-00424"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Le retard droit est bien présent, mais l'axe est très gauche (DII, DIII, aVF de type rS) : il s'y associe un hémibloc antérieur gauche.",
+      "L'axe frontal est très dévié à gauche (≈ −75°) : BBD + HBAG, soit un bloc bifasciculaire."
+    ],
+    "explication": "En V1, l'onde R' terminale large signe le bloc de branche droit complet ; en DI et V5-V6, l'onde S terminale est élargie. Mais l'axe n'est pas normal : DI et aVL sont positifs, DII, DIII et aVF sont de type rS, ce qui place l'axe vers −70/−80°, critère d'hémibloc antérieur gauche. Le diagnostic complet est donc un bloc bifasciculaire (BBD + HBAG), annoté comme tel dans PTB-XL. Oublier de calculer l'axe devant un BBD fait passer à côté de cette association, qui a une valeur pronostique différente en cas de syncope.",
+    "aRetenir": "Un BBD n'est « isolé » qu'après vérification de l'axe frontal.",
+    "sources": [
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-reel-045",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Femme de 69 ans, dyspnée d'effort progressive. Quel est le trouble de conduction ?",
+    "ecg12": {
+      "fichier": "ptbxl-00338"
+    },
+    "options": [
+      "Bloc de branche droit complet",
+      "Hypertrophie ventriculaire gauche",
+      "Bloc de branche gauche complet",
+      "Préexcitation ventriculaire"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Il n'y a pas d'onde R' terminale en V1 ni de S large en DI et V6.",
+      "L'HVG isolée ne donne pas un QRS ≥ 120 ms avec des R crochetées et sans q septale.",
+      "QRS ≥ 120 ms, QS large en V1-V3, R large crochetée en DI, aVL et V6 sans onde q septale.",
+      "Le PR n'est pas court et il n'y a pas d'onde delta."
+    ],
+    "explication": "Les QRS sont larges (≈ 130-140 ms) avec en V1-V3 un aspect QS profond, et en DI, aVL et V6 une onde R large, crochetée (« en plateau »), sans onde q septale. La repolarisation est discordante (ST-T opposé au QRS), ce qui est secondaire au bloc. Ce sont les critères AHA/ACCF/HRS 2009 du BBG complet. Le BBG est presque toujours le marqueur d'une cardiopathie (hypertensive, ischémique, dilatée) : chez une patiente dyspnéique, une échocardiographie est indispensable, et un BBG avec FEVG altérée peut relever d'une resynchronisation. Annotation PTB-XL : BBG complet.",
+    "aRetenir": "BBG complet : QRS ≥ 120 ms, QS/rS en V1, R large crochetée en DI-aVL-V6 sans q septale, repolarisation discordante.",
+    "sources": [
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ]
+  },
+  {
+    "id": "ecg-reel-046",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 5,
+    "question": "Femme de 81 ans, bilan d'insuffisance cardiaque. Quelles propositions sont exactes concernant ce tracé ?",
+    "ecg12": {
+      "fichier": "ptbxl-00286"
+    },
+    "options": [
+      "Il existe un bloc de branche gauche complet",
+      "Le sus-décalage ST de V1-V3 affirme un infarctus aigu",
+      "L'axe frontal est dévié à gauche",
+      "Une onde delta explique l'élargissement des QRS",
+      "Il s'agit d'un bloc de branche droit"
+    ],
+    "reponses": [
+      0,
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "QRS ≈ 140 ms, QS profond en V1-V3 et R larges en DI et aVL.",
+      "Un sus-décalage discordant modéré en V1-V3 est attendu dans le BBG et ne suffit pas au diagnostic d'infarctus.",
+      "DI positif et DII, DIII, aVF négatifs : axe au-delà de −30°.",
+      "Il n'y a ni PR court ni empâtement initial du QRS.",
+      "V1 est négatif (QS) : c'est un retard gauche."
+    ],
+    "explication": "Le QRS est large (≈ 140 ms) avec un aspect QS en V1-V3 et des ondes R larges en DI et aVL : bloc de branche gauche complet. L'axe est dévié à gauche (DI positif, DII, DIII et aVF négatifs), association fréquente qui témoigne d'une atteinte plus étendue du réseau gauche. Les sus-décalages ST en V1-V3 et les ondes T opposées au QRS sont des troubles secondaires ; en cas de douleur thoracique, le diagnostic d'infarctus sur BBG repose sur des critères spécifiques (critères de Sgarbossa : sus-décalage concordant ≥ 1 mm, sous-décalage concordant en V1-V3, sus-décalage discordant disproportionné). BBG + insuffisance cardiaque à FEVG ≤ 35 % : discuter une resynchronisation (ESC 2021). Annotation PTB-XL : BBG.",
+    "aRetenir": "Dans le BBG, la repolarisation discordante est attendue : l'ischémie se cherche avec des critères spécifiques (Sgarbossa).",
+    "sources": [
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      },
+      {
+        "titre": "Wagner GS, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part VI: acute ischemia/infarction. J Am Coll Cardiol 2009;53:1003-1011",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.016"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ]
+  },
+  {
+    "id": "ecg-reel-047",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Femme de 81 ans, dyspnée et palpitations irrégulières. Quelle est votre interprétation ?",
+    "ecg12": {
+      "fichier": "ptbxl-02066"
+    },
+    "options": [
+      "Fibrillation atriale avec bloc de branche gauche",
+      "Tachycardie ventriculaire polymorphe",
+      "Rythme sinusal avec ESV polymorphes",
+      "Rythme idioventriculaire accéléré"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "RR irrégulièrement irréguliers sans onde P, QRS larges de morphologie constante de type BBG.",
+      "La fréquence est ≈ 74/min et les QRS ont une morphologie constante : ce n'est ni une tachycardie ni un aspect polymorphe.",
+      "Il n'y a pas d'onde P sinusale et tous les QRS ont la même morphologie.",
+      "Les RR sont totalement irréguliers, ce qui ne correspond pas à un rythme ventriculaire."
+    ],
+    "explication": "Les RR sont irrégulièrement irréguliers (0,66 à 1,13 s), sans onde P identifiable : fibrillation atriale, à ≈ 74/min. Tous les QRS ont la même morphologie, large (≈ 140 ms), avec QS en V1-V3, R large crochetée en DI, aVL et V6 et axe gauche : bloc de branche gauche. Un rythme irrégulier à QRS larges de morphologie constante est une FA conduite avec bloc de branche jusqu'à preuve du contraire ; une TV est habituellement régulière, et une FA préexcitée donne des QRS de largeur variable et des cycles très courts. Annotation PTB-XL : FA + BBG.",
+    "aRetenir": "Rythme irrégulier à QRS larges identiques : penser FA avec bloc de branche ; QRS de largeur variable et cycles très courts : penser FA préexcitée.",
+    "sources": [
+      {
+        "titre": "Van Gelder IC, et al. 2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      },
+      {
+        "titre": "Zeppenfeld K, et al. 2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2022 arythmies ventriculaires",
+      "ESC 2024 FA"
+    ]
+  },
+  {
+    "id": "ecg-reel-048",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 5,
+    "question": "Femme de 73 ans, ECG d'admission pour décompensation cardiaque. Quel est le rythme de base et pourquoi les QRS sont-ils larges ?",
+    "ecg12": {
+      "fichier": "ptbxl-00598"
+    },
+    "reponseAttendue": "Fibrillation atriale (RR irrégulièrement irréguliers, pas d'onde P) conduite avec un bloc de branche gauche complet (QRS larges, QS en V1-V3, R large en DI et aVL, axe gauche).",
+    "explication": "Le rythme est irrégulièrement irrégulier (RR 0,68 à 1,21 s, ≈ 71/min) sans onde P organisée : fibrillation atriale. Tous les QRS ont la même morphologie, large (≈ 130-140 ms) : QS profond en V1-V3, R large en DI et aVL, axe très gauche (DII, DIII, aVF négatifs), repolarisation discordante. L'élargissement est dû à un bloc de branche gauche complet, pas à une origine ventriculaire. L'association FA + BBG chez une patiente en insuffisance cardiaque impose une évaluation de la FEVG ; si la FEVG est altérée, une stratégie de contrôle du rythme et, selon les cas, une resynchronisation peuvent se discuter. Annotation PTB-XL : FA + BBG.",
+    "aRetenir": "QRS larges de morphologie constante sur un rythme irrégulier : identifier séparément le rythme (FA) et la conduction (bloc de branche).",
+    "sources": [
+      {
+        "titre": "Van Gelder IC, et al. 2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2024 FA"
+    ]
+  },
+  {
+    "id": "ecg-reel-049",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Homme de 63 ans, ECG préopératoire, antécédent de palpitations dans la jeunesse. Quelle est votre interprétation ?",
+    "ecg12": {
+      "fichier": "ptbxl-12559"
+    },
+    "options": [
+      "Bloc de branche gauche incomplet et hypertrophie ventriculaire",
+      "Séquelle d'infarctus inférieur avec ondes Q",
+      "Hémibloc antérieur gauche avec BAV du 1er degré",
+      "Préexcitation ventriculaire (aspect de Wolff-Parkinson-White)"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "L'élargissement débute dès le début du QRS, immédiatement après une P rapprochée : c'est une onde delta.",
+      "Les ondes négatives en DIII et aVF sont des ondes delta négatives (pseudo-Q), pas des Q de nécrose.",
+      "Le PR n'est pas allongé mais raccourci, avec une onde delta.",
+      "PR court et empâtement initial du QRS (onde delta) bien visible en DI, aVL et V2-V4."
+    ],
+    "explication": "Le PR est court (≈ 120-140 ms, « plutôt court » selon le rapport PTB-XL), et la montée du QRS est empâtée d'emblée (onde delta), nettement en DI, aVL et V2-V4 où l'onde R est ample dès V1 et dominante en V2. En DIII et aVF, l'onde delta est négative et mime une onde Q (pseudo-infarctus inférieur). La repolarisation est secondairement modifiée. Une onde R dominante en V1 suggère une voie accessoire gauche. Chez un patient symptomatique (palpitations), l'ESC 2019 recommande une EEP et, le plus souvent, l'ablation de la voie. Annotation PTB-XL : WPW.",
+    "aRetenir": "Préexcitation = PR court + onde delta + QRS élargi par fusion ; les delta négatives peuvent simuler des ondes Q de nécrose.",
+    "sources": [
+      {
+        "titre": "Brugada J, et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2019 TSV"
+    ]
+  },
+  {
+    "id": "ecg-reel-050",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 6,
+    "question": "Femme de 27 ans, bilan de palpitations. Vrai ou faux : les ondes négatives initiales en DIII et aVF de ce tracé signent une séquelle d'infarctus inférieur.",
+    "ecg12": {
+      "fichier": "ptbxl-10053"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Ce sont des ondes delta négatives (pseudo-Q) liées à la préexcitation, pas des ondes Q de nécrose.",
+      "Le PR court et l'empâtement initial du QRS, positif en DI et aVL, identifient une préexcitation : les « Q » inférieures sont des delta négatives."
+    ],
+    "explication": "En DI et aVL, la très grande onde R débute par un empâtement (onde delta) qui suit immédiatement l'onde P : PR court et préexcitation. En DIII et aVF, cette même onde delta est négative, ce qui donne un aspect QS large pouvant être confondu avec une nécrose inférieure : c'est le classique « pseudo-infarctus » du WPW. Chez une femme de 27 ans sans facteur de risque, il faut reconnaître la préexcitation et ne pas porter à tort un diagnostic d'infarctus. Chez un patient symptomatique, l'EEP et l'ablation de la voie accessoire sont recommandées (ESC 2019). Annotation PTB-XL : WPW (PR court, ondes delta).",
+    "aRetenir": "Devant des « Q » chez un sujet jeune, chercher un PR court et une onde delta : pseudo-infarctus du WPW.",
+    "sources": [
+      {
+        "titre": "Brugada J, et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Thygesen K, et al. Fourth universal definition of myocardial infarction (2018). Eur Heart J 2019;40:237-269",
+        "url": "https://doi.org/10.1093/eurheartj/ehy462"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2019 TSV"
+    ]
+  },
+  {
+    "id": "ecg-reel-051",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Homme de 20 ans, épisodes de palpitations rapides. Quelles propositions sont exactes concernant ce tracé et sa prise en charge ?",
+    "ecg12": {
+      "fichier": "ptbxl-09699"
+    },
+    "options": [
+      "Les QRS larges témoignent d'un bloc de branche droit",
+      "Le PR est court avec une onde delta",
+      "Le rythme de base est jonctionnel",
+      "En cas de FA préexcitée, les freinateurs nodaux IV sont contre-indiqués",
+      "Une EEP et une ablation de la voie accessoire sont recommandées"
+    ],
+    "reponses": [
+      1,
+      3,
+      4
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "L'élargissement est initial (onde delta) et non terminal comme dans un bloc droit.",
+      "La montée du QRS est empâtée dès la fin de la P, très nette en DII, DIII et aVF.",
+      "Chaque QRS est précédé d'une onde P sinusale.",
+      "Vérapamil, diltiazem, digoxine (et adénosine) peuvent favoriser une conduction rapide par la voie et une FV.",
+      "Chez un patient symptomatique, l'ablation par cathéter est le traitement recommandé (ESC 2019, classe I)."
+    ],
+    "explication": "Rythme sinusal à ≈ 50/min ; le PR est court et le QRS débute par une onde delta très ample, positive en DII, DIII, aVF et en V1-V3, négative en DI et aVL (axe apparent droit). Le QRS est élargi par fusion entre activation par la voie accessoire et par le réseau normal. Chez ce patient symptomatique, l'ESC 2019 recommande l'EEP et l'ablation (classe I). Le risque majeur est la FA préexcitée conduite très rapidement par la voie, pouvant dégénérer en FV : les freinateurs nodaux sont alors contre-indiqués, la cardioversion électrique (si instabilité) ou l'ibutilide/procaïnamide sont recommandés. Annotation PTB-XL : WPW.",
+    "aRetenir": "WPW symptomatique : ablation ; FA préexcitée : jamais de freinateur nodal, cardioversion si instable.",
+    "sources": [
+      {
+        "titre": "Brugada J, et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2019 TSV"
+    ]
+  },
+  {
+    "id": "ecg-reel-052",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 5,
+    "question": "Homme de 34 ans, ECG d'embauche. Quelle anomalie observe-t-on au début des QRS en V2-V3, et quel est le diagnostic ?",
+    "ecg12": {
+      "fichier": "ptbxl-05303"
+    },
+    "reponseAttendue": "Un empâtement initial de la montée du QRS (onde delta) juste après l'onde P, avec PR court : préexcitation ventriculaire (aspect de Wolff-Parkinson-White).",
+    "explication": "En V2-V3, le QRS démarre immédiatement après l'onde P par une montée lente et empâtée (onde delta) avant la déflexion rapide : le PR est court et le QRS élargi. Les grandes ondes R dès V2 et la R en V1 évoquent une voie accessoire gauche (aspect dit « type A »). Les troubles de repolarisation (T négatives en V2-V3) sont secondaires à la préexcitation. Chez un sujet asymptomatique, l'ESC 2019 propose une stratification du risque (EEP, classe IIa ; épreuve d'effort à la recherche d'une disparition brutale de la préexcitation), surtout en cas de profession à risque. Annotation PTB-XL : WPW.",
+    "aRetenir": "Onde delta = empâtement initial du QRS juste après la P ; chez l'asymptomatique, stratifier le risque de la voie accessoire.",
+    "sources": [
+      {
+        "titre": "Brugada J, et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2019 TSV"
+    ]
+  },
+  {
+    "id": "ecg-reel-053",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Homme de 76 ans, porteur d'un stimulateur cardiaque dont il ne connaît pas le type. Quel est le site de stimulation ventriculaire le plus probable ?",
+    "ecg12": {
+      "fichier": "ptbxl-03990"
+    },
+    "options": [
+      "Ventricule gauche via le sinus coronaire",
+      "Ventricule droit (apex ou septum bas)",
+      "Faisceau de His (stimulation hisienne)",
+      "Oreillette droite seule"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "La stimulation VG épicardique donne un aspect de retard droit (R dominante en V1) avec axe souvent droit.",
+      "Spike suivi d'un QRS large de type retard gauche (QS en V1-V3) avec axe hypérieur (DII, DIII, aVF négatifs).",
+      "La stimulation hisienne sélective produit un QRS fin identique au QRS spontané.",
+      "Une stimulation atriale seule serait suivie d'une onde P puis d'un QRS spontané fin."
+    ],
+    "explication": "Chaque QRS est précédé d'un spike ventriculaire à fréquence fixe (≈ 70/min). Le QRS stimulé est large, avec un aspect de retard gauche (QS en V1-V3, R en DI et aVL) et un axe frontal hypérieur (DII, DIII et aVF négatifs) : l'activation part de la région apicale du ventricule droit et remonte vers la base, ce qui est typique de la stimulation VD apicale ou septale basse. Une stimulation VG épicardique donnerait une R dominante en V1 ; une stimulation du système de conduction (His, branche gauche) un QRS fin ou un aspect de retard droit incomplet. Annotation PTB-XL : rythme électro-entraîné normal.",
+    "aRetenir": "Stimulation VD apicale : QRS large de type BBG avec axe hypérieur ; stimulation VG : R dominante en V1.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ]
+  },
+  {
+    "id": "ecg-reel-054",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 4,
+    "question": "Femme de 75 ans porteuse d'un stimulateur, ECG de contrôle sans douleur thoracique. Vrai ou faux : l'aspect de retard gauche avec ondes T opposées au QRS observé sur ce tracé est attendu en stimulation ventriculaire droite et ne signe pas, à lui seul, une ischémie.",
+    "ecg12": {
+      "fichier": "ptbxl-02664"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "La stimulation VD produit une activation lente de type BBG avec une repolarisation secondairement discordante.",
+      "La discordance ST-T est la règle en stimulation VD : elle ne traduit pas en soi une ischémie."
+    ],
+    "explication": "Chaque QRS est précédé d'un spike, à ≈ 80/min. Les QRS sont larges avec aspect de retard gauche (QS en V1-V3) et axe hypérieur : stimulation ventriculaire droite. Comme dans le bloc de branche gauche, la dépolarisation anormale entraîne une repolarisation « secondaire », discordante par rapport au QRS (sus-décalage ST en V1-V3, T négatives en DI, aVL). Ces anomalies ne doivent pas être interprétées comme une ischémie ; en cas de douleur thoracique, des critères spécifiques (Sgarbossa modifiés) sont nécessaires, avec une sensibilité limitée. Autre piège : les T négatives persistantes après retour en rythme spontané (« mémoire cardiaque ») ne sont pas forcément ischémiques. Annotation PTB-XL : rythme électro-entraîné normal.",
+    "aRetenir": "Stimulation VD : repolarisation discordante attendue ; l'ischémie ne s'y évalue qu'avec des critères spécifiques.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Wagner GS, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part VI: acute ischemia/infarction. J Am Coll Cardiol 2009;53:1003-1011",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.016"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ]
+  },
+  {
+    "id": "ecg-reel-055",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Homme de 77 ans, porteur d'un stimulateur, ECG de contrôle à distance de l'implantation. Quel fonctionnement du stimulateur est visible sur ce tracé ?",
+    "ecg12": {
+      "fichier": "ptbxl-16995"
+    },
+    "options": [
+      "Stimulation ventriculaire seule en mode VVI",
+      "Stimulation séquentielle de l'oreillette puis du ventricule",
+      "Stimulation atriale seule avec conduction spontanée",
+      "Perte de capture ventriculaire intermittente"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Un spike atrial précède chaque spike ventriculaire : l'oreillette est également stimulée.",
+      "Deux spikes par cycle : un spike atrial puis, ≈ 190 ms plus tard, un spike ventriculaire suivi d'un QRS large.",
+      "Les QRS sont larges et précédés d'un spike ventriculaire : ils sont stimulés.",
+      "Chaque spike ventriculaire est suivi d'un QRS large de capture."
+    ],
+    "explication": "Sur la bande DII et en V1, on distingue à chaque cycle deux spikes : un premier spike (atrial), suivi environ 190 ms plus tard d'un second spike (ventriculaire) immédiatement suivi d'un QRS large de type BBG avec axe gauche. La fréquence est ≈ 62/min. Il s'agit d'une stimulation double chambre séquentielle (A stimulée – V stimulé), le délai entre les deux spikes correspondant au délai AV programmé. L'onde P stimulée est de faible amplitude. Ce mode préserve le synchronisme AV ; en cas de conduction AV intacte, des algorithmes de réduction de la stimulation ventriculaire sont recommandés. Annotation PTB-XL : « stimulation double chambre normale, fréquence 62 ».",
+    "aRetenir": "Deux spikes par cycle (A puis V) séparés par le délai AV : stimulation double chambre séquentielle.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ]
+  },
+  {
+    "id": "ecg-reel-056",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Femme de 79 ans, stimulateur implanté pour BAV complet. Quel comportement du stimulateur ce tracé illustre-t-il ?",
+    "ecg12": {
+      "fichier": "ptbxl-11080"
+    },
+    "options": [
+      "Stimulation ventriculaire asynchrone à fréquence fixe (VOO)",
+      "Stimulation atriale seule avec conduction AV spontanée",
+      "Perte de capture ventriculaire avec échappement",
+      "Stimulation ventriculaire synchronisée sur l'onde P (double chambre)"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "La fréquence varie avec le rythme atrial et les spikes suivent systématiquement une onde P.",
+      "Les QRS sont larges et précédés d'un spike ventriculaire : ils sont stimulés.",
+      "Chaque spike ventriculaire est suivi d'un QRS large de capture.",
+      "Chaque spike ventriculaire suit une onde P à intervalle fixe, et la fréquence (≈ 94/min) suit le rythme atrial."
+    ],
+    "explication": "Chaque QRS large, de type retard gauche avec axe hypérieur (stimulation VD), est précédé d'un spike ventriculaire, lui-même précédé d'une onde P à un intervalle constant (≈ 150 ms). Aucun spike atrial n'est visible devant ces P. La fréquence ventriculaire (≈ 94/min) suit donc l'activité atriale : le stimulateur détecte l'oreillette et stimule le ventricule après le délai AV (fonctionnement VDD/DDD, « P-synchrone »). Chez une patiente en BAV complet, c'est le comportement attendu, qui maintient le synchronisme AV et l'adaptation de fréquence d'origine sinusale. Annotation PTB-XL : rythme électro-entraîné régulier, fonctionnement normal.",
+    "aRetenir": "P détectée puis spike V à délai fixe : stimulation ventriculaire P-synchrone (VDD/DDD), qui suit la fréquence sinusale.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ]
+  },
+  {
+    "id": "ecg-reel-057",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 4,
+    "question": "Femme de 68 ans, hypertension ancienne mal contrôlée. Calculez l'indice de Sokolow-Lyon sur ce tracé et concluez.",
+    "ecg12": {
+      "fichier": "ptbxl-02131"
+    },
+    "reponseAttendue": "SV1 (≈ 1,9 mV) + RV5 (≈ 4,8 mV) ≈ 6,5-7 mV, bien au-delà de 3,5 mV : hypertrophie ventriculaire gauche, ici avec troubles de repolarisation de type surcharge (sous-décalage ST et T négatives asymétriques en V4-V6).",
+    "explication": "L'indice de Sokolow-Lyon additionne l'onde S de V1 et la plus grande onde R de V5 ou V6 ; il est positif au-delà de 3,5 mV (35 mm). Ici, SV1 ≈ 19 mm et RV5 ≈ 48 mm (la R sort du cadre de la dérivation) : indice ≈ 67 mm. Les critères de Cornell sont également positifs chez cette femme (RaVL + SV3 > 2,0 mV). Le sous-décalage ST descendant avec onde T négative asymétrique en V4-V6 et DI correspond au classique aspect de « surcharge » (strain), associé à une HVG plus sévère et à un pronostic moins favorable. Les critères électriques ont une bonne spécificité mais une sensibilité faible : l'échocardiographie reste l'examen de référence. Annotation PTB-XL : HVG avec troubles de repolarisation.",
+    "aRetenir": "Sokolow-Lyon = SV1 + RV5 ou RV6 > 3,5 mV ; l'aspect de surcharge (ST-T) signe une HVG plus sévère.",
+    "sources": [
+      {
+        "titre": "Sokolow M, Lyon TP. The ventricular complex in left ventricular hypertrophy as obtained by unipolar precordial and limb leads. Am Heart J 1949;37:161-186",
+        "url": "https://doi.org/10.1016/0002-8703(49)90562-1"
+      },
+      {
+        "titre": "Hancock EW, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part V: electrocardiogram changes associated with cardiac chamber hypertrophy. J Am Coll Cardiol 2009;53:992-1002",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.015"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-reel-058",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Femme de 75 ans, rétrécissement aortique connu, dyspnée d'effort. Quelle est l'interprétation la plus probable des anomalies ST-T latérales ?",
+    "ecg12": {
+      "fichier": "ptbxl-00296"
+    },
+    "options": [
+      "HVG avec troubles de repolarisation de type surcharge",
+      "Syndrome coronarien aigu sans sus-décalage de ST",
+      "Péricardite aiguë au stade initial",
+      "Imprégnation digitalique"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Voltages très augmentés avec ST descendant et T négatives asymétriques en V4-V6 : aspect de surcharge.",
+      "Ces anomalies accompagnent des voltages d'HVG et ont l'aspect typique de surcharge ; un SCA exige un contexte clinique et biologique.",
+      "La péricardite donne un sus-décalage ST diffus concave avec sous-décalage de PR, absent ici.",
+      "L'effet digitalique donne un ST « en cupule » avec QT court, sans voltages d'HVG."
+    ],
+    "explication": "Les voltages sont très augmentés : R de V5 ≈ 3,9 mV, S de V1 ≈ 1,3 mV (Sokolow-Lyon ≈ 5,2 mV), R amples en DII et aVF. En V4-V6, le segment ST est sous-décalé et descendant, suivi d'une onde T négative asymétrique : aspect de « surcharge » (strain) de l'HVG. Dans le contexte d'un rétrécissement aortique, c'est la traduction électrique d'une HVG de pression marquée ; l'aspect de surcharge est associé à une fibrose myocardique et à un pronostic plus sévère. L'interprétation d'une ischémie surajoutée sur un tel tracé est difficile et repose sur la clinique, la troponine et la comparaison aux ECG antérieurs. Annotation PTB-XL : HVG, anomalies ST-T.",
+    "aRetenir": "Grands voltages + ST descendant et T négative asymétrique en latéral : HVG avec surcharge, pas un SCA par défaut.",
+    "sources": [
+      {
+        "titre": "Hancock EW, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part V: electrocardiogram changes associated with cardiac chamber hypertrophy. J Am Coll Cardiol 2009;53:992-1002",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.015"
+      },
+      {
+        "titre": "Rautaharju PM, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part IV: the ST segment, T and U waves, and the QT interval. J Am Coll Cardiol 2009;53:982-991",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.014"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-reel-059",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Femme de 73 ans, hypertendue. Quel critère électrique d'hypertrophie ventriculaire gauche est rempli sur ce tracé ?",
+    "ecg12": {
+      "fichier": "ptbxl-04768"
+    },
+    "options": [
+      "Cornell : RaVL + SV3 > 2,0 mV",
+      "Onde R en aVL > 1,1 mV",
+      "Sokolow-Lyon : SV1 + RV5 > 3,5 mV",
+      "R en DI + S en DIII > 2,5 mV"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "RaVL ≈ 0,4 mV + SV3 ≈ 1,45 mV ≈ 1,9 mV : juste sous le seuil féminin de 2,0 mV.",
+      "L'onde R d'aVL mesure environ 0,4 mV.",
+      "SV1 ≈ 1,2 mV + RV5 ≈ 3,75 mV ≈ 5,0 mV.",
+      "R de DI ≈ 1,0 mV et S de DIII quasi nulle : la somme est loin de 2,5 mV."
+    ],
+    "explication": "Les grandes ondes R sont précordiales : RV5 ≈ 37-38 mm et SV1 ≈ 12 mm (SV2 ≈ 20 mm), d'où un Sokolow-Lyon ≈ 50 mm, positif (> 35 mm). En revanche, les voltages frontaux sont modestes : RaVL ≈ 4 mm, R DI + S DIII ≈ 10 mm, et le Cornell (RaVL + SV3) ≈ 19 mm reste juste sous le seuil féminin (20 mm). Cet exemple montre que les différents critères ne sont pas concordants et que leur sensibilité est faible ; l'échocardiographie confirme ou non l'HVG. Les critères de voltage peuvent aussi être faussement positifs chez les sujets minces. Annotation PTB-XL : voltages précordiaux d'HVG.",
+    "aRetenir": "Les critères de voltage d'HVG sont spécifiques mais peu sensibles et souvent discordants : l'échocardiographie tranche.",
+    "sources": [
+      {
+        "titre": "Hancock EW, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part V: electrocardiogram changes associated with cardiac chamber hypertrophy. J Am Coll Cardiol 2009;53:992-1002",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.015"
+      },
+      {
+        "titre": "Sokolow M, Lyon TP. The ventricular complex in left ventricular hypertrophy as obtained by unipolar precordial and limb leads. Am Heart J 1949;37:161-186",
+        "url": "https://doi.org/10.1016/0002-8703(49)90562-1"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-reel-060",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Femme de 73 ans, antécédent de douleur thoracique prolongée il y a plusieurs années, non explorée. Quel diagnostic rend le mieux compte de l'aspect des dérivations DII, DIII et aVF ?",
+    "ecg12": {
+      "fichier": "ptbxl-00532"
+    },
+    "options": [
+      "Hémibloc antérieur gauche isolé",
+      "Bloc de branche gauche complet",
+      "Préexcitation avec onde delta négative",
+      "Séquelle d'infarctus inférieur"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "L'hémibloc donne un aspect rS avec une petite r initiale, pas un QS.",
+      "Les QRS sont fins et V1 ne montre pas de QS large.",
+      "Le PR n'est pas court et il n'y a pas d'empâtement initial du QRS.",
+      "Complexes QS (sans onde r initiale) en DII, DIII et aVF : ondes Q de nécrose inférieure."
+    ],
+    "explication": "En DII, DIII et aVF, les QRS sont de type QS : ils commencent d'emblée par une déflexion négative, sans petite onde r initiale, et l'axe est très gauche. L'absence de r initiale oriente vers des ondes Q de nécrose inférieure plutôt que vers un hémibloc antérieur gauche (qui donne un rS). Le segment ST inférieur reste légèrement sus-décalé avec une onde T peu ample, aspect fréquent des séquelles. Selon la définition universelle de l'infarctus, des ondes Q ≥ 30 ms dans deux dérivations contiguës (ou QS) sont compatibles avec un infarctus ancien, à confirmer par imagerie. Annotation PTB-XL : infarctus inférieur.",
+    "aRetenir": "Axe gauche avec QS inférieurs (sans r initiale) : nécrose inférieure ; rS inférieurs : hémibloc antérieur gauche.",
+    "sources": [
+      {
+        "titre": "Thygesen K, et al. Fourth universal definition of myocardial infarction (2018). Eur Heart J 2019;40:237-269",
+        "url": "https://doi.org/10.1093/eurheartj/ehy462"
+      },
+      {
+        "titre": "Wagner GS, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part VI: acute ischemia/infarction. J Am Coll Cardiol 2009;53:1003-1011",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.016"
+      },
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-reel-061",
+    "theme": "ecg",
+    "sousTheme": "ECG réels 12 dérivations",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 6,
+    "question": "Homme de 73 ans, ECG de suivi, antécédent coronarien mal documenté. Vrai ou faux : l'aspect QS de V1 à V3 de ce tracé, avec des QRS de durée normale, est typique d'un bloc de branche gauche complet.",
+    "ecg12": {
+      "fichier": "ptbxl-00177"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Le BBG impose un QRS ≥ 120 ms avec R larges crochetées en DI, aVL et V6, absents ici.",
+      "QS en V1-V3 avec QRS non élargis : séquelle de nécrose antéroseptale (annotation PTB-XL)."
+    ],
+    "explication": "En V1, V2 et V3, les complexes sont de type QS, sans progression de l'onde R, suivis d'un sus-décalage ST persistant avec ondes T positives. Les QRS ne sont pas élargis (< 120 ms) et il n'existe pas d'onde R large crochetée en DI, aVL ou V6 : ce n'est pas un BBG. Cet aspect correspond à une séquelle d'infarctus antéroseptal ; un sus-décalage ST persistant en regard de la nécrose peut faire évoquer un anévrisme ventriculaire, à rechercher en échocardiographie. Il faut toujours comparer aux tracés antérieurs pour ne pas prendre ce sus-décalage séquellaire pour un infarctus aigu. Annotation PTB-XL : infarctus antéroseptal.",
+    "aRetenir": "QS en V1-V3 à QRS fins : nécrose antéroseptale ; le BBG exige un QRS ≥ 120 ms avec R large crochetée en latéral.",
+    "sources": [
+      {
+        "titre": "Thygesen K, et al. Fourth universal definition of myocardial infarction (2018). Eur Heart J 2019;40:237-269",
+        "url": "https://doi.org/10.1093/eurheartj/ehy462"
+      },
+      {
+        "titre": "Wagner GS, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part VI: acute ischemia/infarction. J Am Coll Cardiol 2009;53:1003-1011",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.016"
+      },
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      },
+      {
+        "titre": "Wagner P, Strodthoff N, Bousseljot RD, et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154",
+        "url": "https://doi.org/10.1038/s41597-020-0495-6"
+      },
+      {
+        "titre": "PTB-XL, a large publicly available electrocardiography dataset, version 1.0.3 (PhysioNet, licence CC BY 4.0)",
+        "url": "https://physionet.org/content/ptb-xl/1.0.3/"
+      }
+    ],
+    "revise": "2026-09"
+  }
+]

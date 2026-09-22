@@ -379,7 +379,7 @@ export function dessinerECG(canvas, def, seed = 'ecg', opts = {}) {
   T.fonds.push(t => 0.03 * Math.sin(2 * Math.PI * 0.25 * t / 1000 + w0)); // ligne de base légèrement ondulante
 
   const mmL = 260, mmH = 34;
-  const largeurDispo = canvas.parentElement?.clientWidth || 700;
+  const largeurDispo = (canvas.closest('.ecg-cadre') || canvas.parentElement)?.clientWidth || 700;
   const pxmm = opts.pxmm || Math.max(3, largeurDispo / mmL);
   const { ctx } = papier(canvas, mmL, mmH, pxmm);
   const base = mmH * pxmm * 0.6;

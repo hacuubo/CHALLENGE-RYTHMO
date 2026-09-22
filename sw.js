@@ -1,6 +1,6 @@
 // Service worker : application utilisable hors ligne.
 // Coquille de l'application : cache d'abord. Base de questions : réseau d'abord (mises à jour), cache en secours.
-const VERSION = 'rythmo-d0a012ec84'; // mis à jour par scripts/build-index.mjs
+const VERSION = 'rythmo-66b5c08edf'; // mis à jour par scripts/build-index.mjs
 const COQUILLE = ['./', 'index.html', 'css/styles.css', 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png',
   'js/app.js', 'js/store.js', 'js/util.js', 'js/donnees.js', 'js/session.js', 'js/ecg.js', 'js/ecg12.js', 'js/traces.js',
   'js/vues/accueil.js', 'js/vues/config.js', 'js/vues/quiz.js', 'js/vues/resultats.js', 'js/vues/progression.js',
