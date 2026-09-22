@@ -295,7 +295,7 @@ const presets = {
     T.pStimulee(200 + rr0); T.qrsStimuleVD(370 + rr0, rr0);
     const esv = 370 + rr0 + 520; T.qrsVentriculaire(esv, rr0);
     let pret = esv + 210;
-    while (pret < DUREE) { T.pRetro(pret); const v = pret + 170; if (v < DUREE) T.qrsStimuleVD(v, rr); pret = v + 330; }
+    while (pret < DUREE) { T.pRetro(pret); const v = pret + 170; if (v < DUREE) T.qrsStimuleVD(v, rr); pret = v + rr - 170; }
   },
   fusion(T, o) {
     const rr = 60000 / (o.fc || 70);
