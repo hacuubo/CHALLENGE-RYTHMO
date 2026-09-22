@@ -16,6 +16,12 @@
     "reponses": [
       0
     ],
+    "commentaires": [
+      "Juste : l'ouverture brutale des canaux Nav1.5 (INa) produit la phase 0 des cellules à réponse rapide ; sa vitesse conditionne la conduction.",
+      "Faux : IK1 maintient le potentiel de repos (phase 4) et la fin de la repolarisation, il ne dépolarise pas.",
+      "Faux : ICaL porte la phase 0 des cellules nodales, mais dans le myocarde ventriculaire il intervient surtout au plateau (phase 2).",
+      "Faux : If participe à la dépolarisation diastolique des cellules automatiques, pas à la phase 0 du myocarde de travail."
+    ],
     "reponseAttendue": null,
     "explication": "La phase 0 du potentiel d'action des cellules « à réponse rapide » (myocarde atrial et ventriculaire, Purkinje) est due à l'ouverture brutale des canaux sodiques Nav1.5 (gène SCN5A) : c'est le courant INa. Sa vitesse (dV/dt max) conditionne la vitesse de conduction, d'où l'effet des antiarythmiques de classe I qui le bloquent et élargissent le QRS. Le courant ICaL intervient surtout au plateau (phase 2) dans ces cellules. IK1 maintient le potentiel de repos (phase 4) et le courant If participe à la dépolarisation diastolique des cellules automatiques. Le piège : confondre avec les cellules nodales, dont la phase 0 est calcique.",
     "aRetenir": "La phase 0 du myocarde ventriculaire est sodique (INa, Nav1.5) ; elle détermine la vitesse de conduction.",
@@ -42,10 +48,16 @@
       "Le courant potassique IKr",
       "Le courant sodique tardif INaL",
       "Le courant transitoire sortant Ito",
-      "Le courant « funny » If (canaux HCN4)"
+      "Le courant If (canaux HCN4)"
     ],
     "reponses": [
       3
+    ],
+    "commentaires": [
+      "Faux : IKr est un courant de repolarisation (phase 3), cible des antiarythmiques de classe III.",
+      "Faux : INaL est un courant sodique tardif du plateau, cible de la ranolazine, pas de l'ivabradine.",
+      "Faux : Ito est un courant sortant de repolarisation précoce (phase 1).",
+      "Juste : If, courant entrant activé par l'hyperpolarisation et porté par HCN4, fait la pente diastolique sinusale ; l'ivabradine le bloque."
     ],
     "reponseAttendue": null,
     "explication": "L'automatisme sinusal repose sur une dépolarisation diastolique spontanée en phase 4. Le courant If, porté par les canaux HCN (surtout HCN4), est un courant entrant activé par l'hyperpolarisation ; il est modulé par l'AMPc, donc par le système nerveux autonome. L'ivabradine le bloque sélectivement et ralentit la fréquence sinusale sans effet inotrope. D'autres mécanismes y contribuent (courants calciques T et L, échangeur Na/Ca activé par la libération de calcium du réticulum : « horloge calcique »). IKr et Ito sont des courants de repolarisation ; INaL est un courant sodique tardif du plateau.",
@@ -68,16 +80,20 @@
     "marque": null,
     "type": "vf",
     "difficulte": 3,
-    "question": "Vrai ou faux : la phase 0 du potentiel d'action des cellules du nœud sinusal et du nœud auriculo-ventriculaire dépend principalement du courant sodique rapide.",
+    "question": "Vrai ou faux : la phase 0 du potentiel d'action des cellules du nœud sinusal et du nœud auriculo-ventriculaire dépend principalement du courant calcique de type L (ICaL).",
     "options": [
       "Vrai",
       "Faux"
     ],
     "reponses": [
-      1
+      0
+    ],
+    "commentaires": [
+      "Juste : le potentiel diastolique peu négatif (environ −60 mV) inactive les canaux sodiques ; la phase 0 nodale est portée par ICaL.",
+      "Faux : l'affirmation est exacte ; c'est le myocarde de travail, pas le tissu nodal, dont la phase 0 dépend du courant sodique rapide."
     ],
     "reponseAttendue": null,
-    "explication": "C'est faux. Les cellules nodales (nœud sinusal, NAV compact) sont des cellules « à réponse lente » : leur potentiel diastolique est moins négatif (environ -60 mV), ce qui inactive la plupart des canaux sodiques. Leur phase 0 dépend du courant calcique de type L (ICaL), d'où une dépolarisation lente et une conduction lente. C'est ce qui explique la sensibilité du NAV aux inhibiteurs calciques (vérapamil, diltiazem) et à l'adénosine, et sa relative insensibilité aux antiarythmiques de classe I. Le piège est d'étendre au tissu nodal la physiologie du myocarde de travail.",
+    "explication": "C'est vrai. Les cellules nodales (nœud sinusal, NAV compact) sont des cellules « à réponse lente » : leur potentiel diastolique est moins négatif (environ −60 mV), ce qui inactive la plupart des canaux sodiques. Leur phase 0 dépend du courant calcique de type L (ICaL), d'où une dépolarisation lente et une conduction lente. C'est ce qui explique la sensibilité du NAV aux inhibiteurs calciques (vérapamil, diltiazem) et à l'adénosine, et sa relative insensibilité aux antiarythmiques de classe I. Le piège est d'étendre au tissu nodal la physiologie du myocarde de travail, dont la phase 0 est sodique.",
     "aRetenir": "Dans le tissu nodal, la phase 0 est calcique (ICaL), d'où la conduction lente et décrémentielle du NAV.",
     "sources": [
       {
@@ -99,13 +115,19 @@
     "difficulte": 5,
     "question": "La majorité des médicaments non cardiologiques qui allongent le QT (macrolides, certains neuroleptiques, antihistaminiques…) le font en bloquant quel courant ?",
     "options": [
-      "IKs (canal KCNQ1)",
-      "IK1 (canaux Kir2.x)",
+      "IKs (canal KvLQT1, gène KCNQ1)",
       "IKr (canal hERG, gène KCNH2)",
-      "INa (canal SCN5A)"
+      "IK1 (canal Kir2.1, gène KCNJ2)",
+      "INa (canal Nav1.5, gène SCN5A)"
     ],
     "reponses": [
-      2
+      1
+    ],
+    "commentaires": [
+      "Faux : IKs est rarement la cible des médicaments ; ses mutations perte de fonction donnent le QT long de type 1.",
+      "Juste : la large cavité interne du canal hERG fixe de très nombreuses molécules ; c'est le mécanisme quasi universel du QT long acquis.",
+      "Faux : IK1 stabilise le potentiel de repos ; son blocage médicamenteux n'est pas le mécanisme habituel de l'allongement du QT.",
+      "Faux : bloquer INa élargit le QRS et tend plutôt à raccourcir la repolarisation."
     ],
     "reponseAttendue": null,
     "explication": "La repolarisation (phase 3) repose surtout sur deux courants potassiques retardés : IKr (rapide) et IKs (lent). Le canal hERG, qui porte IKr, possède une large cavité interne qui fixe facilement de nombreuses molécules : c'est le mécanisme quasi universel de l'allongement acquis du QT et des torsades de pointes médicamenteuses. Les mutations perte de fonction de KCNH2 donnent le QT long de type 2, celles de KCNQ1 (IKs) le type 1. IK1 stabilise le potentiel de repos et la fin de repolarisation ; son blocage médicamenteux n'est pas le mécanisme habituel. Un bloqueur de INa raccourcit plutôt la repolarisation et élargit le QRS.",
@@ -132,16 +154,21 @@
     "options": [
       "Conduction décrémentielle : le temps de conduction s'allonge quand le couplage se raccourcit",
       "Réfractarité qui se prolonge au-delà de la fin de la repolarisation (réfractarité post-repolarisation)",
-      "Grande sensibilité aux inhibiteurs calciques et à l'adénosine",
+      "Grande sensibilité aux antiarythmiques de classe I, qui allongent nettement l'AH",
       "Période réfractaire effective qui se raccourcit nettement quand la fréquence augmente, comme le myocarde ventriculaire"
     ],
     "reponses": [
       0,
-      1,
-      2
+      1
+    ],
+    "commentaires": [
+      "Juste : plus le prématuré est précoce, plus l'AH s'allonge ; ce filtre protège les ventricules des fréquences atriales rapides.",
+      "Juste : la réfractarité nodale est temps-dépendante et dépasse la durée du potentiel d'action.",
+      "Faux : la phase 0 nodale étant calcique, le NAV est peu sensible aux bloqueurs sodiques ; il est en revanche très sensible aux inhibiteurs calciques et à l'adénosine.",
+      "Faux : la PRE du NAV a tendance à s'allonger, et non à se raccourcir, quand le cycle de base se raccourcit."
     ],
     "reponseAttendue": null,
-    "explication": "Le NAV compact est un tissu dont la dépolarisation dépend d'ICaL. Il conduit lentement et de façon décrémentielle : plus le prématuré est précoce, plus l'intervalle AH s'allonge, ce qui protège les ventricules des fréquences atriales rapides. Sa réfractarité est « temps-dépendante » et dépasse la durée du potentiel d'action (réfractarité post-repolarisation). Il est très sensible aux inhibiteurs calciques, aux bêtabloquants et à l'adénosine. En revanche, contrairement aux myocardes atrial et ventriculaire et au His-Purkinje, sa période réfractaire effective a tendance à s'allonger (et non à se raccourcir) quand le cycle de base se raccourcit : la proposition D est donc fausse.",
+    "explication": "Le NAV compact est un tissu dont la dépolarisation dépend d'ICaL. Il conduit lentement et de façon décrémentielle : plus le prématuré est précoce, plus l'intervalle AH s'allonge, ce qui protège les ventricules des fréquences atriales rapides. Sa réfractarité est « temps-dépendante » et dépasse la durée du potentiel d'action (réfractarité post-repolarisation). Il est très sensible aux inhibiteurs calciques, aux bêtabloquants et à l'adénosine, mais relativement peu aux antiarythmiques de classe I, qui agissent surtout sur les tissus à réponse rapide (et allongent plutôt l'HV). En revanche, contrairement aux myocardes atrial et ventriculaire et au His-Purkinje, sa période réfractaire effective a tendance à s'allonger (et non à se raccourcir) quand le cycle de base se raccourcit.",
     "aRetenir": "Le NAV conduit de façon décrémentielle, reste réfractaire après la repolarisation et sa PRE s'allonge quand la fréquence augmente.",
     "sources": [
       {
@@ -163,13 +190,19 @@
     "difficulte": 7,
     "question": "Une mutation « perte de fonction » du gène SCN5A (canal sodique Nav1.5) est classiquement associée à :",
     "options": [
-      "Un syndrome du QT long de type 1",
-      "Un syndrome de Brugada et/ou un trouble de conduction progressif (maladie de Lenègre)",
-      "Une tachycardie ventriculaire catécholergique",
-      "Un syndrome du QT court"
+      "Un syndrome du QT long de type 3 (courant tardif)",
+      "Un syndrome de Brugada ou une maladie de Lenègre",
+      "Une TV polymorphe catécholergique (CPVT)",
+      "Un syndrome du QT court par gain de fonction"
     ],
     "reponses": [
       1
+    ],
+    "commentaires": [
+      "Faux : le QT long de type 3 résulte d'un gain de fonction de SCN5A (courant sodique tardif persistant), pas d'une perte de fonction.",
+      "Juste : la perte de fonction de INa ralentit la conduction (Lenègre, troubles conductifs progressifs) et favorise le phénotype de Brugada.",
+      "Faux : la CPVT est surtout liée à RYR2 (ou CASQ2), gènes de la régulation calcique intracellulaire.",
+      "Faux : le QT court est lié à des gains de fonction de canaux potassiques, pas à SCN5A."
     ],
     "reponseAttendue": null,
     "explication": "SCN5A code la sous-unité alpha du canal sodique cardiaque. Une perte de fonction réduit le courant INa : ralentissement de la conduction (maladie de Lenègre, troubles de conduction progressifs, dysfonction sinusale) et, via le déséquilibre des courants en fin de phase 1 dans l'épicarde de la chambre de chasse du VD, phénotype de Brugada. À l'inverse, un gain de fonction (courant sodique tardif persistant) donne le QT long de type 3. Le QT long de type 1 est lié à KCNQ1 (IKs), la TV catécholergique surtout à RYR2 et le QT court à des gains de fonction de canaux potassiques. Le piège classique est de confondre perte et gain de fonction de SCN5A.",
@@ -194,16 +227,22 @@
     "difficulte": 2,
     "question": "Quelles sont les deux conditions électrophysiologiques indispensables à l'initiation d'une réentrée ?",
     "options": [
-      "Une post-dépolarisation précoce et un QT long",
-      "Une hyperkaliémie et une bradycardie",
-      "Un bloc unidirectionnel et une zone de conduction lente",
+      "Une post-dépolarisation précoce et un QT allongé",
+      "Une période réfractaire longue et une conduction rapide",
+      "Un bloc unidirectionnel et une conduction lente",
       "Un automatisme accru et une hypertonie vagale"
     ],
     "reponses": [
       2
     ],
+    "commentaires": [
+      "Faux : les post-dépolarisations précoces relèvent de l'activité déclenchée, un mécanisme distinct de la réentrée.",
+      "Faux : c'est l'inverse ; réfractarité longue et conduction rapide allongent la longueur d'onde et s'opposent à la réentrée.",
+      "Juste : un bloc unidirectionnel dans une branche du circuit puis une conduction assez lente pour trouver le point de départ redevenu excitable.",
+      "Faux : l'automatisme accru est un mécanisme à part, et l'hypertonie vagale ne crée pas de circuit."
+    ],
     "reponseAttendue": null,
-    "explication": "Une réentrée nécessite un substrat formant un circuit, avec deux voies aux propriétés différentes. Il faut un bloc unidirectionnel dans l'une des branches (souvent provoqué par une extrasystole tombant dans sa période réfractaire), puis une conduction suffisamment lente pour que le front d'onde revienne au point de départ lorsque celui-ci est redevenu excitable. Les post-dépolarisations correspondent à l'activité déclenchée, et l'automatisme accru est un mécanisme distinct. C'est ce modèle qui explique qu'une réentrée puisse être déclenchée et arrêtée par la stimulation programmée.",
+    "explication": "Une réentrée nécessite un substrat formant un circuit, avec deux voies aux propriétés différentes. Il faut un bloc unidirectionnel dans l'une des branches (souvent provoqué par une extrasystole tombant dans sa période réfractaire), puis une conduction suffisamment lente pour que le front d'onde revienne au point de départ lorsque celui-ci est redevenu excitable. Une réfractarité longue et une conduction rapide allongent au contraire la longueur d'onde et s'opposent à la réentrée. Les post-dépolarisations correspondent à l'activité déclenchée, et l'automatisme accru est un mécanisme distinct. C'est ce modèle qui explique qu'une réentrée puisse être déclenchée et arrêtée par la stimulation programmée.",
     "aRetenir": "Réentrée = circuit + bloc unidirectionnel + conduction lente.",
     "sources": [
       {
@@ -221,13 +260,19 @@
     "difficulte": 4,
     "question": "La longueur d'onde d'activation est le produit de la vitesse de conduction par la période réfractaire. Quelle association favorise le plus le maintien d'une réentrée ?",
     "options": [
-      "Ralentissement de la conduction et raccourcissement de la période réfractaire",
       "Ralentissement de la conduction et allongement de la période réfractaire",
       "Accélération de la conduction et allongement de la période réfractaire",
+      "Ralentissement de la conduction et raccourcissement de la période réfractaire",
       "Accélération de la conduction et raccourcissement de la période réfractaire"
     ],
     "reponses": [
-      0
+      2
+    ],
+    "commentaires": [
+      "Faux : l'allongement de la réfractarité compense le ralentissement ; la longueur d'onde n'est pas nettement raccourcie.",
+      "Faux : cette association allonge au maximum la longueur d'onde et tend à interrompre la réentrée.",
+      "Juste : conduction lente et réfractarité courte donnent la longueur d'onde la plus courte, avec des circuits plus petits et plus nombreux.",
+      "Faux : l'accélération de la conduction allonge la longueur d'onde et compense le raccourcissement de la réfractarité."
     ],
     "reponseAttendue": null,
     "explication": "Une réentrée ne peut se maintenir que si la longueur d'onde (vitesse de conduction × période réfractaire) est plus courte que la longueur du circuit : il reste alors du tissu excitable devant le front d'onde. Tout ce qui raccourcit la longueur d'onde (conduction ralentie, période réfractaire courte) favorise la réentrée et permet des circuits plus petits et plus nombreux, comme dans la FA avec le remodelage électrique. À l'inverse, allonger la période réfractaire (classe III) allonge la longueur d'onde et peut interrompre le circuit. Le piège : un ralentissement de conduction seul peut être pro-arythmique, mais c'est l'association avec une réfractarité courte qui est la plus défavorable.",
@@ -256,6 +301,12 @@
     "reponses": [
       3
     ],
+    "commentaires": [
+      "Faux : l'automatisme anormal n'explique pas le lien avec la bradycardie et l'allongement du QT sous sotalol.",
+      "Faux : une réentrée sur cicatrice donne une TV monomorphe, pas une torsade déclenchée par un QT long.",
+      "Faux : les DAD surviennent après la repolarisation, en cas de surcharge calcique, et sont favorisées par la tachycardie, non par la bradycardie.",
+      "Juste : les EAD naissent pendant un potentiel d'action prolongé (bradycardie, blocage de IKr) et déclenchent l'extrasystole initiale de la torsade."
+    ],
     "reponseAttendue": null,
     "explication": "Les post-dépolarisations précoces naissent pendant les phases 2 ou 3 d'un potentiel d'action prolongé, notamment par réactivation du courant calcique L. Elles sont favorisées par la bradycardie, les pauses, l'hypokaliémie et tout ce qui allonge la repolarisation (bloqueurs de IKr comme le sotalol). Elles déclenchent l'extrasystole initiale de la torsade, qui est ensuite entretenue par la dispersion de la repolarisation. Les DAD surviennent après la repolarisation complète, en cas de surcharge calcique, et sont favorisées par la tachycardie. D'où la prise en charge : magnésium, accélération de la fréquence (isoprénaline ou stimulation) et arrêt du médicament.",
     "aRetenir": "EAD = bradycardie + QT long → torsades ; DAD = surcharge calcique + tachycardie.",
@@ -280,17 +331,22 @@
     "question": "Quelles arythmies sont classiquement attribuées à une activité déclenchée par post-dépolarisations tardives (DAD) ? (plusieurs réponses)",
     "options": [
       "Les arythmies de l'intoxication digitalique",
-      "La TV polymorphe / bidirectionnelle catécholergique (CPVT)",
+      "La TV monomorphe sur cicatrice d'infarctus",
       "La TV de la chambre de chasse du VD sensible à l'adénosine",
       "La torsade de pointes du QT long acquis"
     ],
     "reponses": [
       0,
-      1,
       2
     ],
+    "commentaires": [
+      "Juste : l'inhibition de la pompe Na/K entraîne une surcharge calcique et des DAD.",
+      "Faux : la TV monomorphe post-infarctus est une réentrée autour et à travers la cicatrice.",
+      "Juste : ces TV idiopathiques dépendent de l'AMPc et de la surcharge calcique ; l'adénosine les arrête.",
+      "Faux : la torsade de pointes relève des post-dépolarisations précoces (EAD), liées à l'allongement de la repolarisation."
+    ],
     "reponseAttendue": null,
-    "explication": "Les DAD surviennent après la fin de la repolarisation lorsque le réticulum sarcoplasmique libère spontanément du calcium : l'échangeur Na/Ca produit alors un courant entrant dépolarisant. C'est le mécanisme de l'intoxication digitalique (inhibition de la pompe Na/K et surcharge calcique), de la CPVT (mutations de RYR2 ou CASQ2) et des TV idiopathiques de la chambre de chasse, dépendantes de l'AMPc et typiquement arrêtées par l'adénosine. Les DAD sont favorisés par les catécholamines et la tachycardie, d'où l'induction de ces TV par l'isoprénaline ou l'effort. La torsade de pointes relève des post-dépolarisations précoces, liées à l'allongement de la repolarisation.",
+    "explication": "Les DAD surviennent après la fin de la repolarisation lorsque le réticulum sarcoplasmique libère spontanément du calcium : l'échangeur Na/Ca produit alors un courant entrant dépolarisant. C'est le mécanisme de l'intoxication digitalique (inhibition de la pompe Na/K et surcharge calcique), de la CPVT (mutations de RYR2 ou CASQ2) et des TV idiopathiques de la chambre de chasse, dépendantes de l'AMPc et typiquement arrêtées par l'adénosine. Les DAD sont favorisés par les catécholamines et la tachycardie, d'où l'induction de ces TV par l'isoprénaline ou l'effort. La torsade de pointes relève des post-dépolarisations précoces, liées à l'allongement de la repolarisation, et la TV monomorphe post-infarctus d'une réentrée sur cicatrice.",
     "aRetenir": "Digitaliques, CPVT et TV de chambre de chasse sensibles à l'adénosine = DAD (surcharge calcique).",
     "sources": [
       {
@@ -310,16 +366,20 @@
     "marque": null,
     "type": "vf",
     "difficulte": 4,
-    "question": "Vrai ou faux : une tachycardie due à un automatisme anormal peut être déclenchée et arrêtée de manière reproductible par des extrastimuli programmés.",
+    "question": "Vrai ou faux : une tachycardie par réentrée peut typiquement être déclenchée et arrêtée de manière reproductible par des extrastimuli programmés, ce qui n'est pas le cas d'une tachycardie par automatisme anormal.",
     "options": [
       "Vrai",
       "Faux"
     ],
     "reponses": [
-      1
+      0
+    ],
+    "commentaires": [
+      "Juste : la réentrée dépend d'un bloc unidirectionnel et d'un délai critique qu'un extrastimulus peut créer ou rompre ; un foyer automatique n'est qu'écrasé par l'overdrive.",
+      "Faux : l'affirmation est exacte ; l'inductibilité et l'arrêt reproductibles par stimulation programmée sont la signature de la réentrée."
     ],
     "reponseAttendue": null,
-    "explication": "C'est faux. La reproductibilité du déclenchement et de l'arrêt par la stimulation programmée est la signature de la réentrée (et, dans une moindre mesure, de certaines activités déclenchées par DAD, dont le déclenchement dépend de la fréquence). Un foyer automatique n'est ni initié ni interrompu par un extrastimulus : il peut au mieux être transitoirement « écrasé » par une stimulation plus rapide (suppression par overdrive) avant de reprendre progressivement. Il se démasque souvent sous isoprénaline et présente un démarrage progressif (« warm-up ») et un ralentissement terminal (« cool-down »). Ce raisonnement guide la stratégie d'EEP et d'ablation.",
+    "explication": "C'est vrai. La reproductibilité du déclenchement et de l'arrêt par la stimulation programmée est la signature de la réentrée (et, dans une moindre mesure, de certaines activités déclenchées par DAD, dont le déclenchement dépend de la fréquence). Un foyer automatique n'est ni initié ni interrompu par un extrastimulus : il peut au mieux être transitoirement « écrasé » par une stimulation plus rapide (suppression par overdrive) avant de reprendre progressivement. Il se démasque souvent sous isoprénaline et présente un démarrage progressif (« warm-up ») et un ralentissement terminal (« cool-down »). Ce raisonnement guide la stratégie d'EEP et d'ablation.",
     "aRetenir": "Déclenchement et arrêt reproductibles par la stimulation programmée = réentrée, pas automatisme.",
     "sources": [
       {
@@ -360,18 +420,23 @@
     "question": "Parmi les propositions suivantes, lesquelles font partie des critères d'entraînement transitoire (critères de Waldo) prouvant une réentrée ? (plusieurs réponses)",
     "options": [
       "Fusion constante des complexes à une fréquence de stimulation fixe, sauf pour le dernier complexe entraîné",
-      "Fusion progressive : la part stimulée des complexes augmente quand on stimule à des cycles plus courts",
+      "Fusion décroissante : la part stimulée des complexes diminue quand on stimule à des cycles plus courts",
       "Interruption de la tachycardie par un bloc local, puis activation de ce site par le stimulus suivant, depuis une autre direction et avec un temps de conduction plus court",
       "Accélération spontanée de la tachycardie au-delà de la fréquence de stimulation après l'arrêt de celle-ci"
     ],
     "reponses": [
       0,
-      1,
       2
     ],
+    "commentaires": [
+      "Juste : premier critère de Waldo ; le dernier complexe entraîné, lui, n'est pas fusionné.",
+      "Faux : c'est l'inverse ; la fusion est progressive, la part stimulée augmentant quand le cycle de stimulation se raccourcit.",
+      "Juste : l'interruption par bloc local puis l'activation du site depuis une autre direction, plus vite, fait partie des critères historiques.",
+      "Faux : une accélération après l'arrêt de la stimulation n'est pas un critère d'entraînement ; elle suggère une transformation de l'arythmie."
+    ],
     "reponseAttendue": null,
-    "explication": "L'entraînement transitoire consiste à stimuler légèrement plus vite que la tachycardie : chaque stimulus pénètre le gap excitable et réinitialise le circuit, et la tachycardie reprend à son cycle propre à l'arrêt. Les critères historiques décrits par Waldo et Okumura incluent : fusion constante à cycle fixe (le dernier complexe entraîné, lui, n'est pas fusionné), fusion progressive à des cycles plus courts, et interruption par bloc local puis activation du site depuis une autre direction avec un temps de conduction plus court. Un quatrième critère porte sur le changement de temps de conduction et de morphologie d'un électrogramme à deux fréquences différentes. Une accélération après arrêt de la stimulation ne fait pas partie de ces critères : elle suggère plutôt une transformation de l'arythmie.",
-    "aRetenir": "Fusion constante à cycle fixe et fusion progressive à cycle plus court = critères d'entraînement d'une réentrée.",
+    "explication": "L'entraînement transitoire consiste à stimuler légèrement plus vite que la tachycardie : chaque stimulus pénètre le gap excitable et réinitialise le circuit, et la tachycardie reprend à son cycle propre à l'arrêt. Les critères historiques décrits par Waldo et Okumura incluent : fusion constante à cycle fixe (le dernier complexe entraîné, lui, n'est pas fusionné), fusion progressive à des cycles plus courts (la part stimulée augmente, et non diminue, quand on accélère), et interruption par bloc local puis activation du site depuis une autre direction avec un temps de conduction plus court. Un quatrième critère porte sur le changement de temps de conduction et de morphologie d'un électrogramme à deux fréquences différentes. Une accélération après arrêt de la stimulation ne fait pas partie de ces critères : elle suggère plutôt une transformation de l'arythmie.",
+    "aRetenir": "Fusion constante à cycle fixe, fusion progressive (croissante) à cycle plus court et bloc local avec changement d'activation = critères d'entraînement d'une réentrée.",
     "sources": [
       {
         "titre": "Okumura K, et al. Further observations on transient entrainment: importance of pacing site and properties of the components of the reentry circuit. Circulation 1985;72:1293-1307",
@@ -410,13 +475,19 @@
     "difficulte": 2,
     "question": "Où se situe l'isthme critique du flutter atrial typique, cible de l'ablation ?",
     "options": [
-      "Entre la veine cave inférieure et l'anneau tricuspide (isthme cavo-tricuspide)",
       "Entre l'anneau mitral et la veine pulmonaire inférieure gauche",
+      "Entre la veine cave inférieure et l'anneau tricuspide",
       "Entre la veine cave supérieure et la crista terminalis",
-      "Au niveau du toit de l'oreillette gauche"
+      "Entre les veines pulmonaires supérieures, sur le toit de l'OG"
     ],
     "reponses": [
-      0
+      1
+    ],
+    "commentaires": [
+      "Faux : l'isthme mitral est la cible de certains flutters gauches péri-mitraux.",
+      "Juste : l'isthme cavo-tricuspide, entre l'orifice de la VCI et l'anneau tricuspide, est un passage obligé du circuit ; une ligne bloquée guérit le flutter.",
+      "Faux : la crista terminalis est une barrière fonctionnelle latérale du circuit, pas son isthme.",
+      "Faux : la ligne de toit cible des flutters gauches, souvent après ablation de FA."
     ],
     "reponseAttendue": null,
     "explication": "Le flutter typique est une macro-réentrée de l'oreillette droite, le plus souvent antihoraire en vue OAG (montée septale, descente sur la paroi latérale). Le front d'onde doit passer par l'isthme cavo-tricuspide, bande de tissu comprise entre l'orifice de la veine cave inférieure et l'anneau tricuspide, limitée par la valve et la crête d'Eustache. C'est une zone de conduction relativement lente et un passage obligé du circuit : une ligne d'ablation qui y crée un bloc bidirectionnel guérit l'arythmie. L'isthme mitral et le toit de l'OG sont les cibles des flutters gauches, et la crista terminalis constitue une barrière fonctionnelle latérale du circuit, pas son isthme.",
@@ -444,15 +515,23 @@
       "Le tendon de Todaro",
       "L'insertion de la valve septale tricuspide",
       "L'ostium du sinus coronaire",
-      "La crista terminalis"
+      "La crista terminalis",
+      "La fosse ovale"
     ],
     "reponses": [
       0,
       1,
       2
     ],
+    "commentaires": [
+      "Juste : prolongement de la valve d'Eustache, le tendon de Todaro limite le triangle en haut et en arrière.",
+      "Juste : l'insertion de la valve septale tricuspide limite le triangle en bas et en avant.",
+      "Juste : l'ostium du sinus coronaire forme la base du triangle.",
+      "Faux : la crista terminalis est une crête musculaire de la paroi latérale de l'OD, sans rapport avec le triangle de Koch.",
+      "Faux : la fosse ovale est située plus haut et en arrière sur le septum, au-dessus du tendon de Todaro ; elle ne borde pas le triangle."
+    ],
     "reponseAttendue": null,
-    "explication": "Le triangle de Koch est un repère anatomique majeur de la face septale de l'oreillette droite. Il est limité en haut et en arrière par le tendon de Todaro (prolongement de la valve d'Eustache), en bas et en avant par l'insertion de la valve septale tricuspide, et sa base est formée par l'ostium du sinus coronaire. Le NAV compact se trouve à son sommet, près du corps fibreux central où le faisceau de His le perfore. La crista terminalis, elle, est une crête musculaire de la paroi latérale de l'OD, sans rapport avec ce triangle. Ces repères guident l'ablation de la voie lente, réalisée dans la partie inférieure du triangle, loin du sommet.",
+    "explication": "Le triangle de Koch est un repère anatomique majeur de la face septale de l'oreillette droite. Il est limité en haut et en arrière par le tendon de Todaro (prolongement de la valve d'Eustache), en bas et en avant par l'insertion de la valve septale tricuspide, et sa base est formée par l'ostium du sinus coronaire. Le NAV compact se trouve à son sommet, près du corps fibreux central où le faisceau de His le perfore. La crista terminalis, elle, est une crête musculaire de la paroi latérale de l'OD, et la fosse ovale, site de la ponction transseptale, se situe au-dessus du tendon de Todaro, hors du triangle. Ces repères guident l'ablation de la voie lente, réalisée dans la partie inférieure du triangle, loin du sommet.",
     "aRetenir": "Triangle de Koch : tendon de Todaro, valve septale tricuspide, ostium du sinus coronaire ; NAV compact au sommet.",
     "sources": [
       {
@@ -474,13 +553,19 @@
     "difficulte": 5,
     "question": "Lors de l'ablation d'une TRIN typique, où cible-t-on habituellement la voie lente ?",
     "options": [
-      "Au sommet du triangle de Koch, là où l'on enregistre le plus grand potentiel hissien",
-      "Sur la paroi latérale de l'oreillette droite, le long de la crista terminalis",
-      "Dans le sinus coronaire distal, en regard de la paroi latérale gauche",
-      "Dans la partie inférieure (postéro-septale) du triangle de Koch, entre l'ostium du sinus coronaire et l'anneau tricuspide"
+      "En bas du triangle de Koch, près de l'ostium du sinus coronaire",
+      "Au sommet du triangle de Koch, près du potentiel hissien maximal",
+      "Sur la paroi latérale de l'OD, le long de la crista terminalis",
+      "Dans le sinus coronaire distal, face à la paroi latérale gauche"
     ],
     "reponses": [
-      3
+      0
+    ],
+    "commentaires": [
+      "Juste : les extensions inférieures du NAV, supports de la voie lente, cheminent entre l'ostium du sinus coronaire et l'anneau tricuspide.",
+      "Faux : le sommet du triangle abrite la voie rapide et le NAV compact ; y tirer expose au BAV complet.",
+      "Faux : la crista terminalis n'a pas de rapport avec le circuit de la TRIN ; c'est un site de tachycardies atriales focales.",
+      "Faux : le sinus coronaire distal repère les voies accessoires latérales gauches, pas la voie lente."
     ],
     "reponseAttendue": null,
     "explication": "Les extensions inférieures du NAV, supports de la voie lente, cheminent dans la partie inférieure du triangle de Koch, entre l'ostium du sinus coronaire et l'anneau tricuspide. C'est la cible décrite par Jackman, avec d'excellents résultats et un risque de BAV très faible. La voie rapide est située plus haut, près du sommet du triangle et du NAV compact, là où le potentiel hissien est enregistré : y délivrer de la radiofréquence expose au BAV complet. Le sinus coronaire distal et la crista terminalis n'ont pas de rapport avec le circuit de la TRIN. En pratique, on progresse de bas en haut, en surveillant le rythme jonctionnel et la conduction VA.",
@@ -511,6 +596,10 @@
     "reponses": [
       0
     ],
+    "commentaires": [
+      "Juste : dans la série de Haïssaguerre (1998), près de 94 % des foyers déclenchants siégeaient dans les veines pulmonaires.",
+      "Faux : l'affirmation est exacte ; d'autres foyers existent (VCS, ligament de Marshall), mais ils sont minoritaires, surtout dans la FA paroxystique."
+    ],
     "reponseAttendue": null,
     "explication": "C'est vrai. Haïssaguerre et al. ont montré en 1998 que, chez des patients présentant une FA paroxystique, près de 94 % des foyers déclenchants étaient situés dans les veines pulmonaires, où des extensions de myocarde atrial (manchons) ont des propriétés électrophysiologiques propres (réfractarité courte, conduction anisotrope). Cette découverte a fondé l'isolation des veines pulmonaires, pierre angulaire de l'ablation de FA dans les recommandations actuelles. D'autres foyers existent (veine cave supérieure, ligament de Marshall, sinus coronaire), surtout dans les FA persistantes. Le piège : croire que l'ablation détruit les foyers eux-mêmes, alors qu'elle vise à les isoler électriquement de l'oreillette.",
     "aRetenir": "Les veines pulmonaires sont la source principale des déclencheurs de FA, d'où leur isolation.",
@@ -534,16 +623,22 @@
     "difficulte": 6,
     "question": "Dans la série princeps de Haïssaguerre (1998), quelles veines pulmonaires étaient le plus souvent à l'origine des foyers déclenchant la FA ?",
     "options": [
-      "Les veines pulmonaires inférieures",
-      "La veine pulmonaire inférieure droite exclusivement",
-      "Les veines pulmonaires supérieures, en particulier la supérieure gauche",
-      "Un tronc commun gauche dans la majorité des cas"
+      "Les veines inférieures, surtout l'inférieure droite",
+      "Les veines droites, surtout la supérieure droite",
+      "Les veines supérieures, surtout la supérieure gauche",
+      "Un tronc commun gauche, présent chez la majorité"
     ],
     "reponses": [
       2
     ],
+    "commentaires": [
+      "Faux : les veines inférieures étaient moins souvent impliquées, leurs manchons myocardiques étant plus courts.",
+      "Faux : la supérieure droite venait en deuxième position, derrière la supérieure gauche.",
+      "Juste : la supérieure gauche était la plus fréquente, puis la supérieure droite ; leurs manchons myocardiques sont plus développés.",
+      "Faux : le tronc commun gauche est une variante anatomique minoritaire, pas un site préférentiel décrit dans ce travail."
+    ],
     "reponseAttendue": null,
-    "explication": "Dans cette série, la majorité des foyers veineux pulmonaires provenaient des veines supérieures, la veine supérieure gauche étant la plus fréquente, suivie de la supérieure droite ; les veines inférieures étaient moins souvent impliquées. Ce constat s'explique en partie par des manchons myocardiques plus longs et plus développés dans les veines supérieures. Il a d'abord conduit à des ablations focales intraveineuses, abandonnées au profit de l'isolation circonférentielle antrale de toutes les veines, en raison des sténoses veineuses et de la multiplicité des foyers. Le tronc commun gauche est une variante anatomique, pas un site préférentiel décrit dans ce travail.",
+    "explication": "Dans cette série, la majorité des foyers veineux pulmonaires provenaient des veines supérieures, la veine supérieure gauche étant la plus fréquente, suivie de la supérieure droite ; les veines inférieures étaient moins souvent impliquées. Ce constat s'explique en partie par des manchons myocardiques plus longs et plus développés dans les veines supérieures. Il a d'abord conduit à des ablations focales intraveineuses, abandonnées au profit de l'isolation circonférentielle antrale de toutes les veines, en raison des sténoses veineuses et de la multiplicité des foyers. Le tronc commun gauche est une variante anatomique minoritaire, pas un site préférentiel décrit dans ce travail.",
     "aRetenir": "Les veines pulmonaires supérieures, surtout la gauche, sont les plus arythmogènes.",
     "sources": [
       {
@@ -561,13 +656,19 @@
     "difficulte": 3,
     "question": "Où est situé le nœud sinusal ?",
     "options": [
-      "Dans le septum interatrial, près de la fosse ovale",
-      "À la jonction veine cave supérieure – oreillette droite, en sous-épicardique le long du sillon terminal",
-      "Au sommet du triangle de Koch",
-      "À l'abouchement de la veine cave inférieure"
+      "Septum interatrial, en sous-endocardique près de la fosse ovale",
+      "Sommet du triangle de Koch, près du corps fibreux central",
+      "Jonction VCI-oreillette droite, près de la valve d'Eustache",
+      "Jonction VCS-oreillette droite, en sous-épicardique"
     ],
     "reponses": [
-      1
+      3
+    ],
+    "commentaires": [
+      "Faux : le septum interatrial et la fosse ovale ne contiennent pas le nœud sinusal.",
+      "Faux : le sommet du triangle de Koch abrite le NAV compact, pas le nœud sinusal.",
+      "Faux : la région de la VCI correspond à l'isthme cavo-tricuspide.",
+      "Juste : structure en fuseau sous-épicardique, à la jonction VCS-OD, le long du sillon terminal (crista terminalis en endocardique)."
     ],
     "reponseAttendue": null,
     "explication": "Le nœud sinusal est une structure en fuseau, sous-épicardique, située à la jonction entre la veine cave supérieure et l'oreillette droite, le long du sillon terminal qui correspond en endocardique à la crista terminalis. Le site de sortie de l'activation peut se déplacer le long de cette structure selon le tonus autonome (plus haut en cas de tonus sympathique). Sa position sous-épicardique explique la difficulté de sa modulation par ablation endocardique. Le triangle de Koch contient le NAV, et la région de la VCI correspond à l'isthme cavo-tricuspide. En EEP, le cathéter « OD haute » est placé près de cette jonction pour mesurer la fonction sinusale.",
@@ -615,12 +716,18 @@
     "question": "Quelle est la valeur normale de l'intervalle HV chez l'adulte ?",
     "options": [
       "10 à 25 ms",
-      "80 à 120 ms",
       "35 à 55 ms",
+      "80 à 120 ms",
       "120 à 200 ms"
     ],
     "reponses": [
-      2
+      1
+    ],
+    "commentaires": [
+      "Faux : un HV aussi court évoque une préexcitation ou un potentiel de branche droite pris pour le His.",
+      "Juste : l'HV normal de l'adulte est de 35 à 55 ms ; c'est l'intervalle endocavitaire le plus stable.",
+      "Faux : 80 à 120 ms correspond plutôt à l'intervalle AH normal.",
+      "Faux : 120 à 200 ms correspond au PR normal de surface, pas à l'HV."
     ],
     "reponseAttendue": null,
     "explication": "L'intervalle HV se mesure du début du potentiel hissien au début de l'activation ventriculaire la plus précoce (sur l'ECG de surface ou les électrogrammes endocavitaires). Il reflète la conduction dans le tronc du His, les branches et le réseau de Purkinje. Sa valeur normale est de 35 à 55 ms. Un HV allongé traduit une maladie du tissu de conduction infra-nodal ; un HV court ou négatif oriente vers une préexcitation ou un enregistrement d'un potentiel de branche droite pris pour le His. Les valeurs de 80 à 120 ms correspondent plutôt à l'intervalle AH normal.",
@@ -641,13 +748,19 @@
     "difficulte": 2,
     "question": "Que reflète l'intervalle AH mesuré sur le cathéter hissien ?",
     "options": [
-      "La conduction à travers le nœud auriculo-ventriculaire",
+      "La conduction dans le nœud auriculo-ventriculaire",
       "La conduction intra-atriale du nœud sinusal au septum",
-      "La conduction dans les branches du faisceau de His",
-      "La repolarisation atriale"
+      "La conduction dans le tronc et les branches du His",
+      "Le temps de repolarisation de l'oreillette basse"
     ],
     "reponses": [
       0
+    ],
+    "commentaires": [
+      "Juste : l'AH, du A bas septal au potentiel hissien, reflète la conduction nodale ; il varie avec le tonus autonome.",
+      "Faux : la conduction intra-atriale est approchée par l'intervalle PA.",
+      "Faux : la conduction dans le His-Purkinje est reflétée par l'intervalle HV.",
+      "Faux : la repolarisation atriale n'est pas mesurée par l'AH ; elle est d'ailleurs masquée par le QRS."
     ],
     "reponseAttendue": null,
     "explication": "L'intervalle AH se mesure entre l'activation atriale basse septale enregistrée sur le cathéter hissien et le début du potentiel hissien. Il reflète essentiellement la conduction nodale (NAV). Il varie avec le tonus autonome : raccourci par l'atropine ou l'isoprénaline, allongé par le tonus vagal et les freinateurs nodaux ; il s'allonge aussi lors de la stimulation atriale rapide ou programmée (conduction décrémentielle). La conduction intra-atriale est approchée par l'intervalle PA et la conduction dans les branches par l'intervalle HV.",
@@ -666,16 +779,20 @@
     "marque": null,
     "type": "vf",
     "difficulte": 3,
-    "question": "Vrai ou faux : l'injection d'atropine raccourcit nettement l'intervalle HV.",
+    "question": "Vrai ou faux : l'injection d'atropine raccourcit l'intervalle AH sans modifier significativement l'intervalle HV.",
     "options": [
       "Vrai",
       "Faux"
     ],
     "reponses": [
-      1
+      0
+    ],
+    "commentaires": [
+      "Juste : l'innervation vagale est dense sur le NAV mais très pauvre sur le His-Purkinje ; l'atropine agit sur l'AH, pas sur l'HV.",
+      "Faux : l'affirmation est exacte ; c'est pourquoi un BAV infra-hissien ne s'améliore pas sous atropine, voire s'aggrave."
     ],
     "reponseAttendue": null,
-    "explication": "C'est faux. L'innervation vagale est dense au niveau des nœuds sinusal et AV, mais le système His-Purkinje y est très peu sensible. L'atropine raccourcit donc l'intervalle AH et améliore la conduction nodale, sans modifier significativement le HV. C'est pour cela qu'un BAV infra-hissien ne s'améliore pas sous atropine ; il peut même s'aggraver, car l'accélération sinusale augmente le nombre d'influx arrivant sur un His-Purkinje malade. Ce principe sert aussi au diagnostic de niveau d'un BAV 2:1 : une amélioration sous atropine plaide pour un siège nodal.",
+    "explication": "C'est vrai. L'innervation vagale est dense au niveau des nœuds sinusal et AV, mais le système His-Purkinje y est très peu sensible. L'atropine raccourcit donc l'intervalle AH et améliore la conduction nodale, sans modifier significativement le HV. C'est pour cela qu'un BAV infra-hissien ne s'améliore pas sous atropine ; il peut même s'aggraver, car l'accélération sinusale augmente le nombre d'influx arrivant sur un His-Purkinje malade. Ce principe sert aussi au diagnostic de niveau d'un BAV 2:1 : une amélioration sous atropine plaide pour un siège nodal.",
     "aRetenir": "L'atropine agit sur l'AH (NAV), pas sur le HV (His-Purkinje).",
     "sources": [
       {
@@ -698,12 +815,18 @@
     "question": "Chez un patient avec préexcitation ventriculaire franche (onde delta nette, syndrome de Wolff-Parkinson-White), à quoi s'attend-on sur l'intervalle HV en rythme sinusal ?",
     "options": [
       "HV allongé au-delà de 70 ms",
-      "HV normal entre 35 et 55 ms",
-      "HV impossible à mesurer car le His n'est jamais enregistré",
-      "HV court, voire négatif (activation ventriculaire avant le His)"
+      "HV normal, entre 35 et 55 ms",
+      "HV court, voire négatif",
+      "HV non mesurable, His jamais enregistré"
     ],
     "reponses": [
-      3
+      2
+    ],
+    "commentaires": [
+      "Faux : un HV allongé traduit une maladie du His-Purkinje, sans rapport avec la préexcitation.",
+      "Faux : un HV normal n'est possible que si la préexcitation est minime ; avec une onde delta franche, il est raccourci.",
+      "Juste : la voie accessoire active le ventricule avant ou peu après le His ; l'HV est court, voire négatif si la préexcitation est marquée.",
+      "Faux : le His reste enregistrable (avec une précision limitée) et se démasque si la voie accessoire est bloquée."
     ],
     "reponseAttendue": null,
     "explication": "En cas de préexcitation, une partie du ventricule est activée précocement par la voie accessoire, qui court-circuite le NAV. Le début de l'activation ventriculaire (onde delta) survient donc avant ou peu après le potentiel hissien : l'HV est raccourci, voire négatif si la préexcitation est marquée. Cela n'a rien à voir avec une anomalie du His-Purkinje ; la conduction hissienne reste mesurable (avec une précision limitée) et peut se démasquer si la voie accessoire est bloquée. Un HV normal est possible si la préexcitation est minime, par exemple avec une voie latérale gauche éloignée du nœud sinusal.",
@@ -726,24 +849,30 @@
     "marque": null,
     "type": "qcu",
     "difficulte": 5,
-    "question": "Un patient présente un BAV 2:1 avec QRS larges (BBG). Lors de l'EEP, chaque activité atriale est suivie d'un potentiel hissien avec un AH constant, mais une fois sur deux le potentiel hissien n'est pas suivi de ventriculogramme. Quel est le siège du bloc ?",
+    "question": "Un patient est exploré en EEP pour le trouble de conduction enregistré sur ce tracé. Sur l'électrogramme hissien, chaque activité atriale est suivie d'un potentiel hissien avec un AH constant, mais une fois sur deux le potentiel hissien n'est pas suivi de ventriculogramme. Quel est le siège du bloc ?",
     "ecg": {
       "preset": "bav2-21",
       "fc": 80,
       "qrs": "large",
-      "legende": "BAV 2:1 à QRS larges – siège à préciser en EEP"
+      "legende": "Bande de rythme enregistrée avant l'EEP"
     },
     "options": [
+      "Nodal (supra-hissien)",
       "Infra-hissien",
       "Intra-atrial",
-      "Nodal (supra-hissien)",
-      "Impossible à préciser sans épreuve à l'atropine"
+      "Indéterminé sans test à l'atropine"
     ],
     "reponses": [
-      0
+      1
+    ],
+    "commentaires": [
+      "Faux : un bloc nodal donnerait des A non suivis de H ; ici, chaque A est suivi d'un H.",
+      "Juste : A suivi de H mais H non suivi de V signe un bloc dans le His-Purkinje, de pronostic sévère, indication de stimulation.",
+      "Faux : chaque activité atriale est enregistrée et conduite jusqu'au His ; le bloc n'est pas atrial.",
+      "Faux : l'atropine aide quand on ne dispose que de l'ECG de surface ; ici, l'électrogramme hissien localise directement le bloc."
     ],
     "reponseAttendue": null,
-    "explication": "La localisation du bloc se lit directement sur l'électrogramme hissien. Si l'onde A n'est pas suivie de H, le bloc est nodal (supra-hissien). Si A est suivie de H mais que H n'est pas suivi de V, le bloc est infra-hissien, dans le His-Purkinje. Ici, l'AH constant et les H « orphelins » signent un bloc infra-hissien, de pronostic sévère, indication formelle de stimulation. Le BBG sur l'ECG de surface est d'ailleurs un indice d'atteinte distale. L'épreuve à l'atropine est utile quand on ne dispose que de l'ECG de surface ; ici, l'enregistrement endocavitaire suffit.",
+    "explication": "Le tracé montre un BAV 2:1 à QRS larges. La localisation du bloc se lit directement sur l'électrogramme hissien. Si l'onde A n'est pas suivie de H, le bloc est nodal (supra-hissien). Si A est suivie de H mais que H n'est pas suivi de V, le bloc est infra-hissien, dans le His-Purkinje. Ici, l'AH constant et les H « orphelins » signent un bloc infra-hissien, de pronostic sévère, indication formelle de stimulation. Les QRS larges des complexes conduits sont d'ailleurs un indice d'atteinte distale. L'épreuve à l'atropine est utile quand on ne dispose que de l'ECG de surface ; ici, l'enregistrement endocavitaire suffit.",
     "aRetenir": "A suivi de H mais H sans V = bloc infra-hissien, indication de stimulation.",
     "sources": [
       {
@@ -765,16 +894,22 @@
     "difficulte": 7,
     "question": "Sur le cathéter hissien, on enregistre deux potentiels hissiens distincts (H et H') séparés par un intervalle isoélectrique, avec des P parfois bloquées entre H et H'. De quoi s'agit-il ?",
     "options": [
-      "D'un artefact de repolarisation atriale",
+      "D'une double voie nodale avec saut d'AH",
       "D'une voie accessoire fasciculo-ventriculaire",
-      "D'une double voie nodale",
-      "D'un bloc intra-hissien (His dédoublé ou « split His »)"
+      "D'un potentiel de branche droite suivant le His",
+      "D'un bloc intra-hissien (His dédoublé)"
     ],
     "reponses": [
       3
     ],
+    "commentaires": [
+      "Faux : la double voie nodale se manifeste par un saut de l'AH, pas par deux potentiels hissiens.",
+      "Faux : une voie fasciculo-ventriculaire donne un HV court et fixe, sans dédoublement du His.",
+      "Faux : un potentiel de branche droite suit le His de quelques dizaines de ms, mais on n'observe jamais de P bloquées entre les deux.",
+      "Juste : H (His proximal) et H' (His distal) séparés, avec des P bloquées entre les deux, signent un bloc intra-hissien, possible avec des QRS fins."
+    ],
     "reponseAttendue": null,
-    "explication": "Le dédoublement du potentiel hissien traduit un retard de conduction à l'intérieur même du tronc du His : H correspond à la portion proximale, H' à la portion distale. Si des influx sont bloqués entre H et H', on parle de bloc intra-hissien, souvent associé à des QRS fins car la conduction sous le bloc est normale. C'est un piège important : un BAV de haut degré à QRS fins n'est pas toujours nodal. La double voie nodale se manifeste par un saut de l'intervalle AH, pas par deux potentiels hissiens. Une voie fasciculo-ventriculaire donne un HV court et fixe.",
+    "explication": "Le dédoublement du potentiel hissien traduit un retard de conduction à l'intérieur même du tronc du His : H correspond à la portion proximale, H' à la portion distale. Si des influx sont bloqués entre H et H', on parle de bloc intra-hissien, souvent associé à des QRS fins car la conduction sous le bloc est normale. C'est un piège important : un BAV de haut degré à QRS fins n'est pas toujours nodal. La double voie nodale se manifeste par un saut de l'intervalle AH, pas par deux potentiels hissiens. Une voie fasciculo-ventriculaire donne un HV court et fixe. Un potentiel de branche droite, enregistré plus distalement, suit le His sans que des P puissent être bloquées entre les deux.",
     "aRetenir": "Un His dédoublé (H-H') signe un trouble de conduction intra-hissien, possible même avec des QRS fins.",
     "sources": [
       {
@@ -818,6 +953,12 @@
     "reponses": [
       2
     ],
+    "commentaires": [
+      "Faux : le Holter de 24 h a une rentabilité trop faible et retarderait une décision déjà justifiée.",
+      "Faux : le test d'inclinaison n'a pas sa place en première intention quand l'EEP retrouve un critère positif.",
+      "Juste : syncope inexpliquée + bloc bifasciculaire + HV ≥ 70 ms = stimulation (classe I, ESC 2018 et 2021).",
+      "Faux : le Holter implantable se discute lorsque l'EEP est négative ; ici, elle est positive."
+    ],
     "reponseAttendue": null,
     "explication": "Chez un patient présentant une syncope inexpliquée et un bloc bifasciculaire, les recommandations ESC 2018 (syncope) et 2021 (stimulation) indiquent la stimulation (classe I) en présence d'un HV ≥ 70 ms, d'un bloc du 2e ou 3e degré dans le His-Purkinje lors de la stimulation atriale incrémentale, ou d'une réponse anormale au test pharmacologique. Un HV à 78 ms est donc un critère positif : la syncope est très probablement liée à un BAV paroxystique. Le Holter de 24 h a une rentabilité trop faible, et le Holter implantable se discute plutôt lorsque l'EEP est négative. Le test d'inclinaison n'a pas sa place en première intention ici.",
     "aRetenir": "Syncope + bloc bifasciculaire + HV ≥ 70 ms = stimulateur (classe I).",
@@ -847,6 +988,10 @@
     "reponses": [
       1
     ],
+    "commentaires": [
+      "Faux : l'affirmation est inexacte ; le seuil décisionnel est un HV ≥ 70 ms, et 62 ms n'est pas une indication en soi.",
+      "Juste : un HV à 62 ms impose de compléter l'EEP (stimulation incrémentale, test pharmacologique), puis un Holter implantable si elle reste négative."
+    ],
     "reponseAttendue": null,
     "explication": "C'est faux. Le seuil retenu par les recommandations ESC 2018 et 2021 est un HV ≥ 70 ms. Un HV de 62 ms, discrètement allongé, n'est pas en lui-même une indication. L'EEP doit alors être complétée : stimulation atriale incrémentale à la recherche d'un bloc infra-hissien et, si besoin, test pharmacologique par un antiarythmique de classe I (ajmaline, procaïnamide…). Si l'EEP reste négative, l'étape suivante est la mise en place d'un Holter implantable pour documenter l'événement, car la sensibilité de l'EEP pour les BAV paroxystiques est imparfaite. Le piège : confondre un HV « allongé » (> 55 ms) et un HV « pathologique au sens décisionnel » (≥ 70 ms).",
     "aRetenir": "Le seuil décisionnel de l'HV dans la syncope avec bloc de branche est ≥ 70 ms.",
@@ -871,17 +1016,25 @@
     "question": "Chez un patient avec syncope inexpliquée et bloc bifasciculaire, quels résultats de l'EEP font poser l'indication de stimulateur (ESC 2021) ? (plusieurs réponses)",
     "options": [
       "HV de base ≥ 70 ms",
+      "HV de base entre 55 et 69 ms",
       "Bloc du 2e ou 3e degré dans le His-Purkinje lors de la stimulation atriale incrémentale",
       "Réponse anormale au test pharmacologique (antiarythmique de classe I)",
       "Wenckebach nodal (allongement progressif de l'AH) lors de la stimulation atriale à 150/min"
     ],
     "reponses": [
       0,
-      1,
-      2
+      2,
+      3
+    ],
+    "commentaires": [
+      "Juste : un HV de base ≥ 70 ms suffit à poser l'indication de stimulation (classe I).",
+      "Faux : un HV entre 55 et 69 ms est allongé mais sous le seuil décisionnel ; il faut compléter l'EEP.",
+      "Juste : un bloc infra-hissien sous stimulation atriale incrémentale traduit une réserve de conduction insuffisante.",
+      "Juste : un bloc de haut degré ou un allongement franc de l'HV sous ajmaline ou procaïnamide est un critère positif.",
+      "Faux : un Wenckebach nodal à 150/min est physiologique ; c'est le rôle protecteur du NAV."
     ],
     "reponseAttendue": null,
-    "explication": "Les trois critères positifs reconnus sont : HV de base ≥ 70 ms, bloc infra-hissien de 2e ou 3e degré lors de la stimulation atriale incrémentale, et bloc de haut degré ou allongement franc de l'HV lors d'un test pharmacologique (ajmaline, procaïnamide ou disopyramide selon les pays). Un seul critère suffit pour indiquer la stimulation (classe I). En revanche, un Wenckebach dans le NAV lors de la stimulation atriale rapide est physiologique : c'est le rôle protecteur du NAV. Le piège classique est de prendre tout bloc apparu pendant la stimulation atriale pour un argument pathologique, sans préciser son siège (AH ou HV).",
+    "explication": "Les trois critères positifs reconnus sont : HV de base ≥ 70 ms, bloc infra-hissien de 2e ou 3e degré lors de la stimulation atriale incrémentale, et bloc de haut degré ou allongement franc de l'HV lors d'un test pharmacologique (ajmaline, procaïnamide ou disopyramide selon les pays). Un seul critère suffit pour indiquer la stimulation (classe I). Un HV discrètement allongé (entre 55 et 69 ms) n'est pas un critère en soi et impose de poursuivre l'exploration. En revanche, un Wenckebach dans le NAV lors de la stimulation atriale rapide est physiologique : c'est le rôle protecteur du NAV. Le piège classique est de prendre tout bloc apparu pendant la stimulation atriale pour un argument pathologique, sans préciser son siège (AH ou HV).",
     "aRetenir": "Critères positifs : HV ≥ 70 ms, bloc infra-hissien sous stimulation atriale, test pharmacologique anormal.",
     "sources": [
       {
@@ -903,16 +1056,22 @@
     "difficulte": 7,
     "question": "Un HV ≥ 100 ms chez un patient porteur d'un bloc de branche correspond classiquement à :",
     "options": [
-      "Un résultat sans valeur pronostique",
-      "Un risque élevé de progression vers un BAV de haut degré",
-      "Un argument pour une double voie nodale",
-      "Une contre-indication à la stimulation ventriculaire"
+      "Un allongement banal, sans valeur pronostique propre",
+      "Un risque élevé d'évolution vers un BAV de haut degré",
+      "Un argument en faveur d'une double voie nodale",
+      "Un effet du tonus vagal, réversible sous atropine"
     ],
     "reponses": [
       1
     ],
+    "commentaires": [
+      "Faux : Scheinman a montré que le risque de BAV complet augmente avec l'HV, fortement au-delà de 100 ms.",
+      "Juste : un HV ≥ 100 ms signe un His-Purkinje très malade, à haut risque de BAV de haut degré ; la stimulation est habituellement retenue.",
+      "Faux : la double voie nodale est un phénomène nodal, qui se lit sur l'AH et non sur l'HV.",
+      "Faux : le His-Purkinje est très peu innervé par le vague ; l'atropine ne corrige pas un HV allongé."
+    ],
     "reponseAttendue": null,
-    "explication": "Les travaux de Scheinman sur les patients porteurs de bloc de branche ont montré que le risque de progression vers un BAV complet augmente avec l'allongement de l'HV, et qu'il devient particulièrement élevé au-delà de 100 ms. Un HV ≥ 100 ms est donc un marqueur de maladie sévère du His-Purkinje, qui fait habituellement retenir l'indication de stimulation, même lorsque la décision est moins évidente. Les recommandations actuelles ont retenu le seuil de 70 ms chez le patient syncopal. L'HV n'a aucun rapport avec la double voie nodale, phénomène nodal qui se lit sur l'AH.",
+    "explication": "Les travaux de Scheinman sur les patients porteurs de bloc de branche ont montré que le risque de progression vers un BAV complet augmente avec l'allongement de l'HV, et qu'il devient particulièrement élevé au-delà de 100 ms. Un HV ≥ 100 ms est donc un marqueur de maladie sévère du His-Purkinje, qui fait habituellement retenir l'indication de stimulation, même lorsque la décision est moins évidente. Les recommandations actuelles ont retenu le seuil de 70 ms chez le patient syncopal. Le His-Purkinje étant très peu sensible au tonus vagal, cet allongement n'est pas corrigé par l'atropine. L'HV n'a aucun rapport avec la double voie nodale, phénomène nodal qui se lit sur l'AH.",
     "aRetenir": "HV ≥ 100 ms = His-Purkinje très malade, risque élevé de BAV de haut degré.",
     "sources": [
       {
@@ -934,16 +1093,22 @@
     "difficulte": 5,
     "question": "Un patient présente sur des ECG successifs un BBD puis un BBG (bloc de branche alternant). Quelle est la conduite recommandée ?",
     "options": [
-      "EEP systématique avant toute décision",
-      "Holter implantable",
-      "Implantation d'un stimulateur cardiaque, sans nécessité d'EEP",
-      "Surveillance simple si le patient est asymptomatique"
+      "Stimulateur d'emblée, sans EEP préalable",
+      "EEP d'abord, stimulateur si HV ≥ 70 ms",
+      "Holter implantable pour documenter un BAV",
+      "Surveillance simple s'il reste asymptomatique"
     ],
     "reponses": [
-      2
+      0
+    ],
+    "commentaires": [
+      "Juste : le bloc de branche alternant signe une atteinte bilatérale instable ; stimulation en classe I, symptomatique ou non.",
+      "Faux : l'EEP n'apporterait rien à la décision et ne doit pas la retarder.",
+      "Faux : attendre la documentation d'un BAV expose à un BAV complet imminent.",
+      "Faux : l'indication de stimulation vaut aussi chez le patient asymptomatique."
     ],
     "reponseAttendue": null,
-    "explication": "Le bloc de branche alternant (BBD et BBG enregistrés à des moments différents) témoigne d'une atteinte bilatérale et instable du système de conduction, avec un risque élevé de BAV complet imminent. Les recommandations ESC 2021 indiquent la stimulation (classe I) chez ces patients, qu'ils soient symptomatiques ou non. L'EEP n'apporterait rien à la décision et ne doit pas la retarder. Il ne faut pas confondre avec l'alternance d'un BBD avec des hémiblocs différents, ou avec une aberration fonctionnelle liée à la fréquence.",
+    "explication": "Le bloc de branche alternant (BBD et BBG enregistrés à des moments différents) témoigne d'une atteinte bilatérale et instable du système de conduction, avec un risque élevé de BAV complet imminent. Les recommandations ESC 2021 indiquent la stimulation (classe I) chez ces patients, qu'ils soient symptomatiques ou non. L'EEP n'apporterait rien à la décision et ne doit pas la retarder, pas plus que l'attente d'une documentation par Holter implantable. Il ne faut pas confondre avec l'alternance d'un BBD avec des hémiblocs différents, ou avec une aberration fonctionnelle liée à la fréquence.",
     "aRetenir": "Bloc de branche alternant = stimulation d'emblée (ESC 2021, classe I).",
     "sources": [
       {
@@ -961,13 +1126,19 @@
     "difficulte": 6,
     "question": "Lors d'une stimulation atriale incrémentale à 130/min chez un patient avec bloc bifasciculaire, certaines activités atriales sont suivies d'un potentiel hissien mais pas de ventriculogramme. Comment interpréter ce résultat ?",
     "options": [
-      "Bloc infra-hissien pathologique, qui justifie la stimulation",
-      "Réponse physiologique du NAV à la stimulation rapide",
+      "Wenckebach nodal physiologique, sans conséquence",
       "Artefact lié à la position du cathéter hissien",
-      "Signe de double voie nodale"
+      "Double voie nodale démasquée par la stimulation",
+      "Bloc infra-hissien, critère de stimulation"
     ],
     "reponses": [
-      0
+      3
+    ],
+    "commentaires": [
+      "Faux : un Wenckebach nodal donnerait des A non suivis de H ; ici, le H est présent et c'est le V qui manque.",
+      "Faux : le potentiel hissien est bien enregistré ; son absence de conduction au ventricule n'est pas un artefact.",
+      "Faux : la double voie nodale se traduit par un saut de l'AH, pas par un H non suivi de V.",
+      "Juste : un bloc sous le His à fréquence modérée traduit une réserve de conduction insuffisante ; c'est un critère positif de l'EEP."
     ],
     "reponseAttendue": null,
     "explication": "Lors de la stimulation atriale rapide, il est normal que la conduction se bloque, mais au niveau du NAV (allongement de l'AH puis A non suivie de H, c'est-à-dire un Wenckebach nodal). L'apparition d'un bloc sous le His (A-H conduit, H non suivi de V) à une fréquence modérée traduit une réserve de conduction insuffisante du His-Purkinje. C'est un critère positif de l'EEP pour indiquer un stimulateur chez le patient syncopal avec bloc bifasciculaire. Il faut s'assurer que le bloc n'est pas dû à un prématuré ou à un phénomène de « long-court » en début de stimulation, qui peut produire un bloc infra-hissien fonctionnel sans valeur pathologique.",
@@ -996,13 +1167,19 @@
     "difficulte": 6,
     "question": "Une patiente de 89 ans, fragile, avec bloc bifasciculaire et syncopes récidivantes traumatiques inexpliquées. Que proposent les recommandations ESC 2021 ?",
     "options": [
-      "Une EEP est obligatoire avant toute stimulation",
-      "Seul un Holter implantable est recommandé",
-      "La stimulation est contre-indiquée sans BAV documenté",
-      "Une stimulation empirique peut être envisagée sans EEP (classe IIb)"
+      "Stimulation empirique envisageable sans EEP (classe IIb)",
+      "EEP obligatoire avant toute stimulation (classe I)",
+      "Holter implantable d'abord, stimulation si BAV documenté",
+      "Stimulation contre-indiquée sans BAV documenté (classe III)"
     ],
     "reponses": [
-      3
+      0
+    ],
+    "commentaires": [
+      "Juste : chez le sujet âgé fragile à haut risque de chute grave, l'ESC 2021 permet une stimulation empirique sans EEP (IIb).",
+      "Faux : l'EEP n'est pas obligatoire dans cette situation particulière ; attendre peut exposer à un traumatisme grave.",
+      "Faux : c'est la démarche habituelle chez les autres patients, mais chez cette patiente fragile, une stimulation empirique peut être envisagée.",
+      "Faux : aucune contre-indication de ce type n'existe ; la décision est individualisée."
     ],
     "reponseAttendue": null,
     "explication": "Chez les patients âgés et fragiles, avec bloc bifasciculaire et syncope inexpliquée, à haut risque de récidive ou de traumatisme, les recommandations ESC 2021 permettent d'envisager une stimulation empirique sans EEP préalable (classe IIb). Il s'agit d'une décision individualisée, qui met en balance le risque d'un bilan invasif ou d'une attente de documentation par Holter implantable et le risque de chute grave. Chez la plupart des autres patients, la démarche reste EEP puis, si elle est négative, Holter implantable. Il faut aussi penser aux autres causes de syncope, en particulier réflexe ou orthostatique, fréquentes à cet âge.",
@@ -1035,6 +1212,12 @@
     "reponses": [
       0
     ],
+    "commentaires": [
+      "Juste : TRNSc = TRNS − cycle sinusal de base ; anormal si ≥ 525 ms.",
+      "Faux : le rapport TRNS/cycle de base existe, mais ce n'est pas le TRNSc.",
+      "Faux : le PR n'intervient pas dans la mesure de la récupération sinusale.",
+      "Faux : cette opération n'a pas de sens physiologique ; la correction se fait par soustraction du cycle de base."
+    ],
     "reponseAttendue": null,
     "explication": "Le TRNS (temps de récupération du nœud sinusal) est le délai entre le dernier stimulus d'une stimulation atriale haute prolongée (30 à 60 s) et la première onde P sinusale spontanée. Comme il dépend de la fréquence sinusale de base, on le corrige en lui soustrayant le cycle sinusal spontané : TRNSc = TRNS − cycle de base. Un TRNSc ≥ 525 ms est considéré comme anormal par les recommandations ESC 2018 sur la syncope. Il existe aussi un rapport TRNS/cycle de base, mais ce n'est pas le TRNSc. Les pauses secondaires, survenant quelques cycles après l'arrêt, doivent aussi être recherchées.",
     "aRetenir": "TRNSc = TRNS − cycle sinusal de base, anormal si ≥ 525 ms.",
@@ -1059,12 +1242,18 @@
     "question": "Cycle sinusal de base 1000 ms. Après stimulation atriale à 120/min pendant 30 s, le plus long délai entre le dernier stimulus et la première P sinusale est de 1650 ms. Qu'en concluez-vous ?",
     "options": [
       "TRNSc = 165 %, normal",
+      "TRNSc = 650 ms, anormal",
       "TRNSc = 650 ms, normal",
-      "TRNSc = 1650 ms, anormal",
-      "TRNSc = 650 ms, anormal"
+      "TRNSc = 1650 ms, anormal"
     ],
     "reponses": [
-      3
+      1
+    ],
+    "commentaires": [
+      "Faux : 165 % est le rapport TRNS/cycle de base, qui ne remplace pas le TRNSc.",
+      "Juste : 1650 − 1000 = 650 ms, au-delà du seuil de 525 ms.",
+      "Faux : le calcul est juste, mais 650 ms dépasse le seuil de 525 ms : le résultat est anormal.",
+      "Faux : 1650 ms est le TRNS brut ; il faut le corriger par le cycle de base."
     ],
     "reponseAttendue": null,
     "explication": "Le TRNS mesuré est de 1650 ms et le cycle de base de 1000 ms : TRNSc = 1650 − 1000 = 650 ms. Ce résultat dépasse le seuil de 525 ms retenu comme anormal (ESC 2018). Chez un patient syncopal avec bradycardie sinusale, cela renforce la probabilité d'une origine sinusale de la syncope. Le rapport TRNS/cycle de base (165 %) est parfois utilisé, mais il ne remplace pas le TRNSc. Il faut répéter la mesure à plusieurs fréquences de stimulation et retenir la valeur la plus longue, en recherchant les pauses secondaires.",
@@ -1095,6 +1284,10 @@
     "reponses": [
       1
     ],
+    "commentaires": [
+      "Faux : l'affirmation est inexacte ; la sensibilité du TRNS est médiocre, et de nombreux patients avec maladie sinusale ont un TRNSc normal.",
+      "Juste : spécificité bonne mais sensibilité faible ; le diagnostic repose d'abord sur la corrélation symptômes-ECG."
+    ],
     "reponseAttendue": null,
     "explication": "C'est faux. La mesure du TRNS a une bonne spécificité mais une sensibilité médiocre : de nombreux patients avec une maladie de l'oreillette documentée ont un TRNSc normal. Un bloc d'entrée sino-atrial peut en effet protéger le nœud sinusal de la stimulation, et le tonus autonome modifie fortement le résultat. C'est pour cela que le diagnostic de dysfonction sinusale repose d'abord sur la corrélation symptômes-ECG (Holter, Holter implantable). L'EEP n'est envisagée dans la bradycardie sinusale syncopale que dans des cas sélectionnés (classe IIb, ESC 2018).",
     "aRetenir": "Un TRNSc normal n'élimine pas une dysfonction sinusale : la sensibilité de l'EEP est faible.",
@@ -1118,16 +1311,22 @@
     "difficulte": 3,
     "question": "Comment définit-on la période réfractaire effective (PRE) d'un tissu lors de la stimulation programmée ?",
     "options": [
-      "Le plus court couplage S1-S2 qui capture ce tissu",
-      "Le cycle le plus court conduit en 1:1 lors d'une stimulation continue",
-      "Le plus long couplage S1-S2 qui ne parvient pas à capturer (ou à se propager à travers) ce tissu",
-      "L'intervalle entre deux potentiels d'action spontanés"
+      "Le plus long couplage S1-S2 qui allonge la conduction",
+      "Le cycle le plus court conduit en 1:1 en stimulation continue",
+      "Le plus long couplage S1-S2 qui ne capture pas ce tissu",
+      "Le plus court intervalle obtenu en aval, quel que soit S1-S2"
     ],
     "reponses": [
       2
     ],
+    "commentaires": [
+      "Faux : le début du ralentissement de conduction définit la période réfractaire relative.",
+      "Faux : le cycle le plus court conduit en 1:1 en stimulation continue définit le point de Wenckebach.",
+      "Juste : la PRE est le plus long couplage S2 qui ne capture pas le tissu (ou ne se propage pas à travers lui, pour le NAV).",
+      "Faux : le plus court intervalle obtenu en aval définit la période réfractaire fonctionnelle."
+    ],
     "reponseAttendue": null,
-    "explication": "La PRE d'un tissu est le plus long intervalle de couplage d'un extrastimulus qui ne capture pas ce tissu (PRE atriale ou ventriculaire) ou qui ne se propage pas à travers lui (pour le NAV : plus long A1-A2 non suivi de H). On la mesure en diminuant progressivement le couplage de S2 par pas de 10 ms après un train S1 de 8 stimulations. Le « plus court couplage qui capture » correspond au même point vu de l'autre côté, mais ce n'est pas la définition consacrée. Le cycle de conduction 1:1 lors d'une stimulation continue définit le point de Wenckebach, notion différente. La PRE dépend du cycle de base et doit toujours être rapportée avec lui.",
+    "explication": "La PRE d'un tissu est le plus long intervalle de couplage d'un extrastimulus qui ne capture pas ce tissu (PRE atriale ou ventriculaire) ou qui ne se propage pas à travers lui (pour le NAV : plus long A1-A2 non suivi de H). On la mesure en diminuant progressivement le couplage de S2 par pas de 10 ms après un train S1 de 8 stimulations. Il ne faut pas la confondre avec la période réfractaire relative (plus long couplage qui ralentit la conduction), la période réfractaire fonctionnelle (plus court intervalle obtenu en aval) ou le point de Wenckebach (cycle le plus court conduit en 1:1 en stimulation continue). La PRE dépend du cycle de base et doit toujours être rapportée avec lui.",
     "aRetenir": "PRE = plus long couplage S2 qui ne capture pas ou ne se propage pas.",
     "sources": [
       {
@@ -1147,14 +1346,20 @@
     "options": [
       "Elle se raccourcit, comme celle du myocarde ventriculaire",
       "Elle a tendance à s'allonger",
-      "Elle ne varie jamais",
-      "Elle devient nulle"
+      "Elle reste stable, car elle dépend seulement du voltage",
+      "Elle se raccourcit, comme celle des voies accessoires"
     ],
     "reponses": [
       1
     ],
+    "commentaires": [
+      "Faux : c'est le comportement des tissus à réponse rapide, dont le potentiel d'action se raccourcit avec la fréquence.",
+      "Juste : la réfractarité du NAV est surtout temps-dépendante (post-repolarisation) ; sa PRE s'allonge quand le cycle se raccourcit.",
+      "Faux : la réfractarité nodale est au contraire temps-dépendante, et elle varie avec le cycle de base.",
+      "Faux : les voies accessoires se comportent comme le myocarde de travail ; le NAV fait l'inverse."
+    ],
     "reponseAttendue": null,
-    "explication": "Dans les tissus à réponse rapide (oreillette, ventricule, His-Purkinje), la PRE se raccourcit lorsque le cycle de base diminue, car la durée du potentiel d'action se raccourcit. Le NAV se comporte à l'inverse : sa réfractarité est surtout temps-dépendante (réfractarité post-repolarisation), et sa PRE a tendance à s'allonger lorsque la fréquence augmente. Cette propriété renforce son rôle de filtre lors des tachycardies atriales. Elle explique aussi qu'on puisse démasquer un saut de double voie nodale seulement à certains cycles de base. Le piège est de généraliser au NAV le comportement du myocarde de travail.",
+    "explication": "Dans les tissus à réponse rapide (oreillette, ventricule, His-Purkinje, voies accessoires classiques), la PRE se raccourcit lorsque le cycle de base diminue, car la durée du potentiel d'action se raccourcit. Le NAV se comporte à l'inverse : sa réfractarité est surtout temps-dépendante (réfractarité post-repolarisation), et sa PRE a tendance à s'allonger lorsque la fréquence augmente. Cette propriété renforce son rôle de filtre lors des tachycardies atriales. Elle explique aussi qu'on puisse démasquer un saut de double voie nodale seulement à certains cycles de base. Le piège est de généraliser au NAV le comportement du myocarde de travail.",
     "aRetenir": "La PRE du NAV s'allonge quand le cycle de base se raccourcit, à l'inverse du myocarde.",
     "sources": [
       {
@@ -1173,15 +1378,21 @@
     "question": "Quelle intensité de stimulation utilise-t-on habituellement pour la stimulation programmée lors d'une EEP ?",
     "options": [
       "Le seuil diastolique exact",
-      "Dix fois le seuil diastolique",
       "Deux fois le seuil diastolique",
-      "L'intensité maximale délivrable par le stimulateur"
+      "Dix fois le seuil diastolique",
+      "L'intensité maximale du stimulateur"
     ],
     "reponses": [
-      2
+      1
+    ],
+    "commentaires": [
+      "Faux : au seuil exact, des pertes de capture se confondraient avec la réfractarité.",
+      "Juste : deux fois le seuil diastolique, avec 1 à 2 ms d'impulsion, assure une capture fiable sans fausser les périodes réfractaires.",
+      "Faux : une forte intensité raccourcit artificiellement la PRE mesurée et diminue la spécificité de l'induction.",
+      "Faux : l'intensité maximale accroît l'induction de réponses non spécifiques (TV polymorphe, FV)."
     ],
     "reponseAttendue": null,
-    "explication": "Par convention, la stimulation programmée est délivrée à deux fois le seuil diastolique, avec une durée d'impulsion d'environ 1 à 2 ms. Cela garantit une capture fiable sans modifier artificiellement les périodes réfractaires. Au seuil exact, des pertes de capture se confondraient avec la réfractarité. À forte intensité, la PRE mesurée se raccourcit (le stimulus capture plus tôt dans la phase de récupération) et la spécificité de l'induction d'arythmies diminue, notamment ventriculaires. Le seuil doit être contrôlé à chaque changement de site.",
+    "explication": "Par convention, la stimulation programmée est délivrée à deux fois le seuil diastolique, avec une durée d'impulsion d'environ 1 à 2 ms. Cela garantit une capture fiable sans modifier artificiellement les périodes réfractaires. Au seuil exact, des pertes de capture se confondraient avec la réfractarité. À forte intensité (dix fois le seuil, ou intensité maximale), la PRE mesurée se raccourcit (le stimulus capture plus tôt dans la phase de récupération) et la spécificité de l'induction d'arythmies diminue, notamment ventriculaires. Le seuil doit être contrôlé à chaque changement de site.",
     "aRetenir": "Stimulation programmée à deux fois le seuil diastolique.",
     "sources": [
       {
@@ -1199,16 +1410,22 @@
     "difficulte": 8,
     "question": "Comment se définit la période réfractaire fonctionnelle (PRF) du NAV ?",
     "options": [
-      "Le plus long A1-A2 non conduit au His",
-      "Le plus court intervalle H1-H2 obtenu en réponse à n'importe quel couplage A1-A2",
-      "Le plus long A1-A2 au-delà duquel l'AH commence à s'allonger",
-      "L'intervalle entre le dernier A conduit et le premier A bloqué lors d'un Wenckebach"
+      "Le plus court H1-H2 obtenu, quel que soit le couplage A1-A2",
+      "Le plus long couplage A1-A2 qui n'est pas conduit au His",
+      "Le plus long A1-A2 à partir duquel l'AH commence à s'allonger",
+      "Le cycle A-A du point de Wenckebach en stimulation continue"
     ],
     "reponses": [
-      1
+      0
+    ],
+    "commentaires": [
+      "Juste : la PRF mesure la capacité de sortie du NAV : c'est le plus court H1-H2 obtenu en réponse à des A2 de plus en plus précoces.",
+      "Faux : le plus long A1-A2 non conduit au His définit la PRE du NAV, pas sa PRF.",
+      "Faux : le début de l'allongement de l'AH correspond à la période réfractaire relative.",
+      "Faux : le point de Wenckebach se mesure en stimulation continue ; ce n'est pas une période réfractaire."
     ],
     "reponseAttendue": null,
-    "explication": "La période réfractaire fonctionnelle mesure la capacité de sortie d'un tissu : c'est le plus court intervalle obtenu en aval (H1-H2 pour le NAV) en réponse à des extrastimuli de plus en plus précoces. En raison de la conduction décrémentielle, raccourcir A1-A2 allonge A2-H2, si bien que H1-H2 finit par atteindre un minimum : c'est la PRF. La proposition A définit la PRE du NAV. La proposition C correspond à la période réfractaire relative, c'est-à-dire le début du ralentissement de conduction. La PRF du NAV conditionne la fréquence ventriculaire maximale lors des tachyarythmies atriales.",
+    "explication": "La période réfractaire fonctionnelle mesure la capacité de sortie d'un tissu : c'est le plus court intervalle obtenu en aval (H1-H2 pour le NAV) en réponse à des extrastimuli de plus en plus précoces. En raison de la conduction décrémentielle, raccourcir A1-A2 allonge A2-H2, si bien que H1-H2 finit par atteindre un minimum : c'est la PRF. Le plus long A1-A2 non conduit au His définit la PRE du NAV, et le plus long A1-A2 à partir duquel l'AH commence à s'allonger correspond à la période réfractaire relative. Le point de Wenckebach, mesuré en stimulation continue, est une autre notion. La PRF du NAV conditionne la fréquence ventriculaire maximale lors des tachyarythmies atriales.",
     "aRetenir": "PRF du NAV = plus court H1-H2 obtenu, quelle que soit la précocité de A2.",
     "sources": [
       {
@@ -1252,16 +1469,22 @@
     "difficulte": 3,
     "question": "Lors de la stimulation atriale programmée, qu'appelle-t-on un « saut » évocateur de double voie nodale ?",
     "options": [
-      "Un allongement brutal de l'AH (A2-H2) d'au moins 50 ms pour une diminution de 10 ms du couplage A1-A2",
-      "Un raccourcissement de l'HV de 20 ms",
-      "Une augmentation progressive de l'AH de 5 ms à chaque diminution de couplage",
-      "L'apparition d'un bloc infra-hissien"
+      "Un allongement progressif de l'AH de 5 ms à chaque pas de 10 ms",
+      "Un allongement brutal de l'AH ≥ 20 ms pour 10 ms de couplage en moins",
+      "Un allongement brutal de l'HV ≥ 50 ms pour 10 ms de couplage en moins",
+      "Un allongement brutal de l'AH ≥ 50 ms pour 10 ms de couplage en moins"
     ],
     "reponses": [
-      0
+      3
+    ],
+    "commentaires": [
+      "Faux : un allongement progressif et modéré de l'AH est la conduction décrémentielle normale du NAV.",
+      "Faux : le critère historique de Denes est un saut d'au moins 50 ms ; 20 ms ne suffit pas.",
+      "Faux : le saut concerne l'AH (phénomène nodal) ; l'HV reflète le His-Purkinje.",
+      "Juste : quand A1-A2 passe sous la PRE de la voie rapide, la conduction bascule sur la voie lente : A2-H2 augmente d'au moins 50 ms."
     ],
     "reponseAttendue": null,
-    "explication": "La physiologie à double voie nodale associe une voie rapide à période réfractaire longue et une voie lente à période réfractaire courte. Lorsque le couplage A1-A2 devient inférieur à la PRE de la voie rapide, la conduction passe brusquement par la voie lente : l'A2-H2 augmente d'au moins 50 ms pour un raccourcissement de 10 ms du couplage (critère historique de Denes). Ce saut s'accompagne souvent d'un écho atrial ou de l'induction de la TRIN. L'allongement progressif et modéré de l'AH est la conduction décrémentielle normale. L'HV et le bloc infra-hissien n'ont pas de rapport avec ce phénomène nodal.",
+    "explication": "La physiologie à double voie nodale associe une voie rapide à période réfractaire longue et une voie lente à période réfractaire courte. Lorsque le couplage A1-A2 devient inférieur à la PRE de la voie rapide, la conduction passe brusquement par la voie lente : l'A2-H2 augmente d'au moins 50 ms pour un raccourcissement de 10 ms du couplage (critère historique de Denes) ; un allongement plus modeste ne suffit pas. Ce saut s'accompagne souvent d'un écho atrial ou de l'induction de la TRIN. L'allongement progressif et modéré de l'AH est la conduction décrémentielle normale. L'HV, qui reflète le His-Purkinje, n'a pas de rapport avec ce phénomène nodal.",
     "aRetenir": "Un allongement brutal de l'AH d'au moins 50 ms pour un couplage raccourci de 10 ms (saut) signe une double voie nodale.",
     "sources": [
       {
@@ -1284,17 +1507,22 @@
     "question": "Quelles caractéristiques sont typiques d'une TRIN commune (lente-rapide) ? (plusieurs réponses)",
     "options": [
       "Conduction antérograde par la voie lente et rétrograde par la voie rapide",
-      "Intervalle VA très court, onde P rétrograde cachée dans le QRS ou pseudo-r' en V1",
+      "Intervalle VA supérieur à 70 ms, onde P rétrograde bien séparée du QRS",
       "Activation atriale rétrograde la plus précoce dans la région hissienne (septum antérieur)",
       "RP long, supérieur au PR"
     ],
     "reponses": [
       0,
-      1,
       2
     ],
+    "commentaires": [
+      "Juste : dans la forme commune, l'influx descend par la voie lente et remonte par la voie rapide.",
+      "Faux : oreillettes et ventricules sont activés presque simultanément ; le VA est très court et la P rétrograde cachée dans le QRS ou en pseudo-r' en V1.",
+      "Juste : la remontée par la voie rapide donne une activation atriale la plus précoce dans la région hissienne.",
+      "Faux : le RP long caractérise les formes atypiques rapide-lente, la PJRT et les tachycardies atriales."
+    ],
     "reponseAttendue": null,
-    "explication": "Dans la forme commune, l'influx descend par la voie lente et remonte par la voie rapide. Oreillettes et ventricules sont activés presque simultanément : l'onde P rétrograde est cachée dans le QRS ou déforme sa fin (pseudo-r' en V1, pseudo-S en inférieur). Le VA mesuré entre le début du QRS et la première activité atriale est très court. L'activation rétrograde la plus précoce se fait par la voie rapide, dans la région hissienne. Le RP long est au contraire le propre des formes atypiques (rapide-lente), de la PJRT et des tachycardies atriales.",
+    "explication": "Dans la forme commune, l'influx descend par la voie lente et remonte par la voie rapide. Oreillettes et ventricules sont activés presque simultanément : l'onde P rétrograde est cachée dans le QRS ou déforme sa fin (pseudo-r' en V1, pseudo-S en inférieur). Le VA mesuré entre le début du QRS et la première activité atriale est très court, habituellement inférieur à 70 ms : un VA long avec une P bien séparée du QRS n'est pas typique. L'activation rétrograde la plus précoce se fait par la voie rapide, dans la région hissienne. Le RP long est au contraire le propre des formes atypiques (rapide-lente), de la PJRT et des tachycardies atriales.",
     "aRetenir": "TRIN commune = descente lente, remontée rapide, VA très court, A précoce au His.",
     "sources": [
       {
@@ -1321,6 +1549,10 @@
     ],
     "reponses": [
       1
+    ],
+    "commentaires": [
+      "Faux : l'affirmation est inexacte ; un bloc AV pendant la tachycardie exclut une réciprocante par voie accessoire, pas une TRIN.",
+      "Juste : le circuit de la TRIN est contenu dans la région nodale ; un bloc 2:1 fonctionnel sous le circuit est possible sans l'interrompre."
     ],
     "reponseAttendue": null,
     "explication": "C'est faux : la persistance de la tachycardie malgré un bloc AV (2:1) exclut une tachycardie réciprocante orthodromique par voie accessoire, dont le circuit inclut obligatoirement le ventricule, mais pas une TRIN. Dans la TRIN, le circuit est contenu dans la région nodale et péri-nodale, et ni les ventricules ni (pour l'essentiel) les oreillettes n'y sont indispensables. Un bloc 2:1, le plus souvent fonctionnel et infra-hissien ou dans la voie commune inférieure, peut survenir, en particulier au démarrage. Le diagnostic différentiel reste alors la tachycardie atriale, que l'on distingue par d'autres manœuvres.",
@@ -1353,6 +1585,12 @@
     "reponses": [
       3
     ],
+    "commentaires": [
+      "Faux : la TRIN commune a un RP très court et une activation atriale la plus précoce dans la région hissienne.",
+      "Faux : un flutter typique donne une activité atriale continue en dents de scie, sans double voie nodale ni conduction VA décrémentielle impliquée.",
+      "Faux : une voie latérale gauche donne une activation excentrique, la plus précoce en sinus coronaire distal, non décrémentielle.",
+      "Juste : descente par la voie rapide, remontée lente par la voie lente dont l'exutoire est à l'ostium du SC : RP long et A précoce postéro-septale."
+    ],
     "reponseAttendue": null,
     "explication": "Dans la TRIN atypique rapide-lente, la descente se fait par la voie rapide et la remontée par la voie lente, dont l'exutoire atrial se situe près de l'ostium du sinus coronaire. Le temps de remontée est long, d'où un RP long et une activation atriale la plus précoce postéro-septale. La conduction rétrograde est décrémentielle, ce qui la distingue d'une voie accessoire classique. Une voie latérale gauche donnerait une activation excentrique, la plus précoce en sinus coronaire distal. Le diagnostic différentiel principal est la PJRT (voie accessoire décrémentielle postéro-septale) et la tachycardie atriale septale, que les manœuvres d'entraînement aident à trancher.",
     "aRetenir": "RP long + A précoce à l'ostium du sinus coronaire + conduction décrémentielle = évoquer TRIN rapide-lente.",
@@ -1376,13 +1614,19 @@
     "difficulte": 7,
     "question": "Au cours d'une tachycardie à QRS fins, l'intervalle VA (début du QRS → première activité atriale) mesure 40 ms. Quelle conclusion peut-on en tirer ?",
     "options": [
-      "Une tachycardie orthodromique par voie accessoire est très improbable",
-      "Il s'agit obligatoirement d'une tachycardie atriale",
-      "Il s'agit d'une tachycardie orthodromique par voie accessoire septale",
-      "Cet intervalle n'a pas de valeur diagnostique"
+      "Une réciprocante orthodromique est très improbable",
+      "Il s'agit forcément d'une tachycardie atriale",
+      "Il s'agit d'une réciprocante par voie septale",
+      "Cet intervalle n'a aucune valeur diagnostique"
     ],
     "reponses": [
       0
+    ],
+    "commentaires": [
+      "Juste : ventricule puis voie accessoire puis oreillette demandent au moins 70 ms ; un VA de 40 ms oriente vers une TRIN commune.",
+      "Faux : une tachycardie atriale est possible par coïncidence, mais peu probable ; elle n'est certainement pas obligatoire.",
+      "Faux : même une voie septale nécessite un VA d'au moins 70 ms environ.",
+      "Faux : un VA < 70 ms a une forte valeur pour exclure une réciprocante par voie accessoire."
     ],
     "reponseAttendue": null,
     "explication": "Dans une tachycardie orthodromique, l'influx doit activer le ventricule puis remonter par la voie accessoire avant d'atteindre l'oreillette : cela prend au minimum environ 70 ms entre le début du QRS et l'activation atriale. Un VA < 70 ms exclut donc pratiquement une réciprocante par voie accessoire et oriente vers une TRIN commune, où oreillettes et ventricules sont activés en parallèle. Une tachycardie atriale avec un PR long, dont l'onde A tombe par hasard juste après le QRS, reste théoriquement possible mais peu probable, et se discute avec d'autres critères. Un VA ≥ 70 ms, en revanche, ne permet pas à lui seul de trancher.",
@@ -1412,17 +1656,22 @@
     "question": "Pendant l'ablation par radiofréquence de la voie lente, quels événements imposent l'arrêt immédiat du tir ? (plusieurs réponses)",
     "options": [
       "Rythme jonctionnel accéléré avec bloc de conduction VA (activité ventriculaire non suivie d'activité atriale)",
-      "Allongement du PR ou de l'AH en rythme sinusal",
+      "Rythme jonctionnel lent apparaissant dès les premières secondes du tir",
       "Survenue d'un BAV",
       "Rythme jonctionnel lent avec conduction VA 1:1 préservée"
     ],
     "reponses": [
       0,
-      1,
       2
     ],
+    "commentaires": [
+      "Juste : un rythme jonctionnel rapide ou une perte de la conduction VA signe une atteinte de la voie rapide ; arrêt immédiat.",
+      "Faux : un rythme jonctionnel lent précoce est attendu lors d'un tir efficace ; il impose une surveillance, pas l'arrêt.",
+      "Juste : tout BAV impose l'arrêt immédiat pour éviter un BAV complet définitif.",
+      "Faux : tant que le rythme jonctionnel reste lent avec une conduction VA 1:1, le tir peut être poursuivi sous surveillance."
+    ],
     "reponseAttendue": null,
-    "explication": "Le rythme jonctionnel est attendu lors d'un tir efficace sur la voie lente : il témoigne du chauffage des extensions nodales. Tant qu'il reste lent avec une conduction rétrograde 1:1 par la voie rapide, le tir peut être poursuivi sous surveillance. En revanche, un rythme jonctionnel rapide, une perte de la conduction VA pendant le rythme jonctionnel, un allongement de l'AH/PR ou tout BAV signent une atteinte de la voie rapide ou du NAV compact : il faut arrêter immédiatement pour éviter un BAV complet définitif. C'est pourquoi on tire en rythme sinusal ou en stimulation atriale lente, pour surveiller la conduction antérograde.",
+    "explication": "Le rythme jonctionnel est attendu lors d'un tir efficace sur la voie lente : il témoigne du chauffage des extensions nodales, et son apparition dans les premières secondes est plutôt un bon signe. Tant qu'il reste lent avec une conduction rétrograde 1:1 par la voie rapide, le tir peut être poursuivi sous surveillance. En revanche, un rythme jonctionnel rapide, une perte de la conduction VA pendant le rythme jonctionnel, un allongement de l'AH/PR ou tout BAV signent une atteinte de la voie rapide ou du NAV compact : il faut arrêter immédiatement pour éviter un BAV complet définitif. C'est pourquoi on tire en rythme sinusal ou en stimulation atriale lente, pour surveiller la conduction antérograde.",
     "aRetenir": "Rythme jonctionnel rapide, bloc VA, allongement de l'AH ou BAV pendant l'ablation de la voie lente = arrêt immédiat.",
     "sources": [
       {
@@ -1454,6 +1703,10 @@
     "reponses": [
       1
     ],
+    "commentaires": [
+      "Faux : l'affirmation est inexacte ; une double voie nodale existe chez des sujets sans TRIN et n'est qu'un substrat.",
+      "Juste : le diagnostic repose sur l'induction d'une tachycardie reproduisant la clinique, avec des réponses aux manœuvres compatibles."
+    ],
     "reponseAttendue": null,
     "explication": "C'est faux. Une physiologie à double voie nodale peut exister chez des sujets n'ayant jamais présenté de TRIN : elle n'est qu'un substrat potentiel. Inversement, un saut n'est pas toujours démontrable chez les patients qui ont une TRIN authentique (voies aux propriétés proches, voies lentes multiples). Le diagnostic repose sur l'induction d'une tachycardie reproduisant la clinique, avec des caractéristiques et des réponses aux manœuvres compatibles avec une TRIN. Certains centres proposent néanmoins une modulation de la voie lente en l'absence d'induction lorsque l'ECG clinique est typique et qu'il existe un saut avec échos.",
     "aRetenir": "Une double voie nodale est un substrat, pas un diagnostic : il faut induire la tachycardie clinique.",
@@ -1478,15 +1731,21 @@
     "question": "Lors de la stimulation ventriculaire, l'activation atriale rétrograde la plus précoce est enregistrée sur le dipôle distal du sinus coronaire, avec une conduction VA constante quel que soit le couplage. Qu'évoque ce résultat ?",
     "options": [
       "Une conduction rétrograde par le NAV",
-      "Une double voie nodale",
-      "Une voie de Mahaim",
-      "Une voie accessoire latérale gauche à conduction non décrémentielle"
+      "Une voie accessoire postéro-septale",
+      "Une voie accessoire latérale gauche",
+      "Une voie de Mahaim atrio-fasciculaire"
     ],
     "reponses": [
-      3
+      2
+    ],
+    "commentaires": [
+      "Faux : la conduction nodale rétrograde est concentrique (septale) et décrémentielle.",
+      "Faux : une voie postéro-septale donnerait une activation la plus précoce à l'ostium du sinus coronaire, pas en distal.",
+      "Juste : activation excentrique la plus précoce en SC distal (anneau mitral latéral) et VA constant (non décrémentiel) = voie latérale gauche.",
+      "Faux : la voie de Mahaim ne conduit habituellement pas en rétrograde et s'insère sur l'anneau tricuspide."
     ],
     "reponseAttendue": null,
-    "explication": "La conduction rétrograde normale par le NAV active d'abord le septum (région hissienne ou ostium du sinus coronaire) : on parle d'activation concentrique. Une activation excentrique, la plus précoce en sinus coronaire distal (paroi latérale de l'anneau mitral), signe une voie accessoire latérale gauche. La constance du VA malgré la diminution du couplage traduit une conduction non décrémentielle, typique des voies accessoires classiques, alors que le NAV conduit de manière décrémentielle. La voie de Mahaim ne conduit habituellement pas en rétrograde. Il faut rester prudent en cas d'activation concentrique : elle n'exclut pas une voie septale.",
+    "explication": "La conduction rétrograde normale par le NAV active d'abord le septum (région hissienne ou ostium du sinus coronaire) : on parle d'activation concentrique. Une activation excentrique, la plus précoce en sinus coronaire distal (paroi latérale de l'anneau mitral), signe une voie accessoire latérale gauche ; une voie postéro-septale donnerait au contraire une activation précoce près de l'ostium du sinus coronaire. La constance du VA malgré la diminution du couplage traduit une conduction non décrémentielle, typique des voies accessoires classiques, alors que le NAV conduit de manière décrémentielle. La voie de Mahaim ne conduit habituellement pas en rétrograde. Il faut rester prudent en cas d'activation concentrique : elle n'exclut pas une voie septale.",
     "aRetenir": "Activation rétrograde excentrique (SC distal) et non décrémentielle = voie accessoire latérale gauche.",
     "sources": [
       {
@@ -1508,13 +1767,19 @@
     "difficulte": 7,
     "question": "Quelles sont les caractéristiques d'une voie de Mahaim de type atrio-fasciculaire ?",
     "options": [
-      "Conduction rétrograde rapide, voie latérale gauche, préexcitation de type BBD",
-      "Conduction bidirectionnelle non décrémentielle, voie postéro-septale",
-      "Conduction antérograde exclusive et décrémentielle, insertion atriale sur l'anneau tricuspide latéral, préexcitation de type BBG",
-      "Absence de toute conduction en dehors de l'isoprénaline"
+      "Rétrograde seule, non décrémentielle, mitrale latérale, aspect BBD",
+      "Bidirectionnelle, non décrémentielle, postéro-septale, aspect BBD",
+      "Antérograde seule, décrémentielle, tricuspide latérale, aspect BBG",
+      "Antérograde seule, non décrémentielle, mitrale latérale, aspect BBG"
     ],
     "reponses": [
       2
+    ],
+    "commentaires": [
+      "Faux : ces caractéristiques évoquent plutôt une voie latérale gauche cachée ; la voie de Mahaim ne conduit pas en rétrograde.",
+      "Faux : ce profil est celui d'une voie accessoire classique postéro-septale.",
+      "Juste : sorte de « NAV accessoire » né de l'anneau tricuspide latéral, à conduction antérograde lente et décrémentielle, donnant un aspect de BBG.",
+      "Faux : la voie de Mahaim est décrémentielle et naît de l'anneau tricuspide ; une insertion ventriculaire droite donne un aspect de BBG, pas une origine mitrale."
     ],
     "reponseAttendue": null,
     "explication": "La voie de Mahaim atrio-fasciculaire est une structure proche d'un « NAV accessoire » : elle naît de l'anneau tricuspide latéral et se termine dans la branche droite ou le myocarde apical du VD. Elle conduit uniquement dans le sens antérograde, de manière lente et décrémentielle. La préexcitation, souvent minime en rythme sinusal, prend un aspect de BBG avec axe gauche, et augmente avec la stimulation atriale rapide ou latérale droite. Elle donne des tachycardies antidromiques à QRS larges de type BBG, qui peuvent être confondues avec une TV. L'ablation cible le potentiel de Mahaim sur l'anneau tricuspide.",
@@ -1539,13 +1804,19 @@
     "difficulte": 7,
     "question": "Un enfant présente une tachycardie à QRS fins quasi incessante, à RP long, avec ondes P négatives en DII, DIII et aVF et une dysfonction ventriculaire gauche récente. Quel diagnostic évoquer en priorité ?",
     "options": [
-      "TRIN commune",
-      "Tachycardie jonctionnelle réciproque permanente (PJRT, forme de Coumel) par voie accessoire postéro-septale décrémentielle",
-      "Tachycardie orthodromique par voie accessoire latérale gauche rapide",
-      "Flutter atrial à conduction 2:1"
+      "Une TRIN commune lente-rapide, la plus fréquente",
+      "Une PJRT (forme de Coumel), voie postéro-septale lente",
+      "Une réciprocante orthodromique par voie latérale gauche",
+      "Un flutter atrial typique conduit en 2:1"
     ],
     "reponses": [
       1
+    ],
+    "commentaires": [
+      "Faux : la TRIN commune a un RP très court et n'est habituellement pas incessante.",
+      "Juste : voie accessoire cachée postéro-septale à conduction rétrograde lente et décrémentielle : RP long, P négatives en inférieur, caractère incessant.",
+      "Faux : une voie latérale gauche classique donne un RP court, avec des P rétrogrades négatives en DI et aVL.",
+      "Faux : le flutter donne une activité atriale en dents de scie, pas une tachycardie à RP long avec une P par QRS."
     ],
     "reponseAttendue": null,
     "explication": "La PJRT est une tachycardie orthodromique utilisant une voie accessoire cachée à conduction rétrograde lente et décrémentielle, le plus souvent postéro-septale près de l'ostium du sinus coronaire. La remontée lente explique le RP long et les P négatives en inférieur. Son caractère incessant expose à une cardiomyopathie rythmique, souvent réversible après ablation. La TRIN commune a un RP très court, et une voie latérale gauche classique donne un RP court, avec des P rétrogrades négatives en DI et aVL. Les diagnostics différentiels sont la TRIN atypique et la tachycardie atriale basse septale.",
@@ -1580,6 +1851,12 @@
       1,
       2
     ],
+    "commentaires": [
+      "Juste : un plus court RR préexcité en FA ≤ 250 ms est un marqueur de haut risque de mort subite.",
+      "Juste : une PRE de la voie accessoire ≤ 250 ms définit un profil à haut risque.",
+      "Juste : la présence de voies accessoires multiples est un marqueur de haut risque.",
+      "Faux : une préexcitation intermittente ou qui disparaît brutalement à l'effort traduit une voie à PRE longue, donc à faible risque."
+    ],
     "reponseAttendue": null,
     "explication": "Selon les recommandations ESC 2019, l'EEP (avec isoprénaline) permet de stratifier le risque de mort subite des préexcitations asymptomatiques. Un plus court RR préexcité en FA ≤ 250 ms, une PRE de la voie accessoire ≤ 250 ms, la présence de voies multiples et l'induction d'une tachycardie par voie accessoire sont des marqueurs de haut risque qui justifient l'ablation. À l'inverse, une préexcitation intermittente ou qui disparaît brutalement à l'effort traduit une voie à PRE longue, donc à faible risque. L'EEP est recommandée chez les sujets à profession ou activité à risque et chez les sportifs de compétition.",
     "aRetenir": "Haut risque : plus court RR préexcité ≤ 250 ms, PRE de la voie accessoire ≤ 250 ms, voies multiples, tachycardie inductible.",
@@ -1606,6 +1883,12 @@
     ],
     "reponses": [
       2
+    ],
+    "commentaires": [
+      "Faux : un BBG n'allonge pas le circuit d'une voie latérale droite ; seul un BBD le ferait.",
+      "Faux : pour une voie septale, l'allongement du VA sous bloc de branche est faible, bien inférieur à 35 ms.",
+      "Juste : un BBG ipsilatéral allonge le VA de plus de 35 ms environ : voie de paroi libre latérale gauche (loi de Coumel).",
+      "Faux : dans une TRIN, les ventricules ne font pas partie du circuit ; un bloc de branche ne modifie ni le VA ni le cycle."
     ],
     "reponseAttendue": null,
     "explication": "Lorsqu'un bloc de branche apparaît du côté de la voie accessoire, l'influx doit d'abord descendre par la branche controlatérale et traverser le septum avant d'atteindre l'insertion ventriculaire de la voie : le circuit s'allonge et le VA augmente (loi de Coumel). Un allongement de plus de 35 ms environ oriente vers une voie de paroi libre du même côté que le bloc : ici, un BBG oriente vers une voie latérale gauche. Pour une voie septale, l'allongement est plus faible. Dans une TRIN, un bloc de branche ne modifie pas le cycle, car les ventricules ne font pas partie du circuit. Ce signe démontre à la fois la participation d'une voie accessoire et sa latéralité.",
@@ -1636,6 +1919,10 @@
     "reponses": [
       0
     ],
+    "commentaires": [
+      "Juste : une voie cachée ne conduit que du ventricule vers l'oreillette ; l'ECG de base est normal, sans PR court ni onde delta.",
+      "Faux : l'affirmation est exacte ; une voie qui conduit en antérograde sans préexcitation visible est dite « latente », pas cachée."
+    ],
     "reponseAttendue": null,
     "explication": "C'est vrai. Une voie accessoire cachée ne conduit que du ventricule vers l'oreillette : en rythme sinusal, l'ECG est normal (pas de PR court ni d'onde delta). Elle peut cependant servir de branche rétrograde à une tachycardie orthodromique à QRS fins, qui représente une part importante des tachycardies jonctionnelles. En EEP, on la démasque par la stimulation ventriculaire (activation rétrograde excentrique, non décrémentielle) ou par les manœuvres réalisées pendant la tachycardie. À l'inverse, une voie « latente » conduit en antérograde mais sans préexcitation visible, par exemple une voie latérale gauche éloignée du nœud sinusal.",
     "aRetenir": "Voie cachée = conduction rétrograde seule, ECG de base normal, mais tachycardie orthodromique possible.",
@@ -1662,10 +1949,16 @@
       "Tachycardie atriale",
       "Tachycardie orthodromique par voie accessoire",
       "TRIN",
-      "Aucun, la manœuvre n'a pas de valeur"
+      "Aucun, la réponse V-A-V n'est pas spécifique"
     ],
     "reponses": [
       0
+    ],
+    "commentaires": [
+      "Juste : dans une tachycardie atriale, le dernier A entraîné est suivi d'un A issu du foyer (V-A-A-V) ; une réponse V-A-V l'exclut.",
+      "Faux : dans une réciprocante orthodromique, l'A rétrograde fait partie du circuit ; la réponse attendue est justement V-A-V.",
+      "Faux : dans une TRIN, la réponse est également V-A-V (attention aux pseudo-V-A-A-V si le VA est très court).",
+      "Faux : sous réserve d'un entraînement réel, la réponse V-A-V exclut la tachycardie atriale."
     ],
     "reponseAttendue": null,
     "explication": "Lors de l'entraînement ventriculaire, si l'oreillette suit le rythme imposé, c'est qu'elle est activée de façon rétrograde. À l'arrêt, dans la TRIN et la réciprocante orthodromique, le dernier V entraîné est suivi d'un A (rétrograde, qui fait partie du circuit), puis du V suivant : réponse V-A-V. Dans une tachycardie atriale, le dernier A entraîné rétrograde est suivi d'un nouvel A issu du foyer, puis du V : réponse V-A-A-V. Une réponse V-A-V exclut donc la tachycardie atriale. Attention aux pseudo-réponses V-A-A-V, dans les TRIN typiques à VA très court (A inscrit avant ou dans le V) ou quand le VA dépasse le cycle de stimulation : il faut identifier le dernier A réellement entraîné au cycle stimulé et, en cas de doute, raisonner sur le His (réponse A-A-H ou A-H).",
@@ -1698,6 +1991,12 @@
     "reponses": [
       3
     ],
+    "commentaires": [
+      "Faux : dans une réciprocante orthodromique, le ventricule fait partie du circuit ; PPI − TCL serait < 115 ms.",
+      "Faux : une TV fasciculaire n'est pas une tachycardie à QRS fins entraînée avec accélération de l'oreillette au cycle stimulé.",
+      "Faux : une tachycardie atriale se juge sur la réponse V-A-A-V, pas sur PPI − TCL.",
+      "Juste : PPI − TCL = 180 ms (> 115 ms) : la pointe du VD est éloignée du circuit, ce qui favorise la TRIN selon Michaud."
+    ],
     "reponseAttendue": null,
     "explication": "La différence PPI − cycle de la tachycardie mesure la distance entre le site de stimulation et le circuit. Ici, PPI − TCL = 540 − 360 = 180 ms. Selon Michaud, une valeur > 115 ms favorise la TRIN, car la pointe du VD est éloignée du circuit nodal et l'influx doit traverser le His-Purkinje et revenir. Une valeur < 115 ms favorise une réciprocante orthodromique, où le ventricule fait partie du circuit. Il existe une version corrigée (qui soustrait l'allongement nodal) et le critère SA − VA > 85 ms, utile pour les voies septales proches du His. Le piège : ne pas vérifier que l'entraînement est réel (accélération de l'oreillette au cycle stimulé).",
     "aRetenir": "PPI − TCL > 115 ms après stimulation VD = TRIN ; < 115 ms = réciprocante orthodromique.",
@@ -1721,16 +2020,22 @@
     "difficulte": 8,
     "question": "Lors d'une stimulation para-hissienne, on passe d'une capture His + ventricule à une capture ventriculaire seule (QRS élargi). L'intervalle stimulus-A reste identique et la séquence d'activation atriale ne change pas. Quelle est l'interprétation ?",
     "options": [
-      "Conduction rétrograde par une voie accessoire septale",
-      "Conduction rétrograde exclusivement par le NAV",
-      "Double voie nodale",
-      "Bloc rétrograde complet"
+      "Réponse nodale : conduction rétrograde exclusivement par le NAV",
+      "Voie accessoire septale (réponse extranodale)",
+      "Conduction rétrograde par la voie lente nodale",
+      "Réponse mixte, nodale et par voie accessoire"
     ],
     "reponses": [
-      0
+      1
+    ],
+    "commentaires": [
+      "Faux : une réponse nodale allongerait l'intervalle stimulus-A à la perte de capture hissienne.",
+      "Juste : un stimulus-A et une séquence atriale inchangés à la perte de capture du His signent une conduction extranodale, par voie septale.",
+      "Faux : une conduction nodale, par la voie rapide ou lente, dépend du His ; le stimulus-A s'allongerait.",
+      "Faux : une réponse mixte s'accompagne d'un changement de la séquence d'activation atriale, absent ici."
     ],
     "reponseAttendue": null,
-    "explication": "Le principe de la stimulation para-hissienne (Hirao) est de comparer le temps de conduction jusqu'à l'oreillette avec ou sans capture du His. Si la conduction rétrograde passe par le NAV, la perte de capture hissienne oblige l'influx à parcourir le myocarde ventriculaire puis le réseau de Purkinje pour atteindre le His : l'intervalle stimulus-A s'allonge (réponse nodale). Si elle passe par une voie accessoire septale, l'intervalle stimulus-A dépend seulement de l'activation du myocarde proche de la voie et reste inchangé (réponse extranodale). Des réponses mixtes existent, avec un changement de séquence atriale. La manœuvre se réalise idéalement en rythme sinusal.",
+    "explication": "Le principe de la stimulation para-hissienne (Hirao) est de comparer le temps de conduction jusqu'à l'oreillette avec ou sans capture du His. Si la conduction rétrograde passe par le NAV (voie rapide ou voie lente), la perte de capture hissienne oblige l'influx à parcourir le myocarde ventriculaire puis le réseau de Purkinje pour atteindre le His : l'intervalle stimulus-A s'allonge (réponse nodale). Si elle passe par une voie accessoire septale, l'intervalle stimulus-A dépend seulement de l'activation du myocarde proche de la voie et reste inchangé (réponse extranodale). Les réponses mixtes s'accompagnent d'un changement de séquence atriale. La manœuvre se réalise idéalement en rythme sinusal.",
     "aRetenir": "Para-hissienne : stimulus-A inchangé à la perte de capture du His = voie accessoire septale.",
     "sources": [
       {
@@ -1755,15 +2060,20 @@
       "Si elle avance l'activation atriale suivante, elle prouve l'existence d'une voie accessoire",
       "Si elle arrête la tachycardie sans atteindre l'oreillette, elle prouve que la voie accessoire participe au circuit",
       "Si elle avance l'activation atriale, elle prouve forcément que la tachycardie est une réciprocante orthodromique",
-      "Si elle retarde l'activation atriale suivante, elle prouve l'existence d'une voie accessoire à conduction décrémentielle"
+      "Si elle ne modifie pas l'activation atriale, elle exclut toute voie accessoire"
     ],
     "reponses": [
       0,
-      1,
-      3
+      1
+    ],
+    "commentaires": [
+      "Juste : le His étant réfractaire, l'ESV ne peut atteindre l'oreillette que par une autre voie, donc une voie accessoire.",
+      "Juste : arrêter la tachycardie sans activation atriale prouve que la voie fait partie du circuit (réciprocante orthodromique).",
+      "Faux : avancer l'A prouve l'existence de la voie, pas sa participation ; elle peut être spectatrice d'une TRIN.",
+      "Faux : une ESV sans effet n'exclut rien : délivrée loin de l'insertion ou trop tardivement, elle peut ne pas atteindre la voie."
     ],
     "reponseAttendue": null,
-    "explication": "Quand le His est réfractaire, l'extrasystole ventriculaire ne peut pas remonter par le système His-NAV : tout effet sur l'oreillette passe par une autre voie, donc par une voie accessoire. Avancer l'A prouve l'existence de la voie, mais pas sa participation au circuit : la voie peut être « spectatrice » d'une TRIN, c'est le piège de la proposition C. Arrêter la tachycardie sans activation atriale prouve que la voie fait partie du circuit (réciprocante orthodromique). Retarder l'A traduit une conduction rétrograde par une voie décrémentielle (comme dans la PJRT) et prouve également sa participation. La manœuvre est plus puissante quand l'ESV est délivrée près de l'insertion de la voie.",
+    "explication": "Quand le His est réfractaire, l'extrasystole ventriculaire ne peut pas remonter par le système His-NAV : tout effet sur l'oreillette passe par une autre voie, donc par une voie accessoire. Avancer l'A prouve l'existence de la voie, mais pas sa participation au circuit : la voie peut être « spectatrice » d'une TRIN, c'est un piège classique. Arrêter la tachycardie sans activation atriale prouve que la voie fait partie du circuit (réciprocante orthodromique). Retarder l'A traduit une conduction rétrograde par une voie décrémentielle (comme dans la PJRT) et prouve également sa participation. À l'inverse, l'absence d'effet n'exclut pas une voie accessoire, en particulier si l'ESV est délivrée loin de son insertion : la manœuvre est plus puissante quand l'ESV est délivrée près de l'insertion de la voie.",
     "aRetenir": "ESV sur His réfractaire : avancer l'A prouve une voie accessoire ; arrêter sans A prouve sa participation.",
     "sources": [
       {
@@ -1811,16 +2121,22 @@
     "difficulte": 5,
     "question": "Avant d'interpréter la réponse à l'arrêt d'une stimulation ventriculaire pendant une tachycardie à QRS fins, quelle condition faut-il vérifier ?",
     "options": [
-      "Que la stimulation a été délivrée à l'intensité maximale",
-      "Que la stimulation a duré au moins 60 secondes",
-      "Que le patient est sous isoprénaline",
-      "Que l'oreillette a bien été accélérée au cycle de stimulation (entraînement réel), sans arrêt ni modification de la tachycardie"
+      "Que la stimulation était au moins 100 ms plus rapide que la tachycardie",
+      "Que la stimulation a duré au moins 60 secondes sans interruption",
+      "Que l'oreillette a suivi le cycle stimulé et la tachycardie a repris",
+      "Que le patient a reçu de l'isoprénaline avant la manœuvre"
     ],
     "reponses": [
-      3
+      2
+    ],
+    "commentaires": [
+      "Faux : on stimule habituellement 10 à 40 ms plus vite que la tachycardie ; trop rapide, on risque de l'arrêter ou de la transformer.",
+      "Faux : une stimulation courte, sur un nombre limité de battements, suffit ; la durée n'est pas le critère.",
+      "Juste : l'entraînement doit être réel (oreillette accélérée au cycle stimulé) et la tachycardie doit reprendre inchangée à l'arrêt.",
+      "Faux : l'isoprénaline aide parfois à induire la tachycardie, mais n'est pas un prérequis pour interpréter la manœuvre."
     ],
     "reponseAttendue": null,
-    "explication": "Toutes les manœuvres fondées sur l'entraînement ventriculaire (réponse V-A-V vs V-A-A-V, PPI − TCL, SA − VA) supposent que la tachycardie a bien été entraînée. Il faut donc vérifier que l'oreillette a suivi le cycle de stimulation, puis que la tachycardie a repris à son cycle propre à l'arrêt. Si la tachycardie s'est arrêtée pendant la stimulation, a changé de mécanisme ou si l'oreillette n'a pas été accélérée, l'interprétation est faussée. On stimule habituellement 10 à 40 ms plus vite que le cycle de la tachycardie, pendant un nombre limité de battements. L'intensité maximale et l'isoprénaline ne sont pas des prérequis.",
+    "explication": "Toutes les manœuvres fondées sur l'entraînement ventriculaire (réponse V-A-V vs V-A-A-V, PPI − TCL, SA − VA) supposent que la tachycardie a bien été entraînée. Il faut donc vérifier que l'oreillette a suivi le cycle de stimulation, puis que la tachycardie a repris à son cycle propre à l'arrêt. Si la tachycardie s'est arrêtée pendant la stimulation, a changé de mécanisme ou si l'oreillette n'a pas été accélérée, l'interprétation est faussée. On stimule habituellement 10 à 40 ms plus vite que le cycle de la tachycardie, pendant un nombre limité de battements. Une stimulation prolongée et l'isoprénaline ne sont pas des prérequis.",
     "aRetenir": "Une manœuvre d'entraînement n'est interprétable que si l'entraînement est réel et la tachycardie inchangée à l'arrêt.",
     "sources": [
       {
@@ -1842,13 +2158,19 @@
     "difficulte": 4,
     "question": "Selon l'ESC 2018 sur la syncope, dans quelle situation l'EEP est-elle recommandée (classe I) ?",
     "options": [
-      "Syncope avec ECG normal, cœur normal et absence de palpitations",
+      "Syncope inexpliquée après infarctus, bilan non invasif négatif",
+      "Syncope avec ECG normal, cœur sain et sans palpitations",
       "Première syncope vasovagale typique chez un sujet jeune",
-      "Syncope inexpliquée chez un patient aux antécédents d'infarctus ou avec une autre cardiopathie cicatricielle, après bilan non invasif",
-      "Hypotension orthostatique documentée"
+      "Hypotension orthostatique documentée chez un diabétique"
     ],
     "reponses": [
-      2
+      0
+    ],
+    "commentaires": [
+      "Juste : c'est l'indication de classe I : rechercher une TV monomorphe inductible chez un patient avec cicatrice et syncope inexpliquée.",
+      "Faux : avec un ECG et un cœur normaux, le rendement de l'EEP est très faible.",
+      "Faux : la syncope réflexe typique ne relève pas de l'EEP.",
+      "Faux : l'hypotension orthostatique, même dysautonomique, ne relève pas de l'EEP."
     ],
     "reponseAttendue": null,
     "explication": "Les recommandations ESC 2018 réservent l'EEP à des situations où elle a un rendement diagnostique et pronostique démontré. La principale indication de classe I concerne la syncope inexpliquée après bilan non invasif chez un patient ayant un antécédent d'infarctus ou une autre cardiopathie cicatricielle, pour rechercher une TV monomorphe inductible. L'EEP doit aussi être envisagée en cas de bloc bifasciculaire (classe IIa), et peut l'être dans certains cas de bradycardie sinusale ou de palpitations brèves précédant la syncope (classe IIb). La syncope réflexe typique et l'hypotension orthostatique ne relèvent pas de l'EEP, et son rendement est très faible avec un ECG et un cœur normaux.",
@@ -1870,12 +2192,18 @@
     "question": "Un patient aux antécédents d'infarctus (FEVG 45 %) présente une syncope inexpliquée. L'EEP induit une TV monomorphe soutenue. Quelle est la conduite recommandée ?",
     "options": [
       "Surveillance, puisque la FEVG est supérieure à 35 %",
-      "Implantation d'un DAI",
       "Traitement bêtabloquant seul et contrôle dans 6 mois",
-      "Holter implantable pour confirmer le lien avec la syncope"
+      "Holter implantable pour confirmer le lien avec la syncope",
+      "Implantation d'un DAI, quelle que soit la FEVG"
     ],
     "reponses": [
-      1
+      3
+    ],
+    "commentaires": [
+      "Faux : le seuil de 35 % concerne la prévention primaire ; ici, la TV inductible explique probablement la syncope.",
+      "Faux : un bêtabloquant seul ne protège pas de la mort subite dans ce contexte.",
+      "Faux : attendre une récidive documentée ferait courir un risque de mort subite.",
+      "Juste : infarctus ancien + syncope inexpliquée + TV monomorphe soutenue inductible = DAI (ESC 2018 et 2022), ablation éventuellement associée."
     ],
     "reponseAttendue": null,
     "explication": "Chez un patient avec cardiopathie ischémique et syncope inexpliquée, l'induction d'une TV monomorphe soutenue est considérée comme l'explication probable de la syncope. Les recommandations ESC 2018 et 2022 indiquent alors une prise en charge selon les recommandations sur les arythmies ventriculaires, c'est-à-dire l'implantation d'un DAI, indépendamment du seuil de FEVG de 35 % utilisé en prévention primaire. Une ablation de la TV peut être associée, mais ne dispense pas du DAI dans ce contexte. Attendre une récidive ou une documentation par Holter implantable ferait courir un risque de mort subite.",
@@ -1906,6 +2234,10 @@
     "reponses": [
       1
     ],
+    "commentaires": [
+      "Faux : l'affirmation est inexacte ; avec un protocole agressif, TV polymorphe et FV sont souvent des réponses non spécifiques.",
+      "Juste : seule l'induction d'une TV monomorphe soutenue a une vraie valeur ; une FV induite ainsi sur cœur sain ne justifie pas un DAI."
+    ],
     "reponseAttendue": null,
     "explication": "C'est faux. La spécificité de la stimulation ventriculaire programmée diminue avec l'agressivité du protocole : nombre d'extrastimuli, couplages très courts (autour de 200 ms ou moins), stimulation à haute intensité. Dans ces conditions, une TV polymorphe ou une FV peuvent être induites chez des sujets sans cardiopathie et sont considérées comme des réponses non spécifiques. Seule l'induction d'une TV monomorphe soutenue a une réelle valeur, en particulier dans les cardiopathies ischémiques. Des situations particulières (syndrome de Brugada) ont leurs propres règles d'interprétation, discutées dans les recommandations spécifiques.",
     "aRetenir": "TV polymorphe ou FV induite par un protocole agressif = réponse souvent non spécifique ; seule la TV monomorphe a une vraie valeur.",
@@ -1932,10 +2264,16 @@
       "Dans une boucle externe du circuit",
       "Dans un site « bystander » (cul-de-sac) adjacent au circuit",
       "Dans l'isthme protégé du circuit de réentrée",
-      "À distance du circuit"
+      "À distance du circuit, en zone saine"
     ],
     "reponses": [
       2
+    ],
+    "commentaires": [
+      "Faux : une boucle externe donne une fusion manifeste, pas une fusion cachée.",
+      "Faux : un bystander peut donner une fusion cachée, mais avec un PPI long et un S-QRS supérieur à l'EGM-QRS.",
+      "Juste : fusion cachée, PPI − TCL ≤ 30 ms et S-QRS = EGM-QRS définissent l'isthme, site d'ablation idéal (Stevenson).",
+      "Faux : à distance du circuit, on obtiendrait une fusion manifeste et un PPI très supérieur au cycle."
     ],
     "reponseAttendue": null,
     "explication": "La fusion cachée indique que le site de stimulation est dans une zone protégée : l'influx sort par le même exutoire que la TV. Un PPI proche du cycle de la TV (différence ≤ 30 ms) indique que le site fait partie du circuit. Enfin, l'égalité entre stimulus-QRS et électrogramme-QRS confirme que l'on est sur le trajet du circuit, et non dans un cul-de-sac. Cette combinaison définit, selon Stevenson, un site d'isthme où l'ablation a les meilleures chances d'arrêter la TV. Une boucle externe donnerait une fusion manifeste, et un site bystander un PPI long malgré une fusion cachée.",
@@ -1960,13 +2298,19 @@
     "difficulte": 8,
     "question": "Selon l'ESC 2022, chez un patient coronarien avec FEVG ≤ 40 % malgré un traitement optimal et des TV non soutenues, quelle est la place de la stimulation ventriculaire programmée ?",
     "options": [
-      "Un DAI doit être envisagé si une TV monomorphe soutenue est inductible (classe IIa)",
-      "Elle n'a aucune place",
-      "Elle est recommandée uniquement pour guider le choix de l'antiarythmique",
-      "Elle est contre-indiquée en cas de TV non soutenue"
+      "DAI à envisager si une TV monomorphe soutenue est inductible",
+      "Aucune place, seule la FEVG ≤ 35 % guide l'indication",
+      "Guider le choix de l'antiarythmique selon l'inductibilité",
+      "Contre-indiquée en présence de TV non soutenues spontanées"
     ],
     "reponses": [
       0
+    ],
+    "commentaires": [
+      "Juste : héritage de MADIT et MUSTT : chez le coronarien avec FEVG ≤ 40 % et TVNS, DAI envisagé si TV monomorphe inductible (IIa).",
+      "Faux : la stimulation programmée garde une place (IIa) dans cette population, au-delà du seul seuil de FEVG.",
+      "Faux : guider un antiarythmique par l'inductibilité est une approche abandonnée faute de bénéfice.",
+      "Faux : les TV non soutenues sont précisément l'une des conditions de cette indication."
     ],
     "reponseAttendue": null,
     "explication": "Les études MADIT et MUSTT ont montré que chez les coronariens à FEVG altérée présentant des TV non soutenues, l'inductibilité d'une TV monomorphe soutenue identifie un groupe à haut risque qui bénéficie du DAI. Les recommandations ESC 2022 en ont gardé une indication de classe IIa : DAI si TV monomorphe soutenue inductible chez un patient coronarien avec FEVG ≤ 40 % et TV non soutenues. La stimulation programmée n'est plus utilisée pour guider un traitement antiarythmique, approche abandonnée faute de bénéfice. Par ailleurs, l'indication de prévention primaire classique repose sur une FEVG ≤ 35 % avec insuffisance cardiaque symptomatique.",
@@ -1987,13 +2331,19 @@
     "difficulte": 2,
     "question": "Comment définit-on une TV soutenue ?",
     "options": [
-      "TV de plus de 3 complexes",
-      "Toute TV monomorphe, quelle que soit sa durée",
-      "TV de plus de 10 secondes",
-      "TV durant plus de 30 secondes, ou nécessitant un arrêt plus précoce en raison d'une mauvaise tolérance hémodynamique"
+      "Plus de 3 complexes consécutifs, quelle que soit la tolérance",
+      "Plus de 10 secondes, ou nécessitant un choc électrique",
+      "Plus de 30 s, ou arrêt plus précoce pour mauvaise tolérance",
+      "Toute TV monomorphe, quelle que soit sa durée"
     ],
     "reponses": [
-      3
+      2
+    ],
+    "commentaires": [
+      "Faux : 3 complexes ou plus et moins de 30 s définissent une TV non soutenue.",
+      "Faux : 10 secondes ne correspond à aucun seuil consensuel ; la limite est de 30 secondes.",
+      "Juste : une TV est soutenue si elle dure plus de 30 s ou doit être interrompue plus tôt en raison d'une instabilité hémodynamique.",
+      "Faux : la morphologie (monomorphe ou polymorphe) est un critère de classification indépendant de la durée."
     ],
     "reponseAttendue": null,
     "explication": "Une TV est dite soutenue lorsqu'elle dure plus de 30 secondes, ou lorsqu'elle doit être interrompue plus tôt en raison d'une instabilité hémodynamique. En dessous (au moins 3 complexes et moins de 30 s), on parle de TV non soutenue. Lors d'une EEP, c'est cette définition qui s'applique pour juger d'une réponse positive à la stimulation ventriculaire programmée. La morphologie (monomorphe ou polymorphe) est un autre critère de classification, indépendant de la durée. La confusion entre TV non soutenue et soutenue est fréquente dans les comptes rendus.",
@@ -2014,13 +2364,19 @@
     "difficulte": 5,
     "question": "Quel est le protocole standard de stimulation ventriculaire programmée pour rechercher une TV inductible ?",
     "options": [
-      "Jusqu'à 3 extrastimuli, au moins 2 cycles de base, depuis au moins 2 sites (pointe et chambre de chasse du VD)",
-      "Un seul extrastimulus à la pointe du VD, sans train de base",
-      "Stimulation continue à 300/min pendant 30 s",
-      "Jusqu'à 6 extrastimuli à 10 fois le seuil"
+      "Un seul extrastimulus, 1 cycle de base, pointe du VD seule",
+      "Jusqu'à 3 extrastimuli, 2 cycles de base, 2 sites du VD",
+      "Jusqu'à 6 extrastimuli, 1 cycle de base, 10 fois le seuil",
+      "Stimulation continue à 300/min pendant 30 s, pointe du VD"
     ],
     "reponses": [
-      0
+      1
+    ],
+    "commentaires": [
+      "Faux : un seul extrastimulus depuis un seul site manque de sensibilité.",
+      "Juste : train de 8 stimuli à 2 cycles (600 et 400 ms), 1 à 3 extrastimuli, pointe puis chambre de chasse du VD, à 2 fois le seuil.",
+      "Faux : plus de 3 extrastimuli et une forte intensité induisent des réponses non spécifiques (TV polymorphe, FV).",
+      "Faux : une stimulation continue très rapide n'est pas un protocole d'induction standard et risque surtout de déclencher une FV."
     ],
     "reponseAttendue": null,
     "explication": "Le protocole habituel associe un train de 8 stimulations (cycles de 600 et 400 ms, par exemple) suivi de 1, 2 puis 3 extrastimuli dont le couplage est réduit progressivement jusqu'à la réfractarité, depuis la pointe puis la chambre de chasse du VD, à deux fois le seuil diastolique. Ce protocole offre un bon compromis entre sensibilité et spécificité. Ajouter un 4e extrastimulus, raccourcir les couplages en deçà d'environ 200 ms ou augmenter l'intensité accroît l'induction de réponses non spécifiques (TV polymorphe, FV). Une stimulation continue très rapide n'est pas un protocole d'induction standard et risque surtout de déclencher une FV.",

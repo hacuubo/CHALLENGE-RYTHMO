@@ -8,16 +8,22 @@
     "difficulte": 2,
     "question": "Sur un stimulateur double chambre Boston Scientific, quel est le principe de l'algorithme RYTHMIQ ?",
     "options": [
-      "Fonctionner en AAI(R) avec une stimulation ventriculaire de secours VVI à fréquence réduite, et basculer en DDD(R) en cas de perte de la synchronisation AV",
-      "Stimuler en DDD avec un délai AV fixe très long en permanence",
-      "Stimuler le ventricule gauche seul pour éviter la stimulation VD",
-      "Passer en VVI dès qu'un trouble conductif est suspecté"
+      "AAI(R) avec VVI de secours plus lent, DDD(R) si la synchronie AV se perd",
+      "AAI(R) avec back-up V au cycle suivant, DDD(R) si 2 des 4 cycles A-A sont sans R",
+      "DDD(R) avec délai AV allongé périodiquement pour rechercher la conduction",
+      "ADI(R) tant que la conduction est présente, DDD(R) si 3 cycles sur 8 sans conduction"
     ],
     "reponses": [
       0
     ],
+    "commentaires": [
+      "Juste : RYTHMIQ fonctionne en AAI(R) avec un VVI de secours plus lent en arrière-plan et bascule en DDD(R) si la synchronisation AV est perdue.",
+      "Faux : le back-up ventriculaire au cycle suivant et le critère 2 sur 4 sont ceux du MVP de Medtronic.",
+      "Faux : l'allongement périodique du délai AV en restant en DDD est AV Search+ (ou le VIP d'Abbott), pas RYTHMIQ lui-même.",
+      "Faux : l'ADI(R) avec reprise après 3 cycles sur 8 sans conduction est Vp suppression (Biotronik)."
+    ],
     "reponseAttendue": null,
-    "explication": "RYTHMIQ est un algorithme de réduction de la stimulation ventriculaire inutile chez les patients à conduction AV conservée. Le boîtier fonctionne en AAI(R) tandis qu'un mode VVI de secours tourne en arrière-plan à une fréquence plus basse que la fréquence minimale : tant que la conduction est bonne, le ventricule n'est pas stimulé. S'il détecte une perte de synchronisation AV, il bascule en DDD(R), puis revient en AAI(R) quand la conduction réapparaît. Contrairement à d'autres algorithmes, RYTHMIQ n'a pas besoin de « laisser tomber » des QRS pour basculer en DDD(R). Il n'est disponible que si le mode de base programmé est DDD(R). Un délai AV fixe très long n'est pas RYTHMIQ et peut favoriser TRE ou insuffisance mitrale diastolique.",
+    "explication": "RYTHMIQ est un algorithme de réduction de la stimulation ventriculaire inutile chez les patients à conduction AV conservée. Le boîtier fonctionne en AAI(R) tandis qu'un mode VVI de secours tourne en arrière-plan à une fréquence plus basse que la fréquence minimale : tant que la conduction est bonne, le ventricule n'est pas stimulé. S'il détecte une perte de synchronisation AV, il bascule en DDD(R), puis revient en AAI(R) quand la conduction réapparaît. Contrairement au MVP de Medtronic, RYTHMIQ n'a pas besoin de « laisser tomber » des QRS pour basculer en DDD(R). Il n'est disponible que si le mode de base programmé est DDD(R). Il ne faut pas le confondre avec AV Search+ (hystérésis de délai AV, sur laquelle il s'appuie pour revenir en AAI(R)) ni avec Vp suppression de Biotronik (bascule DDD(R) ↔ ADI(R)).",
     "aRetenir": "RYTHMIQ = AAI(R) avec secours VVI à fréquence réduite, bascule en DDD(R) si la synchronisation AV est perdue.",
     "sources": [
       {
@@ -57,16 +63,22 @@
     "difficulte": 6,
     "question": "Pendant la phase AAI(R) de RYTHMIQ, quel critère fait basculer le stimulateur en DDD(R) ?",
     "options": [
-      "Deux ondes P bloquées consécutives",
-      "Un intervalle PR supérieur à 350 ms sur 6 cycles consécutifs",
-      "3 battements ventriculaires « lents » dans une fenêtre de 11 battements",
-      "Une pause ventriculaire supérieure à 3 secondes"
+      "Deux ondes P consécutives bloquées, sans événement ventriculaire",
+      "Six intervalles PR consécutifs plus longs que la valeur maximale programmée",
+      "3 battements ventriculaires lents dans une fenêtre de 11 battements",
+      "Absence de détection ventriculaire dans 2 des 4 derniers cycles A-A"
     ],
     "reponses": [
       2
     ],
+    "commentaires": [
+      "Faux : 2 P bloquées consécutives est le critère de BAV complet de SafeR (MicroPort).",
+      "Faux : 6 PR consécutifs trop longs est le critère de BAV du 1er degré de SafeR (MicroPort).",
+      "Juste : RYTHMIQ bascule en DDD(R) quand 3 battements lents (au moins 150 ms en retard) surviennent sur 11.",
+      "Faux : l'absence de détection ventriculaire dans 2 des 4 cycles A-A est le critère du MVP de Medtronic."
+    ],
     "reponseAttendue": null,
-    "explication": "RYTHMIQ surveille la perte de synchronisation AV en comptant les battements ventriculaires lents. Un battement lent est un événement ventriculaire, détecté ou stimulé, survenant au moins 150 ms plus tard que l'intervalle de stimulation AAI(R). Lorsque 3 battements lents surviennent dans une fenêtre de 11 battements, le boîtier bascule en DDD(R) et enregistre un épisode RYTHMIQ avec 20 s d'EGM. Les critères « 2 P bloquées consécutives » ou « 6 PR longs » appartiennent à SafeR (MicroPort), pas à RYTHMIQ. Ce piège de confusion entre constructeurs est fréquent en consultation de contrôle.",
+    "explication": "RYTHMIQ surveille la perte de synchronisation AV en comptant les battements ventriculaires lents. Un battement lent est un événement ventriculaire, détecté ou stimulé, survenant au moins 150 ms plus tard que l'intervalle de stimulation AAI(R). Lorsque 3 battements lents surviennent dans une fenêtre de 11 battements, le boîtier bascule en DDD(R) et enregistre un épisode RYTHMIQ avec 20 s d'EGM. Les critères « 2 P bloquées consécutives » ou « 6 PR longs » appartiennent à SafeR (MicroPort), et le critère « 2 cycles A-A sur 4 sans détection ventriculaire » au MVP (Medtronic). Ce piège de confusion entre constructeurs est fréquent en consultation de contrôle.",
     "aRetenir": "RYTHMIQ bascule en DDD(R) après 3 battements ventriculaires lents sur 11.",
     "sources": [
       {
@@ -90,6 +102,10 @@
     "reponses": [
       0
     ],
+    "commentaires": [
+      "Juste : sans AV Search+, rien ne teste la reprise de conduction : après la première bascule, le boîtier reste en DDD(R).",
+      "Faux : le retour en AAI(R) de RYTHMIQ dépend d'AV Search+ ; le désactiver rend le DDD(R) permanent après le premier épisode."
+    ],
     "reponseAttendue": null,
     "explication": "Le retour de DDD(R) vers AAI(R) avec secours VVI repose sur AV Search+ : si AV Search+ reste en hystérésis AV au moins 25 cycles et que moins de 2 des 10 derniers cycles sont stimulés en V, le boîtier revient en AAI(R). Sans AV Search+, aucun mécanisme ne teste la reprise de conduction, donc le stimulateur reste en DDD(R). Le manuel Boston Scientific le présente même comme une option volontaire quand on veut que la bascule ne se produise qu'une fois. C'est un piège classique : désactiver AV Search+ « pour simplifier » revient à désactiver de fait la réduction de stimulation VD après le premier épisode.",
     "aRetenir": "Le retour en AAI(R) de RYTHMIQ dépend d'AV Search+ ; sans lui, le DDD(R) devient permanent.",
@@ -111,16 +127,21 @@
     "options": [
       "Il allonge périodiquement le délai AV (Search AV Delay) pendant au plus 8 cycles pour rechercher une conduction spontanée",
       "Il revient au délai AV programmé lorsque 2 événements ventriculaires stimulés surviennent dans une fenêtre glissante de 10 cycles",
-      "Le Search AV Delay doit être programmé plus long que le délai AV stimulé maximal",
+      "Il fait passer le boîtier en mode ADI(R) tant que la conduction AV spontanée est présente",
       "Il impose une stimulation ventriculaire systématique à l'effort"
     ],
     "reponses": [
       0,
-      1,
-      2
+      1
+    ],
+    "commentaires": [
+      "Juste : le Search AV Delay est appliqué périodiquement pendant au plus 8 cycles pour laisser apparaître un QRS spontané.",
+      "Juste : 2 stimulations ventriculaires sur une fenêtre de 10 cycles font revenir au délai AV programmé.",
+      "Faux : AV Search+ reste en DDD avec un délai AV allongé ; la bascule en ADI(R) est le principe de Vp suppression (Biotronik).",
+      "Faux : rien dans AV Search+ n'impose une stimulation ventriculaire à l'effort."
     ],
     "reponseAttendue": null,
-    "explication": "AV Search+ favorise la conduction AV intrinsèque en autorisant un délai AV plus long que le délai programmé. Périodiquement (Search Interval), le délai AV est allongé pendant au plus 8 cycles ; tant que les PR spontanés restent plus courts que le Search AV Delay, l'hystérésis est maintenue. Le boîtier revient au délai AV programmé si la recherche n'a trouvé aucune activité ventriculaire spontanée en 8 cycles ou si 2 stimulations ventriculaires surviennent dans une fenêtre de 10 cycles. Le Search AV Delay doit être plus long que le délai AV stimulé maximal. Le programmateur ne tient pas compte de ce délai pour calculer la TARP : si la conduction se perd, un comportement de type Wenckebach peut apparaître sous la fréquence maximale de synchronisation. Rien n'impose une stimulation ventriculaire systématique à l'effort.",
+    "explication": "AV Search+ favorise la conduction AV intrinsèque en autorisant un délai AV plus long que le délai programmé. Périodiquement (Search Interval), le délai AV est allongé pendant au plus 8 cycles ; tant que les PR spontanés restent plus courts que le Search AV Delay, l'hystérésis est maintenue. Le boîtier revient au délai AV programmé si la recherche n'a trouvé aucune activité ventriculaire spontanée en 8 cycles ou si 2 stimulations ventriculaires surviennent dans une fenêtre de 10 cycles. Le boîtier reste en DDD : la bascule vers un mode ADI(R) est le principe de Vp suppression chez Biotronik. Le Search AV Delay doit être plus long que le délai AV stimulé maximal, et le programmateur n'en tient pas compte pour calculer la TARP : si la conduction se perd, un comportement de type Wenckebach peut apparaître sous la fréquence maximale de synchronisation.",
     "aRetenir": "AV Search+ = hystérésis de délai AV qui cherche la conduction spontanée et revient au délai programmé si le V est stimulé 2 fois sur 10 cycles.",
     "sources": [
       {
@@ -138,16 +159,22 @@
     "difficulte": 5,
     "question": "Comment fonctionne PaceSafe RVAC (Right Ventricular Automatic Capture) sur un stimulateur Boston Scientific ?",
     "options": [
-      "Il mesure le seuil une fois par mois et programme l'amplitude à 3 fois le seuil",
-      "Il règle l'amplitude à 0,5 V au-dessus du seuil mesuré chaque jour, vérifie la capture à chaque battement et délivre une impulsion de secours en cas de perte de capture",
-      "Il mesure uniquement l'impédance de sonde et alerte si elle dépasse 2 000 Ω",
-      "Il fixe l'amplitude à 5 V dès qu'une perte de capture est suspectée, sans jamais la réduire"
+      "Seuil mesuré et tracé en tendance, sans jamais modifier l'amplitude programmée",
+      "Seuil mesuré périodiquement, amplitude à 2 fois le seuil, sans contrôle cycle à cycle",
+      "Seuil mesuré par la conduction AV ou la réinitialisation du rythme sinusal",
+      "Seuil quotidien + 0,5 V, capture vérifiée à chaque battement, impulsion de secours"
     ],
     "reponses": [
-      1
+      3
+    ],
+    "commentaires": [
+      "Faux : mesurer et tracer le seuil sans adapter l'amplitude est le mode ATM du Capture Control de Biotronik.",
+      "Faux : une amplitude à 2 fois le seuil sans contrôle battement par battement correspond au RAAT atrial de Boston Scientific, pas au RVAC.",
+      "Faux : la conduction AV et la réinitialisation sinusale sont les méthodes atriales de Medtronic (Atrial Capture Management).",
+      "Juste : le RVAC règle l'amplitude à 0,5 V au-dessus du seuil quotidien, vérifie la capture à chaque battement et délivre une impulsion de secours."
     ],
     "reponseAttendue": null,
-    "explication": "PaceSafe RVAC mesure chaque jour le seuil ventriculaire et règle l'amplitude à 0,5 V au-dessus de ce seuil (plage de 0,7 à 3,5 V, largeur fixée à 0,4 ms). Il vérifie ensuite la capture battement par battement grâce à la réponse évoquée. Si une perte de capture survient, une impulsion de secours d'au moins 3,5 V est délivrée environ 70 ms après l'impulsion primaire. En cas de perte de capture confirmée (2 cycles sur 4), l'algorithme se suspend et refait un test à l'heure suivante. L'atrium obéit à une autre logique (RAAT : 2 fois le seuil). Programmer une amplitude fixe « 3 fois le seuil » ne correspond à aucun algorithme PaceSafe.",
+    "explication": "PaceSafe RVAC mesure chaque jour le seuil ventriculaire et règle l'amplitude à 0,5 V au-dessus de ce seuil (plage de 0,7 à 3,5 V, largeur fixée à 0,4 ms). Il vérifie ensuite la capture battement par battement grâce à la réponse évoquée. Si une perte de capture survient, une impulsion de secours d'au moins 3,5 V est délivrée environ 70 ms après l'impulsion primaire. En cas de perte de capture confirmée (2 cycles sur 4), l'algorithme se suspend et refait un test à l'heure suivante. L'oreillette obéit à une autre logique (RAAT : 2 fois le seuil, sans vérification battement par battement). Le suivi du seuil sans adaptation de l'amplitude correspond au mode ATM de Biotronik.",
     "aRetenir": "RVAC = seuil quotidien + 0,5 V, capture vérifiée à chaque battement et impulsion de secours si perte de capture.",
     "sources": [
       {
@@ -165,16 +192,22 @@
     "difficulte": 3,
     "question": "Sur quoi repose le capteur de ventilation-minute (MV) utilisé pour l'asservissement de fréquence chez Boston Scientific ?",
     "options": [
-      "Sur un accéléromètre qui mesure les vibrations du boîtier",
-      "Sur la température du sang veineux central",
-      "Sur la mesure de l'intervalle QT stimulé",
-      "Sur la mesure de l'impédance transthoracique, dont on tire la fréquence respiratoire et le volume courant (ventilation-minute = FR × volume courant)"
+      "L'accélération endocardiaque mesurée à la pointe d'une sonde dédiée",
+      "L'impédance transthoracique, d'où fréquence respiratoire et volume courant",
+      "L'impédance intracardiaque ventriculaire, reflet de la contractilité myocardique",
+      "Un accéléromètre qui mesure les vibrations liées à l'activité physique"
     ],
     "reponses": [
-      3
+      1
+    ],
+    "commentaires": [
+      "Faux : l'accélération endocardiaque mesurée par une sonde dédiée est le capteur SonR de MicroPort, qui sert à optimiser la CRT.",
+      "Juste : le capteur MV mesure l'impédance transthoracique ; ventilation-minute = fréquence respiratoire × volume courant.",
+      "Faux : l'impédance intracardiaque, reflet de la contractilité, est le principe du Closed Loop Stimulation de Biotronik.",
+      "Faux : l'accéléromètre est un autre capteur, sensible au mouvement, qui peut être associé au capteur MV."
     ],
     "reponseAttendue": null,
-    "explication": "Le capteur MV (appelé aussi capteur respiratoire) envoie de faibles impulsions de courant et mesure l'impédance transthoracique, qui varie avec la respiration. La ventilation-minute, produit de la fréquence respiratoire par le volume courant, sert à augmenter la fréquence de stimulation selon le besoin physiologique. Les mêmes mesures alimentent des tendances comme la fréquence respiratoire. L'accéléromètre est un autre capteur, sensible au mouvement, qui peut être associé au MV. La température veineuse et le QT sont des capteurs historiques qu'on n'utilise plus dans les boîtiers actuels.",
+    "explication": "Le capteur MV (appelé aussi capteur respiratoire) envoie de faibles impulsions de courant et mesure l'impédance transthoracique, qui varie avec la respiration. La ventilation-minute, produit de la fréquence respiratoire par le volume courant, sert à augmenter la fréquence de stimulation selon le besoin physiologique. Les mêmes mesures alimentent des tendances comme la fréquence respiratoire. L'accéléromètre est un autre capteur, sensible au mouvement, qui peut être associé au MV. L'impédance intracardiaque ventriculaire est le signal du Closed Loop Stimulation de Biotronik, et l'accélération endocardiaque celui du SonR de MicroPort.",
     "aRetenir": "Capteur MV = impédance transthoracique → fréquence respiratoire × volume courant.",
     "sources": [
       {
@@ -192,16 +225,22 @@
     "difficulte": 3,
     "question": "Un patient porteur d'un stimulateur Boston Scientific avec asservissement par ventilation-minute (MV On) est intubé en réanimation. L'IDE constate une stimulation proche de la fréquence maximale d'asservissement sans raison clinique. Quelle est la conduite adaptée ?",
     "options": [
-      "Augmenter la fréquence maximale d'asservissement",
-      "Passer en mode DOO définitif",
-      "Programmer le capteur MV sur Off pendant la ventilation mécanique (à défaut de programmateur, l'aimant donne une stimulation asynchrone non asservie si la réponse à l'aimant est programmée en stimulation asynchrone)",
-      "Diminuer la sensibilité ventriculaire"
+      "Désactiver l'accéléromètre en laissant la ventilation-minute active",
+      "Augmenter la fréquence maximale d'asservissement pour éviter le plafonnement",
+      "Programmer le capteur MV sur Off pendant la ventilation mécanique",
+      "Diminuer la sensibilité ventriculaire pour éviter une surdétection des myopotentiels"
     ],
     "reponses": [
       2
     ],
+    "commentaires": [
+      "Faux : c'est le capteur MV, faussé par le respirateur, qui entraîne la fréquence ; couper l'accéléromètre seul ne change rien.",
+      "Faux : augmenter la fréquence maximale aggraverait la tachycardie stimulée sans traiter la cause.",
+      "Juste : le manuel impose de programmer le capteur MV sur Off pendant une ventilation mécanique ; à défaut, l'aimant donne une stimulation asynchrone non asservie.",
+      "Faux : la sensibilité ventriculaire n'a aucun rapport avec le capteur MV ; il n'y a pas de surdétection ici."
+    ],
     "reponseAttendue": null,
-    "explication": "Le manuel Boston Scientific précise qu'il faut programmer le capteur MV/respiratoire sur Off pendant une ventilation mécanique, sous peine de fréquence asservie inappropriée et de tendances respiratoires trompeuses. Les moniteurs externes qui injectent du courant (monitorage respiratoire, certains moniteurs ECG ou hémodynamiques) peuvent aussi fausser la mesure d'impédance et faire monter la fréquence jusqu'au maximum d'asservissement. Si aucun programmateur n'est disponible, l'aimant donne une stimulation asynchrone temporaire non asservie, à condition que la réponse à l'aimant soit programmée en stimulation asynchrone (Pace Async, réglage usuel) ; la fréquence aimant dépend alors de l'état de la pile (100 bpm en début de vie). Augmenter la fréquence maximale aggraverait le problème, et la sensibilité ventriculaire n'a aucun rapport avec le capteur.",
+    "explication": "Le manuel Boston Scientific précise qu'il faut programmer le capteur MV/respiratoire sur Off pendant une ventilation mécanique, sous peine de fréquence asservie inappropriée et de tendances respiratoires trompeuses. Les moniteurs externes qui injectent du courant (monitorage respiratoire, certains moniteurs ECG ou hémodynamiques) peuvent aussi fausser la mesure d'impédance et faire monter la fréquence jusqu'au maximum d'asservissement. Si aucun programmateur n'est disponible, l'aimant donne une stimulation asynchrone temporaire non asservie, à condition que la réponse à l'aimant soit programmée en stimulation asynchrone (Pace Async, réglage usuel) ; la fréquence aimant dépend alors de l'état de la pile (100 bpm en début de vie). Désactiver seulement l'accéléromètre laisse en place la cause, augmenter la fréquence maximale aggraverait le problème, et la sensibilité ventriculaire n'a aucun rapport avec le capteur.",
     "aRetenir": "Ventilation mécanique ou monitorage par impédance : capteur MV sur Off.",
     "sources": [
       {
@@ -219,16 +258,22 @@
     "difficulte": 4,
     "question": "À quoi sert la fonction Rate Smoothing sur un stimulateur Boston Scientific ?",
     "options": [
-      "À limiter, battement par battement, la variation de l'intervalle de stimulation à un pourcentage programmable du dernier intervalle R-R",
-      "À lisser la courbe d'impédance de sonde",
-      "À réduire la fréquence minimale la nuit",
-      "À supprimer les extrasystoles ventriculaires"
+      "Limiter la variation de l'intervalle de stimulation à un % du dernier R-R",
+      "Stimuler rapidement pendant une durée programmée après une chute brutale de fréquence",
+      "Abaisser la fréquence minimale pendant les heures de sommeil programmées",
+      "Raccourcir l'échappement après une extrasystole pour supprimer la pause"
     ],
     "reponses": [
       0
     ],
+    "commentaires": [
+      "Juste : Rate Smoothing limite la variation d'un cycle à l'autre à 3 à 25 % du dernier R-R, à la hausse et à la baisse.",
+      "Faux : c'est le principe de Sudden Brady Response (ou du Rate Drop Response de Medtronic), incompatible avec Rate Smoothing On.",
+      "Faux : l'abaissement nocturne programmé de la fréquence correspond à une fonction de type Sleep, pas au Rate Smoothing.",
+      "Faux : supprimer la pause post-extrasystolique est le principe de la Rate Stabilization de Medtronic."
+    ],
     "reponseAttendue": null,
-    "explication": "Rate Smoothing limite les variations brusques de la fréquence de stimulation. La variation autorisée est un pourcentage du dernier intervalle R-R (3 à 25 % par pas de 3 %), programmable séparément à la hausse (Rate Smoothing Up) et à la baisse (Rate Smoothing Down). Cette fonction est utile au début et à la fin d'une arythmie atriale suivie, en complément du mode switch (ATR) : elle évite les montées brutales de la fréquence stimulée jusqu'à la fréquence maximale de synchronisation et les symptômes associés. Elle n'a aucun effet sur les extrasystoles et ne correspond pas à une fréquence de repos nocturne. Rate Smoothing ne peut pas être programmé On si Sudden Brady Response est actif.",
+    "explication": "Rate Smoothing limite les variations brusques de la fréquence de stimulation. La variation autorisée est un pourcentage du dernier intervalle R-R (3 à 25 % par pas de 3 %), programmable séparément à la hausse (Rate Smoothing Up) et à la baisse (Rate Smoothing Down). Cette fonction est utile au début et à la fin d'une arythmie atriale suivie, en complément du mode switch (ATR) : elle évite les montées brutales de la fréquence stimulée jusqu'à la fréquence maximale de synchronisation et les symptômes associés. Elle ne supprime pas la pause post-extrasystolique (principe de la Rate Stabilization de Medtronic) et ne correspond pas à une fréquence de repos nocturne. Rate Smoothing ne peut pas être programmé On si Sudden Brady Response, qui stimule rapidement après une chute brutale de fréquence, est actif.",
     "aRetenir": "Rate Smoothing plafonne la variation de fréquence d'un cycle à l'autre à un pourcentage du R-R précédent.",
     "sources": [
       {
@@ -249,15 +294,20 @@
       "Il compare l'EGM de la tachycardie à un gabarit de référence enregistré en rythme sinusal (analyse morphologique Vector Timing and Correlation)",
       "En double chambre, si la fréquence ventriculaire est supérieure à la fréquence atriale, la thérapie est délivrée sans autre analyse",
       "Il peut inhiber une thérapie dans la zone FV si le gabarit est concordant",
-      "Selon la traduction Boston Scientific du consensus 2019, les discriminateurs TSV ne s'appliquent que jusqu'à 230 bpm"
+      "Il repose sur l'analyse des séquences P-R cycle par cycle, sans analyse morphologique"
     ],
     "reponses": [
       0,
-      1,
-      3
+      1
+    ],
+    "commentaires": [
+      "Juste : Rhythm ID compare l'EGM de la tachycardie à un gabarit sinusal acquis automatiquement (Vector Timing and Correlation).",
+      "Juste : en double chambre, V plus rapide que A signe une origine ventriculaire et conduit directement à la thérapie.",
+      "Faux : comme tous les discriminateurs TSV, Rhythm ID n'agit que dans les zones TV, jamais dans la zone FV.",
+      "Faux : l'analyse des séquences P-R sans morphologie correspond à PR Logic (Medtronic) ; Rhythm ID associe morphologie et analyse A/V."
     ],
     "reponseAttendue": null,
-    "explication": "Rhythm ID associe une analyse morphologique (Vector Timing and Correlation, comparaison de l'EGM de la tachycardie à un gabarit de rythme sinusal acquis automatiquement) à l'analyse des intervalles atriaux et ventriculaires. En double chambre, une fréquence ventriculaire supérieure à la fréquence atriale signe une origine ventriculaire et conduit directement à la thérapie. Comme tous les discriminateurs TSV, Rhythm ID n'agit que dans les zones TV : il n'inhibe jamais la thérapie dans la zone FV, d'où la proposition C fausse. La traduction Boston Scientific de la mise à jour 2019 du consensus recommande Rhythm ID en DAI (Onset/Stability ou Rhythm ID en CRT-D) et rappelle que les discriminateurs ne s'appliquent que jusqu'à 230 bpm : une zone FV programmée trop bas prive donc les TSV rapides de toute discrimination. Dans l'essai RIGHT, les DAI utilisant Rhythm ID (génération VITALITY 2) ont eu plus de thérapies inappropriées que les DAI Medtronic comparés, surtout en simple chambre et pour des rythmes < 175 bpm, ce qui plaide pour des seuils de détection élevés.",
+    "explication": "Rhythm ID associe une analyse morphologique (Vector Timing and Correlation, comparaison de l'EGM de la tachycardie à un gabarit de rythme sinusal acquis automatiquement) à l'analyse des intervalles atriaux et ventriculaires. En double chambre, une fréquence ventriculaire supérieure à la fréquence atriale signe une origine ventriculaire et conduit directement à la thérapie. Comme tous les discriminateurs TSV, Rhythm ID n'agit que dans les zones TV : il n'inhibe jamais la thérapie dans la zone FV. L'analyse des séquences P-R sans morphologie est la logique de PR Logic chez Medtronic. La traduction Boston Scientific de la mise à jour 2019 du consensus recommande Rhythm ID en DAI (Onset/Stability ou Rhythm ID en CRT-D) et rappelle que les discriminateurs ne s'appliquent que jusqu'à 230 bpm : une zone FV programmée trop bas prive donc les TSV rapides de toute discrimination. Dans l'essai RIGHT, les DAI utilisant Rhythm ID (génération VITALITY 2) ont eu plus de thérapies inappropriées que les DAI Medtronic comparés, surtout en simple chambre et pour des rythmes < 175 bpm, ce qui plaide pour des seuils de détection élevés.",
     "aRetenir": "Rhythm ID = corrélation morphologique au gabarit sinusal + analyse A/V ; jamais d'inhibition en zone FV, discrimination limitée à 230 bpm.",
     "sources": [
       {
@@ -305,16 +355,22 @@
     "difficulte": 8,
     "question": "Selon la traduction constructeur de la mise à jour 2019 du consensus HRS/EHRA/APHRS/LAHRS sur la programmation des DAI, quelle programmation « délai prolongé » (option 1) est proposée pour un DAI Boston Scientific en prévention primaire, sans antécédent de TV ?",
     "options": [
-      "FV ≥ 200 bpm avec 1 s de durée, TV ≥ 150 bpm avec 2,5 s",
-      "Une zone unique FV ≥ 170 bpm avec choc immédiat",
-      "FV ≥ 230 bpm avec 30 s de durée, sans zone TV",
-      "FV ≥ 250 bpm avec 5 s de durée, TV ≥ 185 bpm avec 12 s de durée (8 intervalles sur 10 plus la durée), zone VT-1 en surveillance au choix"
+      "FV ≥ 231 bpm (30/40 intervalles) et TV2 ≥ 188 bpm (30 intervalles), TV1 en surveillance",
+      "FV ≥ 250 bpm (5 s) et TV ≥ 185 bpm (12 s), VT-1 en surveillance au choix",
+      "FV ≥ 200 bpm (1 s) et TV ≥ 170 bpm (2,5 s), avec ATP en zone TV",
+      "Une zone de thérapie unique à 200 bpm, avec une durée de 2,5 s"
     ],
     "reponses": [
-      3
+      1
+    ],
+    "commentaires": [
+      "Faux : 231 bpm en 30/40 et 188 bpm en 30 intervalles sont les réglages de la traduction Biotronik.",
+      "Juste : option 1 : FV 250 bpm (8/10 + 5 s), TV 185 bpm (8/10 + 12 s), VT-1 en surveillance à la discrétion de l'opérateur.",
+      "Faux : une détection courte (1 s) à fréquence basse est la programmation conventionnelle que le consensus cherche à éviter.",
+      "Faux : une thérapie à haute fréquence (200 bpm, 2,5 s) correspond à l'option 2 de l'annexe, pas à l'option « délai prolongé »."
     ],
     "reponseAttendue": null,
-    "explication": "L'annexe constructeur (Appendix B) de la mise à jour 2019 traduit les principes du consensus 2015 en réglages Boston Scientific. Option 1 (délai prolongé) : FV à 250 bpm avec 8/10 intervalles plus 5 s de durée, TV à 185 bpm avec 8/10 plus 12 s de durée, VT-1 en surveillance à la discrétion de l'opérateur. Option 2 (thérapie à haute fréquence) : FV à 200 bpm avec 2,5 s de durée. Ces options s'inspirent de MADIT-RIT, réalisé sur des DAI Boston Scientific : par rapport à une programmation conventionnelle, la thérapie à haute fréquence (≥ 200 bpm) et la thérapie retardée ont toutes deux réduit les thérapies inappropriées d'environ 75 %, la baisse de mortalité étant significative pour la haute fréquence (HR 0,45) et à la limite de la significativité pour le délai prolongé (HR 0,56 ; p = 0,06). Les discriminateurs TSV ne s'appliquent que jusqu'à 230 bpm. Une détection rapide avec 1 s de durée correspond justement à la programmation conventionnelle qu'on cherche à éviter.",
+    "explication": "L'annexe constructeur (Appendix B) de la mise à jour 2019 traduit les principes du consensus 2015 en réglages Boston Scientific. Option 1 (délai prolongé) : FV à 250 bpm avec 8/10 intervalles plus 5 s de durée, TV à 185 bpm avec 8/10 plus 12 s de durée, VT-1 en surveillance à la discrétion de l'opérateur. Option 2 (thérapie à haute fréquence) : FV à 200 bpm avec 2,5 s de durée. Ces options s'inspirent de MADIT-RIT, réalisé sur des DAI Boston Scientific : par rapport à une programmation conventionnelle, la thérapie à haute fréquence (≥ 200 bpm) et la thérapie retardée ont toutes deux réduit les thérapies inappropriées d'environ 75 %, la baisse de mortalité étant significative pour la haute fréquence (HR 0,45) et à la limite de la significativité pour le délai prolongé (HR 0,56 ; p = 0,06). Les discriminateurs TSV ne s'appliquent que jusqu'à 230 bpm. Les réglages en nombre d'intervalles (231 bpm en 30/40) appartiennent à la traduction Biotronik, et une détection rapide avec 1 s de durée correspond à la programmation conventionnelle qu'on cherche à éviter.",
     "aRetenir": "Boston Scientific, prévention primaire : TV 185 bpm/12 s et FV 250 bpm/5 s, ou thérapie à haute fréquence FV 200 bpm/2,5 s.",
     "sources": [
       {
@@ -337,17 +393,22 @@
     "question": "Parmi les paramètres suivants, lesquels sont combinés par l'index HeartLogic (CRT-D/DAI Boston Scientific) pour prédire une décompensation cardiaque ?",
     "options": [
       "Bruits cardiaques (S1, S3)",
-      "Respiration (fréquence respiratoire, respiration rapide et superficielle)",
+      "Fardeau de FA et fréquence ventriculaire en FA",
       "Impédance thoracique et fréquence cardiaque de repos nocturne",
       "Pression artérielle pulmonaire mesurée par un capteur implanté"
     ],
     "reponses": [
       0,
-      1,
       2
     ],
+    "commentaires": [
+      "Juste : les bruits cardiaques S1 et S3, recueillis par l'accéléromètre, sont un pilier de l'index.",
+      "Faux : le fardeau de FA et la fréquence en FA sont des paramètres du score TriageHF de Medtronic, pas de HeartLogic.",
+      "Juste : l'impédance thoracique et la fréquence cardiaque nocturne font partie de l'index, avec la respiration et l'activité.",
+      "Faux : la pression artérielle pulmonaire relève d'un capteur implanté dans l'artère pulmonaire, distinct de HeartLogic."
+    ],
     "reponseAttendue": null,
-    "explication": "HeartLogic calcule chaque jour un index composite à partir de capteurs du boîtier : bruits cardiaques recueillis par l'accéléromètre (S1, S3), respiration (fréquence et rapport fréquence/volume courant), impédance thoracique, fréquence cardiaque nocturne et activité. L'alerte se déclenche quand l'index dépasse un seuil configurable. La pression artérielle pulmonaire relève d'un autre dispositif (capteur implanté dans l'artère pulmonaire), qui ne fait pas partie de HeartLogic. En pratique, une alerte HeartLogic doit faire rechercher cliniquement une congestion (poids, dyspnée, observance, fonction rénale) et non conduire à modifier le traitement sur la seule foi de l'index.",
+    "explication": "HeartLogic calcule chaque jour un index composite à partir de capteurs du boîtier : bruits cardiaques recueillis par l'accéléromètre (S1, S3), respiration (fréquence et rapport fréquence/volume courant), impédance thoracique, fréquence cardiaque nocturne et activité. L'alerte se déclenche quand l'index dépasse un seuil configurable. Le fardeau de FA fait partie du score TriageHF de Medtronic, pas de HeartLogic. La pression artérielle pulmonaire relève d'un autre dispositif (capteur implanté dans l'artère pulmonaire). En pratique, une alerte HeartLogic doit faire rechercher cliniquement une congestion (poids, dyspnée, observance, fonction rénale) et non conduire à modifier le traitement sur la seule foi de l'index.",
     "aRetenir": "HeartLogic = bruits cardiaques + respiration + impédance thoracique + FC nocturne + activité.",
     "sources": [
       {
@@ -391,16 +452,22 @@
     "difficulte": 6,
     "question": "Quel a été le résultat principal de l'essai SMART-AV, qui évaluait l'algorithme SmartDelay de Boston Scientific pour l'optimisation du délai AV en CRT ?",
     "options": [
-      "SmartDelay a été supérieur à l'échocardiographie et au délai fixe sur le volume télésystolique du VG",
-      "Ni SmartDelay ni l'optimisation échocardiographique n'ont été supérieurs à un délai AV fixe empirique de 120 ms",
-      "SmartDelay a réduit la mortalité de 30 %",
-      "L'essai a été arrêté pour excès de complications liées à SmartDelay"
+      "SmartDelay a fait mieux que l'échographie et le délai fixe sur le VTS du VG",
+      "L'optimisation échographique a fait mieux que SmartDelay et que le délai fixe",
+      "SmartDelay a été non inférieur à l'échographie, avec moins d'hospitalisations pour IC",
+      "Ni SmartDelay ni l'échographie n'ont fait mieux qu'un délai AV fixe de 120 ms"
     ],
     "reponses": [
-      1
+      3
+    ],
+    "commentaires": [
+      "Faux : aucune différence n'a été observée sur le volume télésystolique du VG à 6 mois.",
+      "Faux : l'échographie n'a pas fait mieux que SmartDelay ni que le délai fixe.",
+      "Faux : la non-infériorité avec moins d'hospitalisations pour IC est le résultat de RESPOND-CRT (SonR, MicroPort).",
+      "Juste : SmartDelay, échographie et délai AV fixe de 120 ms ont donné des résultats identiques."
     ],
     "reponseAttendue": null,
-    "explication": "SmartDelay calcule un délai AV à partir des intervalles mesurés sur les électrogrammes intracardiaques, sans échographie. Dans SMART-AV (980 patients randomisés), le critère principal était l'évolution du volume télésystolique du VG à 6 mois. Il n'y a eu aucune différence entre SmartDelay, l'échocardiographie et un délai AV fixe de 120 ms, ni sur les critères secondaires. La conclusion est que l'optimisation systématique du délai AV n'est pas justifiée chez tous les patients, sans exclure un intérêt chez les non-répondeurs. SmartDelay reste un outil rapide et reproductible, proposé dans la traduction constructeur du consensus DAI.",
+    "explication": "SmartDelay calcule un délai AV à partir des intervalles mesurés sur les électrogrammes intracardiaques, sans échographie. Dans SMART-AV (980 patients randomisés), le critère principal était l'évolution du volume télésystolique du VG à 6 mois. Il n'y a eu aucune différence entre SmartDelay, l'échocardiographie et un délai AV fixe de 120 ms, ni sur les critères secondaires. La conclusion est que l'optimisation systématique du délai AV n'est pas justifiée chez tous les patients, sans exclure un intérêt chez les non-répondeurs. Ne pas confondre avec RESPOND-CRT, où l'optimisation SonR de MicroPort était non inférieure à l'échographie. SmartDelay reste un outil rapide et reproductible, proposé dans la traduction constructeur du consensus DAI.",
     "aRetenir": "SMART-AV : SmartDelay ou échographie ne font pas mieux qu'un délai AV fixe de 120 ms en optimisation systématique.",
     "sources": [
       {
@@ -427,6 +494,10 @@
     ],
     "reponses": [
       1
+    ],
+    "commentaires": [
+      "Faux : ALTITUDE est un registre observationnel ; l'association avec une meilleure survie ne prouve pas la causalité.",
+      "Juste : les patients télésurveillés peuvent différer par des facteurs non mesurés ; seuls des essais randomisés établissent la causalité."
     ],
     "reponseAttendue": null,
     "explication": "ALTITUDE est une analyse observationnelle de très grande taille (plus de 185 000 patients) : la survie à 1 et 5 ans était meilleure chez les patients télésurveillés sur LATITUDE que chez ceux suivis en consultation seule. S'agissant d'un registre non randomisé, cette association ne prouve pas la causalité : les patients télésurveillés peuvent différer par des facteurs non mesurés (observance, entourage, suivi médical). L'étude a aussi montré qu'un choc délivré était associé à une surmortalité. La télésurveillance est aujourd'hui recommandée pour tous les porteurs de DAI/CRT, en s'appuyant sur l'ensemble des données, randomisées comprises.",
@@ -461,6 +532,12 @@
       1,
       2
     ],
+    "commentaires": [
+      "Juste : le S-ICD délivre un choc biphasique de 80 J, non programmable.",
+      "Juste : le S-ICD ne délivre pas d'ATP ; les TV monomorphes récidivantes accessibles à l'ATP sont une contre-indication pratique.",
+      "Juste : seule une stimulation post-choc optionnelle (50 bpm, 30 s au plus) existe ; pas de stimulation antibradycardique permanente.",
+      "Faux : le S-ICD est entièrement extrathoracique, sans aucune sonde endocavitaire."
+    ],
     "reponseAttendue": null,
     "explication": "Le S-ICD est entièrement extrathoracique : une électrode sous-cutanée parasternale reliée à un boîtier en position latérale thoracique, sans aucune sonde endocavitaire. Sa seule réponse à une tachyarythmie ventriculaire détectée est un choc biphasique de 80 J, non programmable. Il n'y a ni ATP ni stimulation antibradycardique permanente ; une stimulation post-choc optionnelle est délivrée à 50 bpm pendant au plus 30 s. D'où les contre-indications pratiques : besoin de stimulation antibradycardique, de CRT ou de TV monomorphes récidivantes accessibles à l'ATP.",
     "aRetenir": "S-ICD : choc 80 J non programmable, ni ATP ni stimulation permanente, seulement 30 s de stimulation post-choc.",
@@ -484,13 +561,19 @@
     "difficulte": 4,
     "question": "Sur un S-ICD Boston Scientific, quelle est la différence entre la zone de choc (Shock Zone) et la zone de choc conditionnelle (Conditional Shock Zone) ?",
     "options": [
-      "Dans la zone de choc, la fréquence seule décide du traitement ; dans la zone conditionnelle, s'ajoutent une analyse morphologique (comparaison au gabarit de rythme sinusal) et la largeur du QRS",
-      "La zone conditionnelle délivre des ATP avant le choc",
-      "La zone de choc est obligatoirement plus basse que la zone conditionnelle",
-      "La zone conditionnelle ne délivre jamais de choc"
+      "Zone de choc : choc de 80 J ; zone conditionnelle : choc de plus faible énergie",
+      "Zone conditionnelle : surveillance seule, sans choc ; zone de choc : thérapie",
+      "Zone conditionnelle : ATP puis choc ; zone de choc : choc d'emblée",
+      "Zone de choc : fréquence seule ; zone conditionnelle : fréquence + morphologie"
     ],
     "reponses": [
-      0
+      3
+    ],
+    "commentaires": [
+      "Faux : le choc du S-ICD est toujours de 80 J, non programmable.",
+      "Faux : la zone conditionnelle traite bien, mais seulement après discrimination ; une zone de surveillance seule est une option des DAI endocavitaires.",
+      "Faux : le S-ICD ne délivre jamais d'ATP, quelle que soit la zone.",
+      "Juste : dans la zone de choc, la fréquence seule décide ; dans la zone conditionnelle s'ajoutent la morphologie et la largeur du QRS."
     ],
     "reponseAttendue": null,
     "explication": "Le S-ICD permet deux zones de fréquence. Dans la Shock Zone (170 à 250 bpm), la fréquence est le seul critère. Dans la Conditional Shock Zone, obligatoirement plus basse (170 à 240 bpm), l'appareil compare les complexes au gabarit de rythme sinusal acquis lors de l'initialisation et analyse la largeur du QRS et le caractère polymorphe du rythme, afin de ne pas traiter FA, tachycardie sinusale ou autres TSV. La fréquence est estimée par la moyenne glissante des 4 derniers R-R, et la charge ne démarre que si 18 des 24 derniers intervalles sont jugés « à traiter », puis confirmés par l'analyse de persistance. Le manuel conseille de programmer l'une des zones à 200 bpm ou moins pour garantir la détection de la FV. Le S-ICD ne délivre pas d'ATP.",
@@ -511,13 +594,19 @@
     "difficulte": 7,
     "question": "Quel est le rôle du filtre SMART Pass sur le S-ICD Boston Scientific ?",
     "options": [
-      "C'est un algorithme d'ATP indolore",
-      "C'est un test automatique de défibrillation hebdomadaire",
-      "C'est un filtre passe-haut supplémentaire qui réduit la surdétection (notamment de l'onde T), activé si l'amplitude du signal mesurée lors du paramétrage est d'au moins 0,5 mV et désactivé automatiquement en cas de sous-détection suspectée",
-      "C'est un mode de stimulation antibradycardique"
+      "Un choix automatique du meilleur vecteur de détection parmi les trois disponibles",
+      "Un filtre passe-haut supplémentaire contre la surdétection, surtout de l'onde T",
+      "Une zone de discrimination par comparaison au gabarit de rythme sinusal",
+      "Une stimulation post-choc à 50 bpm pendant au plus 30 secondes"
     ],
     "reponses": [
-      2
+      1
+    ],
+    "commentaires": [
+      "Faux : le choix du vecteur de détection se fait lors du paramétrage automatique ; SMART Pass est un filtre ajouté au signal.",
+      "Juste : SMART Pass atténue les signaux basse fréquence (onde T) ; il s'active si le signal fait au moins 0,5 mV et se désactive si une sous-détection est suspectée.",
+      "Faux : la comparaison au gabarit sinusal est l'analyse de la zone de choc conditionnelle, pas SMART Pass.",
+      "Faux : la stimulation post-choc (50 bpm, 30 s au plus) est une option distincte du S-ICD."
     ],
     "reponseAttendue": null,
     "explication": "La plupart des chocs inappropriés du S-ICD viennent d'une surdétection cardiaque, en particulier du double comptage QRS-onde T. SMART Pass ajoute un filtre passe-haut qui atténue les signaux basse fréquence tout en conservant une marge de détection suffisante. Il est activé automatiquement lors du paramétrage si l'amplitude du signal ECG sous-cutané est d'au moins 0,5 mV, puis désactivé par l'appareil en cas de sous-détection suspectée : il faut alors refaire un paramétrage pour le réactiver. Dans l'évaluation prospective de Theuns et al., SMART Pass a réduit de 50 % le risque de premier choc inapproprié et de 68 % le risque de l'ensemble des chocs inappropriés, sans retarder les chocs appropriés.",
@@ -560,13 +649,19 @@
     "difficulte": 8,
     "question": "Selon la traduction constructeur de la mise à jour 2019 du consensus de programmation des DAI, quels réglages de zones sont proposés pour le S-ICD ?",
     "options": [
-      "Zone de choc ≥ 170 bpm seule, zone conditionnelle désactivée",
-      "Zone de choc ≥ 230 bpm et zone conditionnelle ≥ 200 bpm (ou 10 à 20 bpm sous la TV connue), stimulation post-choc à envisager",
-      "Zone de choc ≥ 250 bpm seule, sans zone conditionnelle",
-      "Zone conditionnelle ≥ 150 bpm pour traiter toutes les TV lentes"
+      "Choc ≥ 230 bpm, conditionnelle ≥ 200 bpm (ou 10-20 bpm sous la TV connue)",
+      "Conditionnelle ≥ 150 bpm pour traiter aussi les TV lentes, choc ≥ 200 bpm",
+      "Choc ≥ 200 bpm et conditionnelle ≥ 180 bpm, sans stimulation post-choc",
+      "Zone de choc unique ≥ 170 bpm, zone conditionnelle désactivée pour ne rien manquer"
     ],
     "reponses": [
-      1
+      0
+    ],
+    "commentaires": [
+      "Juste : zone de choc ≥ 230 bpm, zone conditionnelle ≥ 200 bpm ou 10 à 20 bpm sous la TV connue, stimulation post-choc à envisager.",
+      "Faux : les zones du S-ICD commencent à 170 bpm, et une zone à 150 bpm multiplierait les chocs inappropriés.",
+      "Faux : ces seuils sont trop bas ; l'annexe propose au contraire d'envisager la stimulation post-choc.",
+      "Faux : une zone unique à 170 bpm sans discrimination exposerait à des chocs inappropriés sur tachycardie sinusale ou FA."
     ],
     "reponseAttendue": null,
     "explication": "L'annexe Boston Scientific de la mise à jour 2019 propose pour le S-ICD une zone de choc à au moins 230 bpm et une zone conditionnelle à au moins 200 bpm, ou 10 à 20 bpm sous la TV si sa fréquence est connue. Elle conseille aussi d'envisager la stimulation post-choc. Activer la zone conditionnelle avec discrimination morphologique réduit les chocs inappropriés : dans UNTOUCHED, avec thérapie sur la seule fréquence au-delà de 250 bpm et discrimination entre 200 et 250 bpm, 95,9 % des patients n'avaient reçu aucun choc inapproprié à 18 mois. Une zone unique à 170 bpm sans discrimination exposerait à de nombreux chocs inappropriés sur tachycardie sinusale ou FA.",
@@ -591,13 +686,19 @@
     "difficulte": 7,
     "question": "Quel a été le résultat principal de l'essai PRAETORIAN, qui comparait le S-ICD au DAI endocavitaire chez des patients sans indication de stimulation ?",
     "options": [
-      "Le S-ICD a réduit la mortalité totale de 40 %",
-      "Le S-ICD a entraîné deux fois plus de complications de sonde",
-      "Le DAI endocavitaire a été supérieur sur tous les critères",
-      "Le S-ICD a été non inférieur au DAI endocavitaire sur le critère composite complications liées au dispositif et chocs inappropriés"
+      "Deux fois plus de complications liées au dispositif avec le S-ICD",
+      "Moins de chocs inappropriés avec le S-ICD grâce au filtre SMART Pass",
+      "Non-infériorité du S-ICD sur le composite complications + chocs inappropriés",
+      "Supériorité du S-ICD sur la mortalité totale, avec 40 % de décès en moins"
     ],
     "reponses": [
-      3
+      2
+    ],
+    "commentaires": [
+      "Faux : les complications avaient au contraire tendance à être moins fréquentes avec le S-ICD.",
+      "Faux : les chocs inappropriés étaient un peu plus fréquents avec le S-ICD, sans différence significative.",
+      "Juste : 15,1 % contre 15,7 % à 48 mois sur le composite complications + chocs inappropriés : non-infériorité établie.",
+      "Faux : aucune différence de mortalité n'a été démontrée."
     ],
     "reponseAttendue": null,
     "explication": "PRAETORIAN a randomisé 849 patients ayant une indication de DAI sans indication de stimulation. Avec un suivi médian d'environ 49 mois, le critère composite (complications liées au dispositif et chocs inappropriés) est survenu à fréquence comparable dans les deux bras (15,1 % contre 15,7 % à 48 mois), ce qui établit la non-infériorité du S-ICD. Les complications avaient tendance à être moins fréquentes avec le S-ICD et les chocs inappropriés un peu plus fréquents, sans différence significative. Aucune différence de mortalité n'a été démontrée. Ces données appuient le S-ICD comme alternative au DAI endocavitaire quand il n'y a pas besoin de stimulation antibradycardique, d'ATP ni de CRT (ESC 2022).",
@@ -622,16 +723,22 @@
     "difficulte": 3,
     "question": "Sur quel principe repose l'asservissement Closed Loop Stimulation (CLS) des stimulateurs Biotronik ?",
     "options": [
-      "Sur un accéléromètre seul",
-      "Sur la ventilation-minute transthoracique",
-      "Sur la mesure de l'impédance intracardiaque unipolaire (pointe de sonde ventriculaire – boîtier) au cours de chaque contraction ventriculaire, reflet de la contractilité myocardique",
-      "Sur la saturation veineuse en oxygène"
+      "L'impédance intracardiaque ventriculaire au cours de chaque contraction",
+      "La ventilation-minute, déduite de l'impédance transthoracique respiratoire",
+      "L'accélération endocardiaque mesurée à la pointe d'une sonde dédiée",
+      "Un accéléromètre intégré au boîtier, sensible aux mouvements du thorax"
     ],
     "reponses": [
-      2
+      0
+    ],
+    "commentaires": [
+      "Juste : CLS mesure l'impédance unipolaire pointe VD – boîtier pendant chaque contraction, reflet de la contractilité.",
+      "Faux : la ventilation-minute est le capteur d'asservissement de Boston Scientific.",
+      "Faux : l'accélération endocardiaque est le signal SonR de MicroPort, utilisé pour optimiser la CRT.",
+      "Faux : l'accéléromètre existe aussi chez Biotronik, mais comme capteur distinct ; CLS ne s'en sert que pour repérer le repos."
     ],
     "reponseAttendue": null,
-    "explication": "CLS mesure l'impédance intracardiaque unipolaire entre la pointe de la sonde ventriculaire et le boîtier pendant chaque contraction. Les variations de cette courbe d'impédance reflètent la contractilité myocardique (inotropisme), commandée par le même système nerveux autonome que le nœud sinusal. L'asservissement ne répond donc pas seulement à l'activité physique, mais aussi au stress mental, ce qui le distingue des capteurs de mouvement. Il fonctionne avec les sondes standard et s'initialise automatiquement. L'accéléromètre existe aussi chez Biotronik (modes R), mais comme capteur distinct ; CLS ne l'utilise que pour repérer les périodes de repos.",
+    "explication": "CLS mesure l'impédance intracardiaque unipolaire entre la pointe de la sonde ventriculaire et le boîtier pendant chaque contraction. Les variations de cette courbe d'impédance reflètent la contractilité myocardique (inotropisme), commandée par le même système nerveux autonome que le nœud sinusal. L'asservissement ne répond donc pas seulement à l'activité physique, mais aussi au stress mental, ce qui le distingue des capteurs de mouvement. Il fonctionne avec les sondes standard et s'initialise automatiquement. L'accéléromètre existe aussi chez Biotronik (modes R), mais comme capteur distinct ; CLS ne l'utilise que pour repérer les périodes de repos. La ventilation-minute (Boston Scientific) et l'accélération endocardiaque (SonR, MicroPort) sont d'autres signaux.",
     "aRetenir": "CLS = impédance intracardiaque ventriculaire, reflet de la contractilité, qui répond au stress physique et mental.",
     "sources": [
       {
@@ -653,16 +760,22 @@
     "difficulte": 6,
     "question": "Une femme de 52 ans a des syncopes réflexes récidivantes, fréquentes et traumatisantes, avec une réponse cardio-inhibitrice au tilt-test (asystolie > 3 s). Une stimulation est décidée. Quelle programmation est étayée par l'essai randomisé SPAIN ?",
     "options": [
+      "VVI à 40 bpm avec hystérésis de fréquence",
+      "DDD avec réponse aux chutes de fréquence (Rate Drop Response)",
       "DDD avec Closed Loop Stimulation (DDD-CLS)",
-      "VVI à 40 bpm",
-      "AAI avec asservissement par accéléromètre",
-      "DDI à 30 bpm"
+      "AAI(R) avec asservissement par accéléromètre"
     ],
     "reponses": [
-      0
+      2
+    ],
+    "commentaires": [
+      "Faux : le VVI perd la synchronisation AV et ne répond pas précocement à la phase qui précède la syncope.",
+      "Faux : le Rate Drop Response (Medtronic) a été évalué dans VPS II, en double aveugle, sans réduction significative des syncopes.",
+      "Juste : dans SPAIN, 72 % des patients en DDD-CLS avaient au moins 50 % de syncopes en moins, contre 28 % en mode placebo.",
+      "Faux : l'AAI est inefficace sur la composante cardio-inhibitrice, qui comporte souvent un BAV paroxystique."
     ],
     "reponseAttendue": null,
-    "explication": "SPAIN était un essai croisé en double aveugle chez des patients de 40 ans ou plus, avec une syncope vasovagale très récidivante et une réponse cardio-inhibitrice au tilt-test. Il comparait la stimulation DDD-CLS à un mode placebo DDI à 30 bpm. La proportion de patients ayant au moins 50 % de réduction des syncopes était de 72 % en DDD-CLS contre 28 % en mode placebo. L'intérêt supposé de CLS est de détecter l'augmentation de contractilité qui précède la phase vasodépressive et d'accélérer la stimulation avant la chute de fréquence. Le VVI n'est pas adapté (perte de la synchronisation AV, absence de réponse précoce), et l'AAI est inefficace sur la composante cardio-inhibitrice.",
+    "explication": "SPAIN était un essai croisé en double aveugle chez des patients de 40 ans ou plus, avec une syncope vasovagale très récidivante et une réponse cardio-inhibitrice au tilt-test. Il comparait la stimulation DDD-CLS à un mode placebo DDI à 30 bpm. La proportion de patients ayant au moins 50 % de réduction des syncopes était de 72 % en DDD-CLS contre 28 % en mode placebo. L'intérêt supposé de CLS est de détecter l'augmentation de contractilité qui précède la phase vasodépressive et d'accélérer la stimulation avant la chute de fréquence. Le Rate Drop Response de Medtronic n'a pas montré de bénéfice significatif en double aveugle (VPS II). Le VVI n'est pas adapté (perte de la synchronisation AV, absence de réponse précoce), et l'AAI est inefficace sur la composante cardio-inhibitrice.",
     "aRetenir": "Syncope réflexe cardio-inhibitrice sélectionnée : DDD-CLS (essai SPAIN).",
     "sources": [
       {
@@ -688,13 +801,19 @@
     "difficulte": 8,
     "question": "Comment l'algorithme CLS construit-il sa référence de repos pour détecter une augmentation de la demande ?",
     "options": [
-      "Il utilise une courbe unique enregistrée le jour de l'implantation",
-      "Il se cale sur la fréquence sinusale moyenne des 24 dernières heures",
-      "Il demande une calibration manuelle mensuelle par un test d'effort",
-      "Il compare la courbe d'impédance de chaque cycle à des courbes de référence de repos, obtenues en moyennant les 256 dernières courbes enregistrées au repos (repos repéré par l'accéléromètre), séparément pour les événements stimulés et détectés"
+      "Une courbe unique enregistrée lors de l'initialisation, à l'implantation",
+      "Une calibration manuelle mensuelle par un test d'effort en consultation",
+      "La fréquence sinusale moyenne des 24 dernières heures, prise comme repos",
+      "La moyenne des 256 dernières courbes de repos, stimulées et détectées à part"
     ],
     "reponses": [
       3
+    ],
+    "commentaires": [
+      "Faux : une courbe figée depuis l'implantation ne suivrait pas l'évolution du patient ; la référence est réactualisée en continu.",
+      "Faux : CLS s'initialise et s'adapte automatiquement, sans calibration par test d'effort.",
+      "Faux : CLS ne se cale pas sur la fréquence sinusale mais sur des courbes d'impédance de repos.",
+      "Juste : la référence de repos moyenne les 256 dernières courbes enregistrées au repos (repéré par l'accéléromètre), séparément pour Vp et Vs."
     ],
     "reponseAttendue": null,
     "explication": "Le guide pratique CLS de Biotronik décrit trois étapes : construction des courbes de repos, comparaison à la courbe du cycle en cours (courbe de charge), puis adaptations automatiques. Les courbes de référence de repos sont réactualisées en continu à partir des 256 dernières courbes enregistrées au repos, le repos étant repéré par l'accéléromètre. Elles sont distinctes pour les événements ventriculaires stimulés et détectés. L'écart entre la courbe du cycle en cours et la référence est converti en fréquence de stimulation. Aucune calibration manuelle par test d'effort n'est nécessaire, et une courbe figée depuis l'implantation ne suivrait pas l'évolution du patient.",
@@ -715,16 +834,22 @@
     "difficulte": 3,
     "question": "Que fait la fonction Vp suppression d'un stimulateur double chambre Biotronik lorsque la conduction AV spontanée est présente ?",
     "options": [
-      "Elle raccourcit le délai AV pour garantir la stimulation ventriculaire",
-      "Elle fait passer le boîtier d'un mode DDD(R) à un mode ADI(R) pour éviter la stimulation ventriculaire inutile",
-      "Elle désactive la détection atriale",
-      "Elle passe en VVI à 40 bpm"
+      "Passer en AAI(R) avec un VVI de secours tournant à fréquence réduite",
+      "Passer de DDD(R) en ADI(R) pour éviter la stimulation ventriculaire inutile",
+      "Raccourcir le délai AV dès qu'un QRS spontané survient, pour garder la stimulation V",
+      "Allonger le délai AV (hystérésis AV positive) pour laisser passer la conduction"
     ],
     "reponses": [
       1
     ],
+    "commentaires": [
+      "Faux : l'AAI(R) avec VVI de secours à fréquence réduite est RYTHMIQ (Boston Scientific).",
+      "Juste : en présence de conduction, Vp suppression passe de DDD(R) à ADI(R) ; le ventricule est seulement surveillé.",
+      "Faux : raccourcir le délai AV pour garder la stimulation V est l'hystérésis AV négative, utile en CRT ; l'effet est inverse.",
+      "Faux : l'hystérésis AV positive est IRSplus, l'autre option Biotronik ; Vp suppression change de mode."
+    ],
     "reponseAttendue": null,
-    "explication": "Vp suppression est l'algorithme Biotronik de réduction de la stimulation ventriculaire. En présence de conduction intrinsèque, le boîtier passe de DDD(R) à ADI(R) : l'oreillette est stimulée ou détectée et le ventricule seulement surveillé. Si la conduction se dégrade, il revient en DDD(R) pour assurer la stimulation ventriculaire. Le principe rejoint celui de RYTHMIQ (Boston Scientific) ou de SafeR (MicroPort), mais les critères de bascule sont propres à chaque constructeur. Raccourcir le délai AV aurait l'effet inverse, en augmentant la stimulation VD.",
+    "explication": "Vp suppression est l'algorithme Biotronik de réduction de la stimulation ventriculaire. En présence de conduction intrinsèque, le boîtier passe de DDD(R) à ADI(R) : l'oreillette est stimulée ou détectée et le ventricule seulement surveillé. Si la conduction se dégrade, il revient en DDD(R) pour assurer la stimulation ventriculaire. Le principe rejoint celui de RYTHMIQ (Boston Scientific) ou de SafeR (MicroPort), mais les critères de bascule sont propres à chaque constructeur. IRSplus, l'autre option Biotronik, reste en DDD et allonge le délai AV (hystérésis positive). Raccourcir le délai AV aurait l'effet inverse, en augmentant la stimulation VD.",
     "aRetenir": "Vp suppression = bascule DDD(R) → ADI(R) tant que la conduction AV spontanée est présente.",
     "sources": [
       {
@@ -746,16 +871,22 @@
     "difficulte": 7,
     "question": "Sur un stimulateur Biotronik de la famille Edora, quelles sont les valeurs standard des paramètres de Vp suppression ?",
     "options": [
-      "Passage en ADI après 6 cycles consécutifs avec détection ventriculaire (Vs) ; retour en DDD si 3 cycles sur 8 sont sans conduction",
-      "Passage en ADI après 1 seul Vs ; retour en DDD après 1 cycle sans conduction",
-      "Passage en ADI après 12 Vs ; retour en DDD si 2 P bloquées consécutives",
-      "Vp suppression est active en standard et n'a aucun paramètre programmable"
+      "Retour en DDD si 2 des 4 derniers cycles A-A n'ont pas de Vs, sans autre réglage",
+      "Active par défaut à l'implantation, sans aucun paramètre programmable",
+      "ADI après 6 Vs consécutifs ; retour en DDD si 3 cycles sur 8 sans conduction",
+      "ADI après 12 Vs consécutifs ; retour en DDD si 2 P bloquées consécutives"
     ],
     "reponses": [
-      0
+      2
+    ],
+    "commentaires": [
+      "Faux : 2 cycles A-A sur 4 sans détection ventriculaire est le critère de bascule du MVP de Medtronic.",
+      "Faux : Vp suppression est Off en standard, et deux paramètres se programment une fois activée.",
+      "Juste : suppression de la stimulation après 6 Vs consécutifs (1 à 8), reprise si 3 cycles sur 8 sans conduction (1 à 4).",
+      "Faux : 12 R spontanés et 2 P bloquées consécutives sont des critères de SafeR (MicroPort)."
     ],
     "reponseAttendue": null,
-    "explication": "Dans le manuel technique de l'Edora 8, Vp suppression est Off en standard. Une fois activée, deux paramètres la règlent : suppression de la stimulation après x Vs consécutifs (1 à 8, standard 6) et reprise de la stimulation après x cycles sur 8 (1 à 4, standard 3). Autrement dit, la stimulation ventriculaire est abandonnée quand la conduction est confirmée sur 6 cycles, puis reprise si 3 cycles sur 8 montrent une perte de conduction. Les critères « 2 P bloquées consécutives » et « 12 R spontanés » appartiennent à SafeR (MicroPort). Ne pas confondre les algorithmes est essentiel pour interpréter correctement un Holter ou un EGM mémorisé.",
+    "explication": "Dans le manuel technique de l'Edora 8, Vp suppression est Off en standard. Une fois activée, deux paramètres la règlent : suppression de la stimulation après x Vs consécutifs (1 à 8, standard 6) et reprise de la stimulation après x cycles sur 8 (1 à 4, standard 3). Autrement dit, la stimulation ventriculaire est abandonnée quand la conduction est confirmée sur 6 cycles, puis reprise si 3 cycles sur 8 montrent une perte de conduction. Les critères « 2 P bloquées consécutives » et « 12 R spontanés » appartiennent à SafeR (MicroPort), et « 2 cycles sur 4 » au MVP (Medtronic). Ne pas confondre les algorithmes est essentiel pour interpréter correctement un Holter ou un EGM mémorisé.",
     "aRetenir": "Vp suppression (standard Edora) : ADI après 6 Vs consécutifs, retour en DDD si 3 cycles sur 8 sans conduction.",
     "sources": [
       {
@@ -773,16 +904,22 @@
     "difficulte": 5,
     "question": "Quelle est la finalité de la fonction IRSplus (Intrinsic Rhythm Support) des boîtiers Biotronik ?",
     "options": [
-      "Augmenter la fréquence minimale la nuit",
-      "Forcer une stimulation biventriculaire permanente",
-      "Favoriser la conduction AV intrinsèque par une hystérésis AV positive (allongement du délai AV), afin de limiter la stimulation ventriculaire",
-      "Détecter l'apnée du sommeil"
+      "Favoriser la conduction AV intrinsèque par une hystérésis AV positive",
+      "Raccourcir le délai AV pour maintenir la stimulation biventriculaire",
+      "Soutenir le rythme intrinsèque en abaissant la fréquence de base la nuit",
+      "Passer en ADI(R) dès que la conduction AV spontanée est confirmée"
     ],
     "reponses": [
-      2
+      0
+    ],
+    "commentaires": [
+      "Juste : IRSplus allonge le délai AV (hystérésis positive) pour laisser s'exprimer la conduction spontanée.",
+      "Faux : raccourcir le délai AV pour la CRT est l'hystérésis AV négative, l'inverse d'IRSplus.",
+      "Faux : malgré son nom, IRSplus n'agit pas sur la fréquence de base ; la baisse nocturne relève d'une fonction de fréquence de nuit.",
+      "Faux : la bascule en ADI(R) est Vp suppression, l'autre algorithme Biotronik de réduction de la stimulation VD."
     ],
     "reponseAttendue": null,
-    "explication": "IRSplus est une option d'hystérésis AV positive, dont le but est de laisser s'exprimer la conduction spontanée en allongeant le délai AV. Elle est une alternative à Vp suppression pour réduire la stimulation VD chez les patients dont la conduction est conservée ou intermittente. La mise à jour 2019 du consensus DAI la cite d'ailleurs dans sa traduction Biotronik (« DDD, envisager IRS Plus »). À l'inverse, l'hystérésis AV négative sert en CRT à maintenir la stimulation ventriculaire. Un délai AV très long peut toutefois favoriser une désynchronisation AV mal tolérée, à surveiller chez les patients avec PR très long.",
+    "explication": "IRSplus est une option d'hystérésis AV positive, dont le but est de laisser s'exprimer la conduction spontanée en allongeant le délai AV. Elle est une alternative à Vp suppression (qui, elle, bascule en ADI(R)) pour réduire la stimulation VD chez les patients dont la conduction est conservée ou intermittente. La mise à jour 2019 du consensus DAI la cite d'ailleurs dans sa traduction Biotronik (« DDD, envisager IRS Plus »). À l'inverse, l'hystérésis AV négative sert en CRT à maintenir la stimulation ventriculaire. Malgré son nom (Intrinsic Rhythm Support), elle n'agit pas sur la fréquence de base. Un délai AV très long peut toutefois favoriser une désynchronisation AV mal tolérée, à surveiller chez les patients avec PR très long.",
     "aRetenir": "IRSplus = hystérésis AV positive pour favoriser la conduction spontanée.",
     "sources": [
       {
@@ -804,13 +941,19 @@
     "difficulte": 3,
     "question": "Sur un boîtier Biotronik, le paramètre Capture Control (Active Capture Control) propose les réglages ON, OFF et ATM. Que signifie ATM ?",
     "options": [
-      "Atrial Tachycardia Management : traitement des tachycardies atriales",
-      "Automatic Threshold Monitoring : le seuil est mesuré automatiquement et tracé en tendance, sans adaptation de l'amplitude de stimulation",
-      "Auto-Test Magnétique : test déclenché par l'aimant",
-      "Amplitude Totale Maximale : stimulation fixe à 7,5 V"
+      "Atrial Tachycardia Management : ATP sur les tachycardies atriales",
+      "Automatic Threshold Monitoring : seuil mesuré et tracé, amplitude inchangée",
+      "Auto Threshold Margin : amplitude = seuil mesuré plus une marge de sécurité",
+      "Auto-Test Magnétique : mesure du seuil déclenchée par l'application d'un aimant"
     ],
     "reponses": [
       1
+    ],
+    "commentaires": [
+      "Faux : Capture Control est une fonction de seuil, sans rapport avec le traitement des tachycardies atriales.",
+      "Juste : en mode ATM, le seuil est mesuré et tracé en tendance sans toucher à l'amplitude programmée.",
+      "Faux : l'adaptation de l'amplitude au seuil plus une marge est le mode ON, pas ATM.",
+      "Faux : l'aimant déclenche un test de seuil sur certains boîtiers, mais ce n'est pas le sens d'ATM."
     ],
     "reponseAttendue": null,
     "explication": "Capture Control mesure automatiquement le seuil de stimulation dans chaque cavité appareillée. En mode ON, il adapte l'amplitude au seuil mesuré plus une marge de sécurité programmable ; en mode ATM (monitoring only), il se contente de mesurer et de tracer le seuil en tendance, sans toucher à l'amplitude programmée. Ce mode est utile quand on souhaite garder une amplitude fixe (sonde récente, doute sur la fiabilité de la mesure) tout en suivant l'évolution du seuil, notamment en télésurveillance. Pour le VG en CRT, Capture Control existe aussi avec suivi du seuil ou ATM.",
@@ -831,13 +974,19 @@
     "difficulte": 5,
     "question": "Dans l'algorithme SMART detection des DAI double chambre Biotronik, quelle est la décision lorsque la fréquence ventriculaire moyennée est supérieure à la fréquence atriale ?",
     "options": [
-      "Rythme classé supraventriculaire, thérapie inhibée",
-      "Analyse de la stabilité PR obligatoire avant toute décision",
-      "Bascule automatique en surveillance seule",
-      "Le compteur TV est incrémenté sans autre test et la thérapie TV est délivrée"
+      "Analyse de la stabilité R-R et du rapport A/V avant toute décision",
+      "Analyse du critère onset et de la stabilité PR avant décision",
+      "Comparaison morphologique des QRS à la référence avant toute décision",
+      "Compteur TV incrémenté sans autre test ; thérapie TV délivrée"
     ],
     "reponses": [
       3
+    ],
+    "commentaires": [
+      "Faux : la stabilité R-R et le rapport A/V sont testés quand l'oreillette est plus rapide que le ventricule.",
+      "Faux : l'onset et la stabilité PP et PR interviennent dans les arbres décisionnels du rapport 1:1.",
+      "Faux : la comparaison morphologique est MorphMatch, qu'on ne peut pas activer en même temps que SMART.",
+      "Juste : V plus rapide que A signe une origine ventriculaire ; le compteur TV est incrémenté sans autre test."
     ],
     "reponseAttendue": null,
     "explication": "SMART detection compare en continu les intervalles atriaux et ventriculaires, chacun moyenné sur 4 intervalles. Si la fréquence ventriculaire dépasse la fréquence atriale, le DAI incrémente le compteur TV sans autre test : une dissociation avec V plus rapide que A signe une origine ventriculaire. Si A est plus rapide que V, l'origine supraventriculaire est présumée, avec des exceptions testées par la stabilité R-R et le rapport A/V. En cas de rapport 1:1, des arbres décisionnels spécifiques font intervenir le critère onset et la stabilité PP et PR. SMART ne s'applique qu'aux zones TV1 et TV2, jamais à la zone FV.",
@@ -859,18 +1008,22 @@
     "question": "Concernant les discriminateurs SMART detection et MorphMatch des DAI Biotronik, quelles propositions sont exactes ?",
     "options": [
       "SMART detection et MorphMatch ne peuvent pas être activés en même temps",
-      "MorphMatch est surtout destiné à la détection simple chambre, SMART étant la méthode de choix en multi-chambre",
-      "MorphMatch s'applique dans les zones TV mais pas dans la zone FV",
+      "SMART detection est surtout destiné à la détection simple chambre, MorphMatch étant la méthode de choix en multi-chambre",
+      "MorphMatch peut retenir une thérapie dans la zone FV si la morphologie est concordante",
       "MorphMatch nécessite obligatoirement une sonde atriale fonctionnelle"
     ],
     "reponses": [
-      0,
-      1,
-      2
+      0
+    ],
+    "commentaires": [
+      "Juste : le manuel Rivacor précise qu'on programme soit MorphMatch, soit SMART detection, jamais les deux.",
+      "Faux : c'est l'inverse : SMART repose sur la relation A/V et convient au multi-chambre ; MorphMatch sert surtout en simple chambre.",
+      "Faux : comme les autres discriminateurs, MorphMatch n'agit que dans les zones TV, jamais dans la zone FV.",
+      "Faux : MorphMatch analyse le seul signal ventriculaire et ne nécessite pas de sonde atriale."
     ],
     "reponseAttendue": null,
     "explication": "Le manuel Rivacor précise qu'on programme soit MorphMatch, soit SMART detection, jamais les deux. MorphMatch compare la morphologie des QRS de la tachycardie à une référence de rythme conduit ; il sert surtout à la détection simple chambre (VR-T DX notamment) mais reste utilisable en multi-chambre. SMART, qui repose sur la relation entre oreillette et ventricule, est la méthode de choix en double chambre et CRT-D. Comme les autres discriminateurs, MorphMatch n'agit pas dans la zone FV. Il ne nécessite pas de sonde atriale, puisqu'il analyse le seul signal ventriculaire. La traduction Biotronik du consensus 2019 recommande MorphMatch en simple chambre et SMART en double chambre/CRT-D.",
-    "aRetenir": "Biotronik : MorphMatch (morphologie, simple chambre) ou SMART (relation A/V, multi-chambre), jamais les deux.",
+    "aRetenir": "Biotronik : MorphMatch (morphologie, simple chambre) ou SMART (relation A/V, multi-chambre), jamais les deux, et jamais en zone FV.",
     "sources": [
       {
         "titre": "BIOTRONIK. Rivacor 3/5/7 ICD Family (VR-T, VR-T DX, DR-T, HF-T, HF-T QP) – Function Manual, manuel technique officiel",
@@ -897,6 +1050,10 @@
     "reponses": [
       0
     ],
+    "commentaires": [
+      "Juste : un cycle ventriculaire incrémente le compteur de 1, un cycle supraventriculaire le décrémente de 0,25 à 4 selon la branche.",
+      "Faux : le compteur n'est pas figé ; ce comptage avant/arrière éloigne progressivement le DAI du seuil pendant une TSV prolongée."
+    ],
     "reponseAttendue": null,
     "explication": "L'algorithme SMART classe chaque intervalle R-R de la zone TV comme ventriculaire ou supraventriculaire. Un intervalle d'origine ventriculaire incrémente le compteur TV de 1 ; un intervalle d'origine atriale le décrémente de 0,25, 0,5, 1 ou 4 selon la branche de l'arbre décisionnel. Ce comptage « avant/arrière » explique qu'une TSV prolongée éloigne progressivement le DAI du seuil de détection, alors qu'une TV franche l'atteint vite. Les valeurs préréglées de SMART sont 20 % pour l'onset et 12 % pour la stabilité. Comprendre ce compteur aide à analyser un épisode où la thérapie a été retardée ou inhibée.",
     "aRetenir": "SMART : +1 pour un cycle ventriculaire, décrément (0,25 à 4) pour un cycle supraventriculaire.",
@@ -916,16 +1073,22 @@
     "difficulte": 9,
     "question": "Selon la traduction Biotronik de la mise à jour 2019 du consensus de programmation des DAI, quelle programmation de détection est proposée chez un patient sans antécédent de TV ?",
     "options": [
-      "FV : 8/12 intervalles à 200 bpm ; TV : 16 intervalles à 150 bpm",
-      "FV : 12/16 à 180 bpm sans zone TV",
-      "FV : 30/40 intervalles (sinon 24/30) à 231 bpm ; TV2 : 30 intervalles à 188 bpm ; TV1 : zone de surveillance au choix",
-      "Une seule zone à 170 bpm avec choc immédiat"
+      "FV : 8/12 intervalles à 200 bpm ; TV : 16 intervalles à 150 bpm avec ATP",
+      "FV ≥ 250 bpm (5 s), TV ≥ 185 bpm (12 s), VT-1 en surveillance au choix",
+      "FV > 255 bpm, TV rapide 230 bpm, TV 185 bpm (20 ou 30 cycles + majorité 6/8)",
+      "FV 231 bpm (30/40 ou 24/30), TV2 188 bpm (30 intervalles), TV1 en surveillance"
     ],
     "reponses": [
-      2
+      3
+    ],
+    "commentaires": [
+      "Faux : une détection courte à fréquence basse est la programmation conventionnelle que le consensus cherche à éviter.",
+      "Faux : 250 bpm (5 s) et 185 bpm (12 s) sont les réglages de la traduction Boston Scientific.",
+      "Faux : 255 bpm, 230 bpm et la majorité 6/8 sont les réglages de la traduction MicroPort.",
+      "Juste : FV 231 bpm en 30/40 (sinon 24/30), TV2 188 bpm en 30 intervalles, TV1 en zone de surveillance au choix."
     ],
     "reponseAttendue": null,
-    "explication": "L'annexe Biotronik de la mise à jour 2019 propose, sans antécédent de TV : FV à 231 bpm avec 30/40 intervalles si programmable (sinon 24/30), TV2 à 188 bpm avec 30 intervalles, et TV1 en zone de surveillance au choix. Le traitement de la FV comprend un ATP One-Shot (1 salve de 8 impulsions à 88 % du cycle) puis des chocs à pleine énergie. Pour les discriminateurs : MorphMatch en simple chambre, SMART en double chambre/CRT-D, Home Monitoring activé. En stimulation double chambre, l'annexe propose le DDD avec IRS Plus (± CLS) ou le DDD avec Vp suppression. Allonger la détection et relever les seuils de fréquence réduit les thérapies inappropriées sans surmortalité, comme l'ont montré MADIT-RIT et les travaux suivants.",
+    "explication": "L'annexe Biotronik de la mise à jour 2019 propose, sans antécédent de TV : FV à 231 bpm avec 30/40 intervalles si programmable (sinon 24/30), TV2 à 188 bpm avec 30 intervalles, et TV1 en zone de surveillance au choix. Le traitement de la FV comprend un ATP One-Shot (1 salve de 8 impulsions à 88 % du cycle) puis des chocs à pleine énergie. Pour les discriminateurs : MorphMatch en simple chambre, SMART en double chambre/CRT-D, Home Monitoring activé. En stimulation double chambre, l'annexe propose le DDD avec IRS Plus (± CLS) ou le DDD avec Vp suppression. Chaque constructeur a sa propre traduction (en secondes chez Boston Scientific, en cycles avec majorité 6/8 chez MicroPort). Allonger la détection et relever les seuils de fréquence réduit les thérapies inappropriées sans surmortalité, comme l'ont montré MADIT-RIT et les travaux suivants.",
     "aRetenir": "Biotronik 2019 : FV 231 bpm (30/40), TV2 188 bpm (30 intervalles), TV1 en surveillance.",
     "sources": [
       {
@@ -945,16 +1108,20 @@
     "marque": "Biotronik",
     "type": "vf",
     "difficulte": 1,
-    "question": "Avec Biotronik Home Monitoring, le boîtier envoie automatiquement ses données au transmetteur une fois par jour, sans action du patient.",
+    "question": "Avec Biotronik Home Monitoring, la transmission quotidienne des données n'a lieu que si le patient déclenche lui-même l'envoi depuis son transmetteur.",
     "options": [
       "Vrai",
       "Faux"
     ],
     "reponses": [
-      0
+      1
+    ],
+    "commentaires": [
+      "Faux : la transmission quotidienne est automatique ; le patient n'a rien à déclencher.",
+      "Juste : le boîtier envoie ses données chaque jour, automatiquement, au transmetteur CardioMessenger, sans action du patient."
     ],
     "reponseAttendue": null,
-    "explication": "Home Monitoring repose sur une transmission automatique quotidienne du boîtier vers le transmetteur (CardioMessenger), qui relaie les données vers la plateforme sécurisée consultée par l'équipe. Il transmet notamment les arythmies en cours, les seuils, amplitudes de détection et impédances, les statistiques de stimulation et des EGM. Des messages déclenchés par événement complètent la transmission quotidienne. Le patient n'a rien à faire, à condition que le transmetteur soit branché et placé assez près de lui. La télésurveillance ne remplace pas une consultation en cas de symptômes nouveaux.",
+    "explication": "C'est faux. Home Monitoring repose sur une transmission automatique quotidienne du boîtier vers le transmetteur (CardioMessenger), qui relaie les données vers la plateforme sécurisée consultée par l'équipe. Il transmet notamment les arythmies en cours, les seuils, amplitudes de détection et impédances, les statistiques de stimulation et des EGM. Des messages déclenchés par événement complètent la transmission quotidienne. Le patient n'a rien à faire, à condition que le transmetteur soit branché et placé assez près de lui. La télésurveillance ne remplace pas une consultation en cas de symptômes nouveaux.",
     "aRetenir": "Home Monitoring = transmission automatique quotidienne, sans intervention du patient.",
     "sources": [
       {
@@ -998,13 +1165,19 @@
     "difficulte": 6,
     "question": "Chez des insuffisants cardiaques porteurs de DAI double chambre ou de CRT-D Biotronik, qu'a montré l'essai IN-TIME sur la télésurveillance multiparamétrique quotidienne ?",
     "options": [
-      "Une amélioration du score clinique composite (moins de patients aggravés : 18,9 % contre 27,2 %) avec moins de décès",
-      "Aucune différence sur aucun critère",
-      "Une augmentation des hospitalisations par excès d'alertes",
-      "Une réduction des chocs appropriés uniquement"
+      "Davantage d'hospitalisations pour IC, liées à l'excès d'alertes transmises",
+      "Moins de patients aggravés sur le score composite (18,9 % contre 27,2 %)",
+      "Réduction des chocs inappropriés, sans effet sur l'insuffisance cardiaque",
+      "Aucune différence significative sur le score composite ni sur la mortalité"
     ],
     "reponses": [
-      0
+      1
+    ],
+    "commentaires": [
+      "Faux : la télésurveillance n'a pas augmenté les hospitalisations ; le score clinique s'est amélioré.",
+      "Juste : à 1 an, 18,9 % de patients aggravés sous télésurveillance contre 27,2 % des témoins, avec moins de décès.",
+      "Faux : la réduction des chocs inappropriés a été étudiée dans d'autres essais (ECOST) ; IN-TIME portait sur l'insuffisance cardiaque.",
+      "Faux : le score composite a été amélioré (p = 0,013), avec 10 décès contre 27."
     ],
     "reponseAttendue": null,
     "explication": "IN-TIME a randomisé 664 patients (NYHA II-III, FEVG ≤ 35 %) entre télésurveillance quotidienne automatique multiparamétrique et prise en charge standard. Le critère principal était un score composite associant décès, hospitalisation pour insuffisance cardiaque, évolution de la classe NYHA et auto-évaluation globale. À 1 an, 18,9 % des patients télésurveillés avaient un score aggravé contre 27,2 % des témoins (p = 0,013), avec 10 décès contre 27. La transmission quotidienne et une réaction structurée aux alertes sont probablement les ingrédients clés, alors que d'autres essais de télésurveillance moins réactifs ont été négatifs.",
@@ -1029,13 +1202,19 @@
     "difficulte": 3,
     "question": "Qu'est-ce qu'un système DAI « DX » de Biotronik ?",
     "options": [
-      "Un DAI sous-cutané sans sonde",
-      "Un DAI double chambre avec deux sondes de défibrillation",
-      "Un stimulateur sans sonde implanté dans l'oreillette",
-      "Un DAI simple chambre dont la sonde ventriculaire unique porte un dipôle atrial flottant, qui permet de détecter l'activité atriale sans sonde atriale"
+      "Un DAI simple chambre dont la sonde porte un dipôle atrial flottant",
+      "Un DAI double chambre avec une sonde atriale et une sonde de défibrillation",
+      "Un DAI entièrement sous-cutané, sans aucune sonde endocavitaire",
+      "Un stimulateur sans sonde double chambre à deux capsules"
     ],
     "reponses": [
-      3
+      0
+    ],
+    "commentaires": [
+      "Juste : une seule sonde de défibrillation porte, à hauteur de l'oreillette, un dipôle flottant qui détecte l'activité atriale.",
+      "Faux : l'intérêt du DX est justement d'éviter la sonde atriale tout en recueillant l'activité atriale.",
+      "Faux : le DAI entièrement sous-cutané est le S-ICD (Boston Scientific).",
+      "Faux : le stimulateur sans sonde à deux capsules est l'Aveir DR (Abbott)."
     ],
     "reponseAttendue": null,
     "explication": "Le système DX associe un DAI dédié à une sonde ventriculaire de défibrillation qui porte, à hauteur de l'oreillette, deux électrodes flottantes (dipôle atrial). On recueille ainsi l'activité atriale avec une seule sonde. Cela permet de détecter les arythmies atriales (épisodes atriaux rapides, FA infraclinique), de mieux discriminer TV et TSV et de fonctionner en VDD. En revanche, le dipôle étant flottant, il ne permet pas de stimuler l'oreillette. Le registre MATRIX a montré qu'on peut suivre en télésurveillance les épisodes atriaux rapides selon les seuils de durée recommandés.",
@@ -1062,17 +1241,22 @@
     "options": [
       "Ils ne sont indiqués que chez les patients qui n'ont pas besoin de stimulation atriale",
       "Le signal atrial recueilli par le dipôle flottant, de faible amplitude, est amplifié par le boîtier (d'un facteur 4)",
-      "Ils peuvent fonctionner en mode VDD(R)",
+      "Ils peuvent fonctionner en mode DDD(R) grâce au dipôle atrial flottant",
       "Ils permettent une stimulation atriale bipolaire classique"
     ],
     "reponses": [
       0,
-      1,
-      2
+      1
+    ],
+    "commentaires": [
+      "Juste : le manuel réserve les VR-T DX aux patients sans besoin de stimulation atriale.",
+      "Juste : le dipôle ne touche pas la paroi ; la sensibilité atriale est amplifiée d'un facteur 4 pour compenser.",
+      "Faux : le dipôle flottant détecte sans stimuler ; les modes disponibles sont VDD(R), VDI(R) et VVI(R).",
+      "Faux : la stimulation atriale est impossible avec un dipôle flottant."
     ],
     "reponseAttendue": null,
-    "explication": "Le manuel Rivacor précise que les boîtiers VR-T DX, et les CRT-D utilisant la fonction DX, ne sont indiqués que chez des patients qui n'ont pas besoin de stimulation atriale. Le dipôle flottant ne touche pas la paroi : le signal atrial est plus petit qu'avec une sonde atriale fixée. Pour le compenser, la sensibilité atriale programmée est amplifiée d'un facteur 4 sur les boîtiers DX. Les modes disponibles comprennent VDD(R) et VDI(R), en plus du VVI(R). La stimulation atriale est impossible, ce qui rend le système inadapté en cas de dysfonction sinusale nécessitant une stimulation atriale.",
-    "aRetenir": "DX : amplification ×4 du signal atrial, mode VDD possible, jamais de stimulation atriale.",
+    "explication": "Le manuel Rivacor précise que les boîtiers VR-T DX, et les CRT-D utilisant la fonction DX, ne sont indiqués que chez des patients qui n'ont pas besoin de stimulation atriale. Le dipôle flottant ne touche pas la paroi : le signal atrial est plus petit qu'avec une sonde atriale fixée. Pour le compenser, la sensibilité atriale programmée est amplifiée d'un facteur 4 sur les boîtiers DX. Les modes disponibles sont VDD(R) et VDI(R), en plus du VVI(R) ; le DDD(R) est impossible puisque l'oreillette ne peut pas être stimulée. Le système est donc inadapté en cas de dysfonction sinusale nécessitant une stimulation atriale.",
+    "aRetenir": "DX : amplification ×4 du signal atrial, mode VDD possible, jamais de stimulation atriale (donc pas de DDD).",
     "sources": [
       {
         "titre": "BIOTRONIK. Rivacor 3/5/7 ICD Family (VR-T, VR-T DX, DR-T, HF-T, HF-T QP) – Function Manual, manuel technique officiel",
@@ -1093,13 +1277,19 @@
     "difficulte": 6,
     "question": "Chez un patient porteur d'un stimulateur Biotronik ProMRI, à quoi sert la fonction MRI AutoDetect ?",
     "options": [
-      "À supprimer toute condition d'éligibilité à l'IRM",
-      "À faire reconnaître par le boîtier, grâce à un capteur, le champ magnétique statique de l'IRM, pour qu'il active automatiquement le programme IRM puis revienne au programme permanent après l'examen ; elle est activable pour une durée maximale de 14 jours",
-      "À réaliser l'IRM sans vérifier le système de sondes",
-      "À augmenter automatiquement l'amplitude de stimulation à 7,5 V pendant 6 mois"
+      "Une dispense de vérifier l'éligibilité des sondes si le boîtier est ProMRI",
+      "Une programmation IRM manuelle avant l'examen, puis une reprogrammation après",
+      "Un capteur reconnaît le champ de l'IRM et active puis désactive le programme IRM",
+      "Une amplitude de stimulation portée à 7,5 V pendant l'examen puis réduite"
     ],
     "reponses": [
-      1
+      2
+    ],
+    "commentaires": [
+      "Faux : l'éligibilité du système complet (boîtier et sondes, conditions d'examen) reste à vérifier selon le manuel ProMRI.",
+      "Faux : c'est la procédure classique que MRI AutoDetect permet d'éviter : il n'y a plus deux interrogations le jour de l'examen.",
+      "Juste : activé pour 14 jours au plus, MRI AutoDetect bascule automatiquement vers le programme IRM puis revient au programme permanent.",
+      "Faux : MRI AutoDetect ne modifie pas l'amplitude de lui-même ; il active un programme IRM préréglé."
     ],
     "reponseAttendue": null,
     "explication": "Les boîtiers ProMRI disposent d'un capteur qui reconnaît le champ magnétique statique de l'IRM. Lors d'une interrogation, on active MRI AutoDetect pour une durée maximale de 14 jours : si le patient passe l'IRM pendant cette fenêtre, le boîtier active le programme IRM préréglé, puis revient automatiquement au programme permanent après l'examen. Cela évite deux interrogations le jour même, mais ne dispense pas de vérifier l'éligibilité du système complet (boîtier et sondes compatibles, conditions de l'examen) selon le manuel ProMRI. Une programmation adaptée au patient reste nécessaire (mode asynchrone chez le patient dépendant, par exemple).",
@@ -1130,6 +1320,10 @@
     "reponses": [
       1
     ],
+    "commentaires": [
+      "Faux : le BIOMONITOR III, comme tout moniteur implantable, ne stimule pas et ne défibrille pas.",
+      "Juste : c'est un Holter implantable purement diagnostique, télésurveillé chaque jour par Home Monitoring."
+    ],
     "reponseAttendue": null,
     "explication": "Le BIOMONITOR III est un moniteur cardiaque implantable miniaturisé, dont le vecteur de détection est long (environ 70 mm) pour améliorer la qualité du signal, en particulier la visibilité des ondes P. Il est inséré en une seule étape avec un outil dédié (durée médiane de la procédure de 4 minutes dans l'étude de Deneke et al.) et intègre le Home Monitoring quotidien automatique. Comme tout moniteur implantable, il sert uniquement au diagnostic : il ne stimule pas et ne défibrille pas, d'où la réponse « Faux ». On l'utilise dans les syncopes inexpliquées récidivantes, les palpitations rares ou la recherche de FA après AVC cryptogénique.",
     "aRetenir": "BIOMONITOR = Holter implantable purement diagnostique (aucune stimulation), télésurveillé chaque jour par Home Monitoring.",
@@ -1153,16 +1347,22 @@
     "difficulte": 2,
     "question": "Quel est le principe du mode SafeR (ex-AAIsafeR) des stimulateurs MicroPort (ex-Sorin/ELA) ?",
     "options": [
-      "Stimuler en AAI tout en surveillant la conduction AV (ADI), avec bascule temporaire en DDD en cas de bloc AV ou de pause ventriculaire",
-      "Stimuler en VVI avec hystérésis de fréquence",
-      "Stimuler en DDD avec un délai AV fixe de 300 ms",
-      "Stimuler les deux ventricules en permanence"
+      "AAI surveillant la conduction (ADI), DDD temporaire si bloc ou pause",
+      "DDD avec délai AV étendu ajusté sur les 8 derniers PR (pseudo-AAI)",
+      "AAI(R) avec VVI de secours tournant sous la fréquence de base",
+      "DDD avec hystérésis AV négative pour garder la stimulation ventriculaire"
     ],
     "reponses": [
       0
     ],
+    "commentaires": [
+      "Juste : SafeR stimule en AAI en surveillant la conduction (ADI) et bascule temporairement en DDD en cas de BAV ou de pause.",
+      "Faux : un DDD avec délai AV étendu ajusté automatiquement est le mode Dplus, l'autre algorithme MicroPort.",
+      "Faux : l'AAI(R) avec VVI de secours plus lent est RYTHMIQ (Boston Scientific).",
+      "Faux : l'hystérésis AV négative vise l'inverse (plus de stimulation ventriculaire), en CRT."
+    ],
     "reponseAttendue": null,
-    "explication": "SafeR fournit une stimulation AAI tout en surveillant en permanence la conduction AV (fonctionnement ADI). Quand survient un BAV (complet, du 2e ou du 1er degré) ou une pause ventriculaire, le boîtier bascule temporairement en DDD avec le délai AV programmé. En DDD, il vérifie périodiquement si la conduction est revenue pour repasser en AAI. SafeR vise surtout les patients avec dysfonction sinusale ou troubles conductifs paroxystiques. Dans l'essai ANSWER, il a ramené la stimulation ventriculaire à environ 11 % contre 94 % en DDD.",
+    "explication": "SafeR fournit une stimulation AAI tout en surveillant en permanence la conduction AV (fonctionnement ADI). Quand survient un BAV (complet, du 2e ou du 1er degré) ou une pause ventriculaire, le boîtier bascule temporairement en DDD avec le délai AV programmé. En DDD, il vérifie périodiquement si la conduction est revenue pour repasser en AAI. SafeR vise surtout les patients avec dysfonction sinusale ou troubles conductifs paroxystiques. Il se distingue de Dplus, qui reste en DDD avec un délai AV étendu, et de RYTHMIQ (Boston Scientific), qui fait tourner un VVI de secours sous l'AAI(R). Dans l'essai ANSWER, SafeR a ramené la stimulation ventriculaire à environ 11 % contre 94 % en DDD.",
     "aRetenir": "SafeR = AAI avec surveillance de la conduction et bascule temporaire en DDD si bloc ou pause.",
     "sources": [
       {
@@ -1186,18 +1386,24 @@
     "options": [
       "2 événements atriaux consécutifs bloqués (critère de BAV complet)",
       "3 événements atriaux bloqués sur les 12 derniers cycles (critère de BAV du 2e degré)",
-      "6 intervalles PR ou AR consécutifs plus longs que la valeur maximale programmée (critère de BAV du 1er degré)",
+      "3 battements ventriculaires lents dans une fenêtre de 11 cycles",
       "Une pause ventriculaire plus longue que la valeur programmée (2, 3 ou 4 s)",
       "Une seule extrasystole ventriculaire"
     ],
     "reponses": [
       0,
       1,
-      2,
       3
     ],
+    "commentaires": [
+      "Juste : 2 P consécutives bloquées définissent le critère de BAV complet de SafeR.",
+      "Juste : 3 P bloquées sur 12 cycles définissent le critère de BAV du 2e degré.",
+      "Faux : 3 battements lents sur 11 est le critère de bascule de RYTHMIQ (Boston Scientific) ; le 4e critère de SafeR est 6 PR longs consécutifs.",
+      "Juste : une pause plus longue que la valeur programmée (3 s à la livraison) fait basculer en DDD.",
+      "Faux : une extrasystole ventriculaire isolée redémarre seulement l'intervalle d'échappement en AAI."
+    ],
     "reponseAttendue": null,
-    "explication": "SafeR bascule de AAI en DDD selon quatre critères. BAV complet : 2 événements atriaux consécutifs bloqués. BAV du 2e degré : 3 événements atriaux bloqués sur les 12 derniers cycles. BAV du 1er degré : 6 intervalles PR ou AR consécutifs plus longs que la valeur programmée. Pause ventriculaire : pause plus longue que la valeur programmée (2, 3 ou 4 s, 3 s à la livraison). Une onde P est dite bloquée quand aucun événement ventriculaire n'est détecté dans le cycle atrial. Le critère de BAV du 1er degré peut être limité à l'effort (« exercice seulement »). Une extrasystole ventriculaire isolée ne fait pas basculer : elle redémarre simplement l'intervalle d'échappement en AAI.",
+    "explication": "SafeR bascule de AAI en DDD selon quatre critères. BAV complet : 2 événements atriaux consécutifs bloqués. BAV du 2e degré : 3 événements atriaux bloqués sur les 12 derniers cycles. BAV du 1er degré : 6 intervalles PR ou AR consécutifs plus longs que la valeur programmée. Pause ventriculaire : pause plus longue que la valeur programmée (2, 3 ou 4 s, 3 s à la livraison). Une onde P est dite bloquée quand aucun événement ventriculaire n'est détecté dans le cycle atrial. Le critère de BAV du 1er degré peut être limité à l'effort (« exercice seulement »). Le comptage de battements lents sur une fenêtre de 11 cycles appartient à RYTHMIQ (Boston Scientific). Une extrasystole ventriculaire isolée ne fait pas basculer : elle redémarre simplement l'intervalle d'échappement en AAI.",
     "aRetenir": "SafeR passe en DDD sur BAV complet (2 P bloquées), BAV du 2e degré (3/12), BAV du 1er degré (6 PR longs) ou pause.",
     "sources": [
       {
@@ -1215,16 +1421,22 @@
     "difficulte": 6,
     "question": "Après une bascule temporaire de SafeR en DDD, quand le boîtier MicroPort revient-il en AAI ?",
     "options": [
-      "Seulement lors de la consultation suivante",
-      "Après 2 cycles ventriculaires spontanés",
-      "Après 12 événements ventriculaires spontanés consécutifs, ou automatiquement tous les 100 cycles ventriculaires stimulés",
-      "Uniquement à minuit"
+      "Après 25 cycles d'hystérésis AV avec moins de 2 V stimulés sur 10",
+      "Après 6 cycles consécutifs avec détection ventriculaire spontanée",
+      "Après 12 R spontanés consécutifs, ou test tous les 100 cycles stimulés",
+      "Test de conduction à 1 min, puis à intervalles doublés jusqu'à 16 h au plus"
     ],
     "reponses": [
       2
     ],
+    "commentaires": [
+      "Faux : c'est la condition de retour de RYTHMIQ en AAI(R), via AV Search+ (Boston Scientific).",
+      "Faux : 6 Vs consécutifs est le réglage standard d'entrée en ADI de Vp suppression (Biotronik).",
+      "Juste : SafeR revient en AAI après 12 événements ventriculaires spontanés consécutifs, ou teste la conduction tous les 100 cycles stimulés.",
+      "Faux : les tests à intervalles doublés jusqu'à 16 h sont ceux du MVP de Medtronic."
+    ],
     "reponseAttendue": null,
-    "explication": "En DDD, SafeR revient en AAI dès qu'il détecte 12 événements ventriculaires spontanés consécutifs, preuve d'une conduction retrouvée. Sinon, il repasse automatiquement en AAI tous les 100 cycles ventriculaires stimulés pour tester la conduction. Si le bloc persiste, un critère de bascule (souvent celui du BAV complet) le ramène aussitôt en DDD. C'est pourquoi un Holter peut montrer des « essais » réguliers d'AAI suivis de 2 ondes P bloquées : c'est le fonctionnement normal et non un dysfonctionnement. En cas de blocs très fréquents, un mode de bascule prolongée prend le relais.",
+    "explication": "En DDD, SafeR revient en AAI dès qu'il détecte 12 événements ventriculaires spontanés consécutifs, preuve d'une conduction retrouvée. Sinon, il repasse automatiquement en AAI tous les 100 cycles ventriculaires stimulés pour tester la conduction. Si le bloc persiste, un critère de bascule (souvent celui du BAV complet) le ramène aussitôt en DDD. C'est pourquoi un Holter peut montrer des « essais » réguliers d'AAI suivis de 2 ondes P bloquées : c'est le fonctionnement normal et non un dysfonctionnement. En cas de blocs très fréquents, un mode de bascule prolongée prend le relais. Les autres constructeurs ont leurs propres règles : tests à intervalles doublés pour le MVP (Medtronic), AV Search+ pour RYTHMIQ (Boston Scientific), 6 Vs consécutifs pour Vp suppression (Biotronik).",
     "aRetenir": "Retour en AAI : 12 R spontanés consécutifs, ou test automatique tous les 100 cycles stimulés.",
     "sources": [
       {
@@ -1260,16 +1472,22 @@
     "difficulte": 6,
     "question": "Qu'a montré l'essai randomisé ANSWER (SafeR contre DDD, 650 patients inclus, suivi de 3 ans) ?",
     "options": [
-      "Une réduction significative de 50 % de la FA permanente sur le critère principal",
-      "Une réduction majeure de la stimulation ventriculaire (11,5 % contre 93,6 %) sans différence significative sur le critère composite principal (hospitalisation pour insuffisance cardiaque, FA ou cardioversion)",
-      "Une augmentation des syncopes sous SafeR",
-      "Une surmortalité sous SafeR"
+      "Plus de syncopes et de décès sous SafeR, attribués aux pauses tolérées en AAI",
+      "Réduction significative de 50 % de la FA permanente sur le critère principal",
+      "Moins de FA persistante (réduction relative d'environ 40 %), sans effet sur la mortalité",
+      "Stimulation V très réduite (11,5 % contre 93,6 %), critère principal non significatif"
     ],
     "reponses": [
-      1
+      3
+    ],
+    "commentaires": [
+      "Faux : il n'y a eu ni surcroît de décès ni surcroît de syncopes sous SafeR.",
+      "Faux : le critère principal composite n'a pas différé significativement (HR 0,78, p = 0,30).",
+      "Faux : une réduction relative d'environ 40 % de la FA persistante est le résultat de SAVE PACe, pas d'ANSWER.",
+      "Juste : 11,5 % contre 93,6 % de stimulation V à 3 ans, sans différence significative sur le critère composite principal."
     ],
     "reponseAttendue": null,
-    "explication": "ANSWER a comparé SafeR et DDD standard chez des patients avec dysfonction sinusale ou BAV. La stimulation ventriculaire a été massivement réduite (11,5 % contre 93,6 % à 3 ans). En revanche, le critère co-principal composite (hospitalisation pour insuffisance cardiaque, FA ou cardioversion) n'a pas différé significativement (HR 0,78, p = 0,30). Sur les critères secondaires, SafeR a réduit de 51 % le risque de décès cardiaque ou d'hospitalisation pour insuffisance cardiaque et de 30 % les hospitalisations cardiovasculaires. Il n'y a eu ni surcroît de décès ni surcroît de syncopes. Il faut donc distinguer le bénéfice démontré sur la stimulation VD de celui, seulement suggéré par les critères secondaires, sur les événements cliniques.",
+    "explication": "ANSWER a comparé SafeR et DDD standard chez des patients avec dysfonction sinusale ou BAV. La stimulation ventriculaire a été massivement réduite (11,5 % contre 93,6 % à 3 ans). En revanche, le critère co-principal composite (hospitalisation pour insuffisance cardiaque, FA ou cardioversion) n'a pas différé significativement (HR 0,78, p = 0,30). Sur les critères secondaires, SafeR a réduit de 51 % le risque de décès cardiaque ou d'hospitalisation pour insuffisance cardiaque et de 30 % les hospitalisations cardiovasculaires. Il n'y a eu ni surcroît de décès ni surcroît de syncopes. La réduction d'environ 40 % de la FA persistante est le résultat de SAVE PACe, un autre essai. Il faut donc distinguer le bénéfice démontré sur la stimulation VD de celui, seulement suggéré par les critères secondaires, sur les événements cliniques.",
     "aRetenir": "ANSWER : SafeR réduit fortement la stimulation VD, sans effet significatif sur le critère principal composite.",
     "sources": [
       {
@@ -1287,13 +1505,19 @@
     "difficulte": 3,
     "question": "Lors d'un contrôle, le Holter d'un patient MicroPort programmé en SafeR montre une onde P sinusale isolée non suivie de QRS, sans spike ventriculaire, puis la conduction 1:1 reprend avec PR normal. Aucun symptôme. Comment l'interpréter ?",
     "options": [
-      "Dysfonction du boîtier par sous-détection ventriculaire : changer le boîtier",
-      "Perte de capture ventriculaire",
-      "Tachycardie par réentrée électronique",
-      "Fonctionnement normal de SafeR : une P bloquée isolée est tolérée en AAI ; il faut 2 P bloquées consécutives ou 3 sur 12 cycles pour basculer en DDD"
+      "Perte de capture ventriculaire intermittente : vérifier le seuil V",
+      "Fonctionnement normal : une P bloquée isolée est tolérée en AAI",
+      "Défaut de bascule en DDD, qui aurait dû survenir dès cette P bloquée",
+      "Sous-détection ventriculaire par le boîtier : prévoir une révision"
     ],
     "reponses": [
-      3
+      1
+    ],
+    "commentaires": [
+      "Faux : une perte de capture montrerait un spike V non suivi de QRS ; ici il n'y a pas de spike V.",
+      "Juste : une P bloquée isolée ne remplit aucun critère de bascule ; SafeR la tolère en AAI.",
+      "Faux : il faut 2 P bloquées consécutives ou 3 sur 12 cycles pour basculer en DDD ; une seule ne suffit pas.",
+      "Faux : aucun QRS n'a été manqué ; l'absence de spike V est attendue en AAI."
     ],
     "reponseAttendue": null,
     "explication": "En AAI, SafeR ne stimule pas le ventricule après chaque onde P : il surveille seulement la conduction. Une onde P bloquée isolée ne remplit aucun critère de bascule (BAV complet : 2 P bloquées consécutives ; BAV du 2e degré : 3 sur 12 cycles). L'absence de spike ventriculaire est donc normale et n'évoque ni sous-détection ni perte de capture : dans une perte de capture, on verrait un spike V non suivi de QRS. Il faut connaître ce comportement pour ne pas déclarer à tort un dysfonctionnement. Si le patient devient symptomatique ou si les blocs se répètent, les critères de bascule prennent le relais.",
@@ -1320,6 +1544,10 @@
     "reponses": [
       0
     ],
+    "commentaires": [
+      "Juste : en suspicion d'arythmie atriale (WARAD), seul le critère de pause reste actif, ramené à 2 s (sauf sur REPLY).",
+      "Faux : compter des P bloquées n'a pas de sens pendant une arythmie atriale ; les trois critères de BAV sont bien suspendus."
+    ],
     "reponseAttendue": null,
     "explication": "Pendant une arythmie atriale, compter des « P bloquées » n'a pas de sens : la conduction est forcément irrégulière ou partielle. Dès l'entrée en suspicion d'arythmie atriale (WARAD), SafeR suspend donc les critères de BAV complet, du 2e et du 1er degré. Seul le critère de pause ventriculaire reste actif, et sa valeur est ramenée à 2 s (sauf sur REPLY). Si l'arythmie est conduite, le boîtier passe directement de AAI en DDI via le Fallback Mode Switch. Si elle n'est pas conduite, il bascule d'abord en DDD sur le critère de pause, puis en DDI une fois le repli confirmé.",
     "aRetenir": "SafeR en arythmie atriale : seul le critère de pause (2 s) reste actif, puis repli en DDI.",
@@ -1343,13 +1571,19 @@
     "difficulte": 3,
     "question": "Quel est le principe du mode Dplus des stimulateurs MicroPort ?",
     "options": [
-      "Une stimulation VVI de secours à 30 bpm",
-      "Une stimulation biventriculaire déclenchée",
-      "Une hystérésis automatique du délai AV qui favorise la conduction AV spontanée",
-      "Une fréquence de repos nocturne"
+      "Un raccourcissement du délai AV pour assurer la stimulation biventriculaire",
+      "Un vrai mode AAI avec surveillance du ventricule et bascule en DDD",
+      "Une hystérésis automatique du délai AV qui favorise la conduction spontanée",
+      "Une stimulation VVI de secours à fréquence réduite sous l'AAI(R)"
     ],
     "reponses": [
       2
+    ],
+    "commentaires": [
+      "Faux : raccourcir le délai AV pour la CRT est l'hystérésis AV négative, objectif inverse.",
+      "Faux : un vrai mode AAI avec surveillance et bascule en DDD décrit SafeR ; Dplus reste en DDD.",
+      "Juste : Dplus reste en DDD avec un délai AV étendu (pseudo-AAI) ajusté sur les 8 derniers PR ou AR.",
+      "Faux : le VVI de secours à fréquence réduite sous l'AAI(R) est RYTHMIQ (Boston Scientific)."
     ],
     "reponseAttendue": null,
     "explication": "Dplus est présenté par MicroPort comme un algorithme d'hystérésis automatique du délai AV, conçu pour favoriser la conduction AV spontanée. Contrairement à SafeR, Dplus ne repose pas sur un vrai mode AAI : le boîtier reste en DDD, avec un délai AV étendu (phase dite pseudo-AAI) ajusté automatiquement à partir des 8 derniers intervalles PR ou AR mesurés, de sorte que le QRS spontané puisse survenir avant la stimulation ventriculaire. Si la stimulation ventriculaire redevient nécessaire, il revient à un délai AV adapté. Comme pour tout délai AV long, il faut rester attentif à une synchronisation AV défavorable si le PR est très long.",
@@ -1376,16 +1610,21 @@
     "options": [
       "R-R instables → fibrillation atriale, pas de traitement",
       "R-R stables sans association P-R → tachycardie ventriculaire, traitement",
-      "R-R stables avec association N:1 → flutter atrial, pas de traitement",
+      "R-R stables avec association N:1 → tachycardie ventriculaire, traitement",
       "R-R stables avec association 1:1 et accélération d'origine atriale → TV, traitement"
     ],
     "reponses": [
       0,
-      1,
-      2
+      1
+    ],
+    "commentaires": [
+      "Juste : un rythme instable est classé FA et n'est pas traité.",
+      "Juste : un rythme stable sans association P-R est classé TV et traité.",
+      "Faux : une association N:1 stable est classée flutter atrial, sans traitement.",
+      "Faux : en 1:1, une accélération d'origine atriale oriente vers une TSV, pas une TV."
     ],
     "reponseAttendue": null,
-    "explication": "PARAD (P And R based Arrhythmia Detection) analyse les 8 derniers cycles à chaque battement dès qu'une majorité de cycles se trouve dans la zone de tachycardie. Il teste d'abord la stabilité R-R : un rythme instable est classé FA et non traité. Un rythme stable sans association P-R est classé TV et traité. Un rythme stable avec association N:1 est classé flutter atrial. En association 1:1, le critère décisif est l'origine de l'accélération : atriale (TSV) ou progressive sans accélération (tachycardie sinusale), pas de traitement ; ventriculaire, TV et traitement. La dernière proposition inverse donc la règle.",
+    "explication": "PARAD (P And R based Arrhythmia Detection) analyse les 8 derniers cycles à chaque battement dès qu'une majorité de cycles se trouve dans la zone de tachycardie. Il teste d'abord la stabilité R-R : un rythme instable est classé FA et non traité. Un rythme stable sans association P-R est classé TV et traité. Un rythme stable avec association N:1 est classé flutter atrial et n'est pas traité. En association 1:1, le critère décisif est l'origine de l'accélération : atriale (TSV) ou progressive sans accélération (tachycardie sinusale), pas de traitement ; ventriculaire, TV et traitement. Confondre l'association N:1 avec une dissociation, ou inverser l'origine de l'accélération, sont les deux erreurs classiques.",
     "aRetenir": "PARAD : instable = FA ; stable dissocié = TV ; N:1 = flutter ; 1:1 = on regarde l'origine de l'accélération.",
     "sources": [
       {
@@ -1403,13 +1642,19 @@
     "difficulte": 8,
     "question": "Quelle est la seule différence entre PARAD et PARAD+ dans les DAI MicroPort ?",
     "options": [
-      "PARAD+ ajoute une recherche de cycles longs (« AF detect ») : face à un rythme stable non associé aux P, un cycle plus long que la moyenne des 4 derniers plus un écart programmable fait suspecter une FA et diffère la thérapie de 24 cycles",
-      "PARAD+ analyse la morphologie des QRS",
-      "PARAD+ supprime le critère de stabilité",
-      "PARAD+ ne fonctionne qu'en zone FV"
+      "La recherche de cycles longs évoquant une FA sur un rythme stable dissocié",
+      "L'ajout d'une analyse morphologique des QRS comparés à un gabarit de référence",
+      "La suppression du critère de stabilité R-R, jugé trop peu spécifique",
+      "L'analyse de l'origine de l'accélération en cas d'association 1:1"
     ],
     "reponses": [
       0
+    ],
+    "commentaires": [
+      "Juste : un cycle plus long que la moyenne des 4 derniers plus un écart programmable fait suspecter une FA et diffère la thérapie de 24 cycles.",
+      "Faux : PARAD+ n'ajoute pas d'analyse morphologique ; la comparaison à un gabarit est le principe d'autres discriminateurs (MorphMatch, Wavelet).",
+      "Faux : le critère de stabilité reste la première étape de l'arbre décisionnel.",
+      "Faux : l'origine de l'accélération en 1:1 est déjà analysée par PARAD ; ce n'est pas la différence."
     ],
     "reponseAttendue": null,
     "explication": "Avec PARAD, certains patients en FA ont reçu des thérapies inappropriées : la réponse ventriculaire paraissait stable et, faute d'association P-R stable, le rythme était classé TV. Or ces FA comportaient régulièrement des cycles ventriculaires plus longs, au moins tous les 20 cycles. PARAD+ recherche ces cycles longs quand le rythme est stable mais non associé : un cycle plus long que la moyenne des 4 derniers cycles plus un écart programmable (Long Cycle Gap) fait suspecter une FA et diffère la thérapie de 24 cycles. Si aucun cycle long n'apparaît pendant 24 cycles, la TV est confirmée et traitée. La traduction MicroPort du consensus 2019 retient un écart de 170 ms.",
@@ -1434,13 +1679,19 @@
     "difficulte": 10,
     "question": "Selon la traduction MicroPort de la mise à jour 2019 du consensus de programmation des DAI, quelle programmation de détection est proposée chez un patient sans antécédent de TV ?",
     "options": [
-      "FV > 200 bpm avec 8 cycles ; TV 150 bpm",
-      "Une zone unique à 180 bpm",
-      "FV > 300 bpm ; aucune zone TV",
-      "FV > 255 bpm (20 cycles + majorité 6/8) ; TV rapide 230 bpm ; TV 185 bpm (20 ou 30 cycles + majorité 6/8) ; TV lente en surveillance au choix"
+      "FV > 200 bpm avec 8 cycles, TV 150 bpm, pas de zone de surveillance",
+      "FV > 255 bpm, TV rapide 230 bpm, TV 185 bpm, TV lente en surveillance",
+      "FV 231 bpm (30/40 intervalles), TV2 188 bpm (30 intervalles), TV1 en surveillance",
+      "FV ≥ 250 bpm (5 s), TV ≥ 185 bpm (12 s), VT-1 en surveillance au choix"
     ],
     "reponses": [
-      3
+      1
+    ],
+    "commentaires": [
+      "Faux : une détection courte à fréquence basse est la programmation conventionnelle que le consensus cherche à éviter.",
+      "Juste : FV > 255 bpm (20 cycles + majorité 6/8), TV rapide 230 bpm, TV 185 bpm, TV lente en surveillance au choix.",
+      "Faux : 231 bpm en 30/40 et 188 bpm en 30 intervalles sont les réglages de la traduction Biotronik.",
+      "Faux : 250 bpm (5 s) et 185 bpm (12 s) sont les réglages de la traduction Boston Scientific."
     ],
     "reponseAttendue": null,
     "explication": "L'annexe MicroPort de la mise à jour 2019 propose : FV au-delà de 255 bpm (20 cycles et majorité 6/8), TV rapide à 230 bpm, TV à 185 bpm (20 ou 30 cycles et majorité 6/8), TV lente en zone de surveillance au choix. Les chocs en zone FV sont réglés à 42 J (6 chocs). En double chambre et CRT-D, la discrimination repose sur PARAD+ (onset 25 %, stabilité 65 ms, extension de cycle long 10 cycles, écart de cycle long 170 ms). En stimulation double chambre, l'annexe propose SafeR ; en CRT, l'optimisation SonR hebdomadaire si une sonde SonRtip est implantée. Le principe commun reste de relever les seuils de fréquence et d'allonger la détection.",
@@ -1465,16 +1716,22 @@
     "difficulte": 4,
     "question": "Sur quoi repose l'optimisation SonR de la resynchronisation chez MicroPort ?",
     "options": [
-      "Sur l'échocardiographie réalisée à chaque consultation",
-      "Sur un micro-accéléromètre intégré à l'extrémité de la sonde atriale SonRtip, qui mesure l'accélération endocardiaque (vibrations myocardiques) corrélée au dP/dt max du VG, pour optimiser automatiquement les délais AV et VV",
-      "Sur la mesure de la largeur du QRS stimulé",
-      "Sur la ventilation-minute"
+      "L'impédance intracardiaque ventriculaire, reflet de la contractilité",
+      "L'intervalle AV spontané mesuré périodiquement, diminué d'un delta programmable",
+      "Les intervalles mesurés sur les EGM intracardiaques, sans capteur dédié",
+      "Un micro-accéléromètre dans la sonde atriale SonRtip, corrélé au dP/dt max"
     ],
     "reponses": [
-      1
+      3
+    ],
+    "commentaires": [
+      "Faux : l'impédance intracardiaque est le signal du Closed Loop Stimulation de Biotronik, un capteur d'asservissement.",
+      "Faux : l'AV spontané moins un delta est le principe de SyncAV (Abbott).",
+      "Faux : le calcul à partir des intervalles EGM est SmartDelay (Boston Scientific).",
+      "Juste : le micro-accéléromètre de la sonde SonRtip mesure l'accélération endocardiaque, corrélée au dP/dt max, pour optimiser AV et VV."
     ],
     "reponseAttendue": null,
-    "explication": "Le capteur SonR est un micro-accéléromètre placé dans la pointe de la sonde atriale SonRtip. Il mesure les vibrations produites par la contraction (pic d'accélération endocardiaque), bien corrélées au dP/dt max du VG, indice de contractilité. Le boîtier fait varier les délais AV et VV et retient ceux qui donnent le meilleur signal SonR. Cette optimisation est automatique et se répète chaque semaine sans échographie : le délai VV est optimisé au repos, les délais AV au repos et à l'effort. Elle n'est possible qu'avec la sonde SonRtip : un CRT-D MicroPort implanté avec une sonde atriale classique ne peut pas faire d'optimisation SonR.",
+    "explication": "Le capteur SonR est un micro-accéléromètre placé dans la pointe de la sonde atriale SonRtip. Il mesure les vibrations produites par la contraction (pic d'accélération endocardiaque), bien corrélées au dP/dt max du VG, indice de contractilité. Le boîtier fait varier les délais AV et VV et retient ceux qui donnent le meilleur signal SonR. Cette optimisation est automatique et se répète chaque semaine sans échographie : le délai VV est optimisé au repos, les délais AV au repos et à l'effort. Elle n'est possible qu'avec la sonde SonRtip. Les autres constructeurs procèdent autrement : SmartDelay (Boston Scientific) à partir des EGM, SyncAV (Abbott) à partir de l'AV spontané ; l'impédance intracardiaque du CLS (Biotronik) sert à l'asservissement.",
     "aRetenir": "SonR = accéléromètre dans la sonde atriale SonRtip, optimisation automatique hebdomadaire des délais AV/VV.",
     "sources": [
       {
@@ -1496,13 +1753,19 @@
     "difficulte": 7,
     "question": "Quel a été le résultat de l'essai RESPOND-CRT (optimisation SonR contre optimisation échographique) ?",
     "options": [
-      "SonR a été non inférieur à l'échographie sur le taux de répondeurs cliniques à 12 mois (75,0 % contre 70,4 %), avec 35 % de réduction du risque d'hospitalisation pour insuffisance cardiaque",
-      "SonR a été inférieur à l'échographie",
-      "SonR a réduit la mortalité totale de 50 %",
-      "L'essai a été interrompu pour défaut de sonde"
+      "Supériorité de SonR sur la mortalité totale, avec près de 50 % de décès en moins",
+      "Pas mieux qu'un délai AV fixe de 120 ms sur le volume télésystolique du VG",
+      "Infériorité de SonR à l'échographie sur le taux de répondeurs cliniques",
+      "Non-infériorité sur les répondeurs à 12 mois, avec moins d'hospitalisations pour IC"
     ],
     "reponses": [
-      0
+      3
+    ],
+    "commentaires": [
+      "Faux : aucun bénéfice sur la mortalité n'a été démontré.",
+      "Faux : c'est le résultat de SMART-AV (SmartDelay) ; RESPOND-CRT comparait SonR à l'échographie sur la réponse clinique.",
+      "Faux : SonR a atteint la non-infériorité (75,0 % contre 70,4 % de répondeurs).",
+      "Juste : non-infériorité (75,0 % contre 70,4 %) et 35 % de réduction du risque d'hospitalisation pour IC (HR 0,65)."
     ],
     "reponseAttendue": null,
     "explication": "RESPOND-CRT a randomisé 998 patients (2:1) entre une optimisation automatique hebdomadaire des délais AV/VV par SonR et une optimisation échographique. Le critère principal était le taux de répondeurs cliniques à 12 mois : vivant, sans événement d'insuffisance cardiaque adjugé, avec amélioration de la classe NYHA ou de la qualité de vie. SonR a atteint la non-infériorité (75,0 % contre 70,4 %). Sur un suivi moyen d'environ 18 mois, il s'est associé à 35 % de réduction du risque d'hospitalisation pour insuffisance cardiaque (HR 0,65). Aucun bénéfice sur la mortalité n'a été démontré.",
@@ -1529,6 +1792,10 @@
     "reponses": [
       1
     ],
+    "commentaires": [
+      "Faux : sans sonde SonRtip, dont la pointe contient le micro-accéléromètre, il n'y a pas de signal SonR.",
+      "Juste : l'optimisation SonR exige la sonde atriale SonRtip ; une sonde atriale standard ne la permet pas."
+    ],
     "reponseAttendue": null,
     "explication": "C'est faux : l'algorithme SonR n'est disponible qu'avec la sonde atriale SonRtip, dont la pointe contient le micro-accéléromètre ; sans elle, il n'y a pas de signal SonR. Programmée en « AV+VV », l'optimisation SonR automatique calcule le délai VV optimal au repos et les délais AV optimaux au repos et à l'effort, chaque semaine. La première optimisation démarre à minuit le jour de l'activation, puis chaque lundi à minuit. Les mesures au repos exigent des conditions stables : fréquence inférieure à 90 bpm, absence d'extrasystoles et de tachyarythmie. Ce rythme hebdomadaire permet de suivre le remodelage ventriculaire sans multiplier les échographies.",
     "aRetenir": "Pas de sonde SonRtip, pas de SonR ; avec elle, optimisation hebdomadaire du VV au repos et de l'AV au repos et à l'effort.",
@@ -1548,16 +1815,22 @@
     "difficulte": 6,
     "question": "Sur un stimulateur MicroPort, comment fonctionne le Fallback Mode Switch (FMS) ?",
     "options": [
-      "Il passe en VOO dès la première extrasystole atriale",
-      "Il ne se déclenche qu'au-dessus de la fréquence maximale de synchronisation",
-      "Il repère les arythmies atriales grâce à la fenêtre WARAD, les confirme (critère principal : 28 cycles suspects sur les 32 derniers cycles ventriculaires) puis passe de DDD(R), SafeR(R) ou Dplus(R) en DDI(R), avec retour au mode programmé à la fin de l'arythmie",
-      "Il n'est disponible qu'en mode VVI"
+      "Passage en AAI(R) avec secours VVI pendant toute la durée de l'arythmie",
+      "Suspicion par la WARAD, confirmation sur 28 des 32 cycles, puis repli en DDI(R)",
+      "Repli en VVI(R) dès que la fréquence atriale dépasse la fréquence maximale",
+      "Repli après un compteur d'entrée atteint, avec descente progressive de fréquence"
     ],
     "reponses": [
-      2
+      1
+    ],
+    "commentaires": [
+      "Faux : l'AAI(R) avec secours VVI est RYTHMIQ ; une arythmie atriale ne peut pas être gérée en AAI.",
+      "Juste : suspicion par la WARAD, confirmation 28/32 (critère principal), repli en DDI(R) puis retour au mode programmé.",
+      "Faux : le repli se fait en DDI(R), indépendamment de la fréquence maximale programmée, après une phase de confirmation.",
+      "Faux : le compteur d'entrée avec descente progressive de fréquence est la logique de l'ATR de Boston Scientific."
     ],
     "reponseAttendue": null,
-    "explication": "Le FMS évite de stimuler le ventricule à haute fréquence pendant une arythmie atriale suivie. Une extrasystole atriale tombant dans la WARAD (Window of Atrial Rate Acceleration Detection) fait entrer le boîtier en phase de suspicion ; la fréquence ventriculaire stimulée est alors plafonnée à 120 bpm (ou à la fréquence maximale programmée si elle est plus basse) et le délai AV raccourci pour mieux détecter l'oreillette. Critère principal de confirmation : au moins 28 cycles suspects sur 32 cycles ventriculaires (environ 15 s). Un critère secondaire (18 sur 32, deux fois de suite) gère la sous-détection atriale. Le repli se fait en DDI(R), indépendamment de la fréquence maximale programmée, et le boîtier revient au mode initial quand l'arythmie cesse.",
+    "explication": "Le FMS évite de stimuler le ventricule à haute fréquence pendant une arythmie atriale suivie. Une extrasystole atriale tombant dans la WARAD (Window of Atrial Rate Acceleration Detection) fait entrer le boîtier en phase de suspicion ; la fréquence ventriculaire stimulée est alors plafonnée à 120 bpm (ou à la fréquence maximale programmée si elle est plus basse) et le délai AV raccourci pour mieux détecter l'oreillette. Critère principal de confirmation : au moins 28 cycles suspects sur 32 cycles ventriculaires (environ 15 s). Un critère secondaire (18 sur 32, deux fois de suite) gère la sous-détection atriale. Le repli se fait en DDI(R), indépendamment de la fréquence maximale programmée, et le boîtier revient au mode initial quand l'arythmie cesse. L'ATR de Boston Scientific repose sur une autre logique (compteurs d'entrée et de durée).",
     "aRetenir": "FMS MicroPort : suspicion par la WARAD, confirmation 28/32, repli en DDI(R).",
     "sources": [
       {
@@ -1585,6 +1858,10 @@
     "reponses": [
       0
     ],
+    "commentaires": [
+      "Juste : la documentation SafeR indique que l'Autothreshold ventriculaire passe sur OFF sur ces modèles, et que le FMS passe sur ON.",
+      "Faux : c'est bien documenté ; il faut alors contrôler le seuil et régler l'amplitude ventriculaire à la main avec une marge suffisante."
+    ],
     "reponseAttendue": null,
     "explication": "La documentation technique SafeR de MicroPort indique que lorsque SafeR est programmé, l'Autothreshold ventriculaire passe automatiquement sur OFF sur REPLY, KORA, ENO, TEO, PARADYM RF, INTENSIA et PLATINIUM, et que le FMS passe automatiquement sur ON. La documentation ne détaille pas la raison de cette contrainte ; retenez la conséquence pratique : il faut contrôler le seuil et programmer manuellement l'amplitude ventriculaire, avec une marge de sécurité suffisante, sur ces modèles, puisque le ventricule sera stimulé lors des bascules en DDD. L'Autothreshold (ventriculaire RVAT et atrial RAAT) reste sinon un moyen de maintenir la capture tout en préservant la pile.",
     "aRetenir": "Sur plusieurs modèles MicroPort, SafeR désactive l'Autothreshold ventriculaire : régler l'amplitude V à la main.",
@@ -1608,13 +1885,19 @@
     "difficulte": 1,
     "question": "Comment s'appelle la solution de télésurveillance des stimulateurs et défibrillateurs MicroPort ?",
     "options": [
-      "LATITUDE",
       "SmartView",
       "Home Monitoring",
-      "CareLink"
+      "CareLink",
+      "LATITUDE"
     ],
     "reponses": [
-      1
+      0
+    ],
+    "commentaires": [
+      "Juste : SmartView (moniteur de chevet ou application SmartView Connect) est la solution de MicroPort CRM.",
+      "Faux : Home Monitoring est la télésurveillance de Biotronik.",
+      "Faux : CareLink est la télésurveillance de Medtronic.",
+      "Faux : LATITUDE est la télésurveillance de Boston Scientific."
     ],
     "reponseAttendue": null,
     "explication": "SmartView est la solution de télésurveillance de MicroPort CRM : moniteur de chevet (SmartView, puis SmartView Connect) et, pour les boîtiers compatibles Bluetooth, application mobile SmartView Connect sur le smartphone du patient. Elle transmet les données du boîtier et des alertes vers la plateforme consultée par l'équipe. LATITUDE est la solution de Boston Scientific, Home Monitoring celle de Biotronik et CareLink celle de Medtronic. Connaître le système de chaque constructeur est utile pour organiser le suivi et les transmissions après implantation. Le consensus HRS 2023 recommande la télésurveillance pour tous les porteurs de boîtiers, quel que soit le constructeur.",
