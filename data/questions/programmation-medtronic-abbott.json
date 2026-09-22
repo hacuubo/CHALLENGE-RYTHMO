@@ -30,8 +30,8 @@
         "url": "https://doi.org/10.1111/j.1540-8167.2005.40766.x"
       },
       {
-        "titre": "Medtronic. Managed Ventricular Pacing (MVP) — fiche technique fabricant destinée aux professionnels de santé",
-        "url": "https://global.medtronic.com/xg-en/healthcare-professionals/therapies-procedures/cardiac-rhythm/cardiac-device-features/pacemaker-features/managed-ventricular-pacing.html"
+        "titre": "Casavant DA, et al. The Story of Managed Ventricular Pacing. J Innov Card Rhythm Manag 2021;12:4625-4632",
+        "url": "https://doi.org/10.19102/icrm.2021.120804"
       }
     ]
   },
@@ -47,22 +47,18 @@
       "Absence d'événement ventriculaire détecté dans 2 des 4 derniers intervalles A-A",
       "Une seule onde P non conduite",
       "Un intervalle PR supérieur à 300 ms sur 8 cycles consécutifs",
-      "Trois onde P bloquées consécutives"
+      "Trois ondes P bloquées consécutives"
     ],
     "reponses": [
       0
     ],
     "reponseAttendue": null,
-    "explication": "Le MVP tolère volontairement une onde P isolée non conduite : c'est ce qui le distingue des algorithmes d'hystérésis AV. La bascule en DDD(R) survient quand le boîtier constate l'absence de détection ventriculaire dans 2 des 4 derniers intervalles A-A, ce qui correspond à un BAV 2:1 ou à un rapport A:V inférieur à 4:3. Une P isolée bloquée ne suffit donc pas. La notion de PR maximal programmable n'existe que dans les versions récentes (« MVP 2.0 »), en option, et avec une autre logique. Attendre trois P bloquées consécutives exposerait à des pauses beaucoup trop longues.",
+    "explication": "Le MVP tolère volontairement une onde P isolée non conduite : c'est ce qui le distingue des algorithmes d'hystérésis AV. La bascule en DDD(R) survient quand le boîtier constate l'absence de détection ventriculaire dans 2 des 4 derniers intervalles A-A, ce qui correspond à un BAV 2:1 ou à un rapport A:V inférieur à 4:3. Une P isolée bloquée ne suffit donc pas. Une limite programmable de l'intervalle A-V conduit n'existe qu'en option dans la version récente (« MVP 2.0 », boîtiers commercialisés à partir de 2017) : la bascule survient alors si 2 des 4 intervalles A-V dépassent cette limite ; « 8 cycles consécutifs à plus de 300 ms » n'est pas un critère du MVP. Attendre trois P bloquées consécutives exposerait à des pauses beaucoup trop longues.",
     "aRetenir": "MVP : bascule en DDD(R) si pas de détection ventriculaire dans 2 des 4 derniers cycles A-A.",
     "sources": [
       {
         "titre": "Casavant DA, et al. The Story of Managed Ventricular Pacing. J Innov Card Rhythm Manag 2021;12:4625-4632",
         "url": "https://doi.org/10.19102/icrm.2021.120804"
-      },
-      {
-        "titre": "Medtronic. Managed Ventricular Pacing (MVP) — fiche technique fabricant destinée aux professionnels de santé",
-        "url": "https://global.medtronic.com/xg-en/healthcare-professionals/therapies-procedures/cardiac-rhythm/cardiac-device-features/pacemaker-features/managed-ventricular-pacing.html"
       }
     ]
   },
@@ -90,8 +86,8 @@
         "url": "https://doi.org/10.19102/icrm.2021.120804"
       },
       {
-        "titre": "Medtronic. Managed Ventricular Pacing (MVP) — fiche technique fabricant destinée aux professionnels de santé",
-        "url": "https://global.medtronic.com/xg-en/healthcare-professionals/therapies-procedures/cardiac-rhythm/cardiac-device-features/pacemaker-features/managed-ventricular-pacing.html"
+        "titre": "Sweeney MO, et al. Multicenter, prospective, randomized safety and efficacy study of a new atrial-based managed ventricular pacing mode (MVP) in dual chamber ICDs. J Cardiovasc Electrophysiol 2005;16:811-7",
+        "url": "https://doi.org/10.1111/j.1540-8167.2005.40766.x"
       }
     ]
   },
@@ -173,7 +169,7 @@
       2
     ],
     "reponseAttendue": null,
-    "explication": "Le MVP favorise la conduction spontanée, même avec un PR très long : certains patients décrivent alors des symptômes proches du syndrome du pacemaker (contraction atriale sur valve AV fermée). La P bloquée tolérée crée une pause, et une séquence court-long-court peut déclencher une TV dépendante des pauses. C'est pourquoi l'évolution « MVP 2.0 » a ajouté une limite programmable de l'intervalle A-R et des aménagements qui réduisent les longs intervalles V-V. En revanche, en BAV complet permanent, le boîtier reste en DDD(R) et ne fait que des tests de conduction espacés. Le maintien en AAI(R) en BAV complet est donc faux.",
+    "explication": "Le MVP favorise la conduction spontanée, même avec un PR très long : certains patients décrivent alors des symptômes proches du syndrome du pacemaker (contraction atriale sur valve AV fermée). La P bloquée tolérée crée une pause, et une séquence court-long-court peut déclencher une TV dépendante des pauses. C'est pourquoi l'évolution « MVP 2.0 » a ajouté, en option, une limite programmable de l'intervalle A-R (bascule en DDD(R) si 2 des 4 intervalles la dépassent) et des aménagements qui réduisent les longs intervalles V-V. En revanche, en BAV complet permanent, le boîtier reste en DDD(R) et ne fait que des tests de conduction espacés. Le maintien en AAI(R) en BAV complet est donc faux.",
     "aRetenir": "MVP : attention au PR très long et aux pauses (court-long-court) ; en BAV complet, le boîtier reste en DDD(R).",
     "sources": [
       {
@@ -357,7 +353,7 @@
     "options": null,
     "reponses": null,
     "reponseAttendue": "Après un battement prématuré (ESA ou ESV), l'algorithme raccourcit l'intervalle d'échappement suivant pour éviter la pause compensatrice : il supprime ainsi la séquence court-long-court. Il vise les arythmies déclenchées par une pause : FA pour la version atriale, TV/FV dépendantes des pauses pour la version ventriculaire (DAI).",
-    "explication": "Beaucoup d'arythmies débutent après une séquence court-long-court : une extrasystole (court), suivie d'une pause compensatrice (long), puis d'un battement prématuré qui déclenche l'arythmie. Rate Stabilization adapte l'intervalle d'échappement qui suit l'extrasystole pour éviter cette pause. Dans une étude prospective croisée de 309 porteurs de DAI, la stabilisation ventriculaire n'a pas réduit significativement les récidives de TV/FV. Seules 8 % des arythmies y débutaient réellement après une pause. On réserve donc cet algorithme aux patients dont les EGM stockés montrent des arythmies dépendantes des pauses. Piège : il augmente la stimulation, et donc la stimulation VD pour la version ventriculaire.",
+    "explication": "Beaucoup d'arythmies débutent après une séquence court-long-court : une extrasystole (court), suivie d'une pause compensatrice (long), puis d'un battement prématuré qui déclenche l'arythmie. Rate Stabilization adapte l'intervalle d'échappement qui suit l'extrasystole pour éviter cette pause. Dans une étude prospective croisée de 309 porteurs de DAI, la stabilisation ventriculaire n'a pas réduit significativement les récidives de TV/FV. Pendant la phase sans stabilisation, seuls 8 % des épisodes analysés (36 sur 427) débutaient réellement après une pause. On réserve donc cet algorithme aux patients dont les EGM stockés montrent des arythmies dépendantes des pauses. Piège : il augmente la stimulation, et donc la stimulation VD pour la version ventriculaire.",
     "aRetenir": "Rate Stabilization supprime la pause post-extrasystolique ; son intérêt se limite aux arythmies prouvées dépendantes des pauses.",
     "sources": [
       {
@@ -630,10 +626,6 @@
         "url": "https://doi.org/10.1016/j.hrthm.2015.01.017"
       },
       {
-        "titre": "Koneru JN, et al. Spectrum of issues detected by an ICD diagnostic alert that utilizes far-field electrograms: clinical implications. Heart Rhythm 2015;12:957-67",
-        "url": "https://doi.org/10.1016/j.hrthm.2015.01.047"
-      },
-      {
         "titre": "Swerdlow CD, et al. Downloadable algorithm to reduce inappropriate shocks caused by fractures of implantable cardioverter-defibrillator leads. Circulation 2008;118:2122-9",
         "url": "https://doi.org/10.1161/CIRCULATIONAHA.108.796136"
       }
@@ -686,13 +678,9 @@
       0
     ],
     "reponseAttendue": null,
-    "explication": "C'est vrai. Une vraie arythmie ventriculaire est visible à la fois sur le dipôle de détection (pointe-anneau ou pointe-bobine) et sur l'EGM de champ lointain (bobine – boîtier). Un bruit lié à une fracture de conducteur ou à un défaut de connexion n'apparaît souvent que sur le canal de détection. L'algorithme retient alors la thérapie et génère une alerte. Koneru et al. ont montré que cette alerte, fondée sur l'EGM de champ lointain, révèle aussi des problèmes de connexion, des interférences et des surdétections diverses. Piège : un bruit d'origine externe (IEM) peut apparaître sur les deux canaux.",
+    "explication": "C'est vrai. Une vraie arythmie ventriculaire est visible à la fois sur le dipôle de détection (pointe-anneau ou pointe-bobine) et sur l'EGM de champ lointain (bobine – boîtier). Un bruit lié à une fracture de conducteur ou à un défaut de connexion n'apparaît souvent que sur le canal de détection. L'algorithme retient alors la thérapie et génère une alerte. Ce principe de comparaison champ proche / champ lointain est aussi celui de SecureSense chez Abbott, dont les alertes peuvent révéler d'autres causes qu'une fracture (problème de connexion, surdétection de myopotentiels ou d'ondes T). Piège : un bruit d'origine externe (IEM) peut apparaître sur les deux canaux.",
     "aRetenir": "Un signal vu en champ proche mais pas en champ lointain oriente vers un bruit de sonde, pas vers une TV/FV.",
     "sources": [
-      {
-        "titre": "Koneru JN, et al. Spectrum of issues detected by an ICD diagnostic alert that utilizes far-field electrograms: clinical implications. Heart Rhythm 2015;12:957-67",
-        "url": "https://doi.org/10.1016/j.hrthm.2015.01.047"
-      },
       {
         "titre": "Auricchio A, et al. Low inappropriate shock rates in patients with single- and dual/triple-chamber implantable cardioverter-defibrillators using a novel suite of detection algorithms: PainFree SST trial primary results. Heart Rhythm 2015;12:926-36",
         "url": "https://doi.org/10.1016/j.hrthm.2015.01.017"
@@ -841,7 +829,7 @@
       2
     ],
     "reponseAttendue": null,
-    "explication": "ADVANCE III (1902 patients, DAI Medtronic) a comparé une détection longue à 30/40 intervalles à la détection standard à 18/24. La détection longue a réduit de 37 % les thérapies délivrées (ATP et chocs) et de 45 % les premiers chocs inappropriés, sans augmenter significativement la mortalité ni les syncopes arythmiques. Le consensus HRS/EHRA/APHRS de 2015, actualisé en 2019, recommande des durées de détection longues. Dans ses traductions par constructeur, il retient 30/40 pour Medtronic. 18/24 correspond à l'ancien réglage standard, et 60/80 retarderait excessivement le traitement.",
+    "explication": "ADVANCE III (1902 patients, DAI Medtronic) a comparé une détection longue à 30/40 intervalles à la détection standard à 18/24. La détection longue a réduit de 37 % les thérapies délivrées (ATP et chocs) et de 45 % les premiers chocs inappropriés, sans augmenter significativement la mortalité ni les syncopes arythmiques. Le consensus HRS/EHRA/APHRS/SOLAECE de 2015, actualisé en 2019, recommande (classe I) une durée de détection d'au moins 6 à 12 secondes ou 30 intervalles ; chez Medtronic, cela correspond au réglage 30/40 testé dans PREPARE et ADVANCE III. 18/24 correspond à l'ancien réglage standard, et 60/80 retarderait excessivement le traitement.",
     "aRetenir": "DAI Medtronic : NID FV à 30/40 (ADVANCE III, consensus 2015/2019) pour éviter les thérapies inutiles.",
     "sources": [
       {
@@ -1275,8 +1263,8 @@
       3
     ],
     "reponseAttendue": null,
-    "explication": "Rate Branch oriente l'analyse selon le rapport entre fréquences atriale et ventriculaire. Si V > A, une origine ventriculaire est quasi certaine et la thérapie est délivrée sans autre discriminateur. Si V < A (FA ou flutter conduits), le boîtier utilise la stabilité des intervalles et/ou la morphologie. Si V = A, il utilise l'association AV, le démarrage brutal et la morphologie pour distinguer tachycardie sinusale, TSV 1:1 et TV à conduction rétrograde 1:1. Piège : une sous-détection atriale (P de faible amplitude, blanking) peut faire croire à V > A et entraîner une thérapie inappropriée.",
-    "aRetenir": "Rate Branch Abbott : V > A → thérapie ; V < A → stabilité et morphologie ; V = A → association AV, onset et morphologie.",
+    "explication": "Rate Branch oriente l'analyse selon le rapport entre fréquences atriale et ventriculaire. Si V > A, une origine ventriculaire est quasi certaine et la thérapie est délivrée sans autre discriminateur. Si V < A (FA ou flutter conduits), le boîtier utilise la stabilité des intervalles et/ou la morphologie. Si V = A, il utilise le critère de démarrage (démarrage brutal ou Chamber Onset, qui identifie la cavité qui a accéléré en premier) et la morphologie pour distinguer tachycardie sinusale, TSV 1:1 et TV à conduction rétrograde 1:1. Piège : une sous-détection atriale (P de faible amplitude, blanking) peut faire croire à V > A et entraîner une thérapie inappropriée.",
+    "aRetenir": "Rate Branch Abbott : V > A → thérapie ; V < A → stabilité et morphologie ; V = A → critère de démarrage (onset) et morphologie.",
     "sources": [
       {
         "titre": "Abbott. Gallant™ Dual Chamber ICD (CDDRA500T) — Product Highlights & Product Specifications (MAT-2400586 v4.0)",
@@ -1377,12 +1365,16 @@
       2
     ],
     "reponseAttendue": null,
-    "explication": "SecureSense est l'algorithme de discrimination du bruit de sonde VD d'Abbott, qui fait partie de ShockGuard. Il compare le signal de détection VD à un EGM de champ lointain : un signal rapide absent en champ lointain évoque un bruit, et la thérapie est retenue. D'après les spécifications du Gallant, il se programme en On, On with Timeout, Passive ou Off. Il détecte le bruit soutenu et enregistre les courtes salves de surdétection, qui peuvent aussi déclencher une alerte patient. L'optimisation de la forme d'onde du choc relève de DeFT Response.",
+    "explication": "SecureSense est l'algorithme de discrimination du bruit de sonde VD d'Abbott, qui fait partie de ShockGuard. Il compare le signal de détection VD à un EGM de champ lointain : un signal rapide absent en champ lointain évoque un bruit, et la thérapie est retenue. D'après les spécifications du Gallant, il se programme en On, On with Timeout, Passive ou Off. Il détecte le bruit soutenu et enregistre les courtes salves de surdétection, qui peuvent aussi déclencher une alerte patient. Comme tout algorithme de ce type, il a des faux positifs (myopotentiels, surdétection d'ondes P ou T, problèmes de cycles) et de rares faux négatifs : chaque alerte impose de relire les EGM. L'optimisation de la forme d'onde du choc relève de DeFT Response.",
     "aRetenir": "SecureSense discrimine et signale le bruit de sonde VD pour éviter les chocs inappropriés.",
     "sources": [
       {
         "titre": "Abbott. Gallant™ Dual Chamber ICD (CDDRA500T) — Product Highlights & Product Specifications (MAT-2400586 v4.0)",
         "url": "https://www.cardiovascular.abbott/content/dam/cv/cardiovascular/hcp/products/cardiac-rhythm-management/gallant-icd/documents/Gallant-DR-DF-1%20ICD-catalog-page-US-v4.pdf"
+      },
+      {
+        "titre": "Koneru JN, et al. Spectrum of issues detected by an ICD diagnostic alert that utilizes far-field electrograms: clinical implications. Heart Rhythm 2015;12:957-67",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.01.047"
       }
     ]
   },
@@ -1397,7 +1389,7 @@
     "options": null,
     "reponses": null,
     "reponseAttendue": "DeFT Response permet de programmer la largeur d'impulsion des phases 1 et 2 (P1/P2) et/ou le tilt de l'onde biphasique (mode largeur fixe ou tilt fixe), pour adapter la forme d'onde à l'impédance et à la physiologie du patient. Autres leviers : inverser la polarité (RV cathode/anode), changer la configuration du vecteur (RV–boîtier, RV–SVC/boîtier, RV–SVC), utiliser l'énergie maximale (40 J délivrés sur le Gallant) et corriger une cause réversible. Si ces mesures échouent : ajout d'une bobine (SVC, sous-cutanée) ou repositionnement de la sonde.",
-    "explication": "Un seuil de défibrillation élevé est rare avec les boîtiers actuels, mais doit être connu. Chez Abbott, DeFT Response rend programmables les largeurs d'impulsion P1/P2 et le tilt de l'onde biphasique. On peut aussi agir sur la polarité et sur le vecteur, y compris en « cold can » (RV–SVC sans le boîtier), et délivrer jusqu'à 40 J sur le Gallant. Ces leviers non invasifs se testent avant toute révision chirurgicale. Le consensus 2015, actualisé en 2019, juge raisonnable de se passer du test de défibrillation lors d'une primo-implantation endocavitaire pectorale gauche. Il le maintient en revanche dans certaines situations (DAI sous-cutané, implantation à droite, changement de boîtier avec seuil élevé connu).",
+    "explication": "Un seuil de défibrillation élevé est rare avec les boîtiers actuels, mais doit être connu. Chez Abbott, DeFT Response rend programmables les largeurs d'impulsion P1/P2 et le tilt de l'onde biphasique. On peut aussi agir sur la polarité et sur le vecteur, y compris en « cold can » (RV–SVC sans le boîtier), et délivrer jusqu'à 40 J sur le Gallant. Ces leviers non invasifs se testent avant toute révision chirurgicale. Le consensus 2015, actualisé en 2019, juge raisonnable de se passer du test de défibrillation lors d'une primo-implantation endocavitaire pectorale gauche. Il le juge en revanche raisonnable dans certaines situations : implantation pectorale droite, changement de boîtier, cardiomyopathie hypertrophique, canalopathies, ou doute sur la position ou le fonctionnement de la sonde.",
     "aRetenir": "DeFT Response permet de programmer largeur d'impulsion et tilt du choc ; associé à la polarité, au vecteur et à l'énergie, il évite souvent une reprise.",
     "sources": [
       {
@@ -1523,7 +1515,7 @@
       0
     ],
     "reponseAttendue": null,
-    "explication": "C'est vrai. L'essai MPP (381 patients randomisés à 3 mois entre stimulation biventriculaire et MPP) a atteint son critère de non-infériorité sur le taux de non-répondeurs. Dans le sous-groupe programmé avec des pôles anatomiquement éloignés (MPP-AS), 87 % des patients étaient répondeurs à 9 mois. Tous les non-répondeurs de ce sous-groupe à 3 mois sont devenus répondeurs à 9 mois. Ces données restent des analyses de sous-groupes : la supériorité du MPP sur la CRT classique n'est pas démontrée de façon générale. Les recommandations ESC 2021 ne formulent pas de recommandation en faveur du MPP en routine.",
+    "explication": "C'est vrai. L'essai MPP (381 patients randomisés à 3 mois entre stimulation biventriculaire et MPP) a atteint son critère de non-infériorité sur le taux de non-répondeurs. Dans le sous-groupe programmé avec des pôles anatomiquement éloignés (MPP-AS), 87 % des patients étaient répondeurs à 9 mois. Tous les non-répondeurs de ce sous-groupe à 3 mois sont devenus répondeurs à 9 mois. Ces données restent des analyses de sous-groupes : la supériorité du MPP sur la CRT classique n'est pas démontrée de façon générale. Les recommandations ESC 2021 ne comportent aucune recommandation en faveur d'un usage systématique du MPP.",
     "aRetenir": "Le MPP est non inférieur à la CRT classique ; le bénéfice semble meilleur avec des pôles VG très espacés.",
     "sources": [
       {
@@ -1673,6 +1665,10 @@
     "aRetenir": "Le Confirm Rx transmet via le smartphone du patient (Bluetooth), sans transmetteur de chevet.",
     "sources": [
       {
+        "titre": "Abbott. Confirm Rx™ Insertable Cardiac Monitor — page produit destinée aux professionnels de santé (connexion Bluetooth à l'application myMerlin™)",
+        "url": "https://www.cardiovascular.abbott/int/en/hcp/products/cardiac-rhythm-management/insertable-cardiac-monitors/confirm-rx.html"
+      },
+      {
         "titre": "Gopinathannair R, et al. Effectiveness of SharpSense™ algorithms in reducing bradycardia and pause detection: real-world performance in Confirm Rx™ insertable cardiac monitor. J Interv Card Electrophysiol 2022;63:661-668",
         "url": "https://doi.org/10.1007/s10840-021-01099-4"
       },
@@ -1729,7 +1725,7 @@
       3
     ],
     "reponseAttendue": null,
-    "explication": "Le Micra AV repère la contraction atriale par un signal mécanique (A4) détecté par l'accéléromètre après la fin du remplissage passif (A3). Quand la fréquence augmente, la diastole raccourcit et les signaux A3 et A4 se rapprochent puis fusionnent : la détection de l'A4 devient moins fiable. Le boîtier stimule alors plus souvent sur sa fréquence de repli. Dans AccelAV, la synchronie AV était de 85,4 % au repos mais de 74,8 % en ambulatoire, et une optimisation de la programmation l'améliorait. Les paramètres prédictifs de bonne synchronie ont été étudiés dans MARVEL 2 (amplitude de l'A4, entre autres).",
+    "explication": "Le Micra AV repère la contraction atriale par un signal mécanique (A4) détecté par l'accéléromètre après la fin du remplissage passif (A3). Quand la fréquence augmente, la diastole raccourcit et les signaux A3 et A4 se rapprochent puis fusionnent : la détection de l'A4 devient moins fiable. Le boîtier stimule alors plus souvent sans synchronisation atriale, à la fréquence minimale programmée. Dans AccelAV, la synchronie AV était de 85,4 % au repos mais de 74,8 % en ambulatoire, et une optimisation de la programmation l'améliorait. Les paramètres prédictifs de bonne synchronie ont été étudiés dans MARVEL 2 (amplitude de l'A4, entre autres).",
     "aRetenir": "Micra AV : à fréquence élevée, la fusion A3/A4 dégrade la détection atriale mécanique et donc la synchronie AV.",
     "sources": [
       {
