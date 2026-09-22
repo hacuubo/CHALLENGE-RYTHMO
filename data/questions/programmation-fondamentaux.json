@@ -1,0 +1,2425 @@
+[
+  {
+    "id": "prog-fond-001",
+    "theme": "programmation",
+    "sousTheme": "Code NBG et modes",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 1,
+    "question": "Dans le code NBG des stimulateurs cardiaques, que désigne la première lettre ?",
+    "options": [
+      "La cavité dans laquelle la détection est réalisée",
+      "La présence d'un asservissement de fréquence",
+      "Le mode de réponse à la détection",
+      "La cavité stimulée"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "explication": "Le code NBG (NASPE/BPEG) se lit de gauche à droite : 1re lettre = cavité(s) stimulée(s), 2e = cavité(s) détectée(s), 3e = mode de réponse à la détection (I inhibé, T déclenché, D double), 4e = asservissement (R), 5e = stimulation multisite. Ainsi, dans « VVI », le premier V indique que c'est le ventricule qui est stimulé. Le piège classique est d'inverser stimulation et détection : l'ordre « stimule – détecte – répond » est à connaître par cœur.",
+    "aRetenir": "Code NBG : 1re lettre = cavité stimulée, 2e = cavité détectée, 3e = réponse à la détection.",
+    "sources": [
+      {
+        "titre": "Bernstein AD et al. The revised NASPE/BPEG generic code for antibradycardia, adaptive-rate, and multisite pacing. Pacing Clin Electrophysiol 2002;25:260-264",
+        "url": "https://doi.org/10.1046/j.1460-9592.2002.00260.x"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-002",
+    "theme": "programmation",
+    "sousTheme": "Code NBG et modes",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 1,
+    "question": "Un stimulateur programmé en VVI :",
+    "options": [
+      "Stimule l'oreillette et est inhibé par une détection ventriculaire",
+      "Stimule le ventricule de façon fixe, sans aucune détection",
+      "Stimule le ventricule, détecte dans le ventricule et est inhibé par une activité ventriculaire spontanée",
+      "Stimule le ventricule à chaque onde P détectée"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "explication": "VVI signifie : stimulation Ventriculaire, détection Ventriculaire, réponse Inhibée. Si un QRS spontané survient avant la fin de l'intervalle d'échappement (fréquence de base), le stimulateur ne délivre pas d'impulsion et réarme son intervalle. La stimulation fixe sans détection correspond au VOO, et la stimulation ventriculaire synchronisée sur l'onde P correspond aux modes VDD/DDD. Le VVI ne tient aucun compte de l'activité atriale.",
+    "aRetenir": "VVI = stimule V, détecte V, inhibé par un QRS spontané.",
+    "sources": [
+      {
+        "titre": "Bernstein AD et al. The revised NASPE/BPEG generic code for antibradycardia, adaptive-rate, and multisite pacing. Pacing Clin Electrophysiol 2002;25:260-264",
+        "url": "https://doi.org/10.1046/j.1460-9592.2002.00260.x"
+      },
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-003",
+    "theme": "programmation",
+    "sousTheme": "Code NBG et modes",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Que signifie la lettre « R » en 4e position du code NBG (par exemple DDDR) ?",
+    "options": [
+      "Réponse déclenchée (triggered)",
+      "Asservissement de fréquence (rate modulation) par un capteur",
+      "Resynchronisation cardiaque",
+      "Stimulation de repli (mode de secours)"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "Dans le code NBG révisé de 2002, la 4e position ne concerne plus que l'asservissement de fréquence : « R » indique que la fréquence de stimulation peut s'élever au-delà de la fréquence de base grâce à un capteur (accéléromètre, ventilation-minute…). La réponse déclenchée est codée « T » en 3e position. La stimulation multisite (dont la resynchronisation biventriculaire) est codée en 5e position. Il n'existe pas de lettre de code pour le mode de repli.",
+    "aRetenir": "R en 4e position = asservissement de fréquence.",
+    "sources": [
+      {
+        "titre": "Bernstein AD et al. The revised NASPE/BPEG generic code for antibradycardia, adaptive-rate, and multisite pacing. Pacing Clin Electrophysiol 2002;25:260-264",
+        "url": "https://doi.org/10.1046/j.1460-9592.2002.00260.x"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-004",
+    "theme": "programmation",
+    "sousTheme": "Code NBG et modes",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Quel mode correspond à une stimulation double chambre asynchrone, sans aucune détection ?",
+    "options": [
+      "DOO",
+      "DDI",
+      "VOO",
+      "DVI"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "explication": "La lettre « O » en 2e et 3e position signifie absence de détection et donc absence de réponse : le DOO stimule oreillette puis ventricule à intervalles fixes, quelle que soit l'activité spontanée. C'est typiquement le mode obtenu sous aimant sur de nombreux stimulateurs double chambre, ou programmé pour une IRM ou une chirurgie chez un patient dépendant. Le VOO est l'équivalent asynchrone mono-chambre ventriculaire. Le DDI et le DVI comportent une détection.",
+    "aRetenir": "DOO = stimulation A et V asynchrone, sans détection.",
+    "sources": [
+      {
+        "titre": "Bernstein AD et al. The revised NASPE/BPEG generic code for antibradycardia, adaptive-rate, and multisite pacing. Pacing Clin Electrophysiol 2002;25:260-264",
+        "url": "https://doi.org/10.1046/j.1460-9592.2002.00260.x"
+      },
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-005",
+    "theme": "programmation",
+    "sousTheme": "Code NBG et modes",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Dans le code NBG révisé (2002), que code la 5e position ?",
+    "options": [
+      "Les fonctions antitachycardiques (ATP, choc)",
+      "La programmabilité et la télémétrie",
+      "Le type de capteur utilisé pour l'asservissement",
+      "La stimulation multisite (O, A, V ou D)"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "explication": "La révision NASPE/BPEG de 2002 a simplifié le code : la 4e position est réservée à l'asservissement (O ou R) et la 5e position décrit la stimulation multisite (O aucune, A atriale, V ventriculaire, D double). Un système de resynchronisation biventriculaire avec asservissement peut ainsi s'écrire DDDRV. Dans l'ancienne version de 1987, la 4e position codait la programmabilité/la communication et la 5e les fonctions antitachycardiques, d'où le piège. Les fonctions de défibrillation ont un code propre (code NBD).",
+    "aRetenir": "Code NBG 2002 : 5e position = stimulation multisite (ex. DDDRV pour une CRT).",
+    "sources": [
+      {
+        "titre": "Bernstein AD et al. The revised NASPE/BPEG generic code for antibradycardia, adaptive-rate, and multisite pacing. Pacing Clin Electrophysiol 2002;25:260-264",
+        "url": "https://doi.org/10.1046/j.1460-9592.2002.00260.x"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-006",
+    "theme": "programmation",
+    "sousTheme": "Code NBG et modes",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 2,
+    "question": "En mode DDD, une onde P détectée déclenche une stimulation ventriculaire à la fin du délai AV si aucun QRS spontané n'est détecté pendant ce délai.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "explication": "C'est le principe du « suivi » (tracking) atrial : en DDD, la 3e lettre D signifie que la détection atriale déclenche (T) la stimulation ventriculaire après le délai AV, tandis qu'une détection ventriculaire inhibe (I) la stimulation. Cela reproduit une conduction AV physiologique chez un patient en BAV avec fonction sinusale conservée. Si un QRS conduit survient avant la fin du délai AV, la stimulation ventriculaire est inhibée. Ce suivi est limité par la fréquence maximale de suivi.",
+    "aRetenir": "DDD : P détectée → V stimulé après le délai AV, sauf QRS spontané.",
+    "sources": [
+      {
+        "titre": "Bernstein AD et al. The revised NASPE/BPEG generic code for antibradycardia, adaptive-rate, and multisite pacing. Pacing Clin Electrophysiol 2002;25:260-264",
+        "url": "https://doi.org/10.1046/j.1460-9592.2002.00260.x"
+      },
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-007",
+    "theme": "programmation",
+    "sousTheme": "Code NBG et modes",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Quelle est la différence fondamentale entre les modes DDD et DDI ?",
+    "options": [
+      "Le DDI ne stimule pas l'oreillette",
+      "En DDI, une onde P détectée n'entraîne pas de stimulation ventriculaire synchronisée (pas de suivi atrial)",
+      "Le DDI ne détecte pas l'oreillette",
+      "Le DDI est un mode asynchrone"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "En DDI, l'oreillette est détectée et stimulée, mais une détection atriale inhibe seulement la stimulation atriale : elle ne déclenche pas de stimulation ventriculaire après un délai AV. Le ventricule est alors stimulé à la fréquence de base si aucun QRS spontané ne survient. C'est pourquoi le DDI (ou le DDIR) est utilisé comme mode de repli lors d'un mode switch : on évite de suivre une FA ou un flutter à la fréquence maximale. Le DDI n'est pas asynchrone : il détecte dans les deux cavités.",
+    "aRetenir": "DDI = double chambre sans suivi atrial : la P détectée ne déclenche pas de V.",
+    "sources": [
+      {
+        "titre": "Bernstein AD et al. The revised NASPE/BPEG generic code for antibradycardia, adaptive-rate, and multisite pacing. Pacing Clin Electrophysiol 2002;25:260-264",
+        "url": "https://doi.org/10.1046/j.1460-9592.2002.00260.x"
+      },
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-008",
+    "theme": "programmation",
+    "sousTheme": "Code NBG et modes",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 4,
+    "question": "Parmi les modes suivants, lesquels n'assurent pas de suivi atrial (une P détectée ne déclenche jamais de stimulation ventriculaire) ?",
+    "options": [
+      "DDD",
+      "VDD",
+      "DDI",
+      "VVIR"
+    ],
+    "reponses": [
+      2,
+      3
+    ],
+    "reponseAttendue": null,
+    "explication": "Le suivi atrial suppose une détection atriale et une réponse de type « déclenchée » sur le ventricule : c'est le cas du DDD et du VDD (sonde unique avec dipôle atrial flottant). Le DDI détecte l'oreillette mais n'y répond que par une inhibition de la stimulation atriale. Le VVIR ne détecte pas l'oreillette du tout : l'asservissement ne fait varier la fréquence qu'en fonction du capteur. Ces modes non suiveurs sont ceux utilisés en FA permanente ou en repli de mode switch.",
+    "aRetenir": "Modes suiveurs = DDD, VDD ; non suiveurs = DDI, VVI(R), AAI.",
+    "sources": [
+      {
+        "titre": "Bernstein AD et al. The revised NASPE/BPEG generic code for antibradycardia, adaptive-rate, and multisite pacing. Pacing Clin Electrophysiol 2002;25:260-264",
+        "url": "https://doi.org/10.1046/j.1460-9592.2002.00260.x"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-009",
+    "theme": "programmation",
+    "sousTheme": "Choix du mode de stimulation",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Patient de 82 ans en FA permanente, bradycardie symptomatique avec réponse ventriculaire lente. Selon l'ESC 2021, quel mode est recommandé ?",
+    "options": [
+      "DDD",
+      "AAIR",
+      "VDD",
+      "VVIR"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "explication": "En FA permanente, l'oreillette ne peut être ni stimulée efficacement ni suivie : une sonde atriale est inutile. L'ESC 2021 recommande une stimulation ventriculaire avec asservissement de fréquence (VVIR) chez ces patients, l'asservissement compensant l'absence de réponse chronotrope. Le DDD et le VDD suivraient l'activité atriale fibrillante (d'où le mode switch s'ils étaient implantés). L'AAIR n'a aucun sens en FA.",
+    "aRetenir": "FA permanente + bradycardie = VVIR.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Glikson M et al. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-010",
+    "theme": "programmation",
+    "sousTheme": "Choix du mode de stimulation",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Dysfonction sinusale symptomatique, conduction AV normale. Quelle stratégie de stimulation est recommandée par l'ESC 2021 ?",
+    "options": [
+      "VVI à 40/min",
+      "Resynchronisation biventriculaire systématique",
+      "Stimulation double chambre avec programmation visant à minimiser la stimulation ventriculaire inutile",
+      "VOO"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "explication": "Dans la dysfonction sinusale, l'ESC 2021 recommande la stimulation double chambre (classe I), qui réduit le risque de FA et d'AVC et évite le syndrome du pacemaker par rapport au VVI. La conduction AV étant préservée, il faut programmer le stimulateur pour limiter la stimulation ventriculaire inutile (algorithmes de réduction, allongement du délai AV), car la stimulation VD chronique est délétère. La CRT n'a pas d'indication en l'absence d'altération de la FEVG avec stimulation ventriculaire importante attendue. Le VOO est un mode asynchrone d'usage ponctuel.",
+    "aRetenir": "Dysfonction sinusale = double chambre + minimisation de la stimulation ventriculaire.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Glikson M et al. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Sweeney MO et al. Minimizing ventricular pacing to reduce atrial fibrillation in sinus-node disease (SAVE PACe). N Engl J Med 2007;357:1000-1008",
+        "url": "https://doi.org/10.1056/NEJMoa071880"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-011",
+    "theme": "programmation",
+    "sousTheme": "Choix du mode de stimulation",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Chez un patient en rythme sinusal avec BAV, la stimulation double chambre est préférée au VVI principalement parce qu'elle réduit la mortalité.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "Les grands essais comparant stimulation « physiologique » double chambre et VVI (MOST, UKPACE, CTOPP) n'ont pas montré de bénéfice sur la mortalité. L'intérêt du double chambre dans le BAV est d'éviter le syndrome du pacemaker et d'améliorer la qualité de vie en maintenant le synchronisme AV. L'ESC 2021 formule donc cette préférence sur ces critères, et non sur la survie. Le VVI reste acceptable chez certains patients (âgés, peu actifs, stimulation rare attendue).",
+    "aRetenir": "Double chambre vs VVI : bénéfice sur la qualité de vie et le syndrome du pacemaker, pas sur la mortalité.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Glikson M et al. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Lamas GA et al. Ventricular pacing or dual-chamber pacing for sinus-node dysfunction (MOST). N Engl J Med 2002;346:1854-1862",
+        "url": "https://doi.org/10.1056/NEJMoa013040"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-012",
+    "theme": "programmation",
+    "sousTheme": "Choix du mode de stimulation",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Patient de 70 ans, BAV complet, rythme sinusal, FEVG à 35 % et stimulation ventriculaire attendue quasi permanente. Selon l'ESC 2021, quelle stimulation privilégier ?",
+    "options": [
+      "Resynchronisation (CRT) plutôt que stimulation VD isolée",
+      "VDD mono-sonde",
+      "DDD avec sonde VD apicale",
+      "VVIR"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "explication": "Chez un patient avec FEVG altérée (< 40 %) nécessitant une stimulation ventriculaire importante pour un BAV de haut degré, l'ESC 2021 recommande la CRT plutôt que la stimulation VD seule, car l'asynchronisme induit par la stimulation VD aggrave l'insuffisance cardiaque. La stimulation du système de conduction (faisceau de His, branche gauche) est une alternative de plus en plus utilisée, soutenue par la recommandation HRS 2023. Le DDD ou le VDD en VD classique exposeraient à la cardiomyopathie induite par la stimulation. Le VVIR n'a pas de sens en rythme sinusal.",
+    "aRetenir": "BAV + FEVG < 40 % : CRT (ou stimulation physiologique) plutôt que stimulation VD.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Glikson M et al. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Chung MK et al. 2023 HRS/APHRS/LAHRS guideline on cardiac physiologic pacing for the avoidance and mitigation of heart failure. Heart Rhythm 2023;20:e17-e91",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1538"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-013",
+    "theme": "programmation",
+    "sousTheme": "Choix du mode de stimulation",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Concernant la stimulation ventriculaire droite chronique, quelles affirmations sont exactes ?",
+    "options": [
+      "Dans DAVID, chez des porteurs de DAI, le DDDR à 70/min était associé à plus de décès ou d'hospitalisations pour insuffisance cardiaque que le VVI à 40/min",
+      "Dans MOST, un pourcentage cumulé de stimulation ventriculaire > 40 % en DDDR était associé à un risque accru d'hospitalisation pour insuffisance cardiaque",
+      "La stimulation VD crée un asynchronisme électromécanique de type bloc de branche gauche",
+      "La stimulation VD n'a aucun effet sur le risque de FA"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "reponseAttendue": null,
+    "explication": "DAVID a montré que le DDDR 70/min, en forçant une stimulation VD fréquente, faisait moins bien que le VVI 40/min (stimulation de secours) sur le critère décès/hospitalisation pour IC. L'analyse secondaire de MOST a retrouvé une association entre pourcentage cumulé de stimulation ventriculaire (> 40 %) et hospitalisations pour IC, ainsi qu'une augmentation quasi linéaire du risque de FA avec le pourcentage de stimulation V. Le mécanisme est l'activation ventriculaire gauche retardée, comparable à un BBG. La dernière proposition est donc fausse.",
+    "aRetenir": "La stimulation VD inutile augmente le risque d'insuffisance cardiaque et de FA : il faut la limiter.",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. Dual-chamber pacing or ventricular backup pacing in patients with an implantable defibrillator: the DAVID trial. JAMA 2002;288:3115-3123",
+        "url": "https://doi.org/10.1001/jama.288.24.3115"
+      },
+      {
+        "titre": "Sweeney MO et al. Adverse effect of ventricular pacing on heart failure and atrial fibrillation among patients with normal baseline QRS duration in a clinical trial of pacemaker therapy for sinus node dysfunction (MOST). Circulation 2003;107:2932-2937",
+        "url": "https://doi.org/10.1161/01.CIR.0000072769.17295.B1"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-014",
+    "theme": "programmation",
+    "sousTheme": "Choix du mode de stimulation",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 6,
+    "question": "Quelles sont les principales limites d'un stimulateur VDD mono-sonde (dipôle atrial « flottant ») ?",
+    "reponseAttendue": "Pas de stimulation atriale possible (inadapté en cas de dysfonction sinusale actuelle ou prévisible) ; détection atriale parfois insuffisante (P de faible amplitude, variable selon la position), avec risque de perte du synchronisme AV et fonctionnement de type VVI.",
+    "explication": "Le VDD permet de synchroniser la stimulation ventriculaire sur l'onde P avec une seule sonde, ce qui convient au BAV avec fonction sinusale normale. Mais le dipôle atrial ne touche pas la paroi : il ne peut pas stimuler l'oreillette et l'amplitude des P détectées peut être faible et fluctuer (posture, respiration). En cas de sous-détection atriale, le stimulateur stimule à la fréquence de base sans synchronisme AV. Une dysfonction sinusale ultérieure le rend inadapté. Ces limites expliquent que le DDD reste le standard en France.",
+    "aRetenir": "VDD : pas de stimulation atriale et détection atriale parfois insuffisante.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Glikson M et al. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-015",
+    "theme": "programmation",
+    "sousTheme": "Seuils de stimulation",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Que désigne le seuil de stimulation ?",
+    "options": [
+      "L'amplitude maximale délivrable par le boîtier",
+      "L'intensité minimale d'impulsion (amplitude pour une durée donnée) qui dépolarise de façon constante le myocarde en dehors de sa période réfractaire",
+      "L'amplitude minimale du signal endocavitaire que le stimulateur peut détecter",
+      "La fréquence minimale de stimulation programmée"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "Le seuil de capture est la plus petite impulsion, exprimée en amplitude (V) pour une durée donnée (ms), capable d'entraîner une dépolarisation myocardique de façon reproductible. Il se mesure par un test décrémentiel : on diminue l'amplitude jusqu'à la perte de capture. Il ne faut pas le confondre avec la sensibilité (détection des signaux spontanés, en mV) ni avec la fréquence de base. L'amplitude programmée doit comporter une marge de sécurité au-dessus du seuil.",
+    "aRetenir": "Seuil = plus petite impulsion qui capture de façon constante le myocarde.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-016",
+    "theme": "programmation",
+    "sousTheme": "Seuils de stimulation",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Sur la courbe intensité-durée (courbe de Lapicque), comment définit-on la chronaxie ?",
+    "options": [
+      "La durée d'impulsion pour laquelle le seuil en amplitude est égal au double de la rhéobase",
+      "L'amplitude seuil pour une durée d'impulsion infinie",
+      "La durée d'impulsion au-delà de laquelle aucune capture n'est possible",
+      "L'amplitude seuil mesurée à 0,4 ms"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "explication": "La courbe de Lapicque relie l'amplitude seuil à la durée d'impulsion : c'est une hyperbole, très pentue pour les durées courtes et quasi plate pour les durées longues. La rhéobase est l'amplitude seuil pour une durée très longue (théoriquement infinie). La chronaxie est la durée pour laquelle le seuil vaut deux fois la rhéobase. Elle a un intérêt pratique : l'énergie consommée pour capturer est minimale pour une durée proche de la chronaxie, qui se situe classiquement autour de 0,3-0,5 ms, d'où les durées nominales de 0,4 ms.",
+    "aRetenir": "Chronaxie = durée où le seuil vaut 2 × la rhéobase ; zone d'énergie minimale.",
+    "sources": [
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      },
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-017",
+    "theme": "programmation",
+    "sousTheme": "Seuils de stimulation",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Le seuil ventriculaire chronique est à 1,0 V à 0,4 ms. Quelle programmation respecte la marge de sécurité classique ?",
+    "options": [
+      "1,0 V à 0,4 ms",
+      "1,25 V à 0,4 ms",
+      "7,5 V à 1,0 ms",
+      "2,0 V à 0,4 ms"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "explication": "La règle classique est de programmer une amplitude au moins égale au double du seuil (marge de sécurité de 100 %) à durée constante, ou de tripler la durée d'impulsion si le seuil a été mesuré sur une durée courte. Programmer au seuil ou juste au-dessus expose à une perte de capture lors des fluctuations physiologiques (sommeil, médicaments, troubles ioniques). À l'inverse, une sortie très élevée gaspille la pile sans bénéfice. Les algorithmes de gestion automatique de la capture peuvent réduire cette marge en vérifiant la capture battement par battement.",
+    "aRetenir": "Marge de sécurité : 2 × le seuil en amplitude.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-018",
+    "theme": "programmation",
+    "sousTheme": "Seuils de stimulation",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "À durée d'impulsion et impédance constantes, on passe l'amplitude de 2,5 V à 5,0 V. Comment varie l'énergie délivrée par impulsion ?",
+    "options": [
+      "Elle double",
+      "Elle est multipliée par 8",
+      "Elle est multipliée par 4",
+      "Elle ne change pas"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "explication": "L'énergie d'une impulsion vaut E = V² × t / R : elle varie avec le carré de la tension. Doubler l'amplitude multiplie donc l'énergie par quatre, alors que doubler la durée ne fait que la doubler. C'est pourquoi une sortie élevée programmée « par sécurité » réduit fortement la longévité. Le piège est de raisonner de façon linéaire sur l'amplitude.",
+    "aRetenir": "Énergie ∝ V² : doubler l'amplitude quadruple la consommation.",
+    "sources": [
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-019",
+    "theme": "programmation",
+    "sousTheme": "Seuils de stimulation",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Une impulsion de 2,5 V est délivrée dans une sonde d'impédance 500 Ω. Quel est le courant délivré ?",
+    "options": [
+      "0,5 mA",
+      "5 mA",
+      "50 mA",
+      "200 mA"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "La loi d'Ohm donne I = U / R, soit 2,5 V / 500 Ω = 0,005 A = 5 mA. Plus l'impédance est élevée, plus le courant (et donc la consommation) est faible pour une même tension, ce qui explique l'intérêt des sondes à haute impédance. Une chute d'impédance (défaut d'isolant) augmente au contraire le courant débité. Les erreurs classiques sont des erreurs d'unités (mA vs A).",
+    "aRetenir": "Loi d'Ohm : I = U / R.",
+    "sources": [
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-020",
+    "theme": "programmation",
+    "sousTheme": "Seuils de stimulation",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 6,
+    "question": "Le seuil de stimulation d'une sonde récemment implantée s'élève habituellement dans les premières semaines, et ce pic est atténué par les électrodes à élution de stéroïdes.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "explication": "Après l'implantation, la réaction inflammatoire puis fibreuse au contact de l'électrode éloigne le myocarde excitable et fait monter le seuil, avec un pic typiquement dans les premières semaines avant une stabilisation au seuil chronique. Les électrodes libérant un corticoïde réduisent nettement ce pic. C'est une raison de garder une marge de sécurité plus large avant le premier contrôle. Une élévation importante et précoce doit en revanche faire rechercher un déplacement de sonde.",
+    "aRetenir": "Seuil : pic précoce post-implantation, atténué par l'élution de stéroïdes.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-021",
+    "theme": "programmation",
+    "sousTheme": "Seuils de stimulation",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 9,
+    "question": "Pourquoi la règle « tripler la durée d'impulsion » offre-t-elle une marge de sécurité moins fiable que « doubler l'amplitude » ?",
+    "options": [
+      "Parce que la durée d'impulsion n'influence pas le seuil",
+      "Parce qu'une durée longue augmente le risque de surdétection",
+      "Parce que tripler la durée multiplie l'énergie par 9",
+      "Parce que la courbe de Lapicque s'aplatit aux durées longues : si le seuil est mesuré à une durée déjà proche ou au-delà de la chronaxie, tripler la durée apporte peu de marge en amplitude"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "explication": "Sur la partie plate de la courbe intensité-durée, allonger l'impulsion ne réduit presque plus le seuil en amplitude : un seuil mesuré à 0,4-0,5 ms peut n'être que très peu inférieur au seuil à 1,2-1,5 ms. La règle du triplement n'est donc valable que si le seuil est mesuré à une durée courte, sur la partie pentue de la courbe. L'énergie n'augmente que linéairement avec la durée (× 3, pas × 9). La durée d'impulsion n'a pas d'effet direct sur la détection.",
+    "aRetenir": "Tripler la durée n'est une marge fiable que sur la partie pentue de la courbe de Lapicque.",
+    "sources": [
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-022",
+    "theme": "programmation",
+    "sousTheme": "Seuils de stimulation",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 5,
+    "question": "Quels facteurs peuvent élever le seuil de stimulation ?",
+    "options": [
+      "Hyperkaliémie",
+      "Antiarythmiques de classe IC (flécaïnide)",
+      "Perfusion d'isoprénaline",
+      "Microdéplacement de la sonde"
+    ],
+    "reponses": [
+      0,
+      1,
+      3
+    ],
+    "reponseAttendue": null,
+    "explication": "L'hyperkaliémie et les antiarythmiques de classe IC (flécaïnide, propafénone) augmentent le seuil et peuvent entraîner une perte de capture, surtout si la marge de sécurité est faible. Le microdéplacement de sonde, invisible à la radio, se traduit par une élévation du seuil souvent associée à une baisse de l'amplitude détectée. Les catécholamines comme l'isoprénaline ont plutôt tendance à abaisser le seuil. Devant une perte de capture, il faut toujours penser à la kaliémie et aux traitements.",
+    "aRetenir": "Hyperkaliémie, classe IC et déplacement de sonde élèvent le seuil.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-023",
+    "theme": "programmation",
+    "sousTheme": "Seuils de stimulation",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 3,
+    "question": "Que montre ce tracé chez un patient stimulé en VVI et quelle est la conduite immédiate ?",
+    "ecg": {
+      "preset": "perte-capture-v",
+      "fc": 60
+    },
+    "reponseAttendue": "Perte de capture ventriculaire : spikes non suivis de QRS. Augmenter l'amplitude et/ou la durée d'impulsion, puis rechercher la cause (impédance, déplacement de sonde à la radio, kaliémie, antiarythmiques).",
+    "explication": "Chaque spike doit être suivi d'un QRS élargi : un spike isolé en dehors de la période réfractaire traduit une perte de capture. Chez un patient dépendant, le risque est l'asystolie : il faut augmenter en urgence la sortie (amplitude, durée) et vérifier le retour de la capture. Ensuite, on analyse la cause : déplacement ou fracture de sonde (impédance, radio), élévation du seuil (post-implantation, fibrose), hyperkaliémie ou antiarythmiques. Ne pas confondre avec un spike tombant dans la période réfractaire du myocarde après un QRS spontané, qui évoque plutôt une sous-détection.",
+    "aRetenir": "Spike non suivi de QRS hors période réfractaire = perte de capture.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-024",
+    "theme": "programmation",
+    "sousTheme": "Détection",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "La sensibilité d'un canal de détection est programmée en mV. Que se passe-t-il si l'on diminue cette valeur (par exemple de 2,5 à 0,5 mV) ?",
+    "options": [
+      "Le stimulateur devient plus sensible et détecte des signaux plus petits",
+      "Le stimulateur devient moins sensible",
+      "La marge de sécurité de capture augmente",
+      "La fréquence de base diminue"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "explication": "La valeur programmée est le seuil au-dessus duquel un signal est reconnu : plus elle est basse, plus des signaux de faible amplitude sont détectés, donc plus le canal est sensible. Diminuer la valeur corrige une sous-détection, mais expose à la surdétection (ondes T, myopotentiels, far-field). Augmenter la valeur rend le canal moins sensible. C'est un piège classique de vocabulaire : « augmenter la sensibilité » signifie baisser le chiffre en mV.",
+    "aRetenir": "Valeur en mV plus basse = canal plus sensible.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-025",
+    "theme": "programmation",
+    "sousTheme": "Détection",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Sur ce tracé, des spikes sont émis malgré une activité spontanée bien visible. Quel réglage corrige habituellement le problème ?",
+    "ecg": {
+      "preset": "sous-detection",
+      "fc": 70
+    },
+    "options": [
+      "Augmenter la valeur de sensibilité en mV (canal moins sensible)",
+      "Allonger la PVARP",
+      "Augmenter l'amplitude de stimulation",
+      "Diminuer la valeur de sensibilité en mV (canal plus sensible)"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "explication": "Des spikes délivrés alors qu'un complexe spontané vient de survenir traduisent une sous-détection : le stimulateur « ne voit pas » l'activité intrinsèque. Si le signal est simplement de faible amplitude, on rend le canal plus sensible en abaissant la valeur en mV, en vérifiant l'absence de surdétection. Augmenter la sortie ne corrige pas un défaut de détection. Il faut aussi rechercher un déplacement de sonde ou une baisse de l'amplitude du signal (infarctus, fibrose).",
+    "aRetenir": "Sous-détection : rendre le canal plus sensible (abaisser la valeur en mV).",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-026",
+    "theme": "programmation",
+    "sousTheme": "Détection",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Chez un patient stimulé en VVI, ce tracé montre une pause sans spike, plus longue que l'intervalle de base. Quelle est l'hypothèse principale ?",
+    "ecg": {
+      "preset": "sur-detection",
+      "fc": 60
+    },
+    "options": [
+      "Sous-détection ventriculaire",
+      "Perte de capture",
+      "Surdétection (inhibition inappropriée par un signal non cardiaque ou non ventriculaire)",
+      "Hystérésis de fréquence mal programmée"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "explication": "Une pause sans spike alors que le stimulateur aurait dû stimuler signifie qu'il a été inhibé : il a « vu » un signal qu'il a interprété comme un QRS. Les causes : myopotentiels (surtout en unipolaire), ondes T, far-field, bruit de fracture de sonde, interférences extérieures. La perte de capture donne des spikes sans QRS, la sous-détection des spikes en trop. Une hystérésis peut expliquer un premier cycle plus long, mais pas une pause isolée sans raison. Le diagnostic se confirme sur les EGM et les marqueurs.",
+    "aRetenir": "Pause sans spike chez un stimulé = surdétection jusqu'à preuve du contraire.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-027",
+    "theme": "programmation",
+    "sousTheme": "Détection",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "L'onde R mesurée sur la sonde VD est de 8 mV. Quelle sensibilité ventriculaire est la plus adaptée ?",
+    "options": [
+      "0,5 mV",
+      "2,5 mV",
+      "8 mV",
+      "10 mV"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "La sensibilité doit être réglée avec une marge : classiquement au moins la moitié à un tiers de l'amplitude du signal mesuré, pour garantir la détection malgré les variations d'amplitude. Avec une R de 8 mV, 2,5 mV offre une marge d'environ 3. À 8 ou 10 mV, le signal serait sous-détecté par moments. À 0,5 mV, le canal est inutilement sensible et expose à la surdétection d'ondes T ou de myopotentiels.",
+    "aRetenir": "Sensibilité programmée ≈ 1/2 à 1/3 de l'amplitude du signal mesuré.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-028",
+    "theme": "programmation",
+    "sousTheme": "Détection",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 3,
+    "question": "La détection en configuration unipolaire est plus exposée à la surdétection des myopotentiels pectoraux que la détection bipolaire.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "explication": "En unipolaire, le champ de détection s'étend entre l'extrémité de la sonde et le boîtier situé dans le muscle pectoral : les myopotentiels et les interférences extérieures sont donc plus facilement captés. En bipolaire, les deux électrodes sont proches à l'extrémité de la sonde, ce qui limite l'antenne. Reprogrammer en bipolaire, quand la sonde le permet, est souvent la solution à une surdétection de myopotentiels. Le spike unipolaire est aussi bien plus ample sur l'ECG.",
+    "aRetenir": "Bipolaire = moins de surdétection de myopotentiels qu'unipolaire.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-029",
+    "theme": "programmation",
+    "sousTheme": "Détection",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "En DDD, qu'appelle-t-on « crosstalk » et comment est-il prévenu ?",
+    "options": [
+      "La détection de l'onde T sur le canal atrial, prévenue par la PVARP",
+      "La stimulation simultanée des deux ventricules, prévenue par le délai VV",
+      "La conduction rétrograde VA, prévenue par l'hystérésis",
+      "La détection de l'impulsion atriale sur le canal ventriculaire, prévenue par le blanking ventriculaire post-atrial et la stimulation ventriculaire de sécurité"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "explication": "Le crosstalk est la détection, par le canal ventriculaire, de l'impulsion de stimulation atriale : le stimulateur se croit inhibé par un QRS et ne stimule pas le ventricule, ce qui peut être dramatique en BAV complet. Il est prévenu par un blanking ventriculaire bref après chaque stimulation atriale, puis par une fenêtre pendant laquelle tout signal détecté entraîne une stimulation ventriculaire de sécurité à délai AV court (environ 100-120 ms). Cette stimulation de sécurité évite l'inhibition sans risquer de tomber sur l'onde T. La PVARP concerne le canal atrial.",
+    "aRetenir": "Crosstalk = spike A vu par le canal V ; prévention : blanking post-atrial + stimulation de sécurité.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-030",
+    "theme": "programmation",
+    "sousTheme": "Détection",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Un patient en DDD présente de nombreux épisodes de mode switch alors que l'ECG est en rythme sinusal. Les EGM montrent un signal atrial systématiquement contemporain du QRS. Quelle est la mesure la plus adaptée ?",
+    "options": [
+      "Diminuer la PVARP",
+      "Augmenter la fréquence maximale de suivi",
+      "Allonger le blanking atrial post-ventriculaire (PVAB) et/ou rendre le canal atrial moins sensible",
+      "Programmer le canal atrial en unipolaire"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "explication": "Un signal atrial calé sur chaque QRS évoque la détection en champ lointain de l'onde R (far-field) sur la sonde atriale : l'appareil compte deux événements atriaux par cycle et peut déclencher à tort un mode switch. On corrige en allongeant le blanking atrial post-ventriculaire pour masquer le far-field, ou en diminuant la sensibilité atriale si l'onde P reste bien détectée. Passer en unipolaire aggraverait le problème. Raccourcir la PVARP ou augmenter la fréquence maximale n'ont aucun effet sur ce phénomène. Attention : un PVAB trop long peut masquer une partie de l'activité d'un flutter.",
+    "aRetenir": "Faux mode switch par far-field R : allonger le PVAB ou réduire la sensibilité atriale.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-031",
+    "theme": "programmation",
+    "sousTheme": "Impédances de sonde",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Quelle plage d'impédance de stimulation est habituellement considérée comme normale pour une sonde standard ?",
+    "options": [
+      "20 à 100 Ω",
+      "Environ 200 à 1 200 Ω",
+      "2 000 à 5 000 Ω",
+      "Plus de 10 000 Ω"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "Les impédances de stimulation normales se situent grossièrement entre 200-300 et 1 000-1 200 Ω selon les sondes (les sondes dites à haute impédance peuvent dépasser ces valeurs). Plus que la valeur absolue, c'est l'évolution qui compte : une variation brutale par rapport aux mesures antérieures est suspecte. Une valeur très basse évoque un défaut d'isolant, une valeur très élevée une fracture de conducteur ou une mauvaise connexion. Il faut toujours se référer aux données du fabricant de la sonde.",
+    "aRetenir": "Impédance normale ≈ 200-1 200 Ω ; c'est surtout la tendance qui compte.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Wilkoff BL et al. HRS/EHRA expert consensus on the monitoring of cardiovascular implantable electronic devices (CIEDs). Heart Rhythm 2008;5:907-925",
+        "url": "https://doi.org/10.1016/j.hrthm.2008.04.013"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-032",
+    "theme": "programmation",
+    "sousTheme": "Impédances de sonde",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "L'impédance de la sonde ventriculaire passe brutalement de 600 à plus de 3 000 Ω. Quel diagnostic évoquer en premier ?",
+    "options": [
+      "Fracture du conducteur ou problème de connexion au boîtier",
+      "Défaut d'isolant",
+      "Élévation physiologique post-implantation",
+      "Hyperkaliémie"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "explication": "Une élévation franche et brutale de l'impédance traduit une interruption du circuit électrique : fracture du conducteur (souvent sous la clavicule ou au niveau du pli costo-claviculaire) ou vis de connexion mal serrée si le problème survient juste après l'implantation. Elle s'accompagne volontiers de perte de capture intermittente et de bruit sur les EGM. Le défaut d'isolant donne au contraire une baisse d'impédance. L'hyperkaliémie modifie le seuil, pas l'impédance de la sonde.",
+    "aRetenir": "Impédance qui s'envole = fracture de conducteur ou défaut de connexion.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-033",
+    "theme": "programmation",
+    "sousTheme": "Impédances de sonde",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Une sonde bipolaire présente une impédance chutant de 650 à 180 Ω. Quelle hypothèse est la plus probable ?",
+    "options": [
+      "Fracture du conducteur",
+      "Vis de connexion desserrée",
+      "Sonde bien maturée",
+      "Défaut d'isolant"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "explication": "Une impédance basse (typiquement < 200 Ω) ou une chute franche évoque un défaut d'isolant : le courant fuit entre les conducteurs ou vers les tissus. Cela augmente le courant débité (usure de la pile) et peut entraîner perte de capture et surdétection. La fracture et le défaut de connexion donnent au contraire une impédance élevée. Il faut comparer aux valeurs antérieures, vérifier les autres configurations et, si besoin, programmer en unipolaire en attendant une révision de sonde.",
+    "aRetenir": "Impédance basse = défaut d'isolant.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-034",
+    "theme": "programmation",
+    "sousTheme": "Impédances de sonde",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 6,
+    "question": "Une impédance de stimulation dans les normes lors du contrôle élimine formellement une fracture de sonde.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "Une fracture peut être partielle ou intermittente : l'impédance mesurée à un instant donné peut être normale alors que des épisodes de bruit, de surdétection ou de perte de capture surviennent lors de certains mouvements. Il faut analyser les tendances d'impédance mémorisées, les EGM enregistrés (artefacts à haute fréquence non physiologiques) et réaliser des manœuvres de provocation (mouvements du bras, respiration profonde) sous enregistrement. Une radiographie peut aider mais est souvent peu sensible.",
+    "aRetenir": "Impédance normale ponctuelle n'exclut pas une fracture intermittente.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Wilkoff BL et al. HRS/EHRA expert consensus on the monitoring of cardiovascular implantable electronic devices (CIEDs). Heart Rhythm 2008;5:907-925",
+        "url": "https://doi.org/10.1016/j.hrthm.2008.04.013"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-035",
+    "theme": "programmation",
+    "sousTheme": "Impédances de sonde",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Quels éléments évoquent une fracture de sonde de stimulation ?",
+    "options": [
+      "Artefacts à haute fréquence non physiologiques sur les EGM",
+      "Élévation brutale de l'impédance",
+      "Perte de capture intermittente",
+      "Chute de l'impédance sous 200 Ω"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "reponseAttendue": null,
+    "explication": "La fracture du conducteur crée des micro-interruptions du circuit : bruit rapide non physiologique sur les EGM (souvent saturant), qui peut provoquer une surdétection avec inhibition, et perte de capture intermittente. L'impédance monte, parfois de façon intermittente. Une chute de l'impédance oriente plutôt vers un défaut d'isolant, même si les deux défauts peuvent coexister sur une sonde abîmée. Les manœuvres de provocation aident à reproduire le bruit.",
+    "aRetenir": "Fracture = bruit sur les EGM, impédance élevée, perte de capture intermittente.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-036",
+    "theme": "programmation",
+    "sousTheme": "Impédances de sonde",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 6,
+    "question": "Pourquoi une sonde de stimulation à haute impédance améliore-t-elle la longévité du boîtier ?",
+    "reponseAttendue": "À tension égale, une impédance plus élevée diminue le courant débité (I = U/R), donc la charge et l'énergie consommées à chaque impulsion.",
+    "explication": "Le boîtier délivre une impulsion à tension constante : le courant est donné par la loi d'Ohm (I = U/R). Si l'impédance est deux fois plus élevée, le courant et l'énergie délivrés à chaque impulsion sont divisés par deux pour une même capture. Les sondes à haute impédance utilisent une électrode de petite surface, qui concentre la densité de courant et permet de garder un seuil bas. Le bénéfice est surtout marqué chez les patients très stimulés. Il ne faut pas confondre cette impédance « de conception » avec une élévation anormale (fracture).",
+    "aRetenir": "Haute impédance = moins de courant débité = meilleure longévité.",
+    "sources": [
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-037",
+    "theme": "programmation",
+    "sousTheme": "Intervalles et périodes réfractaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "La fréquence de base d'un stimulateur est programmée à 70/min. Quel est l'intervalle de base correspondant ?",
+    "options": [
+      "700 ms",
+      "1 170 ms",
+      "1 000 ms",
+      "857 ms"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "explication": "L'intervalle (en ms) se calcule par 60 000 / fréquence (en /min) : 60 000 / 70 ≈ 857 ms. À 60/min, l'intervalle est de 1 000 ms, à 50/min de 1 200 ms. Ce calcul est indispensable pour analyser un tracé : un cycle plus long que l'intervalle de base sans stimulation doit faire rechercher une surdétection ou une hystérésis. Le piège est de confondre fréquence et intervalle ou de « lire » 700 ms pour 70/min.",
+    "aRetenir": "Intervalle (ms) = 60 000 / fréquence (/min).",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-038",
+    "theme": "programmation",
+    "sousTheme": "Intervalles et périodes réfractaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Un DDD fonctionne en « base ventriculaire » avec une fréquence de base à 60/min et un délai AV stimulé de 200 ms. Quel est l'intervalle d'échappement atrial (intervalle VA) ?",
+    "options": [
+      "200 ms",
+      "600 ms",
+      "800 ms",
+      "1 000 ms"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "explication": "En base ventriculaire, l'intervalle de base (1 000 ms à 60/min) est découpé en intervalle VA (de l'événement ventriculaire à la stimulation atriale suivante) et délai AV. L'intervalle VA vaut donc 1 000 − 200 = 800 ms. Si aucune onde P n'est détectée pendant ces 800 ms, l'oreillette est stimulée, puis le ventricule 200 ms plus tard en l'absence de conduction. Ce raisonnement permet de comprendre les variations de fréquence observées en cas de conduction AV spontanée.",
+    "aRetenir": "Intervalle VA = intervalle de base − délai AV.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-039",
+    "theme": "programmation",
+    "sousTheme": "Intervalles et périodes réfractaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Un DDD est programmé avec un délai AV détecté de 150 ms et une PVARP de 250 ms. À partir de quelle fréquence atriale apparaîtra un bloc 2:1 ?",
+    "options": [
+      "120/min",
+      "150/min",
+      "167/min",
+      "240/min"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "La période réfractaire atriale totale (TARP) est la somme du délai AV et de la PVARP : 150 + 250 = 400 ms. Toute onde P survenant à un intervalle plus court tombe dans la TARP et n'est pas suivie : le point de bloc 2:1 est donc 60 000 / 400 = 150/min. C'est un paramètre essentiel chez les patients jeunes et actifs en BAV, qui peuvent brutalement voir leur fréquence ventriculaire divisée par deux à l'effort. Raccourcir le délai AV (délai AV dynamique) ou la PVARP relève ce point.",
+    "aRetenir": "Point de bloc 2:1 = 60 000 / (délai AV + PVARP).",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-040",
+    "theme": "programmation",
+    "sousTheme": "Intervalles et périodes réfractaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Pourquoi le délai AV après stimulation atriale est-il habituellement programmé plus long que le délai AV après détection atriale ?",
+    "options": [
+      "Parce qu'après une stimulation atriale, l'activation de l'oreillette gauche est plus tardive et que la détection d'une P spontanée survient déjà avec un retard par rapport à son début",
+      "Pour réduire la consommation de la pile",
+      "Pour éviter le crosstalk",
+      "Parce que la PVARP est plus longue après stimulation atriale"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "explication": "Une onde P spontanée n'est détectée qu'au moment où le front d'activation atteint la sonde atriale, donc avec un certain retard par rapport au début de l'onde P. À l'inverse, après une stimulation atriale (souvent auriculaire droite haute), l'activation de l'oreillette gauche est retardée par la conduction inter-atriale. Pour obtenir un synchronisme AV gauche comparable, on allonge donc le délai AV stimulé d'environ 30 à 50 ms par rapport au délai détecté. Ce n'est pas un réglage lié au crosstalk ni à la pile.",
+    "aRetenir": "Délai AV stimulé > délai AV détecté pour préserver un synchronisme AV gauche équivalent.",
+    "sources": [
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      },
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-041",
+    "theme": "programmation",
+    "sousTheme": "Intervalles et périodes réfractaires",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Un signal survenant pendant une période de blanking est totalement ignoré par le stimulateur, alors qu'un signal survenant dans la partie non-blanking d'une période réfractaire peut être compté par certains algorithmes (par exemple le mode switch).",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "explication": "Pendant le blanking, l'amplificateur est « aveugle » : aucun signal n'est vu. Pendant le reste de la période réfractaire, le signal est détecté mais ne réarme pas les intervalles de temps ; il peut en revanche être utilisé par des algorithmes. Ainsi, des ondes P de FA tombant dans la PVARP (hors PVAB) sont prises en compte pour le diagnostic de tachycardie atriale et le mode switch. Cette distinction explique pourquoi un flutter peut être sous-détecté si ses ondes tombent dans le blanking.",
+    "aRetenir": "Blanking = signal invisible ; période réfractaire = signal vu mais sans effet sur la temporisation.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-042",
+    "theme": "programmation",
+    "sousTheme": "Intervalles et périodes réfractaires",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 9,
+    "question": "DDD : fréquence maximale de suivi 120/min, délai AV détecté 180 ms, PVARP 300 ms. Décrivez le comportement quand la fréquence sinusale s'accélère au-delà de 120/min.",
+    "reponseAttendue": "TARP = 480 ms, point de bloc 2:1 = 125/min. Entre 120 et 125/min : comportement de pseudo-Wenckebach (allongement progressif du délai AV puis P non suivie) ; au-delà de 125/min : bloc 2:1 brutal (fréquence ventriculaire divisée par deux).",
+    "explication": "L'intervalle de la fréquence maximale de suivi est de 500 ms et la TARP de 180 + 300 = 480 ms. Le pseudo-Wenckebach n'est possible que si l'intervalle de fréquence maximale est plus long que la TARP : ici la fenêtre ne va que de 120 à 125/min (60 000/480). Au-delà, une P sur deux tombe dans la PVARP : la fréquence ventriculaire chute brutalement vers 62/min, ce qui peut être mal toléré à l'effort. Pour élargir la zone de Wenckebach, on raccourcit la PVARP ou le délai AV (délai AV dynamique), ou on augmente la fréquence maximale si c'est adapté.",
+    "aRetenir": "Wenckebach entre la fréquence max de suivi et 60 000/TARP ; au-delà, bloc 2:1.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-043",
+    "theme": "programmation",
+    "sousTheme": "Comportement à la fréquence maximale",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Chez un patient en BAV complet stimulé en DDD, la fréquence sinusale dépasse légèrement la fréquence maximale de suivi (mais reste sous le point de bloc 2:1). Quel aspect observe-t-on ?",
+    "options": [
+      "Un bloc 2:1 brutal",
+      "Un allongement progressif du délai AV jusqu'à une onde P non suivie (pseudo-Wenckebach)",
+      "Un passage immédiat en DDI",
+      "Une stimulation asynchrone VOO"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "Le stimulateur ne peut pas stimuler le ventricule plus vite que la fréquence maximale de suivi : il retarde donc la stimulation ventriculaire, ce qui allonge progressivement le délai AV apparent. Au bout de quelques cycles, une onde P tombe dans la PVARP et n'est pas suivie, reproduisant un aspect de Wenckebach. Le bloc 2:1 n'apparaît qu'au-delà de 60 000/TARP. Le passage en DDI relève du mode switch, déclenché par une tachycardie atriale et non par une tachycardie sinusale.",
+    "aRetenir": "Au-dessus de la fréquence max de suivi : pseudo-Wenckebach, puis 2:1.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-044",
+    "theme": "programmation",
+    "sousTheme": "Comportement à la fréquence maximale",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Ce tracé montre un patient en DDD stimulé en permanence à la fréquence maximale de suivi, sans tachycardie atriale. Quel est le mécanisme de cette tachycardie par réentrée électronique ?",
+    "ecg": {
+      "preset": "ttre",
+      "fc": 130
+    },
+    "options": [
+      "Conduction rétrograde VA : l'onde P rétrograde est détectée hors PVARP et suivie d'une stimulation ventriculaire, qui entretient la boucle",
+      "Surdétection de l'onde T sur le canal ventriculaire",
+      "Défaut de capture atriale isolé",
+      "Asservissement de fréquence inapproprié"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "explication": "La TRE nécessite une conduction rétrograde ventriculo-atriale : la P rétrograde tombe après la PVARP, elle est suivie d'une stimulation ventriculaire, qui est de nouveau conduite de façon rétrograde. La boucle tourne à la fréquence maximale de suivi (ou juste en dessous). Elle s'interrompt avec un aimant (mode asynchrone) et se prévient en allongeant la PVARP (notamment après une ESV) ou avec les algorithmes de détection de TRE. L'asservissement peut accélérer la stimulation mais ne crée pas ce mécanisme de boucle.",
+    "aRetenir": "TRE = boucle via conduction VA rétrograde suivie par le stimulateur ; aimant et PVARP.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-045",
+    "theme": "programmation",
+    "sousTheme": "Comportement à la fréquence maximale",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Quels événements peuvent initier une tachycardie par réentrée électronique chez un patient avec conduction rétrograde VA ?",
+    "options": [
+      "Extrasystole ventriculaire",
+      "Perte de capture atriale",
+      "Sous-détection atriale",
+      "PVARP allongée"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "reponseAttendue": null,
+    "explication": "Tout événement qui dissocie l'oreillette du ventricule et laisse l'oreillette non réfractaire peut démasquer la conduction rétrograde : ESV (le cas le plus fréquent), perte de capture atriale, sous-détection atriale conduisant à une stimulation atriale inefficace, ou encore ESA et surdétection atriale. La P rétrograde est alors détectée hors PVARP et suivie. Allonger la PVARP est au contraire le moyen de prévention : c'est pourquoi de nombreux stimulateurs l'allongent automatiquement après une ESV.",
+    "aRetenir": "ESV, perte de capture ou sous-détection atriale peuvent déclencher une TRE.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-046",
+    "theme": "programmation",
+    "sousTheme": "Mode switch",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Quel est l'objectif du mode switch (commutation de mode) en DDD ?",
+    "options": [
+      "Augmenter la fréquence de base pendant l'effort",
+      "Passer en mode asynchrone en cas d'interférence",
+      "Éviter de suivre une tachycardie atriale (FA, flutter) par une stimulation ventriculaire rapide en passant dans un mode non suiveur",
+      "Réduire la stimulation atriale"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "explication": "Sans mode switch, un DDD suivrait une FA ou un flutter en stimulant le ventricule jusqu'à la fréquence maximale de suivi, de façon irrégulière et mal tolérée. Quand l'appareil détecte une fréquence atriale dépassant un seuil programmé, il bascule vers un mode non suiveur (DDI(R) ou VDI(R)) et revient en DDD à la fin de l'épisode. Les épisodes sont mémorisés, ce qui fait du mode switch aussi un outil diagnostique de FA. Le passage en mode asynchrone lors d'une interférence relève d'une autre fonction (mode bruit).",
+    "aRetenir": "Mode switch = bascule en mode non suiveur lors d'une tachycardie atriale.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Glikson M et al. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-047",
+    "theme": "programmation",
+    "sousTheme": "Mode switch",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 10,
+    "question": "Un patient en DDD a un flutter atrial à 300/min conduit en 2:1. Le stimulateur ne commute pas. Quelle explication est la plus probable ?",
+    "options": [
+      "Le flutter ne peut jamais être détecté par une sonde atriale",
+      "Une onde F sur deux tombe dans le blanking atrial post-ventriculaire : l'appareil ne compte qu'environ 150/min, sous le seuil de détection de tachycardie atriale",
+      "La fréquence maximale de suivi est trop basse",
+      "L'asservissement est désactivé"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "Avec un cycle de flutter à 200 ms et un QRS toutes les deux ondes F, une onde F sur deux coïncide avec l'événement ventriculaire et tombe dans le blanking atrial post-ventriculaire. Le canal atrial ne compte alors que la moitié des ondes, soit environ 150/min, souvent sous la fréquence de détection de tachycardie atriale : pas de mode switch. Certains algorithmes cherchent spécifiquement ce schéma (modification temporaire des intervalles pour démasquer les ondes cachées). Réduire le PVAB, quand le far-field le permet, peut aussi aider.",
+    "aRetenir": "Flutter 2:1 : une onde F sur deux peut être masquée par le blanking, empêchant le mode switch.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-048",
+    "theme": "programmation",
+    "sousTheme": "Mode switch",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Un nombre élevé d'épisodes de mode switch en mémoire suffit pour poser le diagnostic de FA et débuter une anticoagulation, sans analyse des EGM.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "Les compteurs de mode switch peuvent être faussés par la détection du far-field R, de bruit ou de myopotentiels sur le canal atrial. Les recommandations imposent de vérifier les EGM mémorisés pour confirmer qu'il s'agit bien d'épisodes de FA ou de tachycardie atriale (AHRE/FA infraclinique) avant toute décision thérapeutique. La décision d'anticoagulation dépend ensuite de la durée des épisodes et du profil de risque thromboembolique. La lecture des tracés est donc incontournable.",
+    "aRetenir": "Épisodes de mode switch : toujours vérifier les EGM avant de conclure à une FA.",
+    "sources": [
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Van Gelder IC et al. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-049",
+    "theme": "programmation",
+    "sousTheme": "Asservissement et hystérésis",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Quelle est une limite connue d'un capteur d'activité de type accéléromètre ?",
+    "options": [
+      "Une réponse très lente, de plusieurs minutes, au début de l'effort",
+      "Une incompatibilité avec la stimulation double chambre",
+      "Une interférence systématique avec la télémétrie",
+      "Une réponse insuffisante lors d'efforts à faible composante de mouvement du tronc (vélo) ou de stress non mécanique (émotion, fièvre)"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "explication": "L'accéléromètre détecte les mouvements et vibrations du corps : sa réponse est rapide au début de l'effort, mais elle est peu proportionnelle à la charge métabolique. Un effort statique ou avec peu de mouvement du tronc (vélo) et les stress non mécaniques entraînent peu d'accélération. À l'inverse, des vibrations passives (véhicule sur route pavée) peuvent accélérer inutilement la stimulation. Le capteur de ventilation-minute est plus physiologique mais plus lent ; certains appareils combinent les deux.",
+    "aRetenir": "Accéléromètre : rapide mais peu proportionnel à la charge métabolique.",
+    "sources": [
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      },
+      {
+        "titre": "Mulpuru SK et al. Advances and future directions in cardiac pacemakers: part 2 of a 2-part series. J Am Coll Cardiol 2017;69:211-235",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.064"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-050",
+    "theme": "programmation",
+    "sousTheme": "Asservissement et hystérésis",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Un capteur de ventilation-minute estime la ventilation par la mesure de l'impédance transthoracique. Quelle situation peut entraîner une accélération inappropriée de la stimulation ?",
+    "options": [
+      "Un effort sur vélo",
+      "Le passage en mode switch",
+      "La connexion à certains moniteurs ou appareils utilisant eux-mêmes une mesure d'impédance thoracique (monitorage respiratoire)",
+      "Une fréquence de base à 50/min"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "explication": "Le capteur de ventilation-minute injecte de petites impulsions de courant et mesure les variations d'impédance transthoracique liées à la respiration. Des signaux extérieurs de même nature (monitorage respiratoire par impédance de certains moniteurs, ventilation mécanique, bistouri électrique) peuvent être interprétés comme une hyperventilation et accélérer la stimulation jusqu'à la fréquence maximale du capteur. C'est pourquoi on recommande de désactiver ce capteur en période périopératoire. L'effort sur vélo, lui, augmente physiologiquement la ventilation.",
+    "aRetenir": "Capteur de ventilation-minute : à désactiver en cas de monitorage par impédance ou en périopératoire.",
+    "sources": [
+      {
+        "titre": "Crossley GH et al. The HRS/ASA Expert Consensus Statement on the perioperative management of patients with implantable defibrillators, pacemakers and arrhythmia monitors. Heart Rhythm 2011;8:1114-1154",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21722856/"
+      },
+      {
+        "titre": "Stühlinger M et al. EHRA consensus on prevention and management of interference due to medical procedures in patients with cardiac implantable electronic devices. Europace 2022;24:1512-1537",
+        "url": "https://doi.org/10.1093/europace/euac040"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-051",
+    "theme": "programmation",
+    "sousTheme": "Asservissement et hystérésis",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Fréquence de base à 60/min avec une hystérésis de fréquence à 50/min. Que fait le stimulateur ?",
+    "options": [
+      "Il stimule en permanence à 50/min",
+      "Il laisse le rythme spontané descendre jusqu'à 50/min avant de stimuler, puis stimule à 60/min",
+      "Il stimule à 60/min dès que le rythme spontané descend sous 60/min",
+      "Il alterne 50 et 60/min toutes les minutes"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "L'hystérésis allonge l'intervalle d'échappement après un événement spontané : le stimulateur tolère un rythme intrinsèque jusqu'à 50/min. S'il doit stimuler, il le fait à la fréquence de base de 60/min, jusqu'au retour du rythme spontané (certains appareils font des recherches périodiques). L'objectif est de favoriser le rythme spontané et d'économiser la pile. Le piège : un cycle entre 1 000 et 1 200 ms sans stimulation n'est pas une surdétection chez ce patient.",
+    "aRetenir": "Hystérésis : on laisse le rythme spontané descendre plus bas avant de stimuler à la fréquence de base.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-052",
+    "theme": "programmation",
+    "sousTheme": "Asservissement et hystérésis",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 4,
+    "question": "L'asservissement de fréquence est indiqué chez un patient qui présente une incompétence chronotrope symptomatique.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "explication": "L'incompétence chronotrope, c'est-à-dire l'incapacité à accélérer suffisamment la fréquence cardiaque à l'effort, est l'indication même de l'asservissement : le capteur remplace le nœud sinusal défaillant. L'ESC 2021 retient l'asservissement chez les patients avec incompétence chronotrope, en particulier s'ils sont symptomatiques à l'effort, et en FA permanente (VVIR). Chez un patient avec une fonction sinusale normale et un BAV, le suivi de l'onde P en DDD suffit à adapter la fréquence. Les réglages doivent être ajustés à l'activité du patient (test de marche, histogrammes).",
+    "aRetenir": "Incompétence chronotrope symptomatique = activer l'asservissement.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Glikson M et al. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-053",
+    "theme": "programmation",
+    "sousTheme": "Réduction de la stimulation ventriculaire",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Parmi les stratégies suivantes, lesquelles visent à réduire la stimulation ventriculaire inutile chez un patient avec conduction AV conservée ?",
+    "options": [
+      "Hystérésis du délai AV / recherche périodique de conduction spontanée",
+      "Fonctionnement de type AAI(R) avec surveillance de la conduction et bascule en DDD(R) en cas de BAV",
+      "Raccourcissement systématique du délai AV à 100 ms",
+      "Diminution de la fréquence maximale de suivi"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "Deux grandes familles d'algorithmes existent : l'allongement du délai AV (hystérésis ou recherche automatique de la conduction intrinsèque), et les modes qui fonctionnent en stimulation atriale seule avec surveillance du ventricule, rebasculant en DDD en cas de perte de conduction AV. Raccourcir le délai AV augmente au contraire la stimulation ventriculaire. La fréquence maximale de suivi n'a pas de rôle dans ce cadre. Ces algorithmes sont recommandés dans la dysfonction sinusale.",
+    "aRetenir": "Réduction de la stimulation V : allonger le délai AV ou fonctionner en AAI avec bascule DDD.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Glikson M et al. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Sweeney MO et al. Minimizing ventricular pacing to reduce atrial fibrillation in sinus-node disease (SAVE PACe). N Engl J Med 2007;357:1000-1008",
+        "url": "https://doi.org/10.1056/NEJMoa071880"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-054",
+    "theme": "programmation",
+    "sousTheme": "Réduction de la stimulation ventriculaire",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Dans l'essai SAVE PACe (dysfonction sinusale), quel a été l'effet de la minimisation de la stimulation ventriculaire par rapport au DDD conventionnel ?",
+    "options": [
+      "Aucune différence significative",
+      "Réduction de la mortalité totale de moitié",
+      "Réduction relative d'environ 40 % du risque de FA persistante",
+      "Augmentation des syncopes par BAV"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "explication": "SAVE PACe a randomisé des patients avec dysfonction sinusale et conduction AV conservée entre DDD(R) conventionnel et DDD(R) avec algorithmes de minimisation de la stimulation ventriculaire. La stimulation ventriculaire a chuté de façon massive et la FA persistante a été réduite (7,9 % vs 12,7 %, soit environ 40 % de réduction relative). Il n'y a pas eu d'effet démontré sur la mortalité. La sécurité était satisfaisante, sans excès d'événements liés au BAV.",
+    "aRetenir": "SAVE PACe : minimiser la stimulation V réduit d'environ 40 % la FA persistante.",
+    "sources": [
+      {
+        "titre": "Sweeney MO et al. Minimizing ventricular pacing to reduce atrial fibrillation in sinus-node disease (SAVE PACe). N Engl J Med 2007;357:1000-1008",
+        "url": "https://doi.org/10.1056/NEJMoa071880"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-055",
+    "theme": "programmation",
+    "sousTheme": "Réduction de la stimulation ventriculaire",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 8,
+    "question": "Chez un patient ayant un BAV du premier degré très marqué (PR à 350 ms), favoriser à tout prix la conduction spontanée est toujours la meilleure stratégie.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "Un PR très long peut entraîner un asynchronisme AV délétère : contraction atriale trop précoce, fusion des ondes E et A, insuffisance mitrale diastolique et symptômes proches du syndrome du pacemaker. Dans ce cas, laisser conduire à tout prix avec des délais AV extrêmes n'est pas physiologique. Il faut discuter au cas par cas entre conduction spontanée et stimulation, idéalement physiologique (stimulation du système de conduction) si la stimulation ventriculaire devient importante. La minimisation de la stimulation V a été validée surtout chez des patients avec conduction normale.",
+    "aRetenir": "Un PR très long n'est pas toujours préférable à la stimulation : l'asynchronisme AV est lui aussi délétère.",
+    "sources": [
+      {
+        "titre": "Chung MK et al. 2023 HRS/APHRS/LAHRS guideline on cardiac physiologic pacing for the avoidance and mitigation of heart failure. Heart Rhythm 2023;20:e17-e91",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1538"
+      },
+      {
+        "titre": "Kusumoto FM et al. 2018 ACC/AHA/HRS guideline on the evaluation and management of patients with bradycardia and cardiac conduction delay. Heart Rhythm 2019;16:e128-e226",
+        "url": "https://doi.org/10.1016/j.hrthm.2018.10.037"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-056",
+    "theme": "programmation",
+    "sousTheme": "Longévité et ERI",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Que signifie l'indicateur ERI affiché lors d'un contrôle de stimulateur ?",
+    "options": [
+      "L'indicateur de remplacement électif est atteint : il faut programmer le remplacement du boîtier dans les semaines qui viennent (habituellement dans les 3 mois)",
+      "Le boîtier doit être remplacé dans l'heure",
+      "La sonde est défaillante",
+      "Le stimulateur est passé en mode IRM"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "explication": "L'ERI (elective replacement indicator) est atteint quand la tension de la pile descend à un niveau prédéfini : le stimulateur fonctionne encore normalement, mais il reste une réserve limitée, classiquement de l'ordre de trois mois. Il faut donc planifier le remplacement sans urgence mais sans tarder, surtout chez un patient dépendant. Au-delà, on atteint l'EOS (fin de service), où le fonctionnement n'est plus garanti. L'ERI ne dit rien de l'état des sondes.",
+    "aRetenir": "ERI = programmer le remplacement du boîtier (réserve de l'ordre de 3 mois).",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. HRS/EHRA expert consensus on the monitoring of cardiovascular implantable electronic devices (CIEDs). Heart Rhythm 2008;5:907-925",
+        "url": "https://doi.org/10.1016/j.hrthm.2008.04.013"
+      },
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-057",
+    "theme": "programmation",
+    "sousTheme": "Longévité et ERI",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Parmi ces modifications de programmation, laquelle réduit le plus la longévité d'un stimulateur chez un patient stimulé en permanence ?",
+    "options": [
+      "Passer la durée d'impulsion de 0,4 à 0,5 ms",
+      "Programmer la sensibilité de 2,5 à 2,0 mV",
+      "Activer l'hystérésis de fréquence",
+      "Passer l'amplitude de 2,5 à 5,0 V"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "explication": "L'énergie par impulsion est proportionnelle au carré de la tension : doubler l'amplitude quadruple la consommation liée à la stimulation, ce qui a un effet majeur chez un patient stimulé en permanence. Une augmentation de durée de 0,4 à 0,5 ms n'augmente l'énergie que de 25 %. L'hystérésis tend plutôt à économiser la pile, et la sensibilité n'a qu'un impact négligeable. D'où l'intérêt d'une marge de sécurité juste suffisante et des algorithmes de gestion automatique de la capture.",
+    "aRetenir": "L'amplitude de stimulation est le premier levier de consommation de la pile.",
+    "sources": [
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      },
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-058",
+    "theme": "programmation",
+    "sousTheme": "Longévité et ERI",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 4,
+    "question": "Au passage en ERI, certains stimulateurs simplifient leur fonctionnement (par exemple passage en mode mono-chambre ou désactivation de l'asservissement) pour préserver la pile.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "explication": "Pour garantir la stimulation jusqu'au remplacement, de nombreux boîtiers modifient automatiquement leur programmation à l'ERI : passage en VVI ou en mode simplifié, désactivation de l'asservissement ou de certaines fonctions diagnostiques, parfois baisse de la fréquence. Ces changements varient selon les constructeurs et peuvent être symptomatiques (perte du synchronisme AV). Le passage en ERI est aussi signalé par la télésurveillance et, pour beaucoup d'appareils, par une modification de la fréquence sous aimant.",
+    "aRetenir": "À l'ERI, le boîtier peut modifier son mode de fonctionnement : il faut anticiper le remplacement.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-059",
+    "theme": "programmation",
+    "sousTheme": "Suivi en consultation",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Quel est l'effet habituel de l'application d'un aimant sur un stimulateur cardiaque (hors DAI) ?",
+    "options": [
+      "Arrêt complet de la stimulation",
+      "Stimulation asynchrone (VOO ou DOO) à une fréquence propre au boîtier (fréquence magnétique)",
+      "Passage en mode IRM",
+      "Augmentation de la sensibilité"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "Sur la plupart des stimulateurs, l'aimant supprime la détection : le boîtier stimule en mode asynchrone (VOO/DOO) à une fréquence magnétique définie par le constructeur, qui varie souvent avec l'état de la pile. Cela protège un patient dépendant contre l'inhibition par des interférences et permet de vérifier la capture. L'aimant ne coupe pas la stimulation. Sur un DAI, l'aimant suspend les thérapies antitachycardiques sans modifier la stimulation antibradycardique : l'effet est donc différent.",
+    "aRetenir": "Aimant sur un stimulateur = stimulation asynchrone ; sur un DAI = suspension des thérapies.",
+    "sources": [
+      {
+        "titre": "Crossley GH et al. The HRS/ASA Expert Consensus Statement on the perioperative management of patients with implantable defibrillators, pacemakers and arrhythmia monitors. Heart Rhythm 2011;8:1114-1154",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21722856/"
+      },
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-060",
+    "theme": "programmation",
+    "sousTheme": "Suivi en consultation",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 3,
+    "question": "Lors d'un contrôle standard de stimulateur, quels éléments sont systématiquement évalués ?",
+    "options": [
+      "État de la pile (tension, longévité estimée)",
+      "Impédances des sondes",
+      "Seuils de stimulation",
+      "Amplitudes des signaux détectés (P et R)",
+      "Mesure de la FEVG par le boîtier"
+    ],
+    "reponses": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "reponseAttendue": null,
+    "explication": "Le contrôle comporte l'interrogation du boîtier (pile, compteurs, événements mémorisés, % de stimulation), la vérification des sondes (impédances, seuils, amplitudes détectées), l'analyse des EGM stockés et l'ajustement de la programmation aux besoins du patient. Un stimulateur conventionnel ne mesure pas la FEVG : celle-ci s'évalue par échocardiographie, notamment chez les patients très stimulés dans le ventricule. L'examen clinique (cicatrice, symptômes) fait aussi partie du suivi.",
+    "aRetenir": "Contrôle = pile, impédances, seuils, détection, mémoires, et adaptation de la programmation.",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. HRS/EHRA expert consensus on the monitoring of cardiovascular implantable electronic devices (CIEDs). Heart Rhythm 2008;5:907-925",
+        "url": "https://doi.org/10.1016/j.hrthm.2008.04.013"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-061",
+    "theme": "programmation",
+    "sousTheme": "Suivi en consultation",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Selon le consensus HRS 2015 sur la télésurveillance, quelle est la place du suivi en consultation pour un patient télésurveillé ?",
+    "options": [
+      "Aucune consultation présentielle n'est plus nécessaire",
+      "Une consultation seulement au passage en ERI",
+      "Une consultation présentielle tous les mois",
+      "Au moins une évaluation en présentiel par an, en complément de la télésurveillance"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "explication": "La télésurveillance permet de réduire le nombre de consultations et de détecter précocement les problèmes (sondes, arythmies, pile), mais elle ne remplace pas totalement l'évaluation clinique. Le consensus HRS 2015 recommande, en complément de la télésurveillance, au moins une évaluation en présentiel par an. Le consensus HRS/EHRA/APHRS/LAHRS 2023 précise l'organisation pratique de ce suivi à distance. Une consultation mensuelle serait inutilement lourde.",
+    "aRetenir": "Télésurveillance + au moins une consultation présentielle annuelle.",
+    "sources": [
+      {
+        "titre": "Slotwiner D et al. HRS expert consensus statement on remote interrogation and monitoring for cardiovascular implantable electronic devices. Heart Rhythm 2015;12:e69-e100",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.05.008"
+      },
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-062",
+    "theme": "programmation",
+    "sousTheme": "Suivi en consultation",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 3,
+    "question": "Comment reconnaît-on la perte de capture ventriculaire sur l'ECG lors d'un test de seuil décrémentiel ?",
+    "reponseAttendue": "Le spike ventriculaire n'est plus suivi d'un QRS stimulé (élargi) : apparition d'un spike isolé, puis d'un rythme spontané ou d'une pause. Le seuil est la dernière amplitude qui capturait.",
+    "explication": "Pour mesurer le seuil, on stimule au-dessus de la fréquence spontanée puis on diminue l'amplitude pas à pas. Tant que la capture est présente, chaque spike est suivi d'un QRS large de morphologie constante. À la perte de capture, le spike n'est plus suivi de QRS : on observe soit un rythme d'échappement spontané, soit une pause chez un patient dépendant, d'où l'intérêt d'un test court avec retour automatique. Le seuil retenu est la plus faible amplitude qui capturait encore. Il faut distinguer une fusion (morphologie intermédiaire) d'une vraie perte de capture.",
+    "aRetenir": "Perte de capture = spike non suivi de QRS stimulé.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Wilkoff BL et al. HRS/EHRA expert consensus on the monitoring of cardiovascular implantable electronic devices (CIEDs). Heart Rhythm 2008;5:907-925",
+        "url": "https://doi.org/10.1016/j.hrthm.2008.04.013"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-063",
+    "theme": "programmation",
+    "sousTheme": "IRM et prothèses",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Un patient porte un stimulateur dont le boîtier est étiqueté « IRM-compatible sous conditions » (MR-conditional). Qu'est-ce qui conditionne la possibilité de réaliser l'IRM selon l'étiquetage ?",
+    "options": [
+      "Seulement le boîtier",
+      "L'ensemble du système (boîtier + sondes de la même combinaison validée) et le respect des conditions du fabricant (champ, zone, programmation)",
+      "Seulement la date d'implantation",
+      "L'âge du patient"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "La compatibilité IRM « sous conditions » s'applique à un système complet : le boîtier et les sondes doivent former une combinaison validée par le fabricant. Un boîtier compatible connecté à une sonde ancienne non validée, ou la présence d'une sonde abandonnée, fait sortir du cadre de l'étiquetage. Les conditions incluent l'intensité du champ (1,5 T ou 3 T), parfois des zones d'exclusion, les limites de SAR et la programmation en mode IRM. Le délai depuis l'implantation fait partie des conditions mais ne suffit pas à lui seul.",
+    "aRetenir": "IRM-compatible = un système complet validé, utilisé dans les conditions du fabricant.",
+    "sources": [
+      {
+        "titre": "Indik JH et al. 2017 HRS expert consensus statement on magnetic resonance imaging and radiation exposure in patients with cardiovascular implantable electronic devices. Heart Rhythm 2017;14:e97-e153",
+        "url": "https://doi.org/10.1016/j.hrthm.2017.04.025"
+      },
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Glikson M et al. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-064",
+    "theme": "programmation",
+    "sousTheme": "IRM et prothèses",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Patient dépendant de son stimulateur devant passer une IRM. Selon le consensus HRS 2017, quelle programmation retenir pendant l'examen ?",
+    "options": [
+      "Mode asynchrone (VOO/DOO) à une fréquence supérieure au rythme spontané, avec désactivation des fonctions avancées",
+      "Mode inhibé VVI à 40/min",
+      "Mode ODO (sans stimulation)",
+      "Mode DDDR avec asservissement actif"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "explication": "Pendant l'IRM, les champs électromagnétiques peuvent être détectés à tort comme une activité cardiaque et inhiber la stimulation : chez un patient dépendant, c'est un risque d'asystolie. On programme donc un mode asynchrone, à une fréquence suffisante pour éviter la compétition avec le rythme spontané, en désactivant l'asservissement et les autres algorithmes. Un mode ODO serait fatal chez un dépendant. Le patient doit être monitoré et la programmation initiale restaurée après l'examen.",
+    "aRetenir": "IRM chez un patient dépendant = mode asynchrone.",
+    "sources": [
+      {
+        "titre": "Indik JH et al. 2017 HRS expert consensus statement on magnetic resonance imaging and radiation exposure in patients with cardiovascular implantable electronic devices. Heart Rhythm 2017;14:e97-e153",
+        "url": "https://doi.org/10.1016/j.hrthm.2017.04.025"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-065",
+    "theme": "programmation",
+    "sousTheme": "IRM et prothèses",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Patient non dépendant de son stimulateur devant passer une IRM. Quelle programmation est proposée par le consensus HRS 2017 ?",
+    "options": [
+      "Mode asynchrone obligatoire",
+      "Aucune modification nécessaire, quel que soit le système",
+      "Asservissement activé",
+      "Mode sans stimulation (ODO/OVO) ou mode inhibé"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "explication": "Chez un patient qui n'est pas dépendant, on peut choisir un mode sans stimulation ou un mode inhibé, ce qui évite les stimulations asynchrones inutiles et le risque théorique de stimulation dans la période vulnérable. La stimulation asynchrone reste l'option pour les patients dépendants. L'asservissement et les fonctions avancées sont désactivés. Même pour un système IRM-compatible, une programmation adaptée (mode IRM) est requise.",
+    "aRetenir": "IRM chez un non-dépendant : mode sans stimulation ou inhibé.",
+    "sources": [
+      {
+        "titre": "Indik JH et al. 2017 HRS expert consensus statement on magnetic resonance imaging and radiation exposure in patients with cardiovascular implantable electronic devices. Heart Rhythm 2017;14:e97-e153",
+        "url": "https://doi.org/10.1016/j.hrthm.2017.04.025"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-066",
+    "theme": "programmation",
+    "sousTheme": "IRM et prothèses",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 7,
+    "question": "D'après l'ESC 2021, une IRM peut être envisagée chez un patient porteur d'un système non IRM-compatible si aucune autre imagerie n'est possible et en l'absence de sonde épicardique, de sonde abandonnée ou endommagée, ou d'adaptateur/prolongateur de sonde.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "explication": "Les données de grands registres (MagnaSafe, Nazarian 2017) ont montré qu'une IRM à 1,5 T chez des porteurs de systèmes non IRM-compatibles est réalisable avec peu d'événements, sous réserve d'un protocole strict (programmation adaptée, monitorage, contrôle avant et après). L'ESC 2021 retient donc qu'elle doit être envisagée (classe IIa) si aucune imagerie alternative n'est possible et en l'absence de sondes épicardiques, abandonnées ou endommagées ou d'adaptateurs. Le consensus HRS 2017 va dans le même sens. Il faut une décision partagée tenant compte du bénéfice attendu.",
+    "aRetenir": "Système non IRM-compatible : IRM possible sous protocole en l'absence de sondes épicardiques, abandonnées ou abîmées.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Glikson M et al. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Indik JH et al. 2017 HRS expert consensus statement on magnetic resonance imaging and radiation exposure in patients with cardiovascular implantable electronic devices. Heart Rhythm 2017;14:e97-e153",
+        "url": "https://doi.org/10.1016/j.hrthm.2017.04.025"
+      },
+      {
+        "titre": "Russo RJ et al. Assessing the risks associated with MRI in patients with a pacemaker or defibrillator (MagnaSafe). N Engl J Med 2017;376:755-764",
+        "url": "https://doi.org/10.1056/NEJMoa1603265"
+      },
+      {
+        "titre": "Nazarian S et al. Safety of magnetic resonance imaging in patients with cardiac devices. N Engl J Med 2017;377:2555-2564",
+        "url": "https://doi.org/10.1056/NEJMoa1604267"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-067",
+    "theme": "programmation",
+    "sousTheme": "IRM et prothèses",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Concernant la réalisation d'une IRM chez un porteur de prothèse cardiaque, quels éléments sont recommandés ?",
+    "options": [
+      "Monitorage ECG et oxymétrie pendant l'examen",
+      "Présence de personnel formé à la réanimation et disponibilité d'un défibrillateur externe",
+      "Désactivation des thérapies antitachycardiques chez un porteur de DAI",
+      "Désactivation de toute stimulation chez un patient dépendant"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "reponseAttendue": null,
+    "explication": "Le consensus HRS 2017 recommande un contrôle avant l'examen, une programmation adaptée, un monitorage (ECG, oxymétrie) pendant l'IRM, la présence de personnel capable de prendre en charge un arrêt cardiaque avec un défibrillateur externe disponible (hors de la salle d'aimant), et un contrôle après l'examen avec retour à la programmation initiale. Chez un porteur de DAI, les thérapies sont suspendues pendant l'examen car le bruit pourrait être interprété comme une FV. Supprimer la stimulation chez un patient dépendant serait dangereux : on choisit un mode asynchrone.",
+    "aRetenir": "IRM : programmation adaptée, monitorage, personnel formé, contrôle avant et après.",
+    "sources": [
+      {
+        "titre": "Indik JH et al. 2017 HRS expert consensus statement on magnetic resonance imaging and radiation exposure in patients with cardiovascular implantable electronic devices. Heart Rhythm 2017;14:e97-e153",
+        "url": "https://doi.org/10.1016/j.hrthm.2017.04.025"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-068",
+    "theme": "programmation",
+    "sousTheme": "Bistouri et interférences",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Quel est le principal risque du bistouri électrique monopolaire chez un patient dépendant de son stimulateur ?",
+    "options": [
+      "La surdétection du courant de bistouri entraînant une inhibition de la stimulation (asystolie)",
+      "Une accélération de la pile",
+      "Une élévation définitive du seuil",
+      "Un passage automatique en mode IRM"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "explication": "Le courant de bistouri monopolaire génère un signal à haute fréquence que le stimulateur peut interpréter comme une activité cardiaque spontanée : il s'inhibe, ce qui, chez un patient dépendant, provoque une asystolie tant que le bistouri est actif. Les autres risques sont plus rares : reprogrammation ou réinitialisation électrique, lésion tissulaire au contact de l'électrode. Chez un porteur de DAI, le risque principal est un choc inapproprié. D'où la programmation en mode asynchrone ou l'aimant chez un dépendant.",
+    "aRetenir": "Bistouri monopolaire : risque d'inhibition chez le dépendant, de choc inapproprié chez le porteur de DAI.",
+    "sources": [
+      {
+        "titre": "Stühlinger M et al. EHRA consensus on prevention and management of interference due to medical procedures in patients with cardiac implantable electronic devices. Europace 2022;24:1512-1537",
+        "url": "https://doi.org/10.1093/europace/euac040"
+      },
+      {
+        "titre": "Crossley GH et al. The HRS/ASA Expert Consensus Statement on the perioperative management of patients with implantable defibrillators, pacemakers and arrhythmia monitors. Heart Rhythm 2011;8:1114-1154",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21722856/"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-069",
+    "theme": "programmation",
+    "sousTheme": "Bistouri et interférences",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 5,
+    "question": "Quelles mesures réduisent le risque d'interférence du bistouri électrique chez un porteur de stimulateur ?",
+    "options": [
+      "Préférer le bistouri bipolaire quand c'est possible",
+      "Placer la plaque de retour de façon que le trajet du courant s'éloigne du boîtier et des sondes",
+      "Utiliser des applications brèves (quelques secondes)",
+      "Placer la plaque de retour sur l'épaule homolatérale au boîtier"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "reponseAttendue": null,
+    "explication": "Le bistouri bipolaire limite le courant à la zone située entre les deux pointes et interfère beaucoup moins. En monopolaire, la plaque de retour doit être positionnée pour que le trajet du courant entre l'électrode active et la plaque ne passe pas par le boîtier ni les sondes. Des applications courtes limitent la durée d'une éventuelle inhibition. Placer la plaque près du boîtier ferait au contraire traverser le système par le courant. Un contrôle après l'intervention est nécessaire si le stimulateur a été reprogrammé ou si des interférences ont été constatées.",
+    "aRetenir": "Bistouri : bipolaire, plaque de retour loin du boîtier, applications brèves.",
+    "sources": [
+      {
+        "titre": "Stühlinger M et al. EHRA consensus on prevention and management of interference due to medical procedures in patients with cardiac implantable electronic devices. Europace 2022;24:1512-1537",
+        "url": "https://doi.org/10.1093/europace/euac040"
+      },
+      {
+        "titre": "Crossley GH et al. The HRS/ASA Expert Consensus Statement on the perioperative management of patients with implantable defibrillators, pacemakers and arrhythmia monitors. Heart Rhythm 2011;8:1114-1154",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21722856/"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-070",
+    "theme": "programmation",
+    "sousTheme": "Bistouri et interférences",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Pour une chirurgie sous l'ombilic avec bistouri monopolaire, une reprogrammation systématique du stimulateur est habituellement nécessaire.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "Le risque d'interférence dépend de la distance entre le site de bistouri et le système implanté. Pour une chirurgie sous l'ombilic, avec une plaque de retour bien placée (par exemple sur la cuisse), le risque est faible et le consensus EHRA 2022 n'impose pas de reprogrammation systématique. Il faut néanmoins un monitorage et un aimant disponible. Pour une chirurgie au-dessus de l'ombilic chez un patient dépendant, la stratégie (mode asynchrone ou aimant) doit être définie avant l'intervention.",
+    "aRetenir": "Chirurgie sous-ombilicale : faible risque, pas de reprogrammation systématique.",
+    "sources": [
+      {
+        "titre": "Stühlinger M et al. EHRA consensus on prevention and management of interference due to medical procedures in patients with cardiac implantable electronic devices. Europace 2022;24:1512-1537",
+        "url": "https://doi.org/10.1093/europace/euac040"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-071",
+    "theme": "programmation",
+    "sousTheme": "Bistouri et interférences",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Cardioversion électrique externe d'une FA chez un porteur de stimulateur. Quelle précaution est recommandée ?",
+    "options": [
+      "Placer une palette directement sur le boîtier",
+      "Placer les électrodes à distance du boîtier (au moins 8 cm), de préférence en position antéro-postérieure, et contrôler le stimulateur après le choc",
+      "Désactiver la stimulation avant le choc",
+      "Utiliser une énergie maximale d'emblée"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "Le courant du choc externe peut endommager le boîtier ou l'interface électrode-myocarde (élévation aiguë du seuil, perte de capture) et provoquer une réinitialisation. Les recommandations proposent de placer les électrodes à au moins 8 cm du boîtier, de préférence en position antéro-postérieure, puis de vérifier le fonctionnement (seuils, détection, programmation) après la cardioversion. Désactiver la stimulation serait dangereux chez un dépendant. L'énergie n'a pas à être modifiée pour cette raison.",
+    "aRetenir": "Cardioversion : électrodes à ≥ 8 cm du boîtier, antéro-postérieures, contrôle après.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Glikson M et al. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Stühlinger M et al. EHRA consensus on prevention and management of interference due to medical procedures in patients with cardiac implantable electronic devices. Europace 2022;24:1512-1537",
+        "url": "https://doi.org/10.1093/europace/euac040"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-072",
+    "theme": "programmation",
+    "sousTheme": "Bistouri et interférences",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 9,
+    "question": "Radiothérapie chez un porteur de stimulateur. Quel paramètre augmente particulièrement le risque de dysfonctionnement (réinitialisation, erreurs de mémoire) selon le consensus HRS 2017 ?",
+    "options": [
+      "L'utilisation de faisceaux de haute énergie (> 10 MV) produisant des neutrons",
+      "La radiothérapie par photons de faible énergie (< 10 MV)",
+      "La position du patient en décubitus",
+      "Une fréquence de base élevée"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "explication": "Les rayonnements ionisants peuvent endommager les circuits du boîtier de deux façons : par la dose cumulée reçue par le boîtier et par les neutrons secondaires produits par les faisceaux de photons de haute énergie (> 10 MV), responsables d'erreurs aléatoires (réinitialisations, corruption de mémoire). Le consensus HRS 2017 recommande de privilégier des faisceaux ne produisant pas de neutrons, d'évaluer la dose au boîtier et d'adapter le suivi (contrôle pendant et après le traitement). Le boîtier ne doit jamais être dans le champ d'irradiation direct. La position du patient ou la fréquence de base n'interviennent pas.",
+    "aRetenir": "Radiothérapie : dose au boîtier et faisceaux > 10 MV (neutrons) augmentent le risque.",
+    "sources": [
+      {
+        "titre": "Indik JH et al. 2017 HRS expert consensus statement on magnetic resonance imaging and radiation exposure in patients with cardiovascular implantable electronic devices. Heart Rhythm 2017;14:e97-e153",
+        "url": "https://doi.org/10.1016/j.hrthm.2017.04.025"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-073",
+    "theme": "programmation",
+    "sousTheme": "Bistouri et interférences",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 6,
+    "question": "Patient dépendant de son stimulateur, chirurgie thoracique avec bistouri monopolaire au-dessus de l'ombilic. Quelle stratégie périopératoire proposer ?",
+    "reponseAttendue": "Contrôle préopératoire ; programmation en mode asynchrone (DOO/VOO) à une fréquence supérieure au rythme spontané (ou aimant si le boîtier est accessible) ; désactivation de l'asservissement (surtout ventilation-minute) ; monitorage continu avec défibrillateur disponible ; contrôle et reprogrammation après l'intervention.",
+    "explication": "Chez un patient dépendant, l'inhibition par le bistouri peut entraîner une asystolie : il faut supprimer la détection pendant l'intervention. On programme un mode asynchrone à une fréquence adaptée, ou on utilise un aimant si la zone opératoire le permet et si l'effet de l'aimant sur ce boîtier est connu. On désactive les capteurs pouvant être perturbés (ventilation-minute). Le patient est monitoré par un moyen ne reposant pas uniquement sur l'ECG perturbé (oxymétrie de pouls, pression artérielle). Après l'intervention, on vérifie le boîtier et on rétablit la programmation initiale.",
+    "aRetenir": "Dépendant + bistouri sus-ombilical = mode asynchrone, capteurs désactivés, monitorage, contrôle post-opératoire.",
+    "sources": [
+      {
+        "titre": "Stühlinger M et al. EHRA consensus on prevention and management of interference due to medical procedures in patients with cardiac implantable electronic devices. Europace 2022;24:1512-1537",
+        "url": "https://doi.org/10.1093/europace/euac040"
+      },
+      {
+        "titre": "Crossley GH et al. The HRS/ASA Expert Consensus Statement on the perioperative management of patients with implantable defibrillators, pacemakers and arrhythmia monitors. Heart Rhythm 2011;8:1114-1154",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21722856/"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-074",
+    "theme": "programmation",
+    "sousTheme": "Stimulation sans sonde",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Par quelle voie implante-t-on habituellement un stimulateur sans sonde (leadless) ventriculaire ?",
+    "options": [
+      "Par voie sous-clavière, avec une loge pectorale",
+      "Par voie épicardique chirurgicale",
+      "Par voie veineuse fémorale, le stimulateur étant fixé dans le ventricule droit",
+      "Par voie artérielle fémorale dans le ventricule gauche"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "explication": "Le stimulateur sans sonde est une capsule qui contient la pile et l'électronique, introduite par un cathéter via la veine fémorale et fixée à la paroi du ventricule droit (souvent septale) par des barbes ou une vis. Il n'y a ni loge ni sonde intravasculaire, ce qui supprime les complications correspondantes. Les premiers systèmes assurent une stimulation VVI(R). Les voies sous-clavière ou épicardique concernent les stimulateurs conventionnels.",
+    "aRetenir": "Leadless : capsule implantée par voie fémorale dans le ventricule droit.",
+    "sources": [
+      {
+        "titre": "Reddy VY et al. Percutaneous implantation of an entirely intracardiac leadless pacemaker. N Engl J Med 2015;373:1125-1135",
+        "url": "https://doi.org/10.1056/NEJMoa1507192"
+      },
+      {
+        "titre": "Reynolds D et al. A leadless intracardiac transcatheter pacing system. N Engl J Med 2016;374:533-541",
+        "url": "https://doi.org/10.1056/NEJMoa1511643"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-075",
+    "theme": "programmation",
+    "sousTheme": "Stimulation sans sonde",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Selon l'ESC 2021, dans quelle situation un stimulateur sans sonde doit-il être envisagé comme alternative à un stimulateur conventionnel ?",
+    "options": [
+      "Chez tout patient jeune avec dysfonction sinusale",
+      "En l'absence d'accès veineux par le membre supérieur ou en cas de risque particulièrement élevé d'infection de loge (antécédent d'infection, hémodialyse)",
+      "Chez tout patient nécessitant une resynchronisation",
+      "En première intention chez tout patient en rythme sinusal avec BAV"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "L'ESC 2021 retient que la stimulation sans sonde doit être envisagée (classe IIa) comme alternative au stimulateur endocavitaire classique quand il n'existe pas d'accès veineux au membre supérieur ou quand le risque d'infection de loge est particulièrement élevé, par exemple après une infection de matériel ou chez un patient hémodialysé. Les systèmes disponibles n'assurent pas de resynchronisation et la stimulation atriale n'est pas l'usage courant, ce qui limite leur intérêt en dysfonction sinusale. Le recul à long terme reste inférieur à celui des systèmes conventionnels.",
+    "aRetenir": "Leadless : alternative si pas d'accès veineux supérieur ou haut risque infectieux.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Glikson M et al. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-076",
+    "theme": "programmation",
+    "sousTheme": "Stimulation sans sonde",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 6,
+    "question": "Les stimulateurs sans sonde suppriment les complications liées à la loge et aux sondes, mais exposent à un risque spécifique d'épanchement péricardique ou de perforation à l'implantation.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "explication": "Les études pivots des stimulateurs sans sonde ont montré l'absence de complications de loge (hématome, infection, érosion) et de sonde (fracture, déplacement de sonde, thrombose veineuse sous-clavière). En revanche, la manipulation d'un gros cathéter dans le ventricule droit expose à un épanchement péricardique ou une tamponnade, de l'ordre de 1 à 1,5 % dans ces séries, ainsi qu'à des complications au point de ponction fémorale. Ces risques doivent être expliqués au patient, en particulier chez les sujets âgés et fragiles.",
+    "aRetenir": "Leadless : pas de complications de loge/sonde, mais risque de tamponnade.",
+    "sources": [
+      {
+        "titre": "Reddy VY et al. Percutaneous implantation of an entirely intracardiac leadless pacemaker. N Engl J Med 2015;373:1125-1135",
+        "url": "https://doi.org/10.1056/NEJMoa1507192"
+      },
+      {
+        "titre": "Reynolds D et al. A leadless intracardiac transcatheter pacing system. N Engl J Med 2016;374:533-541",
+        "url": "https://doi.org/10.1056/NEJMoa1511643"
+      },
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Glikson M et al. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-077",
+    "theme": "programmation",
+    "sousTheme": "Stimulation sans sonde",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Comment certains stimulateurs sans sonde implantés dans le ventricule droit parviennent-ils à assurer une stimulation synchronisée sur l'oreillette (fonctionnement de type VDD) ?",
+    "options": [
+      "Par une petite sonde atriale reliée à la capsule",
+      "Par une liaison radio avec un moniteur implantable",
+      "Par la détection en champ lointain de l'onde P sur l'électrode ventriculaire",
+      "Par la détection mécanique de la contraction atriale grâce à l'accéléromètre de la capsule"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "explication": "L'onde P est trop petite pour être détectée de façon fiable par une électrode ventriculaire. L'approche validée consiste à utiliser l'accéléromètre de la capsule pour repérer le signal mécanique de la contraction atriale (remplissage actif en fin de diastole), puis à déclencher la stimulation ventriculaire après un délai. Le synchronisme AV obtenu est bon au repos mais peut se dégrader aux fréquences élevées ou si le signal mécanique est faible. Il n'y a pas de sonde atriale ; des systèmes double chambre à deux capsules communicantes existent par ailleurs.",
+    "aRetenir": "Leadless VDD : détection mécanique de la systole atriale par accéléromètre.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Advances and future directions in cardiac pacemakers: part 2 of a 2-part series. J Am Coll Cardiol 2017;69:211-235",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.064"
+      },
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Glikson M et al. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-078",
+    "theme": "programmation",
+    "sousTheme": "Choix du mode de stimulation",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Un patient stimulé en VVI pour un BAV paroxystique, en rythme sinusal avec conduction rétrograde VA, se plaint de malaises, d'une sensation de battements dans le cou et d'hypotension pendant les périodes stimulées. Quel diagnostic évoquer ?",
+    "options": [
+      "Tachycardie par réentrée électronique",
+      "Perte de capture ventriculaire",
+      "Syndrome du pacemaker",
+      "Surdétection de myopotentiels"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "explication": "Le syndrome du pacemaker résulte de la perte du synchronisme AV en stimulation ventriculaire : l'oreillette se contracte sur des valves AV fermées, surtout en cas de conduction rétrograde VA, ce qui donne des ondes « canon » jugulaires, une baisse du débit et parfois un réflexe vasodépresseur. Les symptômes (malaises, dyspnée, battements cervicaux, hypotension) surviennent pendant la stimulation. Le traitement repose sur le rétablissement du synchronisme AV (DDD) ou la baisse de la fréquence de base pour limiter la stimulation. La TRE ne survient pas en VVI.",
+    "aRetenir": "Symptômes en VVI avec conduction VA rétrograde = syndrome du pacemaker.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Glikson M et al. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-079",
+    "theme": "programmation",
+    "sousTheme": "Détection",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Quelle amplitude d'onde R est habituellement recherchée à l'implantation d'une sonde ventriculaire droite ?",
+    "options": [
+      "Supérieure à 0,5 mV",
+      "Supérieure à 5 mV",
+      "Supérieure à 50 mV",
+      "L'amplitude n'a pas d'importance"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "À l'implantation, on recherche habituellement une onde R d'au moins 5 mV (souvent bien plus, 10-20 mV), et une onde P d'au moins 1,5-2 mV sur la sonde atriale. Ces valeurs garantissent une détection fiable avec une marge de sécurité confortable. Un signal faible expose à la sous-détection, surtout lors de la baisse d'amplitude observée dans les semaines suivant l'implantation. Des valeurs comme 50 mV ne sont pas réalistes pour un EGM endocavitaire.",
+    "aRetenir": "À l'implantation : R ≥ 5 mV, P ≥ 1,5-2 mV.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-080",
+    "theme": "programmation",
+    "sousTheme": "Réduction de la stimulation ventriculaire",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Un patient appareillé pour dysfonction sinusale a une conduction AV normale mais présente 85 % de stimulation ventriculaire au contrôle, avec un délai AV programmé à 150 ms et un PR spontané de 200 ms. Quelle est la conduite la plus logique ?",
+    "options": [
+      "Activer un algorithme de réduction de la stimulation ventriculaire ou allonger le délai AV pour laisser la conduction spontanée s'exprimer",
+      "Laisser tel quel, c'est sans conséquence",
+      "Raccourcir encore le délai AV",
+      "Augmenter la fréquence de base"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "explication": "Le délai AV programmé (150 ms) étant plus court que la conduction spontanée (200 ms), le stimulateur devance systématiquement le QRS conduit : c'est une stimulation ventriculaire inutile, associée à un risque accru de FA et d'insuffisance cardiaque. Il faut allonger le délai AV ou activer un algorithme de minimisation, comme le recommande l'ESC 2021 dans la dysfonction sinusale. Raccourcir le délai AV ou augmenter la fréquence de base aggraverait le pourcentage de stimulation. Il faut ensuite vérifier au contrôle suivant la baisse du pourcentage.",
+    "aRetenir": "Délai AV plus court que le PR spontané = stimulation V inutile à corriger.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Glikson M et al. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Sweeney MO et al. Adverse effect of ventricular pacing on heart failure and atrial fibrillation among patients with normal baseline QRS duration in a clinical trial of pacemaker therapy for sinus node dysfunction (MOST). Circulation 2003;107:2932-2937",
+        "url": "https://doi.org/10.1161/01.CIR.0000072769.17295.B1"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-081",
+    "theme": "programmation",
+    "sousTheme": "Suivi en consultation",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Un porteur de DAI doit subir une intervention avec bistouri monopolaire. Quel est l'effet de l'aimant posé sur le boîtier ?",
+    "options": [
+      "Stimulation asynchrone en VOO",
+      "Déclenchement d'un choc test",
+      "Arrêt de toute fonction du boîtier",
+      "Suspension des thérapies antitachycardiques (détection des tachyarythmies), sans modification de la stimulation antibradycardique"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "explication": "Sur la grande majorité des DAI, l'aimant suspend la détection et le traitement des tachyarythmies tant qu'il est en place, ce qui prévient les chocs inappropriés liés au bruit du bistouri. En revanche, il ne met pas la stimulation en mode asynchrone : un patient dépendant reste exposé à l'inhibition par le bistouri et nécessite une reprogrammation (mode asynchrone) par un programmeur. C'est une différence majeure avec le stimulateur. Un défibrillateur externe doit rester disponible pendant l'intervention.",
+    "aRetenir": "Aimant sur DAI = thérapies suspendues, pas de stimulation asynchrone.",
+    "sources": [
+      {
+        "titre": "Crossley GH et al. The HRS/ASA Expert Consensus Statement on the perioperative management of patients with implantable defibrillators, pacemakers and arrhythmia monitors. Heart Rhythm 2011;8:1114-1154",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21722856/"
+      },
+      {
+        "titre": "Stühlinger M et al. EHRA consensus on prevention and management of interference due to medical procedures in patients with cardiac implantable electronic devices. Europace 2022;24:1512-1537",
+        "url": "https://doi.org/10.1093/europace/euac040"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-082",
+    "theme": "programmation",
+    "sousTheme": "Longévité et ERI",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Quelle est la différence entre ERI et EOS ?",
+    "options": [
+      "Aucune, ce sont deux synonymes",
+      "L'EOS précède l'ERI",
+      "À l'ERI, le fonctionnement reste garanti pendant une période limitée ; à l'EOS (fin de service), le fonctionnement normal n'est plus garanti et le remplacement est urgent",
+      "L'ERI concerne les sondes, l'EOS le boîtier"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "explication": "L'ERI marque l'entrée dans la période de remplacement programmé : le stimulateur fonctionne encore, avec parfois des fonctions simplifiées. Si le remplacement n'est pas réalisé, la pile continue de s'épuiser jusqu'à l'EOS, où le fabricant ne garantit plus un fonctionnement correct (perte de capture, dysfonctionnement). Chez un patient dépendant, laisser un boîtier atteindre l'EOS est dangereux. La télésurveillance aide à ne pas laisser passer l'ERI.",
+    "aRetenir": "ERI = remplacement à programmer ; EOS = fonctionnement non garanti, remplacement urgent.",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. HRS/EHRA expert consensus on the monitoring of cardiovascular implantable electronic devices (CIEDs). Heart Rhythm 2008;5:907-925",
+        "url": "https://doi.org/10.1016/j.hrthm.2008.04.013"
+      },
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ]
+  },
+  {
+    "id": "prog-fond-083",
+    "theme": "programmation",
+    "sousTheme": "IRM et prothèses",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Dans l'étude MagnaSafe (IRM à 1,5 T chez des porteurs de stimulateurs et DAI non IRM-compatibles, sous protocole), quel a été l'enseignement principal ?",
+    "options": [
+      "Un taux élevé de décès liés à l'IRM",
+      "Aucun décès ni défaillance de sonde ; les événements ont été rares, sous réserve d'une programmation et d'un monitorage adaptés",
+      "Une perte de capture fréquente justifiant l'interdiction de l'IRM",
+      "Une élévation systématique des seuils nécessitant le remplacement des sondes"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "explication": "MagnaSafe a inclus plus de 1 500 examens d'IRM non thoraciques à 1,5 T chez des porteurs de stimulateurs ou de DAI non IRM-compatibles, programmés selon un protocole (mode asynchrone ou sans stimulation, thérapies désactivées). Il n'y a eu aucun décès, aucune défaillance de sonde, aucune perte de capture ; les événements (quelques réinitialisations électriques partielles, épisodes de FA spontanément résolutifs) étaient rares. Ces données, comme celles de Nazarian 2017, ont soutenu l'ouverture de l'IRM à ces patients dans les recommandations. Elles ne dispensent pas d'un protocole strict.",
+    "aRetenir": "MagnaSafe : IRM 1,5 T sous protocole chez des porteurs de systèmes non compatibles, avec très peu d'événements.",
+    "sources": [
+      {
+        "titre": "Russo RJ et al. Assessing the risks associated with MRI in patients with a pacemaker or defibrillator (MagnaSafe). N Engl J Med 2017;376:755-764",
+        "url": "https://doi.org/10.1056/NEJMoa1603265"
+      },
+      {
+        "titre": "Nazarian S et al. Safety of magnetic resonance imaging in patients with cardiac devices. N Engl J Med 2017;377:2555-2564",
+        "url": "https://doi.org/10.1056/NEJMoa1604267"
+      }
+    ]
+  }
+]
