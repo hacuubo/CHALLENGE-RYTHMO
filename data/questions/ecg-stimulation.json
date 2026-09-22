@@ -1,32 +1,5 @@
 [
   {
-    "id": "ecg-stim-001",
-    "theme": "ecg",
-    "sousTheme": "Code et modes de stimulation",
-    "marque": null,
-    "type": "qcu",
-    "difficulte": 1,
-    "question": "Dans le code NBG (NASPE/BPEG) des stimulateurs cardiaques, que désigne la première lettre ?",
-    "options": [
-      "La cavité détectée",
-      "Le mode de réponse à la détection",
-      "La cavité stimulée",
-      "La présence d'un asservissement de fréquence"
-    ],
-    "reponses": [
-      2
-    ],
-    "reponseAttendue": null,
-    "explication": "Le code générique NBG révisé en 2002 comporte cinq positions, dont les trois premières sont systématiquement utilisées en pratique. La première lettre indique la ou les cavités stimulées (O, A, V, D), la deuxième la ou les cavités détectées, la troisième la réponse à la détection (O, I = inhibition, T = déclenchement, D = double). La quatrième position (R) signale l'asservissement de fréquence et la cinquième la stimulation multisite. Le piège classique est d'inverser stimulation et détection : dans « VVI », le premier V est la stimulation, le second la détection.",
-    "aRetenir": "Code NBG : 1re lettre = cavité stimulée, 2e = cavité détectée, 3e = réponse à la détection, 4e = asservissement.",
-    "sources": [
-      {
-        "titre": "Bernstein AD et al. The revised NASPE/BPEG generic code for antibradycardia, adaptive-rate, and multisite pacing. Pacing Clin Electrophysiol 2002;25:260-264",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/11916002/"
-      }
-    ]
-  },
-  {
     "id": "ecg-stim-002",
     "theme": "ecg",
     "sousTheme": "Code et modes de stimulation",
@@ -1658,33 +1631,6 @@
       {
         "titre": "Van Gelder IC et al. 2024 ESC Guidelines for the management of atrial fibrillation developed in collaboration with EACTS. Eur Heart J 2024;45:3314-3414",
         "url": "https://doi.org/10.1093/eurheartj/ehae176"
-      }
-    ]
-  },
-  {
-    "id": "ecg-stim-056",
-    "theme": "ecg",
-    "sousTheme": "Réponse à l'aimant",
-    "marque": null,
-    "type": "qcu",
-    "difficulte": 2,
-    "question": "Quel est l'effet habituel de l'application d'un aimant sur un stimulateur cardiaque (non DAI) ?",
-    "options": [
-      "Stimulation asynchrone (VOO/DOO) à une fréquence aimant propre au fabricant",
-      "Arrêt complet de la stimulation",
-      "Suspension des thérapies antitachycardiques",
-      "Passage en mode VVI inhibé"
-    ],
-    "reponses": [
-      0
-    ],
-    "reponseAttendue": null,
-    "explication": "Sur la plupart des stimulateurs, l'aimant ferme un commutateur qui suspend la détection : le boîtier stimule en mode asynchrone (VOO ou DOO) à une fréquence fixe définie par le fabricant. Cette fréquence varie selon les marques et diminue en cas d'usure de la batterie. L'aimant est utile pour protéger un patient dépendant d'une inhibition par interférences (bistouri électrique) ou pour interrompre une TRE. Certains modèles ont une réponse à l'aimant programmable (y compris désactivée), qu'il faut connaître. La suspension des thérapies antitachycardiques concerne les DAI.",
-    "aRetenir": "Aimant sur un stimulateur = stimulation asynchrone à la fréquence aimant.",
-    "sources": [
-      {
-        "titre": "Jacob S et al. Clinical applications of magnets on cardiac rhythm management devices. Europace 2011;13:1222-1230",
-        "url": "https://doi.org/10.1093/europace/eur137"
       }
     ]
   },

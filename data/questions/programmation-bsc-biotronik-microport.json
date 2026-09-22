@@ -37,10 +37,10 @@
     "marque": "Boston Scientific",
     "type": "ouverte",
     "difficulte": 3,
-    "question": "Un stimulateur Boston Scientific est programmé en DDD avec RYTHMIQ actif. À quelle fréquence tourne la stimulation VVI de secours pendant la phase AAI si la fréquence minimale (LRL) est de 60 min⁻¹ ? Et si elle est de 40 min⁻¹ ?",
-    "reponseAttendue": "Le secours VVI tourne 15 min⁻¹ sous la LRL, borné entre 30 et 60 min⁻¹ : 45 min⁻¹ pour une LRL à 60 ; 30 min⁻¹ (et non 25) pour une LRL à 40.",
-    "explication": "Pendant la phase AAI(R) de RYTHMIQ, le manuel Boston Scientific précise que la stimulation VVI de secours est délivrée 15 min⁻¹ en dessous de la LRL. Cette fréquence de secours est bornée : jamais moins de 30 min⁻¹ ni plus de 60 min⁻¹. Avec une LRL à 60, le secours est donc à 45 min⁻¹ ; avec une LRL à 40, le calcul brut donnerait 25 mais la borne inférieure impose 30 min⁻¹. Tant que la conduction est présente, ce mode VVI n'intervient pas. En pratique, cela explique qu'on puisse voir des cycles ventriculaires lents isolés sur un Holter avant la bascule en DDD(R).",
-    "aRetenir": "Secours VVI de RYTHMIQ = LRL − 15 min⁻¹, borné entre 30 et 60 min⁻¹.",
+    "question": "Un stimulateur Boston Scientific est programmé en DDD avec RYTHMIQ actif. À quelle fréquence tourne la stimulation VVI de secours pendant la phase AAI si la fréquence minimale (LRL) est de 60 bpm ? Et si elle est de 40 bpm ?",
+    "reponseAttendue": "Le secours VVI tourne 15 bpm sous la LRL, borné entre 30 et 60 bpm : 45 bpm pour une LRL à 60 ; 30 bpm (et non 25) pour une LRL à 40.",
+    "explication": "Pendant la phase AAI(R) de RYTHMIQ, le manuel Boston Scientific précise que la stimulation VVI de secours est délivrée 15 bpm en dessous de la LRL. Cette fréquence de secours est bornée : jamais moins de 30 bpm ni plus de 60 bpm. Avec une LRL à 60, le secours est donc à 45 bpm ; avec une LRL à 40, le calcul brut donnerait 25 mais la borne inférieure impose 30 bpm. Tant que la conduction est présente, ce mode VVI n'intervient pas. En pratique, cela explique qu'on puisse voir des cycles ventriculaires lents isolés sur un Holter avant la bascule en DDD(R).",
+    "aRetenir": "Secours VVI de RYTHMIQ = LRL − 15 bpm, borné entre 30 et 60 bpm.",
     "sources": [
       {
         "titre": "Boston Scientific. Reference Guide ACCOLADE / PROPONENT / ESSENTIO / ALTRUA 2 / FORMIO / VITALIO / INGENIO / ADVANTIO – stimulateurs cardiaques (réf. 359241-033), manuel technique officiel",
@@ -194,14 +194,14 @@
     "options": [
       "Augmenter la fréquence maximale d'asservissement",
       "Passer en mode DOO définitif",
-      "Programmer le capteur MV sur Off pendant la ventilation mécanique (à défaut de programmateur, un aimant donne une stimulation asynchrone non asservie)",
+      "Programmer le capteur MV sur Off pendant la ventilation mécanique (à défaut de programmateur, l'aimant donne une stimulation asynchrone non asservie si la réponse à l'aimant est programmée en stimulation asynchrone)",
       "Diminuer la sensibilité ventriculaire"
     ],
     "reponses": [
       2
     ],
     "reponseAttendue": null,
-    "explication": "Le manuel Boston Scientific précise qu'il faut programmer le capteur MV/respiratoire sur Off pendant une ventilation mécanique, sous peine de fréquence asservie inappropriée et de tendances respiratoires trompeuses. Les moniteurs externes qui injectent du courant (monitorage respiratoire, certains moniteurs ECG ou hémodynamiques) peuvent aussi fausser la mesure d'impédance et faire monter la fréquence jusqu'au maximum d'asservissement. Si aucun programmateur n'est disponible, l'aimant donne une stimulation asynchrone temporaire non asservie. Augmenter la fréquence maximale aggraverait le problème, et la sensibilité ventriculaire n'a aucun rapport avec le capteur.",
+    "explication": "Le manuel Boston Scientific précise qu'il faut programmer le capteur MV/respiratoire sur Off pendant une ventilation mécanique, sous peine de fréquence asservie inappropriée et de tendances respiratoires trompeuses. Les moniteurs externes qui injectent du courant (monitorage respiratoire, certains moniteurs ECG ou hémodynamiques) peuvent aussi fausser la mesure d'impédance et faire monter la fréquence jusqu'au maximum d'asservissement. Si aucun programmateur n'est disponible, l'aimant donne une stimulation asynchrone temporaire non asservie, à condition que la réponse à l'aimant soit programmée en stimulation asynchrone (Pace Async, réglage usuel) ; la fréquence aimant dépend alors de l'état de la pile (100 bpm en début de vie). Augmenter la fréquence maximale aggraverait le problème, et la sensibilité ventriculaire n'a aucun rapport avec le capteur.",
     "aRetenir": "Ventilation mécanique ou monitorage par impédance : capteur MV sur Off.",
     "sources": [
       {
@@ -246,10 +246,10 @@
     "difficulte": 6,
     "question": "Concernant Rhythm ID (DAI Boston Scientific), quelles propositions sont exactes ?",
     "options": [
-      "Il compare l'EGM de la tachycardie à un gabarit de référence en rythme sinusal (analyse Vector Timing and Correlation) à partir des EGM de choc et de fréquence",
-      "En double chambre, si la fréquence ventriculaire est supérieure à la fréquence atriale, la thérapie est délivrée",
+      "Il compare l'EGM de la tachycardie à un gabarit de référence enregistré en rythme sinusal (analyse morphologique Vector Timing and Correlation)",
+      "En double chambre, si la fréquence ventriculaire est supérieure à la fréquence atriale, la thérapie est délivrée sans autre analyse",
       "Il peut inhiber une thérapie dans la zone FV si le gabarit est concordant",
-      "Sans gabarit de référence, il ne s'appuie que sur Stability et AFib Rate Threshold"
+      "Selon la traduction Boston Scientific du consensus 2019, les discriminateurs TSV ne s'appliquent que jusqu'à 230 bpm"
     ],
     "reponses": [
       0,
@@ -257,16 +257,20 @@
       3
     ],
     "reponseAttendue": null,
-    "explication": "Rhythm ID associe une analyse morphologique (Vector Timing and Correlation) à l'analyse des intervalles atriaux et ventriculaires. Le gabarit de rythme sinusal est acquis automatiquement de façon passive, toutes les 2 heures, ou active, par une baisse contrôlée de la fréquence de stimulation, ce qui est utile chez les patients souvent stimulés. En double chambre, une fréquence V supérieure à la fréquence A conduit directement à la thérapie. Rhythm ID n'inhibe jamais la thérapie dans la zone FV : une zone FV programmée trop bas prive donc les TSV rapides de toute discrimination. En l'absence de gabarit, seuls Stability et AFib Rate Threshold sont utilisés.",
-    "aRetenir": "Rhythm ID = corrélation morphologique au gabarit sinusal + analyse A/V ; jamais d'inhibition en zone FV.",
+    "explication": "Rhythm ID associe une analyse morphologique (Vector Timing and Correlation, comparaison de l'EGM de la tachycardie à un gabarit de rythme sinusal acquis automatiquement) à l'analyse des intervalles atriaux et ventriculaires. En double chambre, une fréquence ventriculaire supérieure à la fréquence atriale signe une origine ventriculaire et conduit directement à la thérapie. Comme tous les discriminateurs TSV, Rhythm ID n'agit que dans les zones TV : il n'inhibe jamais la thérapie dans la zone FV, d'où la proposition C fausse. La traduction Boston Scientific de la mise à jour 2019 du consensus recommande Rhythm ID en DAI (Onset/Stability ou Rhythm ID en CRT-D) et rappelle que les discriminateurs ne s'appliquent que jusqu'à 230 bpm : une zone FV programmée trop bas prive donc les TSV rapides de toute discrimination. Dans l'essai RIGHT, les DAI utilisant Rhythm ID (génération VITALITY 2) ont eu plus de thérapies inappropriées que les DAI Medtronic comparés, surtout en simple chambre et pour des rythmes < 175 bpm, ce qui plaide pour des seuils de détection élevés.",
+    "aRetenir": "Rhythm ID = corrélation morphologique au gabarit sinusal + analyse A/V ; jamais d'inhibition en zone FV, discrimination limitée à 230 bpm.",
     "sources": [
       {
-        "titre": "Boston Scientific. Reference Guide RESONATE HF/EL ICD, PERCIVA, CHARISMA, VIGILANT, MOMENTUM EL ICD (réf. 360202-017), manuel technique officiel",
-        "url": "https://www.bostonscientific.com/content/dam/elabeling/crm/pr/360202-017_ICD_RefGuide_en-GBR_S.pdf"
+        "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing (Appendix B : traduction par constructeur). Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
       },
       {
         "titre": "Gold MR et al. Prospective comparison of discrimination algorithms to prevent inappropriate ICD therapy: primary results of the Rhythm ID Going Head to Head Trial (RIGHT). Heart Rhythm 2012;9:370-7",
         "url": "https://doi.org/10.1016/j.hrthm.2011.10.004"
+      },
+      {
+        "titre": "Boston Scientific. Physician's Technical Manual RESONATE HF/EL ICD, PERCIVA HF ICD, PERCIVA ICD, CHARISMA EL, VIGILANT EL, MOMENTUM EL ICD (réf. 51114099-001A, 2021), manuel technique officiel",
+        "url": "https://www.bostonscientific.com/content/dam/elabeling/crm/51114099-001A_NG4_Tachy_ICD_PTM_en_S.pdf"
       }
     ]
   },
@@ -279,12 +283,12 @@
     "difficulte": 3,
     "question": "Dans la suite de discrimination Onset/Stability d'un DAI Boston Scientific, quel critère vise principalement la tachycardie sinusale et lequel vise la fibrillation atriale ?",
     "reponseAttendue": "Onset (caractère brutal du démarrage) sert à reconnaître la tachycardie sinusale, qui s'installe progressivement ; Stability (régularité des intervalles R-R) sert à reconnaître la FA, dont la réponse ventriculaire est irrégulière.",
-    "explication": "La tachycardie sinusale s'installe progressivement, alors qu'une TV démarre brutalement : le critère Onset exploite cette différence. La FA conduite donne des R-R irréguliers, alors que la TV monomorphe est généralement régulière : c'est le rôle du critère Stability, qu'on peut associer au seuil de fréquence atriale (AFib Rate Threshold) en double chambre. Le manuel Boston Scientific présente Onset/Stability selon le type de discrimination souhaité : tachyarythmie atriale, tachycardie sinusale ou TV polymorphe. Un piège classique : une TV démarrant pendant une tachycardie sinusale d'effort peut ne pas remplir le critère Onset, d'où l'intérêt de la Sustained Rate Duration ou d'une discrimination morphologique.",
+    "explication": "La tachycardie sinusale s'installe progressivement, alors qu'une TV démarre brutalement : le critère Onset exploite cette différence. La FA conduite donne des R-R irréguliers, alors que la TV monomorphe est généralement régulière : c'est le rôle du critère Stability, qu'on peut associer au seuil de fréquence atriale (AFib Rate Threshold) en double chambre. La traduction Boston Scientific de la mise à jour 2019 du consensus propose, en CRT-D, Onset/Stability ou Rhythm ID, avec la Sustained Rate Duration (SRD) sur Off. Piège classique : une TV qui démarre pendant une tachycardie sinusale d'effort peut ne pas remplir le critère Onset et voir sa thérapie inhibée ; à l'inverse, un minuteur SRD actif finirait par traiter une TSV prolongée, d'où la recommandation de le laisser sur Off.",
     "aRetenir": "Onset discrimine la tachycardie sinusale, Stability discrimine la FA.",
     "sources": [
       {
-        "titre": "Boston Scientific. Reference Guide RESONATE HF/EL ICD, PERCIVA, CHARISMA, VIGILANT, MOMENTUM EL ICD (réf. 360202-017), manuel technique officiel",
-        "url": "https://www.bostonscientific.com/content/dam/elabeling/crm/pr/360202-017_ICD_RefGuide_en-GBR_S.pdf"
+        "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing (Appendix B : traduction par constructeur). Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
       },
       {
         "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-86",
@@ -301,17 +305,17 @@
     "difficulte": 8,
     "question": "Selon la traduction constructeur de la mise à jour 2019 du consensus HRS/EHRA/APHRS/LAHRS sur la programmation des DAI, quelle programmation « délai prolongé » (option 1) est proposée pour un DAI Boston Scientific en prévention primaire, sans antécédent de TV ?",
     "options": [
-      "FV ≥ 200 min⁻¹ avec 1 s de durée, TV ≥ 150 min⁻¹ avec 2,5 s",
-      "Une zone unique FV ≥ 170 min⁻¹ avec choc immédiat",
-      "FV ≥ 230 min⁻¹ avec 30 s de durée, sans zone TV",
-      "FV ≥ 250 min⁻¹ avec 5 s de durée, TV ≥ 185 min⁻¹ avec 12 s de durée (8 intervalles sur 10 plus la durée), zone VT-1 en surveillance au choix"
+      "FV ≥ 200 bpm avec 1 s de durée, TV ≥ 150 bpm avec 2,5 s",
+      "Une zone unique FV ≥ 170 bpm avec choc immédiat",
+      "FV ≥ 230 bpm avec 30 s de durée, sans zone TV",
+      "FV ≥ 250 bpm avec 5 s de durée, TV ≥ 185 bpm avec 12 s de durée (8 intervalles sur 10 plus la durée), zone VT-1 en surveillance au choix"
     ],
     "reponses": [
       3
     ],
     "reponseAttendue": null,
-    "explication": "L'annexe constructeur (Appendix B) de la mise à jour 2019 traduit les principes du consensus 2015 en réglages Boston Scientific. Option 1 (délai prolongé) : FV à 250 min⁻¹ avec 8/10 intervalles plus 5 s de durée, TV à 185 min⁻¹ avec 8/10 plus 12 s de durée, VT-1 en surveillance à la discrétion de l'opérateur. Option 2 (thérapie à haute fréquence) : FV à 200 min⁻¹ avec 2,5 s de durée. Ces options reprennent les bras de MADIT-RIT, réalisé sur des DAI Boston Scientific, où ces deux stratégies ont réduit les thérapies inappropriées et la mortalité par rapport à une programmation conventionnelle. Les discriminateurs TSV ne s'appliquent que jusqu'à 230 min⁻¹. Une détection rapide avec 1 s de durée correspond justement à la programmation conventionnelle qu'on cherche à éviter.",
-    "aRetenir": "Boston Scientific, prévention primaire : TV 185 min⁻¹/12 s et FV 250 min⁻¹/5 s, ou thérapie à haute fréquence FV 200 min⁻¹/2,5 s.",
+    "explication": "L'annexe constructeur (Appendix B) de la mise à jour 2019 traduit les principes du consensus 2015 en réglages Boston Scientific. Option 1 (délai prolongé) : FV à 250 bpm avec 8/10 intervalles plus 5 s de durée, TV à 185 bpm avec 8/10 plus 12 s de durée, VT-1 en surveillance à la discrétion de l'opérateur. Option 2 (thérapie à haute fréquence) : FV à 200 bpm avec 2,5 s de durée. Ces options s'inspirent de MADIT-RIT, réalisé sur des DAI Boston Scientific : par rapport à une programmation conventionnelle, la thérapie à haute fréquence (≥ 200 bpm) et la thérapie retardée ont toutes deux réduit les thérapies inappropriées d'environ 75 %, la baisse de mortalité étant significative pour la haute fréquence (HR 0,45) et à la limite de la significativité pour le délai prolongé (HR 0,56 ; p = 0,06). Les discriminateurs TSV ne s'appliquent que jusqu'à 230 bpm. Une détection rapide avec 1 s de durée correspond justement à la programmation conventionnelle qu'on cherche à éviter.",
+    "aRetenir": "Boston Scientific, prévention primaire : TV 185 bpm/12 s et FV 250 bpm/5 s, ou thérapie à haute fréquence FV 200 bpm/2,5 s.",
     "sources": [
       {
         "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
@@ -449,7 +453,7 @@
     "options": [
       "Il délivre un choc biphasique de 80 J, non programmable",
       "Il ne délivre pas de stimulation antitachycardique (ATP)",
-      "Il n'assure pas de stimulation antibradycardique permanente ; seule une stimulation post-choc optionnelle à 50 min⁻¹ pendant au plus 30 s est possible",
+      "Il n'assure pas de stimulation antibradycardique permanente ; seule une stimulation post-choc optionnelle à 50 bpm pendant au plus 30 s est possible",
       "Il nécessite une sonde endocavitaire ventriculaire droite pour la détection"
     ],
     "reponses": [
@@ -458,7 +462,7 @@
       2
     ],
     "reponseAttendue": null,
-    "explication": "Le S-ICD est entièrement extrathoracique : une électrode sous-cutanée parasternale reliée à un boîtier en position latérale thoracique, sans aucune sonde endocavitaire. Sa seule réponse à une tachyarythmie ventriculaire détectée est un choc biphasique de 80 J, non programmable. Il n'y a ni ATP ni stimulation antibradycardique permanente ; une stimulation post-choc optionnelle est délivrée à 50 min⁻¹ pendant au plus 30 s. D'où les contre-indications pratiques : besoin de stimulation antibradycardique, de CRT ou de TV monomorphes récidivantes accessibles à l'ATP.",
+    "explication": "Le S-ICD est entièrement extrathoracique : une électrode sous-cutanée parasternale reliée à un boîtier en position latérale thoracique, sans aucune sonde endocavitaire. Sa seule réponse à une tachyarythmie ventriculaire détectée est un choc biphasique de 80 J, non programmable. Il n'y a ni ATP ni stimulation antibradycardique permanente ; une stimulation post-choc optionnelle est délivrée à 50 bpm pendant au plus 30 s. D'où les contre-indications pratiques : besoin de stimulation antibradycardique, de CRT ou de TV monomorphes récidivantes accessibles à l'ATP.",
     "aRetenir": "S-ICD : choc 80 J non programmable, ni ATP ni stimulation permanente, seulement 30 s de stimulation post-choc.",
     "sources": [
       {
@@ -489,7 +493,7 @@
       0
     ],
     "reponseAttendue": null,
-    "explication": "Le S-ICD permet deux zones de fréquence. Dans la Shock Zone (170 à 250 min⁻¹), la fréquence est le seul critère. Dans la Conditional Shock Zone, obligatoirement plus basse (170 à 240 min⁻¹), l'appareil compare les complexes au gabarit de rythme sinusal acquis lors de l'initialisation et analyse la largeur du QRS et le caractère polymorphe du rythme, afin de ne pas traiter FA, tachycardie sinusale ou autres TSV. La tachycardie est déclarée quand la moyenne des 4 derniers R-R entre dans une zone. Le manuel conseille de programmer l'une des zones à 200 min⁻¹ ou moins pour garantir la détection de la FV. Le S-ICD ne délivre pas d'ATP.",
+    "explication": "Le S-ICD permet deux zones de fréquence. Dans la Shock Zone (170 à 250 bpm), la fréquence est le seul critère. Dans la Conditional Shock Zone, obligatoirement plus basse (170 à 240 bpm), l'appareil compare les complexes au gabarit de rythme sinusal acquis lors de l'initialisation et analyse la largeur du QRS et le caractère polymorphe du rythme, afin de ne pas traiter FA, tachycardie sinusale ou autres TSV. La fréquence est estimée par la moyenne glissante des 4 derniers R-R, et la charge ne démarre que si 18 des 24 derniers intervalles sont jugés « à traiter », puis confirmés par l'analyse de persistance. Le manuel conseille de programmer l'une des zones à 200 bpm ou moins pour garantir la détection de la FV. Le S-ICD ne délivre pas d'ATP.",
     "aRetenir": "S-ICD : zone de choc = fréquence seule ; zone conditionnelle = fréquence + morphologie.",
     "sources": [
       {
@@ -556,17 +560,17 @@
     "difficulte": 8,
     "question": "Selon la traduction constructeur de la mise à jour 2019 du consensus de programmation des DAI, quels réglages de zones sont proposés pour le S-ICD ?",
     "options": [
-      "Zone de choc ≥ 170 min⁻¹ seule, zone conditionnelle désactivée",
-      "Zone de choc ≥ 230 min⁻¹ et zone conditionnelle ≥ 200 min⁻¹ (ou 10 à 20 min⁻¹ sous la TV connue), stimulation post-choc à envisager",
-      "Zone de choc ≥ 250 min⁻¹ seule, sans zone conditionnelle",
-      "Zone conditionnelle ≥ 150 min⁻¹ pour traiter toutes les TV lentes"
+      "Zone de choc ≥ 170 bpm seule, zone conditionnelle désactivée",
+      "Zone de choc ≥ 230 bpm et zone conditionnelle ≥ 200 bpm (ou 10 à 20 bpm sous la TV connue), stimulation post-choc à envisager",
+      "Zone de choc ≥ 250 bpm seule, sans zone conditionnelle",
+      "Zone conditionnelle ≥ 150 bpm pour traiter toutes les TV lentes"
     ],
     "reponses": [
       1
     ],
     "reponseAttendue": null,
-    "explication": "L'annexe Boston Scientific de la mise à jour 2019 propose pour le S-ICD une zone de choc à au moins 230 min⁻¹ et une zone conditionnelle à au moins 200 min⁻¹, ou 10 à 20 min⁻¹ sous la TV si sa fréquence est connue. Elle conseille aussi d'envisager la stimulation post-choc. Activer la zone conditionnelle avec discrimination morphologique réduit les chocs inappropriés : dans UNTOUCHED, avec thérapie sur la seule fréquence au-delà de 250 min⁻¹ et discrimination entre 200 et 250 min⁻¹, 95,9 % des patients n'avaient reçu aucun choc inapproprié à 18 mois. Une zone unique à 170 min⁻¹ sans discrimination exposerait à de nombreux chocs inappropriés sur tachycardie sinusale ou FA.",
-    "aRetenir": "S-ICD : zone conditionnelle vers 200 min⁻¹ avec discrimination, zone de choc haute (≥ 230–250 min⁻¹).",
+    "explication": "L'annexe Boston Scientific de la mise à jour 2019 propose pour le S-ICD une zone de choc à au moins 230 bpm et une zone conditionnelle à au moins 200 bpm, ou 10 à 20 bpm sous la TV si sa fréquence est connue. Elle conseille aussi d'envisager la stimulation post-choc. Activer la zone conditionnelle avec discrimination morphologique réduit les chocs inappropriés : dans UNTOUCHED, avec thérapie sur la seule fréquence au-delà de 250 bpm et discrimination entre 200 et 250 bpm, 95,9 % des patients n'avaient reçu aucun choc inapproprié à 18 mois. Une zone unique à 170 bpm sans discrimination exposerait à de nombreux chocs inappropriés sur tachycardie sinusale ou FA.",
+    "aRetenir": "S-ICD : zone conditionnelle vers 200 bpm avec discrimination, zone de choc haute (≥ 230–250 bpm).",
     "sources": [
       {
         "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
@@ -650,15 +654,15 @@
     "question": "Une femme de 52 ans a des syncopes réflexes récidivantes, fréquentes et traumatisantes, avec une réponse cardio-inhibitrice au tilt-test (asystolie > 3 s). Une stimulation est décidée. Quelle programmation est étayée par l'essai randomisé SPAIN ?",
     "options": [
       "DDD avec Closed Loop Stimulation (DDD-CLS)",
-      "VVI à 40 min⁻¹",
+      "VVI à 40 bpm",
       "AAI avec asservissement par accéléromètre",
-      "DDI à 30 min⁻¹"
+      "DDI à 30 bpm"
     ],
     "reponses": [
       0
     ],
     "reponseAttendue": null,
-    "explication": "SPAIN était un essai croisé en double aveugle chez des patients de 40 ans ou plus, avec une syncope vasovagale très récidivante et une réponse cardio-inhibitrice au tilt-test. Il comparait la stimulation DDD-CLS à un mode placebo DDI à 30 min⁻¹. La proportion de patients ayant au moins 50 % de réduction des syncopes était de 72 % en DDD-CLS contre 28 % en mode placebo. L'intérêt supposé de CLS est de détecter l'augmentation de contractilité qui précède la phase vasodépressive et d'accélérer la stimulation avant la chute de fréquence. Le VVI n'est pas adapté (perte de la synchronisation AV, absence de réponse précoce), et l'AAI est inefficace sur la composante cardio-inhibitrice.",
+    "explication": "SPAIN était un essai croisé en double aveugle chez des patients de 40 ans ou plus, avec une syncope vasovagale très récidivante et une réponse cardio-inhibitrice au tilt-test. Il comparait la stimulation DDD-CLS à un mode placebo DDI à 30 bpm. La proportion de patients ayant au moins 50 % de réduction des syncopes était de 72 % en DDD-CLS contre 28 % en mode placebo. L'intérêt supposé de CLS est de détecter l'augmentation de contractilité qui précède la phase vasodépressive et d'accélérer la stimulation avant la chute de fréquence. Le VVI n'est pas adapté (perte de la synchronisation AV, absence de réponse précoce), et l'AAI est inefficace sur la composante cardio-inhibitrice.",
     "aRetenir": "Syncope réflexe cardio-inhibitrice sélectionnée : DDD-CLS (essai SPAIN).",
     "sources": [
       {
@@ -714,7 +718,7 @@
       "Elle raccourcit le délai AV pour garantir la stimulation ventriculaire",
       "Elle fait passer le boîtier d'un mode DDD(R) à un mode ADI(R) pour éviter la stimulation ventriculaire inutile",
       "Elle désactive la détection atriale",
-      "Elle passe en VVI à 40 min⁻¹"
+      "Elle passe en VVI à 40 bpm"
     ],
     "reponses": [
       1
@@ -912,17 +916,17 @@
     "difficulte": 9,
     "question": "Selon la traduction Biotronik de la mise à jour 2019 du consensus de programmation des DAI, quelle programmation de détection est proposée chez un patient sans antécédent de TV ?",
     "options": [
-      "FV : 8/12 intervalles à 200 min⁻¹ ; TV : 16 intervalles à 150 min⁻¹",
-      "FV : 12/16 à 180 min⁻¹ sans zone TV",
-      "FV : 30/40 intervalles (sinon 24/30) à 231 min⁻¹ ; TV2 : 30 intervalles à 188 min⁻¹ ; TV1 : zone de surveillance au choix",
-      "Une seule zone à 170 min⁻¹ avec choc immédiat"
+      "FV : 8/12 intervalles à 200 bpm ; TV : 16 intervalles à 150 bpm",
+      "FV : 12/16 à 180 bpm sans zone TV",
+      "FV : 30/40 intervalles (sinon 24/30) à 231 bpm ; TV2 : 30 intervalles à 188 bpm ; TV1 : zone de surveillance au choix",
+      "Une seule zone à 170 bpm avec choc immédiat"
     ],
     "reponses": [
       2
     ],
     "reponseAttendue": null,
-    "explication": "L'annexe Biotronik de la mise à jour 2019 propose, sans antécédent de TV : FV à 231 min⁻¹ avec 30/40 intervalles si programmable (sinon 24/30), TV2 à 188 min⁻¹ avec 30 intervalles, et TV1 en zone de surveillance au choix. Le traitement de la FV comprend un ATP One-Shot (1 salve de 8 impulsions à 88 % du cycle) puis des chocs à pleine énergie. Pour les discriminateurs : MorphMatch en simple chambre, SMART en double chambre/CRT-D, Home Monitoring activé. En stimulation double chambre, l'annexe propose le DDD avec IRS Plus (± CLS) ou le DDD avec Vp suppression. Allonger la détection et relever les seuils de fréquence réduit les thérapies inappropriées sans surmortalité, comme l'ont montré MADIT-RIT et les travaux suivants.",
-    "aRetenir": "Biotronik 2019 : FV 231 min⁻¹ (30/40), TV2 188 min⁻¹ (30 intervalles), TV1 en surveillance.",
+    "explication": "L'annexe Biotronik de la mise à jour 2019 propose, sans antécédent de TV : FV à 231 bpm avec 30/40 intervalles si programmable (sinon 24/30), TV2 à 188 bpm avec 30 intervalles, et TV1 en zone de surveillance au choix. Le traitement de la FV comprend un ATP One-Shot (1 salve de 8 impulsions à 88 % du cycle) puis des chocs à pleine énergie. Pour les discriminateurs : MorphMatch en simple chambre, SMART en double chambre/CRT-D, Home Monitoring activé. En stimulation double chambre, l'annexe propose le DDD avec IRS Plus (± CLS) ou le DDD avec Vp suppression. Allonger la détection et relever les seuils de fréquence réduit les thérapies inappropriées sans surmortalité, comme l'ont montré MADIT-RIT et les travaux suivants.",
+    "aRetenir": "Biotronik 2019 : FV 231 bpm (30/40), TV2 188 bpm (30 intervalles), TV1 en surveillance.",
     "sources": [
       {
         "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
@@ -1254,7 +1258,7 @@
     "marque": "MicroPort",
     "type": "qcu",
     "difficulte": 6,
-    "question": "Qu'a montré l'essai randomisé ANSWER (SafeR contre DDD, 650 patients, suivi de 3 ans) ?",
+    "question": "Qu'a montré l'essai randomisé ANSWER (SafeR contre DDD, 650 patients inclus, suivi de 3 ans) ?",
     "options": [
       "Une réduction significative de 50 % de la FA permanente sur le critère principal",
       "Une réduction majeure de la stimulation ventriculaire (11,5 % contre 93,6 %) sans différence significative sur le critère composite principal (hospitalisation pour insuffisance cardiaque, FA ou cardioversion)",
@@ -1339,7 +1343,7 @@
     "difficulte": 3,
     "question": "Quel est le principe du mode Dplus des stimulateurs MicroPort ?",
     "options": [
-      "Une stimulation VVI de secours à 30 min⁻¹",
+      "Une stimulation VVI de secours à 30 bpm",
       "Une stimulation biventriculaire déclenchée",
       "Une hystérésis automatique du délai AV qui favorise la conduction AV spontanée",
       "Une fréquence de repos nocturne"
@@ -1348,9 +1352,13 @@
       2
     ],
     "reponseAttendue": null,
-    "explication": "Dplus est présenté par MicroPort comme un algorithme d'hystérésis automatique du délai AV, conçu pour favoriser la conduction AV spontanée. Contrairement à SafeR, Dplus ne repose pas sur un vrai mode AAI : le boîtier reste en DDD, avec un délai AV étendu (phase dite pseudo-AAI) calculé à partir des PR ou AR mesurés, de sorte que le QRS spontané puisse survenir avant la stimulation ventriculaire. Si la stimulation ventriculaire redevient nécessaire, il revient à un délai AV adapté. Comme pour tout délai AV long, il faut rester attentif à une synchronisation AV défavorable si le PR est très long.",
+    "explication": "Dplus est présenté par MicroPort comme un algorithme d'hystérésis automatique du délai AV, conçu pour favoriser la conduction AV spontanée. Contrairement à SafeR, Dplus ne repose pas sur un vrai mode AAI : le boîtier reste en DDD, avec un délai AV étendu (phase dite pseudo-AAI) ajusté automatiquement à partir des 8 derniers intervalles PR ou AR mesurés, de sorte que le QRS spontané puisse survenir avant la stimulation ventriculaire. Si la stimulation ventriculaire redevient nécessaire, il revient à un délai AV adapté. Comme pour tout délai AV long, il faut rester attentif à une synchronisation AV défavorable si le PR est très long.",
     "aRetenir": "Dplus = DDD avec hystérésis automatique du délai AV (pseudo-AAI), pour favoriser la conduction spontanée.",
     "sources": [
+      {
+        "titre": "MicroPort CRM. Tech Corner – Dplus Pacing Mode (rév. A, 2020), documentation technique officielle",
+        "url": "https://microport.com/assets/blog/Dplus_revA_2020.pdf"
+      },
       {
         "titre": "MicroPort CRM. Pacemaker Features & Algorithms (SafeR, Dplus, Autothreshold, Fallback Mode Switch) – page professionnelle officielle",
         "url": "https://microport.com/healthcare-professional/cardiac-rhythm-management-home-page/our-therapies/pacemakers-features-and-algorithms"
@@ -1426,17 +1434,17 @@
     "difficulte": 10,
     "question": "Selon la traduction MicroPort de la mise à jour 2019 du consensus de programmation des DAI, quelle programmation de détection est proposée chez un patient sans antécédent de TV ?",
     "options": [
-      "FV > 200 min⁻¹ avec 8 cycles ; TV 150 min⁻¹",
-      "Une zone unique à 180 min⁻¹",
-      "FV > 300 min⁻¹ ; aucune zone TV",
-      "FV > 255 min⁻¹ (20 cycles + majorité 6/8) ; TV rapide 230 min⁻¹ ; TV 185 min⁻¹ (20 ou 30 cycles + majorité 6/8) ; TV lente en surveillance au choix"
+      "FV > 200 bpm avec 8 cycles ; TV 150 bpm",
+      "Une zone unique à 180 bpm",
+      "FV > 300 bpm ; aucune zone TV",
+      "FV > 255 bpm (20 cycles + majorité 6/8) ; TV rapide 230 bpm ; TV 185 bpm (20 ou 30 cycles + majorité 6/8) ; TV lente en surveillance au choix"
     ],
     "reponses": [
       3
     ],
     "reponseAttendue": null,
-    "explication": "L'annexe MicroPort de la mise à jour 2019 propose : FV au-delà de 255 min⁻¹ (20 cycles et majorité 6/8), TV rapide à 230 min⁻¹, TV à 185 min⁻¹ (20 ou 30 cycles et majorité 6/8), TV lente en zone de surveillance au choix. Les chocs en zone FV sont réglés à 42 J (6 chocs). En double chambre et CRT-D, la discrimination repose sur PARAD+ (onset 25 %, stabilité 65 ms, extension de cycle long 10 cycles, écart de cycle long 170 ms). En stimulation double chambre, l'annexe propose SafeR ; en CRT, l'optimisation SonR hebdomadaire si une sonde SonRtip est implantée. Le principe commun reste de relever les seuils de fréquence et d'allonger la détection.",
-    "aRetenir": "MicroPort 2019 : FV > 255 min⁻¹, TV rapide 230 min⁻¹, TV 185 min⁻¹, PARAD+ en double chambre.",
+    "explication": "L'annexe MicroPort de la mise à jour 2019 propose : FV au-delà de 255 bpm (20 cycles et majorité 6/8), TV rapide à 230 bpm, TV à 185 bpm (20 ou 30 cycles et majorité 6/8), TV lente en zone de surveillance au choix. Les chocs en zone FV sont réglés à 42 J (6 chocs). En double chambre et CRT-D, la discrimination repose sur PARAD+ (onset 25 %, stabilité 65 ms, extension de cycle long 10 cycles, écart de cycle long 170 ms). En stimulation double chambre, l'annexe propose SafeR ; en CRT, l'optimisation SonR hebdomadaire si une sonde SonRtip est implantée. Le principe commun reste de relever les seuils de fréquence et d'allonger la détection.",
+    "aRetenir": "MicroPort 2019 : FV > 255 bpm, TV rapide 230 bpm, TV 185 bpm, PARAD+ en double chambre.",
     "sources": [
       {
         "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
@@ -1466,7 +1474,7 @@
       1
     ],
     "reponseAttendue": null,
-    "explication": "Le capteur SonR est un micro-accéléromètre placé dans la pointe de la sonde atriale SonRtip. Il mesure les vibrations produites par la contraction (pic d'accélération endocardiaque), bien corrélées au dP/dt max du VG, indice de contractilité. Le boîtier fait varier les délais AV et VV et retient ceux qui donnent le meilleur signal SonR. Cette optimisation est automatique et se répète chaque semaine, au repos et à l'effort, sans échographie. Elle n'est possible qu'avec la sonde SonRtip : un CRT-D MicroPort implanté avec une sonde atriale classique ne peut pas faire d'optimisation SonR.",
+    "explication": "Le capteur SonR est un micro-accéléromètre placé dans la pointe de la sonde atriale SonRtip. Il mesure les vibrations produites par la contraction (pic d'accélération endocardiaque), bien corrélées au dP/dt max du VG, indice de contractilité. Le boîtier fait varier les délais AV et VV et retient ceux qui donnent le meilleur signal SonR. Cette optimisation est automatique et se répète chaque semaine sans échographie : le délai VV est optimisé au repos, les délais AV au repos et à l'effort. Elle n'est possible qu'avec la sonde SonRtip : un CRT-D MicroPort implanté avec une sonde atriale classique ne peut pas faire d'optimisation SonR.",
     "aRetenir": "SonR = accéléromètre dans la sonde atriale SonRtip, optimisation automatique hebdomadaire des délais AV/VV.",
     "sources": [
       {
@@ -1522,7 +1530,7 @@
       1
     ],
     "reponseAttendue": null,
-    "explication": "C'est faux : l'algorithme SonR n'est disponible qu'avec la sonde atriale SonRtip, dont la pointe contient le micro-accéléromètre ; sans elle, il n'y a pas de signal SonR. Programmée en « AV+VV », l'optimisation SonR automatique calcule le délai VV optimal au repos et les délais AV optimaux au repos et à l'effort, chaque semaine. La première optimisation démarre à minuit le jour de l'activation, puis chaque lundi à minuit. Les mesures au repos exigent des conditions stables : fréquence inférieure à 90 min⁻¹, absence d'extrasystoles et de tachyarythmie. Ce rythme hebdomadaire permet de suivre le remodelage ventriculaire sans multiplier les échographies.",
+    "explication": "C'est faux : l'algorithme SonR n'est disponible qu'avec la sonde atriale SonRtip, dont la pointe contient le micro-accéléromètre ; sans elle, il n'y a pas de signal SonR. Programmée en « AV+VV », l'optimisation SonR automatique calcule le délai VV optimal au repos et les délais AV optimaux au repos et à l'effort, chaque semaine. La première optimisation démarre à minuit le jour de l'activation, puis chaque lundi à minuit. Les mesures au repos exigent des conditions stables : fréquence inférieure à 90 bpm, absence d'extrasystoles et de tachyarythmie. Ce rythme hebdomadaire permet de suivre le remodelage ventriculaire sans multiplier les échographies.",
     "aRetenir": "Pas de sonde SonRtip, pas de SonR ; avec elle, optimisation hebdomadaire du VV au repos et de l'AV au repos et à l'effort.",
     "sources": [
       {
@@ -1549,7 +1557,7 @@
       2
     ],
     "reponseAttendue": null,
-    "explication": "Le FMS évite de stimuler le ventricule à haute fréquence pendant une arythmie atriale suivie. Une extrasystole atriale tombant dans la WARAD (Window of Atrial Rate Acceleration Detection) fait entrer le boîtier en phase de suspicion ; la fréquence ventriculaire stimulée est alors plafonnée à 120 min⁻¹ et le délai AV raccourci pour mieux détecter l'oreillette. Critère principal de confirmation : au moins 28 cycles suspects sur 32 cycles ventriculaires (environ 15 s). Un critère secondaire (18 sur 32, deux fois de suite) gère la sous-détection atriale. Le repli se fait en DDI(R), indépendamment de la fréquence maximale programmée, et le boîtier revient au mode initial quand l'arythmie cesse.",
+    "explication": "Le FMS évite de stimuler le ventricule à haute fréquence pendant une arythmie atriale suivie. Une extrasystole atriale tombant dans la WARAD (Window of Atrial Rate Acceleration Detection) fait entrer le boîtier en phase de suspicion ; la fréquence ventriculaire stimulée est alors plafonnée à 120 bpm (ou à la fréquence maximale programmée si elle est plus basse) et le délai AV raccourci pour mieux détecter l'oreillette. Critère principal de confirmation : au moins 28 cycles suspects sur 32 cycles ventriculaires (environ 15 s). Un critère secondaire (18 sur 32, deux fois de suite) gère la sous-détection atriale. Le repli se fait en DDI(R), indépendamment de la fréquence maximale programmée, et le boîtier revient au mode initial quand l'arythmie cesse.",
     "aRetenir": "FMS MicroPort : suspicion par la WARAD, confirmation 28/32, repli en DDI(R).",
     "sources": [
       {
@@ -1578,7 +1586,7 @@
       0
     ],
     "reponseAttendue": null,
-    "explication": "La documentation technique SafeR de MicroPort indique que lorsque SafeR est programmé, l'Autothreshold ventriculaire passe automatiquement sur OFF sur REPLY, KORA, ENO, TEO, PARADYM RF, INTENSIA et PLATINIUM, et que le FMS passe automatiquement sur ON. En AAI, le ventricule n'étant normalement pas stimulé, la mesure automatique du seuil ventriculaire n'est pas réalisable dans les mêmes conditions. En pratique, il faut contrôler et programmer manuellement l'amplitude ventriculaire, avec une marge de sécurité suffisante, sur ces modèles, puisque le ventricule sera stimulé lors des bascules en DDD. L'Autothreshold (ventriculaire RVAT et atrial RAAT) reste sinon un moyen de maintenir la capture tout en préservant la pile.",
+    "explication": "La documentation technique SafeR de MicroPort indique que lorsque SafeR est programmé, l'Autothreshold ventriculaire passe automatiquement sur OFF sur REPLY, KORA, ENO, TEO, PARADYM RF, INTENSIA et PLATINIUM, et que le FMS passe automatiquement sur ON. La documentation ne détaille pas la raison de cette contrainte ; retenez la conséquence pratique : il faut contrôler le seuil et programmer manuellement l'amplitude ventriculaire, avec une marge de sécurité suffisante, sur ces modèles, puisque le ventricule sera stimulé lors des bascules en DDD. L'Autothreshold (ventriculaire RVAT et atrial RAAT) reste sinon un moyen de maintenir la capture tout en préservant la pile.",
     "aRetenir": "Sur plusieurs modèles MicroPort, SafeR désactive l'Autothreshold ventriculaire : régler l'amplitude V à la main.",
     "sources": [
       {
@@ -1609,7 +1617,7 @@
       1
     ],
     "reponseAttendue": null,
-    "explication": "SmartView est la solution de télésurveillance de MicroPort CRM : moniteur SmartView au domicile et, pour les boîtiers compatibles Bluetooth, application mobile SmartView Connect sur le smartphone du patient. Elle transmet les données du boîtier et des alertes vers la plateforme consultée par l'équipe. LATITUDE est la solution de Boston Scientific, Home Monitoring celle de Biotronik et CareLink celle de Medtronic. Connaître le système de chaque constructeur est utile pour organiser le suivi et les transmissions après implantation. Le consensus HRS 2023 recommande la télésurveillance pour tous les porteurs de boîtiers, quel que soit le constructeur.",
+    "explication": "SmartView est la solution de télésurveillance de MicroPort CRM : moniteur de chevet (SmartView, puis SmartView Connect) et, pour les boîtiers compatibles Bluetooth, application mobile SmartView Connect sur le smartphone du patient. Elle transmet les données du boîtier et des alertes vers la plateforme consultée par l'équipe. LATITUDE est la solution de Boston Scientific, Home Monitoring celle de Biotronik et CareLink celle de Medtronic. Connaître le système de chaque constructeur est utile pour organiser le suivi et les transmissions après implantation. Le consensus HRS 2023 recommande la télésurveillance pour tous les porteurs de boîtiers, quel que soit le constructeur.",
     "aRetenir": "Télésurveillance MicroPort = SmartView (moniteur ou application SmartView Connect).",
     "sources": [
       {
