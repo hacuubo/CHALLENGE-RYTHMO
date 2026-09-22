@@ -86,3 +86,26 @@ Si le preset ne suffit pas, **décrire le tracé dans l'énoncé** plutôt que d
 Uniquement des sources scientifiquement validées, consultées en lecture seule (aucune création de compte) :
 recommandations ESC/EHRA, ACC/AHA/HRS, HAS, SFC ; articles indexés (PubMed, DOI) ; manuels techniques
 officiels des fabricants ; ouvrages de référence reconnus. Pas de blog, forum ou site non validé.
+
+## Champs complémentaires
+
+| Champ | Détail |
+|---|---|
+| `commentaires` | tableau de même longueur que `options` : une phrase par option expliquant pourquoi elle est juste ou fausse (affiché après la réponse) |
+| `ecg12` | vrai ECG 12 dérivations : `{ "fichier": "ptbxl-00123", "legende": "…" }` → fichier `data/ecg/ptbxl-00123.json` |
+| `revise` | date de dernière relecture scientifique, `AAAA-MM` |
+| `reco` | recommandation(s) de référence, ex. `["ESC 2021 stimulation"]` (sert à retrouver les questions à revoir quand une recommandation change) |
+
+### Fichier ECG 12 dérivations (`data/ecg/<id>.json`)
+
+```json
+{
+  "id": "ptbxl-00123",
+  "source": "PTB-XL 1.0.3 (PhysioNet, CC BY 4.0), enregistrement 00123",
+  "fs": 250,
+  "unite": "uV",
+  "derivations": ["I","II","III","aVR","aVL","aVF","V1","V2","V3","V4","V5","V6"],
+  "signaux": [[...], ...]
+}
+```
+`signaux` : 12 tableaux d'entiers (µV), 10 s à `fs` Hz (2500 points), ligne de base corrigée.

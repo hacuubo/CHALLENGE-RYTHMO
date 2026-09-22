@@ -16,6 +16,7 @@ if (!files.length) {
 }
 
 const ids = new Set();
+const enonces = new Map();
 let errors = 0, total = 0;
 const err = (f, id, msg) => { errors++; console.error(`✗ ${path.basename(f)} [${id}] ${msg}`); };
 
@@ -53,6 +54,19 @@ for (const f of files) {
       if (q.type === 'vf' && q.reponses?.length !== 1) err(f, id, 'vf : 1 réponse');
     }
     if (q.ecg && !PRESETS.includes(q.ecg.preset)) err(f, id, 'preset ECG inconnu : ' + q.ecg.preset);
+    if (q.ecg12) {
+      const fe = path.join(dir, '..', 'ecg', `${q.ecg12.fichier}.json`);
+      if (!fs.existsSync(fe)) err(f, id, 'fichier ECG 12 dérivations introuvable : ' + q.ecg12.fichier);
+    }
+    if (q.commentaires !== undefined) {
+      if (!Array.isArray(q.commentaires) || q.commentaires.length !== (q.options || []).length || q.commentaires.some(c => !c || typeof c !== 'string'))
+        err(f, id, 'commentaires : un commentaire non vide par option');
+    }
+    if (q.type === 'qcm' && q.reponses?.length === q.options?.length) err(f, id, 'qcm : toutes les options ne peuvent pas être justes');
+    if (q.revise !== undefined && !/^\d{4}-\d{2}$/.test(q.revise)) err(f, id, 'revise doit être au format AAAA-MM');
+    const cle = (q.question || '').toLowerCase().replace(/[^a-z0-9àâçéèêëîïôûùüÿœ]+/g, ' ').trim();
+    if (enonces.has(cle)) err(f, id, 'énoncé identique à ' + enonces.get(cle));
+    enonces.set(cle, id);
   }
 }
 console.log(`${total} questions vérifiées, ${errors} erreur(s).`);

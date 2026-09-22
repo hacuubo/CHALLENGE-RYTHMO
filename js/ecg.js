@@ -329,67 +329,78 @@ export const PRESETS = Object.keys(presets);
 
 // ----- Rendu -------------------------------------------------------------------------
 
-export function dessinerECG(canvas, def, seed = 'ecg') {
-  const fn = presets[def.preset];
-  if (!fn) return false;
-  const T = new Trace(rng(seed + def.preset));
-  fn(T, def);
-  // ligne de base légèrement ondulante + bruit discret
-  const w0 = T.rand() * 6;
-  T.fonds.push(t => 0.03 * Math.sin(2 * Math.PI * 0.25 * t / 1000 + w0));
-
+export function couleurs() {
   const css = getComputedStyle(document.documentElement);
-  const cGrille = css.getPropertyValue('--ecg-grid').trim() || '#f3b6b6';
-  const cGrilleFine = css.getPropertyValue('--ecg-grid-fine').trim() || '#fbe3e3';
-  const cFond = css.getPropertyValue('--ecg-bg').trim() || '#fff';
-  const cTrace = css.getPropertyValue('--ecg-trace').trim() || '#111';
+  return {
+    grille: css.getPropertyValue('--ecg-grid').trim() || '#f0a9a9',
+    fine: css.getPropertyValue('--ecg-grid-fine').trim() || '#fae0e0',
+    fond: css.getPropertyValue('--ecg-bg').trim() || '#fff',
+    trace: css.getPropertyValue('--ecg-trace').trim() || '#111',
+  };
+}
 
-  const parent = canvas.parentElement;
-  const largeurDispo = parent.clientWidth || 700;
-  const pxmm = Math.max(3, largeurDispo / 260);
-  const mmLarg = 260, mmHaut = 34; // 10 mm de marge pour l'étalonnage
-  const W = Math.round(mmLarg * pxmm), H = Math.round(mmHaut * pxmm);
+// Prépare un canvas de mmL × mmH millimètres à pxmm pixels/mm et dessine le papier millimétré.
+export function papier(canvas, mmL, mmH, pxmm) {
+  const c = couleurs();
+  const W = Math.round(mmL * pxmm), H = Math.round(mmH * pxmm);
   const dpr = window.devicePixelRatio || 1;
   canvas.width = W * dpr; canvas.height = H * dpr;
   canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
   const ctx = canvas.getContext('2d');
-  ctx.scale(dpr, dpr);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.fillStyle = c.fond; ctx.fillRect(0, 0, W, H);
+  const lignes = (n, trait) => {
+    for (let mm = 0; mm <= n; mm++) {
+      ctx.strokeStyle = mm % 5 ? c.fine : c.grille; ctx.lineWidth = mm % 5 ? 0.5 : 1;
+      ctx.beginPath(); trait(Math.round(mm * pxmm) + 0.5); ctx.stroke();
+    }
+  };
+  lignes(mmL, x => { ctx.moveTo(x, 0); ctx.lineTo(x, H); });
+  lignes(mmH, y => { ctx.moveTo(0, y); ctx.lineTo(W, y); });
+  ctx.strokeStyle = c.trace; ctx.lineJoin = 'round';
+  return { ctx, W, H };
+}
 
-  ctx.fillStyle = cFond; ctx.fillRect(0, 0, W, H);
-  for (let mm = 0; mm <= mmLarg; mm++) {
-    ctx.strokeStyle = mm % 5 ? cGrilleFine : cGrille; ctx.lineWidth = mm % 5 ? 0.5 : 1;
-    ctx.beginPath(); ctx.moveTo(mm * pxmm + 0.5, 0); ctx.lineTo(mm * pxmm + 0.5, H); ctx.stroke();
-  }
-  for (let mm = 0; mm <= mmHaut; mm++) {
-    ctx.strokeStyle = mm % 5 ? cGrilleFine : cGrille; ctx.lineWidth = mm % 5 ? 0.5 : 1;
-    ctx.beginPath(); ctx.moveTo(0, mm * pxmm + 0.5); ctx.lineTo(W, mm * pxmm + 0.5); ctx.stroke();
-  }
+// Signal d'étalonnage 1 mV (5 mm de large) à partir de x, ligne de base y0.
+export function etalonnage(ctx, x, y0, pxmm) {
+  ctx.beginPath();
+  ctx.moveTo(x, y0); ctx.lineTo(x + pxmm, y0); ctx.lineTo(x + pxmm, y0 - 10 * pxmm);
+  ctx.lineTo(x + 6 * pxmm, y0 - 10 * pxmm); ctx.lineTo(x + 6 * pxmm, y0); ctx.lineTo(x + 8 * pxmm, y0);
+  ctx.stroke();
+}
 
-  const base = H * 0.6;
+// Dessine un preset. Retourne la géométrie utile au compas : { pxmm, x0 } (x0 = abscisse de t = 0).
+export function dessinerECG(canvas, def, seed = 'ecg', opts = {}) {
+  const fn = presets[def.preset];
+  if (!fn) return null;
+  const T = new Trace(rng(seed + def.preset));
+  fn(T, def);
+  const w0 = T.rand() * 6;
+  T.fonds.push(t => 0.03 * Math.sin(2 * Math.PI * 0.25 * t / 1000 + w0)); // ligne de base légèrement ondulante
+
+  const mmL = 260, mmH = 34;
+  const largeurDispo = canvas.parentElement?.clientWidth || 700;
+  const pxmm = opts.pxmm || Math.max(3, largeurDispo / mmL);
+  const { ctx } = papier(canvas, mmL, mmH, pxmm);
+  const base = mmH * pxmm * 0.6;
   const y = mv => base - mv * 10 * pxmm;
-  const x0 = 10 * pxmm; // début du tracé après le signal d'étalonnage
+  const x0 = 10 * pxmm;
   const xt = t => x0 + (t / 40) * pxmm; // 25 mm/s → 1 mm = 40 ms
 
-  ctx.strokeStyle = cTrace; ctx.lineWidth = 1.4; ctx.lineJoin = 'round';
-  // signal d'étalonnage 1 mV
-  ctx.beginPath();
-  ctx.moveTo(pxmm, base); ctx.lineTo(3 * pxmm, base); ctx.lineTo(3 * pxmm, y(1));
-  ctx.lineTo(8 * pxmm, y(1)); ctx.lineTo(8 * pxmm, base); ctx.lineTo(x0, base);
-  ctx.stroke();
-
-  const pas = 40 / pxmm / 2; // deux échantillons par pixel
+  ctx.lineWidth = 1.4;
+  etalonnage(ctx, pxmm, base, pxmm);
+  const pas = 40 / pxmm / 2;
   ctx.beginPath();
   for (let t = 0; t <= DUREE; t += pas) {
     const X = xt(t), Y = y(T.value(t));
     t === 0 ? ctx.moveTo(X, Y) : ctx.lineTo(X, Y);
   }
   ctx.stroke();
-
   ctx.lineWidth = 1.2;
   for (const s of T.spikes) {
     if (s.t < 0 || s.t > DUREE) continue;
     const X = Math.round(xt(s.t)) + 0.5, Yb = y(T.value(s.t));
     ctx.beginPath(); ctx.moveTo(X, Yb); ctx.lineTo(X, Math.max(pxmm, Yb - s.a * 8 * pxmm)); ctx.stroke();
   }
-  return true;
+  return { pxmm, x0 };
 }

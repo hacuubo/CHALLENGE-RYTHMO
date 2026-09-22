@@ -25,10 +25,24 @@ jobs:
           node-version: 22
       - name: Valider la base de questions
         run: node scripts/validate.mjs
+      - name: Contrôler les biais des propositions (longueur, QCM, vrai/faux)
+        run: node scripts/audit-biais.mjs
+
+  interface:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Installer Chromium (Playwright)
+        run: npm install --no-save playwright@1 && npx playwright install --with-deps chromium
+      - name: Test de fumée de l'interface
+        run: node tests/smoke.mjs
 
   publier:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: verifier
+    needs: [verifier, interface]
     runs-on: ubuntu-latest
     environment:
       name: github-pages

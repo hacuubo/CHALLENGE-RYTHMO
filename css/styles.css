@@ -63,7 +63,7 @@ h3 { font-size: 1.05rem; }
 .onglets button, .onglets-bas button { border: 0; background: none; padding: 8px 12px; border-radius: 10px; color: var(--texte-2); font-weight: 600; }
 .onglets button.actif { background: var(--info-fond); color: var(--primaire); }
 .onglets-bas {
-  position: fixed; bottom: 0; left: 0; right: 0; z-index: 10; display: grid; grid-template-columns: repeat(4, 1fr);
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 10; display: grid; grid-template-columns: repeat(5, 1fr);
   background: var(--surface); border-top: 1px solid var(--bord); padding-bottom: env(safe-area-inset-bottom);
 }
 .onglets-bas button { display: flex; flex-direction: column; align-items: center; font-size: .75rem; padding: 8px 4px; border-radius: 0; }
@@ -215,3 +215,73 @@ textarea { width: 100%; min-height: 110px; padding: 12px; border-radius: 12px; b
   .barre-ligne .piste { grid-column: 1 / -1; grid-row: 2; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* ---------- Tracés : outils, compas, plein écran ---------- */
+.trace { margin: 0 0 14px; }
+.trace-outils { display: flex; gap: 8px; justify-content: flex-end; margin-bottom: 6px; }
+.outil { border: 1px solid var(--bord); background: var(--surface); border-radius: 10px; padding: 6px 10px; font-size: .85rem; font-weight: 600; min-height: 36px; }
+.outil.actif { background: var(--primaire-2); border-color: var(--primaire-2); color: #fff; }
+.trace .ecg-cadre { margin: 0; }
+.trace .ecg-legende { margin: 6px 0 0; }
+.trace .ecg-legende[data-defiler]::after { content: " · faites défiler le tracé →"; font-weight: 700; }
+.trace-pile { position: relative; width: max-content; }
+.trace-pile canvas { display: block; }
+.calque { position: absolute; left: 0; top: 0; pointer-events: none; }
+.calque.actif { pointer-events: auto; touch-action: none; cursor: crosshair; }
+.compas-mesure { font-size: .85rem; font-weight: 600; color: var(--primaire); min-height: 1.2em; margin-top: 4px; }
+.plein { position: fixed; inset: 0; z-index: 50; background: var(--bg); display: flex; flex-direction: column; }
+.plein-tete { display: flex; align-items: center; gap: 10px; padding: 8px 12px; padding-top: calc(8px + env(safe-area-inset-top)); border-bottom: 1px solid var(--bord); background: var(--surface); }
+.plein-tete .compas-mesure { flex: 1; margin: 0; }
+.plein-corps { flex: 1; overflow: auto; background: var(--ecg-bg); -webkit-overflow-scrolling: touch; }
+body.sans-defilement { overflow: hidden; }
+
+/* ---------- Commentaires par proposition, pied de correction ---------- */
+.option .texte { display: flex; flex-direction: column; gap: 4px; }
+.commentaire { font-size: .85rem; font-weight: 400; color: var(--texte-2); }
+.pied-question { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--bord); }
+.signaler { font-size: .85rem; font-weight: 600; color: var(--ko); text-decoration: none; }
+.signaler:hover { text-decoration: underline; }
+.chrono { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--primaire); }
+.chrono.urgent { color: var(--ko); }
+.raccourcis { display: none; }
+@media (hover: hover) and (pointer: fine) { .raccourcis { display: block; } }
+
+/* ---------- Accueil, niveau, badges ---------- */
+.hero-haut { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+.hero .petit { font-size: .8rem; opacity: .85; }
+.niveau-rond { flex: none; width: 72px; height: 72px; border-radius: 50%; border: 3px solid rgba(255,255,255,.7); display: grid; place-items: center; align-content: center; text-align: center; line-height: 1; }
+.niveau-rond b { font-size: 1.7rem; }
+.niveau-rond span { font-size: .7rem; opacity: .85; }
+.petit-rond { border-color: var(--primaire-2); color: var(--primaire); width: 60px; height: 60px; }
+.bandeau { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
+.actions.serre { margin-top: 0; }
+.tuile-vedette { border: 2px solid var(--primaire-2); }
+.tuile:disabled { opacity: .55; cursor: default; }
+.titre-section { margin-top: 22px; }
+.grille-badges { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+.badge-carte, .badge-gagne { border: 1px solid var(--bord); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; gap: 2px; text-align: center; opacity: .45; filter: grayscale(1); }
+.badge-carte.gagne, .badge-gagne { opacity: 1; filter: none; background: var(--info-fond); }
+.badge-carte span, .badge-gagne span { font-size: 1.6rem; }
+.badge-carte small, .badge-gagne small { color: var(--texte-2); font-size: .75rem; }
+.nouveaux-badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 10px; }
+.sous-barre { margin: -6px 0 4px; }
+
+/* ---------- Configuration ---------- */
+details.avance { border-top: 1px solid var(--bord); padding-top: 12px; margin-bottom: 12px; }
+details.avance > summary { cursor: pointer; font-weight: 700; margin-bottom: 12px; }
+.groupe-sous { margin-bottom: 10px; }
+.groupe-sous .note { margin-bottom: 6px; }
+
+/* ---------- Fiches ---------- */
+.champ { flex: 1; min-width: 180px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--bord); background: var(--surface); min-height: 44px; }
+.titre-groupe { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 1.05rem; margin: 18px 0 8px; }
+.petit-btn { min-height: 34px; padding: 6px 12px; font-size: .85rem; }
+.fiche { background: var(--surface); border: 1px solid var(--bord); border-radius: 12px; margin-bottom: 8px; }
+.fiche > summary { cursor: pointer; padding: 12px 14px; font-weight: 600; }
+.fiche-corps { padding: 0 14px 14px; }
+.fiche-options { list-style: none; padding: 0; margin: 0 0 10px; }
+.fiche-options li { padding: 6px 0; border-bottom: 1px solid var(--surface-2); }
+.fiche-options li.juste { font-weight: 600; }
+.fiche-options small { color: var(--texte-2); font-weight: 400; }
+.plein-astuce { padding: 12px 16px; display: none; }
+@media (orientation: portrait) and (max-width: 760px) { .plein-astuce { display: block; } }
