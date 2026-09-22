@@ -26,7 +26,11 @@ jobs:
       - name: Valider la base de questions
         run: node scripts/validate.mjs
       - name: Contrôler les biais des propositions (longueur, QCM, vrai/faux)
-        run: node scripts/audit-biais.mjs
+        run: STRICT=1 node scripts/audit-biais.mjs
+      - name: Vérifier que index.json et la version du cache sont à jour
+        run: |
+          node scripts/build-index.mjs
+          git diff --exit-code -- data/questions/index.json sw.js || { echo "Lancez node scripts/build-index.mjs et committez le résultat"; exit 1; }
 
   interface:
     runs-on: ubuntu-latest
