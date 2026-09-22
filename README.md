@@ -6,7 +6,7 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
 
 ## Fonctionnalités
 
-- **819 questions** réparties en 4 thèmes et 40 sous-thèmes :
+- **819 questions** réparties en 4 thèmes et 41 sous-thèmes :
   - ECG (troubles de conduction, tachycardies, ECG du patient stimulé) — avec **tracés générés** dans l'application
     et **61 vrais ECG 12 dérivations** (base PTB-XL, PhysioNet, CC BY 4.0), **compas de mesure** et plein écran ;
   - Programmation PM / DAI / CRT : principes génériques et algorithmes propres à **Medtronic, Abbott, Boston Scientific, Biotronik, MicroPort** ;
