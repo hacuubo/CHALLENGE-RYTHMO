@@ -1,0 +1,3223 @@
+[
+  {
+    "id": "ecg-tachy-001",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 1,
+    "question": "Homme de 74 ans, palpitations depuis la veille. Quel est le diagnostic sur ce tracé (DII) ?",
+    "ecg": {
+      "preset": "fa",
+      "fc": 110
+    },
+    "options": [
+      "Fibrillation atriale",
+      "Flutter atrial à conduction variable",
+      "Tachycardie par réentrée intranodale",
+      "Extrasystoles atriales en bigéminisme"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : RR irrégulièrement irréguliers, aucune onde P organisée, ligne de base trémulante (ondes f).",
+      "Faux : un flutter, même à conduction variable, montre des ondes F organisées en dents de scie, absentes ici.",
+      "Faux : la TRIN est une tachycardie parfaitement régulière.",
+      "Faux : un bigéminisme alterne cycles courts et longs, avec des P prématurées visibles."
+    ],
+    "explication": "Sur ce tracé, le rythme ventriculaire est totalement irrégulier (sans périodicité), les QRS sont fins et aucune onde P organisée n'est visible, la ligne de base étant finement trémulante : c'est une fibrillation atriale. L'activité atriale se résume à des ondes f anarchiques, parfois à peine visibles, souvent mieux vues en V1. Un flutter, même à conduction variable, garde des ondes F organisées en dents de scie à ~300/min, ce qui permet de le reconnaître malgré l'irrégularité des QRS. Une TRIN est une tachycardie régulière. Un bigéminisme atrial est « régulièrement irrégulier » (alternance cycle court/cycle long) avec des P prématurées visibles.",
+    "aRetenir": "Rythme irrégulièrement irrégulier + absence d'onde P organisée = FA jusqu'à preuve du contraire.",
+    "sources": [
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Van Gelder IC et al. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-002",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Selon les recommandations ESC 2024, quelle durée minimale d'enregistrement est requise pour retenir le diagnostic de FA clinique sur un tracé mono-dérivation (patch, montre connectée validée, Holter) ?",
+    "ecg": {
+      "preset": "fa",
+      "fc": 80
+    },
+    "options": [
+      "10 secondes",
+      "30 secondes",
+      "6 minutes",
+      "24 heures"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : 10 s est la durée d'un ECG 12 dérivations standard, qui suffit à lui seul, mais pas le seuil des tracés mono-dérivation.",
+      "Juste : tracé d'au moins 30 s montrant un rythme irrégulièrement irrégulier sans onde P, relu par un médecin.",
+      "Faux : 6 minutes est le seuil utilisé pour les épisodes atriaux à haute fréquence (AHRE) détectés par les prothèses.",
+      "Faux : aucune durée de 24 h n'est exigée ; c'est la durée d'un Holter standard."
+    ],
+    "explication": "L'ESC 2024 retient le diagnostic de FA clinique sur un ECG 12 dérivations standard, ou sur un tracé mono- ou multi-dérivation d'au moins 30 secondes montrant un rythme irrégulièrement irrégulier sans onde P. Le seuil de 30 s est historiquement celui utilisé pour définir un épisode de FA. La durée de 6 minutes correspond aux épisodes atriaux à haute fréquence (AHRE/FA infraclinique) détectés par les prothèses, ce qui est un tout autre concept. Un tracé de 10 s correspond à l'ECG 12 dérivations standard, qui suffit à lui seul, mais ce n'est pas le seuil retenu pour les enregistrements mono-dérivation. Le tracé doit être relu par un médecin : l'algorithme de l'objet connecté ne suffit pas.",
+    "aRetenir": "FA clinique = ECG 12 dérivations ou tracé ≥ 30 s interprété par un médecin.",
+    "sources": [
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Van Gelder IC et al. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-003",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Patient en FA permanente sous digoxine. L'ECG montre désormais un rythme parfaitement régulier à 42/min, QRS fins, sans onde P visible. Quelle est l'interprétation la plus probable ?",
+    "options": [
+      "Flutter atrial à conduction fixe 8:1",
+      "Retour spontané en rythme sinusal lent",
+      "Bon contrôle de fréquence, aucune action nécessaire",
+      "BAV complet avec échappement jonctionnel"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : une conduction 8:1 est exceptionnelle et laisserait voir des ondes F organisées.",
+      "Faux : un retour en sinusal supposerait des ondes P visibles devant chaque QRS.",
+      "Faux : piège classique ; il faut doser digoxinémie et kaliémie et surveiller le patient.",
+      "Juste : une FA qui se régularise et ralentit évoque un BAV complet avec échappement fin, à relier à la digoxine."
+    ],
+    "explication": "En FA, la réponse ventriculaire est irrégulière par nature. Une « régularisation » du rythme ventriculaire, surtout lente, doit faire évoquer un BAV complet avec rythme d'échappement (jonctionnel si QRS fins, ventriculaire si QRS larges). Sous digoxine, il faut en outre suspecter un surdosage digitalique (qui peut aussi donner un rythme jonctionnel accéléré régularisé). Un retour en sinusal suppose des ondes P visibles. Un flutter 8:1 est exceptionnel et resterait visible sous forme d'ondes F. Considérer ce tracé comme un « bon contrôle » est le piège classique : il faut doser la digoxinémie et la kaliémie et surveiller le patient.",
+    "aRetenir": "Une FA qui devient régulière et lente = BAV complet (et intoxication digitalique) jusqu'à preuve du contraire.",
+    "sources": [
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Van Gelder IC et al. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "Josephson ME. Josephson's Clinical Cardiac Electrophysiology: Techniques and Interpretations. 6e éd. Philadelphia : Wolters Kluwer, 2020",
+        "url": null
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-004",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 2,
+    "question": "Quels éléments font partie de la définition ECG de la fibrillation atriale ?",
+    "ecg": {
+      "preset": "fa",
+      "fc": 95
+    },
+    "options": [
+      "Intervalles RR irrégulièrement irréguliers",
+      "Absence d'ondes P distinctes et répétitives",
+      "Intervalle PR constant",
+      "Fréquence ventriculaire obligatoirement supérieure à 100/min"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : RR irrégulièrement irréguliers lorsque la conduction AV n'est pas altérée.",
+      "Juste : aucune onde P organisée ; l'activité atriale se résume à des ondes f.",
+      "Faux : sans onde P, il n'y a pas de PR ; un PR constant signe un rythme atrial organisé.",
+      "Faux : la fréquence n'entre pas dans la définition ; une FA peut être lente."
+    ],
+    "explication": "L'ESC 2024 définit la FA à l'ECG par des intervalles RR irrégulièrement irréguliers (lorsque la conduction AV n'est pas altérée), l'absence d'ondes P distinctes et répétitives et une activité atriale irrégulière. Les ondes f, parfois grossières, parfois quasi invisibles, sont surtout visibles en V1. En l'absence d'onde P, il ne peut exister d'intervalle PR : un PR constant signe au contraire un rythme atrial organisé. La fréquence ventriculaire n'entre pas dans la définition : une FA peut être lente (sujet âgé, freinateurs, maladie du nœud AV). Un rythme régulier sous FA doit faire suspecter un BAV complet, un flutter ou une tachycardie atriale.",
+    "aRetenir": "FA : RR irrégulièrement irréguliers, pas d'onde P organisée, ondes f.",
+    "sources": [
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Van Gelder IC et al. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-005",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Homme de 67 ans, palpitations et dyspnée depuis deux jours. Quel diagnostic devez-vous évoquer en premier devant ce tracé (DII) ?",
+    "ecg": {
+      "preset": "flutter",
+      "conduction": 2
+    },
+    "options": [
+      "Flutter atrial à conduction 2:1",
+      "Tachycardie sinusale",
+      "Tachycardie par réentrée intranodale",
+      "Tachycardie atriale focale"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : tachycardie régulière à QRS fins vers 150/min avec deux activités atriales par QRS : flutter 2:1.",
+      "Faux : une seule P par QRS et une installation progressive ; ici, deux activités atriales par cycle.",
+      "Faux : dans la TRIN, la P rétrograde est noyée dans le QRS ; on ne voit pas deux ondes atriales par cycle.",
+      "Faux : elle garde une ligne isoélectrique entre des P distinctes ; ici, l'activité atriale est continue."
+    ],
+    "explication": "Sur ce tracé, la tachycardie est régulière, à QRS fins, autour de 150/min, avec une onde atriale dans l'onde T et une autre juste avant chaque QRS. Une tachycardie régulière à QRS fins à environ 150/min doit systématiquement faire rechercher un flutter atrial 2:1 (300/2). Une onde F est souvent cachée dans le QRS ou l'onde T, ce qui donne l'illusion d'un rythme sinusal ou d'une TSV. La présence de deux activités atriales par QRS est l'argument décisif. La tachycardie sinusale s'installe et décroît progressivement, avec une seule P par QRS ; une tachycardie atriale focale garde une ligne isoélectrique entre des P distinctes. En cas de doute, les manœuvres vagales ou l'adénosine démasquent les ondes F en ralentissant transitoirement la conduction AV sans arrêter le flutter.",
+    "aRetenir": "Tachycardie régulière à QRS fins à 150/min : penser flutter 2:1.",
+    "sources": [
+      {
+        "titre": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Brugada J et al. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Saoudi N, Cosío F, Waldo A et al. A classification of atrial flutter and regular atrial tachycardia according to electrophysiological mechanisms and anatomical bases (ESC/NASPE statement). Eur Heart J 2001;22:1162-1182",
+        "url": "https://doi.org/10.1053/euhj.2001.2658"
+      }
+    ],
+    "reco": [
+      "ESC 2019 TSV"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-006",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Dans le flutter typique antihoraire (dépendant de l'isthme cavotricuspide), quel est l'aspect habituel des ondes F ?",
+    "ecg": {
+      "preset": "flutter",
+      "conduction": 4
+    },
+    "options": [
+      "Positives en DII, DIII, aVF et négatives en V1",
+      "Visibles seulement en dérivation œsophagienne",
+      "Positives et pointues dans toutes les dérivations",
+      "Négatives en DII, DIII, aVF et positives en V1"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : c'est l'aspect du flutter typique horaire, qui parcourt le même circuit en sens inverse.",
+      "Faux : les ondes F sont bien visibles en surface, surtout dans les dérivations inférieures et en V1.",
+      "Faux : la polarité des ondes F diffère entre les dérivations inférieures et V1.",
+      "Juste : ondes F négatives en dents de scie dans les inférieures et positives en V1 (activation septale ascendante)."
+    ],
+    "explication": "Dans le flutter typique antihoraire, l'activation descend la paroi latérale de l'OD, traverse l'isthme cavotricuspide puis remonte le septum. Il en résulte des ondes F négatives en dents de scie, sans ligne isoélectrique, dans les dérivations inférieures, et positives en V1. C'est la forme la plus fréquente (environ 90 % des flutters typiques). La forme horaire, qui tourne en sens inverse autour du même circuit, donne des ondes F positives dans les inférieures et négatives en V1. Le circuit est le même dans les deux cas : l'ablation de l'isthme cavotricuspide traite les deux.",
+    "aRetenir": "Flutter typique antihoraire : F négatives en inférieures, positives en V1.",
+    "sources": [
+      {
+        "titre": "Saoudi N, Cosío F, Waldo A et al. A classification of atrial flutter and regular atrial tachycardia according to electrophysiological mechanisms and anatomical bases (ESC/NASPE statement). Eur Heart J 2001;22:1162-1182",
+        "url": "https://doi.org/10.1053/euhj.2001.2658"
+      },
+      {
+        "titre": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Brugada J et al. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      }
+    ],
+    "reco": [
+      "ESC 2019 TSV"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-007",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 4,
+    "question": "Dans le flutter typique horaire, les ondes F sont habituellement positives dans les dérivations inférieures et négatives en V1.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : même circuit que l'antihoraire parcouru en sens inverse, d'où des F positives en inférieures et négatives en V1.",
+      "Faux : l'affirmation est exacte ; seule la polarité des ondes F change, le circuit cavotricuspide restant le même."
+    ],
+    "explication": "Le flutter horaire utilise le même circuit que le flutter antihoraire (autour de l'anneau tricuspide, en passant par l'isthme cavotricuspide), mais dans le sens inverse. L'activation septale devient descendante et l'activation de la paroi latérale ascendante, ce qui inverse la polarité des ondes F : positives (souvent larges, crochetées) en DII, DIII, aVF et négatives en V1. Il reste « typique » au sens anatomique car il dépend de l'isthme cavotricuspide. Il ne faut donc pas le confondre avec un flutter atypique gauche sur le seul aspect ECG. La preuve formelle du circuit repose sur l'exploration électrophysiologique (entraînement, cartographie).",
+    "aRetenir": "Horaire ou antihoraire, le flutter typique dépend de l'isthme cavotricuspide ; seule la polarité des F change.",
+    "sources": [
+      {
+        "titre": "Saoudi N, Cosío F, Waldo A et al. A classification of atrial flutter and regular atrial tachycardia according to electrophysiological mechanisms and anatomical bases (ESC/NASPE statement). Eur Heart J 2001;22:1162-1182",
+        "url": "https://doi.org/10.1053/euhj.2001.2658"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-008",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 2,
+    "question": "Flutter atrial avec une fréquence atriale de 300/min et une conduction AV 4:1 fixe. Quelle est la fréquence ventriculaire attendue ? Et avec une conduction 2:1 ?",
+    "ecg": {
+      "preset": "flutter",
+      "conduction": 4
+    },
+    "options": null,
+    "reponses": null,
+    "reponseAttendue": "75/min en 4:1 (300/4) ; 150/min en 2:1 (300/2).",
+    "explication": "La fréquence ventriculaire d'un flutter se calcule en divisant la fréquence atriale par le rapport de conduction. Un flutter typique non traité tourne autour de 250-350/min (en pratique ~300/min). En 4:1, on obtient donc 75/min, en 3:1 100/min, en 2:1 150/min. Sous antiarythmique de classe IC ou amiodarone, la fréquence atriale peut ralentir (200-250/min), ce qui expose paradoxalement au risque de conduction 1:1 avec des fréquences ventriculaires très élevées.",
+    "aRetenir": "FC ventriculaire du flutter = fréquence atriale / rapport de conduction.",
+    "sources": [
+      {
+        "titre": "Saoudi N, Cosío F, Waldo A et al. A classification of atrial flutter and regular atrial tachycardia according to electrophysiological mechanisms and anatomical bases (ESC/NASPE statement). Eur Heart J 2001;22:1162-1182",
+        "url": "https://doi.org/10.1053/euhj.2001.2658"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-009",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 7,
+    "question": "Un patient traité par flécaïnide pour une FA paroxystique consulte pour palpitations mal tolérées. ECG : tachycardie régulière à QRS larges à 230/min. Quel diagnostic devez-vous évoquer et quelle en est la physiopathologie ? Quelle mesure préventive aurait dû être associée ?",
+    "options": null,
+    "reponses": null,
+    "reponseAttendue": "Flutter atrial (« flutter IC ») ralenti par la flécaïnide (~230/min) et conduit en 1:1, avec QRS élargis par l'effet use-dependent du bloqueur sodique. Prévention : associer un freinateur du nœud AV (bêtabloquant ou inhibiteur calcique bradycardisant) au traitement par classe IC.",
+    "explication": "Les antiarythmiques de classe IC peuvent transformer une FA en flutter atrial, dont ils ralentissent la fréquence (souvent 200-250/min). Le nœud AV, capable de conduire à cette fréquence, laisse alors passer le flutter en 1:1. L'effet « use-dependent » du blocage sodique élargit les QRS à fréquence rapide, si bien que le tracé mime une TV. C'est pourquoi l'ESC recommande d'associer un freinateur nodal (bêtabloquant, vérapamil ou diltiazem) à la flécaïnide ou à la propafénone. En aigu, un tel tableau mal toléré relève du choc électrique externe synchronisé.",
+    "aRetenir": "Classe IC sans freinateur nodal = risque de flutter 1:1 à QRS larges.",
+    "sources": [
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Van Gelder IC et al. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Brugada J et al. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA",
+      "ESC 2019 TSV"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-010",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Tachycardie atriale régulière survenant après plusieurs ablations de FA (isolement des veines pulmonaires et ligne de toit). Les ondes atriales sont franchement positives en V1. Quelle proposition est exacte ?",
+    "options": [
+      "Le circuit est très probablement l'isthme cavotricuspide",
+      "Une ligne isoélectrique entre les ondes exclut une macro-réentrée",
+      "Une onde atriale positive en V1 oriente vers un circuit gauche",
+      "Une fréquence atriale inférieure à 250/min exclut un flutter"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : après plusieurs ablations de FA, les circuits sont fréquemment gauches ; l'isthme n'est pas le plus probable.",
+      "Faux : sur oreillette cicatricielle, une macro-réentrée peut garder une ligne isoélectrique (conduction lente silencieuse).",
+      "Juste : après ablation de FA, une activité atriale franchement positive en V1 oriente vers un circuit gauche (périmitral, toit).",
+      "Faux : la fréquence atriale n'est pas un critère fiable, surtout sous antiarythmique."
+    ],
+    "explication": "Après ablation de FA, les tachycardies atriales sont fréquemment gauches : macro-réentrées périmitrales, de toit, ou tachycardies focales/micro-réentrées sur les « gaps » des lignes. Une activité atriale franchement positive en V1 est un argument pour une origine gauche ; elle n'est cependant pas spécifique, puisque le flutter typique antihoraire est lui aussi positif en V1 (mais avec des ondes F négatives en inférieures). Chez ces patients porteurs de cicatrices atriales, une ligne isoélectrique peut exister malgré une macro-réentrée (zones de conduction lente « silencieuses »). La fréquence atriale n'est pas un critère fiable, surtout sous antiarythmique. Le diagnostic précis du circuit repose sur la cartographie électroanatomique.",
+    "aRetenir": "Après ablation de FA, l'ECG de surface oriente mais ne permet pas de conclure au mécanisme : cartographie indispensable.",
+    "sources": [
+      {
+        "titre": "Saoudi N, Cosío F, Waldo A et al. A classification of atrial flutter and regular atrial tachycardia according to electrophysiological mechanisms and anatomical bases (ESC/NASPE statement). Eur Heart J 2001;22:1162-1182",
+        "url": "https://doi.org/10.1053/euhj.2001.2658"
+      },
+      {
+        "titre": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Brugada J et al. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      }
+    ],
+    "reco": [
+      "ESC 2019 TSV"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-011",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Parmi les éléments suivants, lesquels orientent vers une tachycardie atriale focale plutôt que vers un flutter (macro-réentrée) ?",
+    "options": [
+      "Ondes P séparées par une ligne isoélectrique nette",
+      "Accélération progressive au démarrage (« warm-up ») puis ralentissement avant l'arrêt",
+      "Fréquence atriale proche de 300/min",
+      "Activité atriale ondulante continue sans retour à la ligne de base"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : l'activation centrifuge d'un foyer laisse une ligne isoélectrique entre les P.",
+      "Juste : le « warm-up / cool-down » est typique d'un mécanisme automatique.",
+      "Faux : une fréquence atriale proche de 300/min évoque plutôt un flutter typique.",
+      "Faux : une activité ondulante continue traduit une macro-réentrée (flutter)."
+    ],
+    "explication": "La tachycardie atriale focale naît d'un foyer (automatisme, activité déclenchée ou micro-réentrée) et active l'oreillette de manière centrifuge. Cela laisse une ligne isoélectrique entre les ondes P, qui ont une morphologie différente de la P sinusale. Le comportement « warm-up / cool-down » est typique d'un mécanisme automatique. À l'inverse, une activité ondulante continue sans ligne de base traduit une macro-réentrée (flutter), et une fréquence atriale proche de 300/min évoque plutôt un flutter typique, même si la fréquence seule ne suffit pas à trancher. Attention : ces critères ne sont qu'indicatifs ; une macro-réentrée sur oreillette cicatricielle peut présenter une ligne isoélectrique, et une tachycardie focale rapide peut sembler continue.",
+    "aRetenir": "Ligne isoélectrique, P différente de la sinusale et warm-up orientent vers une tachycardie atriale focale.",
+    "sources": [
+      {
+        "titre": "Saoudi N, Cosío F, Waldo A et al. A classification of atrial flutter and regular atrial tachycardia according to electrophysiological mechanisms and anatomical bases (ESC/NASPE statement). Eur Heart J 2001;22:1162-1182",
+        "url": "https://doi.org/10.1053/euhj.2001.2658"
+      },
+      {
+        "titre": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Brugada J et al. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      }
+    ],
+    "reco": [
+      "ESC 2019 TSV"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-012",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Tachycardie atriale focale : onde P positive en V1, négative en DI et aVL, franchement positive en DII, DIII et aVF. Quelle est l'origine la plus probable ?",
+    "options": [
+      "Veine pulmonaire supérieure droite",
+      "Ostium du sinus coronaire",
+      "Anneau tricuspide, région latérale",
+      "Veine pulmonaire supérieure gauche"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : une origine veineuse pulmonaire droite donne aussi une P positive en V1, mais positive en DI et aVL.",
+      "Faux : l'ostium du sinus coronaire donne des P négatives dans les dérivations inférieures.",
+      "Faux : une origine tricuspide donne des P négatives en V1.",
+      "Juste : P positive en V1 et négative en DI/aVL = origine gauche latérale ; inférieures positives = origine haute."
+    ],
+    "explication": "D'après l'algorithme de Kistler, une onde P positive en V1 et négative (ou isoélectrique) en DI/aVL oriente vers une origine atriale gauche latérale, typiquement les veines pulmonaires gauches. La positivité franche des dérivations inférieures indique une origine haute (veine supérieure). Une origine dans les veines pulmonaires droites donne aussi une P positive en V1, mais positive en DI et aVL. L'ostium du sinus coronaire donne des P négatives dans les dérivations inférieures. L'anneau tricuspide donne des P négatives en V1. Ces règles restent approximatives et doivent être confirmées par la cartographie.",
+    "aRetenir": "P positive en V1 et négative en DI/aVL = origine gauche latérale (veines pulmonaires gauches) ; inférieures positives = origine haute.",
+    "sources": [
+      {
+        "titre": "Kistler PM, Roberts-Thomson KC, Haqqani HM et al. P-wave morphology in focal atrial tachycardia: development of an algorithm to predict the anatomic site of origin. J Am Coll Cardiol 2006;48:1010-1017",
+        "url": "https://doi.org/10.1016/j.jacc.2006.03.058"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-013",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 5,
+    "question": "Patient BPCO en décompensation respiratoire. Tachycardie irrégulière à QRS fins à 120/min ; chaque QRS est précédé d'une onde P, mais on identifie au moins 3 morphologies de P différentes et des intervalles PR variables. Quel est le diagnostic et quel est le principe du traitement ?",
+    "options": null,
+    "reponses": null,
+    "reponseAttendue": "Tachycardie atriale multifocale. Traitement : corriger la cause (décompensation respiratoire, hypoxie, hypokaliémie/hypomagnésémie, théophylline…) ; ralentisseurs (inhibiteurs calciques, éventuellement bêtabloquant cardiosélectif) si besoin ; la cardioversion électrique est inefficace.",
+    "explication": "La tachycardie atriale multifocale associe une fréquence > 100/min, au moins trois morphologies d'ondes P distinctes et des intervalles PP, PR et RR variables. Elle est typiquement associée aux pneumopathies chroniques décompensées, à l'hypoxie et aux troubles métaboliques. Elle est souvent confondue avec la FA du fait de l'irrégularité, mais les ondes P sont bien individualisées avec une ligne isoélectrique. Le traitement est avant tout celui de la cause ; la cardioversion électrique et l'ablation n'ont pas de place en première intention.",
+    "aRetenir": "Tachycardie irrégulière avec ≥ 3 morphologies de P chez un insuffisant respiratoire = tachycardie atriale multifocale : traiter la cause.",
+    "sources": [
+      {
+        "titre": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Brugada J et al. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "2015 ACC/AHA/HRS Guideline for the Management of Adult Patients With Supraventricular Tachycardia. Page RL et al. Circulation 2016;133:e506-e574",
+        "url": "https://doi.org/10.1161/CIR.0000000000000311"
+      }
+    ],
+    "reco": [
+      "ESC 2019 TSV"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-014",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Femme de 28 ans, palpitations à début et fin brusques. Tracé enregistré pendant la crise. Quel est le diagnostic le plus probable ?",
+    "ecg": {
+      "preset": "tsv",
+      "fc": 180
+    },
+    "options": [
+      "Tachycardie par réentrée intranodale",
+      "Tachycardie ventriculaire fasciculaire",
+      "Fibrillation atriale rapide",
+      "Tachycardie sinusale inappropriée"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : tachycardie régulière à QRS fins, début et fin brusques, sans P visible : TRIN en premier lieu.",
+      "Faux : les QRS sont fins, sans aspect de retard droit ; le contexte évoque une tachycardie jonctionnelle.",
+      "Faux : le rythme est parfaitement régulier.",
+      "Faux : début et fin brusques, pas de P visible devant les QRS : ce n'est pas un rythme sinusal."
+    ],
+    "explication": "Sur ce tracé, la tachycardie est régulière, à QRS fins, autour de 180/min, sans onde P visible (P rétrograde noyée dans le QRS). Chez une femme jeune, avec un début et une fin brusques, ce tableau évoque d'abord une tachycardie par réentrée intranodale (TRIN), la plus fréquente des tachycardies jonctionnelles. La FA est irrégulière. La tachycardie sinusale, même inappropriée, a un début et une fin progressifs et des P visibles devant chaque QRS. Une TV fasciculaire a des QRS relativement fins (souvent 120-140 ms) mais d'aspect retard droit, ce qui n'est pas le cas ici. Le diagnostic différentiel principal reste la TRAV orthodromique sur voie accessoire (cachée ou manifeste).",
+    "aRetenir": "Tachycardie régulière à QRS fins, début/fin brusques, sans P visible : TRIN en premier lieu.",
+    "sources": [
+      {
+        "titre": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Brugada J et al. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      }
+    ],
+    "reco": [
+      "ESC 2019 TSV"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-015",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Quel signe ECG, absent en rythme sinusal et visible pendant la tachycardie, est le plus évocateur d'une TRIN typique (lente-rapide) ?",
+    "ecg": {
+      "preset": "tsv",
+      "fc": 170
+    },
+    "options": [
+      "Onde delta apparaissant pendant la tachycardie",
+      "P rétrograde dans le ST, > 90 ms après le QRS",
+      "Alternance électrique d'amplitude des QRS",
+      "Pseudo-r' en V1 et pseudo-S en inférieures"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : l'onde delta est un signe de préexcitation en rythme sinusal, pas de TRIN.",
+      "Faux : un RP long de ce type oriente plutôt vers une TRAV orthodromique.",
+      "Faux : l'alternance électrique est surtout liée à la fréquence rapide et n'est pas spécifique.",
+      "Juste : la P rétrograde émerge à la fin du QRS, créant une pseudo-r' en V1 et une pseudo-S en inférieures."
+    ],
+    "explication": "Dans la TRIN typique, l'activation des oreillettes (rétrograde, par la voie rapide) et celle des ventricules sont quasi simultanées : l'onde P rétrograde est donc cachée dans le QRS ou en émerge à sa fin. Elle réalise une pseudo-r' en V1 et une pseudo-S en inférieures, à comparer au tracé en rythme sinusal. L'intervalle RP est très court (typiquement < 70 ms). Une P rétrograde nettement séparée du QRS (RP > 70-90 ms) oriente plutôt vers une TRAV orthodromique. L'onde delta est un signe de préexcitation en rythme sinusal. L'alternance électrique est plus fréquente dans les TRAV mais surtout liée à la fréquence rapide et n'est pas spécifique.",
+    "aRetenir": "TRIN typique : P rétrograde « dans » la fin du QRS = pseudo-r' en V1, pseudo-S en inférieures.",
+    "sources": [
+      {
+        "titre": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Brugada J et al. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "2015 ACC/AHA/HRS Guideline for the Management of Adult Patients With Supraventricular Tachycardia. Page RL et al. Circulation 2016;133:e506-e574",
+        "url": "https://doi.org/10.1161/CIR.0000000000000311"
+      }
+    ],
+    "reco": [
+      "ESC 2019 TSV"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-016",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Tachycardie régulière à QRS fins à 200/min. On voit une onde P rétrograde (négative en inférieures) dans le segment ST, environ 120 ms après le début du QRS ; RP < PR. Quel est le mécanisme le plus probable ?",
+    "options": [
+      "TRIN typique (lente-rapide)",
+      "TRIN atypique (rapide-lente)",
+      "TRAV orthodromique",
+      "Tachycardie sinusale inappropriée"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : dans la TRIN typique, le RP est très court (< 70 ms), la P étant noyée dans le QRS.",
+      "Faux : la TRIN atypique donne une tachycardie à RP long (RP > PR).",
+      "Juste : RP court mais > 70 ms, P rétrograde dans le ST : remontée par la voie accessoire après les ventricules.",
+      "Faux : une tachycardie sinusale aurait des P positives en inférieures précédant les QRS."
+    ],
+    "explication": "Une tachycardie à RP court (RP < PR) avec un RP > 70 ms est typique de la TRAV orthodromique : l'influx descend par le nœud AV, active les ventricules puis remonte vers les oreillettes par la voie accessoire, ce qui prend un certain temps. Dans la TRIN typique, le RP est beaucoup plus court (< 70 ms), la P étant noyée dans le QRS. La TRIN atypique rapide-lente donne une tachycardie à RP long (RP > PR). Une tachycardie sinusale aurait des P positives en inférieures précédant les QRS. Le diagnostic de certitude reste électrophysiologique.",
+    "aRetenir": "RP court mais > 70 ms avec P rétrograde dans le ST : TRAV orthodromique.",
+    "sources": [
+      {
+        "titre": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Brugada J et al. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "2015 ACC/AHA/HRS Guideline for the Management of Adult Patients With Supraventricular Tachycardia. Page RL et al. Circulation 2016;133:e506-e574",
+        "url": "https://doi.org/10.1161/CIR.0000000000000311"
+      }
+    ],
+    "reco": [
+      "ESC 2019 TSV"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-017",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Tachycardie régulière à QRS fins à RP long (RP > PR). Quels diagnostics faut-il évoquer ?",
+    "options": [
+      "Tachycardie atriale",
+      "TRIN atypique (rapide-lente)",
+      "Tachycardie jonctionnelle réciproque permanente (type Coumel)",
+      "TRIN typique (lente-rapide)",
+      "TRAV orthodromique par voie accessoire à conduction rapide"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : la P atriale « conduit » vers le QRS suivant, d'où un RP long.",
+      "Juste : descente par la voie rapide et remontée lente par la voie lente : RP long.",
+      "Juste : voie accessoire postéroseptale à conduction rétrograde lente et décrémentielle ; souvent incessante.",
+      "Faux : la TRIN typique est l'exemple même de la tachycardie à RP très court.",
+      "Faux : une voie accessoire à conduction rapide donne une TRAV à RP court (> 70 ms), pas un RP long."
+    ],
+    "explication": "Une tachycardie à RP long signifie que l'onde P est plus proche du QRS suivant que du précédent. Les trois grands diagnostics sont la tachycardie atriale (la P « conduit » vers le QRS suivant), la TRIN atypique rapide-lente (descente par la voie rapide, remontée lente par la voie lente) et la tachycardie jonctionnelle réciproque permanente (PJRT, ou maladie de Coumel), utilisant une voie accessoire postéroseptale à conduction rétrograde lente et décrémentielle. Cette dernière, souvent incessante, peut entraîner une cardiomyopathie rythmique. La TRIN typique est au contraire l'exemple même de la tachycardie à RP très court, et la TRAV orthodromique sur voie accessoire classique (à conduction rapide) donne un RP court, supérieur à 70 ms.",
+    "aRetenir": "RP long : tachycardie atriale, TRIN atypique ou PJRT (Coumel).",
+    "sources": [
+      {
+        "titre": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Brugada J et al. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "2015 ACC/AHA/HRS Guideline for the Management of Adult Patients With Supraventricular Tachycardia. Page RL et al. Circulation 2016;133:e506-e574",
+        "url": "https://doi.org/10.1161/CIR.0000000000000311"
+      }
+    ],
+    "reco": [
+      "ESC 2019 TSV"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-018",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 4,
+    "question": "L'arrêt d'une tachycardie régulière à QRS fins sous adénosine IV permet d'exclure une tachycardie atriale.",
+    "ecg": {
+      "preset": "tsv",
+      "fc": 190
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : certaines tachycardies atriales focales (péri-nodales, activité déclenchée) sont aussi arrêtées par l'adénosine.",
+      "Juste : c'est la manière dont la tachycardie s'arrête (sur une P ou sur un QRS) qui oriente, pas l'arrêt lui-même."
+    ],
+    "explication": "L'adénosine interrompt les tachycardies jonctionnelles qui utilisent le nœud AV dans leur circuit (TRIN, TRAV orthodromique), mais certaines tachycardies atriales focales, notamment d'origine adénosine-sensible (péri-nodales, activité déclenchée), sont aussi arrêtées. L'arrêt sous adénosine n'exclut donc pas une tachycardie atriale. La façon dont la tachycardie s'arrête est plus informative : un arrêt sur une onde P (bloc dans le nœud AV) argumente contre une tachycardie atriale, puisqu'il faudrait que la tachycardie atriale s'arrête au moment précis d'un bloc AV. Lorsque l'adénosine provoque un BAV transitoire avec persistance de l'activité atriale, on démasque une tachycardie atriale ou un flutter. Il faut toujours enregistrer l'ECG pendant l'injection.",
+    "aRetenir": "Ce n'est pas l'arrêt sous adénosine mais la manière dont la tachycardie s'arrête (ou non) qui oriente le diagnostic.",
+    "sources": [
+      {
+        "titre": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Brugada J et al. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      }
+    ],
+    "reco": [
+      "ESC 2019 TSV"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-019",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Au cours d'une TRAV orthodromique, l'apparition d'un bloc de branche gauche fonctionnel allonge l'intervalle VA et le cycle de la tachycardie d'environ 40 ms. Quelle conclusion en tirer ?",
+    "options": [
+      "Voie accessoire droite, controlatérale au bloc",
+      "Voie accessoire gauche, homolatérale au bloc",
+      "TRIN : le bloc de branche ne modifie pas ce circuit",
+      "Tachycardie atriale conduite avec aberrance"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : un bloc controlatéral à la voie ne modifie pas le circuit ; c'est un BBD qui ralentit une TRAV par voie droite.",
+      "Juste : loi de Coumel ; le détour par le ventricule controlatéral allonge le VA, ce qui prouve une voie gauche participant au circuit.",
+      "Faux : justement, dans une TRIN, le bloc de branche ne modifie pas le cycle ; ici, il s'allonge.",
+      "Faux : dans une tachycardie atriale, l'aberrance ne modifie pas le cycle de la tachycardie."
+    ],
+    "explication": "C'est la loi de Coumel : lorsqu'un bloc de branche fonctionnel survient du même côté que la voie accessoire, le front d'activation doit faire un détour par le ventricule controlatéral avant d'atteindre la voie. Le circuit s'allonge, ce qui augmente l'intervalle VA et le cycle de la tachycardie (allongement VA de l'ordre de 35 ms ou plus pour une voie latérale). Ce phénomène prouve à la fois l'existence d'une voie accessoire participant au circuit et sa latéralité. Dans une TRIN ou une tachycardie atriale, le bloc de branche ne modifie pas le cycle. Un bloc de branche droit qui ralentit la tachycardie oriente à l'inverse vers une voie droite.",
+    "aRetenir": "Allongement du cycle lors d'un bloc de branche fonctionnel = voie accessoire homolatérale au bloc (loi de Coumel).",
+    "sources": [
+      {
+        "titre": "Josephson ME. Josephson's Clinical Cardiac Electrophysiology: Techniques and Interpretations. 6e éd. Philadelphia : Wolters Kluwer, 2020",
+        "url": null
+      },
+      {
+        "titre": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Brugada J et al. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      }
+    ],
+    "reco": [
+      "ESC 2019 TSV"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-020",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Tachycardie régulière à QRS fins. Quels éléments orientent vers une TRAV orthodromique plutôt que vers une TRIN typique ?",
+    "options": [
+      "Onde P rétrograde visible dans le segment ST avec un RP > 70 ms",
+      "Ralentissement de la tachycardie lors de l'apparition d'un bloc de branche fonctionnel",
+      "Alternance électrique des QRS, signe spécifique de TRAV",
+      "Pseudo-onde r' en V1 pendant la tachycardie, absente en rythme sinusal"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : la remontée par la voie accessoire après les ventricules sépare la P rétrograde du QRS.",
+      "Juste : loi de Coumel ; le bloc homolatéral à la voie allonge le circuit et prouve la participation d'une voie accessoire.",
+      "Faux : plus fréquente dans les TRAV, elle dépend surtout de la fréquence et n'est pas spécifique.",
+      "Faux : la pseudo-r' traduit une P rétrograde collée au QRS, typique de la TRIN."
+    ],
+    "explication": "Dans la TRAV orthodromique, l'activation atriale rétrograde passe par la voie accessoire après l'activation ventriculaire : la P rétrograde est séparée du QRS (RP > 70 ms), souvent visible dans le segment ST. L'allongement du cycle lors d'un bloc de branche fonctionnel homolatéral à la voie (loi de Coumel) prouve la participation d'une voie accessoire. Une préexcitation en rythme sinusal rend aussi la TRAV très probable, même si une TRIN peut coexister. La pseudo-r' en V1, au contraire, traduit une P rétrograde collée au QRS et est typique de la TRIN. L'alternance électrique, plus fréquente dans les TRAV, est surtout liée à la fréquence rapide : elle n'est pas spécifique.",
+    "aRetenir": "RP > 70 ms, loi de Coumel et préexcitation en sinusal orientent vers une TRAV.",
+    "sources": [
+      {
+        "titre": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Brugada J et al. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "2015 ACC/AHA/HRS Guideline for the Management of Adult Patients With Supraventricular Tachycardia. Page RL et al. Circulation 2016;133:e506-e574",
+        "url": "https://doi.org/10.1161/CIR.0000000000000311"
+      }
+    ],
+    "reco": [
+      "ESC 2019 TSV"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-021",
+    "theme": "ecg",
+    "sousTheme": "Préexcitation et WPW",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 1,
+    "question": "ECG de repos d'un adolescent de 15 ans, bilan de palpitations. Quel est le diagnostic sur ce tracé ?",
+    "ecg": {
+      "preset": "wpw",
+      "fc": 70
+    },
+    "options": [
+      "Préexcitation ventriculaire",
+      "BAV du premier degré",
+      "Bloc de branche gauche complet",
+      "Hyperkaliémie à QRS élargis"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : PR court, empâtement initial du QRS (onde delta) et QRS élargi : préexcitation par voie accessoire.",
+      "Faux : le PR est au contraire court (< 120 ms).",
+      "Faux : un bloc de branche élargit le QRS sans raccourcir le PR ni créer d'onde delta.",
+      "Faux : l'hyperkaliémie donne d'abord des T pointues et ne raccourcit pas le PR."
+    ],
+    "explication": "Sur ce tracé, le PR est court, le QRS débute par un empâtement (onde delta) et il est élargi. Cette triade PR court (< 120 ms), onde delta et QRS élargi traduit une préexcitation ventriculaire : une partie du ventricule est activée précocement par une voie accessoire qui court-circuite le nœud AV. Le QRS est une fusion entre l'activation par la voie accessoire et celle par le système de conduction normal. Des troubles secondaires de la repolarisation sont fréquents et ne doivent pas être pris pour une ischémie. Le BAV 1 allonge le PR, le bloc de branche ne raccourcit pas le PR, et l'hyperkaliémie donne d'abord des ondes T pointues.",
+    "aRetenir": "PR court + onde delta + QRS large = préexcitation.",
+    "sources": [
+      {
+        "titre": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Brugada J et al. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      }
+    ],
+    "reco": [
+      "ESC 2019 TSV"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-022",
+    "theme": "ecg",
+    "sousTheme": "Préexcitation et WPW",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 2,
+    "question": "On parle de « syndrome » de Wolff-Parkinson-White lorsqu'une préexcitation à l'ECG s'associe à des tachyarythmies symptomatiques ; une préexcitation isolée asymptomatique correspond à un « aspect » (pattern) de WPW.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : préexcitation + arythmie = syndrome ; préexcitation isolée = aspect (pattern), dont la prise en charge diffère.",
+      "Faux : l'affirmation est exacte ; cette distinction guide la stratification du risque chez l'asymptomatique."
+    ],
+    "explication": "La terminologie distingue l'aspect ECG de préexcitation (WPW pattern), fréquemment découvert fortuitement, du syndrome de WPW, qui associe la préexcitation à des arythmies (TRAV, FA préexcitée). Cette distinction a des conséquences pratiques : la prise en charge du sujet asymptomatique repose sur une stratification du risque (test d'effort, Holter, voire exploration électrophysiologique), alors que le syndrome symptomatique relève en règle de l'ablation. Le risque principal, bien que rare, est la mort subite par FA préexcitée dégénérant en FV.",
+    "aRetenir": "Préexcitation + arythmie = syndrome de WPW ; préexcitation seule = aspect de WPW.",
+    "sources": [
+      {
+        "titre": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Brugada J et al. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      }
+    ],
+    "reco": [
+      "ESC 2019 TSV"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-023",
+    "theme": "ecg",
+    "sousTheme": "Préexcitation et WPW",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Préexcitation avec onde delta négative en DI et aVL, positive en DII, DIII, aVF, et R dominante dès V1. Où se situe probablement la voie accessoire ?",
+    "ecg": {
+      "preset": "wpw",
+      "fc": 75
+    },
+    "options": [
+      "Postéroseptale droite",
+      "Latérale droite",
+      "Antéroseptale droite",
+      "Latérale gauche"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : une voie postéroseptale donne une delta négative en DIII/aVF.",
+      "Faux : les voies droites donnent un aspect de retard gauche avec transition tardive, pas de R dominante en V1.",
+      "Faux : une voie antéroseptale donne un aspect QS ou rS en V1.",
+      "Juste : le vecteur initial s'éloigne de DI/aVL et se dirige vers l'avant : delta négative en DI/aVL, R dominante dès V1."
+    ],
+    "explication": "Une voie latérale gauche active d'abord la paroi latérale du VG, le vecteur initial s'éloigne donc de DI et aVL (delta négative) et se dirige vers l'avant et la droite, d'où une onde R dominante dès V1. Les voies droites donnent au contraire un aspect de retard gauche avec une transition tardive (après V2-V3), car la paroi droite est activée en premier. Les voies antéroseptales donnent une delta positive en inférieures avec QS/rS en V1, et les voies postéroseptales une delta négative en DIII/aVF. En pratique, la polarité de l'onde delta en V1 est la première étape : positive (R > S) = voie gauche.",
+    "aRetenir": "Delta négative en DI/aVL et R dominante en V1 : voie accessoire latérale gauche.",
+    "sources": [
+      {
+        "titre": "Arruda MS, McClelland JH, Wang X et al. Development and validation of an ECG algorithm for identifying accessory pathway ablation site in Wolff-Parkinson-White syndrome. J Cardiovasc Electrophysiol 1998;9:2-12",
+        "url": "https://doi.org/10.1111/j.1540-8167.1998.tb00861.x"
+      },
+      {
+        "titre": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Brugada J et al. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      }
+    ],
+    "reco": [
+      "ESC 2019 TSV"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-024",
+    "theme": "ecg",
+    "sousTheme": "Préexcitation et WPW",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 10,
+    "question": "Préexcitation avec onde delta franchement négative en DII (et en DIII, aVF). Selon l'algorithme d'Arruda, quelle localisation doit être suspectée ?",
+    "options": [
+      "Voie postéroseptale épicardique (sinus coronaire)",
+      "Voie antéroseptale para-hissienne, endocardique",
+      "Voie latérale gauche endocardique (anneau mitral)",
+      "Fibre atriofasciculaire droite de type Mahaim"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : delta négative en DII = voie postéroseptale sous-épicardique, accessible par le sinus coronaire (veine cardiaque moyenne).",
+      "Faux : les voies antéroseptales donnent une delta positive dans les dérivations inférieures.",
+      "Faux : les voies latérales gauches donnent une delta négative en DI/aVL, pas en DII.",
+      "Faux : les fibres de Mahaim, décrémentielles, ne donnent en général pas de préexcitation manifeste en sinusal."
+    ],
+    "explication": "Dans l'algorithme d'Arruda, une onde delta négative en DII est le marqueur d'une voie postéroseptale sous-épicardique, accessible depuis le sinus coronaire ou sa veine cardiaque moyenne, voire associée à un diverticule du sinus coronaire. Cette information a une valeur pratique majeure : elle prépare l'opérateur à une cartographie dans le sinus coronaire (angiographie préalable utile) plutôt qu'une ablation endocardique simple. Les voies antéroseptales donnent une delta positive en inférieures. Les voies latérales gauches donnent une delta négative en DI/aVL. Les fibres de Mahaim, décrémentielles, ne donnent en général pas de préexcitation manifeste en rythme sinusal.",
+    "aRetenir": "Delta négative en DII = voie postéroseptale épicardique (sinus coronaire).",
+    "sources": [
+      {
+        "titre": "Arruda MS, McClelland JH, Wang X et al. Development and validation of an ECG algorithm for identifying accessory pathway ablation site in Wolff-Parkinson-White syndrome. J Cardiovasc Electrophysiol 1998;9:2-12",
+        "url": "https://doi.org/10.1111/j.1540-8167.1998.tb00861.x"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-025",
+    "theme": "ecg",
+    "sousTheme": "Préexcitation et WPW",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 5,
+    "question": "Homme de 32 ans porteur d'une préexcitation connue, palpitations depuis une heure, hémodynamique stable. Voici le tracé. Quels traitements sont contre-indiqués ?",
+    "ecg": {
+      "preset": "fa",
+      "fc": 190,
+      "qrs": "large"
+    },
+    "options": [
+      "Vérapamil ou diltiazem IV",
+      "Digoxine IV",
+      "Flécaïnide IV en l'absence de cardiopathie",
+      "Choc électrique externe synchronisé en cas de dégradation hémodynamique"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : en freinant le nœud AV, ils favorisent la conduction par la voie accessoire et peuvent précipiter une FV.",
+      "Juste : la digoxine freine le nœud AV et peut raccourcir la période réfractaire de la voie accessoire.",
+      "Faux : la flécaïnide ralentit la conduction dans la voie accessoire ; c'est une option chez le patient stable.",
+      "Faux : le choc synchronisé est le traitement de référence en cas d'instabilité."
+    ],
+    "explication": "Le tracé montre une tachycardie irrégulière très rapide à QRS larges : c'est une FA préexcitée, l'influx atrial passant préférentiellement par la voie accessoire, d'où des QRS larges, irréguliers et de largeur variable (degré de fusion variable). Tous les freinateurs du nœud AV (adénosine, vérapamil, diltiazem, bêtabloquants, digoxine) sont contre-indiqués car ils favorisent la conduction par la voie accessoire et peuvent précipiter une FV. L'ESC 2019 déconseille aussi l'amiodarone IV (classe III). En cas d'instabilité, le choc électrique externe synchronisé est le traitement de référence ; chez le patient stable, on peut utiliser l'ibutilide ou le procaïnamide (ou la flécaïnide, qui ralentit la conduction dans la voie accessoire), puis programmer une ablation de la voie accessoire.",
+    "aRetenir": "FA préexcitée : aucun freinateur nodal (ni adénosine, vérapamil, diltiazem, digoxine) ; CEE si instable.",
+    "sources": [
+      {
+        "titre": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Brugada J et al. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Van Gelder IC et al. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA",
+      "ESC 2019 TSV"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-026",
+    "theme": "ecg",
+    "sousTheme": "Préexcitation et WPW",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Lors d'une FA préexcitée (spontanée ou induite), quel plus court intervalle RR préexcité (SPERRI) est classiquement considéré comme un marqueur de voie accessoire à haut risque de mort subite ?",
+    "ecg": {
+      "preset": "fa",
+      "fc": 200,
+      "qrs": "large"
+    },
+    "options": [
+      "≤ 150 ms",
+      "≤ 250 ms",
+      "≤ 400 ms",
+      "≤ 500 ms"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : seuil trop strict, qui méconnaîtrait la plupart des voies à haut risque.",
+      "Juste : SPERRI ≤ 250 ms (fréquence ≥ 240/min) = voie accessoire à haut risque (ESC 2019).",
+      "Faux : un seuil à 400 ms n'aurait aucune spécificité.",
+      "Faux : 500 ms correspond à 120/min, fréquence sans valeur de risque en FA préexcitée."
+    ],
+    "explication": "La période réfractaire antérograde de la voie accessoire conditionne la fréquence ventriculaire maximale en FA préexcitée. Un plus court intervalle RR entre deux complexes préexcités ≤ 250 ms (soit une fréquence ≥ 240/min) est le marqueur classique de voie à haut risque, avec risque de dégénérescence en FV. Les recommandations ESC 2019 retiennent ce seuil, avec une période réfractaire effective antérograde ≤ 250 ms, ainsi que l'inductibilité d'une TRAV et la présence de voies multiples comme critères de haut risque justifiant l'ablation. Un seuil à 400-500 ms n'aurait aucune spécificité.",
+    "aRetenir": "SPERRI ≤ 250 ms en FA = voie accessoire à haut risque.",
+    "sources": [
+      {
+        "titre": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Brugada J et al. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      }
+    ],
+    "reco": [
+      "ESC 2019 TSV"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-027",
+    "theme": "ecg",
+    "sousTheme": "Préexcitation et WPW",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 6,
+    "question": "Chez un sujet asymptomatique porteur d'une préexcitation, la disparition brutale et complète de l'onde delta au cours d'une épreuve d'effort est un argument en faveur d'une voie accessoire à bas risque.",
+    "ecg": {
+      "preset": "wpw",
+      "fc": 90
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : la perte abrupte de la delta à l'effort traduit une période réfractaire antérograde longue de la voie.",
+      "Faux : l'affirmation est exacte ; seule une diminution progressive de la delta n'a pas de valeur rassurante."
+    ],
+    "explication": "Une perte abrupte et complète de la préexcitation lorsque la fréquence sinusale augmente traduit un bloc dans la voie accessoire, donc une période réfractaire antérograde longue : la voie ne pourra pas conduire rapidement une FA. Il faut distinguer cette disparition brutale d'une diminution progressive de la préexcitation, qui traduit seulement une meilleure conduction nodale (activation davantage par le nœud AV) et n'a pas de valeur rassurante. Une préexcitation intermittente sur l'ECG ou le Holter a la même valeur de bas risque. Ces critères non invasifs sont proposés dans les recommandations ESC 2019 pour la stratification des préexcitations asymptomatiques.",
+    "aRetenir": "Perte abrupte de la delta à l'effort = voie à période réfractaire longue, bas risque.",
+    "sources": [
+      {
+        "titre": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Brugada J et al. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      }
+    ],
+    "reco": [
+      "ESC 2019 TSV"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-028",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 1,
+    "question": "Homme de 65 ans, antécédent d'infarctus antérieur étendu, palpitations depuis une heure. Quel diagnostic devez-vous retenir en premier devant ce tracé ?",
+    "ecg": {
+      "preset": "tv",
+      "fc": 180
+    },
+    "options": [
+      "Flutter atrial 2:1 aberrant",
+      "Tachycardie sinusale avec bloc de branche",
+      "Tachycardie ventriculaire",
+      "TRIN avec bloc de branche fonctionnel"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : possible en théorie, mais très minoritaire sur cardiopathie ischémique ; ne jamais le retenir en premier.",
+      "Faux : aucune onde P sinusale ne précède les QRS, et le contexte ischémique fait retenir une TV.",
+      "Juste : tachycardie régulière à QRS larges après infarctus : TV jusqu'à preuve du contraire.",
+      "Faux : diagnostic par excès dangereux sur cardiopathie ; la TV doit être retenue en premier."
+    ],
+    "explication": "Sur ce tracé, la tachycardie est régulière, à QRS larges, autour de 180/min. Devant une tachycardie régulière à QRS larges, la règle est de considérer qu'il s'agit d'une TV jusqu'à preuve du contraire, surtout sur cardiopathie ischémique où plus de 80 à 90 % des tachycardies à QRS larges sont des TV. Les TSV aberrantes existent mais leur diagnostic par excès expose à des traitements dangereux (inhibiteurs calciques IV notamment). L'antécédent d'infarctus est à lui seul un argument fort pour une TV. Les critères ECG (dissociation AV, morphologie, algorithmes) viennent ensuite affiner le diagnostic.",
+    "aRetenir": "Tachycardie à QRS larges sur cardiopathie = TV jusqu'à preuve du contraire.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Wellens HJ, Bär FW, Lie KI. The value of the electrocardiogram in the differential diagnosis of a tachycardia with a widened QRS complex. Am J Med 1978;64:27-33",
+        "url": "https://doi.org/10.1016/0002-9343(78)90176-6"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-029",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 2,
+    "question": "Une tachycardie à QRS larges bien tolérée hémodynamiquement est probablement d'origine supraventriculaire.",
+    "ecg": {
+      "preset": "tv",
+      "fc": 150
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : la tolérance hémodynamique n'a aucune valeur pour distinguer TV et TSV ; beaucoup de TV sont bien tolérées.",
+      "Juste : de nombreuses TV sont tolérées pendant des heures ; le diagnostic repose sur le contexte et l'ECG."
+    ],
+    "explication": "La tolérance hémodynamique n'a aucune valeur pour distinguer une TV d'une TSV aberrante. De nombreuses TV, en particulier lentes ou sur cœur peu altéré, sont parfaitement tolérées pendant des heures. Inversement, une TSV très rapide chez un patient à fonction VG altérée peut être mal tolérée. C'est un piège classique qui conduit à injecter à tort un inhibiteur calcique, pouvant entraîner un collapsus. Le diagnostic repose sur le contexte (cardiopathie) et l'analyse de l'ECG 12 dérivations.",
+    "aRetenir": "Bonne tolérance ne signifie pas TSV.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-030",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Parmi ces éléments observés sur une tachycardie régulière à QRS larges, lequel est le plus spécifique d'une TV ?",
+    "ecg": {
+      "preset": "tv",
+      "fc": 160
+    },
+    "options": [
+      "QRS mesuré à plus de 120 ms",
+      "Dissociation atrioventriculaire",
+      "Fréquence supérieure à 150/min",
+      "Axe du QRS dans les limites normales"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : c'est la définition même d'une tachycardie à QRS larges ; cela ne discrimine rien.",
+      "Juste : quasi pathognomonique de TV, mais visible seulement dans 20 à 50 % des cas.",
+      "Faux : la fréquence ne distingue pas une TV d'une TSV.",
+      "Faux : un axe normal n'est pas un argument pour la TV."
+    ],
+    "explication": "La dissociation AV (ondes P indépendantes, plus lentes que les QRS) est quasi pathognomonique de TV : elle montre que la tachycardie naît sous le nœud AV sans activer les oreillettes. Elle n'est cependant visible que dans environ 20 à 50 % des TV, donc son absence n'élimine rien (il existe souvent une conduction rétrograde 1:1). La largeur du QRS seule n'est pas discriminante (un QRS > 160 ms en aspect retard gauche, > 140 ms en retard droit est un argument, mais faible). La fréquence ne distingue pas TV et TSV. Un axe normal n'est pas un argument pour la TV.",
+    "aRetenir": "Dissociation AV = TV, mais son absence n'élimine pas une TV.",
+    "sources": [
+      {
+        "titre": "Wellens HJ, Bär FW, Lie KI. The value of the electrocardiogram in the differential diagnosis of a tachycardia with a widened QRS complex. Am J Med 1978;64:27-33",
+        "url": "https://doi.org/10.1016/0002-9343(78)90176-6"
+      },
+      {
+        "titre": "Brugada P, Brugada J, Mont L et al. A new approach to the differential diagnosis of a regular tachycardia with a wide QRS complex. Circulation 1991;83:1649-1659",
+        "url": "https://doi.org/10.1161/01.CIR.83.5.1649"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-031",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Au cours d'une tachycardie régulière à QRS larges, survient de façon isolée un complexe prématuré fin, de morphologie identique aux QRS sinusaux antérieurs. Comment l'appelle-t-on et que signifie-t-il ?",
+    "options": [
+      "Une extrasystole atriale conduite, en faveur d'une TSV",
+      "Un complexe de fusion, en faveur d'une TSV aberrante",
+      "Un phénomène d'Ashman, sans valeur pour le diagnostic",
+      "Une capture, preuve de dissociation AV donc de TV"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : aucune P prématurée n'est décrite, et un complexe fin au sein d'une tachycardie large témoigne d'une dissociation.",
+      "Faux : une fusion a une morphologie intermédiaire, et elle plaide elle aussi pour une TV.",
+      "Faux : l'Ashman crée un complexe large dans un rythme à QRS fins, pas l'inverse.",
+      "Juste : une P sinusale indépendante traverse le nœud AV et active normalement les ventricules : complexe fin, prématuré."
+    ],
+    "explication": "Une capture (« capture beat ») correspond à une onde P sinusale, indépendante de la tachycardie, qui parvient à traverser le nœud AV et à activer les ventricules par le système His-Purkinje normal : le complexe est fin et prématuré. Un complexe de fusion, de morphologie intermédiaire, résulte de l'activation simultanée des ventricules par la TV et par un influx sinusal. Captures et fusions sont des témoins indirects de dissociation AV et donc de TV (critères de Wellens). Ils sont plus fréquents dans les TV lentes, qui laissent le temps à l'influx sinusal de passer. Une ESA conduite serait précédée d'une P prématurée, et le phénomène d'Ashman produit au contraire un complexe large au sein d'un rythme à QRS fins.",
+    "aRetenir": "Captures et fusions = dissociation AV = TV.",
+    "sources": [
+      {
+        "titre": "Wellens HJ, Bär FW, Lie KI. The value of the electrocardiogram in the differential diagnosis of a tachycardia with a widened QRS complex. Am J Med 1978;64:27-33",
+        "url": "https://doi.org/10.1016/0002-9343(78)90176-6"
+      },
+      {
+        "titre": "Brugada P, Brugada J, Mont L et al. A new approach to the differential diagnosis of a regular tachycardia with a wide QRS complex. Circulation 1991;83:1649-1659",
+        "url": "https://doi.org/10.1161/01.CIR.83.5.1649"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-032",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 5,
+    "question": "Citez dans l'ordre les quatre étapes de l'algorithme de Brugada (1991) pour le diagnostic des tachycardies régulières à QRS larges.",
+    "options": null,
+    "reponses": null,
+    "reponseAttendue": "1) Absence de complexe RS dans toutes les précordiales → TV. 2) Intervalle R-S (début de R au nadir de S) > 100 ms dans au moins une précordiale → TV. 3) Dissociation AV → TV. 4) Critères morphologiques de TV à la fois en V1-V2 et en V6 → TV. Si aucune étape n'est positive : TSV avec aberrance.",
+    "explication": "L'algorithme de Brugada est séquentiel : dès qu'une étape est positive, on conclut à une TV. L'absence totale de RS dans les précordiales (QS, R monophasique ou qR partout) et un intervalle RS > 100 ms traduisent une activation ventriculaire initiale lente, myocyte à myocyte, caractéristique de la TV. La dissociation AV est le critère le plus spécifique. Les critères morphologiques de la dernière étape sont ceux de Wellens et Kindwall. Sa sensibilité initialement rapportée (~99 %) a été plus faible dans les études de validation ultérieures, et il reste moins performant en cas de TRAV antidromique ou de traitement antiarythmique.",
+    "aRetenir": "Brugada 1991 : absence de RS, RS > 100 ms, dissociation AV, morphologie en V1-V2 et V6.",
+    "sources": [
+      {
+        "titre": "Brugada P, Brugada J, Mont L et al. A new approach to the differential diagnosis of a regular tachycardia with a wide QRS complex. Circulation 1991;83:1649-1659",
+        "url": "https://doi.org/10.1161/01.CIR.83.5.1649"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-033",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Dans l'algorithme de Brugada, comment mesure-t-on l'intervalle R-S et quel seuil oriente vers une TV ?",
+    "options": [
+      "Du début de R au sommet de R ; > 50 ms",
+      "Du début de R au nadir de S ; > 100 ms",
+      "Du nadir de S à la fin du QRS ; > 80 ms",
+      "Du début de P au début du QRS ; > 200 ms"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : un délai jusqu'au sommet de R ≥ 50 ms en DII est le critère de Pava, pas le RS de Brugada.",
+      "Juste : un RS > 100 ms dans au moins une précordiale traduit une activation initiale lente, myocyte à myocyte.",
+      "Faux : ce n'est pas la mesure de Brugada ; la portion terminale du QRS est lente aussi dans les blocs de branche.",
+      "Faux : c'est un PR, sans rapport avec l'algorithme de Brugada."
+    ],
+    "explication": "L'intervalle RS se mesure du début de l'onde R jusqu'au point le plus profond de l'onde S, dans une précordiale comportant un complexe RS. Un intervalle > 100 ms dans au moins une précordiale oriente vers la TV, car il traduit une activation initiale lente, sans utiliser le réseau de Purkinje. Dans une TSV avec bloc de branche, l'activation initiale se fait par la branche saine et est rapide. Le délai du début de R au sommet de R en DII correspond à un autre critère (Pava, ≥ 50 ms). Le critère n'est applicable que s'il existe un RS dans au moins une précordiale.",
+    "aRetenir": "RS (début R → nadir S) > 100 ms dans une précordiale = TV.",
+    "sources": [
+      {
+        "titre": "Brugada P, Brugada J, Mont L et al. A new approach to the differential diagnosis of a regular tachycardia with a wide QRS complex. Circulation 1991;83:1649-1659",
+        "url": "https://doi.org/10.1161/01.CIR.83.5.1649"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-034",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Lequel de ces critères ne fait PAS partie de l'algorithme de Vereckei utilisant la seule dérivation aVR (2008) ?",
+    "options": [
+      "Onde r ou q initiale de durée > 40 ms en aVR",
+      "Onde R initiale (dominante) en aVR",
+      "Dissociation atrioventriculaire",
+      "Encoche descendante d'un QRS négatif en aVR"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : c'est bien la 2e étape de l'algorithme aVR.",
+      "Faux : c'est la 1re étape de l'algorithme aVR.",
+      "Juste : la dissociation AV figurait dans le premier algorithme de Vereckei (2007), pas dans l'algorithme aVR.",
+      "Faux : c'est la 3e étape de l'algorithme aVR."
+    ],
+    "explication": "L'algorithme aVR de Vereckei comporte quatre étapes, toutes dans aVR : 1) onde R initiale → TV ; 2) onde r ou q initiale > 40 ms → TV ; 3) encoche sur la branche descendante d'un QRS à début négatif et à prédominance négative → TV ; 4) rapport vi/vt ≤ 1 → TV. Le principe est qu'en TSV avec aberrance, l'activation initiale (septale) s'éloigne rapidement de aVR, donnant une onde initiale négative et rapide. La dissociation AV était la première étape du premier algorithme de Vereckei (2007, qui utilisait tout l'ECG), mais n'apparaît pas dans l'algorithme aVR.",
+    "aRetenir": "Algorithme aVR : R initiale, r/q initiale > 40 ms, encoche descendante, vi/vt ≤ 1.",
+    "sources": [
+      {
+        "titre": "Vereckei A, Duray G, Szénási G et al. New algorithm using only lead aVR for differential diagnosis of wide QRS complex tachycardia. Heart Rhythm 2008;5:89-98",
+        "url": "https://doi.org/10.1016/j.hrthm.2007.09.020"
+      },
+      {
+        "titre": "Vereckei A, Duray G, Szénási G et al. Application of a new algorithm in the differential diagnosis of wide QRS complex tachycardia. Eur Heart J 2007;28:589-600",
+        "url": "https://doi.org/10.1093/eurheartj/ehl473"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-035",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Dans les algorithmes de Vereckei, que représente un rapport vi/vt ≤ 1 ?",
+    "options": [
+      "Activation initiale plus lente que la terminale : TV",
+      "Activation initiale plus rapide : TSV avec bloc de branche",
+      "Voltage de l'onde P inférieur à celui de l'onde T : TV",
+      "Un intervalle QT court, en faveur d'une TSV aberrante"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : vi faible car l'activation débute dans le myocarde, lentement : vi/vt ≤ 1 = TV.",
+      "Faux : une activation initiale rapide donne vi/vt > 1 ; c'est l'inverse du critère proposé.",
+      "Faux : v désigne l'excursion de voltage du QRS (40 premières et 40 dernières ms), pas les ondes P et T.",
+      "Faux : le rapport vi/vt n'a aucun lien avec le QT."
+    ],
+    "explication": "vi est l'excursion de voltage (en mV) pendant les 40 premières ms du QRS, vt celle des 40 dernières ms. En TSV avec aberrance, l'activation initiale emprunte le système His-Purkinje rapide (vi élevé) et c'est la partie terminale, liée au bloc, qui est lente : vi/vt > 1. En TV, l'activation débute dans le myocarde, de cellule à cellule, donc lentement (vi faible), puis accélère en rejoignant éventuellement le réseau de Purkinje : vi/vt ≤ 1. Ce critère peut être pris en défaut en cas de cicatrice au site de sortie terminal, ou dans les TV fasciculaires ou de sortie proche du réseau de Purkinje.",
+    "aRetenir": "vi/vt ≤ 1 = activation initiale lente = TV.",
+    "sources": [
+      {
+        "titre": "Vereckei A, Duray G, Szénási G et al. Application of a new algorithm in the differential diagnosis of wide QRS complex tachycardia. Eur Heart J 2007;28:589-600",
+        "url": "https://doi.org/10.1093/eurheartj/ehl473"
+      },
+      {
+        "titre": "Vereckei A, Duray G, Szénási G et al. New algorithm using only lead aVR for differential diagnosis of wide QRS complex tachycardia. Heart Rhythm 2008;5:89-98",
+        "url": "https://doi.org/10.1016/j.hrthm.2007.09.020"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-036",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Selon le critère de Pava (2010), quel délai du début du QRS au pic de la première onde (positive ou négative) en DII oriente vers une TV ?",
+    "options": [
+      "≥ 30 ms",
+      "≥ 50 ms",
+      "≥ 80 ms",
+      "≥ 100 ms"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : seuil trop bas, sans spécificité.",
+      "Juste : un délai ≥ 50 ms jusqu'au pic de la première déflexion en DII oriente vers une TV (Pava 2010).",
+      "Faux : ce n'est pas le seuil de Pava.",
+      "Faux : 100 ms est le seuil de l'intervalle RS de Brugada dans les précordiales."
+    ],
+    "explication": "Le critère de Pava mesure le « R-wave peak time » en DII : délai entre le début du QRS et le premier changement de polarité (pic de la première déflexion, positive ou négative). Un délai ≥ 50 ms est en faveur d'une TV. Comme le critère RS de Brugada ou le vi/vt de Vereckei, il exploite le fait qu'une TV débute par une activation myocardique lente. Son intérêt est sa simplicité (une dérivation, un seul chiffre), mais il reste un argument parmi d'autres, avec une sensibilité variable selon les études de validation. Le seuil de 100 ms correspond à l'intervalle RS de Brugada dans les précordiales.",
+    "aRetenir": "Pic de la première onde en DII ≥ 50 ms = TV (critère de Pava).",
+    "sources": [
+      {
+        "titre": "Pava LF, Perafán P, Badiel M et al. R-wave peak time at DII: a new criterion for differentiating between wide complex QRS tachycardias. Heart Rhythm 2010;7:922-926",
+        "url": "https://doi.org/10.1016/j.hrthm.2010.03.001"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-037",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Tachycardie à QRS larges d'aspect « retard droit » (QRS positif en V1). Quels critères morphologiques sont en faveur d'une TV ?",
+    "options": [
+      "V1 : onde R monophasique ou complexe qR",
+      "V6 : rapport R/S < 1 (ou aspect QS)",
+      "V1 : aspect rsR' triphasique",
+      "V6 : qRs avec R/S > 1"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : R monophasique, qR ou Rr' en V1 traduisent une activation initiale anormale : TV.",
+      "Juste : R/S < 1 ou QS en V6 : l'activation s'éloigne de la paroi latérale gauche.",
+      "Faux : le rsR' triphasique est l'aspect typique d'une TSV avec bloc de branche droit.",
+      "Faux : un qRs avec R/S > 1 en V6 est typique d'une conduction aberrante de type BBD."
+    ],
+    "explication": "Dans un aspect de retard droit, la TSV avec bloc de branche droit conserve une activation initiale normale : rsR' triphasique en V1 et qRs avec R/S > 1 en V6. En TV, on observe en V1 une onde R monophasique, un complexe qR ou un aspect Rr' (« oreille de lapin gauche » plus haute), et en V6 un rapport R/S < 1 ou un QS, témoignant d'une activation qui s'éloigne de la paroi latérale gauche. Ces critères de Wellens repris par Brugada sont complémentaires des critères d'intervalles. Un aspect typique de bloc de branche ne suffit toutefois pas à exclure une TV fasciculaire ou de branche à branche.",
+    "aRetenir": "Retard droit : R monophasique/qR en V1 et R/S < 1 en V6 = TV.",
+    "sources": [
+      {
+        "titre": "Wellens HJ, Bär FW, Lie KI. The value of the electrocardiogram in the differential diagnosis of a tachycardia with a widened QRS complex. Am J Med 1978;64:27-33",
+        "url": "https://doi.org/10.1016/0002-9343(78)90176-6"
+      },
+      {
+        "titre": "Brugada P, Brugada J, Mont L et al. A new approach to the differential diagnosis of a regular tachycardia with a wide QRS complex. Circulation 1991;83:1649-1659",
+        "url": "https://doi.org/10.1161/01.CIR.83.5.1649"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-038",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Tachycardie à QRS larges d'aspect « retard gauche » (QRS négatif en V1). Lequel de ces critères (Kindwall) est en faveur d'une TV ?",
+    "options": [
+      "Onde S à descente rapide et fine en V1",
+      "Onde R monophasique en V6 sans onde q",
+      "Délai début du QRS - nadir de S < 60 ms en V1",
+      "Onde R de durée > 30 ms en V1 ou V2"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : une S à descente rapide et lisse est l'aspect d'un BBG typique, en faveur d'une TSV aberrante.",
+      "Faux : une R monophasique sans q en V6 est l'aspect du BBG ; c'est une onde Q en V6 qui oriente vers la TV.",
+      "Faux : c'est un délai > 60 ms qui oriente vers la TV.",
+      "Juste : critère de Kindwall ; une R large initiale en V1-V2 traduit une activation initiale lente."
+    ],
+    "explication": "Kindwall et Josephson ont décrit quatre critères de TV dans les aspects de retard gauche : onde R > 30 ms en V1 ou V2, crochetage de la branche descendante de l'onde S en V1-V2, délai début du QRS - nadir de S > 60 ms en V1 ou V2, et présence d'une onde Q en V6. En TSV avec bloc de branche gauche, l'activation septale initiale est rapide : onde r fine, onde S à descente rapide et lisse, et R monophasique sans q en V6. Une S à descente rapide, un délai court et une R monophasique sans q en V6 décrivent donc un aspect de BBG « typique », en faveur d'une TSV aberrante.",
+    "aRetenir": "Retard gauche : R > 30 ms en V1-V2, S crochetée, délai > 60 ms ou Q en V6 = TV.",
+    "sources": [
+      {
+        "titre": "Kindwall KE, Brown J, Josephson ME. Electrocardiographic criteria for ventricular tachycardia in wide complex left bundle branch block morphology tachycardias. Am J Cardiol 1988;61:1279-1283",
+        "url": "https://doi.org/10.1016/0002-9149(88)91169-1"
+      },
+      {
+        "titre": "Brugada P, Brugada J, Mont L et al. A new approach to the differential diagnosis of a regular tachycardia with a wide QRS complex. Circulation 1991;83:1649-1659",
+        "url": "https://doi.org/10.1161/01.CIR.83.5.1649"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-039",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 7,
+    "question": "Une concordance positive des QRS de V1 à V6 (tous à prédominance positive) est pathognomonique d'une TV.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : très spécifique mais pas absolu ; une tachycardie préexcitée par voie gauche postérieure donne aussi une concordance positive.",
+      "Juste : la concordance positive est possible en TRAV antidromique ou FA préexcitée par voie gauche postérieure."
+    ],
+    "explication": "La concordance précordiale (tous les QRS de même polarité de V1 à V6) est un critère très spécifique de TV, mais pas absolu. La concordance négative (QS partout) est quasi pathognomonique d'une TV à point de sortie antérieur/apical. La concordance positive peut en revanche s'observer lors d'une tachycardie préexcitée (TRAV antidromique ou FA/flutter conduits par une voie accessoire gauche postérieure), puisque l'activation débute à la base postérieure du VG et se dirige vers l'avant. Le contexte (préexcitation connue) et l'ECG en rythme sinusal sont alors décisifs.",
+    "aRetenir": "Concordance positive : TV le plus souvent, mais penser à une tachycardie préexcitée par voie gauche postérieure.",
+    "sources": [
+      {
+        "titre": "Brugada P, Brugada J, Mont L et al. A new approach to the differential diagnosis of a regular tachycardia with a wide QRS complex. Circulation 1991;83:1649-1659",
+        "url": "https://doi.org/10.1161/01.CIR.83.5.1649"
+      },
+      {
+        "titre": "Josephson ME. Josephson's Clinical Cardiac Electrophysiology: Techniques and Interpretations. 6e éd. Philadelphia : Wolters Kluwer, 2020",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-040",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Tachycardie à QRS larges avec un axe situé entre -90° et ±180° (QRS négatif en DI et en aVF). Quelle est la valeur de ce signe ?",
+    "options": [
+      "Il est typique d'une TRAV orthodromique",
+      "Il oriente vers une TSV avec bloc de branche droit",
+      "Il oriente fortement vers une TV",
+      "Il n'a aucune valeur diagnostique"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : la TRAV orthodromique a des QRS fins, ou un aspect de bloc de branche typique si aberrance.",
+      "Faux : un bloc de branche ou un hémibloc dévie l'axe à gauche ou à droite, pas dans ce quadrant.",
+      "Juste : un axe « hyper-droit » n'est quasiment jamais observé en conduction aberrante : activation partant de l'apex.",
+      "Faux : c'est un critère morphologique classique de TV, même si son absence n'élimine rien."
+    ],
+    "explication": "Un axe « hyper-droit » ou « indéterminé » (quadrant supérieur droit, parfois appelé « no man's land ») n'est quasiment jamais observé en conduction aberrante, car un bloc de branche ou un hémibloc dévie l'axe vers la gauche ou la droite, mais pas vers cette zone. Il traduit une activation partant de l'apex et se dirigeant vers la base et la droite, en faveur d'une TV. C'est un critère morphologique classique, dans la lignée des travaux de Wellens sur la déviation axiale. Son absence n'élimine pas une TV. Une hyperkaliémie sévère ou un traitement par classe IC peuvent toutefois donner des axes aberrants.",
+    "aRetenir": "Axe entre -90° et ±180° pendant une tachycardie à QRS larges = TV.",
+    "sources": [
+      {
+        "titre": "Wellens HJ, Bär FW, Lie KI. The value of the electrocardiogram in the differential diagnosis of a tachycardia with a widened QRS complex. Am J Med 1978;64:27-33",
+        "url": "https://doi.org/10.1016/0002-9343(78)90176-6"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-041",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 5,
+    "question": "Citez trois mécanismes par lesquels une tachycardie d'origine supraventriculaire peut se présenter avec des QRS larges.",
+    "options": null,
+    "reponses": null,
+    "reponseAttendue": "1) Bloc de branche préexistant ou fonctionnel (aberrance de conduction, dépendante de la fréquence). 2) Conduction antérograde par une voie accessoire (TRAV antidromique, FA/flutter/tachycardie atriale préexcités). 3) Élargissement non spécifique du QRS : antiarythmiques de classe IC/IA (effet use-dependent), hyperkaliémie. (Accepter aussi : stimulation ventriculaire suivant une tachycardie atriale chez un porteur de pacemaker.)",
+    "explication": "Une tachycardie supraventriculaire donne des QRS larges lorsque l'activation ventriculaire n'emprunte pas normalement les deux branches. C'est le cas d'un bloc de branche permanent ou fonctionnel (aberrance), d'une conduction antérograde par une voie accessoire (préexcitation maximale), et des ralentissements diffus de la conduction intraventriculaire liés aux bloqueurs sodiques ou à l'hyperkaliémie. Chez un porteur de stimulateur double chambre, une tachycardie atriale suivie par le stimulateur jusqu'à la fréquence maximale donne aussi des QRS larges stimulés. Ces situations ne représentent qu'une minorité des tachycardies à QRS larges, en particulier sur cardiopathie.",
+    "aRetenir": "TSV à QRS larges : aberrance, préexcitation, ou élargissement pharmacologique/métabolique.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Brugada J et al. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires",
+      "ESC 2019 TSV"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-042",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Patient de 70 ans, confus, pâle, TA 70/40 mmHg. Le scope montre ce tracé. Quelle est la conduite à tenir immédiate ?",
+    "ecg": {
+      "preset": "tv",
+      "fc": 200
+    },
+    "options": [
+      "Amiodarone IV en 30 minutes, puis réévaluation",
+      "Choc électrique synchronisé après sédation",
+      "Manœuvres vagales puis adénosine IV en bolus",
+      "Vérapamil IV lent sous surveillance tensionnelle"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : les antiarythmiques IV sont réservés aux tachycardies bien tolérées ; ils retardent le geste salvateur.",
+      "Juste : tachycardie mal tolérée (hypotension, confusion) : cardioversion synchronisée immédiate, quel que soit le mécanisme.",
+      "Faux : sans place en première intention devant une tachycardie à QRS larges mal tolérée.",
+      "Faux : contre-indiqué devant une tachycardie à QRS larges non étiquetée : risque de collapsus."
+    ],
+    "explication": "Sur ce tracé, la tachycardie est régulière, à QRS larges, autour de 200/min. Toute tachycardie à QRS larges mal tolérée (hypotension, trouble de conscience, douleur thoracique, insuffisance cardiaque aiguë) relève d'une cardioversion électrique immédiate, synchronisée sur le QRS, sous sédation brève, quel que soit le mécanisme. Les antiarythmiques IV sont réservés aux tachycardies tolérées. Les manœuvres vagales et l'adénosine n'ont pas leur place ici en première intention. Le vérapamil IV est contre-indiqué devant une tachycardie à QRS larges non étiquetée, avec un risque de collapsus. En l'absence de pouls, on applique l'algorithme de l'arrêt cardiaque (choc non synchronisé).",
+    "aRetenir": "Tachycardie mal tolérée = cardioversion électrique synchronisée immédiate.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-043",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Homme de 60 ans, palpitations bien tolérées ; tracé ci-dessous, mécanisme incertain. Quel traitement est à proscrire ?",
+    "ecg": {
+      "preset": "tv",
+      "fc": 160
+    },
+    "options": [
+      "Vérapamil IV en bolus lent",
+      "Procaïnamide IV en perfusion",
+      "Amiodarone IV sur 20 à 30 minutes",
+      "Cardioversion électrique sous sédation"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : devant une tachycardie à QRS larges non étiquetée, il peut provoquer une chute tensionnelle brutale et une FV.",
+      "Faux : proposé par l'ESC 2022 chez le patient stable (peu disponible en France).",
+      "Faux : option possible, surtout en cas de cardiopathie.",
+      "Faux : la cardioversion électrique programmée est une option sûre chez le patient stable."
+    ],
+    "explication": "Les inhibiteurs calciques bradycardisants IV (vérapamil, diltiazem) sont contre-indiqués devant une tachycardie à QRS larges non étiquetée : si c'est une TV, ils peuvent entraîner une chute tensionnelle brutale et une dégradation en FV. L'ESC 2022 propose, chez le patient stable, une cardioversion électrique ou un antiarythmique IV comme le procaïnamide (peu disponible en France), voire l'amiodarone (surtout en cas de cardiopathie). La principale exception est la TV fasciculaire idiopathique, sensible au vérapamil, mais son diagnostic nécessite une analyse experte du tracé. L'adénosine peut être envisagée seulement en l'absence de préexcitation et si l'hypothèse d'une TSV aberrante est forte.",
+    "aRetenir": "Pas de vérapamil devant une tachycardie à QRS larges non étiquetée.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-044",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 1,
+    "question": "Comment définit-on une tachycardie à QRS larges ?",
+    "options": null,
+    "reponses": null,
+    "reponseAttendue": "Une tachycardie à fréquence > 100/min dont les QRS durent ≥ 120 ms.",
+    "explication": "On parle de tachycardie à QRS larges lorsque la fréquence dépasse 100/min et que la durée des QRS est d'au moins 120 ms. Cette définition est purement descriptive : elle regroupe les TV, mais aussi les TSV conduites avec bloc de branche, les tachycardies préexcitées et les tachycardies élargies par des médicaments ou une hyperkaliémie. En pratique, la règle de sécurité est de la traiter comme une TV tant que le diagnostic n'est pas établi. Un ECG 12 dérivations doit toujours être enregistré si l'état du patient le permet, car il est indispensable au diagnostic et à l'éventuelle ablation.",
+    "aRetenir": "Tachycardie à QRS larges = FC > 100/min et QRS ≥ 120 ms.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-045",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 3,
+    "question": "Devant une tachycardie régulière à QRS larges, quels éléments sont en faveur d'une TV ?",
+    "ecg": {
+      "preset": "tv",
+      "fc": 170
+    },
+    "options": [
+      "Dissociation atrioventriculaire",
+      "Complexes de capture ou de fusion",
+      "Aspect rsR' triphasique en V1, typique de bloc de branche droit",
+      "Bonne tolérance hémodynamique"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : critère le plus spécifique de TV.",
+      "Juste : marqueurs indirects de dissociation AV, donc de TV.",
+      "Faux : cet aspect traduit une activation initiale normale et oriente plutôt vers une TSV avec aberrance.",
+      "Faux : la tolérance n'a aucune valeur diagnostique ; beaucoup de TV sont bien tolérées."
+    ],
+    "explication": "La dissociation AV, et ses marqueurs indirects que sont les complexes de capture et de fusion, sont les critères les plus spécifiques de TV. La concordance des QRS de V1 à V6, surtout négative, est également très spécifique. À l'inverse, un aspect rsR' triphasique en V1, typique d'un bloc de branche droit, traduit une activation initiale normale et oriente plutôt vers une TSV aberrante. La tolérance hémodynamique n'a aucune valeur diagnostique : de nombreuses TV sont bien tolérées. Le contexte (cardiopathie ischémique, antécédent d'infarctus) est souvent l'argument le plus puissant.",
+    "aRetenir": "Dissociation AV, captures/fusions, concordance : TV ; la tolérance ne prouve rien.",
+    "sources": [
+      {
+        "titre": "Brugada P, Brugada J, Mont L et al. A new approach to the differential diagnosis of a regular tachycardia with a wide QRS complex. Circulation 1991;83:1649-1659",
+        "url": "https://doi.org/10.1161/01.CIR.83.5.1649"
+      },
+      {
+        "titre": "Wellens HJ, Bär FW, Lie KI. The value of the electrocardiogram in the differential diagnosis of a tachycardia with a widened QRS complex. Am J Med 1978;64:27-33",
+        "url": "https://doi.org/10.1016/0002-9343(78)90176-6"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-046",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Femme de 35 ans, cœur sain en échographie, salves de TV monomorphe à l'effort : aspect de retard gauche, axe inférieur (QRS positifs en DII, DIII, aVF), transition précordiale en V4. Origine la plus probable ?",
+    "options": [
+      "Fascicule postérieur gauche (TV de Belhassen)",
+      "Paroi inférolatérale du VG (cicatrice)",
+      "Anneau mitral antérolatéral",
+      "Chambre de chasse du ventricule droit"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : la TV fasciculaire postérieure donne un retard droit avec axe gauche.",
+      "Faux : une TV sur cicatrice suppose une cardiopathie, absente ici ; son axe serait supérieur.",
+      "Faux : une origine mitrale donne un aspect de retard droit (positif en V1).",
+      "Juste : retard gauche + axe inférieur + transition tardive (≥ V4) sur cœur sain : TV infundibulaire droite."
+    ],
+    "explication": "L'association d'un aspect de retard gauche (négatif en V1) et d'un axe inférieur traduit une origine haute, dans les chambres de chasse. Une transition tardive (V4 ou au-delà) oriente vers la chambre de chasse du VD, forme la plus fréquente de TV idiopathique. Ces TV surviennent volontiers à l'effort ou sous stress (mécanisme d'activité déclenchée AMPc-dépendante). Une TV fasciculaire postérieure donne un aspect de retard droit avec axe gauche. Une TV sur cicatrice suppose une cardiopathie. Avant de retenir une forme idiopathique, il faut exclure une DAVD (IRM, ECG de base, ECG haute amplification).",
+    "aRetenir": "Retard gauche + axe inférieur + transition ≥ V4 sur cœur sain : TV infundibulaire droite.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-047",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 9,
+    "question": "ESV infundibulaires à transition précordiale en V3, alors que la transition en rythme sinusal est en V4. Le rapport de transition en V2 (V2 transition ratio de Betensky) est de 0,7. Quelle origine est la plus probable ?",
+    "options": [
+      "Chambre de chasse gauche (cuspides aortiques)",
+      "Chambre de chasse droite, paroi libre antérieure",
+      "Chambre de chasse droite, région septale",
+      "Fascicule antérieur gauche (TV fasciculaire)"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : ESV transitionnant en V3 avec un rapport de transition en V2 ≥ 0,60 : origine gauche (≈ 90 % de précision).",
+      "Faux : une origine de paroi libre donne une transition tardive et des QRS plus larges, crochetés.",
+      "Faux : un rapport de transition en V2 à 0,7, avec une transition plus précoce qu'en sinusal, oriente à gauche.",
+      "Faux : une TV fasciculaire donne un aspect de retard droit, pas un aspect infundibulaire."
+    ],
+    "explication": "Quand la transition de l'ESV est en V3, la distinction entre chambre de chasse droite et gauche est difficile. Betensky a proposé de comparer le pourcentage d'onde R en V2 [R/(R+S)] de l'ESV à celui du rythme sinusal. Chez les patients dont l'ESV transitionne en V3, un rapport ≥ 0,60 prédit une origine gauche avec une bonne précision (environ 90 %). À l'inverse, une transition de l'ESV plus tardive que la transition sinusale exclut pratiquement une origine gauche ; ici, la transition de l'ESV (V3) est plus précoce que celle du rythme sinusal (V4), ce qui va dans le même sens que le rapport de 0,7. Cette orientation prépare l'opérateur à un abord rétrograde aortique ou transseptal.",
+    "aRetenir": "V2 transition ratio ≥ 0,60 = origine chambre de chasse gauche.",
+    "sources": [
+      {
+        "titre": "Betensky BP, Park RE, Marchlinski FE et al. The V2 transition ratio: a new electrocardiographic criterion for distinguishing left from right ventricular outflow tract tachycardia origin. J Am Coll Cardiol 2011;57:2255-2262",
+        "url": "https://doi.org/10.1016/j.jacc.2011.01.035"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-048",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Homme de 22 ans, cœur sain. TV régulière à 170/min, QRS de 130 ms, aspect de retard droit avec axe gauche (aspect « BBD + hémibloc antérieur gauche »). Elle cède sous vérapamil IV. Quel diagnostic ?",
+    "options": [
+      "TV infundibulaire droite idiopathique",
+      "TSV avec aberrance (BBD + HBAG)",
+      "TV fasciculaire postérieure gauche",
+      "TV de branche à branche"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : la TV infundibulaire droite donne un retard gauche avec axe inférieur.",
+      "Faux : piège classique ; la sensibilité au vérapamil et le terrain ne permettent pas de conclure à une TSV.",
+      "Juste : retard droit, axe gauche, QRS peu élargi, sujet jeune à cœur sain et sensibilité au vérapamil : TV de Belhassen.",
+      "Faux : la TV de branche à branche survient sur cardiopathie avec troubles conductifs, pas sur cœur sain."
+    ],
+    "explication": "La TV fasciculaire idiopathique gauche (décrite par Belhassen) est une réentrée impliquant le réseau de Purkinje du fascicule postérieur gauche. L'aspect est celui d'un retard droit avec axe gauche, et le QRS est relativement fin (souvent 120-140 ms) car l'activation emprunte rapidement le réseau de Purkinje. Elle survient chez le sujet jeune à cœur sain et est sensible au vérapamil, ce qui la distingue de la plupart des TV. Sa morphologie la fait souvent prendre pour une TSV aberrante. La TV de branche à branche survient au contraire sur cardiopathie avec troubles conductifs. La forme fasciculaire antérieure, plus rare, donne un retard droit avec axe droit.",
+    "aRetenir": "Retard droit + axe gauche + QRS peu large + sujet jeune + vérapamil-sensible = TV fasciculaire postérieure gauche.",
+    "sources": [
+      {
+        "titre": "Belhassen B, Rotmensch HH, Laniado S. Response of recurrent sustained ventricular tachycardia to verapamil. Br Heart J 1981;46:679-682",
+        "url": "https://doi.org/10.1136/hrt.46.6.679"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-049",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 6,
+    "question": "Une TV infundibulaire idiopathique peut être interrompue par l'adénosine.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : activité déclenchée AMPc-dépendante ; l'adénosine peut l'interrompre, comme les bêtabloquants.",
+      "Faux : l'affirmation est exacte ; l'arrêt sous adénosine ne prouve donc pas qu'une tachycardie large est une TSV."
+    ],
+    "explication": "Les TV idiopathiques des chambres de chasse reposent le plus souvent sur une activité déclenchée par post-dépolarisations tardives, médiée par l'AMPc et le calcium intracellulaire. L'adénosine, en diminuant l'AMPc, peut interrompre ces TV, de même que les manœuvres vagales ou les bêtabloquants. C'est un piège diagnostique : l'arrêt d'une tachycardie à QRS larges sous adénosine ne prouve pas qu'il s'agit d'une TSV. Les TV de réentrée sur cicatrice, elles, ne sont pas sensibles à l'adénosine.",
+    "aRetenir": "L'arrêt sous adénosine n'exclut pas une TV (les TV infundibulaires y sont sensibles).",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Josephson ME. Josephson's Clinical Cardiac Electrophysiology: Techniques and Interpretations. 6e éd. Philadelphia : Wolters Kluwer, 2020",
+        "url": null
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-050",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Sportif de 30 ans, TV monomorphe à aspect de retard gauche et axe supérieur. Quel diagnostic devez-vous impérativement rechercher ?",
+    "options": [
+      "Une TV infundibulaire idiopathique",
+      "Une cardiomyopathie arythmogène du VD",
+      "Une TV fasciculaire postérieure gauche",
+      "Une TRIN avec bloc de branche gauche"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : la TV infundibulaire donne un axe inférieur, pas supérieur.",
+      "Juste : retard gauche à axe supérieur = sortie inférieure du VD, critère majeur de la Task Force 2010.",
+      "Faux : la TV fasciculaire postérieure donne un aspect de retard droit.",
+      "Faux : chez un sportif avec TV à retard gauche, retenir une TSV aberrante serait dangereux."
+    ],
+    "explication": "Une TV à aspect de retard gauche naît du VD ou du septum. Un axe inférieur évoque la chambre de chasse, alors qu'un axe supérieur indique une sortie de la paroi inférieure ou de la région sous-tricuspide du VD, ce qui n'est pas le profil d'une TV idiopathique. Chez un sportif, il faut rechercher une cardiomyopathie arythmogène du VD (ECG de repos, onde epsilon, T négatives, IRM cardiaque, Holter). Le diagnostic repose sur les critères de la Task Force 2010, dans lesquels une TV de type retard gauche à axe supérieur est un critère majeur. L'arrêt du sport intensif fait partie de la prise en charge.",
+    "aRetenir": "TV retard gauche à axe supérieur : penser DAVD, ce n'est pas une TV infundibulaire.",
+    "sources": [
+      {
+        "titre": "Marcus FI, McKenna WJ, Sherrill D et al. Diagnosis of arrhythmogenic right ventricular cardiomyopathy/dysplasia: proposed modification of the Task Force Criteria. Circulation 2010;121:1533-1541",
+        "url": "https://doi.org/10.1161/CIRCULATIONAHA.108.840827"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-051",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Au Holter, la salve ci-dessous dure 25 secondes au total, s'arrête spontanément et reste asymptomatique. Comment la qualifie-t-on ?",
+    "ecg": {
+      "preset": "tv",
+      "fc": 140
+    },
+    "options": [
+      "TV monomorphe soutenue",
+      "Rythme idioventriculaire accéléré",
+      "TV polymorphe non soutenue",
+      "TV monomorphe non soutenue"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : une TV soutenue dure plus de 30 s ou impose une intervention.",
+      "Faux : un RIVA est plus lent (≈ 50-110/min) ; ici, la fréquence avoisine 140/min.",
+      "Faux : les QRS gardent la même morphologie d'un battement à l'autre.",
+      "Juste : QRS larges de morphologie stable, durée < 30 s et arrêt spontané sans retentissement."
+    ],
+    "explication": "Sur ce tracé, les complexes sont larges, réguliers (≈ 140/min) et de même morphologie : TV monomorphe. Une TV est dite soutenue si elle dure plus de 30 secondes ou nécessite une intervention pour être arrêtée (en raison d'une mauvaise tolérance). En deçà de 30 secondes, à partir de 3 complexes consécutifs à plus de 100/min, on parle de TV non soutenue. Elle est monomorphe lorsque les QRS ont une morphologie stable, polymorphe lorsqu'ils changent d'un battement à l'autre. Le rythme idioventriculaire accéléré a une fréquence de l'ordre de 50-110/min (typiquement après reperfusion). Ces définitions de l'ESC 2022 conditionnent l'évaluation pronostique et la prise en charge.",
+    "aRetenir": "TV soutenue = > 30 s ou mal tolérée ; sinon non soutenue.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-052",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 9,
+    "question": "Patient avec cardiomyopathie dilatée non ischémique, bloc de branche gauche et PR long en rythme sinusal. TV rapide dont la morphologie est un retard gauche très proche du QRS sinusal. Quel mécanisme devez-vous suspecter et quel est son traitement curatif ?",
+    "options": null,
+    "reponses": null,
+    "reponseAttendue": "TV par réentrée de branche à branche (circuit descendant par la branche droite et remontant par la branche gauche) ; traitement curatif : ablation par radiofréquence de la branche droite (le DAI reste en général indiqué du fait de la cardiopathie).",
+    "explication": "La TV de branche à branche utilise le système His-Purkinje comme circuit de réentrée, ce qui suppose un ralentissement de la conduction dans ce système : elle survient typiquement sur cardiomyopathie dilatée, après chirurgie valvulaire ou dans les dystrophies myotoniques. Le circuit descend le plus souvent par la branche droite et remonte par la branche gauche, d'où une morphologie de retard gauche proche du bloc de branche gauche sinusal. En exploration, chaque QRS est précédé d'un potentiel hissien avec un HV souvent supérieur ou égal à celui du rythme sinusal. L'ablation de la branche droite est curative et simple, mais le substrat myocardique justifie habituellement un DAI. Un stimulateur peut être nécessaire si la conduction de la branche gauche est très altérée.",
+    "aRetenir": "TV à retard gauche identique au BBG sinusal sur CMD : penser branche à branche, ablation de la branche droite.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Josephson ME. Josephson's Clinical Cardiac Electrophysiology: Techniques and Interpretations. 6e éd. Philadelphia : Wolters Kluwer, 2020",
+        "url": null
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-053",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Patiente de 72 ans hospitalisée, kaliémie à 2,9 mmol/l, malaises répétés. Quel est le diagnostic sur ce tracé ?",
+    "ecg": {
+      "preset": "torsades"
+    },
+    "options": [
+      "Fibrillation ventriculaire",
+      "Torsades de pointes",
+      "TV monomorphe rapide",
+      "FA préexcitée (voie accessoire)"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : la FV est anarchique, sans complexes identifiables ; ici, les QRS sont organisés en fuseaux.",
+      "Juste : TV polymorphe « en fuseaux » tournant autour de la ligne de base, sur un terrain d'hypokaliémie.",
+      "Faux : la morphologie et l'amplitude des QRS changent de façon cyclique : la TV est polymorphe.",
+      "Faux : la FA préexcitée est irrégulière à QRS larges, mais sans torsion cyclique ni QT long de base."
+    ],
+    "explication": "Sur ce tracé, après un battement de base à QT long, survient une tachycardie à QRS larges polymorphe dont l'amplitude augmente puis diminue de façon cyclique, les complexes semblant tourner autour de la ligne de base. Les torsades de pointes sont une TV polymorphe particulière, dont l'axe des QRS tourne progressivement autour de la ligne isoélectrique, donnant un aspect en « fuseaux ». Elles surviennent sur un QT long, congénital ou acquis (médicaments, hypokaliémie, bradycardie). Elles sont souvent non soutenues et récidivantes, responsables de syncopes, mais peuvent dégénérer en FV. La FV est totalement anarchique, sans complexes identifiables. La FA préexcitée est irrégulière à QRS larges mais sans cette torsion cyclique ni QT long de base.",
+    "aRetenir": "TV polymorphe « en fuseaux » sur QT long = torsades de pointes.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Drew BJ, Ackerman MJ, Funk M et al. Prevention of torsade de pointes in hospital settings: a scientific statement from the AHA and ACCF. Circulation 2010;121:1047-1060",
+        "url": "https://doi.org/10.1161/CIRCULATIONAHA.109.192704"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-054",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 3,
+    "question": "Patiente de 78 ans hospitalisée, sous hydroxyzine et azithromycine, kaliémie à 3,1 mmol/l, épisodes récidivants comme sur ce tracé. Quelles mesures sont indiquées ?",
+    "ecg": {
+      "preset": "torsades"
+    },
+    "options": [
+      "Sulfate de magnésium IV",
+      "Supplémentation potassique avec objectif de kaliémie 4,5-5 mmol/l",
+      "Arrêt de l'hydroxyzine et de l'azithromycine",
+      "Amiodarone IV",
+      "Sotalol IV pour prévenir les récidives"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : traitement de première ligne des torsades, même si la magnésémie est normale.",
+      "Juste : l'hypokaliémie allonge le QT ; viser une kaliémie haute, de 4,5 à 5 mmol/l.",
+      "Juste : les deux médicaments allongent le QT ; leur arrêt est indispensable.",
+      "Faux : l'amiodarone allonge le QT ; elle est contre-indiquée dans les torsades.",
+      "Faux : le sotalol allonge le QT et aggraverait les torsades."
+    ],
+    "explication": "Ce tracé montre des torsades de pointes. Leur traitement repose sur le sulfate de magnésium IV (typiquement 2 g en bolus lent, renouvelable), même si la magnésémie est normale. Il faut en parallèle arrêter tous les médicaments allongeant le QT, corriger la kaliémie (objectif 4,5-5 mmol/l) et, si nécessaire, accélérer la fréquence cardiaque (isoprénaline ou stimulation temporaire) pour raccourcir le QT et supprimer les pauses. L'amiodarone et le sotalol allongent le QT : c'est le piège classique, ils sont contre-indiqués dans les torsades. En cas de dégénérescence en FV, on défibrille.",
+    "aRetenir": "Torsades : magnésium IV, potassium, arrêt des torsadogènes, accélération de la FC.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Drew BJ, Ackerman MJ, Funk M et al. Prevention of torsade de pointes in hospital settings: a scientific statement from the AHA and ACCF. Circulation 2010;121:1047-1060",
+        "url": "https://doi.org/10.1161/CIRCULATIONAHA.109.192704"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-055",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 5,
+    "question": "Parmi ces facteurs, lesquels favorisent la survenue de torsades de pointes sur QT long acquis ?",
+    "options": [
+      "Hypokaliémie",
+      "Bradycardie ou BAV de haut degré",
+      "Sexe féminin",
+      "Hypercalcémie",
+      "Tachycardie sinusale"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : l'hypokaliémie allonge la repolarisation et favorise les torsades.",
+      "Juste : la bradycardie allonge le QT et crée des séquences cycle long-cycle court.",
+      "Juste : le sexe féminin est un facteur de risque reconnu (QT physiologiquement plus long).",
+      "Faux : l'hypercalcémie raccourcit le QT.",
+      "Faux : la tachycardie raccourcit le QT ; on accélère même la fréquence pour traiter les torsades."
+    ],
+    "explication": "Les principaux facteurs de risque de torsades acquises sont le sexe féminin, l'âge, l'hypokaliémie, l'hypomagnésémie, la bradycardie (BAV, pauses), la cardiopathie sous-jacente, l'association de plusieurs médicaments allongeant le QT, les interactions médicamenteuses (inhibiteurs du CYP3A4) et l'insuffisance rénale ou hépatique. La bradycardie allonge le QT et favorise les séquences cycle long-cycle court ; la tachycardie, au contraire, raccourcit le QT et c'est pourquoi on accélère la fréquence pour traiter les torsades. L'hypercalcémie, elle, raccourcit le QT (segment ST court). Il faut réévaluer ces facteurs avant toute prescription d'un médicament torsadogène.",
+    "aRetenir": "Femme, hypokaliémie, hypomagnésémie, bradycardie et polymédication : terrain des torsades.",
+    "sources": [
+      {
+        "titre": "Drew BJ, Ackerman MJ, Funk M et al. Prevention of torsade de pointes in hospital settings: a scientific statement from the AHA and ACCF. Circulation 2010;121:1047-1060",
+        "url": "https://doi.org/10.1161/CIRCULATIONAHA.109.192704"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-056",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Quelle séquence d'amorçage est typique du déclenchement des torsades de pointes sur QT long acquis ?",
+    "options": [
+      "Accélération progressive de la fréquence sinusale",
+      "Extrasystole très précoce de type R/T sans pause préalable",
+      "Cycle court - cycle long - cycle court",
+      "Accélération brutale lors d'un effort"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : l'accélération de la fréquence raccourcit le QT et protège des torsades acquises.",
+      "Faux : cela évoque une torsade « à couplage court » sur QT normal, entité rare et distincte.",
+      "Juste : extrasystole, pause compensatrice qui allonge le QT, puis nouvelle extrasystole précoce : torsades pause-dépendantes.",
+      "Faux : le déclenchement adrénergique à l'effort est plutôt celui du QT long congénital de type 1."
+    ],
+    "explication": "Les torsades acquises (« pause-dépendantes ») sont typiquement amorcées par une séquence court-long-court : une extrasystole (cycle court) suivie d'une pause compensatrice (cycle long), qui allonge encore le QT du battement suivant, puis une nouvelle extrasystole précoce qui déclenche la torsade. C'est pourquoi l'accélération de la fréquence (isoprénaline, stimulation) est efficace. L'accélération adrénergique à l'effort est plutôt le déclencheur du QT long congénital de type 1 (formes « adrénergo-dépendantes »). Une extrasystole très précoce (R/T) sans pause préalable, sur QT normal, évoque plutôt une torsade de pointes « à couplage court », entité rare et distincte.",
+    "aRetenir": "Torsades acquises : séquence court-long-court (pause-dépendance).",
+    "sources": [
+      {
+        "titre": "Drew BJ, Ackerman MJ, Funk M et al. Prevention of torsade de pointes in hospital settings: a scientific statement from the AHA and ACCF. Circulation 2010;121:1047-1060",
+        "url": "https://doi.org/10.1161/CIRCULATIONAHA.109.192704"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-057",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Homme de 58 ans, douleur thoracique depuis une heure, TV polymorphe récidivante avec QT normal entre les épisodes, cardioversé. Quelle est la priorité diagnostique ?",
+    "options": [
+      "Coronarographie en urgence",
+      "Test pharmacologique à l'ajmaline",
+      "Recherche génétique de QT long",
+      "Holter de 24 heures"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : TV polymorphe récidivante à QT normal avec douleur thoracique : ischémie aiguë jusqu'à preuve du contraire.",
+      "Faux : le test à l'ajmaline ne se discute qu'après élimination d'une cause ischémique ou structurelle.",
+      "Faux : le QT est normal ; la génétique n'est pas une priorité en contexte de douleur thoracique.",
+      "Faux : les épisodes sont déjà documentés ; c'est la cause qu'il faut traiter en urgence."
+    ],
+    "explication": "Une TV polymorphe (ou une FV) à QT normal doit d'abord faire évoquer une ischémie myocardique aiguë, principal mécanisme de TV polymorphe chez l'adulte. L'ESC 2022 recommande une coronarographie urgente (et une revascularisation) chez les patients présentant une TV polymorphe ou une FV récidivante évocatrice d'ischémie. Les torsades de pointes, à l'inverse, surviennent sur un QT long. Le test à l'ajmaline ou la génétique ne se discutent qu'après avoir éliminé une cause structurelle ou ischémique. Les bêtabloquants et l'amiodarone IV sont utiles en cas de récidives.",
+    "aRetenir": "TV polymorphe à QT normal : ischémie aiguë jusqu'à preuve du contraire → coronarographie.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-058",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Garçon de 11 ans, syncope pendant un match de football. ECG de repos normal (QTc 420 ms). À l'épreuve d'effort : ESV polymorphes puis TV bidirectionnelle au-delà de 120/min. Quel diagnostic évoquer ?",
+    "options": [
+      "Syndrome de Brugada à ECG intermittent",
+      "QT long congénital de type 3",
+      "TV infundibulaire idiopathique",
+      "TV polymorphe catécholergique"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : les événements du Brugada surviennent surtout au repos ou la nuit, pas à l'effort.",
+      "Faux : le QTc est normal, et le LQT3 donne des événements au repos ou pendant le sommeil.",
+      "Faux : la TV infundibulaire est monomorphe ; une TV bidirectionnelle évoque la TVPC ou la digoxine.",
+      "Juste : ECG de repos normal, ESV de plus en plus complexes puis TV bidirectionnelle à l'effort : TVPC."
+    ],
+    "explication": "La TVPC est une canalopathie (le plus souvent mutation RYR2, transmission dominante) à ECG de repos normal, qui se révèle par des syncopes ou une mort subite à l'effort ou lors d'émotions chez l'enfant et l'adulte jeune. L'épreuve d'effort est l'examen clé : apparition, au-delà d'une fréquence seuil, d'ESV de plus en plus complexes jusqu'à une TV bidirectionnelle (alternance de l'axe des QRS) ou polymorphe. Les autres causes de TV bidirectionnelle sont l'intoxication digitalique et le syndrome d'Andersen-Tawil. Le traitement repose sur les bêtabloquants non sélectifs (nadolol), la flécaïnide, voire la dénervation sympathique cardiaque gauche.",
+    "aRetenir": "TV bidirectionnelle à l'effort chez l'enfant à ECG normal = TVPC.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Priori SG, Wilde AA, Horie M et al. HRS/EHRA/APHRS expert consensus statement on the diagnosis and management of patients with inherited primary arrhythmia syndromes. Heart Rhythm 2013;10:1932-1963",
+        "url": "https://doi.org/10.1016/j.hrthm.2013.05.014"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-059",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 1,
+    "question": "Patient inconscient, sans pouls ; le moniteur montre ce tracé. Quels sont le diagnostic et le geste prioritaire ?",
+    "ecg": {
+      "preset": "fv"
+    },
+    "options": [
+      "Asystolie : adrénaline et massage",
+      "Torsades de pointes : sulfate de magnésium",
+      "Fibrillation ventriculaire : choc immédiat",
+      "Artefact : vérifier les électrodes et attendre"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : l'asystolie est un tracé plat ; ici, l'activité est chaotique et ample.",
+      "Faux : les torsades gardent des complexes organisés en fuseaux ; ici, aucun QRS identifiable.",
+      "Juste : activité anarchique sans QRS chez un patient sans pouls : défibrillation immédiate et RCP.",
+      "Faux : un patient inconscient sans pouls impose d'agir sans délai."
+    ],
+    "explication": "Sur ce tracé, l'activité électrique est chaotique, sans complexes organisés : chez un patient sans pouls, c'est une fibrillation ventriculaire. C'est un rythme « choquable » : le traitement est la défibrillation immédiate (choc non synchronisé), associée à la réanimation cardiopulmonaire. Chaque minute de retard réduit la probabilité de survie. L'asystolie est un tracé plat. Les torsades de pointes gardent des complexes organisés en fuseaux. Un artefact doit être évoqué si le patient est conscient, mais ici l'absence de pouls impose d'agir sans délai.",
+    "aRetenir": "FV = défibrillation immédiate + RCP.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-060",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies ventriculaires et QRS larges",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 3,
+    "question": "Devant ce tracé chez un patient sans pouls, le choc électrique délivré doit être synchronisé sur le QRS.",
+    "ecg": {
+      "preset": "fv"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : en FV, il n'y a pas de QRS organisé ; un choc synchronisé ne serait jamais délivré.",
+      "Juste : la FV se défibrille par un choc non synchronisé ; la synchronisation est réservée aux tachycardies organisées avec pouls."
+    ],
+    "explication": "Faux. Ce tracé montre une fibrillation ventriculaire : il n'existe pas de QRS organisé sur lequel synchroniser le choc, et le défibrillateur ne délivrerait jamais la décharge. Le choc de défibrillation est donc non synchronisé. La synchronisation est au contraire indispensable pour la cardioversion des tachycardies organisées (FA, flutter, TV avec pouls), afin d'éviter de délivrer le choc sur la phase vulnérable de l'onde T et de provoquer une FV. Une TV sans pouls est traitée comme une FV.",
+    "aRetenir": "FV et TV sans pouls : choc non synchronisé ; tachycardies organisées avec pouls : choc synchronisé.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-061",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 1,
+    "question": "Homme de 60 ans : pouls radial compté à 38/min alors que le scope affiche 76/min. Comment qualifier le rythme de ce tracé ?",
+    "ecg": {
+      "preset": "esv",
+      "fc": 75,
+      "bigeminisme": true
+    },
+    "options": [
+      "Bigéminisme atrial avec aberrance",
+      "Bigéminisme ventriculaire",
+      "BAV 2:1 avec bloc de branche",
+      "Tachycardie ventriculaire non soutenue"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : aucune P prématurée ne précède les complexes larges.",
+      "Juste : chaque QRS sinusal est suivi d'une ESV large sans P ; les ESV, peu efficaces, expliquent le pouls déficitaire.",
+      "Faux : les complexes larges sont prématurés et ne sont précédés d'aucune onde P conduite.",
+      "Faux : il faut au moins 3 complexes ventriculaires consécutifs ; ici, ils alternent avec des battements sinusaux."
+    ],
+    "explication": "Sur ce tracé, chaque QRS fin sinusal est suivi d'un QRS large, prématuré, non précédé d'onde P. Une extrasystole ventriculaire est un QRS prématuré, large (> 120 ms), de morphologie différente du QRS de base, non précédé d'une onde P prématurée, avec une onde T de polarité inverse. Lorsque chaque battement sinusal est suivi d'une ESV, on parle de bigéminisme ventriculaire. Le bigéminisme atrial comporte des complexes prématurés précédés d'une P prématurée, avec QRS habituellement fins. Une TV non soutenue nécessite au moins 3 complexes ventriculaires consécutifs. Le pouls compté manuellement est ici faussement bas, car les ESV précoces sont peu efficaces sur le plan hémodynamique.",
+    "aRetenir": "Une ESV après chaque QRS sinusal = bigéminisme ventriculaire.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-062",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Femme de 50 ans, sensation de « coups » dans la poitrine. Comment interpréter les battements prématurés de ce tracé ?",
+    "ecg": {
+      "preset": "esa",
+      "fc": 75
+    },
+    "options": [
+      "Extrasystoles atriales",
+      "Extrasystoles ventriculaires",
+      "Captures ventriculaires",
+      "Échappements jonctionnels"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : P prématurée de morphologie différente, suivie d'un QRS fin identique aux QRS de base.",
+      "Faux : une ESV serait large, sans onde P prématurée.",
+      "Faux : une capture n'a de sens qu'au cours d'une tachycardie ventriculaire ou d'une dissociation AV.",
+      "Faux : un échappement survient tardivement, après une pause ; ces battements sont prématurés."
+    ],
+    "explication": "Sur ce tracé, les battements prématurés ont un QRS fin identique aux QRS de base et sont précédés d'une onde P de morphologie différente. L'extrasystole atriale se reconnaît à une onde P prématurée, de morphologie différente de la P sinusale (car née ailleurs dans l'oreillette), suivie en général d'un QRS fin identique aux QRS de base. La pause qui suit est le plus souvent non compensatrice, car l'ESA pénètre et « réinitialise » le nœud sinusal. Une ESV est large sans P prématurée. Un échappement est tardif et non prématuré. Une ESA très précoce peut être bloquée (pas de QRS) ou conduite avec aberrance (QRS large), ce qui constitue deux pièges fréquents.",
+    "aRetenir": "ESA = P prématurée de morphologie différente, QRS habituellement fin.",
+    "sources": [
+      {
+        "titre": "2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Brugada J et al. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      }
+    ],
+    "reco": [
+      "ESC 2019 TSV"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-063",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Pourquoi une extrasystole ventriculaire est-elle classiquement suivie d'un repos compensateur complet ?",
+    "ecg": {
+      "preset": "esv",
+      "fc": 70
+    },
+    "options": [
+      "Elle réinitialise le nœud sinusal par voie rétrograde",
+      "Elle provoque un BAV complet transitoire",
+      "Elle bloque transitoirement la branche droite",
+      "Elle ne réinitialise pas le nœud sinusal"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : c'est le mécanisme de l'ESA, qui explique son repos non compensateur.",
+      "Faux : la P non conduite l'est par réfractarité physiologique, pas par un bloc AV pathologique.",
+      "Faux : le repos compensateur ne dépend pas d'un bloc de branche.",
+      "Juste : le sinus continue à son rythme ; la P suivante, tombée en période réfractaire, n'est pas conduite : 2 cycles exactement."
+    ],
+    "explication": "L'ESV n'est en général pas conduite de façon rétrograde jusqu'au nœud sinusal, qui continue à décharger à son propre rythme. L'onde P sinusale qui survient pendant ou juste après l'ESV trouve le nœud AV ou les ventricules en période réfractaire et n'est pas conduite ; le battement sinusal suivant arrive donc à l'heure. L'intervalle entre le QRS précédant et celui suivant l'ESV vaut alors exactement deux cycles sinusaux : c'est le repos compensateur complet. Une ESA réinitialise habituellement le nœud sinusal, d'où un repos non compensateur. Une ESV peut aussi être interpolée (sans pause) quand la fréquence sinusale est lente.",
+    "aRetenir": "ESV : repos compensateur complet (2 cycles sinusaux) ; ESA : repos non compensateur.",
+    "sources": [
+      {
+        "titre": "Josephson ME. Josephson's Clinical Cardiac Electrophysiology: Techniques and Interpretations. 6e éd. Philadelphia : Wolters Kluwer, 2020",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-064",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Un Holter montre plusieurs pauses sans QRS. En regardant attentivement, l'onde T précédant chaque pause est déformée (crochetage) par rapport aux autres T. Quelle est l'explication la plus probable ?",
+    "options": [
+      "Extrasystoles atriales bloquées",
+      "Pauses sinusales répétées",
+      "BAV 2e degré Mobitz II",
+      "Sur-détection par un stimulateur cardiaque"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : la P prématurée, non conduite, se superpose à l'onde T précédente qu'elle déforme.",
+      "Faux : une pause sinusale ne s'accompagne pas d'une déformation de l'onde T précédente.",
+      "Faux : dans un Mobitz II, la P bloquée survient à l'heure et reste visible ; elle ne déforme pas la T.",
+      "Faux : aucun stimulateur n'est mentionné ; la T déformée signe une P prématurée."
+    ],
+    "explication": "Une ESA très précoce peut survenir alors que le nœud AV est encore réfractaire : elle n'est pas conduite aux ventricules. Son onde P prématurée se superpose à l'onde T précédente, qu'elle déforme. La pause qui suit est souvent prise pour une pause sinusale ou un BAV. L'ESA bloquée est la cause la plus fréquente de pause inexpliquée sur un Holter. Dans un Mobitz II, les P bloquées surviennent à l'heure (intervalle PP constant) et non de façon prématurée. Comparer la morphologie des ondes T est le réflexe à avoir devant toute pause.",
+    "aRetenir": "Pause précédée d'une T déformée = ESA bloquée.",
+    "sources": [
+      {
+        "titre": "Josephson ME. Josephson's Clinical Cardiac Electrophysiology: Techniques and Interpretations. 6e éd. Philadelphia : Wolters Kluwer, 2020",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-065",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Le phénomène d'Ashman correspond à la conduction aberrante, le plus souvent de type retard droit, d'un complexe supraventriculaire survenant après une séquence cycle long - cycle court.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : la période réfractaire dépend du cycle précédent ; après un cycle long, un complexe précoce trouve la branche droite réfractaire.",
+      "Faux : l'affirmation est exacte ; c'est une cause classique de complexe large pris à tort pour une ESV en FA."
+    ],
+    "explication": "La période réfractaire du système His-Purkinje dépend de la longueur du cycle précédent : plus le cycle précédent est long, plus la période réfractaire suivante est longue. Un complexe prématuré qui suit un cycle long peut donc trouver une branche encore réfractaire, le plus souvent la branche droite (dont la période réfractaire est la plus longue), d'où un aspect de retard droit. Ce phénomène est fréquent en FA, où il est souvent confondu à tort avec des ESV. L'absence de repos compensateur et une morphologie de bloc de branche typique plaident pour l'aberrance.",
+    "aRetenir": "Ashman : cycle long puis court → complexe aberrant (retard droit) à ne pas prendre pour une ESV.",
+    "sources": [
+      {
+        "titre": "Josephson ME. Josephson's Clinical Cardiac Electrophysiology: Techniques and Interpretations. 6e éd. Philadelphia : Wolters Kluwer, 2020",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-066",
+    "theme": "ecg",
+    "sousTheme": "Tachycardies supraventriculaires et extrasystoles",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Patient avec une FEVG à 35 % inexpliquée (coronaires saines, IRM sans rehaussement tardif) et des ESV monomorphes sur le Holter. Selon l'ESC 2022, à partir de quelle charge doit-on évoquer une cardiomyopathie induite par les ESV ?",
+    "ecg": {
+      "preset": "esv",
+      "fc": 80
+    },
+    "options": [
+      "≥ 1 %",
+      "≥ 5 %",
+      "≥ 10 %",
+      "≥ 50 %"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : une charge de 1 % n'explique pas une dysfonction VG.",
+      "Faux : une charge de 5 % est rarement suffisante pour expliquer une dysfonction VG.",
+      "Juste : ESC 2022, évoquer une cardiomyopathie induite par les ESV à partir de 10 % (IIa).",
+      "Faux : seuil beaucoup trop élevé ; le risque apparaît dès 10 %, souvent > 20 % dans les séries."
+    ],
+    "explication": "L'ESC 2022 recommande d'évoquer une cardiomyopathie induite par les ESV chez un patient avec une dysfonction VG inexpliquée et une charge d'ESV d'au moins 10 % des battements (classe IIa). Le risque augmente avec la charge (souvent > 20 % dans les séries), mais aussi avec la largeur des ESV, leur origine épicardique et leur caractère interpolé. Le diagnostic est confirmé a posteriori par l'amélioration de la FEVG après suppression des ESV (ablation de première intention ou antiarythmique). Une charge de 1 à 5 % est rarement suffisante pour expliquer une dysfonction VG.",
+    "aRetenir": "Dysfonction VG inexpliquée + ESV ≥ 10 % : penser cardiomyopathie rythmique et discuter l'ablation.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-067",
+    "theme": "ecg",
+    "sousTheme": "Canalopathies, repolarisation et ions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Quel aspect ECG définit le pattern de Brugada de type 1 ?",
+    "options": [
+      "ST en selle de cheval ≥ 2 mm avec T positive en V1-V2",
+      "Onde epsilon et T négatives en V1-V3",
+      "ST coved ≥ 2 mm suivi d'une T négative en V1 ou V2",
+      "ST concave diffus avec sous-décalage de PQ"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : c'est le type 2 (saddleback), seulement suggestif ; il impose de rechercher un type 1.",
+      "Faux : onde epsilon et T négatives en V1-V3 évoquent une cardiomyopathie arythmogène du VD.",
+      "Juste : sus-décalage descendant convexe ≥ 2 mm suivi d'une T négative en V1 et/ou V2 : seul aspect diagnostique.",
+      "Faux : ce tableau évoque une péricardite aiguë."
+    ],
+    "explication": "Le type 1 de Brugada associe, en V1 et/ou V2 (enregistrées aux 2e, 3e ou 4e espaces intercostaux), un sus-décalage du point J/ST ≥ 2 mm, descendant et convexe (« coved »), suivi d'une onde T négative. C'est le seul aspect diagnostique. Le type 2 (« en selle de cheval », saddleback) n'est que suggestif et nécessite un test pharmacologique pour démasquer un type 1. L'onde epsilon est un signe de DAVD. Le sus-décalage concave diffus avec sous-décalage de PQ évoque une péricardite. Enregistrer V1-V2 en position haute augmente la sensibilité.",
+    "aRetenir": "Brugada type 1 : ST coved ≥ 2 mm + T négative en V1-V2 (éventuellement en position haute).",
+    "sources": [
+      {
+        "titre": "Priori SG, Wilde AA, Horie M et al. HRS/EHRA/APHRS expert consensus statement on the diagnosis and management of patients with inherited primary arrhythmia syndromes. Heart Rhythm 2013;10:1932-1963",
+        "url": "https://doi.org/10.1016/j.hrthm.2013.05.014"
+      },
+      {
+        "titre": "Antzelevitch C, Yan GX, Ackerman MJ et al. J-Wave syndromes expert consensus conference report: emerging concepts and gaps in knowledge. J Arrhythm 2016;32:315-339",
+        "url": "https://doi.org/10.1016/j.joa.2016.07.002"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-068",
+    "theme": "ecg",
+    "sousTheme": "Canalopathies, repolarisation et ions",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Quels facteurs peuvent démasquer ou aggraver un aspect de Brugada de type 1 ?",
+    "options": [
+      "Fièvre",
+      "Bloqueurs des canaux sodiques (ajmaline, flécaïnide)",
+      "Isoprénaline",
+      "Quinidine"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : la fièvre réduit encore le courant sodique ; elle doit être traitée rapidement chez ces patients.",
+      "Juste : utilisés en test diagnostique pour démasquer un type 1.",
+      "Faux : l'isoprénaline est utilisée pour traiter les orages rythmiques du Brugada.",
+      "Faux : la quinidine (bloqueur d'Ito) est un traitement du Brugada."
+    ],
+    "explication": "Le syndrome de Brugada est lié le plus souvent à une diminution du courant sodique (SCN5A). Tout ce qui réduit encore ce courant accentue l'aspect ECG et le risque arythmique : fièvre (au point qu'une fièvre doit être traitée rapidement chez ces patients), bloqueurs sodiques (utilisés en test diagnostique : ajmaline, flécaïnide), certains psychotropes, anesthésiques, alcool et cocaïne. Le tonus vagal (repos, sommeil, repas copieux) accentue aussi l'aspect. À l'inverse, l'isoprénaline et la quinidine (qui bloque le courant Ito) sont utilisées pour traiter les orages rythmiques. La liste des médicaments à éviter est tenue à jour sur des bases dédiées.",
+    "aRetenir": "Brugada : fièvre et bloqueurs sodiques démasquent ; isoprénaline et quinidine traitent.",
+    "sources": [
+      {
+        "titre": "Priori SG, Wilde AA, Horie M et al. HRS/EHRA/APHRS expert consensus statement on the diagnosis and management of patients with inherited primary arrhythmia syndromes. Heart Rhythm 2013;10:1932-1963",
+        "url": "https://doi.org/10.1016/j.hrthm.2013.05.014"
+      },
+      {
+        "titre": "Antzelevitch C, Yan GX, Ackerman MJ et al. J-Wave syndromes expert consensus conference report: emerging concepts and gaps in knowledge. J Arrhythm 2016;32:315-339",
+        "url": "https://doi.org/10.1016/j.joa.2016.07.002"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-069",
+    "theme": "ecg",
+    "sousTheme": "Canalopathies, repolarisation et ions",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 7,
+    "question": "Selon l'ESC 2022, un aspect de Brugada de type 2 (« en selle ») spontané suffit à poser le diagnostic de syndrome de Brugada.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : seul le type 1, spontané ou démasqué, a une valeur diagnostique.",
+      "Juste : un type 2 impose de rechercher un type 1 (position haute, test pharmacologique, ECG pendant une fièvre)."
+    ],
+    "explication": "Seul l'aspect de type 1, spontané ou démasqué, a une valeur diagnostique. Un type 2 impose de rechercher un type 1 (enregistrement en position haute, test à l'ajmaline ou à la flécaïnide, ECG pendant une fièvre). Selon l'ESC 2022, un type 1 spontané suffit au diagnostic en l'absence d'autre cardiopathie. En revanche, un type 1 seulement induit par un bloqueur sodique nécessite au moins un élément supplémentaire (syncope arythmique ou respiration agonique nocturne, antécédent familial de syndrome de Brugada ou de mort subite jeune avec autopsie négative). Cela limite les faux positifs liés au test pharmacologique.",
+    "aRetenir": "Brugada : seul le type 1 est diagnostique ; un type 1 induit demande un critère clinique associé.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Priori SG, Wilde AA, Horie M et al. HRS/EHRA/APHRS expert consensus statement on the diagnosis and management of patients with inherited primary arrhythmia syndromes. Heart Rhythm 2013;10:1932-1963",
+        "url": "https://doi.org/10.1016/j.hrthm.2013.05.014"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-070",
+    "theme": "ecg",
+    "sousTheme": "Canalopathies, repolarisation et ions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "QT mesuré à 400 ms, intervalle RR à 640 ms (FC ≈ 94/min). Quel est le QTc selon Bazett ?",
+    "ecg": {
+      "preset": "sinus",
+      "fc": 94
+    },
+    "options": [
+      "~ 400 ms",
+      "~ 440 ms",
+      "~ 500 ms",
+      "~ 625 ms"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : c'est le QT brut, non corrigé.",
+      "Faux : cette valeur ne correspond à aucune formule usuelle ; Fridericia donnerait environ 465 ms.",
+      "Juste : √0,64 = 0,8 ; 400/0,8 = 500 ms.",
+      "Faux : erreur classique de division par le RR (400/0,64) au lieu de sa racine carrée."
+    ],
+    "explication": "La formule de Bazett est QTc = QT / √RR (RR en secondes). Ici √0,64 = 0,8, donc QTc = 400 / 0,8 = 500 ms, ce qui est franchement allongé. L'erreur classique consiste à diviser par RR et non par sa racine carrée (400/0,64 = 625 ms). Bazett surcorrige cependant aux fréquences élevées : à 94/min, la valeur obtenue peut surestimer le QTc, et une formule de Fridericia (racine cubique) donne ici environ 465 ms. Il faut donc interpréter un QTc limite à fréquence rapide avec prudence et, si possible, le recontrôler à fréquence plus lente.",
+    "aRetenir": "Bazett : QTc = QT/√RR (en secondes) ; attention à la surcorrection en tachycardie.",
+    "sources": [
+      {
+        "titre": "Rautaharju PM, Surawicz B, Gettes LS. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram, part IV: the ST segment, T and U waves, and the QT interval. Circulation 2009;119:e241-e250",
+        "url": "https://doi.org/10.1161/CIRCULATIONAHA.108.191096"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-071",
+    "theme": "ecg",
+    "sousTheme": "Canalopathies, repolarisation et ions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Pourquoi préfère-t-on souvent la formule de Fridericia à celle de Bazett chez un patient tachycarde (par exemple en FA rapide ou sous traitement torsadogène) ?",
+    "options": [
+      "Bazett sous-corrige le QTc aux fréquences élevées",
+      "Bazett surcorrige le QTc aux fréquences élevées",
+      "Fridericia est la seule formule validée chez la femme",
+      "Fridericia se passe de la mesure du RR"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : c'est l'inverse ; Bazett sous-corrige aux fréquences lentes.",
+      "Juste : en tachycardie, Bazett surestime le QTc et peut faire conclure à tort à un QT long.",
+      "Faux : aucune formule n'a ce statut ; le choix tient à la dépendance vis-à-vis de la fréquence.",
+      "Faux : toutes les formules de correction nécessitent la mesure du RR."
+    ],
+    "explication": "La correction de Bazett (QT/√RR) allonge excessivement le QTc lorsque la fréquence est élevée et le raccourcit aux fréquences lentes. En tachycardie, elle peut donc faire conclure à tort à un QT long, ce qui conduit à interrompre inutilement un traitement. La formule de Fridericia (QT/∛RR) ou des formules linéaires (Framingham, Hodges) sont moins dépendantes de la fréquence. Les recommandations AHA/ACCF/HRS sur la standardisation de l'ECG soulignent ces limites et conseillent d'utiliser une correction linéaire. Toutes les formules nécessitent la mesure du RR.",
+    "aRetenir": "Bazett surcorrige en tachycardie : préférer Fridericia ou une formule linéaire.",
+    "sources": [
+      {
+        "titre": "Rautaharju PM, Surawicz B, Gettes LS. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram, part IV: the ST segment, T and U waves, and the QT interval. Circulation 2009;119:e241-e250",
+        "url": "https://doi.org/10.1161/CIRCULATIONAHA.108.191096"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-072",
+    "theme": "ecg",
+    "sousTheme": "Canalopathies, repolarisation et ions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "QT long congénital : onde T bifide, de faible amplitude, avec épisodes de syncope déclenchés par une sonnerie de réveil. Quel génotype est le plus probable ?",
+    "options": [
+      "LQT1 (KCNQ1)",
+      "LQT3 (SCN5A)",
+      "Syndrome de Jervell et Lange-Nielsen",
+      "LQT2 (KCNH2)"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : le LQT1 donne une T large et des événements à l'effort, notamment à la natation.",
+      "Faux : le LQT3 donne un long ST isoélectrique et des événements au repos ou pendant le sommeil.",
+      "Faux : forme récessive avec surdité congénitale, non évoquée ici.",
+      "Juste : T de faible amplitude, bifides, et événements déclenchés par des stimuli auditifs brutaux."
+    ],
+    "explication": "Les trois génotypes principaux ont des profils assez typiques. Le LQT2 (KCNH2, courant IKr) donne des ondes T de faible amplitude, bifides ou crochetées, et des événements déclenchés par des stimuli auditifs brutaux (réveil, téléphone) ou en période post-partum. Le LQT1 (KCNQ1, IKs) donne une onde T large à base élargie, avec des événements à l'effort, notamment à la natation. Le LQT3 (SCN5A, courant sodique tardif) associe un long segment ST isoélectrique suivi d'une onde T tardive, avec des événements au repos ou pendant le sommeil. Le Jervell et Lange-Nielsen est une forme récessive avec surdité congénitale.",
+    "aRetenir": "LQT1 : effort/natation ; LQT2 : T bifide, stimuli auditifs ; LQT3 : repos/sommeil.",
+    "sources": [
+      {
+        "titre": "Priori SG, Wilde AA, Horie M et al. HRS/EHRA/APHRS expert consensus statement on the diagnosis and management of patients with inherited primary arrhythmia syndromes. Heart Rhythm 2013;10:1932-1963",
+        "url": "https://doi.org/10.1016/j.hrthm.2013.05.014"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-073",
+    "theme": "ecg",
+    "sousTheme": "Canalopathies, repolarisation et ions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Un adolescent fait une syncope avec noyade évitée de justesse lors d'une séance de natation. Son ECG montre un QTc à 490 ms avec des ondes T larges. Quel génotype est le plus probable ?",
+    "options": [
+      "LQT2",
+      "LQT1",
+      "LQT3",
+      "Syndrome de Brugada"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : le LQT2 est plutôt déclenché par des stimuli auditifs brutaux.",
+      "Juste : natation et effort sont les déclencheurs classiques du LQT1, avec des T larges.",
+      "Faux : le LQT3 donne des événements au repos ou pendant le sommeil.",
+      "Faux : le Brugada ne s'accompagne pas d'un QT long, et ses événements surviennent surtout au repos."
+    ],
+    "explication": "La natation et l'effort physique sont les déclencheurs classiques du LQT1, forme la plus fréquente de QT long congénital. La perte de fonction du courant IKs empêche le raccourcissement adapté du QT lors de la stimulation adrénergique. Les bêtabloquants (nadolol, propranolol) sont particulièrement efficaces dans ce génotype. Le LQT2 est plutôt déclenché par des stimuli auditifs et le LQT3 survient au repos. Le syndrome de Brugada ne s'accompagne pas d'un QT long et ses événements surviennent surtout au repos ou la nuit.",
+    "aRetenir": "Natation + QT long = LQT1 : bêtabloquant.",
+    "sources": [
+      {
+        "titre": "Priori SG, Wilde AA, Horie M et al. HRS/EHRA/APHRS expert consensus statement on the diagnosis and management of patients with inherited primary arrhythmia syndromes. Heart Rhythm 2013;10:1932-1963",
+        "url": "https://doi.org/10.1016/j.hrthm.2013.05.014"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-074",
+    "theme": "ecg",
+    "sousTheme": "Canalopathies, repolarisation et ions",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 8,
+    "question": "Dans le score de Schwartz (QT long congénital), quelle valeur de QTc mesurée à la 4e minute de récupération d'une épreuve d'effort rapporte 1 point ?",
+    "options": null,
+    "reponses": null,
+    "reponseAttendue": "QTc ≥ 480 ms à la 4e minute de récupération.",
+    "explication": "Chez le sujet sain, le QT se raccourcit à l'effort et reste adapté pendant la récupération. Chez le patient porteur d'un QT long, notamment LQT1, le QTc ne se raccourcit pas normalement et reste allongé en récupération. Schwartz et Crotti ont ajouté ce critère au score diagnostique en 2011 : un QTc ≥ 480 ms à la 4e minute de récupération rapporte 1 point. L'épreuve d'effort est donc un outil utile chez les patients dont le QTc de repos est limite. Le score de Schwartz reste utilisé dans l'ESC 2022 (diagnostic retenu si score > 3).",
+    "aRetenir": "QTc ≥ 480 ms à la 4e minute de récupération = 1 point dans le score de Schwartz.",
+    "sources": [
+      {
+        "titre": "Schwartz PJ, Crotti L. QTc behavior during exercise and genetic testing for the long-QT syndrome. Circulation 2011;124:2181-2184",
+        "url": "https://doi.org/10.1161/CIRCULATIONAHA.111.062182"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-075",
+    "theme": "ecg",
+    "sousTheme": "Canalopathies, repolarisation et ions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Jeune homme de 24 ans, FA paroxystique et antécédent familial de mort subite. ECG : QTc à 320 ms, segment ST quasi absent, ondes T amples et pointues, QT qui varie peu avec la fréquence. Quel diagnostic suspecter ?",
+    "options": [
+      "Hyperkaliémie modérée",
+      "Repolarisation précoce bénigne",
+      "Syndrome du QT court",
+      "Hypocalcémie chronique"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : l'hyperkaliémie donne aussi des T pointues, mais dans un contexte évocateur (insuffisance rénale).",
+      "Faux : la repolarisation précoce ne raccourcit pas le QT.",
+      "Juste : QTc ≤ 320 ms, ST quasi absent, T amples et pointues, FA du sujet jeune et mort subite familiale.",
+      "Faux : l'hypocalcémie allonge le QT (segment ST long)."
+    ],
+    "explication": "Le syndrome du QT court associe un QTc court, un segment ST quasi absent avec des ondes T amples, pointues et symétriques, et une faible adaptation du QT à la fréquence. Selon l'ESC 2022, le diagnostic est retenu pour un QTc ≤ 360 ms associé à une mutation pathogène, à un antécédent familial de QT court ou à une TV/FV récupérée sur cœur sain (classe I) ; il doit être envisagé devant un QTc ≤ 320 ms isolé (classe IIa) et peut l'être entre 320 et 360 ms en cas de syncope d'allure rythmique (classe IIb). Ce patient (QTc à 320 ms, FA du sujet jeune, mort subite familiale) remplit donc ces critères. Il faut éliminer les causes secondaires de QT court (hypercalcémie, hyperkaliémie, hyperthermie, acidose, digoxine). L'hyperkaliémie donne aussi des ondes T pointues, mais dans un contexte évocateur (insuffisance rénale) et avec, aux stades avancés, un aplatissement des P et un élargissement des QRS. La repolarisation précoce ne raccourcit pas le QT, et l'hypocalcémie l'allonge (segment ST long).",
+    "aRetenir": "QT court (ESC 2022) : QTc ≤ 320 ms, ou ≤ 360 ms avec mutation, antécédent familial ou TV/FV récupérée ; T amples et pointues, FA du sujet jeune.",
+    "sources": [
+      {
+        "titre": "Gollob MH, Redpath CJ, Roberts JD. The short QT syndrome: proposed diagnostic criteria. J Am Coll Cardiol 2011;57:802-812",
+        "url": "https://doi.org/10.1016/j.jacc.2010.09.048"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-076",
+    "theme": "ecg",
+    "sousTheme": "Canalopathies, repolarisation et ions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Selon le consensus de 2015, comment définit-on l'aspect de repolarisation précoce (early repolarization pattern) ?",
+    "options": [
+      "Point J ≥ 0,1 mV avec notch ou slur, en inférieur et/ou latéral",
+      "Sus-décalage ST ≥ 2 mm de type coved suivi d'une T négative en V1-V3",
+      "Sous-décalage ST diffus avec onde U proéminente et T aplaties",
+      "Point J ≥ 0,1 mV avec notch limité aux dérivations V1-V3"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : notch ou slur terminal avec point J ≥ 0,1 mV dans au moins 2 dérivations contiguës inférieures et/ou latérales.",
+      "Faux : c'est l'aspect de Brugada de type 1.",
+      "Faux : sous-décalage ST et onde U évoquent une hypokaliémie.",
+      "Faux : les dérivations V1-V3 sont exclues de la définition, car elles relèvent du Brugada."
+    ],
+    "explication": "L'aspect de repolarisation précoce est défini par une onde J (notch) ou un empâtement (slur) sur la partie terminale descendante d'une onde R proéminente, avec un pic du point J ≥ 0,1 mV dans au moins deux dérivations contiguës de l'ECG 12 dérivations, en excluant V1 à V3, et un QRS < 120 ms. Les dérivations V1-V3 sont exclues car elles relèvent du Brugada. Cet aspect est fréquent chez les sujets jeunes et sportifs et généralement bénin. Les profils associés à un risque plus élevé sont une amplitude ≥ 2 mm, une localisation inférieure ou diffuse, et un segment ST horizontal ou descendant.",
+    "aRetenir": "Repolarisation précoce : point J ≥ 1 mm avec notch/slur dans ≥ 2 dérivations inférieures/latérales contiguës (hors V1-V3).",
+    "sources": [
+      {
+        "titre": "Macfarlane PW, Antzelevitch C, Haïssaguerre M et al. The early repolarization pattern: a consensus paper. J Am Coll Cardiol 2015;66:470-477",
+        "url": "https://doi.org/10.1016/j.jacc.2015.05.033"
+      },
+      {
+        "titre": "Haïssaguerre M, Derval N, Sacher F et al. Sudden cardiac arrest associated with early repolarization. N Engl J Med 2008;358:2016-2023",
+        "url": "https://doi.org/10.1056/NEJMoa071968"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-077",
+    "theme": "ecg",
+    "sousTheme": "Canalopathies, repolarisation et ions",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 3,
+    "question": "La découverte fortuite d'un aspect de repolarisation précoce inférolatérale chez un sujet asymptomatique sans antécédent familial justifie l'implantation d'un DAI.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : l'aspect isolé est fréquent et très majoritairement bénin ; le DAI n'a pas d'indication.",
+      "Juste : le syndrome de repolarisation précoce est réservé aux survivants de FV inexpliquée ; l'aspect isolé ne justifie pas de DAI."
+    ],
+    "explication": "L'aspect de repolarisation précoce est retrouvé chez environ 5 à 10 % de la population générale, davantage chez les sujets jeunes et sportifs, et il est très majoritairement bénin. Haïssaguerre a montré sa prévalence plus élevée chez les survivants de FV idiopathique, mais le risque absolu chez un sujet asymptomatique reste très faible. L'ESC 2022 réserve le diagnostic de syndrome de repolarisation précoce aux survivants d'une FV inexpliquée porteurs de cet aspect, ne recommande pas de bilan systématique chez le sujet asymptomatique, et le DAI n'a pas d'indication devant un aspect isolé. Il ne faut donc ni l'investiguer excessivement ni l'étiqueter comme pathologique.",
+    "aRetenir": "Repolarisation précoce isolée asymptomatique : aspect bénin, pas de DAI.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Haïssaguerre M, Derval N, Sacher F et al. Sudden cardiac arrest associated with early repolarization. N Engl J Med 2008;358:2016-2023",
+        "url": "https://doi.org/10.1056/NEJMoa071968"
+      },
+      {
+        "titre": "Macfarlane PW, Antzelevitch C, Haïssaguerre M et al. The early repolarization pattern: a consensus paper. J Am Coll Cardiol 2015;66:470-477",
+        "url": "https://doi.org/10.1016/j.jacc.2015.05.033"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-078",
+    "theme": "ecg",
+    "sousTheme": "Canalopathies, repolarisation et ions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Comment se présente l'onde epsilon, signe ECG de la cardiomyopathie arythmogène du ventricule droit ?",
+    "options": [
+      "Petite onde positive suivant l'onde T en V2-V3",
+      "Onde Q large et profonde en DII, DIII et aVF",
+      "Crochetage de la partie initiale du QRS en V1-V3",
+      "Petit signal tardif après le QRS en V1-V3"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : une onde positive après l'onde T est une onde U, pas une onde epsilon.",
+      "Faux : des ondes Q inférieures évoquent une séquelle d'infarctus.",
+      "Faux : un crochetage initial du QRS évoque une onde delta ; l'onde epsilon est terminale.",
+      "Juste : signal de bas voltage reproductible entre la fin du QRS et le début de T : activation retardée du VD."
+    ],
+    "explication": "L'onde epsilon est un petit signal de bas voltage, reproductible, situé entre la fin du QRS et le début de l'onde T dans les précordiales droites (V1 à V3). Elle traduit une activation retardée de zones du VD remplacées par du tissu fibro-adipeux. Dans les critères de la Task Force 2010, c'est un critère majeur de dépolarisation. Elle est mieux vue avec un filtrage adapté, une amplification et une vitesse de déroulement plus rapide. Il faut la distinguer d'un simple crochetage ou d'un artefact, ce qui explique une variabilité inter-observateur importante. Une onde située après l'onde T est une onde U, et un crochetage initial du QRS évoque une onde delta (préexcitation).",
+    "aRetenir": "Onde epsilon : signal tardif de bas voltage après le QRS en V1-V3, critère majeur de DAVD.",
+    "sources": [
+      {
+        "titre": "Marcus FI, McKenna WJ, Sherrill D et al. Diagnosis of arrhythmogenic right ventricular cardiomyopathy/dysplasia: proposed modification of the Task Force Criteria. Circulation 2010;121:1533-1541",
+        "url": "https://doi.org/10.1161/CIRCULATIONAHA.108.840827"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Zeppenfeld K et al. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-079",
+    "theme": "ecg",
+    "sousTheme": "Canalopathies, repolarisation et ions",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 8,
+    "question": "Selon les critères de la Task Force 2010 de la DAVD, quels signes ECG sont des critères MAJEURS ?",
+    "options": [
+      "Ondes T négatives en V1, V2, V3 (ou au-delà) chez un sujet de plus de 14 ans sans bloc de branche droit complet",
+      "Onde epsilon dans les précordiales droites",
+      "Ondes T négatives limitées à V1-V2",
+      "Durée d'activation terminale du QRS ≥ 55 ms en V1-V3"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : critère majeur de repolarisation de la Task Force 2010.",
+      "Juste : critère majeur de dépolarisation.",
+      "Faux : des T négatives limitées à V1-V2 sont un critère mineur.",
+      "Faux : la durée d'activation terminale allongée est un critère mineur."
+    ],
+    "explication": "Dans la Task Force 2010, les anomalies de repolarisation majeures sont les ondes T négatives en V1, V2 et V3 ou au-delà, chez un sujet de plus de 14 ans, en l'absence de bloc de branche droit complet (QRS ≥ 120 ms). Le critère majeur de dépolarisation est l'onde epsilon en V1-V3. Les ondes T négatives limitées à V1-V2 sont un critère mineur. La durée d'activation terminale ≥ 55 ms (du nadir de S à la fin du QRS) en V1-V3 et les potentiels tardifs sont également des critères mineurs. Le diagnostic intègre en outre l'imagerie, l'histologie, les arythmies et les antécédents familiaux/génétiques.",
+    "aRetenir": "DAVD (TFC 2010) : T négatives V1-V3 et onde epsilon = critères ECG majeurs.",
+    "sources": [
+      {
+        "titre": "Marcus FI, McKenna WJ, Sherrill D et al. Diagnosis of arrhythmogenic right ventricular cardiomyopathy/dysplasia: proposed modification of the Task Force Criteria. Circulation 2010;121:1533-1541",
+        "url": "https://doi.org/10.1161/CIRCULATIONAHA.108.840827"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-080",
+    "theme": "ecg",
+    "sousTheme": "Canalopathies, repolarisation et ions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Quelle est la première anomalie ECG attendue lors d'une hyperkaliémie modérée ?",
+    "options": [
+      "Allongement de l'intervalle QT",
+      "Onde U proéminente en V2-V3",
+      "Ondes T amples et pointues",
+      "Sous-décalage du segment ST"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : l'allongement apparent du QT (en fait QU) est un signe d'hypokaliémie.",
+      "Faux : l'onde U proéminente est un signe d'hypokaliémie.",
+      "Juste : l'accélération de la repolarisation donne des T amples, pointues, symétriques, dès 5,5 à 6,5 mmol/l.",
+      "Faux : le sous-décalage du ST est un signe d'hypokaliémie."
+    ],
+    "explication": "L'hyperkaliémie accélère la repolarisation, d'où des ondes T amples, pointues, à base étroite et symétriques (« en tente »), typiquement visibles dès 5,5-6,5 mmol/l. Puis apparaissent, avec l'aggravation, un aplatissement des ondes P, un allongement du PR, un élargissement des QRS, et enfin un aspect sinusoïdal précédant la FV ou l'asystolie. La corrélation entre kaliémie et ECG est cependant imparfaite : un ECG peu modifié ne rassure pas. L'onde U, le sous-décalage ST et l'allongement du QT (en fait QU) sont des signes d'hypokaliémie.",
+    "aRetenir": "Hyperkaliémie : T amples et pointues en premier, puis P aplaties, QRS larges, sinusoïde.",
+    "sources": [
+      {
+        "titre": "Webster A, Brady W, Morris F. Recognising signs of danger: ECG changes resulting from an abnormal serum potassium concentration. Emerg Med J 2002;19:74-77",
+        "url": "https://doi.org/10.1136/emj.19.1.74"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-081",
+    "theme": "ecg",
+    "sousTheme": "Canalopathies, repolarisation et ions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Patient dialysé ayant manqué deux séances. ECG : rythme régulier à 40/min, QRS à 200 ms, aucune onde P visible, aspect sinusoïdal débutant. Quel est le premier traitement à administrer ?",
+    "options": [
+      "Isoprénaline IV en perfusion continue",
+      "Sels de calcium IV (gluconate ou chlorure)",
+      "Amiodarone IV pour une TV lente présumée",
+      "Stimulation temporaire endocavitaire d'emblée"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : l'isoprénaline ne traite pas la cause et ne protège pas la membrane myocardique.",
+      "Juste : le calcium stabilise la membrane en quelques minutes, avant l'insuline-glucose et la dialyse.",
+      "Faux : il ne s'agit pas d'une TV ; l'amiodarone est inutile et dangereuse ici.",
+      "Faux : la capture peut échouer du fait de l'élévation des seuils ; le calcium passe en premier."
+    ],
+    "explication": "Chez un dialysé ayant manqué ses séances, un rythme lent à QRS très larges sans P visible évoque une hyperkaliémie sévère. Il ne faut pas le prendre pour une TV lente ou un BAV banal. Le premier traitement est le sel de calcium IV, qui stabilise la membrane myocardique en quelques minutes sans abaisser la kaliémie. On y associe l'insuline-glucose et les bêta-2 mimétiques (transfert intracellulaire du potassium), puis l'épuration (dialyse en urgence). L'amiodarone est inutile et dangereuse. Une stimulation cardiaque peut échouer en raison de l'élévation des seuils de stimulation liée à l'hyperkaliémie.",
+    "aRetenir": "Bradycardie à QRS larges chez un insuffisant rénal = hyperkaliémie : calcium IV d'abord.",
+    "sources": [
+      {
+        "titre": "Webster A, Brady W, Morris F. Recognising signs of danger: ECG changes resulting from an abnormal serum potassium concentration. Emerg Med J 2002;19:74-77",
+        "url": "https://doi.org/10.1136/emj.19.1.74"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-082",
+    "theme": "ecg",
+    "sousTheme": "Canalopathies, repolarisation et ions",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 3,
+    "question": "L'hypokaliémie se traduit à l'ECG par des ondes T amples et pointues.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : les T amples et pointues sont caractéristiques de l'hyperkaliémie.",
+      "Juste : l'hypokaliémie aplatit les T, fait apparaître une onde U, sous-décale le ST et allonge le QU."
+    ],
+    "explication": "Les ondes T amples et pointues sont caractéristiques de l'hyperkaliémie. L'hypokaliémie donne au contraire un aplatissement des ondes T, une onde U proéminente (parfois plus ample que l'onde T), un sous-décalage du segment ST et un allongement apparent du QT (en fait QU). Sur le plan rythmique, elle favorise les extrasystoles, la FA, les TV et surtout les torsades de pointes, notamment en association avec des médicaments allongeant le QT ou la digoxine. La correction de la kaliémie (et de la magnésémie) fait partie du traitement de toute arythmie ventriculaire.",
+    "aRetenir": "Hypokaliémie : T plates, onde U, ST sous-décalé, QU long, torsades.",
+    "sources": [
+      {
+        "titre": "Webster A, Brady W, Morris F. Recognising signs of danger: ECG changes resulting from an abnormal serum potassium concentration. Emerg Med J 2002;19:74-77",
+        "url": "https://doi.org/10.1136/emj.19.1.74"
+      },
+      {
+        "titre": "Drew BJ, Ackerman MJ, Funk M et al. Prevention of torsade de pointes in hospital settings: a scientific statement from the AHA and ACCF. Circulation 2010;121:1047-1060",
+        "url": "https://doi.org/10.1161/CIRCULATIONAHA.109.192704"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-083",
+    "theme": "ecg",
+    "sousTheme": "Canalopathies, repolarisation et ions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Chez un patient en hyperkaliémie sévère, pourquoi un stimulateur cardiaque ou une stimulation temporaire peuvent-ils perdre la capture ?",
+    "options": [
+      "Elle élève le seuil de stimulation myocardique",
+      "Elle abaisse l'impédance de la sonde de stimulation",
+      "Elle épuise prématurément la batterie du boîtier",
+      "Elle provoque une sur-détection des ondes P"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : la dépolarisation partielle de la membrane de repos réduit l'excitabilité ; les seuils montent, surtout au-delà de 7 mmol/l.",
+      "Faux : l'impédance de stimulation n'est pas en cause.",
+      "Faux : la batterie n'est pas en cause ; c'est le myocarde qui devient moins excitable.",
+      "Faux : chez un porteur de DAI, l'hyperkaliémie peut faire sur-détecter les ondes T, pas les ondes P ; et cela n'explique pas une perte de capture."
+    ],
+    "explication": "L'hyperkaliémie dépolarise partiellement la membrane de repos des myocytes et inactive une partie des canaux sodiques : l'excitabilité diminue et les seuils de stimulation atriaux et ventriculaires s'élèvent, en général au-delà de 7 mmol/l. L'oreillette est plus sensible que le ventricule à cette perte de capture. On observe aussi des QRS stimulés très élargis et un allongement du délai entre le spike et le début du QRS (latence), pouvant évoluer vers un bloc de sortie de type Wenckebach, 2:1, puis complet (spikes inefficaces). L'impédance de stimulation et la batterie ne sont pas en cause ; chez un porteur de DAI, l'hyperkaliémie peut en revanche provoquer une sur-détection des ondes T (risque de chocs inappropriés). En pratique, devant une perte de capture inexpliquée chez un insuffisant rénal, le premier réflexe est de doser la kaliémie : le traitement de l'hyperkaliémie prime sur la reprogrammation.",
+    "aRetenir": "Hyperkaliémie (surtout > 7 mmol/l) : élévation des seuils de stimulation, latence, puis perte de capture ; doser la kaliémie.",
+    "sources": [
+      {
+        "titre": "Barold SS, Herweg B. The effect of hyperkalaemia on cardiac rhythm devices. Europace 2014;16:467-476",
+        "url": "https://doi.org/10.1093/europace/eut383"
+      },
+      {
+        "titre": "Webster A, Brady W, Morris F. Recognising signs of danger: ECG changes resulting from an abnormal serum potassium concentration. Emerg Med J 2002;19:74-77",
+        "url": "https://doi.org/10.1136/emj.19.1.74"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-tachy-084",
+    "theme": "ecg",
+    "sousTheme": "Canalopathies, repolarisation et ions",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Quelles peuvent être les expressions rythmiques d'une hyperkaliémie sévère ?",
+    "options": [
+      "Bradycardie, BAV de haut degré ou rythme sinoventriculaire sans onde P visible",
+      "Tachycardie à QRS très larges d'aspect sinusoïdal pouvant mimer une TV",
+      "Fibrillation ventriculaire ou asystolie",
+      "Onde U proéminente avec torsades de pointes",
+      "Ondes J (d'Osborn) proéminentes"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : l'hyperkaliémie ralentit la conduction à tous les étages ; les P peuvent disparaître.",
+      "Juste : la fusion QRS-T donne un aspect sinusoïdal qui peut être pris pour une TV.",
+      "Juste : c'est l'évolution terminale de l'hyperkaliémie sévère.",
+      "Faux : onde U et torsades relèvent de l'hypokaliémie.",
+      "Faux : les ondes J d'Osborn sont typiques de l'hypothermie."
+    ],
+    "explication": "L'hyperkaliémie sévère ralentit la conduction à tous les étages : disparition des ondes P (rythme dit sinoventriculaire, l'activité sinusale persistant sans onde P visible), BAV, bradycardie extrême et élargissement majeur des QRS. La fusion du QRS et de l'onde T donne un aspect sinusoïdal qui, s'il est rapide, peut être pris pour une TV. L'évolution se fait vers la FV ou l'asystolie. L'onde U et les torsades de pointes relèvent de l'hypokaliémie, et les ondes J d'Osborn sont typiques de l'hypothermie. Tout trouble du rythme ou de conduction inexpliqué doit faire doser la kaliémie, et un traitement antiarythmique « de TV » serait ici inefficace, voire dangereux.",
+    "aRetenir": "Hyperkaliémie sévère : bradycardies, QRS larges sinusoïdaux mimant une TV, puis FV/asystolie.",
+    "sources": [
+      {
+        "titre": "Webster A, Brady W, Morris F. Recognising signs of danger: ECG changes resulting from an abnormal serum potassium concentration. Emerg Med J 2002;19:74-77",
+        "url": "https://doi.org/10.1136/emj.19.1.74"
+      }
+    ],
+    "revise": "2026-09"
+  }
+]

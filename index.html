@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Challenge Rythmo</title>
+  <meta name="description" content="Quiz d'entraînement en rythmologie et stimulation cardiaque : ECG, programmation PM/DAI, télécardiologie, électrophysiologie.">
+  <meta name="theme-color" content="#0f3d5c">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Rythmo">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="barre">
+    <button class="logo" data-nav="accueil" aria-label="Accueil">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M4 34h14l5-12 8 26 7-30 5 16h17" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Challenge&nbsp;Rythmo</span>
+    </button>
+    <nav class="onglets" aria-label="Navigation principale">
+      <button data-nav="accueil">Accueil</button>
+      <button data-nav="config">S'entraîner</button>
+      <button data-nav="fiches">Fiches</button>
+      <button data-nav="progression">Progression</button>
+      <button data-nav="apropos">Sources</button>
+    </nav>
+  </header>
+  <main id="app" tabindex="-1">
+    <p class="chargement">Chargement de la base de questions…</p>
+  </main>
+  <nav class="onglets-bas" aria-label="Navigation">
+    <button data-nav="accueil"><span aria-hidden="true">⌂</span>Accueil</button>
+    <button data-nav="config"><span aria-hidden="true">▶</span>S'entraîner</button>
+    <button data-nav="fiches"><span aria-hidden="true">❏</span>Fiches</button>
+    <button data-nav="progression"><span aria-hidden="true">▤</span>Progrès</button>
+    <button data-nav="apropos"><span aria-hidden="true">ⓘ</span>Sources</button>
+  </nav>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

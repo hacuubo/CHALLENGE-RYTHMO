@@ -1,0 +1,61 @@
+name: Vérifier et publier sur GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  verifier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Valider la base de questions
+        run: node scripts/validate.mjs
+      - name: Contrôler les biais des propositions (longueur, QCM, vrai/faux)
+        run: STRICT=1 node scripts/audit-biais.mjs
+      - name: Vérifier que index.json et la version du cache sont à jour
+        run: |
+          node scripts/build-index.mjs
+          git diff --exit-code -- data/questions/index.json sw.js || { echo "Lancez node scripts/build-index.mjs et committez le résultat"; exit 1; }
+
+  interface:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Installer Chromium (Playwright)
+        run: npm install --no-save playwright@1 && npx playwright install --with-deps chromium
+      - name: Test de fumée de l'interface
+        run: node tests/smoke.mjs
+
+  publier:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: [verifier, interface]
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deploiement
+        uses: actions/deploy-pages@v4

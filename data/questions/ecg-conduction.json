@@ -1,0 +1,2933 @@
+[
+  {
+    "id": "ecg-cond-001",
+    "theme": "ecg",
+    "sousTheme": "Bases de l'ECG",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 1,
+    "question": "Sur un ECG enregistré à la vitesse standard de 25 mm/s, à quelle durée correspond un petit carreau (1 mm) ?",
+    "options": [
+      "0,02 s (20 ms)",
+      "0,04 s (40 ms)",
+      "0,10 s (100 ms)",
+      "0,20 s (200 ms)"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : 20 ms est la valeur d'un petit carreau à 50 mm/s, vitesse parfois utilisée pour analyser les ondes P ou les spikes.",
+      "Juste : à 25 mm/s, 1 seconde occupe 25 mm ; 1 mm vaut donc 1/25 s, soit 40 ms.",
+      "Faux : 100 ms correspond à 2,5 petits carreaux ; aucune graduation du papier ne vaut 100 ms à 25 mm/s.",
+      "Faux : 200 ms est la durée d'un grand carreau (5 mm), pas d'un petit."
+    ],
+    "explication": "À 25 mm/s, 1 seconde occupe 25 mm : un petit carreau de 1 mm vaut donc 1/25 s, soit 40 ms. Un grand carreau (5 mm) vaut 200 ms et 5 grands carreaux font 1 seconde. La valeur de 20 ms correspondrait à un déroulement à 50 mm/s, vitesse parfois utilisée pour mieux analyser les ondes P ou les spikes. 200 ms est la durée d'un grand carreau, pas d'un petit. Vérifier systématiquement la vitesse de déroulement évite des erreurs grossières de mesure des intervalles.",
+    "aRetenir": "À 25 mm/s : 1 petit carreau = 40 ms, 1 grand carreau = 200 ms.",
+    "sources": [
+      {
+        "titre": "Kligfield P, et al. Recommendations for the standardization and interpretation of the electrocardiogram. Part I: the electrocardiogram and its technology (AHA/ACC/HRS). J Am Coll Cardiol 2007;49:1109-1127",
+        "url": "https://doi.org/10.1016/j.jacc.2007.01.024"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-002",
+    "theme": "ecg",
+    "sousTheme": "Bases de l'ECG",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 1,
+    "question": "Sur ce tracé en rythme régulier enregistré à 25 mm/s, mesurez l'intervalle RR en grands carreaux. Quelle est la fréquence cardiaque ?",
+    "ecg": {
+      "preset": "sinus",
+      "fc": 75
+    },
+    "options": [
+      "50/min",
+      "60/min",
+      "75/min",
+      "100/min"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : 50/min correspondrait à un RR de 6 grands carreaux (1200 ms).",
+      "Faux : 60/min correspondrait à 5 grands carreaux (1000 ms) ; l'erreur d'un carreau à la lecture est fréquente.",
+      "Juste : le RR mesure 4 grands carreaux (800 ms) ; 300/4 = 75/min.",
+      "Faux : 100/min correspondrait à 3 grands carreaux (600 ms)."
+    ],
+    "explication": "En rythme régulier, la fréquence se calcule par 300 divisé par le nombre de grands carreaux séparant deux QRS. Sur ce tracé, le RR mesure 4 grands carreaux (800 ms) : 300/4 = 75/min. La règle découle du fait qu'une minute contient 300 grands carreaux à 25 mm/s. 60/min correspondrait à 5 grands carreaux, 100/min à 3 et 50/min à 6. Cette méthode n'est valable que si le rythme est régulier ; sinon, on compte les QRS sur une durée connue.",
+    "aRetenir": "FC = 300 / nombre de grands carreaux entre deux QRS (rythme régulier, 25 mm/s).",
+    "sources": [
+      {
+        "titre": "Kligfield P, et al. Recommendations for the standardization and interpretation of the electrocardiogram. Part I: the electrocardiogram and its technology (AHA/ACC/HRS). J Am Coll Cardiol 2007;49:1109-1127",
+        "url": "https://doi.org/10.1016/j.jacc.2007.01.024"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-003",
+    "theme": "ecg",
+    "sousTheme": "Bases de l'ECG",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "À 25 mm/s, l'intervalle RR mesure 25 petits carreaux. Quelle est la fréquence ventriculaire ?",
+    "options": [
+      "40/min",
+      "50/min",
+      "60/min",
+      "75/min"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : 40/min correspondrait à 37 à 38 petits carreaux (1500 ms).",
+      "Faux : 50/min correspondrait à 30 petits carreaux (1200 ms).",
+      "Juste : 1500/25 = 60/min ; 25 × 40 ms = 1000 ms, soit un battement par seconde.",
+      "Faux : 75/min correspondrait à 20 petits carreaux (800 ms), pas à 25."
+    ],
+    "explication": "La méthode la plus précise en rythme régulier est 1500 divisé par le nombre de petits carreaux : 1500/25 = 60/min. On peut aussi convertir en temps : 25 × 40 ms = 1000 ms, soit une seconde, donc 60 battements par minute. 75/min correspondrait à 20 petits carreaux (800 ms) et 50/min à 30 petits carreaux (1200 ms). Le piège classique est de confondre petits et grands carreaux dans la formule.",
+    "aRetenir": "FC = 1500 / nombre de petits carreaux, ou 60 000 / RR en ms.",
+    "sources": [
+      {
+        "titre": "Kligfield P, et al. Recommendations for the standardization and interpretation of the electrocardiogram. Part I: the electrocardiogram and its technology (AHA/ACC/HRS). J Am Coll Cardiol 2007;49:1109-1127",
+        "url": "https://doi.org/10.1016/j.jacc.2007.01.024"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-004",
+    "theme": "ecg",
+    "sousTheme": "Bases de l'ECG",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Chez l'adulte, quelles sont les limites habituelles de l'intervalle PR normal ?",
+    "ecg": {
+      "preset": "sinus",
+      "fc": 70,
+      "pr": 160
+    },
+    "options": [
+      "80 à 120 ms",
+      "120 à 200 ms",
+      "150 à 250 ms",
+      "200 à 280 ms"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : un PR inférieur à 120 ms est court et doit faire évoquer une préexcitation ou un rythme atrial bas.",
+      "Juste : le PR normal de l'adulte est compris entre 120 et 200 ms, soit 3 à 5 petits carreaux à 25 mm/s.",
+      "Faux : la borne haute est trop large ; un PR de 220 à 250 ms est déjà un BAV du 1er degré.",
+      "Faux : ces valeurs définissent au contraire un BAV du 1er degré (PR > 200 ms)."
+    ],
+    "explication": "L'intervalle PR se mesure du début de l'onde P au début du QRS et reflète la conduction atrio-ventriculaire globale (oreillettes, nœud AV, His et branches). Il est normalement compris entre 120 et 200 ms, soit 3 à 5 petits carreaux. Au-delà de 200 ms on parle de BAV du 1er degré ; en dessous de 120 ms, on évoque une préexcitation ou un rythme atrial bas. Le tracé présenté montre un PR à 160 ms, donc normal. Attention : un PR normal ne renseigne pas sur l'intervalle HV, qui peut être allongé isolément.",
+    "aRetenir": "PR normal : 120-200 ms ; > 200 ms = BAV du 1er degré.",
+    "sources": [
+      {
+        "titre": "Mason JW, et al. Recommendations for the standardization and interpretation of the electrocardiogram. Part II: electrocardiography diagnostic statement list (AHA/ACC/HRS). J Am Coll Cardiol 2007;49:1128-1135",
+        "url": "https://doi.org/10.1016/j.jacc.2007.01.025"
+      },
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-005",
+    "theme": "ecg",
+    "sousTheme": "Bases de l'ECG",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 2,
+    "question": "Chez l'adulte, un QRS mesuré à 3 petits carreaux (120 ms) à 25 mm/s est compatible avec un bloc de branche complet.",
+    "ecg": {
+      "preset": "sinus",
+      "fc": 70,
+      "qrs": "large"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : 3 × 40 ms = 120 ms, seuil de durée du bloc de branche complet chez l'adulte, à condition que la morphologie soit typique.",
+      "Faux : l'affirmation est exacte ; c'est entre 110 et 119 ms que l'on parle de bloc incomplet, et 120 ms atteint le critère du bloc complet."
+    ],
+    "explication": "3 petits carreaux × 40 ms = 120 ms. Selon les recommandations AHA/ACCF/HRS 2009, une durée de QRS ≥ 120 ms chez l'adulte fait partie des critères de bloc de branche complet (droit ou gauche), associée à une morphologie typique. Entre 110 et 119 ms, on parle de bloc incomplet ou de trouble de conduction intraventriculaire non spécifique selon l'aspect. La durée seule ne suffit pas : il faut toujours analyser la morphologie en V1 et V6. Un QRS large peut aussi traduire une préexcitation, un rythme ventriculaire ou une hyperkaliémie.",
+    "aRetenir": "Bloc de branche complet : QRS ≥ 120 ms chez l'adulte avec morphologie typique.",
+    "sources": [
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS Recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-006",
+    "theme": "ecg",
+    "sousTheme": "Bases de l'ECG",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "QT mesuré à 400 ms, fréquence cardiaque régulière à 100/min. Quel est le QTc selon la formule de Bazett ?",
+    "options": [
+      "400 ms",
+      "465 ms",
+      "516 ms",
+      "667 ms"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : 400 ms est le QT brut ; à 100/min, il doit être corrigé.",
+      "Faux : cette valeur ne correspond pas à Bazett ; la formule de Fridericia donnerait environ 474 ms.",
+      "Juste : RR = 0,6 s, √0,6 ≈ 0,775 ; 400/0,775 ≈ 516 ms.",
+      "Faux : erreur classique consistant à diviser par le RR (400/0,6) au lieu de sa racine carrée."
+    ],
+    "explication": "À 100/min, le RR vaut 0,6 s. Bazett : QTc = QT / √RR = 400 / √0,6 = 400 / 0,775 ≈ 516 ms. La valeur de 667 ms correspond à l'erreur fréquente consistant à diviser par RR au lieu de sa racine carrée. Surtout, Bazett surcorrige aux fréquences élevées : avec Fridericia (racine cubique du RR), on obtient environ 474 ms. Aux fréquences > 90-100/min, il est donc préférable d'utiliser une formule linéaire ou Fridericia, ou de mesurer le QT lorsque le rythme ralentit, avant de conclure à un QT long.",
+    "aRetenir": "QTc Bazett = QT/√RR (en s) ; il surcorrige en tachycardie : préférer Fridericia aux fréquences élevées.",
+    "sources": [
+      {
+        "titre": "Rautaharju PM, et al. AHA/ACCF/HRS Recommendations for the standardization and interpretation of the electrocardiogram. Part IV: the ST segment, T and U waves, and the QT interval. J Am Coll Cardiol 2009;53:982-991",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.014"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-007",
+    "theme": "ecg",
+    "sousTheme": "Bases de l'ECG",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Chez l'adulte, quelles sont les limites de l'axe électrique normal du QRS dans le plan frontal (recommandations AHA/ACC/HRS) ?",
+    "options": [
+      "−90° à 0°",
+      "−30° à +90°",
+      "0° à +120°",
+      "+30° à +150°"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : cet intervalle inclut les déviations axiales gauches franches (hémibloc antérieur gauche) et exclut l'axe inférieur normal.",
+      "Juste : ce sont les limites de l'axe frontal normal de l'adulte retenues par l'AHA/ACC/HRS.",
+      "Faux : il exclut l'axe entre 0° et −30°, physiologique, et inclut des déviations droites au-delà de +90°.",
+      "Faux : intervalle décalé vers la droite, qui inclurait des déviations axiales droites franches."
+    ],
+    "explication": "L'axe frontal normal de l'adulte est compris entre −30° et +90°. En deçà de −30°, on parle de déviation axiale gauche (hémibloc antérieur gauche en premier lieu, mais aussi séquelle d'infarctus inférieur, préexcitation…). Au-delà de +90°, il s'agit d'une déviation axiale droite (hémibloc postérieur gauche, surcharge droite, morphotype longiligne). L'axe entre 0° et −30° reste physiologique, fréquent chez le sujet âgé ou obèse. Les propositions à +120° ou +150° incluraient à tort des déviations droites franches.",
+    "aRetenir": "Axe normal adulte : −30° à +90°.",
+    "sources": [
+      {
+        "titre": "Mason JW, et al. Recommendations for the standardization and interpretation of the electrocardiogram. Part II: electrocardiography diagnostic statement list (AHA/ACC/HRS). J Am Coll Cardiol 2007;49:1128-1135",
+        "url": "https://doi.org/10.1016/j.jacc.2007.01.025"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-008",
+    "theme": "ecg",
+    "sousTheme": "Bases de l'ECG",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "QRS positif en DI, négatif en aVF et à prédominance positive en DII. Que concluez-vous sur l'axe ?",
+    "options": [
+      "Axe entre 0° et −30°, encore physiologique",
+      "Déviation axiale gauche pathologique (< −30°)",
+      "Déviation axiale droite (au-delà de +90°)",
+      "Axe indéterminé, entre −90° et ±180°"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : DI positif, aVF négatif et DII positif placent l'axe entre 0° et −30°, zone encore normale.",
+      "Faux : il faudrait un DII négatif ; l'axe aurait alors dépassé −30°.",
+      "Faux : une déviation axiale droite suppose un DI négatif, or DI est positif ici.",
+      "Faux : l'axe indéterminé suppose DI et aVF tous deux négatifs."
+    ],
+    "explication": "DI positif et aVF négatif placent l'axe entre 0° et −90°. Pour trancher, on regarde DII (orienté à +60°, perpendiculaire à −30°) : s'il est positif, l'axe n'a pas dépassé −30° : il est compris entre 0° et −30°, ce qui reste normal. Si DII est négatif, l'axe a dépassé −30° (entre −30° et −90°) : déviation axiale gauche, évocatrice d'hémibloc antérieur gauche. Une déviation droite supposerait DI négatif. L'axe indéterminé (−90° à ±180°) correspond à DI et aVF tous deux négatifs.",
+    "aRetenir": "DI+ / aVF− : regarder DII ; DII positif = axe normal, DII négatif = déviation gauche < −30°.",
+    "sources": [
+      {
+        "titre": "Mason JW, et al. Recommendations for the standardization and interpretation of the electrocardiogram. Part II: electrocardiography diagnostic statement list (AHA/ACC/HRS). J Am Coll Cardiol 2007;49:1128-1135",
+        "url": "https://doi.org/10.1016/j.jacc.2007.01.025"
+      },
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS Recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-009",
+    "theme": "ecg",
+    "sousTheme": "Bases de l'ECG",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Selon les recommandations AHA/ACCF/HRS 2009, à partir de quelle valeur le QTc est-il considéré comme allongé chez une femme adulte ?",
+    "options": [
+      "≥ 430 ms",
+      "≥ 440 ms",
+      "≥ 460 ms",
+      "≥ 500 ms"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : seuil trop bas, qui générerait de nombreux faux positifs chez la femme.",
+      "Faux : ancien seuil encore souvent cité, abandonné car trop peu spécifique.",
+      "Juste : QTc allongé à partir de 460 ms chez la femme (450 ms chez l'homme) selon l'AHA/ACCF/HRS 2009.",
+      "Faux : 500 ms est un seuil de risque élevé de torsades, pas la limite supérieure de la normale."
+    ],
+    "explication": "Les recommandations de standardisation de l'ECG retiennent un QTc allongé à partir de 450 ms chez l'homme et 460 ms chez la femme. La valeur de 440 ms, longtemps utilisée, génère trop de faux positifs. Le seuil de 500 ms n'est pas la limite du normal mais un seuil de risque nettement accru de torsades de pointes, qui doit faire arrêter les médicaments allongeant le QT. Un QT court se discute à l'inverse autour de 360-390 ms. Il faut toujours préciser la formule de correction utilisée.",
+    "aRetenir": "QTc allongé : ≥ 450 ms chez l'homme, ≥ 460 ms chez la femme ; > 500 ms = risque élevé.",
+    "sources": [
+      {
+        "titre": "Rautaharju PM, et al. AHA/ACCF/HRS Recommendations for the standardization and interpretation of the electrocardiogram. Part IV: the ST segment, T and U waves, and the QT interval. J Am Coll Cardiol 2009;53:982-991",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.014"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-010",
+    "theme": "ecg",
+    "sousTheme": "Bases de l'ECG",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 3,
+    "question": "Comment estimer rapidement la fréquence ventriculaire moyenne sur un tracé de 10 secondes en rythme irrégulier (par exemple une FA) ?",
+    "reponseAttendue": "Compter le nombre de QRS sur les 10 secondes du tracé (50 grands carreaux à 25 mm/s) et multiplier par 6.",
+    "explication": "Les formules 300/grands carreaux ou 1500/petits carreaux supposent un rythme régulier : appliquées à un seul RR d'un rythme irrégulier, elles donnent une valeur trompeuse. Sur un ECG standard de 10 secondes, on compte les QRS sur toute la bande et on multiplie par 6 pour obtenir une fréquence moyenne par minute. À 25 mm/s, 10 secondes correspondent à 250 mm, soit 50 grands carreaux. Pour une estimation plus fiable d'une réponse ventriculaire, le Holter reste nécessaire, car la fréquence varie avec l'activité.",
+    "aRetenir": "Rythme irrégulier : nombre de QRS sur 10 s × 6.",
+    "sources": [
+      {
+        "titre": "Kligfield P, et al. Recommendations for the standardization and interpretation of the electrocardiogram. Part I: the electrocardiogram and its technology (AHA/ACC/HRS). J Am Coll Cardiol 2007;49:1109-1127",
+        "url": "https://doi.org/10.1016/j.jacc.2007.01.024"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-011",
+    "theme": "ecg",
+    "sousTheme": "Bases de l'ECG",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 1,
+    "question": "Sur un ECG standard, l'étalonnage de référence est de 10 mm pour 1 mV et la vitesse de déroulement de 50 mm/s.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : l'amplitude de 10 mm/mV est juste, mais la vitesse standard est de 25 mm/s et non 50 mm/s.",
+      "Juste : 10 mm/mV oui, mais 25 mm/s ; à 50 mm/s, tous les intervalles paraîtraient deux fois plus longs."
+    ],
+    "explication": "Faux. L'étalonnage d'amplitude standard est bien de 10 mm/mV, affiché sous forme d'un créneau en début ou fin de tracé, mais la vitesse de déroulement standard est de 25 mm/s. La vitesse de 50 mm/s est parfois utilisée pour analyser finement les ondes P ou les spikes : toutes les durées paraissent alors deux fois plus longues. L'étalonnage peut aussi être réduit à 5 mm/mV (demi-étalonnage) en cas de QRS très amples, ce qui fausse l'appréciation des voltages si on ne le remarque pas. Vérifier ces deux réglages est le premier réflexe avant toute interprétation.",
+    "aRetenir": "ECG standard : 10 mm/mV et 25 mm/s — toujours vérifier le créneau d'étalonnage.",
+    "sources": [
+      {
+        "titre": "Kligfield P, et al. Recommendations for the standardization and interpretation of the electrocardiogram. Part I: the electrocardiogram and its technology (AHA/ACC/HRS). J Am Coll Cardiol 2007;49:1109-1127",
+        "url": "https://doi.org/10.1016/j.jacc.2007.01.024"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-012",
+    "theme": "ecg",
+    "sousTheme": "Bases de l'ECG",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Concernant la mesure et la correction du QT, quelles propositions sont exactes ?",
+    "options": [
+      "La formule de Bazett surcorrige le QT aux fréquences élevées",
+      "La formule de Fridericia divise le QT par la racine carrée du RR",
+      "Le QT se mesure du début de l'onde P à la fin de l'onde T",
+      "Un QRS élargi par un bloc de branche allonge le QT mesuré",
+      "En FA, un QTc de Bazett calculé sur un seul RR est fiable"
+    ],
+    "reponses": [
+      0,
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : Bazett (QT/√RR) allonge excessivement le QTc en tachycardie et le raccourcit en bradycardie.",
+      "Faux : Fridericia utilise la racine cubique du RR ; la racine carrée est celle de Bazett.",
+      "Faux : le QT se mesure du début du QRS à la fin de l'onde T ; du début de P, on mesurerait autre chose.",
+      "Juste : l'élargissement du QRS allonge mécaniquement le QT sans allonger la repolarisation ; raisonner sur le JT.",
+      "Faux : en FA, les RR varient ; il faut moyenner plusieurs cycles avant de conclure."
+    ],
+    "explication": "Le QT se mesure du début du QRS à la fin de l'onde T, idéalement dans la dérivation où il est le plus long (souvent DII ou V2-V3) ; partir du début de l'onde P est faux. Bazett (QT/√RR) surcorrige en tachycardie et sous-corrige en bradycardie, d'où l'intérêt de Fridericia, qui utilise la racine cubique du RR (QT/∛RR) et non la racine carrée, ou des formules linéaires. Un QRS élargi (bloc de branche, stimulation ventriculaire) allonge mécaniquement le QT sans refléter un allongement de la repolarisation : on peut raisonner sur l'intervalle JT ou appliquer une correction adaptée. En FA, les RR variables imposent de moyenner plusieurs cycles ; un calcul sur un seul RR est peu fiable.",
+    "aRetenir": "QT = début QRS → fin T ; méfiance avec Bazett aux fréquences extrêmes, en FA et en cas de QRS large.",
+    "sources": [
+      {
+        "titre": "Rautaharju PM, et al. AHA/ACCF/HRS Recommendations for the standardization and interpretation of the electrocardiogram. Part IV: the ST segment, T and U waves, and the QT interval. J Am Coll Cardiol 2009;53:982-991",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.014"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-013",
+    "theme": "ecg",
+    "sousTheme": "Dysfonction sinusale et échappements",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Cycliste de 28 ans, asymptomatique, ECG réalisé lors d'une visite de non-contre-indication au sport. Quel est votre diagnostic ?",
+    "ecg": {
+      "preset": "sinus",
+      "fc": 45
+    },
+    "options": [
+      "BAV 2:1 avec P bloquée cachée dans l'onde T",
+      "Rythme d'échappement jonctionnel",
+      "BAV complet avec échappement à QRS fins",
+      "Bradycardie sinusale"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : aucune P non conduite n'est visible entre les QRS, et les ondes T sont toutes identiques.",
+      "Faux : un rythme jonctionnel n'aurait pas d'onde P précédant chaque QRS avec un PR normal.",
+      "Faux : le PR est constant ; il n'y a aucune dissociation entre P et QRS.",
+      "Juste : une P sinusale précède chaque QRS avec un PR fixe et normal, à 45/min : bradycardie vagale du sportif."
+    ],
+    "explication": "Sur ce tracé, une onde P sinusale (positive en DII) précède chaque QRS fin avec un PR constant et normal, à environ 45/min : le rythme est sinusal et lent (< 50-60/min selon les définitions), c'est une bradycardie sinusale. Chez le sportif d'endurance, elle traduit une hypertonie vagale physiologique. Un BAV 2:1 supposerait des P non conduites entre les QRS, souvent cachées dans l'onde T ; un rythme jonctionnel n'aurait pas de P précédant le QRS avec un PR normal ; un BAV complet montrerait une dissociation P-QRS. Une bradycardie sinusale asymptomatique ne justifie aucune stimulation (classe III, ESC 2021).",
+    "aRetenir": "Bradycardie sinusale asymptomatique du sportif : physiologique, pas de stimulation.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-014",
+    "theme": "ecg",
+    "sousTheme": "Dysfonction sinusale et échappements",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Femme de 74 ans, lipothymies. Quel est le diagnostic sur ce tracé ?",
+    "ecg": {
+      "preset": "pause-sinusale",
+      "fc": 70,
+      "pause": 3200
+    },
+    "options": [
+      "Pause (arrêt) sinusale",
+      "Bloc sino-auriculaire du 2e degré type II",
+      "Extrasystole atriale bloquée",
+      "BAV 2e degré Mobitz II"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : pause sans onde P, dont la durée n'est pas un multiple du PP : défaut d'automatisme sinusal.",
+      "Faux : la pause (≈ 3,2 s) n'est pas un multiple exact du PP de base (≈ 860 ms), ce qu'exigerait un BSA type II.",
+      "Faux : aucune P prématurée ne déforme l'onde T qui précède la pause.",
+      "Faux : un BAV suppose une onde P non suivie de QRS ; ici, aucune P n'apparaît pendant la pause."
+    ],
+    "explication": "Sur ce tracé, le rythme sinusal (environ 70/min) s'interrompt brutalement par une pause d'environ 3,2 s sans aucune onde P. L'absence d'onde P pendant la pause signe un défaut de l'activité atriale et non un trouble de conduction AV : ce n'est donc pas un BAV, où l'on verrait une P non suivie de QRS. Une pause qui n'est pas un multiple exact du PP oriente vers un arrêt sinusal (défaut d'automatisme) plutôt qu'un bloc sino-auriculaire de type II, où la pause vaut exactement 2 (ou n) PP. Une ESA bloquée se reconnaît à une P prématurée, souvent cachée dans l'onde T précédant la pause. Une pause > 3 s symptomatique relève d'une discussion de stimulation.",
+    "aRetenir": "Pause sans P et non multiple du PP = arrêt sinusal ; pause = 2 PP exactement = BSA type II.",
+    "sources": [
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-015",
+    "theme": "ecg",
+    "sousTheme": "Dysfonction sinusale et échappements",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Homme de 68 ans, sensation de « ratés » du pouls. Analysez la pause sur ce tracé. Quel est le diagnostic le plus probable ?",
+    "ecg": {
+      "preset": "pause-sinusale",
+      "fc": 75,
+      "pause": 1600
+    },
+    "options": [
+      "Arrêt sinusal (défaut d'automatisme)",
+      "BAV 2e degré Mobitz I",
+      "Arythmie sinusale respiratoire",
+      "Bloc sino-auriculaire type II"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : un arrêt sinusal donne une pause sans rapport arithmétique avec le PP ; ici, elle vaut exactement deux cycles.",
+      "Faux : un Mobitz I montrerait une onde P non conduite après allongement du PR ; ici, aucune P pendant la pause.",
+      "Faux : l'arythmie respiratoire fait varier le PP progressivement et cycliquement, sans pause brutale de 2 cycles.",
+      "Juste : la pause vaut exactement 2 PP (≈ 1600 ms pour un PP de 800 ms) : l'impulsion sinusale n'est pas sortie vers l'oreillette."
+    ],
+    "explication": "Sur ce tracé, le PP de base est d'environ 800 ms (75/min) et la pause, sans onde P, mesure exactement deux cycles (1600 ms) : l'impulsion sinusale a bien été générée mais n'est pas sortie vers l'oreillette. C'est un bloc sino-auriculaire du 2e degré de type II (Mobitz II sino-auriculaire). L'activité du nœud sinusal elle-même n'est pas visible sur l'ECG de surface ; on déduit le bloc de ce rapport arithmétique. Un arrêt sinusal donnerait une pause non multiple du PP. Un Mobitz I auriculo-ventriculaire montrerait une onde P non conduite. L'arythmie respiratoire donne des variations progressives, cycliques, sans pause brutale.",
+    "aRetenir": "BSA 2e degré type II : pause égale à un multiple exact du cycle PP de base.",
+    "sources": [
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-016",
+    "theme": "ecg",
+    "sousTheme": "Dysfonction sinusale et échappements",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Sur un Holter, on observe de façon répétitive un raccourcissement progressif des intervalles PP, puis une pause sans onde P dont la durée est inférieure à deux PP. PR constant. Quel est le mécanisme le plus probable ?",
+    "options": [
+      "Bloc sino-auriculaire du 2e degré type I",
+      "Bloc sino-auriculaire du 2e degré type II",
+      "Arrêt sinusal intermittent récidivant",
+      "BAV du 2e degré Mobitz I (nodal)"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : PP qui raccourcissent puis pause < 2 PP : c'est un Wenckebach de la jonction sino-atriale.",
+      "Faux : le BSA type II donne une pause égale à 2 PP, sans raccourcissement préalable des PP.",
+      "Faux : un arrêt sinusal ne reproduit pas cette séquence répétitive de PP qui raccourcissent avant la pause.",
+      "Faux : PR constant et aucune P non conduite : le bloc n'est pas auriculo-ventriculaire."
+    ],
+    "explication": "Le BSA de type I reproduit au niveau de la jonction sino-atriale la périodicité de Wenckebach : le temps de conduction sino-atrial s'allonge progressivement, avec des incréments décroissants, ce qui raccourcit les PP successifs jusqu'à l'impulsion bloquée. La pause est alors inférieure à 2 PP. Le PR constant et l'absence de P non conduite éliminent un BAV Mobitz I. Un BSA type II donnerait une pause égale à 2 PP sans raccourcissement préalable. Un arrêt sinusal n'a pas cette séquence répétitive. Diagnostic de surface indirect, sans conséquence thérapeutique propre : c'est la corrélation aux symptômes qui guide la décision.",
+    "aRetenir": "BSA type I : PP qui raccourcissent puis pause < 2 PP, comme un Wenckebach des oreillettes.",
+    "sources": [
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      },
+      {
+        "titre": "Issa ZF, Miller JM, Zipes DP. Clinical Arrhythmology and Electrophysiology: A Companion to Braunwald's Heart Disease. 3rd ed. Philadelphia: Elsevier; 2019 (chapitre Sinus node dysfunction)",
+        "url": null
+      }
+    ],
+    "reco": [
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-017",
+    "theme": "ecg",
+    "sousTheme": "Dysfonction sinusale et échappements",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 4,
+    "question": "Devant une pause sur un tracé en rythme sinusal, quel signe faut-il rechercher pour évoquer une extrasystole atriale bloquée plutôt qu'une pause sinusale ?",
+    "reponseAttendue": "Une onde P prématurée, souvent cachée dans l'onde T qui précède la pause et qui la déforme (T plus pointue, crochetée ou plus ample que les autres ondes T).",
+    "explication": "Une ESA très précoce arrive alors que le nœud AV est encore réfractaire : elle n'est pas conduite, et elle réinitialise le nœud sinusal, d'où une pause. Son onde P est souvent cachée dans l'onde T précédente, qu'elle déforme (T pointue, crochetée ou plus ample que les autres). C'est la première cause de « pause » bénigne à éliminer, en comparant soigneusement toutes les ondes T. Une pause égale à deux PP évoquerait plutôt un BSA type II, et un allongement progressif du PR un Wenckebach AV. Les ESA bloquées en bigéminisme peuvent mimer une bradycardie sinusale sévère.",
+    "aRetenir": "Avant de parler de pause sinusale, cherchez une P prématurée cachée dans l'onde T.",
+    "sources": [
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-018",
+    "theme": "ecg",
+    "sousTheme": "Dysfonction sinusale et échappements",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Femme de 45 ans, sensations d'« extrasystoles » isolées. Quel est le diagnostic sur ce tracé ?",
+    "ecg": {
+      "preset": "esa",
+      "fc": 75
+    },
+    "options": [
+      "Extrasystoles ventriculaires",
+      "Pauses sinusales répétées",
+      "BAV 2e degré Mobitz II",
+      "Extrasystoles atriales"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : une ESV serait large, de morphologie différente, sans onde P prématurée devant elle.",
+      "Faux : les cycles anormaux sont des battements prématurés ; le repos modéré qui suit n'est pas une pause sinusale.",
+      "Faux : aucune onde P n'est bloquée ; toutes sont suivies d'un QRS.",
+      "Juste : battements prématurés à QRS fin identique, précédés d'une P de morphologie différente de la sinusale."
+    ],
+    "explication": "Sur ce tracé, quelques battements prématurés à QRS fins sont précédés d'une onde P de morphologie différente de la P sinusale. Un battement prématuré précédé d'une onde P anormale (morphologie ou axe différents de la P sinusale) avec un QRS fin identique aux QRS de base est une extrasystole atriale. Le repos qui suit est habituellement non compensateur, car l'ESA réinitialise le nœud sinusal. Une ESV donnerait un QRS large sans P prématurée. Un Mobitz II se traduit par une P sinusale bloquée, pas par un battement prématuré. Une ESA conduite avec aberration peut toutefois avoir un QRS large : la P prématurée reste la clé.",
+    "aRetenir": "Battement prématuré + P différente + QRS fin = extrasystole atriale.",
+    "sources": [
+      {
+        "titre": "Mason JW, et al. Recommendations for the standardization and interpretation of the electrocardiogram. Part II: electrocardiography diagnostic statement list (AHA/ACC/HRS). J Am Coll Cardiol 2007;49:1128-1135",
+        "url": "https://doi.org/10.1016/j.jacc.2007.01.025"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-019",
+    "theme": "ecg",
+    "sousTheme": "Dysfonction sinusale et échappements",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Femme de 76 ans, FA paroxystique connue. Syncope au Holter : fin brutale d'un accès de FA suivie d'une pause de 5 s avant le premier battement sinusal. Quel est le diagnostic ?",
+    "options": [
+      "Syndrome bradycardie-tachycardie",
+      "BAV paroxystique infra-hisien",
+      "Syncope vasovagale à forme cardio-inhibitrice",
+      "Hypersensibilité sino-carotidienne"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : pause post-réductionnelle d'un accès de FA, forme typique de la maladie de l'oreillette.",
+      "Faux : aucune onde P non conduite n'est décrite ; la pause est sinusale, pas auriculo-ventriculaire.",
+      "Faux : pas de prodrome ni de déclencheur, et la pause suit exactement la fin de l'accès de FA.",
+      "Faux : aucun déclenchement par la rotation de la tête ou une pression cervicale."
+    ],
+    "explication": "La pause post-réductionnelle d'un accès de FA traduit un temps de récupération sinusale anormalement long : c'est la forme typique du syndrome bradycardie-tachycardie, expression de la maladie de l'oreillette (dysfonction sinusale). Le mécanisme est une suppression de l'automatisme sinusal par la tachycardie (overdrive suppression). Il ne s'agit pas d'un BAV, puisqu'aucune onde P non conduite n'est visible. Le contexte ne correspond ni à un malaise vagal typique (prodromes, facteur déclenchant) ni à une hypersensibilité sino-carotidienne (déclenchement par la rotation de tête). La corrélation symptôme-rythme documentée est ici idéale.",
+    "aRetenir": "Pause post-réduction d'une FA = syndrome bradycardie-tachycardie.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Brignole M, et al. 2018 ESC Guidelines for the diagnosis and management of syncope. Eur Heart J 2018;39:1883-1948",
+        "url": "https://doi.org/10.1093/eurheartj/ehy037"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ESC 2018 syncope"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-020",
+    "theme": "ecg",
+    "sousTheme": "Dysfonction sinusale et échappements",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Chez cette même patiente (syndrome bradycardie-tachycardie avec syncope par pause post-réductionnelle), quelle attitude est conforme aux recommandations ESC 2021 ?",
+    "options": [
+      "Surveillance simple, la pause post-réductionnelle étant par nature transitoire",
+      "Défibrillateur implantable en prévention de la mort subite",
+      "Majoration du bêtabloquant pour prévenir les accès de FA",
+      "Stimulation cardiaque, ou ablation de FA chez un patient sélectionné"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : une syncope par pause documentée impose d'agir ; la récidive est fréquente et peut être traumatique.",
+      "Faux : aucune arythmie ventriculaire n'est en cause ; le DAI n'a pas d'indication.",
+      "Faux : seul, le freinateur risque d'allonger les pauses post-réductionnelles et d'aggraver les syncopes.",
+      "Juste : stimulation de classe I (ESC 2021) ; l'ablation de FA (IIa) peut l'éviter chez des patients sélectionnés."
+    ],
+    "explication": "L'ESC 2021 recommande la stimulation (classe I) dans la forme bradycardie-tachycardie symptomatique de la dysfonction sinusale, pour corriger les pauses et autoriser les traitements bradycardisants ou antiarythmiques de la FA, sauf si l'on préfère l'ablation de la tachyarythmie. L'ablation de la FA doit être envisagée (classe IIa) chez des patients sélectionnés pour éviter l'implantation, lorsque la bradycardie est liée à la FA. Majorer seul le bêtabloquant risquerait d'aggraver les pauses. Le DAI n'a aucune place en l'absence d'arythmie ventriculaire. La surveillance simple est inadaptée après une syncope documentée.",
+    "aRetenir": "Bradycardie-tachycardie symptomatique : stimulation (classe I) ou, chez des patients sélectionnés, ablation de la FA (IIa).",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-021",
+    "theme": "ecg",
+    "sousTheme": "Dysfonction sinusale et échappements",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 3,
+    "question": "Une bradycardie sinusale asymptomatique à 40/min pendant le sommeil justifie une stimulation définitive.",
+    "ecg": {
+      "preset": "sinus",
+      "fc": 40
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : une bradycardie sinusale asymptomatique, surtout nocturne, n'est pas une indication (classe III, ESC 2021).",
+      "Juste : on stimule une bradycardie corrélée aux symptômes, pas une fréquence nocturne isolée ; penser aux apnées du sommeil."
+    ],
+    "explication": "Faux. La stimulation n'est pas recommandée (classe III, ESC 2021) dans la dysfonction sinusale asymptomatique ou lorsque la bradycardie est due à une cause transitoire ou réversible. Les fréquences nocturnes de 35-40/min sont fréquentes, notamment chez le sujet jeune ou sportif, du fait de la prédominance vagale. Le critère décisionnel clé dans la dysfonction sinusale est la corrélation entre les symptômes et la bradycardie, et non la valeur de fréquence isolée. Une bradycardie nocturne doit en revanche faire rechercher un syndrome d'apnées du sommeil.",
+    "aRetenir": "Dysfonction sinusale : on stimule une bradycardie corrélée aux symptômes, pas un chiffre de fréquence.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-022",
+    "theme": "ecg",
+    "sousTheme": "Dysfonction sinusale et échappements",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 5,
+    "question": "Avant de retenir une indication de stimulation pour une bradycardie (dysfonction sinusale ou BAV), quelles causes réversibles ou extrinsèques faut-il rechercher ?",
+    "options": [
+      "Hypothyroïdie",
+      "Hypokaliémie",
+      "Traitement bradycardisant (bêtabloquant, ivabradine, digoxine…)",
+      "Syndrome d'apnées du sommeil",
+      "Hyperthyroïdie"
+    ],
+    "reponses": [
+      0,
+      2,
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : l'hypothyroïdie ralentit l'automatisme sinusal et est une cause réversible classique.",
+      "Faux : l'hypokaliémie favorise extrasystoles et tachyarythmies ; c'est l'hyperkaliémie qui donne bradycardies et blocs.",
+      "Juste : cause extrinsèque la plus fréquente, à réévaluer avant toute implantation (y compris les collyres bêtabloquants).",
+      "Juste : les apnées du sommeil donnent des bradycardies et pauses nocturnes, souvent réversibles sous traitement.",
+      "Faux : l'hyperthyroïdie donne une tachycardie sinusale ou une FA, pas une bradycardie."
+    ],
+    "explication": "L'ESC 2021 insiste sur la recherche des causes potentiellement réversibles avant toute implantation : médicaments (bêtabloquants y compris collyres, ivabradine, vérapamil/diltiazem, digoxine, antiarythmiques), troubles ioniques (hyperkaliémie surtout), hypothyroïdie, apnées du sommeil, hypothermie, infarctus aigu, maladie de Lyme. L'hypokaliémie favorise plutôt les extrasystoles, les tachyarythmies et les torsades ; c'est l'hyperkaliémie qui ralentit l'automatisme et la conduction. L'hyperthyroïdie donne au contraire une tachycardie sinusale ou une FA, pas une bradycardie. Attention toutefois : si le traitement bradycardisant est indispensable (par exemple bêtabloquant après infarctus), la bradycardie symptomatique peut justifier la stimulation sans arrêter le médicament.",
+    "aRetenir": "Toujours éliminer une cause réversible (médicament, K+, thyroïde, apnées, Lyme, ischémie) avant de stimuler.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-023",
+    "theme": "ecg",
+    "sousTheme": "Dysfonction sinusale et échappements",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Chez un patient suspect de dysfonction sinusale qui se plaint d'une dyspnée et d'une fatigue d'effort, l'épreuve d'effort est utile pour rechercher une incompétence chronotrope.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : l'épreuve d'effort documente l'incompétence chronotrope, que l'ECG de repos et le Holter peuvent méconnaître.",
+      "Faux : l'affirmation est exacte ; l'effort permet de corréler la dyspnée à une fréquence insuffisante et guide l'asservissement."
+    ],
+    "explication": "Vrai. L'incompétence chronotrope, c'est-à-dire l'incapacité à accélérer la fréquence cardiaque de façon adaptée à l'effort, est une forme de dysfonction sinusale que l'ECG de repos et le Holter peuvent méconnaître. L'épreuve d'effort permet de la documenter et de corréler l'essoufflement à une fréquence insuffisante. Elle intervient dans le choix d'un asservissement de fréquence (mode R) en cas d'implantation. Il faut interpréter le résultat en tenant compte des traitements bradycardisants et du niveau d'effort atteint.",
+    "aRetenir": "Symptômes d'effort + suspicion de dysfonction sinusale : épreuve d'effort pour l'incompétence chronotrope.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-024",
+    "theme": "ecg",
+    "sousTheme": "Dysfonction sinusale et échappements",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 7,
+    "question": "Définissez le syndrome bradycardie-tachycardie et expliquez pourquoi sa prise en charge médicamenteuse est souvent difficile sans stimulation.",
+    "reponseAttendue": "Forme de dysfonction sinusale associant des tachyarythmies atriales (surtout FA/flutter) et des bradycardies (bradycardie sinusale, pauses, notamment pauses post-réductionnelles). Les traitements freinateurs ou antiarythmiques nécessaires pour la tachycardie aggravent la bradycardie et les pauses : la stimulation protège contre la bradycardie et permet de les utiliser (ou alternative : ablation de la FA chez des patients sélectionnés).",
+    "explication": "Le syndrome bradycardie-tachycardie est l'expression de la maladie de l'oreillette : le tissu atrial altéré favorise la FA et le nœud sinusal malade récupère mal après les accès, d'où des pauses parfois syncopales à la réduction. Le dilemme thérapeutique est classique : bêtabloquants, digoxine ou antiarythmiques contrôlent la tachycardie mais majorent les pauses. L'ESC 2021 recommande la stimulation (classe I) pour permettre ces traitements, sauf si l'ablation de la tachyarythmie est préférée ; l'ablation de FA doit être envisagée (IIa) chez des patients sélectionnés pour éviter l'implantation. Ne pas oublier l'anticoagulation selon le score de risque thromboembolique.",
+    "aRetenir": "Bradycardie-tachycardie : les freinateurs aggravent les pauses, d'où stimulation ou ablation de FA.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-025",
+    "theme": "ecg",
+    "sousTheme": "Blocs auriculo-ventriculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 1,
+    "question": "Homme de 70 ans, asymptomatique, ECG préopératoire. Quel est le diagnostic ?",
+    "ecg": {
+      "preset": "bav1",
+      "fc": 70,
+      "pr": 280
+    },
+    "options": [
+      "BAV du 1er degré",
+      "Rythme sinusal normal",
+      "BAV 2e degré Mobitz I",
+      "BAV complet à échappement fin"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : PR constant d'environ 280 ms (> 200 ms), toutes les P conduites.",
+      "Faux : le PR mesure environ 7 petits carreaux (≈ 280 ms), au-delà de la limite de 200 ms.",
+      "Faux : toutes les P sont conduites avec un PR fixe ; aucune P n'est bloquée.",
+      "Faux : le PR est constant et chaque P est suivie d'un QRS : pas de dissociation AV."
+    ],
+    "explication": "Sur ce tracé, toutes les ondes P sont conduites (rapport 1:1) avec un PR constant d'environ 280 ms, supérieur à 200 ms : c'est un BAV du 1er degré, qui est en réalité un simple ralentissement de conduction et non un « bloc ». Dans un Mobitz I, le PR s'allongerait progressivement jusqu'à une P bloquée. Un BAV complet montrerait une dissociation entre P et QRS. Le siège est le plus souvent nodal, surtout avec des QRS fins. Isolé et asymptomatique, il ne justifie aucune stimulation.",
+    "aRetenir": "BAV 1 : PR > 200 ms, constant, toutes les P conduites.",
+    "sources": [
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-026",
+    "theme": "ecg",
+    "sousTheme": "Blocs auriculo-ventriculaires",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 2,
+    "question": "Dans le BAV du 1er degré, une onde P isolée peut ne pas être conduite, à condition que le PR des autres battements reste supérieur à 200 ms.",
+    "ecg": {
+      "preset": "bav1",
+      "fc": 65,
+      "pr": 240
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : une seule P sinusale bloquée suffit à parler de BAV du 2e degré, quel que soit le PR des autres battements.",
+      "Juste : le BAV du 1er degré garde une conduction 1:1 ; toute P bloquée fait passer au 2e degré."
+    ],
+    "explication": "Faux. Le BAV du 1er degré correspond à un allongement du temps de conduction AV (PR > 200 ms) sans aucune onde P bloquée : la conduction reste 1:1. Dès qu'une seule onde P n'est pas conduite, on parle de BAV du 2e degré (Mobitz I, Mobitz II, 2:1 ou haut degré), quel que soit le PR des autres battements. Attention aux fausses P bloquées : une extrasystole atriale bloquée, prématurée, ne relève pas d'un BAV. Un PR très long (> 300 ms) peut toutefois entraîner une contraction atriale sur valve mitrale fermée et des symptômes proches d'un syndrome du pacemaker.",
+    "aRetenir": "BAV 1 = conduction 1:1 ralentie ; une seule P sinusale bloquée suffit à parler de 2e degré.",
+    "sources": [
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-027",
+    "theme": "ecg",
+    "sousTheme": "Blocs auriculo-ventriculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Femme de 62 ans, bilan de fatigue. Quel est le diagnostic sur ce tracé ?",
+    "ecg": {
+      "preset": "bav2-m1",
+      "fc": 75,
+      "cycle": 4
+    },
+    "options": [
+      "BAV 2e degré Mobitz II 4:3",
+      "BAV 2e degré Mobitz I 4:3",
+      "Bloc sino-auriculaire type I",
+      "BAV du 1er degré à PR variable"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : dans un Mobitz II, les PR sont constants avant et après la P bloquée ; ici, ils s'allongent.",
+      "Juste : le PR s'allonge jusqu'à une P bloquée puis raccourcit après la pause : 4 P pour 3 QRS.",
+      "Faux : un BSA ne comporte pas de P bloquée ; ici, une P visible n'est pas suivie de QRS.",
+      "Faux : une onde P est bloquée à chaque cycle : c'est au moins un 2e degré."
+    ],
+    "explication": "Sur ce tracé, le PR s'allonge progressivement jusqu'à une onde P non suivie de QRS, puis le cycle recommence avec un PR raccourci : c'est la périodicité de Luciani-Wenckebach, BAV du 2e degré Mobitz I. Le rapport 4:3 signifie 4 P pour 3 QRS conduits. Un Mobitz II aurait un PR constant avant et après la P bloquée. Un BSA type I ne comporte pas de P bloquée visible. Un BAV du 1er degré n'a aucune P bloquée. Avec des QRS fins, le siège est habituellement nodal et le pronostic généralement bon.",
+    "aRetenir": "PR qui s'allonge puis P bloquée = Mobitz I (Wenckebach).",
+    "sources": [
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-028",
+    "theme": "ecg",
+    "sousTheme": "Blocs auriculo-ventriculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Homme de 76 ans, lipothymies à l'effort. Quel est le diagnostic sur ce tracé ?",
+    "ecg": {
+      "preset": "bav2-m2",
+      "fc": 75,
+      "ratio": 4
+    },
+    "options": [
+      "BAV 2e degré Mobitz I",
+      "Extrasystole atriale bloquée",
+      "BAV 2e degré Mobitz II",
+      "BAV 2:1 intermittent"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : pas d'allongement progressif du PR avant la P bloquée, ni de raccourcissement après.",
+      "Faux : la P bloquée arrive à l'heure (PP constant) ; elle n'est pas prématurée.",
+      "Juste : PR constants avant et après une P bloquée qui survient à l'heure.",
+      "Faux : trois P sur quatre sont conduites ; ce n'est pas une P sur deux."
+    ],
+    "explication": "Sur ce tracé, le PR est constant et, de façon inopinée, une onde P sinusale n'est pas suivie de QRS, le PR du battement suivant étant identique. Le Mobitz II se définit ainsi : P bloquée inopinée, PR constants avant et après, sans allongement préalable. La P bloquée arrive à l'heure (PP constant), ce qui élimine une ESA bloquée, dont la P serait prématurée. Le siège est presque toujours infra-nodal (His-Purkinje), souvent avec des QRS larges, et le risque d'évolution brutale vers un BAV complet est élevé. C'est pourquoi l'ESC 2021 retient une indication de stimulation de classe I, même chez le patient asymptomatique, en l'absence de cause réversible.",
+    "aRetenir": "Mobitz II : PR constant, P bloquée inopinée, siège infra-nodal, stimulation indiquée.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-029",
+    "theme": "ecg",
+    "sousTheme": "Blocs auriculo-ventriculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Patiente de 80 ans adressée pour un pouls lent. Quels sont le diagnostic et la fréquence ventriculaire sur ce tracé ?",
+    "ecg": {
+      "preset": "bav2-21",
+      "fc": 80
+    },
+    "options": [
+      "BAV complet, fréquence ventriculaire ≈ 40/min",
+      "BAV Mobitz I 3:2, fréquence ventriculaire ≈ 53/min",
+      "Bradycardie sinusale, fréquence ventriculaire ≈ 40/min",
+      "BAV 2:1, fréquence ventriculaire ≈ 40/min"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : les P conduites ont un PR fixe ; il n'y a pas de dissociation AV.",
+      "Faux : le PR des battements conduits ne s'allonge pas, et c'est une P sur deux qui est bloquée, pas une sur trois.",
+      "Faux : piège classique ; une P non conduite se cache entre deux QRS, souvent dans l'onde T.",
+      "Juste : une P sur deux est conduite ; fréquence ventriculaire = 80/2 = 40/min."
+    ],
+    "explication": "Sur ce tracé, une onde P sur deux n'est pas conduite, avec une fréquence atriale de 80/min : c'est un BAV 2:1, et la fréquence ventriculaire vaut la moitié de la fréquence atriale, soit 40/min. Le piège est de ne pas voir la P bloquée, souvent cachée dans l'onde T, et de conclure à tort à une bradycardie sinusale. Dans un BAV complet, le PR serait variable (dissociation) alors qu'ici le PR des battements conduits est fixe. Le BAV 2:1 ne peut être classé Mobitz I ou II puisqu'on ne voit jamais deux PR consécutifs : sa localisation se discute sur d'autres arguments.",
+    "aRetenir": "BAV 2:1 : une P sur deux bloquée ; ni Mobitz I ni Mobitz II par définition.",
+    "sources": [
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-030",
+    "theme": "ecg",
+    "sousTheme": "Blocs auriculo-ventriculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "BAV 2:1 à fréquence atriale de 90/min (tracé ci-dessous). Sur l'ECG 12 dérivations, les battements conduits ont un PR constant de 200 ms et des QRS larges avec aspect de bloc de branche droit et hémibloc antérieur gauche. Quel siège du bloc est le plus probable ?",
+    "ecg": {
+      "preset": "bav2-21",
+      "fc": 90,
+      "qrs": "large"
+    },
+    "options": [
+      "Infra-nodal (His-Purkinje)",
+      "Nodal (supra-hisien)",
+      "Indéterminable sans EEP",
+      "Sino-auriculaire (BSA 2:1)"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : PR conduit normal et bloc bifasciculaire orientent vers une atteinte du tissu de conduction distal.",
+      "Faux : un bloc nodal s'accompagne plutôt d'un PR conduit long et de QRS fins.",
+      "Faux : l'EEP confirme, mais PR normal et QRS larges rendent le siège infra-nodal nettement plus probable.",
+      "Faux : un BSA ne donne pas d'onde P bloquée ; ici, des P visibles ne sont pas conduites."
+    ],
+    "explication": "Dans un BAV 2:1, un PR conduit normal associé à des QRS larges (bloc bifasciculaire) oriente fortement vers un siège infra-nodal : le nœud AV conduit normalement, c'est le tissu de conduction distal malade qui bloque. À l'inverse, un PR conduit long et des QRS fins orientent vers un siège nodal. Ce ne sont que des probabilités (un bloc intra-hisien peut avoir des QRS fins), mais elles ne sont pas équiprobables. Le siège infra-nodal est de mauvais pronostic et relève d'une stimulation. Le BSA ne comporte pas de P bloquée.",
+    "aRetenir": "BAV 2:1 : PR normal + QRS large = infra-nodal ; PR long + QRS fin = plutôt nodal.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-031",
+    "theme": "ecg",
+    "sousTheme": "Blocs auriculo-ventriculaires",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Pour localiser un BAV 2:1 (nodal ou infra-nodal), quelles propositions sont exactes ?",
+    "options": [
+      "L'atropine ou l'effort améliorent habituellement la conduction d'un bloc nodal",
+      "L'atropine ou l'effort peuvent aggraver un bloc infra-hisien (passage en 3:1 ou plus) en augmentant la fréquence atriale",
+      "Le massage sino-carotidien aggrave un bloc nodal et peut paradoxalement améliorer la conduction d'un bloc infra-hisien",
+      "L'apparition d'une périodicité de Wenckebach sur le même enregistrement oriente vers un siège nodal",
+      "L'adénosine améliore la conduction d'un bloc nodal"
+    ],
+    "reponses": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : le nœud AV est très sensible au tonus autonome ; baisse vagale et hausse sympathique facilitent sa conduction.",
+      "Juste : le His-Purkinje est fréquence-dépendant ; l'accélération atriale peut majorer un bloc infra-hisien.",
+      "Juste : le ralentissement sinusal réduit la fréquence imposée au His-Purkinje et peut améliorer la conduction.",
+      "Juste : un Wenckebach coexistant est un argument fort pour un siège nodal.",
+      "Faux : l'adénosine déprime le nœud AV et aggrave donc un bloc nodal."
+    ],
+    "explication": "Le nœud AV est très sensible au système nerveux autonome : l'atropine ou l'effort (baisse du tonus vagal, hausse du tonus sympathique) améliorent la conduction nodale, alors que le massage sino-carotidien l'aggrave. Le tissu His-Purkinje est peu influencé par le système nerveux autonome mais dépend de la fréquence : une accélération atriale (atropine, effort) peut majorer un bloc infra-hisien, et un ralentissement sinusal par massage carotidien peut au contraire améliorer la conduction. Voir des séquences de Wenckebach à côté du 2:1 est un argument fort pour un siège nodal. L'adénosine déprime le nœud AV et aggrave donc un bloc nodal. En cas de doute, l'exploration électrophysiologique tranche.",
+    "aRetenir": "Bloc nodal : amélioré par atropine/effort, aggravé par le massage carotidien ; l'inverse pour l'infra-hisien.",
+    "sources": [
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-032",
+    "theme": "ecg",
+    "sousTheme": "Blocs auriculo-ventriculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Femme de 82 ans, syncope. Quel est le diagnostic sur ce tracé ?",
+    "ecg": {
+      "preset": "bav3",
+      "fc": 80,
+      "fv": 35,
+      "qrs": "large"
+    },
+    "options": [
+      "BAV 2:1 avec bloc de branche",
+      "Bradycardie sinusale avec bloc de branche",
+      "BAV complet, échappement ventriculaire",
+      "Rythme idioventriculaire accéléré"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : le PR varie d'un battement à l'autre ; aucune P n'est conduite avec un PR fixe.",
+      "Faux : les P, plus rapides que les QRS, ne les précèdent pas avec un PR constant.",
+      "Juste : P (≈ 80/min) et QRS larges (≈ 35/min) sont totalement dissociés.",
+      "Faux : un RIVA est plus rapide (> 40-50/min) ; ici, les P sont plus rapides que les QRS."
+    ],
+    "explication": "Sur ce tracé, les ondes P (≈ 80/min) et les QRS larges (≈ 35/min) sont totalement indépendants, avec des PR variables. Une dissociation complète entre des P plus rapides et des QRS plus lents signe un BAV du 3e degré (complet). Les QRS larges à 35/min traduisent un échappement ventriculaire (ou infra-hisien), de fréquence lente et peu fiable, ce qui expose à l'asystolie et à la syncope. Dans un BAV 2:1, le PR des battements conduits serait constant. Un rythme idioventriculaire accéléré est plus rapide (> 40-50/min) et survient typiquement en contexte de reperfusion. L'indication de stimulation est de classe I.",
+    "aRetenir": "P et QRS dissociés, P plus rapides que les QRS = BAV complet.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-033",
+    "theme": "ecg",
+    "sousTheme": "Blocs auriculo-ventriculaires",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 5,
+    "question": "Ce tracé montre un trouble conductif auriculo-ventriculaire. Quelles propositions concernant ce type de bloc sont exactes ?",
+    "ecg": {
+      "preset": "bav2-m1",
+      "fc": 80,
+      "cycle": 5
+    },
+    "options": [
+      "Le PR s'allonge progressivement jusqu'à l'onde P bloquée",
+      "Le PR est constant avant l'onde P bloquée",
+      "La pause contenant la P bloquée dure plus de deux cycles PP",
+      "Le premier PR après la pause est le plus court de la séquence",
+      "Les QRS sont obligatoirement larges"
+    ],
+    "reponses": [
+      0,
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : c'est la définition de la périodicité de Wenckebach visible sur ce tracé.",
+      "Faux : un PR constant avant la P bloquée définit le Mobitz II, pas le Wenckebach.",
+      "Faux : la pause contient le PR le plus court suivant ; elle reste inférieure à deux PP.",
+      "Juste : le nœud AV récupère pendant la pause ; le PR suivant est le plus court.",
+      "Faux : les QRS sont habituellement fins, le siège étant le plus souvent nodal."
+    ],
+    "explication": "Ce tracé montre une périodicité de Wenckebach (BAV 2e degré Mobitz I, 5:4). Le PR s'allonge progressivement jusqu'à la P bloquée ; le premier PR après la pause est le plus court, car le nœud AV a récupéré. Comme l'incrément d'allongement diminue d'un cycle à l'autre, les RR raccourcissent classiquement, et la pause reste inférieure à deux PP (et non supérieure). Un PR constant avant la P bloquée est au contraire la définition du Mobitz II. Les QRS sont habituellement fins, le siège étant le plus souvent nodal. Attention aux Wenckebach atypiques (fréquents) où les incréments sont irréguliers : la comparaison du PR avant et après la pause reste l'élément le plus fiable.",
+    "aRetenir": "Wenckebach : PR qui s'allonge, pause < 2 PP, PR post-pause le plus court ; PR constant avant la P bloquée = Mobitz II.",
+    "sources": [
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-034",
+    "theme": "ecg",
+    "sousTheme": "Blocs auriculo-ventriculaires",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 4,
+    "question": "Le trouble conductif visible sur ce tracé, à QRS fins, siège le plus souvent dans le nœud AV.",
+    "ecg": {
+      "preset": "bav2-m1",
+      "fc": 70,
+      "cycle": 3
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : ce Wenckebach à QRS fins est nodal dans l'immense majorité des cas (conduction décrémentielle du nœud AV).",
+      "Faux : l'affirmation est exacte ; le siège intra- ou infra-hisien est l'exception, surtout avec un QRS large."
+    ],
+    "explication": "Vrai. Ce tracé montre un BAV du 2e degré Mobitz I (Wenckebach 3:2). Le Mobitz I à QRS fins siège dans l'immense majorité des cas dans le nœud AV, tissu à conduction décrémentielle, ce qui explique l'allongement progressif du PR. Il est fréquent chez le sujet jeune, le sportif et la nuit (hypertonie vagale) et son pronostic est généralement bon. Des exceptions existent : un Wenckebach intra- ou infra-hisien est possible, surtout avec un QRS large. Lorsque ce siège est démontré à l'exploration électrophysiologique (EEP), l'ESC 2021 considère la stimulation (IIa) même sans symptôme.",
+    "aRetenir": "Mobitz I + QRS fins = nodal dans la grande majorité des cas.",
+    "sources": [
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-035",
+    "theme": "ecg",
+    "sousTheme": "Blocs auriculo-ventriculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Comment définit-on un BAV de haut degré (ou « avancé ») ?",
+    "options": [
+      "Dissociation AV complète avec échappement ventriculaire",
+      "≥ 2 P consécutives bloquées, avec des P encore conduites",
+      "Une onde P sur deux non conduite (conduction 2:1)",
+      "PR supérieur à 300 ms, avec conduction 1:1 conservée"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : c'est la définition du BAV complet, où aucune P n'est conduite.",
+      "Juste : conduction 3:1, 4:1… avec des P encore conduites, ce qui le distingue du BAV complet.",
+      "Faux : le BAV 2:1 est une entité à part, exclue par définition du haut degré.",
+      "Faux : un PR très long avec conduction 1:1 reste un BAV du 1er degré."
+    ],
+    "explication": "Le BAV de haut degré correspond au blocage d'au moins deux ondes P consécutives (conduction 3:1, 4:1…), alors que certaines P restent conduites, ce qui le distingue du BAV complet. Il traduit une atteinte sévère, le plus souvent infra-nodale, et partage l'indication de stimulation de classe I du BAV complet dans l'ESC 2021 (en l'absence de cause réversible). Le BAV 2:1 n'en fait pas partie par définition. Un PR > 300 ms reste un BAV du 1er degré, même s'il est marqué.",
+    "aRetenir": "BAV haut degré : ≥ 2 P consécutives bloquées avec conduction résiduelle ; stimulation classe I.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-036",
+    "theme": "ecg",
+    "sousTheme": "Blocs auriculo-ventriculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Holter nocturne : PR paraissant constant sur les 3 battements précédant une onde P bloquée, mais le PR du premier battement après la pause est plus court de 40 ms. QRS fins. Quelle interprétation retenez-vous ?",
+    "options": [
+      "BAV Mobitz II, stimulation de classe I",
+      "Extrasystole atriale bloquée",
+      "Bloc sino-auriculaire type II",
+      "BAV Mobitz I atypique"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : dans un vrai Mobitz II, le PR après la pause est identique au PR avant ; ici, il est plus court de 40 ms.",
+      "Faux : rien n'indique une P prématurée ; la P bloquée survient à l'heure.",
+      "Faux : une P visible n'est pas conduite ; le bloc est auriculo-ventriculaire, pas sino-auriculaire.",
+      "Juste : le raccourcissement du PR après la pause signe la récupération nodale d'un Wenckebach atypique."
+    ],
+    "explication": "Dans de nombreux Wenckebach atypiques, l'essentiel de l'allongement du PR se fait sur les premiers battements, puis les incréments deviennent minimes, donnant l'illusion d'un PR constant avant la P bloquée. Le signe le plus discriminant est le raccourcissement du PR après la pause : il témoigne d'une récupération du nœud AV et signe un Mobitz I. Dans un vrai Mobitz II, les PR avant et après la P bloquée sont strictement identiques. Le contexte (nuit, QRS fins) va dans le même sens d'un bloc nodal vagal. Confondre les deux conduit à des implantations injustifiées.",
+    "aRetenir": "PR post-pause plus court que le PR pré-pause = Wenckebach, même si les incréments semblent nuls.",
+    "sources": [
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      },
+      {
+        "titre": "Issa ZF, Miller JM, Zipes DP. Clinical Arrhythmology and Electrophysiology: A Companion to Braunwald's Heart Disease. 3rd ed. Philadelphia: Elsevier; 2019 (chapitre Atrioventricular conduction abnormalities)",
+        "url": null
+      }
+    ],
+    "reco": [
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-037",
+    "theme": "ecg",
+    "sousTheme": "Blocs auriculo-ventriculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 9,
+    "question": "Patient syncopal. Au Holter, BAV paroxystique avec plusieurs P consécutives bloquées. Quel élément oriente vers un BAV paroxystique intrinsèque (maladie du His-Purkinje) plutôt que vagal ?",
+    "options": [
+      "Déclenchement par une extrasystole, PP stable, bloc de branche",
+      "Ralentissement sinusal concomitant au bloc (PP qui s'allongent)",
+      "Allongement progressif du PR juste avant le bloc paroxystique",
+      "Survenue nocturne, pendant le sommeil profond, sans symptôme"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : déclencheur extrasystolique, cycle sinusal inchangé et bloc de branche signent une maladie du His-Purkinje.",
+      "Faux : un ralentissement sinusal simultané signe au contraire un mécanisme vagal (extrinsèque).",
+      "Faux : l'allongement du PR avant le bloc oriente vers une origine vagale nodale.",
+      "Faux : la survenue nocturne pendant le sommeil évoque une hypertonie vagale, pas une maladie intrinsèque."
+    ],
+    "explication": "Le BAV paroxystique intrinsèque résulte d'une maladie du tissu de conduction : il est typiquement déclenché par une extrasystole atriale ou ventriculaire (ou un changement de fréquence), survient sans modification du cycle sinusal et s'accompagne volontiers d'un bloc de branche de base ; il relève de la stimulation. Le BAV d'origine vagale (extrinsèque) s'accompagne au contraire d'un ralentissement sinusal simultané et d'un allongement du PR, et survient souvent la nuit ou dans un contexte réflexe. Une troisième entité, le BAV paroxystique idiopathique (lié à un taux bas d'adénosine), survient sans bloc de branche ni déclencheur vagal. Reconnaître le mécanisme évite d'implanter des malaises vagaux et de méconnaître un bloc grave.",
+    "aRetenir": "BAV paroxystique intrinsèque : déclenché par une extrasystole, PP stable, bloc de branche de base.",
+    "sources": [
+      {
+        "titre": "Aste M, Brignole M. Syncope and paroxysmal atrioventricular block. J Arrhythm 2017;33:562-567",
+        "url": "https://doi.org/10.1016/j.joa.2017.03.008"
+      },
+      {
+        "titre": "Brignole M, et al. 2018 ESC Guidelines for the diagnosis and management of syncope. Eur Heart J 2018;39:1883-1948",
+        "url": "https://doi.org/10.1093/eurheartj/ehy037"
+      }
+    ],
+    "reco": [
+      "ESC 2018 syncope"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-038",
+    "theme": "ecg",
+    "sousTheme": "Blocs auriculo-ventriculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Infarctus inférieur à la phase aiguë. Le scope enregistre le tracé ci-dessous, bien toléré. Quelle affirmation est exacte ?",
+    "ecg": {
+      "preset": "bav3",
+      "fc": 85,
+      "fv": 50,
+      "qrs": "fin"
+    },
+    "options": [
+      "Le bloc est infra-hisien et justifie une stimulation définitive immédiate",
+      "L'échappement à QRS fins est d'origine ventriculaire, donc peu fiable",
+      "Ce bloc a le même pronostic que le BAV de l'infarctus antérieur",
+      "Le bloc est habituellement nodal, souvent transitoire et atropine-sensible"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : un échappement fin à 50/min témoigne d'un bloc haut situé ; pas de stimulation définitive d'emblée.",
+      "Faux : un échappement à QRS fins naît au-dessus de la bifurcation hisienne : il est jonctionnel.",
+      "Faux : le BAV de l'infarctus antérieur, infra-hisien, a un pronostic nettement plus sombre.",
+      "Juste : bloc nodal (artère du nœud AV, réflexe vagal) qui régresse souvent après reperfusion."
+    ],
+    "explication": "Ce tracé montre une dissociation entre des P à 85/min et des QRS fins à 50/min : BAV complet avec échappement jonctionnel. Dans l'infarctus inférieur, le BAV est généralement nodal (irrigation du nœud AV par l'artère du nœud AV, issue le plus souvent de la coronaire droite, et réflexe vagal). L'échappement est jonctionnel, à QRS fins, et le bloc régresse le plus souvent après reperfusion : on ne pose pas de stimulateur définitif d'emblée. Dans l'infarctus antérieur, le BAV traduit une nécrose étendue du septum et du tissu de conduction infra-hisien, avec échappement à QRS larges et pronostic nettement plus sombre. Un échappement à QRS fins est d'origine jonctionnelle, pas ventriculaire.",
+    "aRetenir": "BAV de l'infarctus inférieur : nodal, QRS fins, souvent transitoire ; de l'antérieur : infra-hisien, grave.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-039",
+    "theme": "ecg",
+    "sousTheme": "Blocs auriculo-ventriculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Selon l'ESC 2021, chez un patient ayant présenté un BAV de haut degré à la phase aiguë d'un infarctus, quand peut-on retenir une indication de stimulation définitive ?",
+    "options": [
+      "Dès les premières heures, sans attendre la reperfusion",
+      "Si le bloc persiste après au moins 5 jours d'observation",
+      "Seulement après 6 semaines, délai de cicatrisation de l'infarctus",
+      "Jamais : le bloc post-infarctus est toujours réversible"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : stimuler d'emblée expose à des implantations inutiles, beaucoup de ces blocs régressant après reperfusion.",
+      "Juste : ESC 2021, indications habituelles si le BAV persiste après au moins 5 jours ; stimulation temporaire entre-temps.",
+      "Faux : délai trop long, qui imposerait une stimulation temporaire prolongée et ses complications.",
+      "Faux : certains blocs persistent, en particulier dans l'infarctus antérieur étendu."
+    ],
+    "explication": "Les BAV compliquant un infarctus régressent souvent après reperfusion, surtout dans les localisations inférieures. L'ESC 2021 recommande d'appliquer les indications habituelles de stimulation définitive lorsque le BAV ne s'est pas résolu après une période d'attente d'au moins 5 jours après l'infarctus ; dans l'intervalle, une stimulation temporaire est utilisée si nécessaire. Stimuler d'emblée exposerait à des implantations inutiles, et attendre systématiquement six semaines prolongerait inutilement la stimulation temporaire et ses complications. À l'inverse, affirmer que ces blocs sont toujours réversibles est faux, en particulier dans l'infarctus antérieur étendu.",
+    "aRetenir": "BAV post-infarctus : stimulation définitive si persistance après au moins 5 jours.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-040",
+    "theme": "ecg",
+    "sousTheme": "Blocs auriculo-ventriculaires",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Un BAV complet lié à une cardite de Lyme est souvent réversible sous antibiothérapie : on privilégie initialement une stimulation temporaire plutôt qu'une implantation définitive.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : la cardite de Lyme est une cause réversible de BAV ; stimulation temporaire en attendant l'effet des antibiotiques.",
+      "Faux : l'affirmation est exacte ; le bloc régresse habituellement en quelques jours à semaines sous antibiothérapie."
+    ],
+    "explication": "Vrai. La maladie de Lyme fait partie des causes réversibles de BAV citées par l'ESC 2021. Le bloc, souvent nodal et fluctuant, régresse habituellement en quelques jours à semaines sous antibiothérapie adaptée. Si une stimulation est nécessaire, on privilégie une stimulation temporaire (éventuellement par sonde à fixation active reliée à un boîtier externe) en attendant la récupération. Cette étiologie doit être évoquée chez un sujet jeune avec BAV inexpliqué et contexte d'exposition aux tiques.",
+    "aRetenir": "BAV + contexte de piqûre de tique : penser Lyme, bloc réversible sous antibiotiques.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-041",
+    "theme": "ecg",
+    "sousTheme": "Blocs auriculo-ventriculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Patient dialysé, asthénique : bradycardie à 38/min, QRS larges, ondes T amples et pointues, ondes P non visibles. Quelle est la priorité ?",
+    "options": [
+      "Implantation en urgence d'un stimulateur cardiaque définitif",
+      "Atropine IV puis surveillance scopée en unité de soins",
+      "Calcium IV puis traitement de l'hyperkaliémie (dialyse)",
+      "Isoprénaline IV continue, avant tout bilan biologique"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : la cause est réversible ; pas d'implantation définitive, et la capture est souvent difficile en hyperkaliémie.",
+      "Faux : l'atropine ne corrige pas le mécanisme et agit peu sur une conduction déprimée par le potassium.",
+      "Juste : T pointues, QRS larges, P absentes chez un dialysé : stabiliser la membrane par le calcium, puis faire baisser la kaliémie.",
+      "Faux : l'isoprénaline ne traite pas la cause ; retarder le traitement de l'hyperkaliémie est dangereux."
+    ],
+    "explication": "Ce tableau associe les signes classiques d'hyperkaliémie sévère : ondes T amples et pointues, aplatissement puis disparition des P, élargissement des QRS et bradycardie (rythme sino-ventriculaire ou BAV). La priorité est de stabiliser la membrane myocardique par sels de calcium IV, puis de faire baisser la kaliémie (insuline-glucose, épuration, dialyse). La stimulation temporaire peut être nécessaire, mais la capture est parfois difficile en hyperkaliémie. L'implantation définitive n'est pas indiquée, la cause étant réversible (ESC 2021). Atropine ou isoprénaline seules traitent mal le mécanisme.",
+    "aRetenir": "Bradycardie à QRS larges et T pointues chez le dialysé : hyperkaliémie jusqu'à preuve du contraire.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-042",
+    "theme": "ecg",
+    "sousTheme": "Blocs de branche et fasciculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "QRS à 130 ms, aspect rSR' en V1, onde S large et empâtée en DI et V6. Quel est le diagnostic ?",
+    "options": [
+      "Bloc de branche droit complet",
+      "Bloc de branche gauche complet",
+      "Hémibloc antérieur gauche",
+      "Préexcitation ventriculaire"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : QRS ≥ 120 ms, rSR' en V1 et S large en DI/V6 traduisent l'activation tardive du VD.",
+      "Faux : le BBG donne un aspect QS ou rS en V1 et des R larges crochetées en DI et V6.",
+      "Faux : un hémibloc isolé n'élargit pas le QRS à 130 ms et ne donne pas de rSR' en V1.",
+      "Faux : aucun PR court ni onde delta dans cette description."
+    ],
+    "explication": "Le BBD complet associe un QRS ≥ 120 ms, un aspect rsr', rsR' ou rSR' en V1-V2 (R' généralement plus ample que r) et une onde S large (> 40 ms ou plus longue que R) en DI et V6. Ces anomalies traduisent l'activation tardive du ventricule droit. Le BBG donne au contraire des R larges et crochetées en DI, aVL, V5-V6, avec QS ou rS en V1. L'hémibloc antérieur gauche ne donne pas de QRS ≥ 120 ms isolément. La préexcitation associe PR court et onde delta.",
+    "aRetenir": "BBD : rSR' en V1 et S large en DI/V6, QRS ≥ 120 ms.",
+    "sources": [
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS Recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-043",
+    "theme": "ecg",
+    "sousTheme": "Blocs de branche et fasciculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Quel critère fait partie de la définition du bloc de branche gauche complet (AHA/ACCF/HRS 2009) ?",
+    "options": [
+      "R crochetée en V5-V6 avec onde q septale fine conservée",
+      "R larges crochetées en DI, aVL, V5-V6, sans q septale",
+      "Aspect rSR' en V1 avec S large en DI et V6",
+      "QRS entre 100 et 110 ms avec aspect QS en V1"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : la persistance d'une q septale latérale doit faire douter d'un vrai BBG.",
+      "Juste : activation septale inversée (disparition de la q latérale) et R larges crochetées dans les dérivations gauches.",
+      "Faux : c'est l'aspect du bloc de branche droit.",
+      "Faux : le BBG complet exige un QRS ≥ 120 ms chez l'adulte."
+    ],
+    "explication": "Dans le BBG, la dépolarisation septale se fait de droite à gauche : l'onde q septale physiologique disparaît en DI, V5 et V6, et les R sont larges, crochetées ou empâtées dans les dérivations latérales. En V1, on observe un aspect QS ou rS. La durée du QRS doit être ≥ 120 ms chez l'adulte. L'aspect rSR' en V1 est celui du BBD. La persistance d'une q septale latérale doit faire douter du diagnostic (trouble de conduction non spécifique, séquelle de nécrose).",
+    "aRetenir": "BBG : QRS ≥ 120 ms, R larges crochetées latérales, pas de q septale en DI/V5/V6.",
+    "sources": [
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS Recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-044",
+    "theme": "ecg",
+    "sousTheme": "Blocs de branche et fasciculaires",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 5,
+    "question": "Quels critères appartiennent à la définition de l'hémibloc antérieur gauche (bloc fasciculaire antérieur gauche) selon l'AHA/ACCF/HRS 2009 ?",
+    "options": [
+      "Axe frontal entre −45° et −90°",
+      "Aspect qR en aVL",
+      "Aspect rS en DII, DIII et aVF",
+      "QRS ≥ 120 ms",
+      "Aspect qR en DIII et aVF"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : déviation axiale gauche entre −45° et −90° ; entre −30° et −45°, le critère n'est pas rempli.",
+      "Juste : aspect qR en aVL, avec un délai d'apparition du R.",
+      "Juste : l'activation part de la région inféro-postérieure, d'où un rS dans les dérivations inférieures.",
+      "Faux : l'hémibloc isolé a un QRS < 120 ms ; au-delà, un bloc de branche est associé.",
+      "Faux : le qR en DIII et aVF appartient à l'hémibloc postérieur gauche."
+    ],
+    "explication": "L'hémibloc antérieur gauche est le trouble de conduction fasciculaire le plus fréquent : l'activation débute par la région inféro-postérieure puis se dirige vers le haut et la gauche. Il associe une déviation axiale gauche entre −45° et −90°, un aspect qR en aVL (avec délai d'apparition du R), un aspect rS en DII, DIII et aVF, et un QRS < 120 ms : un QRS ≥ 120 ms oriente vers un bloc de branche associé. L'aspect qR en DIII et aVF appartient à l'hémibloc postérieur gauche. Un axe entre −30° et −45° ne suffit pas selon les critères AHA 2009 et justifie de chercher une autre cause.",
+    "aRetenir": "HBAG : axe −45° à −90°, qR en aVL, rS en inférieur, QRS < 120 ms.",
+    "sources": [
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS Recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-045",
+    "theme": "ecg",
+    "sousTheme": "Blocs de branche et fasciculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "ECG : axe à +120°, aspect rS en DI et aVL, qR en DIII et aVF, QRS à 100 ms. Avant de retenir un hémibloc postérieur gauche, quel diagnostic faut-il éliminer en priorité ?",
+    "options": [
+      "Séquelle d'infarctus inférieur (ondes q en DIII, aVF)",
+      "Hyperkaliémie avec élargissement du QRS",
+      "Hypertrophie ou surcharge ventriculaire droite",
+      "Péricardite aiguë à la phase initiale"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : un infarctus inférieur dévie plutôt l'axe vers la gauche ; c'est l'infarctus latéral étendu qu'il faut éliminer.",
+      "Faux : le QRS mesure 100 ms et rien n'évoque des T pointues ; ce n'est pas le tableau.",
+      "Juste : l'HBPG est un diagnostic d'élimination ; la surcharge droite est la première cause de déviation axiale droite à exclure.",
+      "Faux : la péricardite modifie le segment ST et le PQ, pas l'axe du QRS."
+    ],
+    "explication": "L'hémibloc postérieur gauche est rare, le fascicule postérieur étant court, épais et doublement vascularisé. C'est un diagnostic d'élimination : il faut exclure les autres causes de déviation axiale droite, en particulier l'hypertrophie ou la surcharge ventriculaire droite, le morphotype longiligne, l'infarctus latéral étendu et l'embolie pulmonaire. Les critères AHA associent axe +90° à +180°, rS en DI et aVL, qR en DIII et aVF, QRS < 120 ms. Associé à un BBD, il forme un bloc bifasciculaire de mauvais pronostic. Un infarctus inférieur dévie au contraire l'axe vers la gauche, et ni l'hyperkaliémie ni la péricardite ne donnent ce tableau avec un QRS à 100 ms.",
+    "aRetenir": "HBPG = diagnostic d'élimination : exclure une surcharge droite ou un morphotype longiligne.",
+    "sources": [
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS Recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-046",
+    "theme": "ecg",
+    "sousTheme": "Blocs de branche et fasciculaires",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 4,
+    "question": "Chez l'adulte, un QRS de 115 ms avec un aspect rsR' en V1 et une onde S large en DI et V6 correspond à un bloc de branche droit complet.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : la morphologie est celle d'un BBD, mais un QRS de 115 ms définit un bloc incomplet ; le complet exige ≥ 120 ms.",
+      "Juste : morphologie de BBD avec QRS entre 110 et 119 ms = BBD incomplet (AHA/ACCF/HRS 2009)."
+    ],
+    "explication": "Faux. Selon les recommandations AHA/ACCF/HRS 2009, une morphologie de BBD (rsR' en V1-V2, S large en DI et V6) avec un QRS entre 110 et 119 ms chez l'adulte définit un BBD incomplet. Le BBD complet exige un QRS ≥ 120 ms. Un aspect rSr' avec QRS < 110 ms est souvent une variante de la normale, fréquente chez le sujet jeune et le sportif. Un BBD incomplet doit néanmoins faire penser à une communication interatriale ou, avec un sus-décalage de ST en V1-V2, à un syndrome de Brugada.",
+    "aRetenir": "BBD : incomplet si QRS 110-119 ms, complet à partir de 120 ms chez l'adulte.",
+    "sources": [
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS Recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-047",
+    "theme": "ecg",
+    "sousTheme": "Blocs de branche et fasciculaires",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 8,
+    "question": "Quels critères appartiennent à la définition stricte du bloc de branche gauche de Strauss, utilisée pour prédire la réponse à la resynchronisation ?",
+    "options": [
+      "QRS ≥ 140 ms chez l'homme ou ≥ 130 ms chez la femme",
+      "Aspect QS ou rS en V1 et V2",
+      "Crochetage médio-QRS exigé dans les six dérivations V1, V2, V5, V6, DI et aVL",
+      "Présence d'une onde q septale en V6",
+      "Déviation axiale gauche < −30° obligatoire"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : seuil de durée plus élevé que la définition classique, différent selon le sexe.",
+      "Juste : aspect QS ou rS en V1 et V2, traduisant l'activation qui s'éloigne du VD.",
+      "Faux : le crochetage médio-QRS est exigé dans au moins deux de ces dérivations, pas dans les six.",
+      "Faux : une onde q septale en V6 est incompatible avec un vrai BBG.",
+      "Faux : l'axe n'entre pas dans la définition de Strauss."
+    ],
+    "explication": "Strauss et al. (2011) ont proposé des critères stricts, car environ un tiers des BBG « conventionnels » correspondent en fait à une hypertrophie VG associée à un trouble de conduction non spécifique. Le vrai BBG requiert un QRS ≥ 140 ms (homme) ou ≥ 130 ms (femme), un aspect QS ou rS en V1-V2, et un crochetage médio-QRS dans au moins deux dérivations parmi V1, V2, V5, V6, DI et aVL : il n'est pas exigé dans toutes. Une q septale en V6 est incompatible avec un vrai BBG. L'axe n'entre pas dans la définition. Ces critères identifient les patients qui répondent le mieux à la CRT.",
+    "aRetenir": "BBG de Strauss : QRS ≥ 140/130 ms, QS/rS en V1-V2, crochetage médio-QRS dans ≥ 2 dérivations.",
+    "sources": [
+      {
+        "titre": "Strauss DG, Selvester RH, Wagner GS. Defining left bundle branch block in the era of cardiac resynchronization therapy. Am J Cardiol 2011;107:927-934",
+        "url": "https://doi.org/10.1016/j.amjcard.2010.11.010"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-048",
+    "theme": "ecg",
+    "sousTheme": "Blocs de branche et fasciculaires",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 4,
+    "question": "Face à un QRS large (≥ 120 ms) d'origine supraventriculaire, comment distinguer rapidement un BBD d'un BBG en regardant V1 ?",
+    "reponseAttendue": "En V1 : QRS à prédominance positive avec aspect rsR'/rSR' (« M ») = BBD ; QRS à prédominance négative (QS ou rS) = BBG. Confirmer en latéral : S large en DI/V6 pour le BBD, R large crochetée sans q en DI/V6 pour le BBG.",
+    "explication": "V1 fait face au ventricule droit. Dans le BBD, le VD est activé en retard, d'où une onde terminale positive (R') en V1. Dans le BBG, l'activation tardive du VG s'éloigne de V1, qui est donc négatif (QS ou rS). Les dérivations latérales confirment : S terminale large en DI et V6 pour le BBD, R large et crochetée sans q septale pour le BBG. Il faut garder en tête qu'un QRS large peut aussi être une TV, une préexcitation ou un rythme électro-entraîné.",
+    "aRetenir": "V1 positif en fin de QRS = BBD ; V1 négatif = BBG.",
+    "sources": [
+      {
+        "titre": "Surawicz B, et al. AHA/ACCF/HRS Recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
+        "url": "https://doi.org/10.1016/j.jacc.2008.12.013"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-049",
+    "theme": "ecg",
+    "sousTheme": "Blocs de branche et fasciculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Quelle association définit un bloc bifasciculaire ?",
+    "options": [
+      "BAV du 1er degré + hémibloc antérieur gauche",
+      "BBD incomplet + BAV du 1er degré associé",
+      "Deux ondes P consécutives bloquées (BAV 3:1)",
+      "BBD associé à un hémibloc gauche"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : le BAV du 1er degré n'est pas un bloc fasciculaire ; il peut être nodal.",
+      "Faux : ni le BBD incomplet ni le PR long ne définissent l'atteinte de deux fascicules.",
+      "Faux : deux P consécutives bloquées définissent un BAV de haut degré, pas un bloc fasciculaire.",
+      "Juste : atteinte de deux des trois fascicules, BBD + HBAG (fréquent) ou BBD + HBPG (plus rare, plus grave)."
+    ],
+    "explication": "Le système de conduction intraventriculaire comprend classiquement trois fascicules : la branche droite, le fascicule antérieur gauche et le fascicule postérieur gauche. Un bloc bifasciculaire associe l'atteinte de deux d'entre eux : BBD + HBAG (le plus fréquent) ou BBD + HBPG (plus rare, plus grave). Le BBG complet est parfois considéré comme bifasciculaire. Le BAV du 1er degré n'est pas un bloc fasciculaire : il peut être nodal. Deux P consécutives bloquées définissent un BAV de haut degré.",
+    "aRetenir": "Bloc bifasciculaire = BBD + HBAG ou BBD + HBPG.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-050",
+    "theme": "ecg",
+    "sousTheme": "Blocs de branche et fasciculaires",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Le terme de « bloc trifasciculaire » appliqué à l'association BBD + HBAG + BAV du 1er degré est impropre, car l'allongement du PR peut être d'origine nodale.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : un PR long peut venir d'un AH allongé (nodal) avec un HV normal ; seul le HV localise le ralentissement.",
+      "Faux : l'affirmation est exacte ; le véritable équivalent trifasciculaire à l'ECG est le bloc de branche alternant."
+    ],
+    "explication": "Vrai. L'allongement du PR dans un bloc bifasciculaire peut refléter un ralentissement nodal (AH allongé) avec un HV normal, et non une atteinte du troisième fascicule. Seule la mesure de l'intervalle HV en exploration électrophysiologique permet de localiser le ralentissement. Les recommandations préfèrent donc décrire l'association (bloc bifasciculaire avec BAV du 1er degré). Le véritable équivalent trifasciculaire à l'ECG est le bloc de branche alternant, qui relève d'une stimulation de classe I.",
+    "aRetenir": "BBD + HBAG + PR long n'est pas forcément trifasciculaire : seul le HV localise le ralentissement.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-051",
+    "theme": "ecg",
+    "sousTheme": "Blocs de branche et fasciculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Patient de 70 ans, asymptomatique, découverte fortuite d'un BBD + HBAG avec PR à 180 ms. Selon l'ESC 2021, quelle est l'indication de stimulation ?",
+    "options": [
+      "Pas de stimulation (classe III)",
+      "Stimulation recommandée (classe I)",
+      "Stimulation à envisager (classe IIa)",
+      "DAI prophylactique (classe IIb)"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : le risque annuel de BAV complet est faible ; surveillance et information sur les symptômes suffisent.",
+      "Faux : la classe I vise Mobitz II, BAV de haut degré ou complet et bloc alternant, pas ce bloc asymptomatique.",
+      "Faux : aucune recommandation IIa ne vise le bloc bifasciculaire asymptomatique à PR normal.",
+      "Faux : aucune cardiopathie à haut risque rythmique ventriculaire n'est décrite ; le DAI n'a pas de place."
+    ],
+    "explication": "L'ESC 2021 ne recommande pas la stimulation (classe III) chez les patients asymptomatiques porteurs d'un bloc de branche ou d'un bloc bifasciculaire. Le risque annuel de progression vers un BAV complet est faible. Une surveillance clinique et ECG est suffisante, avec une information du patient sur les symptômes devant motiver une consultation (syncope, lipothymie). Une évaluation de la fonction VG est utile, car un bloc de branche peut révéler une cardiopathie. Le DAI n'a aucune place en l'absence de cardiopathie à haut risque.",
+    "aRetenir": "Bloc bifasciculaire asymptomatique : pas de stimulation (classe III).",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-052",
+    "theme": "ecg",
+    "sousTheme": "Blocs de branche et fasciculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Homme de 72 ans, syncope inexpliquée sans prodrome, BBD + HBAG, FEVG à 60 %, bilan initial non contributif. Quelle est l'étape recommandée par l'ESC 2021 ?",
+    "options": [
+      "Pacemaker d'emblée, sans exploration complémentaire",
+      "Test d'inclinaison (tilt test) en première intention",
+      "EEP, avec stimulation si HV ≥ 70 ms ou bloc infra-hisien",
+      "Surveillance, le bloc bifasciculaire n'étant pas en cause"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : la stimulation empirique n'est qu'une option IIb chez le sujet âgé et fragile.",
+      "Faux : le tilt test explore la syncope réflexe, pas la conduction His-Purkinje.",
+      "Juste : stimulation (classe I) si HV ≥ 70 ms ou BAV infra-hisien induit ; si l'EEP est négative, Holter implantable.",
+      "Faux : syncope et bloc bifasciculaire font craindre un BAV paroxystique ; une exploration s'impose."
+    ],
+    "explication": "Chez un patient présentant une syncope inexpliquée et un bloc bifasciculaire, l'ESC 2021 préconise une exploration électrophysiologique : un HV ≥ 70 ms, ou un BAV du 2e ou 3e degré infra-hisien lors de la stimulation atriale incrémentale ou d'un test pharmacologique (ajmaline, procaïnamide…), conduit à une stimulation de classe I. Si l'EEP est négative, un moniteur ECG implantable (Holter implantable) permet de documenter un éventuel BAV paroxystique. La stimulation empirique sans EEP n'est qu'une option de classe IIb chez des sujets âgés et fragiles. Le tilt test ne répond pas à la question de la conduction.",
+    "aRetenir": "Syncope + bloc bifasciculaire : EEP, stimulation si HV ≥ 70 ms ; si négative, Holter implantable.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Brignole M, et al. 2018 ESC Guidelines for the diagnosis and management of syncope. Eur Heart J 2018;39:1883-1948",
+        "url": "https://doi.org/10.1093/eurheartj/ehy037"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ESC 2018 syncope"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-053",
+    "theme": "ecg",
+    "sousTheme": "Blocs de branche et fasciculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Lors d'une exploration électrophysiologique chez un patient syncopal avec bloc bifasciculaire, quel résultat conduit à une indication de stimulation de classe I (ESC 2021) ?",
+    "options": [
+      "HV à 62 ms",
+      "HV à 78 ms",
+      "AH à 130 ms",
+      "Point de Wenckebach nodal à 140/min"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : HV allongé (normale 35-55 ms) mais sous le seuil décisionnel de 70 ms.",
+      "Juste : HV ≥ 70 ms chez un patient syncopal porteur d'un bloc de branche = stimulation de classe I.",
+      "Faux : l'AH explore le nœud AV, dépend du tonus autonome et n'entre pas dans le critère décisionnel.",
+      "Faux : un point de Wenckebach nodal à 140/min traduit une conduction nodale normale."
+    ],
+    "explication": "L'intervalle HV mesure le temps de conduction dans le système His-Purkinje ; sa valeur normale est d'environ 35 à 55 ms. Chez un patient syncopal porteur d'un bloc de branche, un HV ≥ 70 ms est considéré comme positif et justifie une stimulation de classe I. Un HV de 62 ms est allongé mais sous le seuil décisionnel. L'AH explore le nœud AV et dépend fortement du tonus autonome. Un point de Wenckebach nodal à 140/min est normal. Un HV ≥ 100 ms identifie un risque particulièrement élevé de BAV complet.",
+    "aRetenir": "Syncope + bloc de branche : HV ≥ 70 ms à l'EEP = stimulation (classe I).",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-054",
+    "theme": "ecg",
+    "sousTheme": "Blocs de branche et fasciculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Sur deux ECG successifs d'un même patient, on note un aspect de BBD complet puis un aspect de BBG complet. Quelle est la conduite à tenir selon l'ESC 2021 ?",
+    "options": [
+      "Surveillance, car le patient est asymptomatique",
+      "Holter de 24 heures, stimulation seulement si un BAV complet est documenté",
+      "Exploration électrophysiologique obligatoire avant toute décision",
+      "Stimulation indiquée (classe I), même en l'absence de symptômes"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : le risque de BAV complet brutal est élevé ; l'absence de symptômes ne protège pas.",
+      "Faux : attendre la documentation d'un BAV complet expose à une syncope traumatique ou à une mort subite.",
+      "Faux : l'EEP n'est pas nécessaire ; l'aspect ECG suffit à poser l'indication.",
+      "Juste : le bloc de branche alternant équivaut à une atteinte trifasciculaire ; stimulation de classe I, avec ou sans symptômes."
+    ],
+    "explication": "Le bloc de branche alternant (BBD et BBG sur des tracés différents, ou alternance BBD avec HBAG puis HBPG) traduit une atteinte des trois fascicules : c'est l'équivalent ECG d'un bloc trifasciculaire, avec un risque élevé de BAV complet brutal. L'ESC 2021 recommande la stimulation en classe I, avec ou sans symptômes. Une EEP n'est pas nécessaire pour décider. Attendre la documentation d'un BAV complet au Holter expose le patient à une syncope traumatique ou une mort subite.",
+    "aRetenir": "Bloc de branche alternant = stimulation classe I, même asymptomatique.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Brignole M, et al. 2018 ESC Guidelines for the diagnosis and management of syncope. Eur Heart J 2018;39:1883-1948",
+        "url": "https://doi.org/10.1093/eurheartj/ehy037"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ESC 2018 syncope"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-055",
+    "theme": "ecg",
+    "sousTheme": "Blocs de branche et fasciculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Femme de 86 ans, fragile, syncopes récidivantes traumatiques inexpliquées, bloc bifasciculaire (BBD + HBAG), FEVG normale. Aucune EEP n'est envisageable. Que prévoit l'ESC 2021 ?",
+    "options": [
+      "Stimulation empirique envisageable (IIb)",
+      "Stimulation contre-indiquée sans EEP préalable",
+      "Stimulation recommandée d'emblée (classe I)",
+      "DAI en prévention primaire (classe IIa)"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : chez le sujet âgé fragile avec syncopes traumatiques, la stimulation empirique peut être envisagée (IIb).",
+      "Faux : l'ESC 2021 prévoit précisément une option sans EEP chez ces patients fragiles.",
+      "Faux : ce n'est pas une classe I ; chez un patient explorable, EEP puis Holter implantable restent la règle.",
+      "Faux : avec une FEVG normale, le DAI ne se discute pas."
+    ],
+    "explication": "Chez des patients âgés et fragiles ayant une syncope inexpliquée et un bloc bifasciculaire, avec un risque élevé de récidive traumatique, l'ESC 2021 permet d'envisager une stimulation empirique sans EEP (classe IIb). Cette option reconnaît qu'une proportion importante de ces syncopes est liée à un BAV paroxystique, tout en rappelant que la démonstration reste indirecte. Elle n'est pas de classe I : chez un patient qui peut être exploré, l'EEP puis le Holter implantable restent la règle. Le DAI ne se discute qu'en cas de FEVG altérée.",
+    "aRetenir": "Sujet âgé fragile, syncope inexpliquée + bloc bifasciculaire : stimulation empirique possible (IIb).",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-056",
+    "theme": "ecg",
+    "sousTheme": "Blocs de branche et fasciculaires",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 9,
+    "question": "Patient avec syncope inexpliquée, bloc de branche gauche et FEVG à 30 % malgré un traitement optimal. Quel type de dispositif discuter et pourquoi ?",
+    "reponseAttendue": "Un défibrillateur avec resynchronisation (CRT-D) selon les recommandations de l'insuffisance cardiaque, plutôt qu'un simple pacemaker : la syncope peut être due à une arythmie ventriculaire et non à un BAV ; le BBG avec FEVG ≤ 35 % relève aussi de la CRT.",
+    "explication": "Chez un patient avec bloc de branche et FEVG ≤ 35 %, une syncope inexpliquée peut relever d'une tachycardie ventriculaire autant que d'un BAV paroxystique. L'ESC 2021 recommande dans cette situation de discuter un DAI ou un CRT-D selon les recommandations sur l'insuffisance cardiaque et les arythmies ventriculaires, plutôt qu'un pacemaker seul qui ne protège pas de la mort subite. Le BBG associé à une FEVG altérée ajoute l'indication de resynchronisation. L'EEP isolée n'est pas suffisante pour éliminer le risque rythmique ventriculaire dans ce contexte.",
+    "aRetenir": "Syncope + bloc de branche + FEVG ≤ 35 % : penser DAI/CRT-D, pas pacemaker seul.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Zeppenfeld K, et al. 2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-057",
+    "theme": "ecg",
+    "sousTheme": "Dysfonction sinusale et échappements",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Quelle est la fréquence habituelle d'un rythme d'échappement jonctionnel ?",
+    "options": [
+      "20 à 40/min",
+      "40 à 60/min",
+      "60 à 100/min",
+      "100 à 150/min"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : c'est la fréquence d'un échappement ventriculaire (réseau de Purkinje), à QRS larges.",
+      "Juste : la jonction AV prend le relais à 40-60/min, avec des QRS fins.",
+      "Faux : c'est la fréquence du rythme sinusal ; au-delà de 60/min, un rythme jonctionnel est dit accéléré.",
+      "Faux : fréquence de tachycardie, sans rapport avec un rythme d'échappement."
+    ],
+    "explication": "La hiérarchie des automatismes cardiaques place le nœud sinusal en tête (60-100/min), puis la jonction AV (40-60/min), puis les cellules ventriculaires ou du réseau de Purkinje (20-40/min). Quand le pacemaker dominant fait défaut, le suivant prend le relais : c'est l'échappement. Un rythme jonctionnel à QRS fins entre 40 et 60/min est donc un échappement ; au-delà de 60/min, on parle de rythme jonctionnel accéléré. Un échappement ventriculaire est plus lent, à QRS larges, et moins fiable.",
+    "aRetenir": "Échappement jonctionnel : 40-60/min, QRS fins ; ventriculaire : 20-40/min, QRS larges.",
+    "sources": [
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-058",
+    "theme": "ecg",
+    "sousTheme": "Dysfonction sinusale et échappements",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Femme de 45 ans, asymptomatique, ECG de dépistage. Quel est le diagnostic sur ce tracé, et que peut-on dire du siège du trouble conductif ?",
+    "ecg": {
+      "preset": "bav3",
+      "fc": 75,
+      "fv": 50,
+      "qrs": "fin"
+    },
+    "options": [
+      "BAV complet infra-hisien, échappement ventriculaire",
+      "Bradycardie sinusale, sans trouble conductif AV",
+      "Bloc sino-auriculaire complet, échappement jonctionnel",
+      "BAV complet probablement nodal, échappement jonctionnel"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : un échappement ventriculaire serait large et plus lent (20-40/min).",
+      "Faux : les P, plus rapides que les QRS, ne sont pas conduites (PR variable).",
+      "Faux : les ondes P sont bien présentes ; l'activité atriale n'est pas bloquée.",
+      "Juste : P (≈ 75/min) dissociées de QRS fins réguliers (≈ 50/min) : échappement né au-dessus de la bifurcation hisienne."
+    ],
+    "explication": "Sur ce tracé, les ondes P (≈ 75/min) sont dissociées de QRS fins réguliers à ≈ 50/min : c'est un BAV complet (P plus rapides que les QRS, sans relation fixe). L'échappement à QRS fins et à 50/min naît au-dessus de la bifurcation du His : le bloc est donc probablement nodal (ou haut situé dans le His). Ce type d'échappement est plus rapide et plus stable qu'un échappement ventriculaire, d'où une meilleure tolérance. Un bloc sino-auriculaire ne laisserait pas d'ondes P visibles. Il faut évoquer un BAV congénital, une cause médicamenteuse ou un infarctus inférieur. Même bien toléré, un BAV complet persistant chez l'adulte relève d'une stimulation (classe I, ESC 2021) après exclusion d'une cause réversible.",
+    "aRetenir": "BAV complet avec échappement à QRS fins à 40-60/min = bloc haut situé, échappement jonctionnel.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-059",
+    "theme": "ecg",
+    "sousTheme": "Dysfonction sinusale et échappements",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 3,
+    "question": "Dans le BAV complet, les ondes P et les QRS sont dissociés, la fréquence atriale étant supérieure à la fréquence ventriculaire.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : aucune P n'est conduite ; les oreillettes battent plus vite que l'échappement ventriculaire.",
+      "Faux : l'affirmation est exacte ; si les QRS sont plus rapides que les P, il s'agit d'une dissociation AV sans BAV complet."
+    ],
+    "explication": "Vrai. Dans le BAV du 3e degré, aucune onde P n'est conduite : les oreillettes battent à leur rythme (sinusal le plus souvent) et les ventricules à celui de l'échappement, plus lent. La fréquence atriale est donc supérieure à la fréquence ventriculaire. Si c'est l'inverse (QRS plus rapides que les P), il s'agit d'une dissociation AV par accélération d'un foyer inférieur ou ralentissement sinusal, pas d'un BAV complet. Le PR varie d'un battement à l'autre.",
+    "aRetenir": "BAV complet : dissociation AV avec fréquence atriale > fréquence ventriculaire.",
+    "sources": [
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-060",
+    "theme": "ecg",
+    "sousTheme": "Dysfonction sinusale et échappements",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Tracé : ondes P sinusales à 55/min, QRS fins réguliers à 70/min, sans relation fixe avec les P ; certaines P tombent juste avant ou dans les QRS. Quelle est l'interprétation ?",
+    "options": [
+      "BAV complet avec échappement jonctionnel",
+      "Dissociation AV par rythme jonctionnel accéléré",
+      "BAV 2:1 avec P cachées dans les QRS",
+      "Bloc sino-auriculaire avec échappement jonctionnel"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : un BAV complet suppose des P plus rapides que les QRS ; ici, c'est l'inverse.",
+      "Juste : QRS plus rapides que les P ; celles-ci tombent dans la période réfractaire : dissociation par interférence, sans BAV.",
+      "Faux : dans un BAV 2:1, les P seraient deux fois plus rapides que les QRS et le PR conduit fixe.",
+      "Faux : les ondes P sinusales sont visibles et régulières ; l'activité atriale n'est pas bloquée."
+    ],
+    "explication": "Ici, les QRS sont plus rapides que les P : un foyer jonctionnel accéléré (70/min) prend le commandement sur un rythme sinusal plus lent. Les P ne sont pas conduites car elles arrivent quand la jonction est déjà réfractaire (P dans ou juste avant les QRS) : c'est une dissociation AV « par interférence », pas un BAV. Un BAV complet suppose des P plus rapides que les QRS, dont certaines tombent à un moment où elles devraient être conduites. Causes : intoxication digitalique, hypokaliémie, post-chirurgie cardiaque, ischémie, hypertonie vagale sur le sinus. Confondre les deux conduit à des implantations injustifiées.",
+    "aRetenir": "Dissociation AV avec QRS plus rapides que les P = rythme jonctionnel accéléré, pas BAV complet.",
+    "sources": [
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      },
+      {
+        "titre": "Issa ZF, Miller JM, Zipes DP. Clinical Arrhythmology and Electrophysiology: A Companion to Braunwald's Heart Disease. 3rd ed. Philadelphia: Elsevier; 2019 (chapitre Atrioventricular conduction abnormalities)",
+        "url": null
+      }
+    ],
+    "reco": [
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-061",
+    "theme": "ecg",
+    "sousTheme": "Dysfonction sinusale et échappements",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 5,
+    "question": "Décrivez la hiérarchie des automatismes cardiaques et les caractéristiques ECG des rythmes d'échappement correspondants.",
+    "reponseAttendue": "Nœud sinusal 60-100/min (P sinusale, QRS fin) ; jonction AV 40-60/min (QRS fin, P absente, rétrograde ou dissociée) ; ventricule/Purkinje 20-40/min (QRS large). Plus l'échappement est bas, plus il est lent, large et instable.",
+    "explication": "Les cellules automatiques sont hiérarchisées : le nœud sinusal, le plus rapide, impose normalement son rythme et inhibe les foyers inférieurs (overdrive suppression). En cas de défaillance sinusale ou de bloc, la jonction AV prend le relais à 40-60/min avec des QRS fins ; les P sont absentes, rétrogrades (négatives en inférieur) ou dissociées. En dessous, les foyers ventriculaires ou du réseau de Purkinje donnent des QRS larges à 20-40/min, peu fiables, exposant à l'asystolie. Cette hiérarchie aide à localiser un BAV complet à partir de l'aspect de l'échappement.",
+    "aRetenir": "Sinus 60-100, jonction 40-60 (QRS fins), ventricule 20-40 (QRS larges).",
+    "sources": [
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-062",
+    "theme": "ecg",
+    "sousTheme": "Indications de stimulation et syncope",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 5,
+    "question": "En l'absence de cause réversible, quelles situations relèvent d'une stimulation de classe I selon l'ESC 2021 ?",
+    "options": [
+      "BAV 2e degré Mobitz II chez un patient asymptomatique",
+      "BAV complet permanent chez un adulte asymptomatique",
+      "Bloc de branche alternant",
+      "Bloc bifasciculaire asymptomatique",
+      "BAV 2e degré Mobitz I nocturne à QRS fins chez un sujet asymptomatique"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : siège habituellement infra-nodal, risque d'évolution brutale : classe I même sans symptôme.",
+      "Juste : BAV complet sans cause réversible : classe I, indépendamment des symptômes.",
+      "Juste : équivalent d'une atteinte trifasciculaire : classe I.",
+      "Faux : le bloc bifasciculaire asymptomatique relève d'une classe III.",
+      "Faux : Mobitz I nocturne à QRS fins, d'origine vagale : pas d'indication chez le sujet asymptomatique."
+    ],
+    "explication": "L'ESC 2021 recommande la stimulation (classe I) en cas de BAV du 2e degré Mobitz II, de BAV de haut degré ou de BAV complet, avec ou sans symptômes, dès lors qu'une cause réversible ou transitoire a été éliminée. Ces blocs siègent le plus souvent sous le nœud AV et exposent à une évolution imprévisible vers une asystolie. Le bloc de branche alternant, équivalent d'une atteinte trifasciculaire, est aussi une indication de classe I même sans symptôme. À l'inverse, le bloc bifasciculaire asymptomatique relève d'une classe III, et le Mobitz I nocturne à QRS fins asymptomatique, d'origine vagale, n'est pas une indication.",
+    "aRetenir": "Mobitz II, BAV haut degré ou complet, bloc alternant : stimulation classe I même sans symptôme.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-063",
+    "theme": "ecg",
+    "sousTheme": "Indications de stimulation et syncope",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 4,
+    "question": "Chez un adulte asymptomatique présentant de façon permanente le trouble conductif visible sur ce tracé, sans cause réversible, la stimulation n'est pas justifiée tant qu'il reste asymptomatique.",
+    "ecg": {
+      "preset": "bav3",
+      "fc": 80,
+      "fv": 55,
+      "qrs": "fin"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : ce BAV complet relève d'une stimulation de classe I chez l'adulte, même asymptomatique.",
+      "Juste : l'échappement peut ralentir ou s'arrêter brutalement ; la stimulation est indiquée sans attendre les symptômes."
+    ],
+    "explication": "Faux. Ce tracé montre un BAV complet avec échappement à QRS fins (≈ 55/min). Chez l'adulte, le BAV du 3e degré relève d'une stimulation de classe I dans l'ESC 2021, indépendamment des symptômes, une fois éliminée une cause réversible. La tolérance apparente est trompeuse : l'échappement peut ralentir ou s'interrompre brutalement, et l'absence de symptômes est souvent le fait d'une adaptation progressive (les patients se découvrent plus en forme après l'implantation). Le cas du BAV congénital isolé de l'enfant obéit à des critères spécifiques.",
+    "aRetenir": "BAV complet de l'adulte sans cause réversible : stimulation classe I, même asymptomatique.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-064",
+    "theme": "ecg",
+    "sousTheme": "Indications de stimulation et syncope",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Homme de 45 ans, asymptomatique. Le Holter enregistre ce tracé la nuit. Selon l'ESC 2021, quelle affirmation est exacte ?",
+    "ecg": {
+      "preset": "bav2-m1",
+      "fc": 55,
+      "cycle": 4
+    },
+    "options": [
+      "Stimulation recommandée (classe I), quel que soit l'âge",
+      "Stimulation à envisager (IIa) systématiquement après 40 ans",
+      "Pas d'indication de stimulation en l'absence de symptômes",
+      "EEP systématique pour localiser le siège du bloc"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : la classe I concerne le Mobitz II, le haut degré et le BAV complet, pas le Wenckebach vagal.",
+      "Faux : l'âge n'est pas un critère ; ce sont les symptômes et le siège du bloc qui comptent.",
+      "Juste : Mobitz I nocturne à QRS fins, asymptomatique : pas de stimulation ; IIa seulement si symptômes ou siège infra-hisien.",
+      "Faux : l'EEP se discute seulement si le siège est douteux (QRS large, bloc de branche)."
+    ],
+    "explication": "Ce tracé nocturne montre un BAV 2e degré Mobitz I (Wenckebach 4:3) à QRS fins, typiquement nodal et vagal, fréquent chez le sujet jeune ou sportif, et de bon pronostic. L'ESC 2021 considère la stimulation (IIa) pour un Mobitz I qui entraîne des symptômes, ou dont le siège intra- ou infra-hisien est démontré en EEP. Un patient asymptomatique avec ce profil n'a donc pas d'indication, quel que soit son âge. L'EEP n'est pas systématique : on la réserve aux situations où le siège est douteux (QRS large, bloc de branche associé). Il faut en revanche rechercher un syndrome d'apnées du sommeil.",
+    "aRetenir": "Mobitz I asymptomatique à QRS fins : pas de stimulation ; IIa si symptômes ou siège infra-hisien.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-065",
+    "theme": "ecg",
+    "sousTheme": "Indications de stimulation et syncope",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Patient de 60 ans, dyspnée et sensation de pulsations cervicales, PR à 340 ms constant, conduction 1:1, pas d'autre cause retrouvée. Que dit l'ESC 2021 ?",
+    "options": [
+      "Stimulation à envisager (IIa) si symptômes imputables au PR",
+      "Stimulation jamais indiquée dans le BAV du 1er degré",
+      "Stimulation recommandée (classe I) dès que le PR dépasse 300 ms",
+      "Holter implantable avant toute décision, sans stimulation"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : PR > 300 ms avec symptômes clairement attribuables (pseudo-syndrome du pacemaker) : stimulation IIa.",
+      "Faux : un PR très long symptomatique peut justifier une stimulation (IIa).",
+      "Faux : aucune classe I pour le BAV du 1er degré ; c'est l'imputabilité des symptômes qui compte, pas le chiffre seul.",
+      "Faux : le trouble conductif est permanent et déjà documenté ; le Holter implantable n'apporte rien ici."
+    ],
+    "explication": "Un PR très long (> 300 ms) peut entraîner une contraction atriale sur valve mitrale fermée, une perte de la contribution atriale et des symptômes proches d'un syndrome du pacemaker (pulsations cervicales, dyspnée, fatigue). L'ESC 2021 considère la stimulation (IIa) chez ces patients lorsque les symptômes sont clairement attribuables au BAV du 1er degré ; il n'existe pas d'indication de classe I dans le BAV du 1er degré. Un BAV du 1er degré asymptomatique ne justifie en revanche aucune stimulation. La démonstration de l'imputabilité est clé : l'échographie peut montrer une fusion des ondes E et A ou une insuffisance mitrale diastolique.",
+    "aRetenir": "BAV 1 avec PR > 300 ms et symptômes clairement attribuables : stimulation IIa.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-066",
+    "theme": "ecg",
+    "sousTheme": "Indications de stimulation et syncope",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 4,
+    "question": "Patient en FA permanente avec BAV complet symptomatique. Quel mode de stimulation choisir et pourquoi ?",
+    "reponseAttendue": "VVIR (stimulateur simple chambre ventriculaire avec asservissement de fréquence) : en FA permanente, une sonde atriale est inutile (pas d'activité atriale organisée à détecter ni à stimuler).",
+    "explication": "En FA permanente, les oreillettes ne peuvent être ni détectées de façon utile ni stimulées efficacement : une sonde atriale est inutile. Le mode VVIR (stimulation ventriculaire asservie) est recommandé ; l'asservissement compense l'absence de suivi d'une activité sinusale. L'AAI est impossible sans activité atriale organisée et en présence d'un BAV. Les modes DDD et VDD reposent sur une activité atriale organisée : en FA, ils imposeraient un mode switch permanent. Chez un patient à FEVG altérée ou avec un pourcentage de stimulation élevé, la stimulation physiologique (CRT ou stimulation du système de conduction) doit être discutée.",
+    "aRetenir": "FA permanente + BAV : VVIR (pas de sonde atriale).",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-067",
+    "theme": "ecg",
+    "sousTheme": "Indications de stimulation et syncope",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Patient avec BAV de haut degré et FEVG à 32 % (insuffisance cardiaque à fraction d'éjection réduite). Quelle stimulation l'ESC 2021 recommande-t-elle ?",
+    "options": [
+      "Stimulation VVIR en position apicale ventriculaire droite",
+      "Resynchronisation (CRT) plutôt qu'une stimulation VD",
+      "Stimulation DDD avec sonde ventriculaire droite classique",
+      "Aucune stimulation avant 3 mois d'optimisation médicale"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : la stimulation apicale VD crée une asynchronie de type BBG qui peut aggraver la fonction VG.",
+      "Juste : FEVG < 40 % et stimulation ventriculaire attendue élevée : CRT plutôt que stimulation VD (classe I dans l'ESC 2021, IIa dans l'ESC 2026 IC).",
+      "Faux : la sonde VD seule garde l'inconvénient de l'asynchronie malgré le mode double chambre.",
+      "Faux : un BAV de haut degré ne permet pas de différer la stimulation pour optimiser le traitement."
+    ],
+    "explication": "La stimulation ventriculaire droite induit une asynchronie comparable à un BBG et peut aggraver la fonction VG, surtout si elle est quasi permanente, comme dans un BAV de haut degré. L'ESC 2021 (stimulation et CRT) recommande la CRT plutôt que la stimulation VD chez les patients avec FEVG réduite (< 40 %) ayant une indication de stimulation ventriculaire pour BAV de haut degré, quelle que soit la classe NYHA (classe I, niveau A). Les recommandations ESC 2026 sur l'insuffisance cardiaque conservent ce choix, mais en classe IIa (niveau B1), pour toute ICFEr, désormais définie par une FEVG < 50 %. Un mode double chambre avec sonde VD classique garde le même inconvénient d'asynchronie, et retarder l'implantation d'un BAV de haut degré pour optimiser le traitement médical n'est pas raisonnable. La stimulation du système de conduction (hissienne ou de la branche gauche) est une alternative de plus en plus utilisée, soutenue par le guideline HRS 2023 et le consensus ESC 2025 ; l'ESC 2026 IC ne formule toutefois aucune recommandation à son sujet faute d'essai randomisé sur des critères cliniques.",
+    "aRetenir": "BAV de haut degré + FEVG réduite : CRT plutôt que stimulation VD (classe I dans l'ESC 2021, IIa dans l'ESC 2026 IC).",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Chung MK, et al. 2023 HRS/APHRS/LAHRS guideline on cardiac physiologic pacing for the avoidance and mitigation of heart failure. Heart Rhythm 2023;20:e17-e91",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1538"
+      },
+      {
+        "titre": "Køber L, Adamo M, et al. 2026 ESC Guidelines for the management of heart failure. Eur Heart J 2026 (publication en ligne le 28 août 2026)",
+        "url": "https://doi.org/10.1093/eurheartj/ehag100"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ESC 2026 insuffisance cardiaque",
+      "HRS 2023 stimulation physiologique"
+    ]
+  },
+  {
+    "id": "ecg-cond-068",
+    "theme": "ecg",
+    "sousTheme": "Indications de stimulation et syncope",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Après implantation d'une valve aortique percutanée (TAVI), le trouble conductif visible sur ce tracé persiste. Selon l'ESC 2021, quand la stimulation définitive est-elle recommandée ?",
+    "ecg": {
+      "preset": "bav3",
+      "fc": 75,
+      "fv": 40,
+      "qrs": "large"
+    },
+    "options": [
+      "Après un délai d'observation d'au moins 5 jours",
+      "Uniquement si le patient devient symptomatique",
+      "Si le bloc persiste 24 à 48 h après la procédure",
+      "Seulement après une EEP montrant un HV ≥ 70 ms"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : le délai d'au moins 5 jours concerne le BAV post-infarctus, pas le TAVI.",
+      "Faux : attendre des symptômes expose à une syncope ou à une mort subite ; l'indication ne dépend pas des symptômes.",
+      "Juste : BAV complet ou de haut degré persistant 24 à 48 h après TAVI : stimulation de classe I.",
+      "Faux : l'EEP aide dans les situations intermédiaires, pas devant un BAV complet persistant."
+    ],
+    "explication": "Ce tracé montre un BAV complet avec échappement à QRS larges. Les troubles conductifs post-TAVI sont fréquents, du fait de la proximité entre l'anneau aortique et le faisceau de His. L'ESC 2021 recommande la stimulation définitive (classe I) en cas de BAV complet ou de haut degré persistant 24 à 48 heures après la procédure. Un bloc de branche alternant nouvellement apparu après TAVI est aussi une indication de classe I. Le délai d'au moins 5 jours concerne le BAV post-infarctus, pas le TAVI, et attendre l'apparition de symptômes expose à des événements graves. L'EEP peut aider dans les situations intermédiaires (BBG nouveau avec QRS très large, allongement progressif du PR), mais n'est pas un préalable au BAV complet persistant.",
+    "aRetenir": "Post-TAVI : BAV complet/haut degré persistant 24-48 h = stimulation classe I.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-069",
+    "theme": "ecg",
+    "sousTheme": "Indications de stimulation et syncope",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 9,
+    "question": "Homme de 55 ans, asymptomatique, tracé ci-dessous (QRS fins). Une EEP réalisée pour un autre motif montre que le bloc siège dans le His (bloc intra-hisien). Que recommande l'ESC 2021 ?",
+    "ecg": {
+      "preset": "bav2-m1",
+      "fc": 75,
+      "cycle": 3
+    },
+    "options": [
+      "Aucune stimulation, ce type de bloc étant toujours bénin",
+      "Stimulation contre-indiquée en l'absence de QRS large",
+      "Surveillance par Holter annuel uniquement",
+      "Stimulation à envisager (classe IIa)"
+    ],
+    "reponses": [
+      3
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : c'est le siège du bloc, et non son aspect de Wenckebach, qui fait le pronostic.",
+      "Faux : un QRS fin n'exclut pas un bloc intra-hisien, de pronostic comparable aux blocs infra-nodaux.",
+      "Faux : le risque de progression vers un BAV de haut degré justifie d'envisager la stimulation.",
+      "Juste : Mobitz I dont le siège intra- ou infra-hisien est démontré à l'EEP : stimulation IIa, même sans symptôme."
+    ],
+    "explication": "Un Wenckebach peut exceptionnellement siéger dans le His ou sous le His, même avec des QRS fins (bloc intra-hisien). Son pronostic est alors celui des blocs infra-nodaux, avec un risque de progression vers un BAV de haut degré. L'ESC 2021 considère la stimulation (IIa) chez les patients ayant un Mobitz I symptomatique ou dont le siège intra- ou infra-hisien est démontré à l'EEP, même asymptomatique. C'est le piège du « Mobitz I toujours bénin » : c'est le siège du bloc, et non seulement son aspect ECG, qui fait le pronostic. Un QRS fin n'exclut pas un bloc intra-hisien.",
+    "aRetenir": "Le pronostic d'un BAV dépend de son siège : Mobitz I intra/infra-hisien = stimulation IIa.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+        "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ACC/AHA/HRS 2018 bradycardie"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-070",
+    "theme": "ecg",
+    "sousTheme": "Indications de stimulation et syncope",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 10,
+    "question": "Au Holter, des ondes P isolées non conduites survenant de façon inopinée, avec PR constant, évoquent un Mobitz II ; mais on note aussi par moments des PR brutalement allongés sans cause apparente. QRS fins. Quel mécanisme rare doit être évoqué avant de poser l'indication ?",
+    "options": [
+      "Extrasystoles hisiennes cachées (pseudo-BAV)",
+      "Dissociation AV isorythmique intermittente",
+      "Bloc sino-auriculaire du 2e degré type II",
+      "Arythmie sinusale ventriculophasique marquée"
+    ],
+    "reponses": [
+      0
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : une extrasystole hisienne non propagée rend la jonction réfractaire : P bloquée ou PR brutalement allongé.",
+      "Faux : la dissociation isorythmique ne bloque pas une P isolée et n'allonge pas brutalement le PR.",
+      "Faux : un BSA ne donne pas d'onde P bloquée visible ; ici, des P ne sont pas conduites.",
+      "Faux : elle module le PP autour des QRS, sans P bloquée ni PR brutalement allongé."
+    ],
+    "explication": "Une extrasystole née dans le tronc du His peut ne se propager ni aux ventricules ni aux oreillettes (extrasystole « cachée »), tout en rendant la jonction réfractaire : l'onde P suivante est alors bloquée (pseudo-Mobitz II) ou conduite avec un PR brutalement allongé (pseudo-BAV du 1er degré). L'association inexpliquée de ces deux anomalies sur des QRS fins, parfois avec des extrasystoles jonctionnelles manifestes ailleurs sur le tracé, doit faire évoquer ce mécanisme. L'enregistrement endocavitaire du His confirme le diagnostic. L'enjeu est d'éviter une stimulation injustifiée et de traiter la cause (extrasystolie). Les autres propositions ne donnent pas de P bloquées ni de PR soudainement allongés.",
+    "aRetenir": "P bloquées inopinées + PR brusquement allongés sur QRS fins : penser aux extrasystoles hisiennes cachées (pseudo-BAV).",
+    "sources": [
+      {
+        "titre": "Issa ZF, Miller JM, Zipes DP. Clinical Arrhythmology and Electrophysiology: A Companion to Braunwald's Heart Disease. 3rd ed. Philadelphia: Elsevier; 2019 (chapitre Atrioventricular conduction abnormalities)",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-071",
+    "theme": "ecg",
+    "sousTheme": "Indications de stimulation et syncope",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 5,
+    "question": "Selon l'ESC 2018 sur la syncope, quelles anomalies ECG permettent à elles seules de retenir le diagnostic de syncope arythmique ?",
+    "options": [
+      "Bradycardie sinusale persistante < 40/min ou pauses sinusales répétées > 3 s à l'éveil (hors entraînement physique)",
+      "BAV du 2e degré Mobitz II ou BAV du 3e degré (complet)",
+      "Bloc bifasciculaire (BBD + HBAG) isolé",
+      "BAV du 1er degré isolé à 220 ms",
+      "Hémibloc antérieur gauche isolé"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : critère diagnostique ESC 2018, à condition d'être à l'éveil et en dehors d'un entraînement physique.",
+      "Juste : Mobitz II et BAV complet suffisent à retenir une syncope arythmique.",
+      "Faux : le bloc bifasciculaire est un critère de risque, pas de diagnostic ; il impose une exploration (EEP, Holter implantable).",
+      "Faux : un BAV du 1er degré modéré ne suffit pas à expliquer une syncope.",
+      "Faux : un hémibloc isolé peut orienter les explorations mais n'explique pas une syncope."
+    ],
+    "explication": "L'ESC 2018 liste des critères ECG diagnostiques de syncope arythmique : bradycardie sinusale persistante < 40/min, blocs sino-auriculaires répétés ou pauses sinusales > 3 s à l'éveil hors entraînement physique, BAV du 2e degré Mobitz II ou du 3e degré, bloc de branche alternant, TV ou TSV rapide, TV polymorphe non soutenue avec QT long ou court, et dysfonction de stimulateur avec pauses. Un BAV du 1er degré modéré ou un hémibloc isolé ne suffisent pas à expliquer une syncope ; ils peuvent tout au plus orienter les explorations. Le bloc bifasciculaire est un critère de risque, pas de diagnostic.",
+    "aRetenir": "Mobitz II, BAV complet, bloc alternant, bradycardie < 40/min ou pauses > 3 s à l'éveil : syncope arythmique.",
+    "sources": [
+      {
+        "titre": "Brignole M, et al. 2018 ESC Guidelines for the diagnosis and management of syncope. Eur Heart J 2018;39:1883-1948",
+        "url": "https://doi.org/10.1093/eurheartj/ehy037"
+      }
+    ],
+    "reco": [
+      "ESC 2018 syncope"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-072",
+    "theme": "ecg",
+    "sousTheme": "Indications de stimulation et syncope",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Femme de 58 ans, syncopes réflexes récidivantes, sévères et imprévisibles. Le Holter implantable enregistre ce tracé lors d'une syncope. Que recommande l'ESC 2021 ?",
+    "ecg": {
+      "preset": "pause-sinusale",
+      "fc": 60,
+      "pause": 8000,
+      "legende": "Holter implantable : enregistrement lors de la syncope"
+    },
+    "options": [
+      "Aucune stimulation, une syncope réflexe ne se stimulant pas",
+      "Stimulation VVI recommandée (classe I)",
+      "Stimulation double chambre à envisager (IIa)",
+      "DAI en prévention de la mort subite"
+    ],
+    "reponses": [
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : la forme cardio-inhibitrice documentée peut justifier une stimulation chez le patient de plus de 40 ans.",
+      "Faux : ni classe I ni mode VVI ; le double chambre préserve la synchronie AV.",
+      "Juste : plus de 40 ans, syncopes réflexes sévères et asystolie documentée : stimulation double chambre (IIa).",
+      "Faux : il s'agit d'une asystolie réflexe, pas d'une arythmie ventriculaire ; le DAI n'a pas d'indication."
+    ],
+    "explication": "Ce tracé montre une asystolie d'environ 8 s par arrêt sinusal (aucune onde P). Chez les patients de plus de 40 ans ayant des syncopes réflexes sévères, récidivantes et imprévisibles, la documentation d'une pause asystolique symptomatique > 3 s (ou asymptomatique > 6 s) par arrêt sinusal ou BAV permet d'envisager une stimulation (classe IIa). Le mode double chambre est préféré afin de préserver la synchronie AV. La stimulation traite la composante cardio-inhibitrice mais pas la composante vasodépressive : le patient doit en être informé. Le DAI n'a pas d'indication.",
+    "aRetenir": "Syncope réflexe > 40 ans avec asystolie documentée > 3 s symptomatique : DDD à envisager (IIa).",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Brignole M, et al. 2018 ESC Guidelines for the diagnosis and management of syncope. Eur Heart J 2018;39:1883-1948",
+        "url": "https://doi.org/10.1093/eurheartj/ehy037"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ESC 2018 syncope"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-073",
+    "theme": "ecg",
+    "sousTheme": "Indications de stimulation et syncope",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Patient de 65 ans, syncopes récidivantes inexpliquées malgré un bilan complet (ECG, échocardiographie, Holter de 24 h normaux), sans critère de haut risque imposant une hospitalisation. Quelle exploration est recommandée pour obtenir une corrélation symptôme-rythme ?",
+    "options": [
+      "Holters de 24 h répétés tous les 3 mois",
+      "Moniteur ECG implantable",
+      "Coronarographie diagnostique",
+      "EEG et IRM cérébrale"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : avec des épisodes peu fréquents, la probabilité qu'un Holter de 24-48 h enregistre une syncope est très faible.",
+      "Juste : syncopes récidivantes rares, bilan négatif, pas de haut risque : Holter implantable précoce (ESC 2018).",
+      "Faux : la coronarographie ne répond pas à la question d'une bradyarythmie paroxystique.",
+      "Faux : sans argument neurologique, l'EEG et l'IRM ne documentent pas le rythme pendant la syncope."
+    ],
+    "explication": "Lorsque les syncopes sont peu fréquentes et que le bilan initial est négatif, la probabilité qu'un Holter de 24 à 48 h enregistre un épisode est très faible. L'ESC 2018 recommande le moniteur ECG implantable en phase précoce d'évaluation des syncopes récidivantes inexpliquées, faute de critères de haut risque. Il permet une surveillance de plusieurs années et une corrélation symptôme-rythme, souvent couplée à la télésurveillance. La coronarographie ou l'IRM cérébrale ne répondent pas à la question d'une bradyarythmie paroxystique.",
+    "aRetenir": "Syncopes récidivantes inexpliquées, bilan négatif : Holter implantable.",
+    "sources": [
+      {
+        "titre": "Brignole M, et al. 2018 ESC Guidelines for the diagnosis and management of syncope. Eur Heart J 2018;39:1883-1948",
+        "url": "https://doi.org/10.1093/eurheartj/ehy037"
+      }
+    ],
+    "reco": [
+      "ESC 2018 syncope"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-074",
+    "theme": "ecg",
+    "sousTheme": "Indications de stimulation et syncope",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 6,
+    "question": "Chez un patient asymptomatique, une pause sinusale de 3,5 s survenant pendant le sommeil sur un Holter justifie à elle seule l'implantation d'un stimulateur.",
+    "ecg": {
+      "preset": "pause-sinusale",
+      "fc": 50,
+      "pause": 3500,
+      "legende": "Holter : enregistrement nocturne"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Faux : une pause nocturne asymptomatique relève le plus souvent d'une hypertonie vagale et n'est pas une indication.",
+      "Juste : sans corrélation aux symptômes, pas de stimulateur ; rechercher un syndrome d'apnées du sommeil."
+    ],
+    "explication": "Faux. Les pauses nocturnes de quelques secondes sont fréquentes, en particulier chez les sujets jeunes, sportifs ou porteurs d'un syndrome d'apnées du sommeil, et relèvent le plus souvent d'une hypertonie vagale. En l'absence de corrélation avec des symptômes, elles ne constituent pas une indication de stimulation. Les critères diagnostiques de l'ESC 2018 concernent les pauses > 3 s à l'éveil. Il faut en revanche rechercher un syndrome d'apnées du sommeil, dont le traitement fait souvent disparaître ces pauses.",
+    "aRetenir": "Pause nocturne asymptomatique : pas de pacemaker, pensez apnées du sommeil.",
+    "sources": [
+      {
+        "titre": "Brignole M, et al. 2018 ESC Guidelines for the diagnosis and management of syncope. Eur Heart J 2018;39:1883-1948",
+        "url": "https://doi.org/10.1093/eurheartj/ehy037"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ESC 2018 syncope"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-075",
+    "theme": "ecg",
+    "sousTheme": "Indications de stimulation et syncope",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 4,
+    "question": "Chez un patient ayant présenté une syncope, quelles anomalies de l'ECG de repos sont des critères de haut risque selon l'ESC 2018 ?",
+    "options": [
+      "Bloc bifasciculaire (BBD + HBAG)",
+      "QTc allongé à 520 ms",
+      "Aspect de Brugada de type 1 spontané",
+      "Arythmie sinusale respiratoire",
+      "Repolarisation précoce isolée chez un sportif"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : critère majeur ; il fait craindre un BAV paroxystique et impose une évaluation rapide.",
+      "Juste : un QTc > 460 ms sur des ECG répétés est un critère majeur de haut risque.",
+      "Juste : l'aspect de Brugada de type 1 fait partie des critères majeurs.",
+      "Faux : l'arythmie sinusale respiratoire est physiologique.",
+      "Faux : une repolarisation précoce isolée chez un sportif est le plus souvent bénigne."
+    ],
+    "explication": "L'ESC 2018 distingue des critères ECG de haut risque majeurs et mineurs. Sont majeurs notamment : bloc de branche ou autre trouble de conduction intraventriculaire (dont le bloc bifasciculaire), BAV Mobitz II ou complet, bradycardie sinusale < 40/min ou pauses > 3 s à l'éveil, FA lente, TV soutenue ou non soutenue, QTc > 460 ms sur des ECG répétés, aspect de Brugada de type 1, ondes Q évocatrices de cardiopathie ischémique, dysfonction d'un dispositif implanté. Les critères mineurs (BAV Mobitz I ou du 1er degré avec PR très long, préexcitation, QT court, aspect de Brugada atypique…) ne comptent que si l'histoire évoque une syncope arythmique. Le bloc bifasciculaire fait craindre un BAV paroxystique et impose une évaluation rapide (EEP, voire Holter implantable). L'arythmie sinusale respiratoire est physiologique et une repolarisation précoce isolée chez un sportif est le plus souvent bénigne.",
+    "aRetenir": "Syncope + bloc bifasciculaire, QT long ou Brugada type 1 = critères de haut risque.",
+    "sources": [
+      {
+        "titre": "Brignole M, et al. 2018 ESC Guidelines for the diagnosis and management of syncope. Eur Heart J 2018;39:1883-1948",
+        "url": "https://doi.org/10.1093/eurheartj/ehy037"
+      }
+    ],
+    "reco": [
+      "ESC 2018 syncope"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-cond-076",
+    "theme": "ecg",
+    "sousTheme": "Indications de stimulation et syncope",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Chez un patient avec syncope et bloc de branche, quels éléments orientent vers un BAV paroxystique plutôt que vers une syncope réflexe ?",
+    "options": [
+      "Syncope brutale sans prodrome, parfois en position assise ou couchée",
+      "Syncope en position debout prolongée, précédée de nausées, sueurs et chaleur",
+      "Âge avancé et cardiopathie sous-jacente",
+      "Déclenchement par la vue du sang",
+      "Récupération lente avec confusion postcritique prolongée"
+    ],
+    "reponses": [
+      0,
+      2
+    ],
+    "reponseAttendue": null,
+    "commentaires": [
+      "Juste : l'absence de prodrome et la survenue en décubitus orientent vers une cause rythmique.",
+      "Faux : position debout prolongée et prodromes neurovégétatifs orientent vers une syncope réflexe.",
+      "Juste : l'âge et la cardiopathie augmentent la probabilité d'un trouble conductif paroxystique.",
+      "Faux : un déclencheur émotionnel oriente vers une syncope vasovagale.",
+      "Faux : la syncope récupère vite et complètement ; une confusion prolongée évoque plutôt une crise d'épilepsie."
+    ],
+    "explication": "Une syncope arythmique par BAV paroxystique est typiquement brutale, sans prodrome, possible en toutes positions (y compris assise ou couchée), et donc volontiers traumatique. L'âge avancé et une cardiopathie structurelle augmentent la probabilité d'un trouble conductif. À l'inverse, la position debout prolongée, les prodromes neurovégétatifs (nausées, sueurs, chaleur) et un déclencheur émotionnel comme la vue du sang orientent vers une syncope réflexe. Une récupération lente avec confusion prolongée n'est pas celle d'une syncope, dont la récupération est rapide et complète : elle doit faire évoquer une crise d'épilepsie. Ces éléments sont des orientations : un patient avec bloc de branche peut aussi faire des syncopes vasovagales, d'où l'intérêt de l'EEP et du Holter implantable.",
+    "aRetenir": "Syncope brutale, sans prodrome, en décubitus, traumatique = pensez BAV paroxystique.",
+    "sources": [
+      {
+        "titre": "Brignole M, et al. 2018 ESC Guidelines for the diagnosis and management of syncope. Eur Heart J 2018;39:1883-1948",
+        "url": "https://doi.org/10.1093/eurheartj/ehy037"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ESC 2018 syncope"
+    ],
+    "revise": "2026-09"
+  }
+]

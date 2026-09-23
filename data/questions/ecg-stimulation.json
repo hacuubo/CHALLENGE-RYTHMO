@@ -1,0 +1,3245 @@
+[
+  {
+    "id": "ecg-stim-002",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 3,
+    "question": "Explicitez chacune des lettres du mode DDDR.",
+    "reponseAttendue": "D : stimulation atriale et ventriculaire ; D : détection atriale et ventriculaire ; D : réponse double à la détection (inhibition et déclenchement : une P détectée inhibe la stimulation atriale et déclenche une stimulation ventriculaire après le délai AV) ; R : asservissement de fréquence (capteur d'activité).",
+    "explication": "Le mode DDD associe la stimulation et la détection des deux cavités. La troisième lettre D signifie que le boîtier inhibe la stimulation dans la cavité où un événement est détecté, mais qu'une détection atriale déclenche (« trigger ») une stimulation ventriculaire à la fin du délai AV si aucun QRS spontané n'est détecté : c'est le suivi (« tracking ») de l'oreillette. Le R en quatrième position correspond à l'asservissement, qui accélère la fréquence de stimulation à l'effort grâce à un capteur (accéléromètre, ventilation-minute…). L'asservissement module la fréquence de stimulation indépendamment du suivi atrial : il est plafonné par la fréquence maximale capteur, distincte de la fréquence maximale de suivi (FMS).",
+    "aRetenir": "DDDR = stimulation et détection double chambre, inhibition + déclenchement, avec asservissement de fréquence.",
+    "sources": [
+      {
+        "titre": "Bernstein AD et al. The revised NASPE/BPEG generic code for antibradycardia, adaptive-rate, and multisite pacing. Pacing Clin Electrophysiol 2002;25:260-264",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11916002/"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-003",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Patient de 82 ans en FA permanente, implanté pour une FA lente symptomatique. D'après ce tracé, quel est le mode de stimulation le plus probable ?",
+    "ecg": {
+      "preset": "vvi",
+      "fc": 60,
+      "legende": "DII"
+    },
+    "options": [
+      "VVI",
+      "DDD",
+      "AAI",
+      "VDD"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : un seul spike par cycle, suivi d'un QRS large, sur une ligne de base fibrillante : stimulation ventriculaire simple chambre, mode de choix en FA permanente.",
+      "Faux : le DDD suppose une oreillette organisée à stimuler et à suivre ; on verrait deux spikes par cycle ou des P suivies, ce qui est impossible en FA permanente.",
+      "Faux : en AAI, le spike est suivi d'une onde P puis d'un QRS fin conduit ; une oreillette fibrillante ne peut pas être capturée.",
+      "Faux : le VDD suit des P détectées ; ici aucune activité atriale organisée n'est visible et le spike n'est pas précédé d'une P."
+    ],
+    "reponseAttendue": null,
+    "explication": "En FA permanente, il n'y a pas d'activité atriale organisée à stimuler ni à suivre : le mode recommandé est un mode ventriculaire simple chambre (VVI, idéalement VVIR). Le tracé montre un seul spike par cycle, suivi d'un QRS large, sans activité atriale organisée. L'AAI est contre-indiqué car l'oreillette fibrillante n'est pas capturable et la conduction AV n'est pas protégée. Le DDD et le VDD supposent une activité atriale organisée que l'on puisse détecter et suivre ; en FA, ils imposeraient de toute façon un repli (mode switch).",
+    "aRetenir": "En FA permanente, le mode de choix est VVI(R).",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-004",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Patient porteur d'un stimulateur cardiaque. Quel mode de stimulation est à l'œuvre sur ce tracé ?",
+    "ecg": {
+      "preset": "aai",
+      "fc": 70
+    },
+    "options": [
+      "VVI",
+      "AAI",
+      "VDD",
+      "DDD en stimulation AV séquentielle"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : en VVI, le spike serait suivi directement d'un QRS large, sans onde P stimulée entre les deux.",
+      "Juste : spike → onde P → QRS fin après un PR normal : l'oreillette est stimulée et le ventricule s'active par la conduction AV spontanée.",
+      "Faux : le VDD ne stimule jamais l'oreillette ; on verrait une P spontanée sans spike, puis un spike ventriculaire.",
+      "Faux : en stimulation AV séquentielle, un second spike précéderait un QRS large ; ici le QRS est fin et conduit."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le spike est suivi d'une onde P (capture atriale), puis la dépolarisation ventriculaire se fait par les voies de conduction normales, d'où un QRS fin identique au QRS spontané : c'est une stimulation atriale avec conduction AV spontanée, typique du mode AAI. En VVI, le spike serait suivi directement d'un QRS large. En DDD avec stimulation ventriculaire, on verrait un second spike avant un QRS large. En VDD, l'oreillette n'est jamais stimulée. Attention : un DDD dont le délai AV est plus long que le PR spontané peut donner exactement le même aspect (stimulation A, détection V).",
+    "aRetenir": "Spike → P → QRS fin conduit : stimulation atriale avec conduction AV intrinsèque (AAI ou DDD en AP-VS).",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-005",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Stimulateur double chambre. Sur ce tracé, que représente l'intervalle qui sépare, dans chaque cycle, le premier artefact de stimulation du second ?",
+    "ecg": {
+      "preset": "ddd",
+      "fc": 70,
+      "av": 200
+    },
+    "options": [
+      "La période réfractaire atriale post-ventriculaire (PVARP)",
+      "L'intervalle d'échappement atrial (intervalle VA)",
+      "Le temps de conduction rétrograde ventriculo-atriale",
+      "Le délai AV programmé après stimulation atriale"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : la PVARP débute après l'événement ventriculaire et concerne le canal atrial ; elle n'est pas visible directement sur l'ECG.",
+      "Faux : l'intervalle VA va du spike ventriculaire au spike atrial suivant, pas du spike A au spike V.",
+      "Faux : la conduction rétrograde va du ventricule vers l'oreillette, après le QRS ; elle n'intervient pas entre les deux spikes.",
+      "Juste : l'intervalle spike A – spike V est le délai AV stimulé (PAV), habituellement un peu plus long que le délai AV après détection."
+    ],
+    "reponseAttendue": null,
+    "explication": "Il s'agit d'une stimulation double chambre séquentielle (AP-VP). L'intervalle spike A – spike V est le délai AV programmé après stimulation atriale (souvent appelé PAV), généralement un peu plus long que le délai AV après détection (SAV) pour compenser la latence de conduction intra-atriale. La PVARP démarre après l'événement ventriculaire et n'est pas visible directement sur l'ECG. L'intervalle VA (d'échappement atrial) va du spike V au spike A suivant. La conduction rétrograde n'intervient pas ici.",
+    "aRetenir": "En DDD, l'intervalle spike A – spike V est le délai AV stimulé (PAV).",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-006",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Patient implanté pour un BAV complet, en rythme sinusal. Quel fonctionnement du stimulateur observe-t-on sur ce tracé ?",
+    "ecg": {
+      "preset": "vdd",
+      "fc": 75,
+      "av": 150
+    },
+    "options": [
+      "Stimulation ventriculaire asynchrone (VOO), sans lien avec les P",
+      "P sinusale détectée puis stimulation ventriculaire synchronisée",
+      "Stimulation atriale efficace avec perte de capture ventriculaire",
+      "Mode DDI avec dissociation entre P sinusales et QRS stimulés"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : en VOO, les spikes tomberaient à intervalle fixe sans relation avec les P ; ici le délai P-spike est constant.",
+      "Juste : chaque P sinusale, sans spike, est suivie après un délai fixe d'un spike V et d'un QRS large : suivi atrial (AS-VP) du VDD/DDD.",
+      "Faux : aucun spike atrial n'est visible, et chaque spike ventriculaire est suivi d'un QRS : pas de perte de capture.",
+      "Faux : en DDI, les P détectées ne déclenchent pas de stimulation V ; on verrait une dissociation, pas un délai P-spike fixe."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les P sinusales sont détectées par le canal atrial (pas de spike atrial) et déclenchent une stimulation ventriculaire à la fin du délai AV après détection : c'est le fonctionnement « P-synchrone » (AS-VP) du mode VDD ou d'un DDD dont la fréquence sinusale dépasse la fréquence de base. C'est le fonctionnement idéal dans un BAV avec fonction sinusale normale. En VOO, les spikes seraient sans relation avec les P. En DDI, les P détectées ne déclenchent pas de stimulation ventriculaire : on aurait une dissociation. Il n'y a ici aucun signe de perte de capture puisque chaque spike V est suivi d'un QRS.",
+    "aRetenir": "P détectée → spike V après un délai fixe = suivi atrial (AS-VP), typique du VDD/DDD.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-007",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 4,
+    "question": "En mode DDI, une onde P sinusale détectée déclenche une stimulation ventriculaire à la fin du délai AV.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Non : en DDI, la réponse à la détection est l'inhibition seule ; une P détectée ne déclenche jamais de stimulation ventriculaire.",
+      "Oui : c'est le DDD (et le VDD) qui suit l'oreillette ; le DDI n'a pas de suivi atrial, d'où son usage comme mode de repli."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le mode DDI stimule et détecte dans les deux cavités, mais sa réponse à la détection est uniquement l'inhibition : une P détectée inhibe la stimulation atriale mais ne déclenche pas de stimulation ventriculaire. Il n'y a donc pas de suivi atrial ; le ventricule est stimulé à la fréquence de base (ou capteur) si aucun QRS n'est détecté. C'est ce qui en fait le mode de repli typique du mode switch en cas d'arythmie atriale. Chez un patient en BAV complet et rythme sinusal, un DDI aboutit à une dissociation AV avec perte de la synchronisation AV.",
+    "aRetenir": "DDI = pas de suivi atrial : une P détectée n'entraîne jamais de stimulation ventriculaire synchronisée.",
+    "sources": [
+      {
+        "titre": "Bernstein AD et al. The revised NASPE/BPEG generic code for antibradycardia, adaptive-rate, and multisite pacing. Pacing Clin Electrophysiol 2002;25:260-264",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11916002/"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-008",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Patient en BAV complet avec fonction sinusale normale (fréquence sinusale 85/min), dont le stimulateur double chambre a été laissé par erreur en DDI à 60/min. Qu'attend-on sur l'ECG ?",
+    "options": [
+      "Des P sinusales à 85/min dissociées de QRS stimulés à 60/min",
+      "Des P sinusales suivies d'un spike V après le délai AV, à 85/min",
+      "Une stimulation atrio-ventriculaire séquentielle à 60/min",
+      "Une tachycardie par réentrée électronique à la fréquence max"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : en DDI, les P ne sont pas suivies ; le ventricule est stimulé à la fréquence de base, indépendamment des P non conduites (BAV).",
+      "Faux : c'est le comportement du DDD ou du VDD ; le DDI ne déclenche pas de stimulation V après une P détectée.",
+      "Faux : les P sinusales à 85/min inhibent la stimulation atriale ; la séquence AV stimulée n'apparaît que si le sinus descend sous 60/min.",
+      "Faux : une TRE nécessite un mode avec suivi atrial (DDD, VDD) ; le DDI n'en permet pas."
+    ],
+    "reponseAttendue": null,
+    "explication": "En DDI, les P détectées inhibent la stimulation atriale mais ne sont pas suivies. Le ventricule est donc stimulé à la fréquence de base (60/min), indépendamment des P sinusales à 85/min qui ne sont pas conduites du fait du BAV complet : l'ECG montre une dissociation AV, comme en VVI. La stimulation AV séquentielle ne survient que si la fréquence sinusale descend sous la fréquence de base, ce qui n'est pas le cas ici. Une TRE nécessite un mode avec suivi atrial (DDD/VDD). Le DDI est donc inadapté en permanence chez un patient en BAV avec rythme sinusal normal ; c'est un mode de repli (mode switch).",
+    "aRetenir": "DDI chez un patient en BAV complet sinusal = dissociation AV : mode inadapté en permanence.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-009",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Patient implanté en AAIR pour une maladie de l'oreillette. Un Holter montre des spikes atriaux suivis d'ondes P, dont certaines ne sont suivies d'aucun QRS, sans spike ventriculaire. Quelle est l'interprétation ?",
+    "options": [
+      "Perte de capture atriale intermittente par déplacement de sonde",
+      "Sur-détection ventriculaire inhibant la stimulation du boîtier",
+      "Réponse normale de l'asservissement à une fréquence élevée",
+      "BAV spontané, non protégé par la stimulation atriale seule"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : chaque spike atrial est suivi d'une onde P : la capture atriale est effective.",
+      "Faux : en AAI, il n'y a pas de canal ventriculaire, donc aucune sur-détection ventriculaire possible.",
+      "Faux : l'asservissement accélère la stimulation mais ne bloque pas les P ; il peut tout au plus démasquer un Wenckebach nodal.",
+      "Juste : la P stimulée prouve la capture atriale ; l'absence de QRS derrière traduit un bloc AV que l'AAI ne peut pas pallier."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les spikes atriaux sont suivis d'une onde P : la capture atriale est effective. L'absence de QRS après certaines P traduit un bloc AV, que le mode AAI ne peut pas pallier puisqu'il ne stimule pas le ventricule. C'est la raison pour laquelle les recommandations ESC 2021 privilégient la stimulation double chambre (avec algorithmes de minimisation de la stimulation ventriculaire) dans la maladie de l'oreillette plutôt que l'AAI, compte tenu du risque d'apparition d'un BAV au cours du suivi. Une sur-détection ventriculaire n'a pas de sens en AAI (pas de canal V). L'asservissement ne crée pas de P bloquées, même si une fréquence atriale stimulée élevée peut démasquer un Wenckebach nodal.",
+    "aRetenir": "En AAI, une P capturée non conduite est un BAV, pas une dysfonction du stimulateur.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-010",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 3,
+    "question": "Chez un patient en rythme sinusal avec conduction rétrograde VA, la stimulation VVI peut provoquer un syndrome du pacemaker.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Oui : en VVI, l'oreillette se contracte à contretemps, contre des valves fermées si la conduction VA est présente : c'est le syndrome du pacemaker.",
+      "Non : la perte de synchronisation AV, maximale avec conduction rétrograde, est justement le mécanisme du syndrome du pacemaker."
+    ],
+    "reponseAttendue": null,
+    "explication": "En VVI, l'oreillette n'est ni détectée ni stimulée : chez un patient en rythme sinusal, la contraction atriale survient à n'importe quel moment du cycle ventriculaire. Lorsque la conduction rétrograde VA est préservée, l'oreillette se contracte contre des valves AV fermées, ce qui entraîne une élévation des pressions veineuses, un réflexe vasodépresseur et des symptômes (fatigue, dyspnée, pulsations cervicales, hypotension, lipothymies) : c'est le syndrome du pacemaker. Il est prévenu par une stimulation préservant la synchronisation AV (DDD/VDD). Il peut exister aussi en l'absence de conduction VA, par simple perte de synchronisation AV, mais il est surtout marqué en cas de conduction VA.",
+    "aRetenir": "Le syndrome du pacemaker résulte de la perte de synchronisation AV, surtout en VVI avec conduction rétrograde.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-011",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Patient implanté d'un système VDD à sonde unique (dipôle atrial flottant). Parmi ces fonctions, laquelle ce système NE peut PAS assurer ?",
+    "ecg": {
+      "preset": "vdd",
+      "fc": 70,
+      "av": 150
+    },
+    "options": [
+      "Stimuler l'oreillette en cas de bradycardie sinusale",
+      "Détecter l'activité atriale par le dipôle flottant",
+      "Stimuler le ventricule en suivant chaque P détectée",
+      "Stimuler le ventricule à la fréquence de base"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : le dipôle atrial flottant détecte les P mais ne peut pas stimuler l'oreillette de façon fiable : V en 1re lettre du code.",
+      "Faux : c'est précisément le rôle du dipôle atrial flottant : détecter les P (D en 2e lettre).",
+      "Faux : le suivi des P détectées (déclenchement, D en 3e lettre) est la fonction principale du VDD.",
+      "Faux : si le sinus ralentit sous la fréquence de base, le VDD stimule le ventricule seul (fonctionnement de type VVI)."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le mode VDD stimule uniquement le ventricule (V), détecte les deux cavités (D) et répond par inhibition et déclenchement (D). La sonde VDD monocorps possède un dipôle atrial flottant capable de détecter les P mais pas de stimuler efficacement l'oreillette. Si la fréquence sinusale descend sous la fréquence de base, le boîtier stimule le ventricule seul (fonctionnement VVI), avec perte de la synchronisation AV. Ce système n'est donc adapté qu'aux patients en BAV dont la fonction sinusale est normale.",
+    "aRetenir": "Le VDD détecte l'oreillette mais ne la stimule pas : il faut une fonction sinusale normale.",
+    "sources": [
+      {
+        "titre": "Bernstein AD et al. The revised NASPE/BPEG generic code for antibradycardia, adaptive-rate, and multisite pacing. Pacing Clin Electrophysiol 2002;25:260-264",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11916002/"
+      },
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-012",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : CRT et stimulation de conduction",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Quelle est la morphologie habituelle du QRS lors d'une stimulation ventriculaire droite apicale ?",
+    "options": [
+      "QRS fin, superposable au QRS spontané du patient",
+      "Retard gauche (type BBG) avec axe hypergauche",
+      "Retard droit (type BBD) avec axe droit",
+      "Retard gauche (type BBG) avec axe inférieur"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : un QRS fin identique au spontané évoque une capture du système de conduction ou une fusion, pas une stimulation apicale VD.",
+      "Juste : le VD est activé avant le VG (retard gauche) et l'activation part de la pointe vers la base : QRS négatifs en inférieures.",
+      "Faux : un retard droit franc lors d'une stimulation « VD » doit faire rechercher une sonde en position gauche.",
+      "Faux : l'axe inférieur (QRS positifs en DII, DIII, aVF) oriente vers une stimulation haute : chambre de chasse ou septum haut."
+    ],
+    "reponseAttendue": null,
+    "explication": "La stimulation de la pointe du VD active le VD en premier puis le VG de proche en proche, d'où un QRS large de type retard gauche (QS ou rS en V1). L'activation part de la pointe (région inférieure) vers la base, ce qui donne des QRS négatifs en inférieures et un axe hypergauche. L'axe inférieur (positif en DII, DIII, aVF) oriente plutôt vers une stimulation de la chambre de chasse ou septale haute. Un aspect de retard droit franc doit faire rechercher une sonde en position gauche. Un QRS fin identique au spontané évoque une capture du système de conduction ou une fusion.",
+    "aRetenir": "Stimulation VD apicale = QRS type BBG avec axe hypergauche.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-013",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : CRT et stimulation de conduction",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Chez un patient stimulé en VD, un ECG montre un QRS stimulé de type retard gauche, positif en DII, DIII et aVF, négatif en DI et aVL. Quelle position de sonde est la plus compatible ?",
+    "options": [
+      "Veine latérale du sinus coronaire",
+      "Pointe du ventricule droit (apex)",
+      "Cavité VG via un foramen ovale perméable",
+      "Chambre de chasse du VD / septum haut"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : une stimulation épicardique VG latérale activerait d'abord le VG, avec R dominante en V1 (retard droit).",
+      "Faux : la stimulation apicale donne un retard gauche avec axe hypergauche, donc des QRS négatifs en inférieures.",
+      "Faux : une sonde dans le VG donnerait un aspect de retard droit avec R dominante en V1.",
+      "Juste : une stimulation haute du VD active le cœur vers le bas (axe inférieur) tout en gardant un retard gauche."
+    ],
+    "reponseAttendue": null,
+    "explication": "Une stimulation du septum haut ou de la chambre de chasse du VD produit une activation dirigée vers le bas, d'où des QRS positifs en inférieures (axe inférieur ou droit), tout en gardant un aspect de retard gauche puisque le VD est activé en premier. La pointe du VD donne au contraire un axe hypergauche avec QRS négatifs en inférieures. Une sonde en veine latérale du sinus coronaire ou dans la cavité gauche activerait d'abord le VG, donnant un aspect de retard droit avec R dominante en V1. Distinguer paroi libre et septum de la chambre de chasse nécessite toutefois l'analyse de DI et de la durée du QRS, et l'imagerie.",
+    "aRetenir": "QRS stimulé type BBG avec axe inférieur = stimulation haute (chambre de chasse/septum haut du VD).",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-014",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : CRT et stimulation de conduction",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Deux jours après l'implantation d'un stimulateur VVI (sonde « VD »), l'ECG montre un QRS stimulé avec une onde R dominante en V1 et V2 (aspect de retard droit). Quelle est la conduite la plus appropriée ?",
+    "options": [
+      "Aucune : aspect habituel de la stimulation apicale du VD",
+      "Rechercher une sonde en position gauche (ECG, radio, écho)",
+      "Augmenter l'amplitude et la durée d'impulsion par sécurité",
+      "Reprogrammer en stimulation bipolaire et recontrôler l'ECG"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : la stimulation apicale du VD donne un retard gauche (QS ou rS en V1), pas une R dominante.",
+      "Juste : une R dominante en V1 impose d'éliminer une stimulation du VG (sinus coronaire, shunt, perforation septale).",
+      "Faux : l'aspect du QRS reflète le site de stimulation, pas un défaut de capture : l'énergie délivrée n'y change rien.",
+      "Faux : la configuration de stimulation modifie la taille du spike, pas le site d'activation ni l'aspect de retard droit."
+    ],
+    "reponseAttendue": null,
+    "explication": "La stimulation VD produit habituellement un aspect de retard gauche. Une R dominante en V1 doit faire éliminer une stimulation du VG : sonde dans une veine du sinus coronaire, sonde passée dans le VG via un FOP/CIA ou par voie artérielle, ou perforation du septum. Une sonde endocavitaire gauche expose au risque thromboembolique systémique. Un aspect de pseudo-retard droit peut toutefois exister avec une sonde bien placée (V1 enregistré trop haut, stimulation septale) : il disparaît souvent en enregistrant V1-V2 un espace intercostal plus bas. Ni l'énergie de stimulation ni la configuration uni- ou bipolaire ne modifient ce problème de position.",
+    "aRetenir": "R dominante en V1 lors d'une stimulation « VD » : éliminer une sonde en position gauche.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-015",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : CRT et stimulation de conduction",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Selon la recommandation HRS 2023 sur la stimulation physiologique, chez un patient avec une FEVG entre 36 et 50 % et une indication de stimulation où l'on prévoit une stimulation ventriculaire > 40 %, quelle stratégie est privilégiée ?",
+    "options": [
+      "Une CRT ou une stimulation de la voie de conduction",
+      "Une stimulation VD septale systématique plutôt qu'apicale",
+      "Un mode AAIR pour éviter toute stimulation ventriculaire",
+      "Un VVI à fréquence de base basse (40/min) en secours"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : avec une FEVG de 36 à 50 % et > 40 % de stimulation V attendue, la HRS 2023 juge raisonnable une stimulation plus physiologique.",
+      "Faux : la stimulation septale VD n'a pas démontré de supériorité claire sur l'apex pour prévenir la cardiomyopathie induite.",
+      "Faux : l'AAIR ne protège pas contre le BAV ; il est inadapté si une stimulation ventriculaire importante est attendue.",
+      "Faux : une fréquence de base basse ne supprime pas le besoin de stimulation V en cas de BAV."
+    ],
+    "reponseAttendue": null,
+    "explication": "La stimulation VD chronique entraîne une désynchronisation électrique et mécanique comparable à un BBG et peut conduire à une cardiomyopathie induite par la stimulation. La recommandation HRS/APHRS/LAHRS 2023 considère raisonnable, chez les patients avec FEVG entre 36 et 50 % et une stimulation ventriculaire attendue > 40 %, de préférer une stimulation plus physiologique (CRT ou stimulation de la voie de conduction) à la stimulation VD. Côté européen, l'ESC 2026 sur l'insuffisance cardiaque classe désormais toute FEVG < 50 % en ICFEr et recommande la CRT plutôt que la stimulation VD en cas de BAV de haut degré (classe IIa), sans se prononcer sur la stimulation de conduction ; le consensus ESC 2025 juge celle-ci envisageable en cas de BAV quelle que soit la FEVG. La stimulation septale VD n'a pas démontré de supériorité claire sur l'apex. L'AAI ne convient pas à un patient qui a besoin d'une stimulation ventriculaire, et abaisser la fréquence de base ne supprime pas le besoin de stimulation en cas de BAV.",
+    "aRetenir": "FEVG 36-50 % avec > 40 % de stimulation V attendue : préférer CRT ou stimulation de la voie de conduction.",
+    "sources": [
+      {
+        "titre": "Chung MK et al. 2023 HRS/APHRS/LAHRS guideline on cardiac physiologic pacing for the avoidance and mitigation of heart failure. Heart Rhythm 2023;20:e17-e91",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1538"
+      },
+      {
+        "titre": "Køber L, Adamo M, et al. 2026 ESC Guidelines for the management of heart failure. Eur Heart J 2026 (publication en ligne le 28 août 2026)",
+        "url": "https://doi.org/10.1093/eurheartj/ehag100"
+      },
+      {
+        "titre": "Glikson M, Burri H, Abdin A, et al. European Society of Cardiology (ESC) clinical consensus statement on indications for conduction system pacing, with special contribution of the EHRA. Europace 2025;27(4):euaf050",
+        "url": "https://doi.org/10.1093/europace/euaf050"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2026 insuffisance cardiaque",
+      "HRS 2023 stimulation physiologique",
+      "ESC/EHRA 2025 stimulation de conduction"
+    ]
+  },
+  {
+    "id": "ecg-stim-016",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : CRT et stimulation de conduction",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Lors d'une stimulation hissienne, quel aspect ECG définit la capture hissienne SÉLECTIVE ?",
+    "options": [
+      "QRS élargi, sans intervalle isoélectrique, avec pseudo-onde delta",
+      "QRS de type retard droit avec R dominante en V1 et V2",
+      "Spike suivi d'un QRS large, positif en V1 et négatif en DI",
+      "Intervalle isoélectrique spike-QRS et QRS identique au natif"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : c'est la définition de la capture hissienne non sélective (myocarde septal capturé en même temps).",
+      "Faux : un aspect de retard droit en V1 évoque plutôt la stimulation de la branche gauche.",
+      "Faux : un QRS large positif en V1 et négatif en DI évoque une activation gauche première, pas une capture hissienne.",
+      "Juste : seul le His est capturé ; l'influx emprunte le système de conduction, d'où un QRS natif précédé d'un intervalle proche du HV."
+    ],
+    "reponseAttendue": null,
+    "explication": "Dans la capture hissienne sélective, seul le faisceau de His est capturé : l'influx emprunte le système de conduction et le QRS est identique au QRS natif, précédé d'un intervalle isoélectrique entre le spike et le début du QRS (proche de l'intervalle HV). Dans la capture non sélective, le myocarde septal adjacent est capturé en même temps : il n'y a plus d'intervalle isoélectrique et une pseudo-onde delta apparaît, avec un QRS dont l'axe et la durée restent proches du natif. Un aspect de retard droit en V1 évoque plutôt la stimulation de la branche gauche. Ces définitions sont standardisées par le groupe de travail multicentrique de 2018.",
+    "aRetenir": "His sélectif = intervalle isoélectrique spike-QRS + QRS identique au natif.",
+    "sources": [
+      {
+        "titre": "Vijayaraman P et al. Permanent His bundle pacing: recommendations from a Multicenter His Bundle Pacing Collaborative Working Group for standardization of definitions, implant measurements, and follow-up. Heart Rhythm 2018;15:460-468",
+        "url": "https://doi.org/10.1016/j.hrthm.2017.10.039"
+      },
+      {
+        "titre": "Burri H et al. EHRA clinical consensus statement on conduction system pacing implantation. Europace 2023;25:1208-1236",
+        "url": "https://doi.org/10.1093/europace/euad043"
+      }
+    ],
+    "reco": [
+      "EHRA 2023 stimulation de conduction"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-017",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : CRT et stimulation de conduction",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 7,
+    "question": "En stimulation hissienne non sélective, la perte de la capture hissienne avec persistance de la capture myocardique se traduit sur l'ECG par un élargissement brutal du QRS.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Oui : quand seul le myocarde septal reste capturé, le QRS s'élargit brutalement (aspect de stimulation septale VD).",
+      "Non : la perte de la composante hissienne fait perdre l'activation rapide par le système de conduction, donc le QRS s'élargit."
+    ],
+    "reponseAttendue": null,
+    "explication": "En capture non sélective, le QRS résulte de l'activation simultanée du His et du myocarde septal. Si l'amplitude descend sous le seuil de capture hissienne tout en restant au-dessus du seuil myocardique, seul le myocarde septal est capturé : le QRS s'élargit brutalement (aspect de stimulation septale VD, type retard gauche). Ce changement de morphologie lors du test de seuil permet de mesurer séparément les deux seuils. Le seuil de capture hissienne pouvant être plus élevé que le seuil myocardique et augmenter au cours du suivi, cet élargissement du QRS sur un ECG de contrôle doit faire suspecter une perte de capture hissienne.",
+    "aRetenir": "Perte de capture hissienne avec capture myocardique conservée = élargissement brutal du QRS.",
+    "sources": [
+      {
+        "titre": "Vijayaraman P et al. Permanent His bundle pacing: recommendations from a Multicenter His Bundle Pacing Collaborative Working Group for standardization of definitions, implant measurements, and follow-up. Heart Rhythm 2018;15:460-468",
+        "url": "https://doi.org/10.1016/j.hrthm.2017.10.039"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-018",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : CRT et stimulation de conduction",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Après une stimulation de la zone de la branche gauche (LBBAP), l'ECG montre en V1 un aspect qR (pseudo-retard droit), avec un QRS stimulé de 120 ms. Comment l'interpréter ?",
+    "options": [
+      "Aspect attendu : le VD s'active après le VG via le septum",
+      "Sonde dans le VG via un FOP : repositionnement nécessaire",
+      "Perte de capture ventriculaire avec rythme d'échappement",
+      "Sonde restée à l'apex du VD, sans pénétration septale"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : en LBBAP, l'activation gauche précoce retarde relativement le VD : pseudo-retard droit attendu, sans prouver seul la capture de branche.",
+      "Faux : une sonde VG via un shunt donne aussi un retard droit, mais le contexte de vissage septal et l'imagerie permettent de trancher.",
+      "Faux : un QRS stimulé de 120 ms précédé du spike témoigne d'une capture ; un échappement ne suivrait pas le spike.",
+      "Faux : une stimulation apicale VD donne un retard gauche (QS en V1), pas un aspect qR."
+    ],
+    "reponseAttendue": null,
+    "explication": "En stimulation de la branche gauche, le VG est activé rapidement par le système de conduction gauche alors que le VD est activé plus tardivement, à travers le septum : on observe classiquement un aspect de pseudo-retard droit en V1 (qR, rSR' ou Qr). Cet aspect est attendu et quasi constant, mais il ne suffit pas pour affirmer la capture de la branche gauche (une stimulation septale profonde du VG peut le donner). Une sonde endocavitaire gauche via un shunt donne aussi un aspect de retard droit, mais le contexte, la profondeur de vissage dans le septum et l'imagerie permettent de trancher. La stimulation apicale du VD produit au contraire un aspect de retard gauche.",
+    "aRetenir": "En LBBAP, un pseudo-retard droit (qR/rSR') en V1 est attendu, mais ne prouve pas à lui seul la capture de la branche gauche.",
+    "sources": [
+      {
+        "titre": "Burri H et al. EHRA clinical consensus statement on conduction system pacing implantation. Europace 2023;25:1208-1236",
+        "url": "https://doi.org/10.1093/europace/euad043"
+      },
+      {
+        "titre": "Jastrzębski M. ECG and pacing criteria for differentiating conduction system pacing from myocardial pacing. Arrhythm Electrophysiol Rev 2021;10:172-180",
+        "url": "https://doi.org/10.15420/aer.2021.26"
+      }
+    ],
+    "reco": [
+      "EHRA 2023 stimulation de conduction"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-019",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : CRT et stimulation de conduction",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 9,
+    "question": "Parmi les critères suivants, lesquels sont en faveur d'une capture de la branche gauche (et non d'une simple stimulation septale gauche) lors d'une stimulation de la zone de la branche gauche ?",
+    "options": [
+      "Temps de pic de l'onde R en V6 court (< 75 ms si QRS natif fin) et constant quelle que soit l'amplitude",
+      "Intervalle entre le pic de R en V6 et le pic de R' en V1 > 44 ms",
+      "Transition de morphologie du QRS pendant le test de seuil (non sélective → sélective, ou → stimulation septale myocardique)",
+      "Aspect QS en V1",
+      "Durée du QRS stimulé > 160 ms"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "commentaires": [
+      "Juste : la capture de branche active vite la paroi latérale du VG ; un RWPT V6 court et stable entre haute et basse énergie est un critère clé.",
+      "Juste : cet intervalle V6-V1 > 44 ms (Jastrzębski 2021) traduit la dissociation activation gauche rapide / droite tardive ; très spécifique.",
+      "Juste : une transition lors du test de seuil démontre le passage d'une capture du système de conduction à une capture myocardique pure.",
+      "Faux : un QS en V1 évoque une stimulation septale droite sans pénétration suffisante vers la branche gauche.",
+      "Faux : un QRS stimulé > 160 ms n'évoque pas une capture du système de conduction."
+    ],
+    "reponseAttendue": null,
+    "explication": "La capture de la branche gauche active rapidement la paroi latérale du VG : le temps de pic de R en V6 est court (seuils proposés : < 75 ms en cas de QRS natif fin ou de BBD isolé, < 80 ms en cas de BBG ou de trouble de conduction non spécifique) et reste constant à haute et basse énergie. L'intervalle entre le pic de R en V6 et le pic de R' en V1 > 44 ms (Jastrzębski 2021) reflète la dissociation entre activation gauche rapide et activation droite tardive et est très spécifique. Une transition de morphologie lors du test de seuil démontre le passage d'une capture de la voie de conduction à une capture myocardique pure. Un aspect QS en V1 indique au contraire une stimulation septale droite sans pénétration suffisante, et un QRS > 160 ms n'évoque pas une capture du système de conduction.",
+    "aRetenir": "Capture de branche gauche : RWPT V6 court et constant, intervalle V6-V1 > 44 ms, transition lors du test de seuil.",
+    "sources": [
+      {
+        "titre": "Burri H et al. EHRA clinical consensus statement on conduction system pacing implantation. Europace 2023;25:1208-1236",
+        "url": "https://doi.org/10.1093/europace/euad043"
+      },
+      {
+        "titre": "Jastrzębski M et al. Physiology-based electrocardiographic criteria for left bundle branch capture. Heart Rhythm 2021;18:935-943",
+        "url": "https://doi.org/10.1016/j.hrthm.2021.02.021"
+      }
+    ],
+    "reco": [
+      "EHRA 2023 stimulation de conduction"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-020",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : CRT et stimulation de conduction",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Selon Jastrzębski et al. (2021), quel est le seuil de l'intervalle entre le pic de R en V6 et le pic de R' en V1 qui affirme avec une spécificité de 100 % la capture de la branche gauche ?",
+    "options": [
+      "> 20 ms",
+      "> 33 ms",
+      "> 44 ms",
+      "> 60 ms"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : un intervalle aussi court est observé en stimulation septale myocardique ; il n'est pas discriminant.",
+      "Faux : valeur voisine mais insuffisante : elle ne garantit pas la spécificité de 100 % rapportée dans l'étude.",
+      "Juste : un intervalle pic de R V6 – pic de R' V1 > 44 ms était spécifique à 100 % de la capture de la branche gauche.",
+      "Faux : le seuil publié est plus bas ; exiger > 60 ms ferait méconnaître de nombreuses captures de branche gauche."
+    ],
+    "reponseAttendue": null,
+    "explication": "Dans cette étude fondée sur la physiologie, les auteurs comparent la capture de la branche gauche (sélective ou non) à la stimulation septale gauche myocardique. Lorsque la branche gauche est capturée, la paroi latérale du VG (V6) est activée précocement, tandis que le VD (V1) l'est tardivement à travers le septum : l'intervalle entre les deux pics s'allonge. Un intervalle V6-V1 > 44 ms était spécifique à 100 % de la capture de la branche gauche ; des valeurs plus basses se chevauchent avec la stimulation septale, et un seuil plus élevé perdrait en sensibilité. Ce critère complète le temps de pic de R en V6 et est repris dans le consensus EHRA 2023 sur la stimulation de la voie de conduction.",
+    "aRetenir": "Intervalle pic de R V6 – pic de R' V1 > 44 ms = capture de la branche gauche.",
+    "sources": [
+      {
+        "titre": "Jastrzębski M et al. Physiology-based electrocardiographic criteria for left bundle branch capture. Heart Rhythm 2021;18:935-943",
+        "url": "https://doi.org/10.1016/j.hrthm.2021.02.021"
+      },
+      {
+        "titre": "Burri H et al. EHRA clinical consensus statement on conduction system pacing implantation. Europace 2023;25:1208-1236",
+        "url": "https://doi.org/10.1093/europace/euad043"
+      }
+    ],
+    "reco": [
+      "EHRA 2023 stimulation de conduction"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-021",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : dysfonctions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Patient porteur d'un stimulateur ventriculaire, en contrôle systématique. Quel est le diagnostic sur ce tracé ?",
+    "ecg": {
+      "preset": "perte-capture-v",
+      "fc": 60
+    },
+    "options": [
+      "Sur-détection ventriculaire",
+      "Sous-détection ventriculaire",
+      "Perte de capture ventriculaire",
+      "Hystérésis de fréquence (normal)"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : la sur-détection se traduit par une pause sans spike ; ici les spikes sont bien présents.",
+      "Faux : la sous-détection donne des spikes trop précoces après un QRS spontané ; ici les spikes tombent à l'intervalle attendu.",
+      "Juste : certains spikes, délivrés hors période réfractaire, ne sont suivis d'aucun QRS : c'est la définition de la perte de capture.",
+      "Faux : l'hystérésis allonge l'intervalle d'échappement, mais chaque spike reste suivi d'une capture."
+    ],
+    "reponseAttendue": null,
+    "explication": "Un spike émis en dehors de la période réfractaire du myocarde et non suivi d'une dépolarisation définit la perte de capture : l'énergie délivrée est inférieure au seuil de stimulation, ou le courant n'atteint pas le myocarde. La sur-détection se traduit au contraire par l'absence de spike (pause). La sous-détection correspond à des spikes émis de façon inappropriée malgré un QRS spontané. L'hystérésis allonge l'intervalle d'échappement mais chaque spike reste suivi d'une capture. Attention : un spike tombant dans la période réfractaire (juste après un QRS spontané) et non suivi de QRS n'est pas une perte de capture mais une non-capture fonctionnelle.",
+    "aRetenir": "Spike hors période réfractaire non suivi de QRS = perte de capture.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-022",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : dysfonctions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Patient stimulodépendant (BAV complet) hospitalisé pour lipothymies. Voici le tracé du scope. Quelle est la première mesure à prendre ?",
+    "ecg": {
+      "preset": "perte-capture-v",
+      "fc": 60
+    },
+    "options": [
+      "Appliquer un aimant sur le boîtier pour passer en asynchrone",
+      "Augmenter l'amplitude et la durée d'impulsion au maximum",
+      "Reprogrammer le stimulateur en mode DDI à 70/min",
+      "Rendre le canal ventriculaire moins sensible (valeur plus haute)"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : l'aimant supprime la détection, utile en cas de sur-détection, mais n'augmente pas l'énergie : les spikes resteraient inefficaces.",
+      "Juste : face à une perte de capture chez un dépendant, on restaure d'abord la capture par la sortie maximale, puis on cherche la cause.",
+      "Faux : changer de mode ne modifie pas l'énergie délivrée ; les spikes ventriculaires resteraient sous le seuil.",
+      "Faux : la sensibilité concerne la détection ; elle est sans effet sur une perte de capture."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le problème est une perte de capture : il faut restaurer la capture en augmentant la marge de sécurité (amplitude et durée d'impulsion maximales), puis rechercher la cause (seuil, impédance, radiographie à la recherche d'un déplacement de sonde, ionogramme). Si la programmation ne suffit pas, un support chronotrope (isoprénaline) ou une stimulation temporaire (externe ou par sonde endocavitaire) est nécessaire en attendant la révision. L'aimant provoque une stimulation asynchrone, utile en cas de sur-détection mais inefficace contre une perte de capture. Modifier la sensibilité ou le mode ne change rien à l'énergie délivrée.",
+    "aRetenir": "Perte de capture chez un patient dépendant : augmenter d'emblée amplitude et durée, puis chercher la cause.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-023",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : dysfonctions",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 5,
+    "question": "Parmi les causes suivantes, lesquelles peuvent expliquer l'anomalie visible sur ce tracé ?",
+    "ecg": {
+      "preset": "perte-capture-v",
+      "fc": 70
+    },
+    "options": [
+      "Déplacement de la sonde ventriculaire",
+      "Hyperkaliémie",
+      "Traitement par un antiarythmique de classe IC",
+      "Perfusion d'isoprénaline",
+      "Sensibilité ventriculaire programmée à une valeur trop basse (trop sensible)"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "commentaires": [
+      "Juste : le déplacement (ou microdéplacement) de sonde éloigne l'électrode du myocarde et fait monter le seuil : perte de capture.",
+      "Juste : l'hyperkaliémie élève le seuil de stimulation et peut entraîner une perte de capture.",
+      "Juste : les antiarythmiques de classe IC (flécaïnide) élèvent le seuil, surtout si la marge de sécurité est faible.",
+      "Faux : les catécholamines comme l'isoprénaline tendent plutôt à abaisser le seuil de stimulation.",
+      "Faux : une sensibilité excessive expose à la sur-détection (pauses sans spike), pas à une perte de capture."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le tracé montre des spikes ventriculaires non suivis de QRS : c'est une perte de capture. Elle peut être d'origine mécanique (déplacement ou microdéplacement de sonde, fracture du conducteur avec impédance très élevée, rupture d'isolant avec fuite de courant et impédance basse), liée à une élévation du seuil de stimulation (réaction inflammatoire précoce, fibrose, infarctus au contact de l'électrode) ou métabolique/pharmacologique (hyperkaliémie, acidose, antiarythmiques de classe IC comme la flécaïnide). L'épuisement de la batterie peut aussi en être responsable. L'isoprénaline tend au contraire à abaisser le seuil. Une sensibilité trop élevée (valeur en mV trop basse) expose à la sur-détection, c'est-à-dire à l'inhibition de la stimulation, et non à une perte de capture.",
+    "aRetenir": "Perte de capture : sonde (déplacement, fracture), seuil (fibrose, hyperkaliémie, classe IC) ou batterie.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-024",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : dysfonctions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Patient porteur d'un stimulateur programmé en AAI (dysfonction sinusale, conduction AV normale). Quel est le diagnostic sur ce tracé ?",
+    "ecg": {
+      "preset": "perte-capture-a",
+      "fc": 70
+    },
+    "options": [
+      "Mode switch sur un accès de tachycardie atriale",
+      "Sous-détection ventriculaire intermittente",
+      "Bloc sino-atrial du deuxième degré",
+      "Perte de capture atriale intermittente"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : le mode switch répond à une arythmie atriale rapide ; le rythme de fond est ici régulier et stimulé.",
+      "Faux : en AAI, il n'y a pas de canal ventriculaire ; une sous-détection donnerait des spikes malgré une activité spontanée.",
+      "Faux : un bloc sino-atrial concerne le rythme spontané et ne produit pas de spike ; ici le spike est présent mais inefficace.",
+      "Juste : certains spikes atriaux ne sont suivis ni d'une onde P ni du QRS conduit attendu : l'oreillette n'a pas été capturée."
+    ],
+    "reponseAttendue": null,
+    "explication": "Un spike atrial non suivi d'onde P témoigne d'une perte de capture atriale. Elle est plus difficile à reconnaître qu'une perte de capture ventriculaire car l'onde P stimulée est de faible amplitude : il faut analyser plusieurs dérivations et, en AAI avec conduction AV conservée, constater que le QRS attendu ne suit pas (en DDD, un spike ventriculaire serait délivré à la fin du délai AV). Les causes principales sont le déplacement de la sonde atriale (fréquent dans les premières semaines) et l'élévation du seuil. Un bloc sino-atrial concerne le rythme spontané et ne produit pas de spike. Le mode switch est un changement de mode lors d'une arythmie atriale, et une sous-détection ventriculaire se traduirait par des spikes émis malgré des QRS spontanés.",
+    "aRetenir": "Spike atrial sans onde P = perte de capture atriale.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-025",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : dysfonctions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Patient porteur d'un DDD avec conduction rétrograde VA préservée. Une perte de capture atriale intermittente apparaît. Quelle complication spécifique en découle ?",
+    "options": [
+      "Un crosstalk inhibant la stimulation ventriculaire",
+      "Une tachycardie par réentrée électronique (TRE)",
+      "Une sur-détection des myopotentiels sur le canal atrial",
+      "Un bloc 2:1 électronique à fréquence sinusale normale"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : le crosstalk est la détection du spike A par le canal V ; il ne dépend pas de la capture atriale.",
+      "Juste : sans capture atriale, l'oreillette reste excitable ; le QRS stimulé peut être conduit en rétrograde et la P rétrograde suivie amorce une TRE.",
+      "Faux : les myopotentiels sont liés à la configuration de détection et aux efforts musculaires, pas à la perte de capture.",
+      "Faux : le bloc 2:1 électronique survient quand le P-P devient plus court que la TARP, à fréquence sinusale élevée."
+    ],
+    "reponseAttendue": null,
+    "explication": "Lorsque le spike atrial ne capture pas l'oreillette, celle-ci reste excitable au moment de la stimulation ventriculaire. Si la conduction rétrograde VA est présente, le QRS stimulé peut alors être conduit à l'oreillette : cette P rétrograde, détectée hors PVARP, déclenche une nouvelle stimulation ventriculaire et amorce une TRE. La perte de capture atriale fait ainsi partie, avec les ESV, des déclencheurs classiques de TRE. Elle peut aussi induire des séquences de réponses rétrogrades répétitives non réentrantes. Le crosstalk, les myopotentiels et le bloc 2:1 électronique n'ont pas de lien direct avec cette situation.",
+    "aRetenir": "La perte de capture atriale avec conduction VA peut déclencher une TRE.",
+    "sources": [
+      {
+        "titre": "Alasti M et al. Pacemaker-mediated arrhythmias. J Arrhythm 2018;34:485-492",
+        "url": "https://doi.org/10.1002/joa3.12098"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-026",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : dysfonctions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Patient porteur d'un stimulateur ventriculaire, en rythme sinusal. Quel est le diagnostic sur ce tracé ?",
+    "ecg": {
+      "preset": "sous-detection",
+      "fc": 60
+    },
+    "options": [
+      "Sur-détection ventriculaire",
+      "Perte de capture ventriculaire",
+      "Sous-détection ventriculaire",
+      "Pseudo-fusion (fonctionnement normal)"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : la sur-détection se traduit par des pauses sans spike, pas par des spikes en excès.",
+      "Faux : les spikes non suivis de QRS tombent en période réfractaire, juste après un QRS spontané : non-capture fonctionnelle.",
+      "Juste : des spikes sont délivrés juste après des QRS spontanés, comme si le stimulateur ne les avait pas vus.",
+      "Faux : en pseudo-fusion, le spike tombe dans le QRS spontané lui-même ; ici il survient après, sur le segment ST ou l'onde T."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le stimulateur n'a pas « vu » l'activité spontanée : il se comporte comme s'il n'y avait rien et délivre ses stimulations à la fin de l'intervalle d'échappement, ce qui définit la sous-détection. Elle se manifeste par des spikes trop précoces par rapport au complexe spontané qui précède. Le risque principal au niveau ventriculaire est la chute d'un spike dans l'onde T (phénomène R sur T), rarement arythmogène mais possible. La sur-détection donne au contraire des pauses sans spike, et la perte de capture des spikes non suivis de dépolarisation en dehors de la période réfractaire. En pseudo-fusion, le spike tombe dans le QRS spontané, au moment de sa détection, et non après lui.",
+    "aRetenir": "Sous-détection = spikes émis malgré une activité spontanée qui aurait dû inhiber le stimulateur.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-027",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : dysfonctions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "En consultation, chez ce patient, le QRS spontané mesure 2,5 mV et la sensibilité ventriculaire est programmée à 4 mV. Quel réglage corrige l'anomalie visible sur le tracé ?",
+    "ecg": {
+      "preset": "sous-detection",
+      "fc": 60
+    },
+    "options": [
+      "Passer la sensibilité à 1 mV (canal plus sensible)",
+      "Passer la sensibilité à 8 mV (canal moins sensible)",
+      "Augmenter l'amplitude de stimulation de 2,5 à 5 V",
+      "Allonger la période réfractaire ventriculaire"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : un QRS de 2,5 mV n'est pas vu avec un seuil de 4 mV ; à 1 mV, on retrouve une marge de sécurité de 2 à 3.",
+      "Faux : c'est le piège de vocabulaire : augmenter la valeur en mV rend le canal moins sensible et aggrave la sous-détection.",
+      "Faux : l'amplitude de stimulation concerne la capture ; le défaut est ici un défaut de détection.",
+      "Faux : allonger la période réfractaire favoriserait la non-prise en compte de signaux précoces."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le tracé montre des spikes émis malgré des QRS spontanés : c'est une sous-détection. La sensibilité correspond au seuil d'amplitude au-dessus duquel un signal est reconnu. Un QRS de 2,5 mV n'est pas détecté si le seuil est de 4 mV : il faut abaisser la valeur programmée, idéalement à la moitié ou au tiers de l'amplitude du signal (marge de sécurité de 2 à 3), soit ici environ 1 mV. Le piège classique est la confusion de vocabulaire : diminuer la valeur en mV rend l'appareil plus sensible. Augmenter la valeur aggraverait la sous-détection. L'amplitude de stimulation concerne la capture, et allonger la période réfractaire favoriserait la non-détection de signaux précoces.",
+    "aRetenir": "Sous-détection : diminuer la valeur de sensibilité (en mV) pour rendre le boîtier plus sensible.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-028",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : dysfonctions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Patient porteur d'un stimulateur ventriculaire. Quel est le mécanisme le plus probable de l'anomalie visible sur ce tracé ?",
+    "ecg": {
+      "preset": "sur-detection",
+      "fc": 60
+    },
+    "options": [
+      "Sous-détection de l'activité spontanée",
+      "Perte de capture ventriculaire intermittente",
+      "Stimulation de sécurité (safety pacing)",
+      "Sur-détection avec inhibition inappropriée"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : la sous-détection donne des spikes en excès, émis malgré l'activité spontanée, et non une pause.",
+      "Faux : la perte de capture laisse visibles des spikes non suivis de QRS ; ici aucun spike n'est émis pendant la pause.",
+      "Faux : la stimulation de sécurité ajoute un spike V à délai AV court ; elle ne crée pas de pause.",
+      "Juste : une pause sans spike plus longue que l'intervalle de base signifie que le boîtier s'est inhibé sur un signal mal interprété."
+    ],
+    "reponseAttendue": null,
+    "explication": "Une pause sans spike plus longue que l'intervalle de base (ou d'hystérésis) signifie que le stimulateur s'est inhibé : il a détecté un signal qu'il a interprété à tort comme une activité cardiaque. C'est la sur-détection ; les petites oscillations irrégulières de la ligne de base pendant la pause évoquent ici des myopotentiels. Les signaux en cause peuvent être des myopotentiels, des ondes T ou des ondes P lointaines, un bruit lié à une fracture de sonde ou à une interférence électromagnétique. Avant de conclure, il faut éliminer une hystérésis programmée et une batterie en fin de vie. La perte de capture laisse visibles des spikes, et la sous-détection se traduit par des spikes en excès.",
+    "aRetenir": "Pause sans spike > intervalle de base = sur-détection jusqu'à preuve du contraire.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-029",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : dysfonctions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Patient de 78 ans porteur d'un stimulateur VVI, sonde en configuration de détection unipolaire. Il décrit des lipothymies en portant ses courses. Voici le tracé Holter enregistré pendant un symptôme. Quel est le diagnostic le plus probable ?",
+    "ecg": {
+      "preset": "sur-detection",
+      "fc": 60
+    },
+    "options": [
+      "Perte de capture par déplacement de sonde",
+      "Crosstalk entre canaux atrial et ventriculaire",
+      "Sur-détection des myopotentiels pectoraux",
+      "Épuisement de la batterie (fin de vie)"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : une perte de capture laisse des spikes visibles non suivis de QRS ; ici la pause est sans spike.",
+      "Faux : le crosstalk ne concerne que les systèmes double chambre ; ce patient a un VVI.",
+      "Juste : pause sans spike avec parasitage de la ligne de base lors d'un effort des bras, en unipolaire : inhibition par les myopotentiels.",
+      "Faux : l'usure de la pile ralentit la fréquence de façon progressive et permanente, sans pauses liées à l'effort des bras."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le tracé montre une pause sans spike, contemporaine d'un parasitage fin et irrégulier de la ligne de base. En configuration unipolaire, le boîtier sert d'anode : les potentiels des muscles pectoraux sont captés par le circuit de détection. Lors des efforts des membres supérieurs, ces myopotentiels sont interprétés comme des QRS et inhibent la stimulation, d'où des pauses symptomatiques chez un patient dépendant. Le diagnostic se confirme en reproduisant les symptômes par des manœuvres de provocation (contraction pectorale, adduction des bras) sous surveillance ECG ou marqueurs. Le traitement consiste à programmer une détection bipolaire si la sonde le permet ou, à défaut, à réduire la sensibilité. Le crosstalk ne concerne que les systèmes double chambre.",
+    "aRetenir": "Pauses à l'effort du bras avec sonde unipolaire = sur-détection des myopotentiels pectoraux.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-030",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : dysfonctions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Qu'appelle-t-on crosstalk dans un stimulateur double chambre ?",
+    "options": [
+      "Détection de l'onde R lointaine par le canal atrial",
+      "Détection du spike atrial par le canal ventriculaire",
+      "Conduction rétrograde d'un QRS stimulé vers l'oreillette",
+      "Capture des deux cavités par un même spike atrial"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : c'est la sur-détection d'une onde R lointaine (far-field R), autre phénomène, source de mode switch inapproprié.",
+      "Juste : le canal V prend le spike A pour un QRS et inhibe la stimulation ventriculaire : risque d'asystolie en cas de BAV complet.",
+      "Faux : la conduction rétrograde VA est le bras de retour de la TRE, pas un crosstalk.",
+      "Faux : un spike atrial ne capture pas le ventricule ; le crosstalk est un problème de détection, pas de capture."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le crosstalk (diaphonie) désigne classiquement la détection par le canal ventriculaire d'un signal d'origine atriale, surtout le spike atrial, en particulier quand l'amplitude atriale est élevée et la sensibilité ventriculaire élevée. Le canal ventriculaire croit alors à un QRS et inhibe la stimulation ventriculaire : chez un patient en BAV complet, cela peut provoquer une asystolie. Deux protections existent : la période de blanking ventriculaire post-atriale et la stimulation de sécurité (safety pacing). La détection d'une onde R lointaine par le canal atrial (far-field R) est une autre forme de sur-détection, qui peut notamment provoquer un mode switch inapproprié.",
+    "aRetenir": "Crosstalk = le canal V détecte le spike A et inhibe la stimulation ventriculaire.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-031",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : dysfonctions",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 7,
+    "question": "Un Holter chez un porteur de stimulateur double chambre montre des pauses sans spike ventriculaire. Quelles causes de sur-détection recherchez-vous et comment ?",
+    "reponseAttendue": "Causes : myopotentiels (surtout en unipolaire), onde T ou onde P lointaine, crosstalk (spike A détecté par le canal V), bruit de sonde (fracture, défaut d'isolant, connexion desserrée), interférences électromagnétiques. Démarche : interrogation avec EGM mémorisés et marqueurs, mesures d'impédance, manœuvres de provocation (bras, manipulation de la loge), radiographie, puis correction (sensibilité, configuration bipolaire, blanking, révision de sonde).",
+    "explication": "Une pause sans spike traduit une inhibition du stimulateur par un signal non cardiaque ou un signal cardiaque mal classé. L'interrogation est l'étape clé : les électrogrammes mémorisés et le canal de marqueurs montrent ce que l'appareil a « vu » (Vs sur un bruit, sur l'onde T, sur le spike A). Un bruit anarchique, non physiologique, associé à des variations d'impédance évoque une atteinte de la sonde ou de la connexion. Les myopotentiels se reproduisent par des manœuvres musculaires, et le crosstalk par une augmentation de l'amplitude atriale avec une sensibilité ventriculaire élevée. Il faut éliminer en premier lieu une hystérésis ou un algorithme favorisant la conduction intrinsèque avant de conclure à une dysfonction.",
+    "aRetenir": "Pause sans spike : interroger le boîtier (EGM + marqueurs) pour identifier le signal sur-détecté.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-032",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Patient en DDD, délai AV stimulé programmé à 200 ms. Sur quelques cycles, le spike V survient environ 110 ms après le spike A, au moment d'une ESV spontanée. Quelle est l'explication ?",
+    "options": [
+      "Stimulation de sécurité (safety pacing) sur l'ESV",
+      "Sous-détection de l'ESV par le canal ventriculaire",
+      "Tachycardie par réentrée électronique débutante",
+      "Raccourcissement dynamique du délai AV à l'effort"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : un signal détecté dans la fenêtre de crosstalk déclenche un spike V à délai AV court (≈ 100-120 ms) au lieu d'une inhibition.",
+      "Faux : l'ESV a bien été détectée, dans la fenêtre de sécurité ; c'est cette détection qui a déclenché le spike précoce.",
+      "Faux : une TRE est une tachycardie soutenue à P rétrogrades suivies, pas quelques spikes V précoces au moment d'ESV.",
+      "Faux : le délai AV dynamique raccourcit modérément le délai AV à fréquence élevée, sans lien avec une ESV."
+    ],
+    "reponseAttendue": null,
+    "explication": "Après un spike atrial, le canal ventriculaire est aveugle pendant le blanking post-atrial, puis s'ouvre une courte fenêtre (fenêtre de détection de crosstalk ou de sécurité). Tout signal détecté dans cette fenêtre peut être un crosstalk ou un vrai QRS (ESV) : par prudence, le boîtier délivre un spike ventriculaire à un délai AV raccourci (de l'ordre de 100 à 120 ms selon les fabricants) au lieu de s'inhiber. Si le signal était une ESV, le spike tombe dans le QRS, en période réfractaire, sans danger ; si c'était du crosstalk, le patient est protégé de l'asystolie. Un raccourcissement dynamique du délai AV ne produit pas un délai aussi court ni lié à une ESV.",
+    "aRetenir": "Spike V à AV très court tombant dans une ESV après un spike A = safety pacing, fonctionnement normal.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-033",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 6,
+    "question": "Le spike ventriculaire délivré lors d'une stimulation de sécurité (safety pacing) sur une ESV expose à un risque élevé de FV par phénomène R sur T.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Non : le spike de sécurité est délivré à délai AV court, dans le QRS de l'ESV, en période réfractaire : il ne peut pas tomber sur l'onde T.",
+      "Oui : le délai volontairement court place le spike dans le QRS de l'ESV ; il protège du crosstalk sans créer de R sur T."
+    ],
+    "reponseAttendue": null,
+    "explication": "La stimulation de sécurité est délivrée avec un délai AV court (environ 100-120 ms) après le spike atrial, c'est-à-dire dans le QRS de l'ESV qui a été détectée, donc en période réfractaire absolue du myocarde. Le spike ne peut ni capturer ni tomber sur l'onde T. C'est précisément pour cela que ce délai est volontairement court : il protège contre l'asystolie en cas de crosstalk sans créer de risque de R sur T. Ce phénomène est normal et ne doit pas être pris pour une sous-détection.",
+    "aRetenir": "Le safety pacing tombe dans le QRS (période réfractaire) : il est sans danger.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-034",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Stimulateur VVI programmé avec une fréquence de base à 60/min et une hystérésis à 50/min. Le Holter montre un rythme spontané à 55/min, sans aucun spike. Quelle est l'interprétation ?",
+    "options": [
+      "Sur-détection ventriculaire inhibant la stimulation",
+      "Perte de capture ventriculaire intermittente",
+      "Épuisement de la batterie avec baisse de fréquence",
+      "Fonctionnement normal lié à l'hystérésis programmée"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : aucune pause anormale : le rythme spontané reste au-dessus de la fréquence d'hystérésis.",
+      "Faux : aucun spike n'est délivré, donc aucune perte de capture ne peut être observée.",
+      "Faux : un rythme spontané sous la fréquence de base s'explique ici par l'hystérésis, pas par l'usure de la pile.",
+      "Juste : après un battement spontané, l'intervalle d'échappement vaut 1 200 ms (50/min) ; un rythme à 55/min n'est donc pas stimulé."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'hystérésis permet au rythme spontané de descendre sous la fréquence de base : après un événement détecté, le stimulateur attend un intervalle plus long (60 000/50 = 1 200 ms) avant de stimuler. Tant que le rythme spontané reste au-dessus de 50/min, aucune stimulation n'est délivrée, ce qui favorise l'activation spontanée et préserve la batterie. Si le stimulateur doit stimuler, il le fait ensuite à la fréquence de base (1 000 ms). Le piège est de conclure à une sur-détection ou à une dysfonction en voyant un rythme spontané sous la fréquence de base programmée : il faut toujours vérifier la programmation de l'hystérésis.",
+    "aRetenir": "Hystérésis : après un battement spontané, l'intervalle d'échappement est plus long que l'intervalle de base.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-035",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 3,
+    "question": "Lorsque l'hystérésis est programmée, l'intervalle d'échappement après un événement détecté est plus court que l'intervalle entre deux stimulations consécutives.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Non : c'est l'inverse : après un battement spontané, le boîtier attend l'intervalle d'hystérésis, plus long que l'intervalle de base.",
+      "Oui : l'intervalle QRS spontané – spike est plus long que l'intervalle spike – spike ; c'est la définition de l'hystérésis."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'affirmation inverse la définition de l'hystérésis de fréquence. Après un battement spontané, le stimulateur attend l'intervalle d'hystérésis, plus long ; une fois qu'il stimule, il continue à la fréquence de base, plus rapide. Sur l'ECG, le premier intervalle « battement spontané – spike » est donc plus long que les intervalles « spike – spike » suivants. Cette fonction ne doit pas être confondue avec une sur-détection, qui allonge aussi un intervalle mais de façon inappropriée, sans rapport fixe avec la programmation.",
+    "aRetenir": "Hystérésis : intervalle QRS spontané-spike > intervalle spike-spike.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-036",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Patient en DDD programmé avec un algorithme de recherche de conduction AV intrinsèque. L'ECG montre, par périodes, des P stimulées suivies de QRS fins spontanés avec un PR à 280 ms, alternant avec des périodes de stimulation AV séquentielle à délai AV de 180 ms. Quelle est l'interprétation ?",
+    "options": [
+      "Fonctionnement normal de l'algorithme de minimisation",
+      "Sous-détection ventriculaire intermittente des QRS fins",
+      "Wenckebach électronique à la fréquence maximale",
+      "Perte de capture ventriculaire intermittente sur la sonde"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : l'algorithme allonge périodiquement le délai AV pour laisser s'exprimer la conduction spontanée, puis revient au délai programmé.",
+      "Faux : les QRS fins inhibent correctement la stimulation ; il n'y a pas de spike émis malgré un QRS spontané.",
+      "Faux : le Wenckebach électronique survient quand la fréquence sinusale dépasse la FMS, pas à fréquence de repos.",
+      "Faux : pendant les périodes stimulées, chaque spike V est suivi d'un QRS ; les QRS fins sont conduits, non des échappements."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les algorithmes de minimisation de la stimulation ventriculaire (hystérésis AV, recherche de conduction intrinsèque, ou modes à commutation AAI/DDD selon les fabricants) allongent périodiquement le délai AV pour laisser s'exprimer la conduction spontanée. Si un QRS spontané survient dans ce délai allongé, le stimulateur s'inhibe ; sinon, il revient au délai AV programmé. Ces variations du délai AV sont donc attendues. Un Wenckebach électronique survient à la fréquence maximale de suivi, pas à fréquence de repos. Le rationnel est de réduire la stimulation VD inutile, délétère à long terme, mais un PR très long peut aussi être mal toléré.",
+    "aRetenir": "Variations périodiques du délai AV sous algorithme de minimisation de la stimulation V : fonctionnement normal.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-037",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : dysfonctions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Patient porteur d'un stimulateur ventriculaire, dont le rythme sinusal est proche de la fréquence de base. Quel phénomène explique l'aspect variable des QRS sur ce tracé ?",
+    "ecg": {
+      "preset": "fusion",
+      "fc": 70
+    },
+    "options": [
+      "Perte de capture intermittente",
+      "Sous-détection intermittente",
+      "Fusion et pseudo-fusion",
+      "Crosstalk atrio-ventriculaire"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : chaque spike tombe dans un QRS ou le précède immédiatement ; aucun spike hors période réfractaire n'est isolé.",
+      "Faux : les spikes surviennent au moment où le QRS spontané débute, avant sa détection par la sonde, pas après lui.",
+      "Juste : certains QRS ont une morphologie intermédiaire (fusion), d'autres restent spontanés malgré un spike (pseudo-fusion).",
+      "Faux : le crosstalk concerne la détection du spike atrial par le canal V en double chambre ; il n'explique pas des QRS hybrides."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le battement de fusion résulte de l'activation du ventricule à la fois par l'influx spontané et par la stimulation, délivrée à peu près au même moment : le QRS a une morphologie hybride, intermédiaire entre le QRS spontané et le QRS entièrement stimulé. Sur ce tracé coexistent des QRS stimulés, des QRS spontanés, des battements de fusion et des pseudo-fusions (spike dans un QRS spontané inchangé). Ce phénomène est normal lorsque le rythme spontané est proche de la fréquence de stimulation : la dépolarisation spontanée a commencé mais n'a pas encore été détectée par la sonde. Ce n'est ni une sous-détection ni une perte de capture.",
+    "aRetenir": "Fusion = QRS de morphologie intermédiaire ; pseudo-fusion = spike sans effet dans un QRS spontané : deux phénomènes normaux.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-038",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : dysfonctions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Un spike ventriculaire tombe dans un QRS spontané dont la morphologie est strictement identique à celle des autres QRS spontanés. Comment qualifie-t-on ce battement ?",
+    "ecg": {
+      "preset": "fusion",
+      "fc": 70
+    },
+    "options": [
+      "Fusion",
+      "Pseudo-fusion",
+      "Pseudo-pseudo-fusion",
+      "Perte de capture"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : en fusion, le spike participe à l'activation : le QRS prend une morphologie intermédiaire.",
+      "Juste : le spike tombe dans un ventricule déjà en cours de dépolarisation ; il ne participe pas à l'activation et le QRS reste inchangé.",
+      "Faux : la pseudo-pseudo-fusion concerne un spike ATRIAL superposé à un QRS spontané.",
+      "Faux : le myocarde est réfractaire au moment du spike : on ne peut pas parler de perte de capture."
+    ],
+    "reponseAttendue": null,
+    "explication": "En pseudo-fusion, le spike ventriculaire est délivré alors que le ventricule est déjà en cours de dépolarisation spontanée (le signal n'avait pas encore atteint l'électrode ou dépassé le seuil de détection). Le spike tombe en période réfractaire et ne contribue pas à l'activation : le QRS garde la morphologie spontanée. En fusion, le QRS a une morphologie intermédiaire. La pseudo-pseudo-fusion concerne un spike atrial tombant dans un QRS. On ne parle pas de perte de capture car le myocarde est réfractaire au moment du spike.",
+    "aRetenir": "Pseudo-fusion = spike V sans effet dans un QRS spontané de morphologie inchangée.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-039",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : dysfonctions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Chez un patient en DDD, un spike ATRIAL apparaît superposé au début d'un QRS spontané (typiquement une ESV). Comment appelle-t-on ce phénomène ?",
+    "options": [
+      "Crosstalk (diaphonie)",
+      "Fusion atrio-ventriculaire",
+      "Pseudo-fusion ventriculaire",
+      "Pseudo-pseudo-fusion"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : le crosstalk est la détection du spike A par le canal V, avec inhibition ; ce n'est pas une superposition sur l'ECG.",
+      "Faux : ce terme ne correspond pas à un phénomène défini ; un spike atrial ne participe pas à l'activation ventriculaire.",
+      "Faux : la pseudo-fusion concerne un spike VENTRICULAIRE tombant dans un QRS spontané.",
+      "Juste : un spike atrial émis à la fin de l'intervalle VA tombe dans un QRS déjà débuté mais pas encore détecté ; phénomène normal."
+    ],
+    "reponseAttendue": null,
+    "explication": "La pseudo-pseudo-fusion désigne un spike atrial tombant dans un QRS spontané, en stimulation double chambre. Elle survient quand un QRS (souvent une ESV) a débuté sur l'ECG de surface mais n'a pas encore été détecté par la sonde ventriculaire au moment où l'intervalle VA se termine : le spike atrial est émis et se superpose au QRS, sans aucun effet sur le ventricule. Selon le moment où l'ESV est ensuite détectée, le canal ventriculaire s'inhibe ou délivre une stimulation de sécurité. Ce phénomène est normal et ne témoigne pas d'une dysfonction. La pseudo-fusion concerne un spike VENTRICULAIRE tombant dans un QRS spontané, le crosstalk est la détection du spike A par le canal V, et la « fusion atrio-ventriculaire » ne décrit aucun phénomène reconnu.",
+    "aRetenir": "Pseudo-pseudo-fusion = spike atrial superposé à un QRS spontané en DDD, phénomène normal.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-040",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : dysfonctions",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 4,
+    "question": "Des battements de fusion et de pseudo-fusion fréquents chez un porteur de stimulateur simple chambre VVI dont le rythme spontané est proche de la fréquence de base traduisent une dysfonction nécessitant une révision de sonde.",
+    "ecg": {
+      "preset": "fusion",
+      "fc": 62
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Non : quand le rythme spontané est proche de la fréquence de base, fusion et pseudo-fusion sont physiologiques, sans sous-détection ni perte de capture.",
+      "Oui : ce sont des phénomènes normaux en stimulation antibradycardique ; ils ne deviennent un problème que sous CRT."
+    ],
+    "reponseAttendue": null,
+    "explication": "Fusion et pseudo-fusion sont des phénomènes physiologiques quand la fréquence spontanée est proche de la fréquence de stimulation : la dépolarisation spontanée commence avant d'être détectée par la sonde, et le spike est délivré à ce moment-là. Il n'y a ni sous-détection ni perte de capture. Si ces battements sont gênants pour l'analyse, on peut abaisser la fréquence de base ou programmer une hystérésis. En revanche, sous CRT, la fusion et la pseudo-fusion sont délétères car elles réduisent la stimulation biventriculaire effective.",
+    "aRetenir": "En stimulation antibradycardique, fusion et pseudo-fusion sont normales ; sous CRT, elles sont à corriger.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-041",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : dysfonctions",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 6,
+    "question": "Définissez et distinguez la fusion, la pseudo-fusion et la pseudo-pseudo-fusion.",
+    "ecg": {
+      "preset": "fusion",
+      "fc": 70
+    },
+    "reponseAttendue": "Fusion : QRS de morphologie intermédiaire, activé à la fois par le spike V et l'influx spontané. Pseudo-fusion : spike V tombant dans un QRS spontané sans le modifier (spike en période réfractaire). Pseudo-pseudo-fusion : spike ATRIAL superposé à un QRS spontané en stimulation double chambre. Les trois sont des phénomènes normaux, non des dysfonctions.",
+    "explication": "Ces trois phénomènes surviennent quand l'activité spontanée et la stimulation se superposent dans le temps. La fusion est la seule dans laquelle le spike participe réellement à l'activation ventriculaire, d'où la morphologie hybride. En pseudo-fusion, le spike ventriculaire est inefficace car le myocarde est déjà dépolarisé. En pseudo-pseudo-fusion, c'est le spike atrial, inopérant sur le ventricule, qui se superpose au QRS. Leur connaissance évite de conclure à tort à une sous-détection ou à une perte de capture.",
+    "aRetenir": "Fusion (morphologie hybride), pseudo-fusion (spike V inefficace), pseudo-pseudo-fusion (spike A dans le QRS) : trois phénomènes normaux.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-042",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Patient en DDD, fréquence maximale de suivi 130/min. Lors d'un effort, la fréquence sinusale dépasse 130/min. L'ECG montre un allongement progressif de l'intervalle entre la P détectée et le spike V, puis une P non suivie de stimulation ventriculaire. De quoi s'agit-il ?",
+    "options": [
+      "BAV 2 Mobitz I spontané",
+      "Wenckebach électronique",
+      "Bloc 2:1 électronique",
+      "Mode switch vers un mode DDI"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : le spike V retardé est délivré par le stimulateur, qui limite lui-même sa fréquence ; ce n'est pas un bloc nodal spontané.",
+      "Juste : le spike V est retardé jusqu'à la fin de l'intervalle de la FMS, le délai P-spike s'allonge, puis une P tombe dans la PVARP.",
+      "Faux : le bloc 2:1 électronique donne une P sur deux non suivie, sans allongement progressif préalable.",
+      "Faux : le mode switch répond à une arythmie atriale, pas à une tachycardie sinusale d'effort."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le stimulateur ne peut pas stimuler le ventricule plus vite que la fréquence maximale de suivi (FMS). Quand la fréquence sinusale la dépasse, le spike V est retardé jusqu'à la fin de l'intervalle de la FMS : l'intervalle P-spike V s'allonge à chaque cycle. Une P finit par tomber dans la PVARP : elle n'est pas suivie, ce qui recrée un cycle. C'est un pseudo-Wenckebach électronique, qui survient tant que la fréquence sinusale reste entre la FMS et la fréquence de bloc 2:1. Il ne s'agit pas d'un BAV spontané (le spike V retardé est délivré par le stimulateur, qui limite lui-même sa fréquence) ni d'un mode switch, qui répond à une arythmie atriale.",
+    "aRetenir": "Fréquence sinusale > FMS : allongement progressif AS-VP puis P bloquée = Wenckebach électronique.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-043",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Stimulateur DDD : délai AV après détection 150 ms, PVARP 250 ms, fréquence maximale de suivi 130/min. À partir de quelle fréquence sinusale apparaît un bloc 2:1 électronique ?",
+    "options": [
+      "120/min",
+      "130/min",
+      "150/min",
+      "170/min"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : à 120/min, la fréquence sinusale est encore sous la FMS : le suivi est 1:1.",
+      "Faux : 130/min est la FMS, c'est-à-dire le début du Wenckebach électronique, pas celui du bloc 2:1.",
+      "Juste : TARP = 150 + 250 = 400 ms ; 60 000/400 = 150/min.",
+      "Faux : ce calcul oublie une partie de la TARP ; le bloc 2:1 survient dès que le P-P passe sous 400 ms."
+    ],
+    "reponseAttendue": null,
+    "explication": "La période réfractaire atriale totale (TARP) est la somme du délai AV après détection et de la PVARP : 150 + 250 = 400 ms. Si l'intervalle P-P devient plus court que la TARP, une P sur deux tombe dans la PVARP et n'est pas suivie : c'est le bloc 2:1. La fréquence correspondante est 60 000/400 = 150/min. Entre 130/min (FMS) et 150/min, le patient présente un Wenckebach électronique. Le piège consiste à confondre la FMS (130/min, début du Wenckebach) avec la fréquence de bloc 2:1.",
+    "aRetenir": "Fréquence de bloc 2:1 = 60 000 / TARP (délai AV + PVARP).",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-044",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 8,
+    "question": "DDD : délai AV après détection 150 ms, PVARP 250 ms, FMS 130/min (délai AV et PVARP fixes). Décrivez le comportement ventriculaire quand la fréquence sinusale passe progressivement de 110 à 170/min.",
+    "reponseAttendue": "Jusqu'à 130/min : suivi 1:1. Entre 130 et 150/min : Wenckebach électronique (allongement progressif AS-VP, P périodiquement dans la PVARP). Au-delà de 150/min (P-P < TARP de 400 ms) : bloc 2:1 électronique, fréquence ventriculaire brutalement divisée par deux (≈ 75-85/min).",
+    "explication": "La FMS (130/min, soit ~460 ms) fixe l'intervalle minimal entre deux stimulations ventriculaires, tandis que la TARP (150 + 250 = 400 ms) fixe l'intervalle P-P minimal permettant de détecter chaque P. Tant que le P-P est plus long que l'intervalle de la FMS, chaque P est suivie normalement. Entre 460 et 400 ms de P-P, le spike V est retardé et une P finit par tomber dans la PVARP : Wenckebach électronique, avec une fréquence ventriculaire moyenne proche de la FMS. Sous 400 ms, une P sur deux tombe dans la PVARP : la fréquence ventriculaire chute brutalement de moitié (par exemple 160/min → 80/min), souvent mal tolérée à l'effort. Les délais AV dynamiques et la PVARP adaptative raccourcissent la TARP à l'effort et repoussent le bloc 2:1.",
+    "aRetenir": "FMS = début du Wenckebach électronique ; 60 000/TARP = début du bloc 2:1.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-045",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 6,
+    "question": "Si la TARP est plus longue que l'intervalle correspondant à la fréquence maximale de suivi, le patient passe directement d'une conduction 1:1 à un bloc 2:1 électronique, sans phase de Wenckebach.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Oui : le Wenckebach n'existe qu'entre l'intervalle de la FMS et la TARP ; si la TARP est plus longue, le 2:1 survient d'emblée.",
+      "Non : sans fenêtre entre FMS et 60 000/TARP, les P tombent dans la PVARP avant que la FMS ne limite la stimulation : 2:1 direct."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le Wenckebach électronique n'existe que dans la fenêtre située entre l'intervalle de la FMS et la TARP. Si la TARP est plus longue que l'intervalle de la FMS (fréquence de bloc 2:1 inférieure ou égale à la FMS), les P tombent dans la PVARP avant même que la FMS ne limite la stimulation ventriculaire : le passage se fait directement au bloc 2:1. Par exemple, avec une TARP de 500 ms (2:1 à 120/min) et une FMS de 130/min, il n'y a pas de Wenckebach. Ce comportement brutal est particulièrement mal toléré chez le sujet jeune et actif.",
+    "aRetenir": "Pas de fenêtre entre FMS et 60 000/TARP = pas de Wenckebach, bloc 2:1 d'emblée.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-046",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Patient de 35 ans en BAV complet congénital, implanté en DDD. Il décrit une dyspnée brutale à l'effort intense. Le test d'effort montre une fréquence ventriculaire qui chute brutalement de 140 à 70/min alors que la fréquence sinusale est à 140/min. Quelle est la conduite la plus adaptée ?",
+    "options": [
+      "Remplacer le stimulateur par un DAI double chambre",
+      "Programmer le mode VVIR pour supprimer le suivi",
+      "Raccourcir la TARP (AV, PVARP) et relever la FMS",
+      "Allonger la PVARP pour prévenir une TRE à l'effort"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : il n'y a aucune arythmie ventriculaire ; le problème est une limite de programmation.",
+      "Faux : le VVIR supprimerait la synchronisation AV et remplacerait un sinus efficace par un capteur.",
+      "Juste : la chute de moitié traduit un bloc 2:1 électronique ; raccourcir la TARP et relever la FMS permet de suivre le sinus à l'effort.",
+      "Faux : allonger la PVARP allongerait la TARP et abaisserait encore la fréquence de bloc 2:1."
+    ],
+    "reponseAttendue": null,
+    "explication": "La chute brutale de la fréquence ventriculaire de moitié traduit un bloc 2:1 électronique : l'intervalle P-P est devenu plus court que la TARP. Chez un sujet jeune, il faut adapter la programmation pour suivre des fréquences sinusales élevées : raccourcissement dynamique du délai AV à l'effort, PVARP plus courte (en tenant compte du risque de TRE si conduction VA), et FMS plus élevée, tout en conservant une phase de Wenckebach mieux tolérée qu'un bloc 2:1. Allonger la PVARP ferait l'inverse. Le VVIR supprimerait la synchronisation AV et l'adaptation chronotrope sinusale. Le DAI ne répond pas au problème.",
+    "aRetenir": "Chute brutale de moitié de la fréquence à l'effort en DDD = bloc 2:1 électronique : raccourcir la TARP et relever la FMS.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-047",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Patient porteur d'un stimulateur DDD (FMS 130/min) qui décrit des palpitations de début brutal. Quel est le mécanisme de la tachycardie enregistrée sur ce tracé ?",
+    "ecg": {
+      "preset": "ttre",
+      "fc": 130
+    },
+    "options": [
+      "Réentrée électronique par P rétrograde suivie",
+      "TV monomorphe sur cardiopathie ischémique",
+      "Tachycardie sinusale suivie par le stimulateur",
+      "Emballement électronique du boîtier (runaway)"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : après l'ESV, chaque QRS stimulé est suivi d'une P rétrograde détectée hors PVARP puis suivie : boucle stimulateur + conduction VA.",
+      "Faux : chaque QRS de la tachycardie est précédé d'un spike ; une TV aurait des QRS non stimulés.",
+      "Faux : les P sont rétrogrades, situées après les QRS, et la tachycardie démarre brutalement après une ESV.",
+      "Faux : l'emballement est une panne exceptionnelle de circuit ; ici le démarrage sur ESV et les P rétrogrades signent une TRE."
+    ],
+    "reponseAttendue": null,
+    "explication": "Dans la TRE (PMT, « pacemaker-mediated tachycardia » en anglais), le stimulateur constitue le bras antérograde d'un circuit dont le bras rétrograde est la conduction VA du patient. Sur ce tracé, une ESV dissocie oreillette et ventricule ; la P rétrograde qui la suit tombe hors PVARP : elle est détectée et suivie, le QRS stimulé est à nouveau conduit à l'oreillette, et ainsi de suite, souvent à la FMS. Une tachycardie sinusale suivie aurait des P antérogrades et une fréquence variable. L'emballement (runaway) est une panne exceptionnelle de circuit. Une TV aurait des QRS non précédés de spikes.",
+    "aRetenir": "TRE = boucle stimulateur (antérograde) + conduction VA (rétrograde), souvent à la FMS.",
+    "sources": [
+      {
+        "titre": "Alasti M et al. Pacemaker-mediated arrhythmias. J Arrhythm 2018;34:485-492",
+        "url": "https://doi.org/10.1002/joa3.12098"
+      },
+      {
+        "titre": "Monteil B, Ploux S, Eschalier R et al. Pacemaker-mediated tachycardia: manufacturer specifics and spectrum of cases. Pacing Clin Electrophysiol 2015;38:1489-1498",
+        "url": "https://doi.org/10.1111/pace.12750"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-048",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Parmi les éléments suivants, lesquels favorisent la survenue d'une tachycardie par réentrée électronique chez un porteur de DDD ?",
+    "ecg": {
+      "preset": "ttre",
+      "fc": 130
+    },
+    "options": [
+      "Une ESV conduite de façon rétrograde vers l'oreillette",
+      "Une PVARP plus longue que le temps de conduction rétrograde VA",
+      "Une PVARP plus courte que le temps de conduction rétrograde VA",
+      "Une programmation en mode DDI",
+      "L'absence de conduction rétrograde VA"
+    ],
+    "reponses": [
+      0,
+      2
+    ],
+    "commentaires": [
+      "Juste : l'ESV est le déclencheur le plus fréquent : elle dissocie A et V et sa P rétrograde peut être suivie.",
+      "Faux : une PVARP couvrant le temps VA masque la P rétrograde, qui n'est pas suivie : c'est la mesure de prévention.",
+      "Juste : si la PVARP est plus courte que le temps VA, la P rétrograde est détectée hors période réfractaire et suivie.",
+      "Faux : en DDI, il n'y a pas de suivi atrial, donc pas de TRE possible.",
+      "Faux : sans conduction rétrograde, il n'y a pas de P rétrograde et la boucle ne peut pas exister."
+    ],
+    "reponseAttendue": null,
+    "explication": "La TRE nécessite une conduction rétrograde VA et un mode avec suivi atrial (DDD, VDD). Les déclencheurs classiques sont ceux qui dissocient oreillette et ventricule : ESV, perte de capture ou sous-détection atriale, délai AV trop long, retrait d'un aimant. Si la PVARP est plus courte que le temps de conduction VA, la P rétrograde est détectée et suivie ; si elle est plus longue, la P rétrograde tombe en période réfractaire et n'est pas suivie. En DDI, il n'y a pas de suivi atrial donc pas de TRE possible. Sans conduction rétrograde, une TRE classique est impossible.",
+    "aRetenir": "TRE : conduction VA + mode avec suivi + déclencheur dissociant A et V (ESV, perte de capture A) + PVARP trop courte.",
+    "sources": [
+      {
+        "titre": "Alasti M et al. Pacemaker-mediated arrhythmias. J Arrhythm 2018;34:485-492",
+        "url": "https://doi.org/10.1002/joa3.12098"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-049",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Au service d'urgences, un patient porteur d'un stimulateur DDD (FMS 130/min) présente cette tachycardie, bien tolérée, qui ne cède pas spontanément. Quel geste simple est le plus efficace pour l'interrompre immédiatement ?",
+    "ecg": {
+      "preset": "ttre",
+      "fc": 130
+    },
+    "options": [
+      "Injecter 6 mg d'adénosine en bolus rapide",
+      "Réaliser un choc électrique externe synchronisé",
+      "Réaliser un massage du sinus carotidien",
+      "Poser un aimant sur le boîtier du stimulateur"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : l'adénosine peut bloquer la conduction VA nodale, mais c'est moins simple et moins sûr que l'aimant.",
+      "Faux : un choc n'est pas indiqué pour une tachycardie stimulée bien tolérée, et il expose le boîtier et les sondes.",
+      "Faux : le massage carotidien n'agit que de façon inconstante sur la conduction rétrograde.",
+      "Juste : sous aimant, le stimulateur passe en asynchrone (DOO) : il ne détecte plus la P rétrograde et la boucle de TRE est rompue."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le tracé montre une tachycardie stimulée régulière, amorcée par une ESV, avec des P rétrogrades suivies : c'est une TRE. L'aimant fait passer le stimulateur en mode asynchrone (DOO) : il ne détecte plus l'oreillette et ne suit donc plus la P rétrograde, ce qui rompt immédiatement la boucle. Il faut ensuite reprogrammer (PVARP allongée, algorithme de prévention activé) et traiter le déclencheur. L'adénosine peut interrompre la TRE en bloquant la conduction VA nodale, mais c'est moins simple et moins sûr que l'aimant. Le choc électrique n'est pas indiqué pour une tachycardie stimulée bien tolérée. Le massage carotidien n'agit que de façon inconstante.",
+    "aRetenir": "TRE : l'aimant rompt la boucle en supprimant la détection atriale.",
+    "sources": [
+      {
+        "titre": "Alasti M et al. Pacemaker-mediated arrhythmias. J Arrhythm 2018;34:485-492",
+        "url": "https://doi.org/10.1002/joa3.12098"
+      },
+      {
+        "titre": "Jacob S et al. Clinical applications of magnets on cardiac rhythm management devices. Europace 2011;13:1222-1230",
+        "url": "https://doi.org/10.1093/europace/eur137"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-050",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 7,
+    "question": "Une tachycardie par réentrée électronique classique ne peut pas survenir chez un patient dépourvu de conduction rétrograde ventriculo-atriale.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Oui : la conduction VA est le bras rétrograde obligatoire du circuit ; sans elle, aucune P rétrograde n'entretient la boucle.",
+      "Non : sans conduction VA, pas de TRE classique ; seuls d'autres mécanismes (suivi d'une tachycardie atriale, de bruit) restent possibles."
+    ],
+    "reponseAttendue": null,
+    "explication": "La TRE est un circuit dont le bras rétrograde est obligatoirement la conduction VA du patient : sans elle, aucune P rétrograde n'est générée après le QRS stimulé et la boucle ne peut pas s'entretenir. C'est pour cela que certains stimulateurs testent la conduction VA et que la PVARP est réglée pour couvrir le temps de conduction rétrograde. D'autres arythmies liées au stimulateur existent toutefois sans conduction VA (suivi d'une tachycardie atriale, suivi de bruit ou d'ondes R lointaines sur le canal atrial) : elles peuvent donner une fréquence ventriculaire rapide mais ne sont pas des TRE.",
+    "aRetenir": "Pas de conduction VA, pas de TRE.",
+    "sources": [
+      {
+        "titre": "Alasti M et al. Pacemaker-mediated arrhythmias. J Arrhythm 2018;34:485-492",
+        "url": "https://doi.org/10.1002/joa3.12098"
+      },
+      {
+        "titre": "Monteil B, Ploux S, Eschalier R et al. Pacemaker-mediated tachycardia: manufacturer specifics and spectrum of cases. Pacing Clin Electrophysiol 2015;38:1489-1498",
+        "url": "https://doi.org/10.1111/pace.12750"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-051",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Face à une tachycardie stimulée régulière chez un porteur de DDD, quel argument est le plus en faveur d'une TRE plutôt que d'une tachycardie atriale suivie par le stimulateur ?",
+    "ecg": {
+      "preset": "ttre",
+      "fc": 120
+    },
+    "options": [
+      "Fréquence qui s'accélère progressivement à l'effort",
+      "P de même morphologie que les P sinusales avant chaque spike",
+      "VP–P rétrograde fixe et arrêt immédiat sous aimant",
+      "Tachycardie qui persiste à l'identique sous aimant"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : une accélération progressive à l'effort évoque une tachycardie sinusale suivie.",
+      "Faux : des P antérogrades de morphologie sinusale précédant le spike orientent vers un rythme atrial suivi, pas vers une TRE.",
+      "Juste : dans la TRE, chaque QRS stimulé est suivi d'une P rétrograde à intervalle fixe, et l'aimant rompt la boucle.",
+      "Faux : une arythmie atriale persiste sous aimant ; une TRE s'arrête immédiatement."
+    ],
+    "reponseAttendue": null,
+    "explication": "Dans une TRE, chaque QRS stimulé est suivi d'une P rétrograde (négative en DII, DIII, aVF) après un temps de conduction VA fixe, et la tachycardie s'arrête immédiatement quand l'aimant supprime le suivi atrial. En cas de tachycardie atriale suivie, les P sont antérogrades et leur fréquence est indépendante des QRS : sous aimant, le stimulateur passe en asynchrone mais l'arythmie atriale persiste, avec une fréquence ventriculaire qui dépend de la conduction AV spontanée. Une accélération progressive à l'effort évoque une tachycardie sinusale suivie. Les algorithmes des fabricants utilisent le même principe (stabilité de l'intervalle VP-AS, allongement transitoire de la PVARP ou modification du délai AV).",
+    "aRetenir": "TRE : intervalle VP-P rétrograde fixe et arrêt immédiat sous aimant.",
+    "sources": [
+      {
+        "titre": "Alasti M et al. Pacemaker-mediated arrhythmias. J Arrhythm 2018;34:485-492",
+        "url": "https://doi.org/10.1002/joa3.12098"
+      },
+      {
+        "titre": "Monteil B, Ploux S, Eschalier R et al. Pacemaker-mediated tachycardia: manufacturer specifics and spectrum of cases. Pacing Clin Electrophysiol 2015;38:1489-1498",
+        "url": "https://doi.org/10.1111/pace.12750"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-052",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Quel est l'objectif principal de la fonction de mode switch sur un stimulateur double chambre ?",
+    "options": [
+      "Prévenir la survenue des accès de FA paroxystique",
+      "Éviter de suivre une arythmie atriale rapide",
+      "Détecter les tachycardies ventriculaires",
+      "Économiser la batterie pendant les arythmies"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : le mode switch ne prévient pas la FA ; il en limite les conséquences ventriculaires et permet de la dater.",
+      "Juste : le mode switch bascule en mode sans suivi (DDI, VDI) pour ne pas stimuler le ventricule rapidement pendant une FA ou un flutter.",
+      "Faux : la détection des TV relève des DAI ; le mode switch analyse la fréquence atriale.",
+      "Faux : l'économie de pile n'est pas son objectif ; il protège le patient d'une stimulation ventriculaire rapide."
+    ],
+    "reponseAttendue": null,
+    "explication": "En mode DDD ou VDD, chaque événement atrial détecté hors période réfractaire peut être suivi d'une stimulation ventriculaire, jusqu'à la FMS. Lors d'une FA ou d'un flutter, cela conduirait à une stimulation ventriculaire rapide et irrégulière. Le mode switch détecte une fréquence atriale anormalement élevée et bascule vers un mode sans suivi atrial (DDI(R), VDI(R)), puis revient au mode initial à la fin de l'arythmie. Il ne prévient pas la FA mais en limite les conséquences ventriculaires. Il permet aussi de dater et quantifier les épisodes, utiles au suivi.",
+    "aRetenir": "Le mode switch bascule en mode sans suivi (DDI/VDI) pour ne pas suivre une arythmie atriale.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-053",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Patient en DDD, FMS 130/min. Au début d'un accès de FA, le Holter montre pendant quelques secondes une stimulation ventriculaire rapide et irrégulière proche de 130/min, puis une stimulation ventriculaire régulière à 70/min alors que la FA persiste. Quelle est l'interprétation ?",
+    "options": [
+      "Suivi transitoire de la FA, puis mode switch",
+      "Sur-détection atriale suivie d'une perte de capture",
+      "Tachycardie par réentrée électronique autolimitée",
+      "Bloc 2:1 électronique puis retour au suivi"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : pendant la phase de confirmation, la FA est suivie jusqu'à la FMS ; puis le boîtier bascule en DDI/VDI à la fréquence de base.",
+      "Faux : la FA est réelle et la stimulation ventriculaire reste efficace ; rien n'évoque une perte de capture.",
+      "Faux : une TRE serait régulière, liée à des P rétrogrades, et non irrégulière au début d'une FA.",
+      "Faux : le bloc 2:1 électronique concerne une tachycardie sinusale régulière dépassant la TARP."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les algorithmes de mode switch ont besoin de quelques cycles ou secondes pour confirmer l'arythmie atriale. Pendant cette phase, le stimulateur continue à suivre les événements atriaux détectés hors PVARP, ce qui donne une stimulation ventriculaire rapide et irrégulière plafonnée à la FMS. Une fois l'arythmie confirmée, il bascule en mode non synchrone (DDI/VDI) et stimule le ventricule à la fréquence de base, de repli ou capteur. Ce comportement est normal. Une TRE serait régulière, et le bloc 2:1 électronique concerne une tachycardie sinusale.",
+    "aRetenir": "Stimulation V rapide et irrégulière au début d'une FA puis stimulation à la fréquence de base = mode switch normal.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-054",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Parmi les situations suivantes, lesquelles peuvent être à l'origine d'épisodes de mode switch inappropriés (en l'absence d'arythmie atriale) ?",
+    "options": [
+      "Détection d'ondes R lointaines (far-field R) par le canal atrial",
+      "Bruit sur la sonde atriale (fracture, myopotentiels)",
+      "Sous-détection d'une FA de bas voltage",
+      "Perte de capture ventriculaire"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "commentaires": [
+      "Juste : le canal atrial double-compte P + onde R lointaine : la fréquence atriale « vue » est faussement élevée.",
+      "Juste : un bruit sur la sonde atriale (fracture, myopotentiels) est compté comme activité atriale rapide.",
+      "Faux : la sous-détection d'une FA produit l'inverse : un mode switch absent ou intermittent.",
+      "Faux : une perte de capture ventriculaire ne modifie pas le comptage des événements atriaux."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le mode switch se déclenche quand la fréquence atriale détectée dépasse un seuil. Si le canal atrial double-compte (onde P + onde R lointaine) ou détecte un bruit, la fréquence atriale « vue » est faussement élevée et le mode switch se déclenche à tort. La correction passe par l'analyse des EGM, l'allongement du blanking atrial post-ventriculaire (PVAB), une baisse de la sensibilité atriale ou la révision de sonde en cas de bruit. La sous-détection d'une FA produit l'inverse : un mode switch absent ou intermittent. Une perte de capture ventriculaire n'influence pas le comptage atrial.",
+    "aRetenir": "Mode switch inapproprié : penser far-field R et bruit sur la sonde atriale.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-055",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Les épisodes de mode switch enregistrés par un stimulateur ne nécessitent aucune analyse puisqu'ils témoignent toujours d'une FA.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Non : far-field R, bruit ou myopotentiels peuvent déclencher un mode switch : les EGM doivent être vérifiés avant toute décision.",
+      "Oui : un épisode de mode switch n'est pas synonyme de FA confirmée ; l'analyse des EGM mémorisés est indispensable."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les compteurs de mode switch et d'épisodes de fréquence atriale élevée (AHRE) sont très utiles pour dépister une FA infraclinique, mais ils peuvent être faussés par une sur-détection atriale (ondes R lointaines, bruit). Les recommandations (ESC 2024 sur la FA) insistent sur la nécessité de vérifier les électrogrammes mémorisés pour confirmer qu'il s'agit bien d'une arythmie atriale avant toute décision, notamment d'anticoagulation. La durée et la charge des épisodes comptent aussi dans la décision thérapeutique. Un épisode de mode switch n'est donc pas synonyme de FA confirmée.",
+    "aRetenir": "Un épisode de mode switch doit être confirmé sur les EGM avant de conclure à une FA.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "Van Gelder IC et al. 2024 ESC Guidelines for the management of atrial fibrillation developed in collaboration with EACTS. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ESC 2024 FA"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-057",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Quel est l'effet habituel de l'application d'un aimant sur un DAI ?",
+    "options": [
+      "Stimulation asynchrone VOO à la fréquence aimant",
+      "Délivrance d'un choc de test pour vérifier le système",
+      "Désactivation définitive des thérapies antitachycardiques",
+      "Suspension des thérapies, stimulation inchangée"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : c'est la réponse d'un stimulateur ; sur un DAI, la stimulation ne passe pas en asynchrone.",
+      "Faux : l'aimant ne déclenche jamais de choc ; il inhibe au contraire les thérapies.",
+      "Faux : l'effet est transitoire : les thérapies reprennent dès le retrait de l'aimant.",
+      "Juste : l'aimant suspend détection et thérapies (ATP, chocs) tant qu'il est en place, sans toucher à la stimulation antibradycardique."
+    ],
+    "reponseAttendue": null,
+    "explication": "Sur les DAI, l'aimant suspend la détection des tachyarythmies et donc les thérapies (ATP et chocs) tant qu'il est maintenu, mais la fonction de stimulation antibradycardique reste inchangée, sans passage en asynchrone. C'est utile en cas de chocs inappropriés en série ou lors d'une chirurgie avec bistouri électrique. Chez un patient dépendant, l'aimant ne le protège donc pas contre une inhibition de la stimulation par les interférences : il faut alors reprogrammer le DAI (mode asynchrone). Les thérapies reprennent normalement au retrait de l'aimant.",
+    "aRetenir": "Aimant sur un DAI : thérapies suspendues, stimulation antibradycardique inchangée.",
+    "sources": [
+      {
+        "titre": "Jacob S et al. Clinical applications of magnets on cardiac rhythm management devices. Europace 2011;13:1222-1230",
+        "url": "https://doi.org/10.1093/europace/eur137"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-058",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Sur un stimulateur, une diminution de la fréquence de stimulation sous aimant par rapport à sa valeur initiale peut indiquer que la batterie a atteint l'indicateur de remplacement électif (ERI).",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Oui : à l'ERI, la plupart des stimulateurs abaissent leur fréquence aimant à une valeur propre au fabricant.",
+      "Non : la fréquence aimant sert justement d'indicateur d'usure : sa baisse signe souvent l'ERI (se référer au manuel)."
+    ],
+    "reponseAttendue": null,
+    "explication": "La fréquence aimant sert historiquement d'indicateur de l'état de la batterie : lorsqu'elle atteint l'ERI, la plupart des stimulateurs abaissent leur fréquence aimant à une valeur prédéfinie, propre à chaque fabricant et à chaque modèle. Avant la télésurveillance, mesurer cette fréquence (sur un ECG ou par transmission téléphonique) permettait ainsi de dépister l'usure de la batterie. Il faut toujours se référer au manuel du fabricant, car les valeurs nominales et en fin de vie diffèrent. Certains modèles modifient aussi leur mode de fonctionnement à l'ERI (par exemple passage en VVI).",
+    "aRetenir": "Une baisse de la fréquence aimant signe souvent l'ERI (valeurs propres à chaque fabricant).",
+    "sources": [
+      {
+        "titre": "Jacob S et al. Clinical applications of magnets on cardiac rhythm management devices. Europace 2011;13:1222-1230",
+        "url": "https://doi.org/10.1093/europace/eur137"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-059",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Chez un patient porteur d'un stimulateur, un ECG réalisé avec un aimant montre des spikes réguliers à fréquence fixe, dont certains tombent juste après un QRS spontané, sans être suivis de QRS. Quelle est l'interprétation ?",
+    "options": [
+      "Non-capture fonctionnelle, normale sous aimant",
+      "Perte de capture nécessitant une révision de sonde",
+      "Sous-détection pathologique à corriger par la sensibilité",
+      "Sur-détection avec inhibition intermittente"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : sous aimant, la détection est suspendue ; un spike tombant en période réfractaire ne peut pas capturer : c'est attendu.",
+      "Faux : une vraie perte de capture ne s'évalue que sur des spikes délivrés hors période réfractaire.",
+      "Faux : l'absence de détection est voulue sous aimant ; ce n'est pas une sous-détection.",
+      "Faux : les spikes sont réguliers, à fréquence fixe : il n'y a aucune inhibition."
+    ],
+    "reponseAttendue": null,
+    "explication": "Sous aimant, la détection est suspendue et le stimulateur délivre des spikes à fréquence fixe quel que soit le rythme spontané. Lorsque le rythme spontané est plus rapide ou proche, des spikes tombent dans la période réfractaire du ventricule qui vient de se dépolariser : leur absence de capture est une non-capture fonctionnelle, et non une vraie perte de capture. De même, l'absence de détection est voulue, et non une sous-détection. Pour juger de la capture, il faut analyser les spikes tombant hors période réfractaire.",
+    "aRetenir": "Sous aimant, spikes en période réfractaire non suivis de QRS = non-capture fonctionnelle, normale.",
+    "sources": [
+      {
+        "titre": "Jacob S et al. Clinical applications of magnets on cardiac rhythm management devices. Europace 2011;13:1222-1230",
+        "url": "https://doi.org/10.1093/europace/eur137"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-060",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 5,
+    "question": "Comparez la réponse à l'aimant d'un stimulateur et d'un DAI, et indiquez la conséquence pratique chez un patient stimulodépendant porteur d'un DAI opéré au bistouri électrique.",
+    "reponseAttendue": "Stimulateur : stimulation asynchrone (VOO/DOO) à la fréquence aimant. DAI : suspension des thérapies antitachycardiques sans modification de la stimulation. Chez un patient dépendant porteur de DAI, l'aimant ne protège pas contre l'inhibition de la stimulation par le bistouri : il faut reprogrammer le DAI (thérapies désactivées + mode asynchrone) avec surveillance.",
+    "explication": "La différence fondamentale tient au rôle de l'aimant : sur un stimulateur, il supprime la détection pour garantir la stimulation ; sur un DAI, il supprime la détection des tachyarythmies pour éviter des thérapies inappropriées. Chez un patient dépendant, les interférences du bistouri électrique peuvent inhiber la stimulation du DAI malgré l'aimant, d'où la nécessité d'une programmation asynchrone temporaire. Pendant la période sans thérapie, le patient doit être monitoré avec un défibrillateur externe à disposition. La réponse à l'aimant est parfois programmable ou désactivée selon les fabricants : il faut la vérifier.",
+    "aRetenir": "Aimant : asynchrone sur un stimulateur, thérapies suspendues sur un DAI (pas d'asynchrone).",
+    "sources": [
+      {
+        "titre": "Jacob S et al. Clinical applications of magnets on cardiac rhythm management devices. Europace 2011;13:1222-1230",
+        "url": "https://doi.org/10.1093/europace/eur137"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-061",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : CRT et stimulation de conduction",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Chez ce patient porteur d'un stimulateur de resynchronisation, quel pourcentage de stimulation biventriculaire faut-il viser ?",
+    "ecg": {
+      "preset": "crt",
+      "fc": 70
+    },
+    "options": [
+      "Au moins 70 %",
+      "Au moins 85 %",
+      "Au moins 92 %",
+      "Au moins 98 %"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : 70 % laisse près d'un tiers des battements non resynchronisés ; le bénéfice clinique en est nettement réduit.",
+      "Faux : même 85 % reste insuffisant ; le bénéfice sur la mortalité et les hospitalisations croît jusqu'à près de 100 %.",
+      "Faux : valeur voisine mais encore trop basse : le seuil classique retenu est d'au moins 98 %.",
+      "Juste : il faut viser une stimulation biventriculaire aussi proche que possible de 100 %, avec un seuil classique d'au moins 98 %."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le bénéfice de la resynchronisation dépend d'une stimulation biventriculaire quasi permanente : la mortalité et les hospitalisations diminuent quand le taux de stimulation se rapproche de 100 %, avec un seuil classique d'au moins 98 %. Toute baisse (FA rapide, ESV, conduction AV spontanée plus rapide que le délai AV) doit être recherchée et corrigée. Le tracé montre une stimulation biventriculaire, avec un QRS stimulé relativement fin. Un taux affiché élevé peut toutefois inclure des battements de fusion ou de pseudo-fusion, d'où l'intérêt de l'ECG et du Holter.",
+    "aRetenir": "Sous CRT, viser un taux de stimulation biventriculaire aussi proche que possible de 100 % (≥ 98 %).",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Chung MK et al. 2023 HRS/APHRS/LAHRS guideline on cardiac physiologic pacing for the avoidance and mitigation of heart failure. Heart Rhythm 2023;20:e17-e91",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1538"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "HRS 2023 stimulation physiologique"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-062",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : CRT et stimulation de conduction",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Patient CRT (sonde VD apicale, sonde VG latérale). Sur l'ECG de contrôle, V1 montre un QS large et DI une onde R ample, alors qu'à l'implantation V1 montrait une R dominante et DI un QS. Quelle est l'hypothèse la plus probable ?",
+    "options": [
+      "Fonctionnement biventriculaire normal",
+      "Stimulation hissienne non sélective",
+      "Perte de capture VG : seul le VD est stimulé",
+      "Perte de capture VD : seul le VG est stimulé"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : la morphologie a changé par rapport à l'ECG de référence en stimulation biventriculaire.",
+      "Faux : aucune sonde n'est en position hissienne ; l'aspect est celui d'une stimulation VD apicale.",
+      "Juste : le retour à un aspect de stimulation VD apicale (QS en V1, R en DI) par rapport à l'ECG de référence évoque la perte de capture VG.",
+      "Faux : une stimulation VG seule donnerait une R dominante en V1 et un DI négatif, l'inverse de l'aspect observé."
+    ],
+    "reponseAttendue": null,
+    "explication": "La stimulation biventriculaire (VD apical + VG latéral) donne typiquement une R dominante en V1 et un aspect Q/QS en DI, reflet de l'activation précoce de la paroi latérale du VG. La réapparition d'un aspect de stimulation VD apicale (QS en V1, R ample en DI, axe hypergauche) évoque la perte de capture VG, par élévation de seuil ou déplacement de la sonde VG. Une perte de capture VD donnerait au contraire un aspect de stimulation VG pure (R dominante en V1, DI négatif). Il faut vérifier le seuil VG et le vecteur de stimulation. Cependant, l'absence de R dominante en V1 ne prouve pas à elle seule une perte de capture VG (position de V1, site de la sonde VG) : c'est la comparaison avec l'ECG de référence qui compte.",
+    "aRetenir": "Sous CRT, retour à un aspect de stimulation VD apicale (QS V1, R en DI) = perte de capture VG probable.",
+    "sources": [
+      {
+        "titre": "Barold SS, Herweg B. Usefulness of the 12-lead electrocardiogram in the follow-up of patients with cardiac resynchronization devices. Part I. Cardiol J 2011;18:476-486",
+        "url": "https://doi.org/10.5603/cj.2011.0002"
+      },
+      {
+        "titre": "Barold SS. Reappraisal of ECG lead V1 in the assessment of cardiac resynchronization. Pacing Clin Electrophysiol 2015;38:291-294",
+        "url": "https://doi.org/10.1111/pace.12566"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-063",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : CRT et stimulation de conduction",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Parmi les causes suivantes, lesquelles peuvent entraîner une perte de stimulation biventriculaire effective chez un patient CRT ?",
+    "ecg": {
+      "preset": "crt",
+      "fc": 75
+    },
+    "options": [
+      "FA à réponse ventriculaire rapide",
+      "ESV fréquentes",
+      "Conduction AV spontanée plus rapide que le délai AV programmé",
+      "Délai VV programmé à 0 ms (stimulation VD et VG simultanée)",
+      "Délai AV programmé plus court que le PR spontané"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "commentaires": [
+      "Juste : les QRS conduits rapidement pendant la FA activent le ventricule avant la stimulation.",
+      "Juste : chaque ESV est un battement non resynchronisé, et peut perturber les cycles suivants.",
+      "Juste : si le PR spontané est plus court que le délai AV, le QRS conduit inhibe la stimulation ou crée de la fusion.",
+      "Faux : un délai VV nul correspond à une stimulation simultanée des deux ventricules, qui reste biventriculaire.",
+      "Faux : c'est au contraire la mesure qui favorise une stimulation biventriculaire effective."
+    ],
+    "reponseAttendue": null,
+    "explication": "La stimulation biventriculaire n'est délivrée que si le ventricule n'a pas été dépolarisé spontanément avant la fin du délai AV. La FA rapide et les ESV fréquentes activent le ventricule spontanément. Un PR spontané plus court que le délai AV entraîne une détection ventriculaire et inhibe la stimulation, ou crée de la fusion. De même, si la fréquence sinusale dépasse la FMS, le stimulateur entre en Wenckebach électronique et laisse passer la conduction spontanée. Programmer un délai AV plus court que le PR spontané est au contraire la mesure qui favorise la stimulation biventriculaire, et un délai VV nul reste une stimulation biventriculaire simultanée. Les recommandations insistent sur le contrôle de la FA (voire l'ablation du nœud AV) pour garantir la resynchronisation.",
+    "aRetenir": "Perte de CRT : FA rapide, ESV, PR court, fréquence sinusale > FMS, perte de capture VG.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Barold SS, Herweg B. Usefulness of the 12-lead electrocardiogram in the follow-up of patients with cardiac resynchronization devices. Part II. Cardiol J 2011;18:610-624",
+        "url": "https://doi.org/10.5603/cj.2011.0024"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-064",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : CRT et stimulation de conduction",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Patient CRT non répondeur : le boîtier affiche 99 % de stimulation biventriculaire. PR spontané à 160 ms, délai AV détecté programmé à 150 ms. Voici un extrait de son Holter. Quelle est l'interprétation ?",
+    "ecg": {
+      "preset": "fusion",
+      "fc": 75
+    },
+    "options": [
+      "Taux fiable : la non-réponse tient à la cardiopathie",
+      "Fusion et pseudo-fusion : délai AV à raccourcir",
+      "Perte de capture VD avec stimulation VG isolée",
+      "Crosstalk inhibant la stimulation ventriculaire"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : les compteurs comptent chaque spike délivré, même inefficace ; le Holter montre que le taux réel est surestimé.",
+      "Juste : des spikes tombent dans des QRS spontanés ; ils sont comptés comme BiV alors que la resynchronisation effective est bien plus faible.",
+      "Faux : une stimulation VG seule donnerait des QRS stimulés d'aspect constant, pas des QRS spontanés inchangés.",
+      "Faux : le crosstalk inhibe la stimulation ventriculaire ; ici les spikes V sont bien délivrés."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le Holter montre des spikes tombant dans des QRS spontanés de morphologie inchangée (pseudo-fusion) et des QRS de morphologie intermédiaire (fusion). Les compteurs du boîtier comptabilisent chaque spike délivré comme une stimulation biventriculaire, même s'il tombe dans un QRS déjà spontanément engagé ou ne participe que partiellement à l'activation. Ici, le délai AV de 150 ms est trop proche du PR spontané de 160 ms : la conduction spontanée active le ventricule avant ou au moment du spike. La resynchronisation effective est donc bien plus faible que les 99 % affichés. La correction consiste à raccourcir le délai AV (en veillant au remplissage VG) et à vérifier le résultat par ECG 12 dérivations et Holter.",
+    "aRetenir": "Sous CRT, la pseudo-fusion est comptée comme stimulation BiV : vérifier par ECG/Holter la resynchronisation effective.",
+    "sources": [
+      {
+        "titre": "Barold SS, Herweg B. Usefulness of the 12-lead electrocardiogram in the follow-up of patients with cardiac resynchronization devices. Part II. Cardiol J 2011;18:610-624",
+        "url": "https://doi.org/10.5603/cj.2011.0024"
+      },
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-065",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : CRT et stimulation de conduction",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Chez un patient CRT, un QRS stimulé biventriculaire plus large que le QRS spontané préimplantatoire signe toujours une perte de capture VG.",
+    "ecg": {
+      "preset": "crt",
+      "fc": 70
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Non : la durée du QRS BiV dépend du site VG, des latences et du substrat ; elle peut rester large malgré une capture VG effective.",
+      "Oui : la perte de capture VG se juge sur la morphologie comparée à l'ECG de référence et sur un test de seuil VG."
+    ],
+    "reponseAttendue": null,
+    "explication": "La durée du QRS stimulé biventriculaire dépend du site de stimulation VG, des latences locales, du délai VV programmé et du substrat myocardique. Elle peut rester large, voire dépasser le QRS spontané, sans perte de capture VG. La réduction de la durée du QRS est un marqueur imparfait de la réponse. Pour affirmer une perte de capture VG, on compare la morphologie (V1, DI, axe) avec l'ECG de référence et on réalise un test de seuil VG. Il est donc essentiel de disposer d'ECG 12 dérivations de référence en stimulation BiV, VD seule et VG seule.",
+    "aRetenir": "La perte de capture VG se juge sur la morphologie comparée à l'ECG de référence, pas sur la seule durée du QRS.",
+    "sources": [
+      {
+        "titre": "Barold SS, Herweg B. Usefulness of the 12-lead electrocardiogram in the follow-up of patients with cardiac resynchronization devices. Part I. Cardiol J 2011;18:476-486",
+        "url": "https://doi.org/10.5603/cj.2011.0002"
+      },
+      {
+        "titre": "Barold SS. Reappraisal of ECG lead V1 in the assessment of cardiac resynchronization. Pacing Clin Electrophysiol 2015;38:291-294",
+        "url": "https://doi.org/10.1111/pace.12566"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-066",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : CRT et stimulation de conduction",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 8,
+    "question": "Comment vérifier sur un ECG 12 dérivations la capture VG chez un patient CRT, et quel aspect fait suspecter sa perte ?",
+    "ecg": {
+      "preset": "crt",
+      "fc": 70
+    },
+    "reponseAttendue": "Comparer à l'ECG de référence et aux morphologies VD seule / VG seule. La stimulation BiV (VD apical + VG latéral) donne habituellement une R dominante en V1, un QRS négatif (Q/QS) en DI et un axe droit. La perte de capture VG se traduit par un retour à l'aspect de stimulation VD apicale : QS en V1, R en DI, axe hypergauche. Confirmer par test de seuil VG.",
+    "explication": "La stimulation de la paroi latérale du VG active le cœur de gauche à droite et de la base vers la pointe, ce qui donne une R dominante en V1 et un DI négatif. La stimulation VD apicale seule donne au contraire un retard gauche avec R en DI et axe hypergauche. Chez certains patients, l'aspect de V1 en stimulation BiV reste négatif (V1 placé trop haut, sonde VG antérieure ou septale, latence VG), d'où l'importance de disposer d'un ECG de référence enregistré à l'implantation. Le test de seuil en stimulation VG seule, avec observation du changement de morphologie, reste la méthode la plus fiable.",
+    "aRetenir": "Perte de capture VG sous CRT : retour à l'aspect VD apical (QS V1, R DI) par rapport à l'ECG de référence.",
+    "sources": [
+      {
+        "titre": "Barold SS, Herweg B. Usefulness of the 12-lead electrocardiogram in the follow-up of patients with cardiac resynchronization devices. Part I. Cardiol J 2011;18:476-486",
+        "url": "https://doi.org/10.5603/cj.2011.0002"
+      },
+      {
+        "titre": "Barold SS. Reappraisal of ECG lead V1 in the assessment of cardiac resynchronization. Pacing Clin Electrophysiol 2015;38:291-294",
+        "url": "https://doi.org/10.1111/pace.12566"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-067",
+    "theme": "ecg",
+    "sousTheme": "ECG du DAI",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Sur un Holter chez un porteur de DAI, on observe une tachycardie ventriculaire rapide, puis un grand artefact de saturation de quelques centaines de millisecondes, suivi du retour d'un rythme sinusal. Qu'a-t-il délivré ?",
+    "options": [
+      "Une stimulation antitachycardique (ATP)",
+      "Une stimulation de sécurité",
+      "Une stimulation post-extrasystolique",
+      "Un choc électrique interne"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : l'ATP se présente comme une salve de spikes ventriculaires rapides, chacun suivi d'un QRS stimulé.",
+      "Faux : le safety pacing est un phénomène des stimulateurs double chambre, sans rapport avec le traitement d'une TV.",
+      "Faux : un simple spike après une extrasystole ne produit pas d'artefact de saturation de plusieurs centaines de ms.",
+      "Juste : le choc apparaît comme un grand artefact saturant l'amplificateur, suivi de l'arrêt de l'arythmie."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le choc d'un DAI apparaît sur le Holter comme un artefact de grande amplitude, saturant l'amplificateur, suivi d'un retour progressif de la ligne de base. L'arrêt de la TV et la reprise d'un rythme sinusal ou stimulé témoignent de son efficacité. L'ATP se présente au contraire comme une salve de spikes ventriculaires rapides et réguliers, chacun suivi d'un QRS stimulé. Le safety pacing est un phénomène des stimulateurs double chambre, sans rapport avec le traitement des tachycardies.",
+    "aRetenir": "Choc sur un Holter = grand artefact de saturation suivi de l'arrêt de l'arythmie.",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. J Arrhythm 2016;32:1-28",
+        "url": "https://doi.org/10.1016/j.joa.2015.12.001"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-068",
+    "theme": "ecg",
+    "sousTheme": "ECG du DAI",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Sur un Holter chez un porteur de DAI, une TV monomorphe à 180/min est interrompue par une salve de 8 stimulations ventriculaires régulières, un peu plus rapides que la TV, suivie d'un retour en rythme sinusal. De quoi s'agit-il ?",
+    "ecg": {
+      "preset": "tv",
+      "fc": 180,
+      "legende": "TV précédant la thérapie"
+    },
+    "options": [
+      "Un choc interne de basse énergie",
+      "Une ATP en salve (burst) efficace",
+      "Une stimulation asynchrone sous aimant",
+      "Une tachycardie par réentrée électronique"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : un choc donnerait un artefact unique de grande amplitude, pas une salve de 8 stimulations.",
+      "Juste : une salve de stimulations à cycle constant, un peu plus rapide que la TV, pénètre le circuit et l'interrompt.",
+      "Faux : la stimulation sous aimant est continue à fréquence fixe ; elle ne s'arrête pas après 8 cycles.",
+      "Faux : la TRE est une tachycardie entretenue par le stimulateur, non une thérapie interrompant une TV."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'ATP consiste à stimuler le ventricule à une fréquence légèrement supérieure à celle de la TV (par exemple autour de 88 % de la longueur de cycle de la TV) pour pénétrer le circuit de réentrée et l'interrompre. Le mode « burst » délivre des stimulations à intervalle constant, le mode « rampe » des intervalles décroissants. L'ATP est indolore et interrompt la majorité des TV monomorphes, ce qui évite de nombreux chocs. Les consensus de programmation recommandent de la programmer pour les TV, y compris rapides, en l'absence de contre-indication. La TRE ne concerne pas ce contexte et la stimulation sous aimant ne s'arrête pas après 8 cycles.",
+    "aRetenir": "Salve de stimulations V rapides interrompant une TV = ATP.",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. J Arrhythm 2016;32:1-28",
+        "url": "https://doi.org/10.1016/j.joa.2015.12.001"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires",
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-069",
+    "theme": "ecg",
+    "sousTheme": "ECG du DAI",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Une stimulation antitachycardique (ATP) peut accélérer une TV, voire la transformer en FV.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Oui : l'ATP peut modifier le circuit, accélérer la TV ou la faire dégénérer en FV ; le choc prend alors le relais.",
+      "Non : ce risque, peu fréquent mais connu, explique qu'un DAI associe toujours ATP et chocs."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'accélération d'une TV par l'ATP est un risque connu mais peu fréquent : la stimulation peut modifier le circuit, accélérer la tachycardie ou dégénérer en FV. Elle est alors traitée par le choc programmé dans la zone correspondante, ce qui explique qu'un DAI associe toujours ATP et chocs. Les essais de programmation ont montré que le bénéfice de l'ATP (réduction des chocs) l'emporte largement sur ce risque. Sur un Holter, il faut savoir reconnaître une TV accélérée ou une FV succédant à une salve d'ATP, suivie d'un choc.",
+    "aRetenir": "L'ATP peut accélérer une TV : le choc prend alors le relais.",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. J Arrhythm 2016;32:1-28",
+        "url": "https://doi.org/10.1016/j.joa.2015.12.001"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-070",
+    "theme": "ecg",
+    "sousTheme": "ECG du DAI",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Un porteur de DAI reçoit un choc. Voici le tracé Holter qui le précède immédiatement. Quelle est l'interprétation et la conduite la plus adaptée ?",
+    "ecg": {
+      "preset": "fa",
+      "fc": 200,
+      "qrs": "fin",
+      "legende": "Tracé précédant le choc"
+    },
+    "options": [
+      "Choc approprié sur TV ; majorer le bêtabloquant",
+      "Choc approprié sur FV ; pas de modification nécessaire",
+      "Choc inapproprié sur FA : la contrôler et reprogrammer",
+      "Choc inapproprié sur onde T ; changer la sensibilité"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : une TV aurait des QRS larges et un rythme régulier ; ici les QRS sont fins et irréguliers.",
+      "Faux : une FV donnerait une activité anarchique sans QRS individualisables, pas des QRS fins bien formés.",
+      "Juste : tachycardie à QRS fins, irrégulièrement irrégulière, sans P : FA rapide ; contrôler la FA et revoir zones et discriminateurs.",
+      "Faux : la sur-détection de l'onde T double-compte un rythme régulier ; ici le rythme est irrégulièrement irrégulier."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le tracé montre une tachycardie à QRS fins, irrégulièrement irrégulière, sans P visibles : c'est une FA rapide. Le DAI l'a classée dans une zone de thérapie, soit parce que la fréquence dépassait la limite des discriminateurs, soit parce qu'ils ont échoué : le choc est inapproprié. La prise en charge associe le contrôle de la FA et l'optimisation de la programmation : zone de thérapie plus haute, délai de détection plus long et discriminateurs actifs jusqu'à des fréquences élevées, comme le recommandent les consensus. Une TV ou une FV auraient des QRS larges ou anarchiques. La sur-détection de l'onde T donnerait un double comptage d'un rythme régulier.",
+    "aRetenir": "QRS fins irréguliers rapides avant un choc = choc inapproprié sur FA : contrôler la FA et reprogrammer.",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. J Arrhythm 2016;32:1-28",
+        "url": "https://doi.org/10.1016/j.joa.2015.12.001"
+      },
+      {
+        "titre": "Stiles MK et al. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      }
+    ],
+    "reco": [
+      "Consensus 2019 programmation DAI",
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-071",
+    "theme": "ecg",
+    "sousTheme": "ECG du DAI",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Selon le consensus d'experts HRS/EHRA/APHRS/SOLAECE 2015 sur la programmation des DAI, en prévention primaire, entre quelles valeurs est-il recommandé de programmer la limite inférieure de la zone de thérapie la plus lente ?",
+    "options": [
+      "150 et 160/min",
+      "165 et 175/min",
+      "185 et 200/min",
+      "220 et 240/min"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : une zone aussi basse expose aux chocs sur tachycardies supraventriculaires et sur TV lentes spontanément résolutives.",
+      "Faux : valeur encore trop basse ; les essais ont validé des zones plus hautes sans surmortalité.",
+      "Juste : le consensus 2015 recommande 185 à 200/min pour la zone la plus lente en prévention primaire, avec détection prolongée.",
+      "Faux : une limite aussi haute ferait risquer de laisser sans traitement des TV rapides."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les essais MADIT-RIT, ADVANCE III, PROVIDE et d'autres ont montré qu'une zone de thérapie élevée et des délais de détection prolongés réduisent les thérapies inappropriées et inutiles sans augmenter la mortalité, voire en la réduisant. Le consensus 2015 recommande donc, en prévention primaire, une limite inférieure de la zone la plus lente entre 185 et 200/min, avec un délai de détection d'au moins 6 à 12 secondes ou 30 intervalles. Des valeurs plus basses exposent aux chocs sur tachycardies supraventriculaires ou TV lentes spontanément résolutives. Une limite à 220-240/min ferait risquer de laisser sans traitement des TV rapides.",
+    "aRetenir": "Prévention primaire : zone la plus lente entre 185 et 200/min avec une détection prolongée.",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. J Arrhythm 2016;32:1-28",
+        "url": "https://doi.org/10.1016/j.joa.2015.12.001"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-072",
+    "theme": "ecg",
+    "sousTheme": "ECG du DAI",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Un porteur de DAI reçoit un choc alors qu'il est en rythme sinusal à 95/min. Les EGM montrent deux marqueurs de détection ventriculaire par cycle, l'un sur le QRS et l'autre environ 300 ms plus tard. Quel est le mécanisme le plus probable ?",
+    "options": [
+      "Sur-détection de l'onde T (double comptage)",
+      "Détection d'ondes P lointaines (far-field)",
+      "Fracture de sonde avec bruit anarchique",
+      "Interférence électromagnétique d'un appareil externe"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : un second marqueur à distance fixe du QRS, à chaque cycle, correspond à la repolarisation : la fréquence mesurée double.",
+      "Faux : des P lointaines suivraient le rythme atrial et précéderaient le QRS, pas 300 ms après lui.",
+      "Faux : le bruit de fracture est irrégulier, de très haute fréquence, sans relation fixe avec le QRS.",
+      "Faux : une interférence externe donne un signal continu ou anarchique, non synchronisé à chaque QRS."
+    ],
+    "reponseAttendue": null,
+    "explication": "Un second marqueur survenant à distance fixe du QRS, à chaque cycle, correspond à la repolarisation : c'est la sur-détection de l'onde T. Le DAI double la fréquence mesurée (95 → 190/min) et peut délivrer une thérapie inappropriée. Elle est favorisée par des ondes R de faible amplitude, des ondes T amples, une hyperkaliémie ou un QT long. La correction repose sur la reprogrammation (sensibilité, algorithmes de rejet de l'onde T, filtre), voire le repositionnement de la sonde. Une fracture de sonde donnerait des signaux non physiologiques, irréguliers, de très haute fréquence, et les ondes P lointaines une relation avec l'activité atriale.",
+    "aRetenir": "Double marqueur à distance fixe du QRS = sur-détection de l'onde T.",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. J Arrhythm 2016;32:1-28",
+        "url": "https://doi.org/10.1016/j.joa.2015.12.001"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017",
+        "url": null
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-073",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 1,
+    "question": "Sur un ECG, comment apparaît l'impulsion délivrée par un stimulateur cardiaque ?",
+    "ecg": {
+      "preset": "ddd",
+      "fc": 65,
+      "av": 180
+    },
+    "options": [
+      "Une onde U ample après le QRS",
+      "Une onde delta au début du QRS",
+      "Une onde epsilon après le QRS",
+      "Un spike vertical très bref"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : l'onde U est une onde de repolarisation tardive, sans lien avec la stimulation.",
+      "Faux : l'onde delta caractérise la préexcitation (voie accessoire).",
+      "Faux : l'onde epsilon est un signe de la dysplasie arythmogène du VD.",
+      "Juste : l'impulsion, très brève (≈ 0,4 ms), donne un trait vertical fin : grand en unipolaire, parfois minuscule en bipolaire."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'impulsion électrique du stimulateur, très brève (typiquement 0,4 ms), se traduit sur l'ECG par un trait vertical fin : le spike. Son amplitude dépend de la configuration de stimulation : grand en unipolaire, parfois très petit, voire à peine visible, en bipolaire. Un spike suivi d'une onde P témoigne d'une capture atriale, un spike suivi d'un QRS large d'une capture ventriculaire. L'onde delta caractérise la préexcitation et l'onde epsilon la dysplasie arythmogène du VD. Sur les ECG numériques, les filtres peuvent atténuer ou déformer les spikes bipolaires.",
+    "aRetenir": "L'impulsion du stimulateur apparaît comme un spike, petit en bipolaire et grand en unipolaire.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-074",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Stimulateur VVI programmé à 60/min. Chez ce patient en FA, un QRS spontané survient. Au bout de combien de temps, en l'absence d'un nouveau QRS spontané, le stimulateur délivre-t-il le spike suivant ?",
+    "ecg": {
+      "preset": "vvi",
+      "fc": 60
+    },
+    "options": [
+      "600 ms",
+      "800 ms",
+      "1 000 ms",
+      "1 200 ms"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : 600 ms correspond à une fréquence de 100/min.",
+      "Faux : 800 ms correspond à 75/min, pas à la fréquence de base programmée.",
+      "Juste : chaque QRS détecté réinitialise l'intervalle d'échappement : 60 000/60 = 1 000 ms.",
+      "Faux : 1 200 ms correspondrait à une hystérésis programmée à 50/min."
+    ],
+    "reponseAttendue": null,
+    "explication": "En VVI, chaque QRS détecté réinitialise l'intervalle d'échappement, égal à l'intervalle de base : 60 000/60 = 1 000 ms. Si aucun QRS n'est détecté pendant cet intervalle, le stimulateur délivre un spike. Ainsi, les QRS spontanés plus rapides que 60/min inhibent la stimulation. Un intervalle de 1 200 ms correspondrait à une hystérésis programmée à 50/min. Vérifier cet intervalle QRS spontané-spike sur l'ECG permet de confirmer une détection correcte.",
+    "aRetenir": "En VVI, l'intervalle d'échappement = 60 000 / fréquence de base (1 000 ms à 60/min).",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-075",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : dysfonctions",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 2,
+    "question": "Un spike ventriculaire non suivi de QRS et tombant immédiatement après un QRS spontané (dans sa période réfractaire) définit une perte de capture.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Non : un spike en période réfractaire ne peut capturer quelle que soit l'énergie : c'est une non-capture fonctionnelle.",
+      "Oui : la perte de capture ne se juge que hors période réfractaire ; ici, il faut surtout chercher pourquoi le spike a été émis (sous-détection, aimant)."
+    ],
+    "reponseAttendue": null,
+    "explication": "Un spike délivré pendant la période réfractaire du myocarde ne peut pas le dépolariser, quelle que soit l'énergie : c'est une non-capture fonctionnelle. Le vrai problème, dans ce cas, est la raison pour laquelle le spike a été délivré à ce moment-là, souvent une sous-détection du QRS spontané ou une stimulation asynchrone (aimant). On ne parle de perte de capture que pour un spike délivré en dehors de la période réfractaire et non suivi de dépolarisation. Cette distinction oriente la conduite à tenir : ajuster la sensibilité plutôt que l'amplitude.",
+    "aRetenir": "Spike en période réfractaire non suivi de QRS = non-capture fonctionnelle, pas une perte de capture.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-076",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : dysfonctions",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 1,
+    "question": "Chez ce porteur de stimulateur dont la batterie et les sondes sont normales, quel mécanisme explique l'anomalie visible sur ce tracé ?",
+    "ecg": {
+      "preset": "sur-detection",
+      "fc": 70
+    },
+    "options": [
+      "Une perte de capture ventriculaire",
+      "Une sous-détection de l'activité",
+      "Une sur-détection inhibant le boîtier",
+      "Un défaut de réponse à l'aimant"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : la perte de capture laisse visibles des spikes non suivis de dépolarisation.",
+      "Faux : la sous-détection se traduit par des spikes en excès, émis malgré une activité spontanée.",
+      "Juste : pendant la pause, aucun spike n'est émis : le stimulateur a été inhibé par un signal qu'il a pris pour une activité cardiaque.",
+      "Faux : l'aimant n'intervient pas ici ; sa réponse normale est une stimulation asynchrone, pas une pause."
+    ],
+    "reponseAttendue": null,
+    "explication": "Un stimulateur est inhibé par tout signal qu'il interprète comme une activité cardiaque. S'il détecte à tort un signal (myopotentiel, onde T, interférence), il ne délivre pas de spike : cela crée une pause sans spike. La perte de capture laisse visibles des spikes non suivis de dépolarisation, et la sous-détection se traduit par des spikes trop nombreux. Une hystérésis programmée peut aussi allonger un intervalle, mais de façon prévisible et limitée. La première étape de l'analyse d'un ECG de stimulateur est donc de repérer les spikes présents, absents ou inappropriés.",
+    "aRetenir": "Pause sans spike = inhibition, donc sur-détection jusqu'à preuve du contraire.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-077",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : CRT et stimulation de conduction",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Chez un patient porteur d'un stimulateur de resynchronisation, combien de cavités sont habituellement stimulées ?",
+    "ecg": {
+      "preset": "crt",
+      "fc": 70
+    },
+    "options": [
+      "Une seule : le ventricule droit",
+      "Trois : OD, VD et VG (sinus coronaire)",
+      "Deux : l'oreillette et le ventricule droit",
+      "Une seule : le VG via le sinus coronaire"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : c'est un stimulateur simple chambre VVI.",
+      "Juste : sonde atriale droite, sonde VD et sonde VG dans une veine latérale du sinus coronaire (la sonde atriale peut manquer en FA permanente).",
+      "Faux : c'est un stimulateur double chambre conventionnel ; il manque la stimulation du VG.",
+      "Faux : la stimulation VG isolée n'est pas le montage habituel de la resynchronisation."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le système de resynchronisation classique comporte une sonde atriale droite, une sonde VD et une sonde VG introduite dans une veine latérale ou postéro-latérale du sinus coronaire, pour stimuler simultanément (ou avec un décalage programmé) les deux ventricules. Chez les patients en FA permanente, la sonde atriale peut être omise. Le QRS stimulé est souvent plus fin que le QRS spontané de BBG. Le code NBG réserve sa cinquième position à la stimulation multisite. La stimulation de la voie de conduction est aujourd'hui une alternative dans certaines situations.",
+    "aRetenir": "CRT = stimulation atriale droite + VD + VG (sinus coronaire).",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Bernstein AD et al. The revised NASPE/BPEG generic code for antibradycardia, adaptive-rate, and multisite pacing. Pacing Clin Electrophysiol 2002;25:260-264",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11916002/"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-078",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Quelle est la voie rétrograde du circuit d'une tachycardie par réentrée électronique ?",
+    "ecg": {
+      "preset": "ttre",
+      "fc": 125
+    },
+    "options": [
+      "La conduction VA du patient (nœud AV)",
+      "Le conducteur de la sonde atriale",
+      "Le conducteur de la sonde ventriculaire",
+      "Le faisceau de Bachmann (interatrial)"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : le bras rétrograde est la conduction ventriculo-atriale du patient, habituellement nodale, parfois par une voie accessoire.",
+      "Faux : la sonde atriale détecte la P rétrograde mais ne conduit rien du ventricule vers l'oreillette.",
+      "Faux : la sonde ventriculaire est l'effecteur du bras antérograde (stimulation V).",
+      "Faux : le faisceau de Bachmann relie les deux oreillettes ; il ne relie pas ventricule et oreillette."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le circuit de la TRE associe le stimulateur, qui conduit l'influx de l'oreillette vers le ventricule (bras antérograde, via la détection atriale et la stimulation ventriculaire), et la conduction rétrograde ventriculo-atriale du patient, habituellement par le nœud AV, parfois par une voie accessoire. Les sondes ne sont que les capteurs et effecteurs du bras antérograde. La prévention repose sur une PVARP couvrant le temps de conduction VA et sur les algorithmes de détection et d'interruption de TRE.",
+    "aRetenir": "TRE : bras antérograde = stimulateur, bras rétrograde = conduction VA du patient.",
+    "sources": [
+      {
+        "titre": "Alasti M et al. Pacemaker-mediated arrhythmias. J Arrhythm 2018;34:485-492",
+        "url": "https://doi.org/10.1002/joa3.12098"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-079",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Chez un patient en DDD, qu'est-ce que la fréquence maximale de suivi ?",
+    "options": [
+      "Fréquence maximale imposée par le capteur d'activité",
+      "Fréquence atriale de déclenchement du mode switch",
+      "Fréquence de stimulation délivrée sous aimant",
+      "Fréquence V maximale en suivi de l'activité atriale"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : c'est la fréquence maximale capteur, limite de l'asservissement, distincte de la FMS.",
+      "Faux : la fréquence de détection du mode switch est un seuil atrial, habituellement plus élevé que la FMS.",
+      "Faux : la fréquence aimant est une fréquence asynchrone fixe, propre au fabricant et à l'état de la pile.",
+      "Juste : la FMS plafonne la fréquence de stimulation ventriculaire déclenchée par les P détectées ; au-delà : Wenckebach puis 2:1."
+    ],
+    "reponseAttendue": null,
+    "explication": "La fréquence maximale de suivi (FMS, « upper tracking rate ») plafonne la fréquence de stimulation ventriculaire déclenchée par les P détectées. Au-delà, le stimulateur applique un comportement de limitation (Wenckebach électronique puis bloc 2:1). Elle est distincte de la fréquence maximale capteur (limite de l'asservissement) et de la fréquence de détection du mode switch, qui est plus élevée. Chez un sujet jeune et actif, la FMS doit être suffisamment élevée pour couvrir la fréquence sinusale d'effort.",
+    "aRetenir": "FMS = fréquence ventriculaire maximale en suivi atrial.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-080",
+    "theme": "ecg",
+    "sousTheme": "ECG du DAI",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 3,
+    "question": "Chez un porteur de DAI, les QRS stimulés visibles sur l'ECG proviennent de la fonction de stimulation antibradycardique intégrée au défibrillateur.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Oui : tout DAI endocavitaire intègre une fonction de stimulation antibradycardique (simple, double chambre ou CRT).",
+      "Non : les QRS stimulés d'un DAI endocavitaire relèvent bien de sa fonction antibradycardique ; seul le DAI sous-cutané n'en a pas (hors post-choc)."
+    ],
+    "reponseAttendue": null,
+    "explication": "Tout DAI endocavitaire assure aussi une fonction de stimulation antibradycardique (simple, double chambre ou resynchronisation), en plus de la détection et du traitement des tachyarythmies ventriculaires. Les spikes et les QRS stimulés visibles en dehors des épisodes de tachycardie relèvent donc de cette fonction. Le DAI sous-cutané, en revanche, n'assure qu'une stimulation antibradycardique temporaire post-choc et pas de stimulation permanente. Les dysfonctions de stimulation (perte de capture, sur-détection) s'analysent donc sur l'ECG d'un DAI comme sur celui d'un stimulateur.",
+    "aRetenir": "Un DAI endocavitaire est aussi un stimulateur ; le DAI sous-cutané ne l'est pas (sauf post-choc).",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-081",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : CRT et stimulation de conduction",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Chez un patient CRT, la dérivation V1 ne montre pas de R dominante en stimulation biventriculaire. Quelles explications sont compatibles avec une capture VG pourtant effective ?",
+    "options": [
+      "Électrode V1 placée trop haut sur le thorax",
+      "Sonde VG en position antérieure (veine interventriculaire antérieure) ou proche du septum",
+      "Latence importante entre le spike VG et l'activation myocardique",
+      "Perte de capture VD avec stimulation VG seule",
+      "Activation du mode switch"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "commentaires": [
+      "Juste : une électrode V1 placée trop haut peut faire disparaître la R dominante malgré une capture VG effective.",
+      "Juste : une sonde VG antérieure ou septale active le VG moins latéralement, sans R dominante en V1.",
+      "Juste : une latence spike VG – activation (cicatrice) laisse l'activation VD prédominer sur l'ECG.",
+      "Faux : une stimulation VG seule accentuerait au contraire la R dominante en V1.",
+      "Faux : le mode switch modifie le suivi atrial, pas la morphologie du QRS stimulé."
+    ],
+    "reponseAttendue": null,
+    "explication": "La R dominante en V1 reflète l'activation précoce de la paroi postéro-latérale du VG. Elle peut manquer malgré une capture VG effective si V1 est enregistré trop haut, si la sonde VG est en position antérieure ou proche du septum, ou si une latence de stimulation VG (tissu cicatriciel) retarde l'activation gauche au profit de l'activation VD. À l'inverse, une stimulation VG seule (perte de capture VD) accentuerait plutôt la R en V1. Le mode switch ne modifie pas la morphologie du QRS stimulé. Seule la comparaison avec l'ECG de référence et le test de seuil VG tranchent.",
+    "aRetenir": "L'absence de R dominante en V1 sous CRT ne suffit pas à conclure à une perte de capture VG.",
+    "sources": [
+      {
+        "titre": "Barold SS. Reappraisal of ECG lead V1 in the assessment of cardiac resynchronization. Pacing Clin Electrophysiol 2015;38:291-294",
+        "url": "https://doi.org/10.1111/pace.12566"
+      },
+      {
+        "titre": "Barold SS, Herweg B. Usefulness of the 12-lead electrocardiogram in the follow-up of patients with cardiac resynchronization devices. Part I. Cardiol J 2011;18:476-486",
+        "url": "https://doi.org/10.5603/cj.2011.0002"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-082",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 8,
+    "question": "Quelles mesures de programmation contribuent à prévenir ou interrompre les tachycardies par réentrée électronique ?",
+    "options": [
+      "PVARP plus longue que le temps de conduction rétrograde VA",
+      "Allongement du délai AV après détection atriale",
+      "Activation de l'algorithme de détection et d'interruption de TRE",
+      "Raccourcissement de la PVARP",
+      "Augmentation de la fréquence maximale de suivi"
+    ],
+    "reponses": [
+      0,
+      2
+    ],
+    "commentaires": [
+      "Juste : une P rétrograde tombant dans la PVARP n'est pas suivie ; la PVARP doit couvrir le temps de conduction VA.",
+      "Faux : un délai AV long laisse l'oreillette récupérer son excitabilité et favorise la conduction rétrograde : c'est un facteur de TRE.",
+      "Juste : les algorithmes repèrent un intervalle VP-AS stable et rompent la boucle (PVARP allongée ou absence de suivi sur un cycle).",
+      "Faux : raccourcir la PVARP expose davantage à la détection de la P rétrograde, donc à la TRE.",
+      "Faux : relever la FMS ne prévient rien et rendrait la TRE plus rapide."
+    ],
+    "reponseAttendue": null,
+    "explication": "Une P rétrograde tombant dans la PVARP n'est pas suivie : programmer une PVARP couvrant le temps de conduction VA empêche la TRE, au prix d'une TARP plus longue et donc d'une fréquence de bloc 2:1 plus basse. L'allongement automatique de la PVARP après une ESV cible le déclencheur le plus fréquent. Les algorithmes des fabricants détectent une stimulation ventriculaire stable suivie d'une détection atriale à intervalle fixe et interrompent la boucle (PVARP allongée ou absence de suivi sur un cycle). Un délai AV long favorise au contraire la conduction rétrograde et fait partie des facteurs déclenchants. Raccourcir la PVARP favorise la TRE, et augmenter la FMS ne ferait que la rendre plus rapide.",
+    "aRetenir": "Prévention de la TRE : PVARP > temps VA, PVARP allongée après ESV, algorithme anti-TRE.",
+    "sources": [
+      {
+        "titre": "Monteil B, Ploux S, Eschalier R et al. Pacemaker-mediated tachycardia: manufacturer specifics and spectrum of cases. Pacing Clin Electrophysiol 2015;38:1489-1498",
+        "url": "https://doi.org/10.1111/pace.12750"
+      },
+      {
+        "titre": "Alasti M et al. Pacemaker-mediated arrhythmias. J Arrhythm 2018;34:485-492",
+        "url": "https://doi.org/10.1002/joa3.12098"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-083",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : dysfonctions",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Quels mécanismes ou réglages protègent un patient stimulodépendant en DDD contre les conséquences du crosstalk ?",
+    "options": [
+      "La période de blanking ventriculaire post-atriale",
+      "La stimulation de sécurité (safety pacing)",
+      "Une sensibilité ventriculaire moins élevée (valeur en mV plus haute) ou une amplitude atriale plus basse",
+      "L'allongement de la PVARP",
+      "L'augmentation de la fréquence maximale de suivi"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "commentaires": [
+      "Juste : le canal V est aveugle quelques dizaines de ms après le spike A, période où le crosstalk est le plus probable.",
+      "Juste : un signal détecté dans la fenêtre de sécurité entraîne un spike V à délai AV court plutôt qu'une inhibition.",
+      "Juste : réduire la sensibilité V ou l'énergie atriale diminue le signal parasite perçu par le canal ventriculaire.",
+      "Faux : la PVARP concerne le canal atrial après un événement ventriculaire, pas le canal V après le spike A.",
+      "Faux : la FMS n'a aucun rôle dans le crosstalk."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le blanking ventriculaire post-atrial rend le canal V aveugle pendant quelques dizaines de millisecondes après le spike atrial, période où le crosstalk est le plus probable. Au-delà, la fenêtre de sécurité transforme toute détection ventriculaire en stimulation à délai AV court plutôt qu'en inhibition. Réduire la sensibilité ventriculaire ou l'énergie atriale diminue l'amplitude du signal parasite perçu. La PVARP concerne le canal atrial après un événement ventriculaire, et la FMS n'a aucun rôle dans le crosstalk. Un blanking trop long exposerait en revanche à la sous-détection d'ESV précoces.",
+    "aRetenir": "Contre le crosstalk : blanking post-atrial, safety pacing et ajustement sensibilité V/amplitude A.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-084",
+    "theme": "ecg",
+    "sousTheme": "ECG du DAI",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 8,
+    "question": "Un porteur de DAI reçoit plusieurs chocs. Parmi les éléments suivants retrouvés à l'interrogation, lesquels orientent vers une fracture de la sonde de défibrillation ?",
+    "options": [
+      "Signaux non physiologiques de très haute fréquence, intermittents, sur le canal de détection",
+      "Baisse progressive de l'amplitude de l'onde R sur plusieurs mois",
+      "Élévation brutale ou variations importantes de l'impédance de stimulation",
+      "Deuxième marqueur de détection survenant à distance fixe de chaque QRS",
+      "Survenue des artéfacts lors des mouvements du bras ou de manipulation de la loge"
+    ],
+    "reponses": [
+      0,
+      2,
+      4
+    ],
+    "commentaires": [
+      "Juste : le bruit de fracture est anarchique, de très haute fréquence, avec des intervalles qu'aucune arythmie ne peut produire.",
+      "Faux : une baisse lente de l'onde R évoque plutôt une fibrose ou une évolution de la cardiopathie, pas une rupture du conducteur.",
+      "Juste : une fracture interrompt le circuit : impédance brutalement élevée ou instable.",
+      "Faux : un second marqueur à distance fixe du QRS évoque une sur-détection de l'onde T.",
+      "Juste : le bruit reproduit par les mouvements du bras ou de la loge est très évocateur d'une atteinte mécanique de la sonde."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le bruit de fracture de sonde est anarchique, non physiologique, de très haute fréquence et intermittent : il produit des intervalles très courts qu'aucune arythmie ne peut générer. Il s'associe souvent à des variations brutales d'impédance et peut être reproduit par des manœuvres du bras ou de la loge. Les algorithmes d'alerte de bruit et d'intégrité de sonde des fabricants reposent sur ces éléments. Un second marqueur à distance fixe du QRS évoque au contraire une sur-détection de l'onde T, et une baisse lente de l'amplitude de l'onde R une modification du substrat plutôt qu'une fracture. Devant une fracture confirmée, les thérapies doivent être suspendues sous surveillance jusqu'à la révision de sonde.",
+    "aRetenir": "Fracture de sonde : bruit non physiologique à très haute fréquence, intervalles très courts, impédance anormale.",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. J Arrhythm 2016;32:1-28",
+        "url": "https://doi.org/10.1016/j.joa.2015.12.001"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017",
+        "url": null
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-085",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Parmi les observations ECG suivantes chez un porteur de stimulateur, lesquelles correspondent à un fonctionnement NORMAL ?",
+    "options": [
+      "Spike V superposé à un QRS spontané de morphologie inchangée (pseudo-fusion)",
+      "Spike V à délai AV raccourci tombant dans une ESV après un spike A (safety pacing)",
+      "Intervalle QRS spontané-spike plus long que l'intervalle de base, avec hystérésis programmée",
+      "Spike non suivi de QRS tombant en période réfractaire sous aimant",
+      "Spike V délivré en dehors de la période réfractaire et non suivi de QRS"
+    ],
+    "reponses": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "commentaires": [
+      "Juste (normal) : en pseudo-fusion, le spike tombe dans un ventricule déjà dépolarisé ; il est sans effet et sans danger.",
+      "Juste (normal) : la stimulation de sécurité protège contre le crosstalk ; son spike tombe dans le QRS de l'ESV.",
+      "Juste (normal) : avec une hystérésis, l'intervalle d'échappement après un battement spontané est volontairement allongé.",
+      "Juste (normal) : sous aimant, un spike tombant en période réfractaire ne peut pas capturer : non-capture fonctionnelle.",
+      "Faux (anormal) : un spike hors période réfractaire non suivi de QRS est une vraie perte de capture."
+    ],
+    "reponseAttendue": null,
+    "explication": "La pseudo-fusion, la stimulation de sécurité, l'hystérésis et la non-capture fonctionnelle sous aimant sont des comportements attendus qu'il faut savoir reconnaître pour ne pas conclure à tort à une dysfonction. Seul un spike délivré hors période réfractaire et non suivi de dépolarisation constitue une vraie perte de capture. L'analyse d'un ECG de stimulateur doit toujours se faire en connaissant la programmation (mode, fréquences, délais, hystérésis, algorithmes). À défaut, l'interrogation du boîtier et les marqueurs permettent de lever le doute.",
+    "aRetenir": "Pseudo-fusion, safety pacing, hystérésis et non-capture fonctionnelle sont normaux ; la perte de capture vraie ne l'est pas.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-086",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "En DDD, quels paramètres déterminent la fréquence sinusale à partir de laquelle survient le bloc 2:1 électronique ?",
+    "options": [
+      "Le délai AV après détection atriale",
+      "La PVARP",
+      "La fréquence maximale de suivi",
+      "La fréquence de base",
+      "Le blanking ventriculaire post-atrial"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "commentaires": [
+      "Juste : la TARP est la somme du délai AV après détection et de la PVARP ; le bloc 2:1 survient à 60 000/TARP.",
+      "Juste : la PVARP est l'autre composante de la TARP ; l'allonger abaisse la fréquence de bloc 2:1.",
+      "Faux : la FMS fixe le début du Wenckebach électronique, pas le point de bloc 2:1.",
+      "Faux : la fréquence de base n'intervient pas dans le comportement aux fréquences élevées.",
+      "Faux : le blanking ventriculaire post-atrial concerne le canal V après le spike A ; il ne fait pas partie de la TARP."
+    ],
+    "reponseAttendue": null,
+    "explication": "La fréquence de bloc 2:1 est égale à 60 000 divisé par la TARP, somme du délai AV après détection et de la PVARP. La FMS détermine le début du Wenckebach électronique, pas celui du bloc 2:1 (même si les deux interagissent : si la TARP est plus longue que l'intervalle de la FMS, le bloc 2:1 survient avant la FMS). La fréquence de base et le blanking ventriculaire post-atrial n'interviennent pas. Les délais AV dynamiques et la PVARP adaptative raccourcissent la TARP à l'effort et repoussent le bloc 2:1.",
+    "aRetenir": "Bloc 2:1 électronique : 60 000 / (délai AV détecté + PVARP).",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-087",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 4,
+    "question": "Parmi les modes suivants, lesquels comportent un suivi de l'activité atriale (stimulation ventriculaire déclenchée par une P détectée) ?",
+    "options": [
+      "DDD",
+      "VDD",
+      "DDI",
+      "VVI",
+      "DDDR",
+      "AAI"
+    ],
+    "reponses": [
+      0,
+      1,
+      4
+    ],
+    "commentaires": [
+      "Juste : le DDD détecte l'oreillette et déclenche une stimulation V après le délai AV.",
+      "Juste : le VDD détecte l'oreillette et stimule le ventricule de façon synchronisée à la P.",
+      "Faux : en DDI, la détection atriale n'entraîne qu'une inhibition, sans stimulation V déclenchée.",
+      "Faux : le VVI ne détecte pas l'oreillette.",
+      "Juste : le DDDR suit l'oreillette comme le DDD, avec en plus un asservissement de fréquence.",
+      "Faux : l'AAI ne stimule pas le ventricule."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le suivi atrial nécessite la détection de l'oreillette et une réponse de type déclenchement (troisième lettre D) avec stimulation ventriculaire : c'est le cas du DDD, du DDDR et du VDD. Le DDI détecte l'oreillette mais ne répond que par l'inhibition. Le VVI ignore l'oreillette et l'AAI ne stimule pas le ventricule. Les modes avec suivi sont ceux qui exposent aux comportements de fréquence maximale, à la TRE et qui nécessitent un mode switch en cas d'arythmie atriale.",
+    "aRetenir": "Seuls les modes avec D en 3e position et stimulation V (DDD, DDDR, VDD) suivent l'oreillette.",
+    "sources": [
+      {
+        "titre": "Bernstein AD et al. The revised NASPE/BPEG generic code for antibradycardia, adaptive-rate, and multisite pacing. Pacing Clin Electrophysiol 2002;25:260-264",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11916002/"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ecg-stim-088",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 9,
+    "question": "Patient en DDD : délai AV après détection 150 ms, FMS 130/min, temps de conduction rétrograde VA mesuré à 350 ms, PVARP programmée à 250 ms. Une ESV déclenche une TRE. Quelle sera sa fréquence et quelle conséquence pratique en tirez-vous ?",
+    "reponseAttendue": "Cycle de la TRE = délai AV (150 ms) + temps VA (350 ms) = 500 ms, soit 120/min, inférieure à la FMS (≈ 462 ms). La TRE ne tourne donc pas à la FMS : un algorithme qui ne la recherche qu'à la FMS peut la manquer. Il faut allonger la PVARP au-delà de 350 ms (ou activer PVARP post-ESV et algorithme anti-TRE réglé sur une fréquence de détection adaptée).",
+    "explication": "Dans la TRE, chaque cycle comprend le délai AV après détection de la P rétrograde puis le temps de conduction VA du QRS stimulé. Si ce total est plus long que l'intervalle de la FMS, la tachycardie tourne à une fréquence inférieure à la FMS, ce qui peut la faire confondre avec une tachycardie sinusale suivie. Ici, la PVARP de 250 ms est plus courte que le temps VA de 350 ms : la P rétrograde tombe hors PVARP et est suivie. Allonger la PVARP au-delà du temps VA supprime le risque, mais allonge la TARP (150 + 380 = 530 ms, bloc 2:1 vers 113/min), ce qui peut gêner un patient actif : il faut alors privilégier la PVARP post-ESV et les algorithmes anti-TRE.",
+    "aRetenir": "Fréquence de TRE = 60 000 / (délai AV + temps VA), plafonnée par la FMS.",
+    "sources": [
+      {
+        "titre": "Alasti M et al. Pacemaker-mediated arrhythmias. J Arrhythm 2018;34:485-492",
+        "url": "https://doi.org/10.1002/joa3.12098"
+      },
+      {
+        "titre": "Monteil B, Ploux S, Eschalier R et al. Pacemaker-mediated tachycardia: manufacturer specifics and spectrum of cases. Pacing Clin Electrophysiol 2015;38:1489-1498",
+        "url": "https://doi.org/10.1111/pace.12750"
+      }
+    ],
+    "revise": "2026-09"
+  }
+]
