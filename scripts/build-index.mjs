@@ -3,9 +3,10 @@
 // Le résultat est déterministe : la date de version ne change que si le contenu (code ou questions) change.
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import crypto from 'node:crypto';
 
-const racine = path.join(path.dirname(new URL(import.meta.url).pathname), '..');
+const racine = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dir = path.join(racine, 'data', 'questions');
 const fichiers = fs.readdirSync(dir).filter(f => f.endsWith('.json') && f !== 'index.json').sort();
 const total = fichiers.reduce((n, f) => n + JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')).length, 0);

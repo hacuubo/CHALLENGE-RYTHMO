@@ -1,0 +1,631 @@
+[
+  {
+    "id": "prog-mq-001",
+    "theme": "programmation",
+    "reponseAttendue": null,
+    "reco": [],
+    "revise": "2026-09",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": "Medtronic",
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "À l'interrogation d'un DAI Medtronic, l'épisode mémorisé montre une série de cycles très courts marqués FS, puis le marqueur FD, puis quelques secondes plus tard CE suivi de CD. Que signifie cette séquence ?",
+    "options": [
+      "FV détectée, charge terminée, puis choc délivré",
+      "TV lente détectée, ATP délivrée, puis charge annulée",
+      "FV détectée, choc délivré, puis contrôle de l'efficacité",
+      "Bruit détecté, charge interrompue, puis détection confirmée"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : FS marque chaque cycle en zone FV, FD la détection de FV, CE la fin de charge et CD la cardioversion ou défibrillation délivrée.",
+      "Faux : la zone TV se marque TS/TD et l'ATP TP ; aucun de ces marqueurs n'apparaît ici.",
+      "Faux : l'ordre est inversé, CE (fin de charge) précède forcément CD (choc délivré).",
+      "Faux : le bruit n'a pas de marqueur FS/FD dédié ; CE ne signifie pas une interruption de charge."
+    ],
+    "explication": "Sur le canal de marqueurs Medtronic, chaque cycle ventriculaire est étiqueté selon sa zone : TS pour la zone TV, FS pour la zone FV (et TF pour la TV rapide). Quand le compteur de la zone est atteint, un marqueur de détection apparaît : TD pour une TV, FD pour une FV. La charge des condensateurs n'est pas marquée à son début mais à sa fin, par CE (charge end), puis le choc délivré est marqué CD. Le temps qui sépare FD de CE correspond donc à la durée de charge, utile à relever lors d'un contrôle. Savoir lire cette séquence permet de reconstituer rapidement l'histoire d'un épisode traité.",
+    "aRetenir": "Medtronic : FS (cycle en zone FV) → FD (FV détectée) → CE (fin de charge) → CD (choc délivré).",
+    "sources": [
+      {
+        "titre": "Medtronic France. Données EGM : marqueurs d'événements – défibrillateurs, stimulateurs cardiaques et moniteur Reveal (fiche UC201205701FR), 2012"
+      }
+    ]
+  },
+  {
+    "id": "prog-mq-004",
+    "theme": "programmation",
+    "reponseAttendue": null,
+    "reco": [],
+    "revise": "2026-09",
+    "sousTheme": "Seuils, détection et sondes",
+    "marque": "Medtronic",
+    "type": "vf",
+    "difficulte": 6,
+    "question": "Sur un boîtier Medtronic, le marqueur VR peut désigner une détection ventriculaire en période réfractaire, mais aussi un événement vu pendant une réversion au mode asynchrone pour bruit.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : la fiche Medtronic donne ces deux sens au marqueur VR ; l'EGM et le contexte permettent de trancher.",
+      "Faux : VR n'est pas réservé à l'extrasystole ; il signale aussi les détections liées à la réversion pour bruit."
+    ],
+    "explication": "Chez Medtronic, VR marque une détection ventriculaire survenue en période réfractaire. Le même marqueur est utilisé quand des signaux se répètent dans la période réfractaire et que le boîtier passe en réversion pour bruit (stimulation asynchrone). Devant une salve de VR, il faut donc regarder l'EGM ventriculaire : signaux physiologiques (onde T, R lointaine, ESV précoce) ou signaux non physiologiques évoquant un bruit de sonde ou une interférence. Dans ce second cas, le contrôle de l'impédance, des seuils et de l'amplitude de détection s'impose.",
+    "aRetenir": "Medtronic : VR = détection V réfractaire, y compris pendant une réversion pour bruit ; une salve de VR impose de relire l'EGM à la recherche d'un bruit.",
+    "sources": [
+      {
+        "titre": "Medtronic France. Données EGM : marqueurs d'événements – défibrillateurs, stimulateurs cardiaques et moniteur Reveal (fiche UC201205701FR), 2012"
+      }
+    ]
+  },
+  {
+    "id": "prog-mq-006",
+    "theme": "programmation",
+    "reponseAttendue": null,
+    "reco": [],
+    "revise": "2026-09",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "Biotronik",
+    "type": "qcm",
+    "difficulte": 5,
+    "question": "Relecture d'un tracé de stimulateur Biotronik. Parmi ces lectures de marqueurs, lesquelles sont exactes ? (plusieurs réponses)",
+    "options": [
+      "Ars : détection atriale dans la période réfractaire atriale",
+      "As (PRAPV) : détection atriale dans la PRAPV, sans délai AV déclenché",
+      "Vrs : stimulation ventriculaire de sécurité après un crosstalk",
+      "Ap : détection atriale pendant la protection far-field"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "commentaires": [
+      "Juste : Ars (atrial refractory sense) signale une détection atriale dans la période réfractaire atriale.",
+      "Juste : une P détectée dans la PRAPV est marquée As (PRAPV) et n'est pas suivie par un délai AV.",
+      "Faux : Vrs est une détection ventriculaire dans la période réfractaire ventriculaire, pas une stimulation.",
+      "Faux : Ap est une stimulation atriale ; la détection en protection far-field se marque Ars (PFF)."
+    ],
+    "explication": "La logique des marqueurs Biotronik est simple : A ou V pour la cavité, « s » pour une détection, « p » pour une stimulation, « r » pour un événement survenu en période réfractaire. Ars signale donc une détection atriale en période réfractaire atriale, Vrs une détection ventriculaire dans la période réfractaire ventriculaire. La PRAPV et la protection far-field ont leur propre mention entre parenthèses : As (PRAPV) et Ars (PFF). Les marqueurs VGs/VGp désignent la détection ou la stimulation du ventricule gauche sur les systèmes de resynchronisation. Cette grammaire permet de lire un tracé sans fiche.",
+    "aRetenir": "Biotronik : s = détecté, p = stimulé, r = en période réfractaire ; la PRAPV et la protection far-field sont précisées entre parenthèses.",
+    "sources": [
+      {
+        "titre": "BIOTRONIK. Marqueurs – Suivi rapide et tests (programmateur, gamme ILIVIA 7)"
+      }
+    ]
+  },
+  {
+    "id": "prog-mq-008",
+    "theme": "programmation",
+    "reponseAttendue": null,
+    "reco": [],
+    "revise": "2026-09",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "Abbott",
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Stimulateur double chambre Abbott en DDD. Sur quelques cycles, le canal de marqueurs affiche AP puis VSP, avec un intervalle AV nettement plus court que le délai AV programmé. Quelle est l'explication ?",
+    "options": [
+      "Perte de capture ventriculaire suivie d'une impulsion de secours",
+      "Stimulation biventriculaire déclenchée par l'optimisation SyncAV",
+      "Stimulation de sécurité après un signal vu sur le canal V juste après AP",
+      "Stimulation ventriculaire déclenchée par une détection atriale réfractaire"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : une perte de capture suivie d'une impulsion de secours (AutoCapture) ne raccourcit pas l'intervalle AV ; elle s'annonce par un marqueur de perte de capture (PDC).",
+      "Faux : il s'agit d'un stimulateur double chambre sans sonde VG, et SyncAV ajuste le délai AV progressivement, sans stimulation brutalement précoce après AP.",
+      "Juste : VSP signale une stimulation ventriculaire de sécurité, délivrée à AV court quand un signal (crosstalk ou ESV) est détecté juste après l'impulsion atriale.",
+      "Faux : une détection atriale réfractaire (AR) ne déclenche pas de stimulation ventriculaire."
+    ],
+    "explication": "Juste après une stimulation atriale, le canal ventriculaire est aveugle pendant un court blanking, puis entre dans une fenêtre de sécurité. Tout signal détecté dans cette fenêtre peut être du crosstalk (l'impulsion atriale vue par la sonde V) ou une vraie ESV. Dans le doute, le boîtier délivre une stimulation ventriculaire à AV raccourci : sans risque si c'est une ESV (la stimulation tombe dans sa période réfractaire), salvatrice si c'est du crosstalk chez un patient dépendant. Chez Abbott, ce comportement est marqué VSP ; Medtronic et MicroPort ont leurs propres marqueurs. Des VSP fréquents doivent faire rechercher un crosstalk (amplitude atriale élevée, sensibilité V trop fine, blanking trop court) ou des ESV répétées.",
+    "aRetenir": "Abbott : VSP = stimulation ventriculaire de sécurité (protection contre le crosstalk), reconnaissable à un AV très court après AP.",
+    "sources": [
+      {
+        "titre": "Abbott. Guide des marqueurs Abbott – marqueurs Holter, communs (PM, DAI, CRT) et tachy (MAT-2013010 v1.0), 2021"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2e éd. Wiley-Blackwell, 2010"
+      }
+    ]
+  },
+  {
+    "id": "prog-mq-009",
+    "theme": "programmation",
+    "reponseAttendue": null,
+    "reco": [],
+    "revise": "2026-09",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "Abbott",
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "À l'interrogation d'un DAI double chambre Abbott, un épisode de tachycardie non traité est étiqueté « TSV< ». Que signifie ce libellé ?",
+    "options": [
+      "Épisode classé TSV, branche FA/flutter (V < A)",
+      "Épisode classé TSV, branche sinusale (V = A)",
+      "Épisode classé TV, fréquence V supérieure à A",
+      "TSV non soutenue, plus courte que le délai de détection"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : le signe « < » renvoie à la branche V < A de la discrimination, celle de la FA et du flutter.",
+      "Faux : la branche V = A (tachycardie sinusale ou atriale) est libellée TSV=.",
+      "Faux : un épisode classé TV sur la branche V > A serait libellé TV>.",
+      "Faux : un épisode non soutenu est libellé TVNS, quelle que soit sa nature."
+    ],
+    "explication": "Les DAI double chambre Abbott classent chaque épisode en comparant d'abord les fréquences atriale et ventriculaire, puis appliquent les discriminateurs propres à chaque branche. Le libellé combine le diagnostic et la branche : « TSV< » signifie TSV sur la branche V < A (FA, flutter), « TSV= » TSV sur la branche V = A (tachycardie sinusale ou atriale), « TV> » TV sur la branche V > A. Un « TV< » ou un « TV= » indique au contraire qu'une TV a été retenue malgré une activité atriale rapide ou 1:1. Ce libellé indique immédiatement quelle branche et quels discriminateurs ont décidé, ce qui guide l'analyse d'une thérapie inappropriée ou d'une TV sous-traitée.",
+    "aRetenir": "Abbott : le libellé d'épisode associe le diagnostic (TV/TSV) et la branche (V<A, V=A, V>A).",
+    "sources": [
+      {
+        "titre": "Abbott. Guide des marqueurs Abbott – marqueurs Holter, communs (PM, DAI, CRT) et tachy (MAT-2013010 v1.0), 2021"
+      }
+    ]
+  },
+  {
+    "id": "prog-mq-011",
+    "theme": "programmation",
+    "reponseAttendue": null,
+    "reco": [],
+    "revise": "2026-09",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "Boston Scientific",
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Stimulateur double chambre Boston Scientific, patient en flutter atrial. Sur le canal de marqueurs apparaissent des « AS-Fl » puis, plus loin, un « AP→ ». Que signifie le marqueur AS-Fl ?",
+    "options": [
+      "Détection atriale dans la PRAT, comptée comme une ESA",
+      "Détection atriale dans le bruit du blanking, ignorée",
+      "Détection atriale dans la fenêtre de repli au flutter atrial",
+      "Stimulation atriale insérée après la fin d'un repli"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : une détection dans la PRAT se marque (AS) et une ESA dans la PRAT (PAC).",
+      "Faux : une détection dans la fenêtre de bruit du blanking se marque [AS].",
+      "Juste : AS-Fl signale une détection atriale dans la fenêtre du repli au flutter atrial (RFA), qui n'est pas suivie.",
+      "Faux : la stimulation atriale insérée après le RFA correspond au marqueur AP→, pas à AS-Fl."
+    ],
+    "explication": "Le repli au flutter atrial (RFA, « Atrial Flutter Response ») de Boston Scientific ouvre une fenêtre après chaque détection atriale : une onde atriale qui tombe dans cette fenêtre est marquée AS-Fl et n'est pas suivie par le ventricule, ce qui évite une stimulation ventriculaire rapide pendant un flutter ou une FA. Une stimulation atriale programmée qui tomberait trop près d'une activité atriale peut être différée, puis délivrée après la fin de la fenêtre : c'est le marqueur AP→. Boston utilise d'autres codes proches à ne pas confondre : (AS) pour une détection dans la PRAT (DAV + PRAPV) et [AS] pour une détection dans la fenêtre de bruit du blanking. La position de la parenthèse, du crochet ou du suffixe renseigne donc sur la période où l'événement est survenu.",
+    "aRetenir": "Boston : AS-Fl = détection dans la fenêtre de repli au flutter, (AS) = dans la PRAT, [AS] = dans le bruit du blanking.",
+    "sources": [
+      {
+        "titre": "Boston Scientific. Marqueurs – fiche EduCare (CRM-02F201-MARS16), programmateur Zoom Latitude 3120, 2016"
+      }
+    ]
+  },
+  {
+    "id": "prog-mq-012",
+    "theme": "programmation",
+    "reponseAttendue": null,
+    "reco": [],
+    "revise": "2026-09",
+    "sousTheme": "Seuils, détection et sondes",
+    "marque": "Boston Scientific",
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Vous relisez la mémoire d'un stimulateur Boston Scientific. Parmi ces lectures de marqueurs, lesquelles sont exactes ? (plusieurs réponses)",
+    "options": [
+      "VP-Ns : stimulation V asynchrone liée à du bruit sur le canal V",
+      "PVP→ : extension de la PRAPV après une ESV",
+      "[VS] : détection V pendant la période de protection du VG",
+      "VP-MT : stimulation V délivrée en mode déclenché (trigger)",
+      "RVS-Hy : stimulation de secours après perte de capture VD"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "commentaires": [
+      "Juste : le suffixe -Ns signale une stimulation asynchrone déclenchée par du bruit sur le canal ventriculaire.",
+      "Juste : PVP→ marque l'allongement de la PRAPV après une ESV, qui protège contre l'amorçage d'une TRE.",
+      "Faux : [VS] signale une détection V dans la fenêtre de bruit du blanking ; la protection VG se traduit par Inh-LVP.",
+      "Faux : -MT signifie une stimulation V à la fréquence maximale de suivi ; le mode déclenché se marque -Tr.",
+      "Faux : RVS-Hy est une détection V à la fréquence d'hystérésis ; la stimulation de secours se marque -BP."
+    ],
+    "explication": "Boston Scientific ajoute au marqueur de base des suffixes qui expliquent pourquoi l'événement a eu lieu. -Ns signale une stimulation asynchrone due à du bruit, -MT une stimulation au plafond de suivi (fréquence maximale de suivi), -Tr le mode déclenché, -Sr la fréquence capteur, -Hy l'hystérésis, -BP la stimulation de secours. PVP→ rappelle que la PRAPV a été allongée après une ESV pour éviter qu'une P rétrograde soit suivie et amorce une TRE. Les crochets signalent la fenêtre de bruit du blanking, les parenthèses la PRAT. Face à des VP-Ns répétés, il faut chercher une source de bruit : interférence, myopotentiels ou défaut de sonde.",
+    "aRetenir": "Boston : suffixes -Ns (bruit), -MT (FMS), -Tr (déclenché), -BP (secours) ; PVP→ = PRAPV allongée après ESV.",
+    "sources": [
+      {
+        "titre": "Boston Scientific. Marqueurs – fiche EduCare (CRM-02F201-MARS16), programmateur Zoom Latitude 3120, 2016"
+      }
+    ]
+  },
+  {
+    "id": "prog-mq-013",
+    "theme": "programmation",
+    "reponseAttendue": null,
+    "reco": [],
+    "revise": "2026-09",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "MicroPort",
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Patient porteur d'un stimulateur double chambre MicroPort. Sur le canal de marqueurs, chaque cycle se lit « P » en haut puis « V » en bas. Que fait le stimulateur ?",
+    "options": [
+      "Il détecte l'onde P sinusale puis stimule le ventricule",
+      "Il stimule l'oreillette puis détecte un QRS spontané",
+      "Il détecte l'onde P puis détecte un QRS spontané",
+      "Il stimule l'oreillette puis stimule le ventricule"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : c'est le piège classique ; chez MicroPort, P désigne une stimulation atriale, et une P détectée serait marquée A.",
+      "Faux : un QRS détecté se marque R chez MicroPort ; V désigne une stimulation.",
+      "Faux : une conduction spontanée se lirait A puis R.",
+      "Juste : chez MicroPort, P = stimulation atriale et V = stimulation ventriculaire ; la séquence P – V est donc une double stimulation."
+    ],
+    "explication": "MicroPort (ex-Sorin/ELA) utilise une convention qui piège les habitués des autres marques. A signifie détection atriale, P stimulation atriale (« pace »), R détection ventriculaire et V stimulation ventriculaire. Les minuscules p et r signalent une détection en période réfractaire, et Ab ou Vb une stimulation délivrée en période réfractaire ou absolue. Une séquence « P – V » correspond donc à ce que d'autres fabricants notent AP – VP, et « A – R » à AS – VS. Lire P comme « onde P » conduit à une erreur complète sur le fonctionnement du boîtier.",
+    "aRetenir": "MicroPort : A = détection atriale, P = stimulation atriale, R = détection ventriculaire, V = stimulation ventriculaire.",
+    "sources": [
+      {
+        "titre": "MicroPort CRM. Périodes réfractaires et marqueurs – gammes brady et tachy (support de formation)"
+      }
+    ]
+  },
+  {
+    "id": "prog-mq-014",
+    "theme": "programmation",
+    "reponseAttendue": null,
+    "reco": [],
+    "revise": "2026-09",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "MicroPort",
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Stimulateur double chambre MicroPort. Juste après l'événement atrial, une ESV est détectée sur le canal ventriculaire à l'intérieur de la fenêtre de sécurité. Quelle séquence de marqueurs attendez-vous sur le canal V ?",
+    "options": [
+      "« R » puis inhibition complète de la stimulation ventriculaire",
+      "« r » puis stimulation V en fin de fenêtre de sécurité, marquée « Vb »",
+      "« V » immédiat, délivré à la place de la détection",
+      "« Vb » seul, sans marqueur de détection ventriculaire"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : une détection dans la fenêtre de sécurité ne peut pas inhiber : le boîtier ne peut exclure un crosstalk.",
+      "Juste : la détection dans la fenêtre de sécurité est marquée r, puis une stimulation V est délivrée à la fin de cette fenêtre et marquée Vb.",
+      "Faux : la stimulation n'est pas immédiate, elle est délivrée à la fin de la fenêtre de sécurité.",
+      "Faux : la détection elle-même apparaît, sous la forme r, avant le marqueur Vb."
+    ],
+    "explication": "Chez MicroPort, un court blanking ventriculaire suit l'événement atrial, puis s'ouvre une fenêtre de sécurité qui est une période réfractaire relative. Un signal détecté dans cette fenêtre peut être du crosstalk ou une vraie ESV : il est marqué « r » (détection ventriculaire en période réfractaire) et le boîtier délivre une stimulation ventriculaire à la fin de la fenêtre de sécurité, marquée « Vb » (stimulation en période réfractaire). Si c'était une ESV, l'impulsion tombe dans sa période réfractaire et reste sans effet ; si c'était du crosstalk, le patient dépendant est protégé d'une asystolie. C'est l'équivalent MicroPort du VSP d'Abbott.",
+    "aRetenir": "MicroPort : détection dans la fenêtre de sécurité = « r », puis stimulation « Vb » en fin de fenêtre (équivalent du safety pacing).",
+    "sources": [
+      {
+        "titre": "MicroPort CRM. Périodes réfractaires et marqueurs – gammes brady et tachy (support de formation)"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2e éd. Wiley-Blackwell, 2010"
+      }
+    ]
+  },
+  {
+    "id": "prog-mq-015",
+    "theme": "programmation",
+    "reponseAttendue": null,
+    "reco": [],
+    "revise": "2026-09",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": "MicroPort",
+    "type": "qcm",
+    "difficulte": 8,
+    "question": "Épisode d'un DAI MicroPort : sur le canal de marqueurs, une série de R est annotée « TVCL », puis viennent un V suivi de sept Vb très rapprochés sous l'annotation « ATP2 TV ». La tachycardie persiste ; des « C » apparaissent sous les R suivants, puis l'annotation « 19.7 J ». Quelles lectures sont exactes ? (plusieurs réponses)",
+    "options": [
+      "La série de V et de Vb correspond aux impulsions de l'ATP",
+      "TVCL signifie TV à cycle court, proche de la zone FV",
+      "Les C signalent la charge des condensateurs",
+      "19.7 J est l'énergie du choc délivré",
+      "ATP2 TV désigne un ATP délivré en zone de TV rapide/FV"
+    ],
+    "reponses": [
+      0,
+      2,
+      3
+    ],
+    "commentaires": [
+      "Juste : les impulsions d'ATP, délivrées au milieu de la tachycardie, sont marquées V puis Vb (stimulation en période réfractaire).",
+      "Faux : TVCL signifie TV à cycle long, classée comme TV stable et dissociée après l'analyse du cycle long qui la distingue d'une FA.",
+      "Juste : chez MicroPort, la lettre C sous les cycles marque la charge.",
+      "Juste : l'annotation XX.X J donne l'énergie du choc délivré.",
+      "Faux : ATP1/ATP2 TV concernent la zone de TV lente ou de TV ; en zone TV rapide/FV, l'annotation est « ATP TV rapide »."
+    ],
+    "explication": "Chez MicroPort, le diagnostic est annoté au-dessus des marqueurs : TVCL indique qu'au moins 6 des 8 derniers cycles sont en zone de TV avec le critère de TV stable et dissociée, confirmé par l'analyse du cycle long qui écarte une FA. Les impulsions d'ATP n'ont pas de marqueur dédié : elles apparaissent comme V puis une suite de Vb, puisqu'elles tombent en période réfractaire. L'annotation ATP1 TV ou ATP2 TV désigne les programmes de la zone de TV lente ou de TV, et ATP TV rapide celui de la zone de TV rapide/FV. La charge est signalée par la lettre C sous chaque cycle, et le choc par son énergie en joules. Connaître ces conventions évite de prendre une série de Vb pour une stimulation anormale.",
+    "aRetenir": "MicroPort : ATP = V puis Vb en série, charge = « C », choc = énergie en joules ; TVCL = TV à cycle long.",
+    "sources": [
+      {
+        "titre": "MicroPort CRM. Périodes réfractaires et marqueurs – gammes brady et tachy (support de formation)"
+      }
+    ]
+  },
+  {
+    "id": "prog-mq-016",
+    "theme": "programmation",
+    "reponseAttendue": null,
+    "reco": [],
+    "revise": "2026-09",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "MicroPort",
+    "type": "qcm",
+    "difficulte": 8,
+    "question": "Concernant les périodes réfractaires atriales des stimulateurs double chambre MicroPort, quelles affirmations sont exactes ? (plusieurs réponses)",
+    "options": [
+      "Le blanking atrial post-ventriculaire (BAPV) est le seul paramètre de réfractaire programmable",
+      "Une PRAPV fixe et programmable, de 250 à 400 ms, protège contre la TRE",
+      "Hors Alizea, le BAPV après une détection V vaut le BAPV après stimulation moins 55 ms",
+      "Une P détectée dans la fenêtre DARA est ignorée par tous les algorithmes"
+    ],
+    "reponses": [
+      0,
+      2
+    ],
+    "commentaires": [
+      "Juste : en gamme brady, les autres périodes réfractaires sont courtes, fixes ou redéclenchables ; seul le BAPV se programme.",
+      "Faux : MicroPort n'utilise pas de PRAPV fixe programmable ; la protection repose sur de courtes périodes redéclenchables et l'analyse de la fenêtre DARA.",
+      "Juste : sur les modèles autres qu'Alizea, seul le BAPV post-stimulation se programme et le BAPV post-détection s'en déduit (moins 55 ms).",
+      "Faux : une P dans la DARA est marquée p et reste analysée (détection d'accélération du rythme atrial, repli)."
+    ],
+    "explication": "L'architecture des périodes réfractaires MicroPort (ex-Sorin/ELA) diffère de celle des autres constructeurs. Il n'y a pas de PRAPV longue programmable : l'oreillette n'est aveugle que pendant de courtes périodes absolues, suivies de périodes réfractaires relatives redéclenchables, ce qui permet de voir presque toute l'activité atriale. Les événements atriaux survenant dans la fenêtre de détection de l'accélération du rythme atrial (DARA) sont marqués p : ils ne déclenchent pas de délai AV mais sont analysés pour reconnaître une arythmie atriale. Le seul paramètre programmable est le blanking atrial post-ventriculaire ; sur Alizea, les BAPV après stimulation et après détection se règlent séparément, alors que sur les modèles plus anciens le second vaut le premier moins 55 ms. En pratique, face à des ondes R lointaines sur le canal A, c'est ce blanking qu'il faut allonger.",
+    "aRetenir": "MicroPort : pas de PRAPV programmable ; seul le blanking atrial post-ventriculaire se règle (BAPV post-R = post-V – 55 ms hors Alizea).",
+    "sources": [
+      {
+        "titre": "MicroPort CRM. Périodes réfractaires et marqueurs – gammes brady et tachy (support de formation)"
+      }
+    ]
+  },
+  {
+    "id": "prog-mq-017",
+    "theme": "programmation",
+    "reponseAttendue": null,
+    "reco": [],
+    "revise": "2026-09",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "MicroPort",
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Sur un DAI double chambre MicroPort, une série de trois ESV est suivie chaque fois d'une onde P rétrograde détectée environ 450 ms plus tard. Comment le boîtier traite-t-il ces P ?",
+    "options": [
+      "Il les suit après un délai AV raccourci, marqué A",
+      "Il les marque p, sans délai AV : elles tombent dans la retroPwatch",
+      "Il les ignore totalement, sans marqueur, car elles tombent dans le blanking",
+      "Il déclenche un repli de mode, marqué FMS, dès la deuxième P"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : suivre une P rétrograde est exactement ce qui pourrait amorcer une TRE ; la retroPwatch l'empêche.",
+      "Juste : après une ESV, une fenêtre retroPwatch de 500 ms s'ouvre sur le canal atrial ; une P qui y tombe est marquée p et ne déclenche pas de délai AV.",
+      "Faux : la P est bien détectée et marquée (p) ; elle n'est pas en blanking.",
+      "Faux : quelques P rétrogrades ne déclenchent pas de repli de mode."
+    ],
+    "explication": "Chez MicroPort, une ESV est un cycle ventriculaire non précédé d'une activité atriale. Elle ouvre sur le canal atrial une fenêtre de surveillance rétrograde, la retroPwatch, longue de 500 ms. Une onde P détectée dans cette fenêtre est considérée comme possiblement rétrograde : elle est marquée p et ne déclenche pas de délai AV, ce qui empêche l'amorçage d'une tachycardie par réentrée électronique. La retroPwatch s'applique au plus sur trois ESV successives ; au-delà, une P détectée en dehors des périodes réfractaires redevient un événement normal qui déclenche un délai AV. Boston Scientific obtient un effet comparable avec son extension de PRAPV après ESV (marqueur PVP→).",
+    "aRetenir": "MicroPort : retroPwatch = 500 ms après une ESV (au plus 3 successives) ; la P qui y tombe est marquée p et n'est pas suivie.",
+    "sources": [
+      {
+        "titre": "MicroPort CRM. Périodes réfractaires et marqueurs – gammes brady et tachy (support de formation)"
+      }
+    ]
+  },
+  {
+    "id": "prog-mq-018",
+    "theme": "programmation",
+    "reponseAttendue": null,
+    "reco": [],
+    "revise": "2026-09",
+    "sousTheme": "Seuils, détection et sondes",
+    "marque": "MicroPort",
+    "type": "vf",
+    "difficulte": 7,
+    "question": "Sur un stimulateur MicroPort, comme chez Medtronic, le marqueur « Ab » désigne une onde atriale détectée pendant le blanking post-ventriculaire, sans conséquence sur la stimulation.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : chez MicroPort, Ab n'est pas une détection dans le blanking (sens du même sigle chez Medtronic) mais une stimulation atriale délivrée en période réfractaire ou absolue.",
+      "Juste : chez MicroPort, Ab et Vb sont des stimulations en période réfractaire ou absolue, par exemple asynchrones à la fin de l'intervalle d'échappement en cas de bruit prolongé."
+    ],
+    "explication": "Le même sigle n'a pas le même sens chez tous les constructeurs. Chez Medtronic, Ab signale une détection atriale dans le blanking post-ventriculaire. Chez MicroPort, Ab et Vb signalent une stimulation délivrée alors que la cavité est en période réfractaire ou absolue. Cela arrive quand un bruit prolongé redéclenche sans cesse les périodes réfractaires relatives : le boîtier stimule alors de façon asynchrone à la fin de l'intervalle d'échappement pour ne pas laisser le patient sans stimulation. Des Ab ou Vb répétés sans raison apparente doivent faire rechercher un bruit (interférence, myopotentiels, défaut de sonde).",
+    "aRetenir": "Même sigle, autre sens : Ab = détection dans le blanking chez Medtronic, stimulation en période réfractaire chez MicroPort.",
+    "sources": [
+      {
+        "titre": "MicroPort CRM. Périodes réfractaires et marqueurs – gammes brady et tachy (support de formation)"
+      },
+      {
+        "titre": "Medtronic France. Données EGM : marqueurs d'événements – défibrillateurs, stimulateurs cardiaques et moniteur Reveal (fiche UC201205701FR), 2012"
+      }
+    ]
+  },
+  {
+    "id": "prog-mq-019",
+    "theme": "programmation",
+    "reponseAttendue": null,
+    "reco": [],
+    "revise": "2026-09",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Une onde P rétrograde tombe dans la période réfractaire atriale post-ventriculaire, hors blanking. Selon le constructeur, quels marqueurs peuvent la signaler ? (plusieurs réponses)",
+    "options": [
+      "Medtronic : AR",
+      "Biotronik : As (PRAPV)",
+      "Boston Scientific : (AS)",
+      "MicroPort : A",
+      "Abbott : PDC"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "commentaires": [
+      "Juste : chez Medtronic, AR signale une détection atriale en période réfractaire.",
+      "Juste : Biotronik précise la période entre parenthèses : As (PRAPV).",
+      "Juste : chez Boston, les parenthèses (AS) signalent une détection dans la PRAT (DAV + PRAPV).",
+      "Faux : chez MicroPort, A est une détection atriale hors période réfractaire ; en période réfractaire, le marqueur est p.",
+      "Faux : chez Abbott, PDC signale une perte de capture ; la détection en PRAPV est marquée AR."
+    ],
+    "explication": "Tous les boîtiers double chambre signalent les ondes atriales vues en période réfractaire, mais chaque constructeur a son code. Medtronic et Abbott utilisent AR, Biotronik As (PRAPV) ou Ars, Boston Scientific des parenthèses (AS), et MicroPort une minuscule p. Ces événements ne déclenchent pas de délai AV mais restent le plus souvent comptés par les algorithmes de commutation de mode, contrairement aux signaux tombant dans un blanking absolu, qui ne sont pas détectés. Savoir les reconnaître aide à diagnostiquer une conduction rétrograde, un flutter en 2:1 ou une onde R lointaine.",
+    "aRetenir": "Détection atriale en PRAPV : AR (Medtronic, Abbott), As (PRAPV) (Biotronik), (AS) (Boston), p (MicroPort).",
+    "sources": [
+      {
+        "titre": "Medtronic France. Données EGM : marqueurs d'événements – défibrillateurs, stimulateurs cardiaques et moniteur Reveal (fiche UC201205701FR), 2012"
+      },
+      {
+        "titre": "Abbott. Guide des marqueurs Abbott – marqueurs Holter, communs (PM, DAI, CRT) et tachy (MAT-2013010 v1.0), 2021"
+      },
+      {
+        "titre": "Boston Scientific. Marqueurs – fiche EduCare (CRM-02F201-MARS16), programmateur Zoom Latitude 3120, 2016"
+      },
+      {
+        "titre": "BIOTRONIK. Marqueurs – Suivi rapide et tests (programmateur, gamme ILIVIA 7)"
+      },
+      {
+        "titre": "MicroPort CRM. Périodes réfractaires et marqueurs – gammes brady et tachy (support de formation)"
+      }
+    ]
+  },
+  {
+    "id": "prog-mq-020",
+    "theme": "programmation",
+    "reponseAttendue": null,
+    "reco": [],
+    "revise": "2026-09",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Un patient porteur d'un stimulateur double chambre fait un accès de FA. Quels marqueurs signalent la commutation (ou le repli) de mode chez le constructeur indiqué ? (plusieurs réponses)",
+    "options": [
+      "Medtronic : MS",
+      "Abbott : CAM",
+      "Boston Scientific : ATR-FB",
+      "Biotronik : Afib",
+      "MicroPort : TVCL"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "commentaires": [
+      "Juste : MS (mode switch) marque la commutation de mode chez Medtronic.",
+      "Juste : chez Abbott, CAM désigne la commutation automatique de mode.",
+      "Juste : chez Boston, ATR-FB marque le début du repli à la tachycardie atriale (RTA).",
+      "Faux : Afib est, sur les DAI Biotronik, une classification SMART d'un événement en TSV par FA, pas une commutation de mode.",
+      "Faux : TVCL est un diagnostic de TV à cycle long sur les DAI MicroPort."
+    ],
+    "explication": "La commutation de mode porte un nom et un marqueur différents selon le constructeur. Medtronic la marque MS, Abbott CAM (commutation automatique de mode), Boston Scientific la décrit comme un repli à la tachycardie atriale (RTA/ATR) avec les marqueurs ATR↑ et ATR↓ pour le compteur, ATR-Dur pour la durée, ATR-FB pour le début du repli et ATR-End pour sa fin. Chez MicroPort, on parle de repli de mode (FMS, Fallback Mode Switch). Il ne faut pas confondre ces marqueurs avec ceux des DAI qui classent les tachycardies ventriculaires (Afib chez Biotronik, TVCL chez MicroPort).",
+    "aRetenir": "Commutation de mode : MS (Medtronic), CAM (Abbott), ATR-FB (Boston), FMS/repli (MicroPort).",
+    "sources": [
+      {
+        "titre": "Medtronic France. Données EGM : marqueurs d'événements – défibrillateurs, stimulateurs cardiaques et moniteur Reveal (fiche UC201205701FR), 2012"
+      },
+      {
+        "titre": "Abbott. Guide des marqueurs Abbott – marqueurs Holter, communs (PM, DAI, CRT) et tachy (MAT-2013010 v1.0), 2021"
+      },
+      {
+        "titre": "Boston Scientific. Marqueurs – fiche EduCare (CRM-02F201-MARS16), programmateur Zoom Latitude 3120, 2016"
+      },
+      {
+        "titre": "BIOTRONIK. Marqueurs – Suivi rapide et tests (programmateur, gamme ILIVIA 7)"
+      },
+      {
+        "titre": "MicroPort CRM. Périodes réfractaires et marqueurs – gammes brady et tachy (support de formation)"
+      }
+    ]
+  },
+  {
+    "id": "prog-mq-021",
+    "theme": "programmation",
+    "reponseAttendue": null,
+    "reco": [],
+    "revise": "2026-09",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Vous relisez des épisodes de DAI de plusieurs constructeurs. Quelle association marqueur → signification est exacte ?",
+    "options": [
+      "Abbott : astérisque « * », charge des condensateurs",
+      "Medtronic : CD, début de charge des condensateurs",
+      "Boston Scientific : Dvrt, choc délivré après la charge",
+      "MicroPort : C, choc délivré à l'énergie maximale"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : chez Abbott, l'astérisque signale la charge des condensateurs (et ATP**** une ATP pendant la charge).",
+      "Faux : chez Medtronic, CD est le choc délivré ; la fin de charge est marquée CE.",
+      "Faux : chez Boston, Dvrt signifie traitement dévié (choc annulé) ; le choc délivré est « Shock ».",
+      "Faux : chez MicroPort, C signale la charge ; l'énergie du choc est notée en joules."
+    ],
+    "explication": "Chaque constructeur signale la charge et le choc à sa manière. Abbott utilise un astérisque pour la charge, puis HV et l'énergie ou la tension pour le choc. Medtronic marque la fin de charge par CE et le choc par CD. Boston Scientific note Chrg au début et à la fin de charge, Shock pour le choc délivré et Dvrt pour un traitement dévié, par exemple quand la tachycardie s'arrête pendant la charge. MicroPort place un C sous chaque cycle pendant la charge et indique l'énergie délivrée en joules. Un Dvrt n'est pas un échec : il témoigne d'un choc évité à bon escient.",
+    "aRetenir": "Charge : * (Abbott), CE en fin de charge (Medtronic), Chrg (Boston), C (MicroPort) ; Dvrt Boston = traitement dévié.",
+    "sources": [
+      {
+        "titre": "Abbott. Guide des marqueurs Abbott – marqueurs Holter, communs (PM, DAI, CRT) et tachy (MAT-2013010 v1.0), 2021"
+      },
+      {
+        "titre": "Medtronic France. Données EGM : marqueurs d'événements – défibrillateurs, stimulateurs cardiaques et moniteur Reveal (fiche UC201205701FR), 2012"
+      },
+      {
+        "titre": "Boston Scientific. Marqueurs – fiche EduCare (CRM-02F201-MARS16), programmateur Zoom Latitude 3120, 2016"
+      },
+      {
+        "titre": "MicroPort CRM. Périodes réfractaires et marqueurs – gammes brady et tachy (support de formation)"
+      }
+    ]
+  },
+  {
+    "id": "prog-mq-022",
+    "theme": "programmation",
+    "reponseAttendue": null,
+    "reco": [],
+    "revise": "2026-09",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "MicroPort",
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Sur l'épisode d'un DAI MicroPort, pendant une FA rapide, l'annotation au-dessus des marqueurs alterne entre « TSV/TS », « Sans majorité » puis « Rythme lent ». Sur quelle règle reposent ces annotations ?",
+    "options": [
+      "Analyse des 8 derniers cycles glissants : au moins 6 dans une même catégorie",
+      "Analyse des 12 derniers cycles : au moins 8 dans une même catégorie",
+      "Moyenne des 4 derniers intervalles R-R comparée aux zones",
+      "Compteur cumulatif de 18 cycles sur 24 dans la zone"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : chaque annotation reflète la majorité sur les 8 derniers cycles glissants (au moins 6 dans une même catégorie).",
+      "Faux : la fenêtre utilisée par MicroPort est de 8 cycles, pas 12.",
+      "Faux : il ne s'agit pas d'une moyenne d'intervalles mais d'une règle de majorité.",
+      "Faux : le compteur 18 sur 24 est la règle de détection FV de Medtronic, pas celle de MicroPort."
+    ],
+    "explication": "Les DAI MicroPort annotent le rythme en continu à partir d'une règle de majorité sur les 8 derniers cycles glissants. Si au moins 6 sont en zone FV, l'annotation est FV ; si au moins 6 sont en zone de TV lente ou de TV, l'arbre décisionnel ajoute son diagnostic (TV, TVCL, TSV/TS) ; si au moins 6 sont lents ou stimulés, « Rythme lent ». Quand aucune catégorie n'atteint 6 cycles sur 8, l'annotation est « Sans majorité », fréquent pendant une FA à réponse ventriculaire irrégulière autour de la limite de zone. Cette lecture permet de comprendre pourquoi une thérapie a été retenue ou retardée.",
+    "aRetenir": "MicroPort : annotation du rythme sur une majorité de 6 des 8 derniers cycles glissants ; sinon « Sans majorité ».",
+    "sources": [
+      {
+        "titre": "MicroPort CRM. Périodes réfractaires et marqueurs – gammes brady et tachy (support de formation)"
+      }
+    ]
+  }
+]

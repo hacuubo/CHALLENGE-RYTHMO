@@ -1,0 +1,380 @@
+[
+  {
+    "id": "prog-dair-002",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": "Medtronic",
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "DAI Medtronic en prévention primaire, programmé selon l'annexe 2019 : zone FV à 188 bpm (NID 30/40), zones TV et TV rapide désactivées, ATP avant la charge activé dans la zone FV. Le patient fait une TV monomorphe régulière à 220 bpm (cycle ≈ 273 ms). Quelle séquence attendez-vous ?",
+    "options": [
+      "Aucune thérapie : sans zone TV ni TV rapide, cette TV n'est pas traitée",
+      "Un choc d'emblée : l'ATP n'est jamais délivré dans une zone FV",
+      "Plusieurs séquences d'ATP successives avant tout choc, comme en zone TV",
+      "Détection en zone FV, une salve d'ATP, puis un choc si la TV persiste"
+    ],
+    "reponses": [3],
+    "commentaires": [
+      "Faux : à 220 bpm, la TV dépasse 188 bpm et se trouve dans la zone FV ; elle sera détectée et traitée.",
+      "Faux : chez Medtronic, l'ATP avant ou pendant la charge permet justement un ATP dans la zone FV.",
+      "Faux : dans la zone FV, une seule salve d'ATP est tentée ; les séquences multiples relèvent d'une zone TV.",
+      "Juste : la TV est détectée en zone FV, reçoit une salve d'ATP (le cycle restant assez long), puis un choc en cas d'échec."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'annexe Medtronic laisse volontairement la zone TV rapide désactivée : l'ATP avant (ou pendant) la charge dans la zone FV procure la même fonction, c'est-à-dire une salve d'ATP sur les TV rapides régulières avant le choc. Cette salve n'est proposée que si les derniers cycles ne sont pas trop courts (de l'ordre de 240 ms, soit environ 250 bpm) ; au-delà, le choc est délivré sans ATP. Avec l'ATP avant la charge, le choc arrive un peu plus tard en cas d'échec qu'avec l'ATP pendant la charge ; le mode pendant la charge ne retarde pas le choc mais consomme une charge même si l'ATP réussit. Une zone TV rapide distincte n'est utile que si l'on veut plusieurs tentatives d'ATP. Le seuil de 188 bpm et le NID de 30/40 reprennent les données de PainFREE Rx II et ADVANCE III.",
+    "aRetenir": "Medtronic : zone FV à 188 bpm avec ATP avant/pendant la charge = une salve d'ATP sur les TV rapides sans zone TV rapide.",
+    "sources": [
+      {
+        "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing (Appendix B : traduction par constructeur). Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      }
+    ],
+    "reco": ["Consensus 2015 programmation DAI", "Consensus 2019 programmation DAI"],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-dair-003",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "Medtronic",
+    "type": "vf",
+    "difficulte": 7,
+    "question": "Vrai ou faux : sur un DAI double chambre Medtronic, l'annexe 2019 conseille de laisser désactivé le critère « Other 1:1 SVTs » de PR Logic tant que la sonde atriale n'est pas stabilisée (environ 3 mois), car une sonde atriale déplacée vers le ventricule ferait apparaître une TV comme une tachycardie 1:1 et pourrait retenir la thérapie.",
+    "options": ["Vrai", "Faux"],
+    "reponses": [0],
+    "commentaires": [
+      "Juste : c'est la raison de ce délai ; une TV vue « 1:1 » à cause d'une sonde atriale qui détecte le ventricule serait classée TSV à tort.",
+      "Faux : l'annexe recommande bien de n'activer « Other 1:1 SVTs » qu'après stabilisation de la sonde atriale."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le critère « Other 1:1 SVTs » de PR Logic retient la thérapie quand il reconnaît une relation atrioventriculaire 1:1 compatible avec une TSV (réentrée nodale, voie accessoire). Il repose entièrement sur la fiabilité du canal atrial. Dans les premières semaines, une sonde atriale peut se déplacer et détecter l'activité ventriculaire : une TV apparaîtrait alors avec une association 1:1 et pourrait être classée TSV, avec une thérapie retenue. D'où la recommandation de ne l'activer qu'après stabilisation de la sonde, vers 3 mois, les critères FA/flutter et tachycardie sinusale restant actifs dès l'implantation. Comme tous les discriminateurs, PR Logic ne s'applique que jusqu'à la limite TSV (260 ms, soit 230 bpm).",
+    "aRetenir": "PR Logic : « Other 1:1 SVTs » activé seulement après stabilisation de la sonde atriale (≈ 3 mois).",
+    "sources": [
+      {
+        "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing (Appendix B : traduction par constructeur). Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      }
+    ],
+    "reco": ["Consensus 2019 programmation DAI"],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-dair-005",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": "Abbott",
+    "type": "qcm",
+    "difficulte": 8,
+    "question": "DAI Abbott : l'annexe 2019 propose 30 intervalles de détection en zones FV et TV2, mais précise qu'un nombre plus faible peut être raisonnable dans certains cas. Quelles propositions sont exactes ? (plusieurs réponses)",
+    "options": [
+      "Une TV dont les cycles oscillent autour de la limite entre deux zones peut voir ses intervalles répartis entre les deux, ce qui peut doubler le délai de détection",
+      "Chez un patient dont la détection est médiocre, des cycles non détectés peuvent relancer les compteurs, ce qui justifie d'envisager moins d'intervalles",
+      "30 intervalles correspondent au réglage nominal des DAI Abbott",
+      "Un nombre d'intervalles réduit est recommandé chez tout patient en prévention primaire pour limiter les syncopes"
+    ],
+    "reponses": [0, 1],
+    "commentaires": [
+      "Juste : c'est le phénomène de répartition (« binning ») d'une TV à cheval sur deux zones, cité par l'annexe.",
+      "Juste : des cycles tombant hors zone (sous-détection) peuvent remettre les compteurs à zéro ; moins d'intervalles limite ce retard.",
+      "Faux : l'annexe signale 30 intervalles comme un réglage non nominal, à programmer volontairement.",
+      "Faux : la règle reste la détection prolongée ; ADVANCE III et MADIT-RIT n'ont pas montré d'excès de syncopes."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'annexe Abbott transpose la détection prolongée en 30 intervalles (valeur non nominale) pour les zones FV (240 ou 250 bpm) et TV2 (187 bpm). Elle nuance : une TV dont le cycle est proche de la limite entre deux zones peut voir ses intervalles comptés tantôt dans l'une, tantôt dans l'autre, ce qui peut doubler le temps nécessaire pour atteindre le critère. De même, des battements tombant hors zone (sous-détection d'une FV de faible amplitude) peuvent relancer les compteurs : chez un patient dont la détection est médiocre, moins d'intervalles doivent être envisagés. Ce n'est pas un retour général à des détections courtes : la réduction des thérapies inutiles par détection prolongée, sans excès de syncopes, reste le principe du consensus. Le raisonnement s'applique aussi aux autres constructeurs dont les zones ont des compteurs séparés.",
+    "aRetenir": "Abbott : 30 intervalles (non nominal) ; moins si TV à cheval sur deux zones ou détection médiocre.",
+    "sources": [
+      {
+        "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing (Appendix B : traduction par constructeur). Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      }
+    ],
+    "reco": ["Consensus 2019 programmation DAI"],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-dair-006",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Le consensus recommande de programmer un ATP dans la zone FV (avant ou pendant la charge des condensateurs) pour les TV rapides. Quels couples constructeur – fonction correspondent à cette salve d'ATP en zone FV dans l'annexe 2019 ? (plusieurs réponses)",
+    "options": [
+      "Abbott : ATP While Charging",
+      "Medtronic : Wavelet",
+      "Biotronik : ATP One-Shot",
+      "Boston Scientific : Rhythm ID",
+      "Boston Scientific : QuickConvert"
+    ],
+    "reponses": [0, 2, 4],
+    "commentaires": [
+      "Juste : chez Abbott, l'annexe propose une salve de 8 impulsions à 85 % du cycle pendant la charge.",
+      "Faux : Wavelet est le discriminateur morphologique de Medtronic ; la fonction correspondante est l'ATP avant/pendant la charge.",
+      "Juste : chez Biotronik, ATP One-Shot délivre une salve unique de 8 impulsions dans la zone FV.",
+      "Faux : Rhythm ID est le discriminateur TSV/TV de Boston Scientific, pas un ATP.",
+      "Juste : chez Boston Scientific, QuickConvert délivre une salve d'ATP dans la zone FV (l'annexe propose de l'étendre jusqu'à 300 bpm)."
+    ],
+    "reponseAttendue": null,
+    "explication": "Une grande partie des TV rapides monomorphes (jusqu'à 230-250 bpm) sont arrêtées par une seule salve d'ATP, comme l'ont montré les études PainFREE. Chaque constructeur a sa fonction : ATP While Charging chez Abbott, ATP avant ou pendant la charge chez Medtronic, QuickConvert chez Boston Scientific, ATP One-Shot chez Biotronik ; chez MicroPort, la salve est délivrée dans la zone TV rapide si le rythme est stable. Une salve pendant la charge ne retarde pas le choc en cas d'échec ; une salve avant la charge évite une charge inutile si l'ATP réussit, au prix d'un choc un peu plus tardif. Wavelet et Rhythm ID sont des discriminateurs TSV/TV, sans rapport avec l'ATP.",
+    "aRetenir": "ATP en zone FV : While Charging (Abbott), Before/During Charging (Medtronic), QuickConvert (Boston), One-Shot (Biotronik).",
+    "sources": [
+      {
+        "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing (Appendix B : traduction par constructeur). Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      }
+    ],
+    "reco": ["Consensus 2015 programmation DAI", "Consensus 2019 programmation DAI"],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-dair-007",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Certains paramètres délivrent la thérapie après un délai programmé, même si les discriminateurs classent toujours le rythme comme une TSV. L'annexe 2019 recommande de les désactiver. Lesquels sont de ce type ? (plusieurs réponses)",
+    "options": [
+      "Boston Scientific : Sustained Rate Duration (SRD)",
+      "Medtronic : SVT V. Limit",
+      "Biotronik : Sustained VT Timer",
+      "MicroPort : recherche de cycles longs (VT long cycle search)"
+    ],
+    "reponses": [0, 2],
+    "commentaires": [
+      "Juste : le SRD délivre la thérapie si la fréquence reste dans la zone au-delà du délai programmé ; l'annexe le met sur OFF.",
+      "Faux : la limite TSV est un seuil de fréquence (260 ms) au-delà duquel les discriminateurs ne s'appliquent plus ; elle est recommandée.",
+      "Juste : le Sustained VT Timer joue le même rôle chez Biotronik ; l'annexe le met sur OFF.",
+      "Faux : c'est un élément de PARAD+ et de Stability+/Acc, qui aide à reconnaître une FA ; il reste activé."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les minuteries de type « thérapie après délai » (SRD chez Boston Scientific, Sustained VT Timer chez Biotronik, SVT Discrimination Timeout chez Abbott) forcent la thérapie quand un rythme rapide persiste, même classé TSV. Elles étaient conçues pour ne pas laisser passer une TV lente mal classée, mais elles aboutissent surtout à des chocs inappropriés sur tachycardie sinusale d'effort ou FA prolongée. Le consensus les fait désactiver, en comptant plutôt sur une zone de fréquence bien placée et des discriminateurs performants. La limite TSV (Medtronic 260 ms, Abbott et Boston 230 bpm) n'est pas une minuterie : c'est une borne de fréquence, à conserver. La recherche de cycles longs de MicroPort sert à reconnaître une FA sur un rythme qui paraît stable.",
+    "aRetenir": "SRD, Sustained VT Timer, SVT Discrimination Timeout : OFF ; la limite TSV, elle, reste à 230 bpm.",
+    "sources": [
+      {
+        "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing (Appendix B : traduction par constructeur). Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      }
+    ],
+    "reco": ["Consensus 2019 programmation DAI"],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-dair-008",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Vrai ou faux : chez un porteur de DAI en BAV complet permanent, l'annexe 2019 recommande d'activer tous les discriminateurs TSV/TV, car une tachycardie atriale reste la première cause de choc inapproprié.",
+    "options": ["Vrai", "Faux"],
+    "reponses": [1],
+    "commentaires": [
+      "Faux : en BAV complet, une arythmie atriale ne peut pas accélérer les ventricules ; les discriminateurs ne sont pas nécessaires.",
+      "Juste : l'annexe précise, pour chaque constructeur, que les discriminateurs TSV ne sont pas requis en BAV complet."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les discriminateurs TSV/TV servent à reconnaître une tachycardie supraventriculaire conduite aux ventricules (FA, flutter, tachycardie sinusale). En BAV complet permanent, aucune arythmie atriale ne peut être conduite : une tachycardie ventriculaire rapide est d'origine ventriculaire, ou un artefact. L'annexe 2019 le précise pour chaque constructeur : les discriminateurs ne sont pas requis. Les laisser actifs n'apporte rien et peut retarder à tort une thérapie (morphologie comparée à un gabarit stimulé, suivi atrial rapide pris pour une TSV). En revanche, les protections contre la surdétection (onde T, bruit de sonde) restent utiles, car elles ne relèvent pas de la discrimination TSV. Il faut être sûr du caractère permanent du bloc.",
+    "aRetenir": "BAV complet permanent : discriminateurs TSV/TV inutiles ; garder les protections contre la surdétection.",
+    "sources": [
+      {
+        "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing (Appendix B : traduction par constructeur). Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      }
+    ],
+    "reco": ["Consensus 2019 programmation DAI"],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-dair-009",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Parmi ces patients devant recevoir un DAI endocavitaire, chez lequel le test de défibrillation (induction de FV) ne doit pas être réalisé ?",
+    "options": [
+      "Femme de 45 ans, implantation pectorale droite pour occlusion veineuse gauche",
+      "Homme de 70 ans, remplacement de boîtier sur une sonde de défibrillation ancienne",
+      "Homme de 68 ans en FA persistante, anticoagulation interrompue depuis 3 semaines",
+      "Femme de 52 ans, cardiomyopathie hypertrophique, sonde VD bien positionnée"
+    ],
+    "reponses": [2],
+    "commentaires": [
+      "Faux : en implantation pectorale droite, le test reste raisonnable, le champ de défibrillation étant moins favorable.",
+      "Faux : lors d'un changement de boîtier, le test peut se discuter ; il n'est pas contre-indiqué.",
+      "Juste : FA sans anticoagulation efficace : le choc de réduction peut cardioverter la FA et exposer à une embolie ; test contre-indiqué.",
+      "Faux : la cardiomyopathie hypertrophique n'est pas une contre-indication ; c'est même une situation où certains testent."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le consensus 2015 (non modifié par la mise à jour 2019, qui porte sur les réglages par constructeur) considère raisonnable d'omettre le test lors d'une primo-implantation pectorale gauche bien réalisée, et raisonnable de le faire en implantation pectorale droite ou lors d'un changement de boîtier. Il liste en classe III (risque) les situations où le test ne doit pas être fait : thrombus intracardiaque non chronique, FA ou flutter sans anticoagulation adéquate, rétrécissement aortique serré, coronaropathie instable, AVC ou AIT récent, instabilité hémodynamique. Chez ce patient en FA persistante sans anticoagulation depuis 3 semaines, le choc peut restaurer un rythme sinusal et provoquer une embolie systémique. La cardiomyopathie hypertrophique, avec une masse ventriculaire importante, fait au contraire partie des situations où un test est parfois jugé utile.",
+    "aRetenir": "Pas de test de défibrillation en cas de FA non anticoagulée, de thrombus, de RA serré, d'ischémie instable ou d'AVC récent.",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      },
+      {
+        "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      }
+    ],
+    "reco": ["Consensus 2015 programmation DAI"],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-dair-010",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": "Boston Scientific",
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "DAI Boston Scientific en prévention primaire, sans TV connue. L'annexe 2019 propose, à côté d'une option « thérapie retardée », une option 2 « thérapie à haute fréquence ». Laquelle ?",
+    "options": [
+      "Zone VF ≥ 250 bpm (durée 5 s) et zone VT ≥ 185 bpm (durée 12 s)",
+      "Zone VF ≥ 230 bpm et zone conditionnelle ≥ 200 bpm",
+      "Zone VF unique ≥ 200 bpm, durée 2,5 s, VT-1 en surveillance au choix",
+      "Zone VF unique ≥ 220 bpm, durée 1 s, sans zone de surveillance"
+    ],
+    "reponses": [2],
+    "commentaires": [
+      "Faux : c'est l'option 1, « thérapie retardée », issue du bras à détection retardée de MADIT-RIT.",
+      "Faux : ce sont les zones proposées pour le S-ICD, pas pour un DAI endocavitaire.",
+      "Juste : c'est la transposition du bras « haute fréquence » de MADIT-RIT : une seule zone à 200 bpm et un délai court de 2,5 s.",
+      "Faux : une durée de 1 s n'est pas proposée ; l'annexe garde 2,5 s au minimum."
+    ],
+    "reponseAttendue": null,
+    "explication": "Chez Boston Scientific, la détection combine une fenêtre de 8 intervalles rapides sur 10 et une durée programmable (Duration) pendant laquelle la fréquence doit rester dans la zone. L'annexe 2019 propose deux options inspirées de MADIT-RIT. Option 1, « thérapie retardée » : VF ≥ 250 bpm avec 5 s et VT ≥ 185 bpm avec 12 s. Option 2, « haute fréquence » : une seule zone VF à partir de 200 bpm, avec 2,5 s de durée, la zone VT-1 pouvant servir à la surveillance. Les deux stratégies réduisaient les thérapies inappropriées et la mortalité par rapport à la programmation conventionnelle. Ces réglages ne sont pas nominaux : ils doivent être programmés volontairement.",
+    "aRetenir": "Boston : option 1 = 185 bpm/12 s + 250 bpm/5 s ; option 2 = zone unique 200 bpm/2,5 s (MADIT-RIT).",
+    "sources": [
+      {
+        "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing (Appendix B : traduction par constructeur). Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      },
+      {
+        "titre": "Moss AJ et al. Reduction in inappropriate therapy and mortality through ICD programming (MADIT-RIT). N Engl J Med 2012;367:2275-2283",
+        "url": "https://doi.org/10.1056/NEJMoa1211107"
+      }
+    ],
+    "reco": ["Consensus 2019 programmation DAI"],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-dair-011",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": "MicroPort",
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "DAI MicroPort programmé selon l'annexe : zone TV rapide de 230 à 255 bpm, au-dessus de la zone TV. Quel est le rôle du critère de stabilité dans cette zone TV rapide ?",
+    "options": [
+      "Rythme stable : une salve d'ATP avant les chocs ; instable : chocs d'emblée",
+      "Rythme instable : thérapie retenue, car une FA conduite est probable",
+      "Il choisit l'énergie du premier choc, réduite lorsque le rythme est jugé stable",
+      "Aucun : la stabilité n'est analysée que dans la zone FV"
+    ],
+    "reponses": [0],
+    "commentaires": [
+      "Juste : dans la zone TV rapide, la stabilité oriente seulement vers un ATP préalable ; elle ne retient jamais la thérapie.",
+      "Faux : retenir la thérapie sur un rythme instable est le rôle des discriminateurs en zone TV, pas en zone TV rapide.",
+      "Faux : l'annexe propose des chocs de 42 J, sans modulation de l'énergie par la stabilité.",
+      "Faux : la zone FV est traitée par chocs d'emblée ; c'est dans la zone TV rapide que la stabilité intervient."
+    ],
+    "reponseAttendue": null,
+    "explication": "Chez MicroPort (anciennement Sorin puis LivaNova), l'annexe prévoit trois zones actives : TV à 185 bpm, TV rapide à 230 bpm, FV au-delà de 255 bpm, chacune avec 20 cycles et une majorité 6 sur 8. Dans la zone TV rapide, le critère de stabilité (nominal 30 ms) ne sert pas à retenir la thérapie : s'il est satisfait, il autorise une salve d'ATP (burst à 85 %, 8 impulsions) avant les chocs ; s'il ne l'est pas, le boîtier choque d'emblée. Les chocs sont délivrés à 42 J, énergie maximale de ces boîtiers. Dans la zone TV, en revanche, PARAD+ ou Stability+/Acc analysent le rythme et peuvent retenir la thérapie. Les noms des gammes ont changé depuis 2016 : vérifier le manuel de la génération implantée.",
+    "aRetenir": "MicroPort, zone TV rapide : stabilité = ATP puis choc si stable, choc d'emblée si instable ; jamais de thérapie retenue.",
+    "sources": [
+      {
+        "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing (Appendix B : traduction par constructeur). Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      }
+    ],
+    "reco": ["Consensus 2019 programmation DAI"],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-dair-012",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Homme de 24 ans, sportif, syndrome de Brugada. Un DAI endocavitaire est implanté après une syncope arythmique. Aucune TV monomorphe documentée, rythme sinusal, pas de besoin de stimulation. Quelle stratégie de programmation est la plus cohérente ?",
+    "options": [
+      "Une zone TV dès 170 bpm avec ATP, pour traiter tôt une éventuelle TV",
+      "Une détection courte (12 intervalles) dans toutes les zones",
+      "Une stimulation DDD à 80 bpm pour prévenir les arythmies",
+      "Une zone unique à fréquence élevée avec une détection prolongée"
+    ],
+    "reponses": [3],
+    "commentaires": [
+      "Faux : une zone basse chez un sujet jeune capte la tachycardie sinusale d'effort et multiplie les chocs inappropriés.",
+      "Faux : les détections courtes augmentent les thérapies inutiles sans bénéfice démontré sur la syncope.",
+      "Faux : aucune stimulation permanente n'est indiquée ici ; elle n'a pas de rôle préventif démontré dans le Brugada.",
+      "Juste : les arythmies du Brugada sont des TV polymorphes ou des FV rapides ; une zone haute et une détection longue limitent les chocs inappropriés."
+    ],
+    "reponseAttendue": null,
+    "explication": "Dans le syndrome de Brugada, les arythmies graves sont des TV polymorphes ou des FV, rapides, peu accessibles à l'ATP. Les porteurs de DAI sont jeunes, avec des fréquences sinusales d'effort élevées, et les séries ont rapporté des taux de chocs inappropriés importants (tachycardie sinusale, FA, surdétection de l'onde T, problèmes de sonde). Une zone unique à fréquence élevée (souvent 220 à 230 bpm) avec une détection prolongée applique à ce contexte les principes du consensus de programmation. Le S-ICD est une alternative à considérer (ESC 2022, classe IIa) quand aucune stimulation ni ATP n'est nécessaire, sous réserve d'un dépistage ECG satisfaisant, la repolarisation du Brugada étant fluctuante. Le traitement de la FA et la prévention de la fièvre complètent la prévention des chocs.",
+    "aRetenir": "Canalopathie du sujet jeune : zone unique haute, détection longue, discuter le S-ICD.",
+    "sources": [
+      {
+        "titre": "Zeppenfeld K, et al. 2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      },
+      {
+        "titre": "Sacher F, et al. Outcome after implantation of a cardioverter-defibrillator in patients with Brugada syndrome: a multicenter study. Circulation 2006;114:2317-2324"
+      }
+    ],
+    "reco": ["ESC 2022 arythmies ventriculaires", "Consensus 2015 programmation DAI"],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-dair-013",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Homme de 66 ans, cardiopathie ischémique, sous amiodarone. Il présente une TV monomorphe documentée à 145 bpm, bien tolérée. Un DAI double chambre est implanté. Quelles propositions de programmation sont conformes au consensus ? (plusieurs réponses)",
+    "options": [
+      "Une zone de traitement 10 à 20 bpm sous la TV clinique, avec plusieurs séquences d'ATP avant le choc",
+      "Des discriminateurs actifs, cette zone basse recoupant les fréquences de la tachycardie sinusale d'effort",
+      "Chez un patient sélectionné dont la TV reste toujours bien tolérée, l'absence de choc de secours peut exceptionnellement se discuter",
+      "Un premier ATP en rampe agressive, le burst étant réservé aux TV rapides"
+    ],
+    "reponses": [0, 1, 2],
+    "commentaires": [
+      "Juste : l'annexe propose, en zone TV lente, de privilégier plusieurs tentatives d'ATP, bien tolérées et souvent efficaces.",
+      "Juste : une zone vers 125-135 bpm chevauche les fréquences d'effort et de FA ; les discriminateurs sont indispensables.",
+      "Juste : l'annexe mentionne cette possibilité, rare, pour une TV lente stable ; le choc de secours reste la règle.",
+      "Faux : le consensus privilégie le burst comme premier ATP ; la rampe est une option de seconde ligne."
+    ],
+    "reponseAttendue": null,
+    "explication": "Quand la TV clinique est connue, le consensus place la limite basse de traitement 10 à 20 bpm sous sa fréquence, ici vers 125 à 135 bpm, d'autant que l'amiodarone peut ralentir davantage la TV. Une TV lente bien tolérée se prête à plusieurs séquences d'ATP (burst en première intention) avant le choc, qui reste programmé en règle générale ; l'annexe admet, rarement, de ne pas programmer de choc de secours pour une TV lente hémodynamiquement stable. Une zone aussi basse recoupe la tachycardie sinusale d'effort et la FA : les discriminateurs TSV/TV doivent rester actifs, jusqu'à 200 voire 230 bpm. La télésurveillance permet de repérer une TV passant sous la zone.",
+    "aRetenir": "TV lente connue : zone 10-20 bpm sous la TV, plusieurs ATP en burst, discriminateurs actifs, choc de secours en règle.",
+    "sources": [
+      {
+        "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing (Appendix B : traduction par constructeur). Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      }
+    ],
+    "reco": ["Consensus 2015 programmation DAI", "Consensus 2019 programmation DAI"],
+    "revise": "2026-09"
+  }
+]

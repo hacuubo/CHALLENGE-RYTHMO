@@ -7,8 +7,9 @@
 // QCM avec (n-1) bonnes réponses ≤ 35 %, Vrai entre 40 et 60 %.
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const dir = path.join(path.dirname(new URL(import.meta.url).pathname), '..', 'data', 'questions');
+const dir = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'data', 'questions');
 let files = process.argv.slice(2);
 if (!files.length) files = fs.readdirSync(dir).filter(f => f.endsWith('.json') && f !== 'index.json').map(f => path.join(dir, f));
 const strict = process.env.STRICT === '1';

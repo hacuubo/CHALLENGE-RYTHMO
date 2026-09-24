@@ -1,0 +1,796 @@
+[
+  {
+    "id": "ep-man-001",
+    "theme": "electrophysio",
+    "sousTheme": "TRIN, voies accessoires et manœuvres",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Tachycardie à QRS fins, cycle 360 ms, rapport A/V 1:1. Stimulation ventriculaire (VD) à 340 ms : les oreillettes suivent le cycle imposé. À l'arrêt, vous lisez une séquence V-A-A-V. Avant de conclure à une tachycardie atriale, quelles vérifications sont pertinentes ? (plusieurs réponses)",
+    "options": [
+      "S'assurer que le premier A compté est bien le dernier A accéléré au cycle stimulé",
+      "Exiger une fusion des QRS pendant la stimulation pour valider la manœuvre",
+      "Répéter la manœuvre à des cycles plus courts pour montrer que la réponse est reproductible",
+      "Vérifier que le PPI − TCL dépasse 115 ms",
+      "Relire la réponse en intégrant le His (A-A-H ou A-H) plutôt que le seul ventriculogramme"
+    ],
+    "reponses": [
+      0,
+      2,
+      4
+    ],
+    "commentaires": [
+      "Juste : si la conduction VA est lente, le premier A après le dernier V peut provenir de l'avant-dernier stimulus ; le bon point de départ est le dernier A accéléré au cycle stimulé.",
+      "Faux : la fusion prouve l'entraînement d'une réciprocante mais n'est pas requise pour interpréter la réponse V-A-V / V-A-A-V ; elle est d'ailleurs impossible dans la TRIN et la TA.",
+      "Juste : un premier battement de TA peut survenir par coïncidence à un intervalle égal au cycle stimulé ; une réponse reproduite à des cycles décroissants est plus solide.",
+      "Faux : le PPI − TCL sert à distinguer TRIN et réciprocante une fois la TA exclue ; il n'aide pas à affirmer une TA.",
+      "Juste : dans la TRIN à HV > HA, un A de la tachycardie s'inscrit avant le V sans l'avoir conduit ; raisonner sur le His évite cette pseudo-réponse V-A-A-V."
+    ],
+    "reponseAttendue": null,
+    "explication": "La réponse V-A-A-V (A-A-H) après stimulation ventriculaire est le meilleur argument pour une tachycardie atriale, car le dernier A rétrograde ne peut pas redescendre vers le ventricule par un système de conduction encore réfractaire : le A suivant vient du foyer. Trois pièges produisent de fausses réponses V-A-A-V. D'abord une conduction VA longue (TRIN atypique, voie décrémentielle) : le premier A après le dernier V est alors issu de l'avant-dernier stimulus. Ensuite une TRIN avec HV > HA : le A de la tachycardie suit le His et précède le V sans l'avoir produit ; c'est pourquoi on préfère raisonner en A-H / A-A-H. Enfin la coïncidence, d'où l'intérêt de répéter la manœuvre à des cycles plus courts. Un changement de séquence d'activation atriale entre la stimulation (bas-haut) et la tachycardie (haut-bas) renforce le diagnostic de TA.",
+    "aRetenir": "Avant d'affirmer une réponse V-A-A-V : identifier le dernier A entraîné, raisonner sur le His (A-A-H) et vérifier la reproductibilité.",
+    "sources": [
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardia: part 1. Pacing Clin Electrophysiol 2011;34:767-782",
+        "url": "https://doi.org/10.1111/j.1540-8159.2011.03076.x"
+      },
+      {
+        "titre": "Knight BP, et al. A technique for the rapid diagnosis of atrial tachycardia in the electrophysiology laboratory. J Am Coll Cardiol 1999;33:775-781"
+      },
+      {
+        "titre": "Vijayaraman P, et al. Reanalysis of the \"pseudo A-A-V\" response to ventricular entrainment of supraventricular tachycardia: importance of His-bundle timing. J Cardiovasc Electrophysiol 2006;17:25-28"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ep-man-002",
+    "theme": "electrophysio",
+    "sousTheme": "TRIN, voies accessoires et manœuvres",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Tachycardie à RP long, cycle 380 ms, activation atriale concentrique. Stimulation VD à 360 ms avec accélération des oreillettes ; l'intervalle stimulus-A est de 415 ms. Après le dernier stimulus, on observe un A à 55 ms, un second A à 415 ms, puis le V. Comment interpréter cette séquence ?",
+    "options": [
+      "Réponse V-A-A-V authentique, en faveur d'une tachycardie atriale focale",
+      "Réponse non interprétable, car le VA dépasse le cycle stimulé",
+      "Pseudo V-A-A-V : réponse V-A-V, la tachycardie atriale est exclue",
+      "Réponse V-A-V prouvant une réciprocante orthodromique"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : le premier A (55 ms) est la réponse à l'avant-dernier stimulus (415 − 360 = 55 ms) ; il ne doit pas être compté.",
+      "Faux : la réponse reste interprétable dès que l'on identifie correctement le dernier A accéléré au cycle stimulé.",
+      "Juste : les deux A sont séparés de 360 ms, le cycle stimulé ; le second est le dernier A entraîné, directement suivi du V : la réponse est V-A-V.",
+      "Faux : la réponse V-A-V exclut la TA mais ne distingue pas TRIN atypique et réciprocante ; il faut les critères quantitatifs (cPPI − TCL, SA − VA)."
+    ],
+    "reponseAttendue": null,
+    "explication": "Quand la branche rétrograde du circuit conduit lentement (TRIN rapide-lente ou lente-lente, voie accessoire lente), l'intervalle stimulus-A peut dépasser le cycle de stimulation. Le premier A inscrit après le dernier stimulus provient alors de l'avant-dernier : ici 415 − 360 = 55 ms. Le signe qui trahit ce piège est l'intervalle entre les deux A, égal au cycle stimulé (360 ms), et un intervalle stimulus-A identique à celui mesuré pendant la stimulation. Le dernier A réellement entraîné est donc le second, suivi du V : réponse V-A-V, qui exclut la tachycardie atriale. Dans le cas rapporté par Veenhuyzen, il s'agissait d'une TRIN rapide-lente (cPPI − TCL 185 ms, SA − VA 150 ms).",
+    "aRetenir": "Si le VA dépasse le cycle stimulé, deux A consécutifs séparés du cycle stimulé signent une pseudo-réponse V-A-A-V : c'est en fait un V-A-V.",
+    "sources": [
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardia: part 1. Pacing Clin Electrophysiol 2011;34:767-782",
+        "url": "https://doi.org/10.1111/j.1540-8159.2011.03076.x"
+      },
+      {
+        "titre": "Andrade JG, Bennett MT, Deyell MW, et al. The Clinical Cardiac Electrophysiology Handbook. Minneapolis: Cardiotext Publishing; 2016"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ep-man-003",
+    "theme": "electrophysio",
+    "sousTheme": "TRIN, voies accessoires et manœuvres",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Tachycardie à QRS fins à activation concentrique, VA 110 ms, cycle 360 ms. Après entraînement par la pointe du VD à 340 ms (réponse V-A-V), on mesure un PPI de 480 ms. L'AH vaut 150 ms pendant la tachycardie et 200 ms sur le premier battement de retour. Quel diagnostic retenez-vous ?",
+    "options": [
+      "TRIN atypique, car le PPI − TCL dépasse 115 ms",
+      "Tachycardie atriale, car l'AH s'allonge au retour",
+      "Aucun, le PPI − TCL de 120 ms est dans la zone grise",
+      "Réciprocante septale : cPPI − TCL = 70 ms"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : le PPI − TCL brut (120 ms) est gonflé par le ralentissement nodal décrémentiel ; il faut le corriger.",
+      "Faux : la réponse V-A-V a déjà exclu la TA ; l'allongement de l'AH reflète la conduction décrémentielle du NAV à cycle court.",
+      "Faux : la correction lève justement l'ambiguïté du PPI brut.",
+      "Juste : cPPI − TCL = (480 − 360) − (200 − 150) = 120 − 50 = 70 ms, sous le seuil de 110 ms : en faveur d'une voie accessoire septale."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le PPI mesure le temps pour que le dernier front stimulé rejoigne le circuit, en fasse le tour et revienne au site de stimulation : plus le site est loin du circuit, plus le PPI − TCL est long. Mais pendant l'entraînement d'une réciprocante, le NAV reçoit les oreillettes au cycle stimulé et sa conduction ralentit (décrément) : l'AH du premier retour s'allonge sans rapport avec la distance au circuit. La correction de González-Torrecilla retranche cet allongement : cPPI − TCL = PPI − TCL − (AH retour − AH tachycardie). Un cPPI − TCL < 110 ms oriente vers une réciprocante par voie septale, > 110 ms vers une TRIN. Ici, le PPI brut orientait à tort vers une TRIN. La correction évite aussi le piège d'un saut sur la voie lente au premier battement de retour.",
+    "aRetenir": "cPPI − TCL = PPI − TCL − ΔAH (retour − tachycardie) ; seuil 110 ms : en dessous, voie accessoire septale.",
+    "sources": [
+      {
+        "titre": "González-Torrecilla E, et al. First postpacing interval after tachycardia entrainment with correction for atrioventricular node delay: a simple maneuver for differential diagnosis of atrioventricular nodal reentrant tachycardias versus orthodromic reciprocating tachycardias. Heart Rhythm 2006;3:674-679"
+      },
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardia: part 1. Pacing Clin Electrophysiol 2011;34:767-782",
+        "url": "https://doi.org/10.1111/j.1540-8159.2011.03076.x"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ep-man-004",
+    "theme": "electrophysio",
+    "sousTheme": "TRIN, voies accessoires et manœuvres",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 8,
+    "question": "Dans quelles situations peut-on obtenir, après entraînement par stimulation ventriculaire, des valeurs longues (PPI − TCL, cPPI − TCL ou SA − VA) alors que la tachycardie est une réciprocante orthodromique ? (plusieurs réponses)",
+    "options": [
+      "Voie accessoire latérale gauche, stimulation depuis la pointe du VD",
+      "Voie accessoire septale, stimulation à la base au contact de l'activation atriale précoce",
+      "Voie accessoire à conduction décrémentielle (tachycardie à RP long)",
+      "Réciprocante par voie latérale gauche avec bloc de branche gauche fonctionnel",
+      "Saut sur la voie lente nodale au premier retour, pour le PPI − TCL non corrigé"
+    ],
+    "reponses": [
+      0,
+      2,
+      4
+    ],
+    "commentaires": [
+      "Juste : la pointe du VD est loin de l'insertion ventriculaire de la voie ; ce trajet supplémentaire allonge le cPPI − TCL et le SA − VA.",
+      "Faux : c'est au contraire la situation qui donne les valeurs les plus courtes, le site étant proche du circuit.",
+      "Juste : une voie décrémentielle ralentit à cycle court ; le SA et le PPI s'allongent et peuvent imiter une TRIN atypique.",
+      "Faux : avec un BBG fonctionnel, le VD fait partie du circuit ; la stimulation VD est alors proche du circuit et les valeurs sont courtes.",
+      "Juste : un passage sur la voie lente pendant l'entraînement allonge fortement le premier AH, donc le PPI brut ; la correction par l'AH l'élimine."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les critères quantitatifs de Michaud (PPI − TCL > 115 ms, SA − VA > 85 ms) et de González-Torrecilla (cPPI − TCL > 110 ms) ont été validés pour distinguer TRIN atypique et voie accessoire SEPTALE. Ils perdent leur valeur quand le site de stimulation est loin de la voie, typiquement une voie latérale gauche entraînée depuis la pointe du VD : les valeurs deviennent « limites » ou franchement longues. Une voie décrémentielle (forme de Coumel, RP long) allonge elle aussi SA et PPI. Un saut sur la voie lente au premier retour allonge le PPI brut, d'où l'intérêt de la correction par l'AH. Dans ces cas, on recourt à la stimulation basale proche de l'activation atriale la plus précoce, à l'entraînement différentiel ou à l'ESV hissienne.",
+    "aRetenir": "PPI − TCL et SA − VA longs ne signent une TRIN que si une voie éloignée ou décrémentielle a été écartée.",
+    "sources": [
+      {
+        "titre": "Michaud GF, et al. Differentiation of atypical atrioventricular node re-entrant tachycardia from orthodromic reciprocating tachycardia using a septal accessory pathway by the response to ventricular pacing. J Am Coll Cardiol 2001;38:1163-1167"
+      },
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardia: part 1. Pacing Clin Electrophysiol 2011;34:767-782",
+        "url": "https://doi.org/10.1111/j.1540-8159.2011.03076.x"
+      },
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardias: part 2. Pacing Clin Electrophysiol 2012;35:757-769",
+        "url": "https://doi.org/10.1111/j.1540-8159.2012.03352.x"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ep-man-005",
+    "theme": "electrophysio",
+    "sousTheme": "TRIN, voies accessoires et manœuvres",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 9,
+    "question": "Tachycardie à activation concentrique, VA 120 ms. Entraînement (réponse V-A-V) au même cycle depuis la pointe puis la base du VD (au-dessus du His, sans capture hissienne ni atriale). Pointe : SA − VA 95 ms, cPPI − TCL 115 ms. Base : SA − VA 130 ms, cPPI − TCL 160 ms. Conclusion ?",
+    "options": [
+      "Réciprocante par voie septale : la base est plus proche de la voie",
+      "TRIN : les valeurs augmentent de 35 et 45 ms à la base",
+      "Tachycardie atriale : la réponse varie selon le site",
+      "Non concluant, il faudrait des cycles différents aux deux sites"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : avec une voie septale, stimuler près de l'insertion raccourcirait SA et PPI à la base, pas l'inverse.",
+      "Juste : VA différentiel (base − pointe) = 35 ms (> 20) et cPPI − TCL différentiel = 45 ms (> 30) : profil de TRIN.",
+      "Faux : la réponse V-A-V obtenue aux deux sites a déjà exclu la TA ; l'entraînement différentiel sert ici à séparer TRIN et réciprocante.",
+      "Faux : c'est l'inverse, il faut des cycles longs et IDENTIQUES aux deux sites pour que le décrément nodal ne fausse pas la comparaison."
+    ],
+    "reponseAttendue": null,
+    "explication": "Dans la TRIN, la pointe du VD est électriquement plus proche du circuit que la base, car l'entrée dans le réseau de Purkinje se fait surtout à l'apex : stimuler la base oblige l'influx à traverser le myocarde avant de remonter le His, puis à refaire le trajet au retour. SA et PPI s'allongent donc à la base. Dans une réciprocante, la base proche de l'insertion de la voie raccourcit au contraire ces valeurs. Segal et al. ont proposé l'« entraînement différentiel » : un VA différentiel > 20 ms et un cPPI − TCL différentiel > 30 ms (base − pointe) identifient la TRIN. Atout : pas besoin de connaître le site d'activation atriale le plus précoce. Précaution : cycles identiques et assez longs, sans capture hissienne ni atriale à la base.",
+    "aRetenir": "Entraînement différentiel : valeurs plus longues à la base qu'à la pointe (VA +20 ms, cPPI +30 ms) = TRIN.",
+    "sources": [
+      {
+        "titre": "Segal OR, et al. Differential ventricular entrainment: a maneuver to differentiate AV node reentrant tachycardia from orthodromic reciprocating tachycardia. Heart Rhythm 2009;6:493-500"
+      },
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardia: part 1. Pacing Clin Electrophysiol 2011;34:767-782",
+        "url": "https://doi.org/10.1111/j.1540-8159.2011.03076.x"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ep-man-006",
+    "theme": "electrophysio",
+    "sousTheme": "TRIN, voies accessoires et manœuvres",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 6,
+    "question": "Vrai ou faux : une fusion franche des QRS pendant l'entraînement d'une tachycardie à QRS fins par stimulation ventriculaire (capture hissienne involontaire écartée) exclut la TRIN et la tachycardie atriale.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : la fusion implique une collision dans le myocarde ventriculaire avec le front de la tachycardie, donc un ventricule inclus dans le circuit : c'est une réciprocante.",
+      "Faux : dans la TRIN et la TA, la collision a lieu dans le NAV ou le His ; le QRS stimulé ne peut pas être fusionné."
+    ],
+    "reponseAttendue": null,
+    "explication": "Pendant l'entraînement, le front antidromique stimulé heurte le front orthodromique du battement précédent. Dans la TRIN, la collision se fait dans la voie lente nodale ; dans la TA, dans le système de conduction : le ventricule est entièrement activé par la stimulation et le QRS ne peut pas être fusionné. Dans une réciprocante, le front de la tachycardie sort du réseau de Purkinje et active une partie du ventricule avant la collision, d'où une fusion possible. La fusion prouve donc l'entraînement, la nature réentrante et la participation du ventricule et d'une voie accessoire. Elle est très spécifique mais peu sensible, surtout pour une voie gauche stimulée depuis le VD. Piège : à la base septale, une capture du His ou de la branche droite peut produire un QRS fin qui imite une fusion.",
+    "aRetenir": "Fusion QRS pendant l'entraînement ventriculaire = réciprocante (spécifique, peu sensible) ; impossible dans la TRIN et la TA.",
+    "sources": [
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardia: part 1. Pacing Clin Electrophysiol 2011;34:767-782",
+        "url": "https://doi.org/10.1111/j.1540-8159.2011.03076.x"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ep-man-007",
+    "theme": "electrophysio",
+    "sousTheme": "TRIN, voies accessoires et manœuvres",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Réciprocante probable avec activation atriale la plus précoce en sinus coronaire distal. L'entraînement depuis la pointe du VD ne montre aucune fusion et donne des valeurs limites. D'où stimuler pour avoir le plus de chances d'observer une fusion ?",
+    "options": [
+      "Pointe du VD, à haute énergie pour capter plus de myocarde",
+      "Infundibulum du VD, loin du réseau de Purkinje",
+      "Région para-hissienne, avec capture du His",
+      "Base du VG (sinus coronaire), en regard du A précoce"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : augmenter l'énergie ne rapproche pas le site du circuit ; la collision reste dans le système de conduction.",
+      "Faux : l'infundibulum reste loin d'une voie latérale gauche.",
+      "Faux : la capture hissienne donne un QRS fin qui imite une fusion et empêche toute interprétation.",
+      "Juste : stimuler près de l'insertion ventriculaire de la voie, loin de la sortie du Purkinje, laisse au front de la tachycardie le temps d'activer du myocarde avant la collision."
+    ],
+    "reponseAttendue": null,
+    "explication": "Pour que la fusion soit visible, le front orthodromique du battement précédent doit activer le plus de myocarde possible avant de rencontrer le front stimulé. Le site idéal est donc le plus éloigné de la sortie du réseau de Purkinje tout en restant proche du circuit, c'est-à-dire la base ventriculaire en regard de l'activation atriale la plus précoce. Depuis la pointe du VD, la fusion est visible dans la majorité des réciprocantes par voie septale ou droite, mais rarement pour une voie gauche. Depuis le VG (souvent accessible par une branche du sinus coronaire), elle devient visible dans la majorité des voies gauches, parfois jusqu'à la fusion cachée (QRS identique à celui de la tachycardie). Un site basal réduit aussi le cPPI − TCL et le SA − VA d'une réciprocante.",
+    "aRetenir": "Pour voir une fusion, stimuler à la base, au plus près de l'insertion ventriculaire de la voie (VG par le sinus coronaire si voie gauche).",
+    "sources": [
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardia: part 1. Pacing Clin Electrophysiol 2011;34:767-782",
+        "url": "https://doi.org/10.1111/j.1540-8159.2011.03076.x"
+      },
+      {
+        "titre": "Veenhuyzen GD, et al. Single diagnostic pacing maneuver for supraventricular tachycardia. Heart Rhythm 2008;5:1152-1158"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ep-man-008",
+    "theme": "electrophysio",
+    "sousTheme": "TRIN, voies accessoires et manœuvres",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Tachycardie à QRS fins, cycle 300 ms. Stimulation VD à 280 ms : les quatre premiers QRS stimulés sont fusionnés, le 5e a la morphologie stimulée définitive. Le cycle atrial est avancé dès le 2e stimulus, sans changement de séquence, puis le SA reste fixe. Quel diagnostic ce début de train suggère-t-il ?",
+    "options": [
+      "Réciprocante orthodromique",
+      "TRIN typique lente-rapide",
+      "TRIN atypique rapide-lente",
+      "Tachycardie atriale focale septale"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : l'oreillette est perturbée dans la zone de transition, avant le premier QRS stimulé stable : le front stimulé l'atteint dès qu'il touche la voie.",
+      "Faux : dans la TRIN, l'oreillette n'est perturbée qu'après la zone de transition, le temps que le front remonte le His-Purkinje et le NAV.",
+      "Faux : même raisonnement que pour la TRIN typique : perturbation atriale tardive, après le premier QRS stable.",
+      "Faux : un QRS fusionné est His-réfractaire ; qu'il avance l'oreillette ne peut s'expliquer que par une voie accessoire."
+    ],
+    "reponseAttendue": null,
+    "explication": "Au début d'une stimulation ventriculaire, les QRS passent par une zone de transition fusionnée avant d'atteindre une morphologie stimulée stable (définie sur les 12 dérivations). Dans une réciprocante, le front stimulé atteint l'oreillette dès qu'il rencontre la voie : l'activation atriale est avancée, retardée ou la tachycardie s'arrête dans la zone de transition ou au premier QRS stable. Dans la TRIN, il faut d'abord remonter le His-Purkinje et le NAV : la perturbation survient après le premier QRS stable. La valeur prédictive dépasse 90 % dans les études rétrospectives. Autre intérêt : le critère reste utilisable si la tachycardie ne reprend pas à l'arrêt. Limites : accord inter-observateur d'environ 80 % pour repérer le premier QRS stable, cycle de stimulation trop court, voie spectatrice ou décrémentielle.",
+    "aRetenir": "Oreillette perturbée dans la zone de transition (QRS fusionnés) = réciprocante ; après le premier QRS stimulé stable = TRIN.",
+    "sources": [
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardia: part 1. Pacing Clin Electrophysiol 2011;34:767-782",
+        "url": "https://doi.org/10.1111/j.1540-8159.2011.03076.x"
+      },
+      {
+        "titre": "AlMahameed ST, Buxton AE, Michaud GF. New criteria during right ventricular pacing to determine the mechanism of supraventricular tachycardia. Circ Arrhythm Electrophysiol 2010;3:578-584"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ep-man-009",
+    "theme": "electrophysio",
+    "sousTheme": "TRIN, voies accessoires et manœuvres",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 8,
+    "question": "Au cours d'une tachycardie à QRS fins, vous délivrez des extrasystoles ventriculaires (ESV) et voulez savoir si elles sont « His-réfractaires ». Quels critères le permettent ? (plusieurs réponses)",
+    "options": [
+      "Le QRS de l'ESV est fusionné avec celui de la tachycardie",
+      "L'ESV avance l'activation atriale suivante",
+      "Le stimulus tombe juste après le His antérograde visible",
+      "L'ESV est délivrée 100 ms avant le His attendu",
+      "Le stimulus précède le His attendu de 35 à 55 ms au plus"
+    ],
+    "reponses": [
+      0,
+      2,
+      4
+    ],
+    "commentaires": [
+      "Juste : la fusion prouve que le front de la tachycardie est déjà sorti du réseau de Purkinje, donc que le His a été activé.",
+      "Faux : c'est le résultat que l'on cherche à interpréter, pas un critère de réfractarité ; le raisonnement serait circulaire.",
+      "Juste : si le His vient d'être activé, il est forcément réfractaire au front rétrograde.",
+      "Faux : 100 ms avant, le front stimulé a le temps de remonter au His avant l'influx de la tachycardie ; l'ESV n'est plus His-réfractaire.",
+      "Juste : c'est le délai nécessaire au front stimulé pour atteindre le Purkinje distal puis remonter au His ; en deçà, les deux fronts se rencontrent dans le His."
+    ],
+    "reponseAttendue": null,
+    "explication": "Une ESV His-réfractaire ne peut pas remonter par le His et le NAV : tout effet sur l'oreillette (avance, retard) ou toute terminaison sans activation atriale implique une voie accessoire. Encore faut-il être sûr de la réfractarité. Trois critères : un QRS fusionné (le front de la tachycardie a déjà traversé le His), un stimulus délivré juste après un His antérograde visible, ou un stimulus qui ne précède pas le His attendu de plus de 35 à 55 ms. Plus tôt, l'ESV n'est pas His-réfractaire et peut modifier une TRIN ou une TA par voie nodale. La sensibilité augmente quand l'ESV est délivrée près de l'insertion de la voie, à la base. La manœuvre n'est pas fiable si le cycle de la tachycardie varie plus que l'effet mesuré.",
+    "aRetenir": "ESV His-réfractaire : QRS fusionné, stimulus après le His, ou au plus 35-55 ms avant le His attendu.",
+    "sources": [
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardias: part 2. Pacing Clin Electrophysiol 2012;35:757-769",
+        "url": "https://doi.org/10.1111/j.1540-8159.2012.03352.x"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ep-man-010",
+    "theme": "electrophysio",
+    "sousTheme": "TRIN, voies accessoires et manœuvres",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 9,
+    "question": "Tachycardie à RP long, cycle stable 473 ms, activation atriale la plus précoce à l'ostium du sinus coronaire. Entraînement par le VD : cPPI − TCL 150 ms, SA − VA 120 ms. Une ESV délivrée au moment du His attendu retarde l'oreillette suivante de 20 ms, sans changer la séquence atriale. Quel diagnostic retenez-vous ?",
+    "options": [
+      "TRIN atypique lente-lente, selon les critères d'entraînement",
+      "Tachycardie atriale septale avec conduction VA fortuite",
+      "Réciprocante par voie accessoire décrémentielle",
+      "TRIN atypique avec voie accessoire spectatrice"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : ces valeurs longues sont attendues avec une voie décrémentielle et ne suffisent pas à affirmer une TRIN face à la réponse à l'ESV.",
+      "Faux : une ESV His-réfractaire ne peut pas retarder une TA sans voie accessoire ; le lien décrémentiel V→A est incompatible avec une TA.",
+      "Juste : une ESV His-réfractaire qui retarde l'oreillette sans changer la séquence prouve une voie décrémentielle qui participe au circuit.",
+      "Faux : une voie spectatrice pourrait éventuellement avancer l'oreillette, mais un retard traduit un couplage décrémentiel V→A propre au circuit."
+    ],
+    "reponseAttendue": null,
+    "explication": "Une voie accessoire rétrograde décrémentielle (forme de Coumel) donne typiquement une tachycardie à RP long, activation septale postérieure. À l'entraînement, sa conduction ralentit à cycle court : cPPI − TCL et SA − VA deviennent longs et miment une TRIN atypique. L'ESV His-réfractaire tranche : le His étant réfractaire, un retard de l'oreillette ne peut passer que par une voie accessoire, et ce retard montre que l'activation atriale dépend de façon décrémentielle de l'activation ventriculaire. La voie participe donc au circuit. Pour être visible, le ralentissement doit dépasser la prématurité de l'ESV : il faut balayer toute la fenêtre His-réfractaire. Ici, la réponse à l'ESV prime sur les valeurs d'entraînement.",
+    "aRetenir": "Tachycardie à RP long : une ESV His-réfractaire qui RETARDE l'oreillette signe une voie décrémentielle participante, même si PPI et SA − VA sont longs.",
+    "sources": [
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardias: part 2. Pacing Clin Electrophysiol 2012;35:757-769",
+        "url": "https://doi.org/10.1111/j.1540-8159.2012.03352.x"
+      },
+      {
+        "titre": "Andrade JG, Bennett MT, Deyell MW, et al. The Clinical Cardiac Electrophysiology Handbook. Minneapolis: Cardiotext Publishing; 2016"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ep-man-011",
+    "theme": "electrophysio",
+    "sousTheme": "TRIN, voies accessoires et manœuvres",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 7,
+    "question": "Vrai ou faux : devant une tachycardie qui ressemble à une TRIN typique (activation concentrique, VA septal < 70 ms), balayer la diastole par des ESV His-réfractaires n'aide pas à distinguer la TRIN d'une tachycardie atriale.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : une ESV His-réfractaire ne peut atteindre ni le circuit nodal ni l'oreillette d'une TA ; elle reste sans effet dans les deux cas. La manœuvre de choix est l'entraînement ventriculaire.",
+      "Faux : l'ESV His-réfractaire ne peut affecter qu'un circuit utilisant une voie accessoire ; elle est muette dans la TRIN comme dans la TA."
+    ],
+    "reponseAttendue": null,
+    "explication": "Une ESV His-réfractaire rencontre le front de la tachycardie dans le His-Purkinje ou le myocarde : elle ne peut modifier ni une TRIN ni une TA, sauf voie accessoire spectatrice. Elle sert à mettre en évidence une voie accessoire, en particulier une voie septale participant au circuit. Or un VA < 70 ms exclut déjà pratiquement une réciprocante orthodromique : la question restante est TRIN ou TA, et l'ESV His-réfractaire sera muette dans les deux cas. La manœuvre adaptée est l'entraînement ventriculaire (réponse V-A-V contre V-A-A-V), ou l'observation de variations spontanées (His-His qui précèdent et prédisent A-A, arrêt sur un A non prématuré). Exception : devant une tachycardie « TRIN-like » avec PPI trop court ou fusion, les ESV His-réfractaires peuvent révéler une voie nodo-ventriculaire.",
+    "aRetenir": "VA < 70 ms : la question est TRIN ou TA ; l'ESV His-réfractaire est muette, on fait un entraînement ventriculaire.",
+    "sources": [
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardias: part 2. Pacing Clin Electrophysiol 2012;35:757-769",
+        "url": "https://doi.org/10.1111/j.1540-8159.2012.03352.x"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ep-man-012",
+    "theme": "electrophysio",
+    "sousTheme": "TRIN, voies accessoires et manœuvres",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Tachycardie à QRS fins, rapport A/V 1:1, activation atriale centrale. À trois reprises, la stimulation VD 20 à 30 ms plus rapide que la tachycardie n'accélère pas les oreillettes : la tachycardie continue, dissociée des ventricules stimulés. Que peut-on conclure ?",
+    "options": [
+      "La TRIN est prouvée, car le VA était court",
+      "La réciprocante est exclue ; une TA est probable, non prouvée",
+      "La tachycardie atriale est formellement prouvée",
+      "Rien : la réponse est ininterprétable et n'apporte aucune information"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : la dissociation ne prouve pas la TRIN ; une TA reste même l'hypothèse la plus fréquente dans cette situation.",
+      "Juste : une réciprocante ne survit pas à une dissociation V-A ; la TA est le diagnostic le plus fréquent, mais une TRIN avec bloc rétrograde reste possible.",
+      "Faux : la TRIN n'est pas exclue ; d'autres arguments sont nécessaires (stimulation atriale, linking VA).",
+      "Faux : la réponse V-A-V/V-A-A-V ne peut pas être analysée, mais la dissociation exclut déjà la réciprocante."
+    ],
+    "reponseAttendue": null,
+    "explication": "Dans 50 à 80 % des tachycardies atriales, la stimulation ventriculaire n'accélère pas les oreillettes : les ventricules sont dissociés du mécanisme. La réponse post-stimulation ne peut alors pas être interprétée, mais l'information reste utile : le ventricule n'est pas nécessaire à la tachycardie, ce qui exclut une réciprocante par voie accessoire. Le diagnostic est le plus souvent une TA (environ 80 % des cas avec activation centrale), mais une TRIN avec bloc rétrograde intermittent n'est pas exclue. On s'aide alors de la stimulation atriale (linking VA), de l'arrêt spontané ou sous adénosine, ou de l'isoprénaline. Il faut aussi éviter une fausse conclusion par dissociation isorythmique : cycle stimulé trop long ou tachycardie qui accélère.",
+    "aRetenir": "Stimulation V qui n'accélère pas les oreillettes, tachycardie persistante : réciprocante exclue, TA probable, mais non prouvée.",
+    "sources": [
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardia: part 1. Pacing Clin Electrophysiol 2011;34:767-782",
+        "url": "https://doi.org/10.1111/j.1540-8159.2011.03076.x"
+      },
+      {
+        "titre": "Knight BP, et al. Diagnostic value of tachycardia features and pacing maneuvers during paroxysmal supraventricular tachycardia. J Am Coll Cardiol 2000;36:574-582"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ep-man-013",
+    "theme": "electrophysio",
+    "sousTheme": "TRIN, voies accessoires et manœuvres",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 6,
+    "question": "Vrai ou faux : lorsque la stimulation ventriculaire accélère les oreillettes mais arrête la tachycardie à chaque essai, la manœuvre ne fournit aucun renseignement diagnostique.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : l'arrêt empêche d'analyser la réponse post-stimulation et le PPI, mais d'autres éléments du train restent exploitables.",
+      "Juste : on peut analyser le battement qui précède le bloc VA, mesurer un SA pour l'entraînement différentiel, ou raccourcir la réfractarité nodale par isoprénaline."
+    ],
+    "reponseAttendue": null,
+    "explication": "Si les oreillettes suivent le cycle stimulé mais que la tachycardie ne reprend pas, c'est souvent que le cycle a empiété sur la réfractarité antérograde du NAV : le dernier A rétrograde ne peut pas redescendre. L'isoprénaline, en raccourcissant la réfractarité nodale, permet souvent de refaire la manœuvre. Même sans reprise, l'arrêt reste instructif. Si le stimulus qui précède le bloc VA est His-réfractaire (QRS fusionné) et que l'oreillette n'a pas été modifiée auparavant, on a l'équivalent d'une ESV His-réfractaire qui interrompt la tachycardie sans atteindre l'oreillette : c'est une réciprocante. Le SA mesuré pendant l'accélération permet aussi de calculer un VA différentiel pointe-base. Enfin, une salve de 3 à 6 stimuli à 200-250 ms dissocie souvent les ventricules (réciprocante exclue) ou arrête la tachycardie sans atteindre l'oreillette (TA exclue).",
+    "aRetenir": "Arrêt répété pendant la stimulation V : analyser le début du train, utiliser le SA, essayer l'isoprénaline ; la manœuvre reste informative.",
+    "sources": [
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardia: part 1. Pacing Clin Electrophysiol 2011;34:767-782",
+        "url": "https://doi.org/10.1111/j.1540-8159.2011.03076.x"
+      },
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardias: part 2. Pacing Clin Electrophysiol 2012;35:757-769",
+        "url": "https://doi.org/10.1111/j.1540-8159.2012.03352.x"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ep-man-014",
+    "theme": "electrophysio",
+    "sousTheme": "TRIN, voies accessoires et manœuvres",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Vrai ou faux : une réponse V-A-V (A-H) après entraînement ventriculaire permet d'écarter définitivement toute tachycardie atriale chez ce patient, y compris après l'ablation du circuit identifié.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : la réponse V-A-V exclut qu'une TA soit le mécanisme de la tachycardie étudiée, pas qu'une TA coexiste.",
+      "Juste : la réponse A-H prouve que la tachycardie en cours est une TRIN ou une réciprocante, mais une TA associée reste possible ; il faut réinduire après l'ablation."
+    ],
+    "reponseAttendue": null,
+    "explication": "La réponse V-A-V signifie que le dernier front rétrograde a pu redescendre vers le ventricule, ce qui n'est possible que si la tachycardie étudiée est une TRIN ou une réciprocante. Elle ne renseigne pas sur l'existence d'un autre substrat. Plusieurs mécanismes peuvent coexister chez un même patient : TRIN et voie accessoire, réciprocante et TA, etc. La bonne pratique est de refaire un protocole de stimulation (avec isoprénaline si besoin) après l'élimination du premier substrat, pour démasquer une seconde tachycardie. Cette précaution vaut pour toutes les manœuvres : elles portent sur la tachycardie présente, pas sur l'ensemble des substrats du patient.",
+    "aRetenir": "Réponse V-A-V : la tachycardie étudiée n'est pas une TA, mais une TA coexistante reste possible ; réinduire après ablation.",
+    "sources": [
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardia: part 1. Pacing Clin Electrophysiol 2011;34:767-782",
+        "url": "https://doi.org/10.1111/j.1540-8159.2011.03076.x"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ep-man-015",
+    "theme": "electrophysio",
+    "sousTheme": "TRIN, voies accessoires et manœuvres",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Tachycardie à RP long, activation atriale concentrique. L'AH vaut 120 ms pendant la tachycardie. Après son arrêt, la stimulation atriale au cycle de la tachycardie donne un AH de 178 ms. Quel mécanisme est le plus probable ?",
+    "options": [
+      "Réciprocante par voie septale",
+      "TRIN atypique",
+      "Tachycardie atriale septale",
+      "Tachycardie jonctionnelle focale"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : dans une réciprocante, l'AH pendant la tachycardie reflète la vraie conduction antérograde nodale ; le ΔAH est habituellement < 20 ms.",
+      "Juste : ΔAH = 178 − 120 = 58 ms, au-dessus de 40 ms : profil de TRIN.",
+      "Faux : dans une TA, l'oreillette active le NAV comme lors de la stimulation atriale ; le ΔAH est minime (< 10 ms).",
+      "Faux : le ΔAH n'est pas un critère de tachycardie jonctionnelle, que l'on distingue par la stimulation atriale (réponse A-H-H-A) ou les ESA."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le ΔAH compare l'AH pendant la stimulation atriale au cycle de la tachycardie et l'AH pendant la tachycardie. Dans une TA ou une réciprocante, le His est activé en série depuis l'oreillette dans les deux situations : le ΔAH est faible (< 10 ms pour la TA, < 20 ms pour la voie septale). Dans la TRIN, l'oreillette et le His sont activés en parallèle depuis le circuit : l'AH mesuré pendant la tachycardie est « raccourci » et ne reflète pas la vraie conduction antérograde, alors qu'en stimulation atriale l'influx doit traverser la voie lente en série. Un ΔAH > 40 ms oriente donc vers la TRIN. Cette manœuvre est utile quand la stimulation ventriculaire ne tranche pas entre TRIN atypique et voie septale.",
+    "aRetenir": "ΔAH (stimulation atriale au cycle de la tachycardie − tachycardie) > 40 ms : TRIN ; < 20 ms : voie septale ; < 10 ms : TA.",
+    "sources": [
+      {
+        "titre": "Andrade JG, Bennett MT, Deyell MW, et al. The Clinical Cardiac Electrophysiology Handbook. Minneapolis: Cardiotext Publishing; 2016"
+      },
+      {
+        "titre": "Man KC, et al. Comparison of atrial-His intervals during tachycardia and atrial pacing in patients with long RP tachycardia. J Cardiovasc Electrophysiol 1995;6:700-710"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ep-man-016",
+    "theme": "electrophysio",
+    "sousTheme": "TRIN, voies accessoires et manœuvres",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Tachycardie à QRS fins, cycle 400 ms, activation atriale centrale ; la stimulation ventriculaire n'accélère pas les oreillettes. Vous stimulez l'oreillette à 380 ms depuis l'OD haute, l'ostium du SC puis le SC distal. VA du premier retour : 150, 118 et 172 ms (VA de la tachycardie : 150 ms). Conclusion ?",
+    "options": [
+      "TRIN atypique, car le VA est lié à l'activation ventriculaire",
+      "Réciprocante par voie septale à conduction lente",
+      "Aucune, car un seul site aurait dû être utilisé",
+      "Tachycardie atriale, car le VA de retour varie selon le site"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : dans la TRIN, le premier A de retour dépend du V (VA « lié ») et reste stable quel que soit le site de stimulation.",
+      "Faux : une réciprocante est déjà exclue par la dissociation ventriculaire ; de plus, son VA serait lui aussi lié.",
+      "Faux : c'est justement la stimulation atriale depuis plusieurs sites (« différentielle ») qui renforce la valeur du critère.",
+      "Juste : un écart de 54 ms entre sites (> 14 ms) montre que le premier A de retour dépend de la distance au foyer, pas du V : profil de TA."
+    ],
+    "reponseAttendue": null,
+    "explication": "Après une stimulation atriale 10 à 40 ms plus rapide que la tachycardie, on mesure le VA du premier battement de retour. Dans la TRIN (et la réciprocante), l'activation atriale est liée mécaniquement à l'activation ventriculaire : le VA de retour reste à moins de 10 ms de celui de la tachycardie (« VA linking »). Dans une TA, le premier A de retour dépend de la distance entre le site stimulé et le foyer : il varie avec le site. Maruyama et al. ont proposé de stimuler depuis deux ou trois sites (auricule droit, ostium du SC, SC distal) : un écart des VA de retour > 14 ms oriente vers une TA septale. Le linking est un argument fort mais pas une preuve : le VA de retour d'une TRIN varie parfois de plus de 10 ms, et un linking fortuit est possible dans une TA.",
+    "aRetenir": "Stimulation atriale : VA de retour stable (< 10 ms d'écart) = TRIN/réciprocante ; VA variable selon le site (> 14 ms) = TA.",
+    "sources": [
+      {
+        "titre": "Maruyama M, et al. The VA relationship after differential atrial overdrive pacing: a novel tool for the diagnosis of atrial tachycardia in the electrophysiologic laboratory. J Cardiovasc Electrophysiol 2007;18:1127-1133"
+      },
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardias: part 2. Pacing Clin Electrophysiol 2012;35:757-769",
+        "url": "https://doi.org/10.1111/j.1540-8159.2012.03352.x"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ep-man-017",
+    "theme": "electrophysio",
+    "sousTheme": "TRIN, voies accessoires et manœuvres",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Adulte jeune, tachycardie à QRS fins, cycle 480 ms, activations atriale et ventriculaire simultanées. Stimulation atriale à 450 ms : les ventricules suivent. À l'arrêt, la séquence est : dernier A stimulé, His, His, puis A. Quel mécanisme ?",
+    "options": [
+      "Tachycardie jonctionnelle focale",
+      "TRIN typique",
+      "Tachycardie atriale septale",
+      "Réciprocante par voie septale"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : la réponse A-H-H-A signe un foyer jonctionnel qui produit un nouveau His avant toute activation atriale.",
+      "Faux : dans la TRIN, le dernier A stimulé descend par la voie lente (AH long) et remonte par la voie rapide : réponse A-H-A.",
+      "Faux : une TA reprendrait par un A issu du foyer, pas par deux His consécutifs.",
+      "Faux : le circuit d'une réciprocante remonte par la voie vers l'oreillette après chaque V : réponse A-H-A."
+    ],
+    "reponseAttendue": null,
+    "explication": "La tachycardie jonctionnelle focale et la TRIN typique ont toutes deux un VA très court et une réponse V-A-V à la stimulation ventriculaire. La stimulation atriale les distingue (Fan et al.). Dans la TRIN, le dernier A stimulé conduit par la voie lente avec un AH long (PR souvent supérieur au RR), puis l'influx remonte par la voie rapide : réponse A-H-A. Dans la tachycardie jonctionnelle, le dernier A stimulé produit un His, puis le foyer décharge et produit un nouveau His avant l'oreillette : réponse A-H-H-A. Piège : si une double voie nodale coexiste avec le foyer jonctionnel, un écho par la voie rapide peut imiter une réponse A-H-A. Un rythme jonctionnel accéléré chez l'adulte se voit par exemple après ablation ou sous isoprénaline.",
+    "aRetenir": "Stimulation atriale pendant une tachycardie à VA court : A-H-A = TRIN ; A-H-H-A = tachycardie jonctionnelle.",
+    "sources": [
+      {
+        "titre": "Fan R, et al. Novel use of atrial overdrive pacing to rapidly differentiate junctional tachycardia from atrioventricular nodal reentrant tachycardia. Heart Rhythm 2011;8:840-844"
+      },
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardias: part 2. Pacing Clin Electrophysiol 2012;35:757-769",
+        "url": "https://doi.org/10.1111/j.1540-8159.2012.03352.x"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ep-man-018",
+    "theme": "electrophysio",
+    "sousTheme": "TRIN, voies accessoires et manœuvres",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 9,
+    "question": "Tachycardie à VA très court : TRIN typique ou tachycardie jonctionnelle focale ? Vous délivrez des extrasystoles atriales (ESA) à différents couplages. Quelles interprétations sont correctes ? (plusieurs réponses)",
+    "options": [
+      "ESA tardive (His réfractaire) qui retarde le His suivant : TRIN",
+      "ESA tardive sans effet sur le His suivant : preuve formelle de tachycardie jonctionnelle",
+      "ESA précoce qui avance le His immédiat, puis la tachycardie continue : tachycardie jonctionnelle",
+      "ESA précoce qui avance le His immédiat, puis la tachycardie s'arrête : tachycardie jonctionnelle",
+      "ESA tardive (His réfractaire) qui avance le His suivant : TRIN, sauf double voie associée à un foyer jonctionnel"
+    ],
+    "reponses": [
+      0,
+      2,
+      4
+    ],
+    "commentaires": [
+      "Juste : l'ESA pénètre la voie lente pendant que la voie rapide est réfractaire ; le ralentissement décrémentiel retarde le His suivant, réponse spécifique de la TRIN.",
+      "Faux : l'absence d'effet est attendue dans la tachycardie jonctionnelle, mais peut se voir dans une TRIN si l'ESA n'atteint pas le circuit ; ce n'est pas une preuve.",
+      "Juste : l'ESA précoce conduit par la voie rapide et avance le His, puis le foyer jonctionnel reprend ; dans la TRIN, la voie rapide réfractaire interromprait le circuit.",
+      "Faux : l'arrêt est possible dans les deux mécanismes ; seule la poursuite oriente vers la tachycardie jonctionnelle.",
+      "Juste : l'avance du His par une ESA tardive oriente vers la TRIN, mais un foyer jonctionnel avec double voie peut donner un écho par la voie lente."
+    ],
+    "reponseAttendue": null,
+    "explication": "Padanilam et al. ont montré l'intérêt des ESA pour distinguer TRIN et tachycardie jonctionnelle. Une ESA tardive, délivrée quand la jonction est réfractaire, ne peut pas atteindre un foyer jonctionnel : le front stimulé heurte le front rétrograde du foyer dans le NAV. Dans la TRIN, elle peut au contraire pénétrer la voie lente et avancer, retarder ou arrêter la tachycardie ; le retard est la réponse la plus spécifique. Une ESA précoce, délivrée avant le His, peut avancer le His immédiat par la voie rapide. Si la tachycardie continue, c'est une tachycardie jonctionnelle, car dans la TRIN la voie rapide devenue réfractaire ne peut plus servir de branche rétrograde. Principal piège : le foyer jonctionnel associé à une double voie nodale (« réponse double »).",
+    "aRetenir": "ESA tardive qui modifie le His suivant (surtout le retard) = TRIN ; ESA précoce qui avance le His et laisse la tachycardie continuer = tachycardie jonctionnelle.",
+    "sources": [
+      {
+        "titre": "Padanilam BJ, et al. Differentiating junctional tachycardia and atrioventricular node re-entry tachycardia based on response to atrial extrastimulus pacing. J Am Coll Cardiol 2008;52:1711-1717"
+      },
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardias: part 2. Pacing Clin Electrophysiol 2012;35:757-769",
+        "url": "https://doi.org/10.1111/j.1540-8159.2012.03352.x"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ep-man-019",
+    "theme": "electrophysio",
+    "sousTheme": "TRIN, voies accessoires et manœuvres",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Stimulation para-hissienne en rythme sinusal. En capture His + ventricule comme en capture ventriculaire seule, l'intervalle stimulus-A (A mesuré au SC proximal) reste à 50 ms, avec une séquence atriale identique. Comment interpréter ce résultat ?",
+    "options": [
+      "Capture atriale directe probable, manœuvre faussée",
+      "Réponse extranodale : voie accessoire septale",
+      "Réponse nodale par la voie lente",
+      "Conduction rétrograde mixte, à la fois nodale et accessoire"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : un stimulus-A au SC proximal < 60 ms signe presque toujours une capture atriale directe, qui fausse la manœuvre.",
+      "Faux : un intervalle stimulus-A aussi court doit d'abord faire suspecter une capture atriale, qui imite une réponse extranodale.",
+      "Faux : une réponse nodale se traduirait par un allongement du stimulus-A à la perte de capture hissienne.",
+      "Faux : une réponse mixte s'accompagne en règle d'un changement de séquence atriale."
+    ],
+    "reponseAttendue": null,
+    "explication": "La stimulation para-hissienne compare le stimulus-A avec et sans capture du His : un stimulus-A inchangé suggère une voie accessoire septale. Mais le cathéter est proche de l'anneau et peut capter directement l'oreillette, ce qui donne aussi un stimulus-A fixe et court, indépendant de la capture hissienne. Selon Obeyesekere et al., un stimulus-A < 60 ms au SC proximal (ou < 70 ms à l'OD haute) signe presque toujours une capture atriale ; au-delà de 90 ms (SC proximal) ou 100 ms (OD haute), elle est très improbable. En cas de doute, on déplace le cathéter vers l'apex : la perte de capture atriale allonge alors le stimulus-A de plus de 20 ms. La capture atriale peut aussi masquer une voie septale réelle.",
+    "aRetenir": "Stimulation para-hissienne : un stimulus-A < 60 ms au SC proximal évoque une capture atriale directe, pas une voie accessoire.",
+    "sources": [
+      {
+        "titre": "Obeyesekere M, et al. Determination of inadvertent atrial capture during para-Hisian pacing. Circ Arrhythm Electrophysiol 2011;4:510-514"
+      },
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardias: part 2. Pacing Clin Electrophysiol 2012;35:757-769",
+        "url": "https://doi.org/10.1111/j.1540-8159.2012.03352.x"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ep-man-020",
+    "theme": "electrophysio",
+    "sousTheme": "TRIN, voies accessoires et manœuvres",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 8,
+    "question": "Au cours d'une stimulation para-hissienne, le stimulus-A s'allonge à la perte de capture hissienne, avec un HA constant et une séquence atriale inchangée. Quelles situations peuvent donner ce profil « nodal » malgré la présence d'une voie accessoire ? (plusieurs réponses)",
+    "options": [
+      "Voie latérale gauche éloignée du site de stimulation",
+      "Voie para-hissienne à conduction rapide",
+      "Voie accessoire à conduction lente ou décrémentielle",
+      "Conduction rétrograde exclusivement nodale, sans voie"
+    ],
+    "reponses": [
+      0,
+      2
+    ],
+    "commentaires": [
+      "Juste : la voie est trop loin ; l'oreillette est entièrement activée par le NAV avant que le front n'atteigne la voie, avec ou sans capture du His.",
+      "Faux : c'est la situation qui donne la réponse extranodale la plus nette (stimulus-A inchangé, HA raccourci).",
+      "Juste : si la voie conduit plus lentement que le NAV, l'oreillette est activée par le NAV et la voie reste masquée.",
+      "Faux : c'est une vraie réponse nodale, pas un faux négatif, puisqu'aucune voie n'existe."
+    ],
+    "reponseAttendue": null,
+    "explication": "La stimulation para-hissienne (Hirao) est fiable pour les voies septales et droites. Une réponse nodale (stimulus-A qui s'allonge autant que le stimulus-His, HA constant, séquence inchangée) peut cependant masquer une voie. C'est le cas d'une voie latérale gauche trop éloignée, où l'oreillette est activée par le NAV avant d'être atteinte par la voie ; l'activation excentrique se voit alors mieux en stimulation de la pointe du VD. C'est aussi le cas d'une voie lente ou décrémentielle, plus lente que le NAV. Autres pièges : perte de capture de la seule branche gauche proximale (QRS élargi sans vraie perte de capture hissienne), connexion fasciculo-ventriculaire, capture atriale. Enfin, démontrer une voie ne prouve pas qu'elle participe à la tachycardie.",
+    "aRetenir": "Réponse para-hissienne « nodale » : ne pas conclure à l'absence de voie si elle peut être gauche éloignée ou lente/décrémentielle.",
+    "sources": [
+      {
+        "titre": "Hirao K, et al. Para-Hisian pacing. A new method for differentiating retrograde conduction over an accessory AV pathway from conduction over the AV node. Circulation 1996;94:1027-1035"
+      },
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardias: part 2. Pacing Clin Electrophysiol 2012;35:757-769",
+        "url": "https://doi.org/10.1111/j.1540-8159.2012.03352.x"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "ep-man-021",
+    "theme": "electrophysio",
+    "sousTheme": "TRIN, voies accessoires et manœuvres",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Patient avec tachycardie documentée, ECG de base sans préexcitation ; aucune tachycardie soutenue n'est inductible. Stimulation ventriculaire au même cycle, stimulus-A mesuré à l'OD haute : 150 ms depuis la pointe du VD, 128 ms depuis la région postéro-basale du VD, sans capture atriale. Qu'en déduisez-vous ?",
+    "options": [
+      "Une conduction rétrograde purement nodale, sans voie",
+      "Une conduction rétrograde par la voie lente",
+      "Une voie accessoire septale (postérieure) probable",
+      "Un résultat non interprétable sans tachycardie"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : en conduction nodale pure, la pointe est plus proche de l'entrée du réseau de Purkinje ; le VA serait plus long depuis la base (index négatif).",
+      "Faux : un passage par la voie lente allongerait le VA, sans raccourcissement à la base.",
+      "Juste : l'index VA (pointe − base) vaut +22 ms, au-dessus de 10 ms : en faveur d'une voie septale.",
+      "Faux : cette manœuvre est justement utile en rythme sinusal, quand aucune tachycardie soutenue n'est inductible."
+    ],
+    "reponseAttendue": null,
+    "explication": "La comparaison pointe/base (Martinez-Alday) repose sur le même principe que la stimulation para-hissienne. Avec une conduction rétrograde nodale, la pointe est électriquement plus proche du His (entrée apicale du réseau de Purkinje) : le VA est plus court depuis la pointe que depuis la base. Avec une voie septale postérieure, stimuler la base, proche de l'insertion de la voie, raccourcit au contraire le VA. L'index VA (VA pointe − VA base) > 10 ms avait une sensibilité et une spécificité de 100 % dans ce petit travail. Quelques patients sans voie avaient toutefois un index de 0 à +5 ms : prudence pour les valeurs limites. Il faut éviter la capture atriale à la base ; la manœuvre détecte mal les voies lentes.",
+    "aRetenir": "Index VA (pointe − base) > 10 ms = voie septale ; conduction nodale = VA plus long depuis la base.",
+    "sources": [
+      {
+        "titre": "Martinez-Alday JD, et al. Identification of concealed posteroseptal Kent pathways by comparison of ventriculoatrial intervals from apical and posterobasal right ventricular sites. Circulation 1994;89:1060-1067"
+      },
+      {
+        "titre": "Veenhuyzen GD, et al. Diagnostic pacing maneuvers for supraventricular tachycardias: part 2. Pacing Clin Electrophysiol 2012;35:757-769",
+        "url": "https://doi.org/10.1111/j.1540-8159.2012.03352.x"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  }
+]

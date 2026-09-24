@@ -6,15 +6,16 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
 
 ## Fonctionnalités
 
-- **970 questions** réparties en 4 thèmes :
+- **1 153 questions** réparties en 4 thèmes :
   - ECG (troubles de conduction, tachycardies, ECG du patient stimulé) — avec **tracés générés** dans l'application
     et **61 vrais ECG 12 dérivations** (base PTB-XL, PhysioNet, CC BY 4.0), **compas de mesure** et plein écran ;
-  - Programmation PM / DAI / CRT : principes génériques et algorithmes propres à **Medtronic, Abbott, Boston Scientific, Biotronik, MicroPort** ;
+  - Programmation PM / DAI / CRT : principes génériques et algorithmes propres à **Medtronic, Abbott, Boston Scientific, Biotronik, MicroPort**,
+    cas cliniques par constructeur, marqueurs d'événements, stimulation du système de conduction ;
   - Alertes de télécardiologie : triage, conduite à tenir, organisation, cadre français ;
-  - **Lecture d'EGM de boîtier** (151 questions, 98 sur tracé) : épisodes de télésurveillance, consultation de stimulateur,
+  - **Lecture d'EGM de boîtier** (169 questions, 116 sur tracé, 37 tracés) : épisodes de télésurveillance, consultation de stimulateur,
     épisodes de défibrillateur, Holter implantable — EGM A, EGM VD, EGM de choc ou champ lointain et canal de marqueurs,
     centrés sur les pièges de la pratique courante ;
-  - Électrophysiologie : mécanismes, EEP, ablation, antiarythmiques.
+  - Électrophysiologie : mécanismes, EEP, manœuvres de stimulation des TSV, ablation, antiarythmiques.
 - **Types de questions** : QCU, QCM, vrai/faux, questions ouvertes (avec auto-évaluation).
 - **Difficulté de 1 à 10** sur chaque question ; filtre libre (« entre 1 et 3 », « au-dessus de 3 », « 7 à 10 »…).
 - **Écran d'accueil** : Entraînement (Stimulation/DAI/télécardio, ECG, Électrophysiologie, Tout venant), Compétitif
@@ -67,7 +68,11 @@ stimulation du système de conduction) — questions mises à jour et `data/ques
 Les questions s'appuient uniquement sur des sources scientifiquement validées, consultées en lecture seule :
 recommandations ESC/EHRA (stimulation et CRT 2021, arythmies ventriculaires 2022, FA 2024, TSV 2019, syncope 2018),
 HRS/APHRS/LAHRS (stimulation physiologique 2023, télésurveillance 2023, programmation des DAI 2015/2019),
-essais publiés (références DOI/PubMed vérifiées), manuels techniques officiels des fabricants et textes réglementaires français.
+consensus EHRA 2023 d'implantation de la stimulation de conduction, revues de manœuvres de stimulation en EEP (Veenhuyzen, PACE),
+essais publiés (références DOI/PubMed vérifiées), manuels techniques officiels et fiches de marqueurs des fabricants,
+ouvrages de référence (encyclopédies constructeur de Bordachar et coll.) et textes réglementaires français.
+Les notions tirées d'ouvrages de 2016-2020 ont été confrontées aux recommandations et aux gammes actuelles ; celles qui
+étaient périmées ou invérifiables ont été écartées.
 Chaque fichier a été relu par un agent « rythmologue français » (exactitude médicale, formulations naturelles
 plutôt que traduites mot à mot, cohérence des niveaux et des tracés, vérification des sources).
 

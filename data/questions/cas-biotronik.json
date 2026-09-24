@@ -1,0 +1,525 @@
+[
+  {
+    "id": "cas-bio-001",
+    "theme": "programmation",
+    "sousTheme": "Réduction de la stimulation ventriculaire",
+    "marque": "Biotronik",
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Homme de 54 ans, stimulateur double chambre Biotronik implanté pour une maladie de l'oreillette, Vp suppression activé. Les statistiques montrent de très nombreuses bascules ADI → DDD, alors que la conduction AV paraît normale sur tous les ECG. L'EGM périodique, enregistré en ADI, montre des QRS spontanés de 1,5 à 2,5 mV, dont certains ne portent aucun marqueur ventriculaire. Quelle est l'explication la plus probable ?",
+    "options": [
+      "Des BAV paroxystiques vrais, que l'algorithme reconnaît à juste titre",
+      "Une surdétection de l'onde T, qui fait croire à une conduction absente",
+      "Une sous-détection ventriculaire : chaque QRS manqué compte comme une P bloquée",
+      "Un critère de reprise en DDD mal réglé, seule cause possible de ces bascules"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : les QRS sont bien présents sur l'EGM après chaque onde P ; c'est le boîtier qui ne les voit pas.",
+      "Faux : une surdétection ajouterait des événements ventriculaires, elle ne ferait pas disparaître la conduction aux yeux de l'algorithme.",
+      "Juste : un QRS non détecté est interprété comme une onde P non conduite, ce qui remplit à tort les critères de bascule en DDD.",
+      "Faux : le réglage du critère modifie la fréquence des bascules, mais ne corrige pas une détection défaillante."
+    ],
+    "reponseAttendue": null,
+    "explication": "Vp suppression juge la conduction AV sur la présence d'une détection ventriculaire après chaque événement atrial. Si des QRS de faible amplitude ne sont pas détectés, l'algorithme les compte comme des ondes P bloquées et conclut à tort à un BAV (critère « x cycles sur 8 », ondes P bloquées consécutives ou pause) : le boîtier repasse en DDD et stimule le ventricule sans raison. L'EGM périodique transmis par télésurveillance permet de voir ces QRS sans marqueur, dysfonction que le boîtier ne peut pas signaler lui-même. La correction passe par la détection : programmer une sensibilité ventriculaire fixe plus fine (valeur en mV plus basse) après avoir vérifié l'absence de surdétection de l'onde T. Tout algorithme de préservation de la conduction suppose une détection atriale et ventriculaire fiable.",
+    "aRetenir": "Vp suppression : des bascules en DDD injustifiées doivent faire rechercher une sous-détection ventriculaire, qui imite une P bloquée.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Chinitz LA, Park D, Ploux S. Encyclopédie Biotronik — des fondamentaux à l'expertise : BioMonitor, stimulateur cardiaque, défibrillateur automatique implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bio-002",
+    "theme": "programmation",
+    "sousTheme": "Réduction de la stimulation ventriculaire",
+    "marque": "Biotronik",
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Homme de 83 ans, stimulateur double chambre Biotronik pour BAV complet paroxystique, Vp suppression activé ; il se plaint de palpitations. Le test en VDI montre une conduction rétrograde VA stable d'environ 380 ms, plus longue que la PRAPV programmée. Sur l'EGM, chaque recherche de conduction en DDD (délai AV très allongé) se termine par une stimulation V suivie d'une onde P rétrograde détectée, qui lance une TRE. Quelle conduite est la plus logique ?",
+    "options": [
+      "Raccourcir la PRAPV pour que l'onde P rétrograde soit mieux détectée",
+      "Allonger encore le délai AV de recherche pour laisser passer la conduction",
+      "Augmenter la fréquence maximale de suivi pour mieux tolérer la tachycardie",
+      "Porter la PRAPV au-delà du temps VA, ou renoncer à Vp suppression"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : c'est justement la détection de l'onde P rétrograde hors PRAPV qui entretient la TRE.",
+      "Faux : un délai AV plus long laisse encore plus de temps à l'oreillette pour sortir de sa période réfractaire et conduire en rétrograde.",
+      "Faux : cela accélérerait la TRE sans en supprimer le mécanisme.",
+      "Juste : une PRAPV plus longue que la conduction VA empêche le suivi de l'onde P rétrograde ; en BAV complet permanent, l'algorithme n'a de toute façon pas d'intérêt."
+    ],
+    "reponseAttendue": null,
+    "explication": "En DDD, Vp suppression recherche périodiquement la conduction spontanée en allongeant le délai AV pendant quelques cycles (de l'ordre de 450 ms), les recherches étant d'abord rapprochées puis espacées en cas d'échec. Chez un patient sans conduction antérograde mais avec une conduction rétrograde conservée, le ventricule est stimulé tard : l'oreillette est sortie de sa période réfractaire, conduit en rétrograde, et l'onde P rétrograde détectée hors PRAPV déclenche une TRE, sans aucun autre facteur déclenchant. L'algorithme anti-TRE du boîtier peut interrompre ces épisodes, mais ne les prévient pas. Si le BAV est permanent, le plus simple est de ne pas programmer Vp suppression ; s'il est paroxystique, il faut une PRAPV plus longue que le temps de conduction rétrograde, en vérifiant l'effet sur le point de 2:1 chez un patient actif.",
+    "aRetenir": "Vp suppression avec conduction rétrograde : l'allongement du délai AV de recherche peut déclencher des TRE ; PRAPV > temps VA, ou pas d'algorithme en BAV permanent.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Chinitz LA, Park D, Ploux S. Encyclopédie Biotronik — des fondamentaux à l'expertise : BioMonitor, stimulateur cardiaque, défibrillateur automatique implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bio-003",
+    "theme": "programmation",
+    "sousTheme": "Réduction de la stimulation ventriculaire",
+    "marque": "Biotronik",
+    "type": "vf",
+    "difficulte": 7,
+    "question": "Avec Vp suppression (Biotronik), lorsque le boîtier fonctionne en DDD et teste le retour de la conduction AV, il allonge le délai AV pendant quelques cycles ; en l'absence de QRS spontané, le ventricule est stimulé à la fin de ce délai allongé, si bien que la recherche ne produit pas d'onde P bloquée.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : la recherche se fait par hystérésis du délai AV ; une stimulation V est délivrée au terme du délai allongé si la conduction n'apparaît pas.",
+      "Faux : contrairement à d'autres algorithmes qui testent la conduction en AAI, la recherche de Vp suppression ne laisse pas passer d'onde P sans réponse ventriculaire."
+    ],
+    "reponseAttendue": null,
+    "explication": "En DDD, Vp suppression teste la conduction par une hystérésis du délai AV : le délai est très allongé pendant quelques cycles et le boîtier revient en ADI si des QRS spontanés sont détectés sur un nombre programmable de cycles consécutifs. Si la conduction ne revient pas, le ventricule est stimulé en fin de délai allongé : la recherche ne crée donc ni onde P bloquée ni pause. C'est une différence avec les algorithmes qui testent la conduction en AAI, où une P bloquée est tolérée. En revanche, pendant la phase ADI, des ondes P bloquées sont possibles jusqu'à ce qu'un critère de bascule soit rempli. La contrepartie de la recherche en DDD est le délai AV très long, qui peut favoriser une conduction rétrograde et une TRE.",
+    "aRetenir": "La recherche de conduction de Vp suppression se fait en DDD à délai AV allongé : pas d'onde P bloquée pendant le test, mais un risque de TRE.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Chinitz LA, Park D, Ploux S. Encyclopédie Biotronik — des fondamentaux à l'expertise : BioMonitor, stimulateur cardiaque, défibrillateur automatique implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Chung MK et al. 2023 HRS/APHRS/LAHRS guideline on cardiac physiologic pacing for the avoidance and mitigation of heart failure. Heart Rhythm 2023;20:e17-e91",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1538"
+      }
+    ],
+    "reco": [
+      "HRS 2023 stimulation physiologique"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bio-004",
+    "theme": "programmation",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "Biotronik",
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Femme de 78 ans, stimulateur double chambre Biotronik pour BAV paroxystique. Commutations de mode fréquentes à l'effort, sans arythmie atriale. L'EGM montre après chaque stimulation ventriculaire un petit signal atrial (dépolarisation ventriculaire vue par la sonde atriale), marqué Ars dans la PRAPV. Vous allongez la protection far-field (PFF) pour que ce signal y tombe. Qu'en attendez-vous ?",
+    "options": [
+      "Le signal ne sera plus ni détecté ni affiché, la PFF étant un blanking absolu",
+      "Le signal restera marqué, mais sera exclu de la fréquence atriale et du mode switch",
+      "Le signal déclenchera un délai AV, mais ne comptera plus pour la commutation",
+      "Aucun effet, car un signal en PRAPV n'est jamais compté pour la commutation"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : un signal détecté dans la PFF reste visible sur le canal de marqueurs.",
+      "Juste : dans la PFF, le signal ne déclenche pas de délai AV et n'entre pas dans le calcul de la fréquence atriale, d'où la disparition des commutations inappropriées.",
+      "Faux : un événement détecté dans la PFF ne déclenche jamais de délai AV.",
+      "Faux : un signal détecté dans la PRAPV hors PFF n'est pas suivi, mais il compte dans la fréquence atriale, ce qui explique justement les commutations."
+    ],
+    "reponseAttendue": null,
+    "explication": "Chez Biotronik, la protection far-field est une période appliquée sur le canal atrial après un événement ventriculaire détecté ou stimulé (valeurs nominales de l'ordre de 100 ms après un Vs et 150 ms après un Vp). Elle n'est pas totalement aveugle : un signal y est marqué, mais il ne déclenche pas de délai AV et il est exclu de l'analyse des arythmies atriales. Dans le reste de la PRAPV, un signal n'est pas suivi mais il est compté dans la fréquence atriale : à l'effort, l'addition des ondes P et de l'onde R lointaine dépasse la fréquence de commutation. Si la PFF ne suffit pas, on peut réduire la sensibilité atriale en gardant une marge pour les ondes P et les arythmies atriales. Chez ce patient à conduction conservée, favoriser la conduction spontanée (Vp suppression) réduit aussi le phénomène, souvent plus marqué après un QRS stimulé.",
+    "aRetenir": "Biotronik : un signal dans la PFF est marqué mais exclu du mode switch ; dans le reste de la PRAPV, il compte dans la fréquence atriale.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Chinitz LA, Park D, Ploux S. Encyclopédie Biotronik — des fondamentaux à l'expertise : BioMonitor, stimulateur cardiaque, défibrillateur automatique implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bio-007",
+    "theme": "telecardio",
+    "sousTheme": "Alertes techniques : sondes, batterie, transmission",
+    "marque": "Biotronik",
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Homme de 60 ans, stimulateur double chambre Biotronik posé il y a 3 mois pour BAV paroxystique, asymptomatique. L'EGM périodique transmis par Home Monitoring montre un signal sur le canal atrial contemporain de chaque QRS spontané ; sur la séquence où la stimulation est forcée, chaque stimulus atrial est suivi d'un QRS large, que le canal ventriculaire détecte juste après, avec une stimulation V environ 100 ms après le stimulus atrial. Le canal ventriculaire est par ailleurs normal. Quel diagnostic retenez-vous ?",
+    "options": [
+      "Inversion des deux sondes au niveau du connecteur",
+      "Détection isolée de l'onde R lointaine, sans gravité",
+      "Déplacement de la sonde atriale dans le ventricule",
+      "Crosstalk : le canal V détecte le stimulus atrial"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : une inversion donnerait aussi une sonde « ventriculaire » qui détecte et stimule l'oreillette ; ici, seule la sonde atriale est anormale.",
+      "Faux : l'onde R lointaine n'explique pas la capture ventriculaire obtenue par le stimulus atrial.",
+      "Juste : la sonde atriale voit le QRS et capture le ventricule ; le QRS provoqué est détecté dans la fenêtre de sécurité, d'où la stimulation V à ~100 ms.",
+      "Faux : dans le crosstalk, le stimulus atrial capture l'oreillette ; il ne produit pas un QRS large."
+    ],
+    "reponseAttendue": null,
+    "explication": "Une sonde atriale tombée dans le ventricule détecte la dépolarisation ventriculaire (signal atrial calé sur le QRS) et, quand elle stimule, capture le ventricule. Le QRS ainsi provoqué est détecté par le canal ventriculaire après le blanking post-atrial, dans la fenêtre de sécurité : le boîtier délivre alors une stimulation ventriculaire environ 100 ms après le stimulus atrial, sans effet puisque le ventricule est déjà dépolarisé. Quand une seule sonde fonctionne mal après une implantation, on pense au déplacement ; quand la sonde branchée sur le canal atrial se comporte comme ventriculaire et inversement, on pense à une inversion au connecteur. La radiographie thoracique confirme et impose une reprise chirurgicale. L'EGM périodique permet ainsi de dépister chez un patient asymptomatique une anomalie qui ne déclenche aucun épisode mémorisé.",
+    "aRetenir": "Stimulus atrial suivi d'un QRS large et signal atrial calé sur le QRS : penser au déplacement de la sonde atriale dans le ventricule.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Chinitz LA, Park D, Ploux S. Encyclopédie Biotronik — des fondamentaux à l'expertise : BioMonitor, stimulateur cardiaque, défibrillateur automatique implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      }
+    ],
+    "reco": [
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bio-008",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "Biotronik",
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Homme de 64 ans, DAI double chambre Biotronik, bloc de branche droit et hémibloc antérieur gauche avec QRS très large. L'EGM périodique transmis montre, en rythme sinusal, deux détections ventriculaires par QRS : la seconde tombe juste à la fin de la période réfractaire post-détection, et les cycles alternent entre VS et FV. Aucun épisode n'est mémorisé. Quelles propositions sont exactes ? (plusieurs réponses)",
+    "options": [
+      "L'alternance VS/FV maintient le compteur TV « up and down » près de zéro",
+      "Une tachycardie sinusale ou des ESV peuvent suffire à déclencher une thérapie",
+      "La première mesure est d'allonger la période réfractaire post-détection",
+      "Réduire la sensibilité ventriculaire est la solution la plus fiable",
+      "Remonter la zone FV à 250 bpm règle le problème sans inconvénient"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "commentaires": [
+      "Juste : chaque cycle FV ajoute un point au compteur TV et chaque cycle VS en retire un ; le compteur probabiliste de FV, avec 50 % de cycles courts, n'est pas rempli non plus.",
+      "Juste : si le cycle long passe à son tour en zone de TV (tachycardie sinusale) ou si des ESV s'intercalent, les compteurs peuvent se remplir.",
+      "Juste : le second signal tombe à la fin de la période réfractaire ; l'allonger un peu supprime le double comptage sans toucher à la sensibilité.",
+      "Faux : le second signal est souvent aussi ample que le premier ; baisser la sensibilité est souvent inefficace et expose à la sous-détection de la FV.",
+      "Faux : cela ne supprime pas le double comptage et réduit la protection ; ce n'est pas une réponse adaptée."
+    ],
+    "reponseAttendue": null,
+    "explication": "Quand l'électrogramme ventriculaire dure plus longtemps que la période réfractaire post-détection (QRS très large, bloqueurs sodiques, hyperkaliémie, sonde à détection bipolaire intégrée), le même QRS est compté deux fois ; l'intervalle entre les deux détections est égal ou très proche de la période réfractaire programmée, donc toujours en zone FV. Chez Biotronik, le compteur de TV est de type « up and down » : un cycle FV l'incrémente et un cycle VS le décrémente, si bien qu'une alternance stricte le laisse à zéro, et le compteur probabiliste de FV n'atteint pas son ratio. Le danger apparaît dès que la fréquence sinusale augmente ou que des ESV s'ajoutent. La correction de première intention est l'allongement de la période réfractaire post-détection ventriculaire (avec l'aide du constructeur si le paramètre n'est pas directement accessible), en gardant à l'esprit qu'un allongement excessif peut gêner la détection de la FV. Si c'est impossible, une nouvelle sonde à détection bipolaire vraie peut se discuter.",
+    "aRetenir": "Double comptage du QRS en fin de période réfractaire : allonger la période réfractaire post-détection plutôt que réduire la sensibilité.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Chinitz LA, Park D, Ploux S. Encyclopédie Biotronik — des fondamentaux à l'expertise : BioMonitor, stimulateur cardiaque, défibrillateur automatique implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bio-009",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": "Biotronik",
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Homme de 79 ans, DAI double chambre Biotronik, cardiopathie ischémique, zone TV1 programmée avec ATP. Il présente de très nombreuses salves de TV non soutenue (triplets, quadruplets) séparées par trois ou quatre battements sinusaux. Un épisode classé TV1 a déclenché neuf salves d'ATP, alors qu'aucune salve de TV ne dépassait quatre cycles. Quelle est l'explication ?",
+    "options": [
+      "Le compteur TV est probabiliste (X sur Y) : 3 cycles rapides sur 4 suffisent",
+      "Le critère de début brutal, rempli par chaque salve, court-circuite le compteur",
+      "L'ATP One Shot se déclenche dès qu'une salve atteint la zone de FV",
+      "Le compteur TV additionne les salves : un cycle lent ne retire qu'un point"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : chez Biotronik, le compteur probabiliste est celui de la zone FV ; la zone TV utilise un compteur « up and down ».",
+      "Faux : le début brutal est un critère de discrimination, il ne remplace pas le compteur de détection.",
+      "Faux : l'épisode est classé TV1 et les salves ne sont pas en zone FV ; l'ATP One Shot n'est pas en cause.",
+      "Juste : chaque cycle TV ajoute un point, chaque cycle sinusal en retire un seul ; si les cycles rapides l'emportent, le compteur se remplit sur des dizaines de secondes."
+    ],
+    "reponseAttendue": null,
+    "explication": "Chez Biotronik, les zones TV utilisent un compteur « up and down » : un cycle en zone TV (ou plus rapide) incrémente le compteur, un cycle lent le décrémente de 1 seulement, sans le remettre à zéro. Cet atout face à une sous-détection intermittente (qui ne fait que retarder le diagnostic) devient un piège chez le patient à TV non soutenues répétées : un triplet ajoute 3 points, trois battements sinusaux n'en retirent que 3, un quadruplet en ajoute 4, et le compteur finit par se remplir. Le premier cycle de l'« épisode » peut précéder de plusieurs dizaines de secondes le diagnostic et ne pas figurer sur l'EGM. On allonge le nombre d'intervalles requis (détection longue, comme le recommandent les consensus) et surtout on rediscute la limite basse de la zone TV par rapport à la fréquence de ces salves, en plus de la prise en charge médicale des TV non soutenues.",
+    "aRetenir": "Compteur TV Biotronik « up and down » : des salves de TV non soutenue rapprochées peuvent le remplir et déclencher des thérapies inutiles.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Chinitz LA, Park D, Ploux S. Encyclopédie Biotronik — des fondamentaux à l'expertise : BioMonitor, stimulateur cardiaque, défibrillateur automatique implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Stiles MK et al. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      }
+    ],
+    "reco": [
+      "Consensus 2019 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bio-011",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": "Biotronik",
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Homme de 65 ans, DAI simple chambre Biotronik, ATP One Shot activé en zone FV. L'épisode transmis montre une TV monomorphe régulière à 240 bpm détectée en zone FV, une salve de 8 impulsions, puis un retour à un rythme lent : aucun choc délivré. Quelle affirmation sur l'ATP One Shot est exacte ?",
+    "options": [
+      "Il est délivré sur toute arythmie en zone FV, y compris irrégulière",
+      "Il est répété jusqu'à trois fois avant d'autoriser un choc",
+      "Il n'est délivré, en une seule salve, que sur un rythme jugé stable",
+      "Il impose de désactiver les chocs dans la zone FV"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : une arythmie irrégulière (vraie FV) ne reçoit pas d'ATP One Shot ; le choc reste la thérapie.",
+      "Faux : comme son nom l'indique, une seule salve est délivrée par épisode.",
+      "Juste : la salve unique n'est délivrée que si les cycles précédant le diagnostic sont stables, ce qui écarte les vraies FV.",
+      "Faux : l'ATP One Shot précède ou accompagne la séquence de chocs, il ne la remplace pas."
+    ],
+    "reponseAttendue": null,
+    "explication": "Beaucoup de tachycardies détectées en zone FV sont des TV monomorphes rapides, qu'une salve d'ATP arrête souvent sans douleur, comme l'a montré l'essai PainFREE Rx II. Chez Biotronik, l'ATP One Shot délivre une salve unique (par défaut un burst de 8 impulsions) quand le compteur FV est rempli, à condition que les cycles précédents soient stables, ce qui écarte les vraies FV. Si la salve est efficace, aucun choc n'est délivré ; sinon la séquence de chocs se poursuit. Le moment de la salve par rapport à la charge des condensateurs (avant ou pendant) dépend des générations de boîtiers : se référer au manuel du modèle implanté. Les consensus recommandent au moins une salve d'ATP pour les tachycardies jusqu'à 230 bpm, en burst de 8 impulsions à 88 % du cycle.",
+    "aRetenir": "ATP One Shot Biotronik : une seule salve en zone FV, seulement si le rythme est stable ; le choc reste en aval.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Chinitz LA, Park D, Ploux S. Encyclopédie Biotronik — des fondamentaux à l'expertise : BioMonitor, stimulateur cardiaque, défibrillateur automatique implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Wathen MS et al. Prospective randomized multicenter trial of empirical antitachycardia pacing versus shocks for spontaneous rapid ventricular tachycardia in patients with implantable cardioverter-defibrillators: PainFREE Rx II. Circulation 2004;110:2591-2596"
+      },
+      {
+        "titre": "Stiles MK et al. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      }
+    ],
+    "reco": [
+      "Consensus 2019 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bio-012",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": "Biotronik",
+    "type": "qcm",
+    "difficulte": 8,
+    "question": "Homme de 77 ans, CRT-D Biotronik. Une TV en zone TV2 résiste à six salves d'ATP ; le premier choc, programmé à 10 J, la transforme en FV rapide et peu voltée, en partie sous-détectée sur le canal VD, qui avait été programmé à titre préventif en « suppression accrue de l'onde T » sans surdétection antérieure. Une charge est interrompue à tort, puis un choc à pleine énergie réduit l'arythmie. Quelles modifications sont justifiées ? (plusieurs réponses)",
+    "options": [
+      "Programmer le premier choc de la zone TV à énergie maximale",
+      "Revenir à une détection VD standard, voire favorisant la FV",
+      "Réduire la sensibilité VD pour éviter les doubles comptages",
+      "Supprimer toute stimulation antitachycardique en zone TV2"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "commentaires": [
+      "Juste : un choc de faible énergie peut tomber sous la limite supérieure de vulnérabilité et transformer une TV en FV ; un premier choc maximal limite ce risque.",
+      "Juste : le profil de suppression de l'onde T réduit la sensibilité ; sans surdétection préalable, il n'a pas lieu d'être et gêne la détection de la FV.",
+      "Faux : le problème est une sous-détection ; réduire la sensibilité l'aggraverait.",
+      "Faux : l'ATP reste le traitement de première intention des TV monomorphes et arrête souvent ces épisodes sans choc."
+    ],
+    "reponseAttendue": null,
+    "explication": "Un choc de faible énergie (de l'ordre de 10 J) arrête souvent une TV, avec une charge courte, mais il comporte un risque : s'il est en dessous de la limite supérieure de vulnérabilité, il peut accélérer et désorganiser la TV en arythmie polymorphe. Programmer le premier choc de la zone TV à pleine énergie augmente la probabilité d'efficacité et place le choc au-delà de cette limite. Les FV induites ont souvent des signaux courts et de faible amplitude, d'où un risque de sous-détection et d'interruption inappropriée de la charge, majoré ici par un profil de détection qui réduit la sensibilité (suppression accrue de l'onde T) sans indication. Il faut revenir à une détection standard, voire à un profil favorisant la détection de la FV, et discuter une induction pour vérifier la détection. L'ATP garde sa place en première intention.",
+    "aRetenir": "Un premier choc de faible énergie en zone TV peut dégénérer la TV en FV ; un profil anti-onde T sans surdétection documentée expose à sous-détecter la FV.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Chinitz LA, Park D, Ploux S. Encyclopédie Biotronik — des fondamentaux à l'expertise : BioMonitor, stimulateur cardiaque, défibrillateur automatique implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bio-013",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "Biotronik",
+    "type": "qcu",
+    "difficulte": 9,
+    "question": "Homme de 59 ans, DAI double chambre Biotronik avec SMART detection. Épisode 1 : tachycardie 1:1 en zone TV1, puis rupture de la conduction VA avec V plus rapide que A ; classée TV et traitée par ATP. Épisode 2, même morphologie de QRS : 1:1 du début à la fin, rythme stable, PR stable, début brutal mesuré à 18 % pour un seuil de 20 % ; classé TSV, sans thérapie. Quelle analyse est juste ?",
+    "options": [
+      "Épisode 1 : ATP inapproprié, une TV ne pouvant pas débuter en 1:1",
+      "Épisode 2 : TV probable à conduction VA 1:1, mal classée sur le début",
+      "Épisode 2 : tachycardie sinusale certaine, SMART l'ayant ainsi classée",
+      "Épisode 2 : la variation monotone du PR aurait dû le classer en TV"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : une TV peut conduire en rétrograde 1:1 ; la rupture VA avec V > A de l'épisode 1 signe au contraire la TV.",
+      "Juste : en 1:1 stable sans dérive du PR, SMART tranche sur le début brutal ; à 18 % pour un seuil de 20 %, la TV est prise pour une tachycardie sinusale.",
+      "Faux : la classification de l'appareil n'est pas une preuve ; même morphologie que la TV documentée.",
+      "Faux : la variation monotone du PR traduit une dissociation (double tachycardie) ; ici le PR est stable, ce critère ne pouvait pas s'appliquer."
+    ],
+    "reponseAttendue": null,
+    "explication": "SMART detection compare d'abord les fréquences atriale et ventriculaire moyennées. Si V est plus rapide que A, la TV est retenue sans autre test : c'est le cas de l'épisode 1 après la rupture de la conduction rétrograde, preuve de l'origine ventriculaire. Quand A = V et que les deux rythmes sont stables, l'algorithme cherche une variation monotone du PR (dissociation, donc double tachycardie) ; à défaut, il départage TV à conduction rétrograde 1:1 (début brutal) et tachycardie sinusale (début progressif) par le critère de début. Si le début mesuré est juste sous le seuil, une TV 1:1 est classée tachycardie sinusale. Les TV à conduction 1:1 sont minoritaires parmi les tachycardies 1:1, mais chez un patient qui a plusieurs épisodes, il faut relire tous les tracés à la recherche d'un bloc rétrograde (TV) ou antérograde (TSV), qui apporte la certitude, et adapter la programmation en connaissance de cause.",
+    "aRetenir": "SMART, rythme 1:1 stable sans dérive du PR : la décision repose sur le début brutal ; une TV à conduction rétrograde 1:1 peut être classée TSV.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Chinitz LA, Park D, Ploux S. Encyclopédie Biotronik — des fondamentaux à l'expertise : BioMonitor, stimulateur cardiaque, défibrillateur automatique implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bio-014",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "Biotronik",
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Homme de 76 ans, DAI simple chambre Biotronik, discrimination par début brutal et stabilité. Plusieurs épisodes classés TV1 ont reçu de l'ATP : démarrage brutal, rythme régulier, mais EGM de choc et de détection identiques à ceux du rythme sinusal, évoquant une tachycardie atriale. Quelle programmation améliorerait la discrimination ?",
+    "options": [
+      "Durcir le critère de stabilité pour rejeter ces épisodes réguliers",
+      "Activer MorphMatch, qui compare les QRS à une référence sinusale",
+      "Abaisser le seuil de début brutal pour mieux reconnaître ces épisodes",
+      "Activer SMART detection, qui fonctionne sans sonde atriale"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : la stabilité sépare une FA (irrégulière) d'une TV ; une tachycardie atriale régulière la remplit comme une TV.",
+      "Juste : une morphologie identique à la référence en rythme sinusal oriente vers une conduction supraventriculaire.",
+      "Faux : le début brutal vise la tachycardie sinusale ; une tachycardie atriale démarre brutalement, comme une TV.",
+      "Faux : SMART repose sur la comparaison des rythmes atrial et ventriculaire ; il suppose un canal atrial."
+    ],
+    "reponseAttendue": null,
+    "explication": "En simple chambre, les critères de début brutal et de stabilité se complètent : le premier écarte la tachycardie sinusale, le second la FA, mais aucun ne distingue une tachycardie atriale ou un flutter conduit régulièrement d'une TV, puisque tous deux démarrent brutalement et sont réguliers. Les plateformes Biotronik récentes proposent MorphMatch, qui compare la morphologie des QRS de la tachycardie à une référence construite à partir de QRS spontanés conduits à fréquence lente, mise à jour régulièrement. L'analyse s'applique dans les zones TV, pas en zone FV. En double chambre, il faut choisir entre MorphMatch et SMART, les deux ne pouvant être associés. Enfin, l'arrêt d'une tachycardie par l'ATP ne prouve pas son origine ventriculaire : une tachycardie atriale peut aussi s'arrêter après une salve ventriculaire.",
+    "aRetenir": "Simple chambre : début brutal et stabilité ne distinguent pas une tachycardie atriale régulière d'une TV ; la morphologie (MorphMatch) le peut.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Chinitz LA, Park D, Ploux S. Encyclopédie Biotronik — des fondamentaux à l'expertise : BioMonitor, stimulateur cardiaque, défibrillateur automatique implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Stiles MK et al. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      }
+    ],
+    "reco": [
+      "Consensus 2019 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bio-015",
+    "theme": "telecardio",
+    "sousTheme": "Holter implantable",
+    "marque": "Biotronik",
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Homme de 75 ans, Holter implantable Biotronik BioMonitor télésurveillé ; plusieurs épisodes classés FA. Le tachogramme montre un rythme de base stable interrompu de cycles courts suivis d'un cycle long ; le diagramme de Lorenz montre un nuage central et quatre amas périphériques bien séparés. L'ECG sous-cutané montre des ESV sur fond sinusal, tantôt en trigéminisme, tantôt en quadrigéminisme, puis absentes. Pourquoi l'algorithme de rejet des extrasystoles n'a-t-il pas écarté ces épisodes ?",
+    "options": [
+      "Il ne rejette que les extrasystoles atriales, à QRS identiques au sinus",
+      "Il suppose une onde P visible avant chaque QRS pour écarter une FA",
+      "Il ne s'applique qu'aux enregistrements déclenchés par le patient",
+      "Il ne reconnaît les ESV que si elles surviennent avec une périodicité régulière"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : l'algorithme repose sur les intervalles R-R, pas sur la morphologie des QRS.",
+      "Faux : la détection de FA du BioMonitor repose sur la variabilité des R-R ; elle n'analyse pas l'onde P.",
+      "Faux : la détection de FA et le rejet des extrasystoles portent sur les épisodes enregistrés automatiquement.",
+      "Juste : il recherche une périodicité (bigéminisme, trigéminisme, quadrigéminisme) ; une extrasystolie irrégulière le leurre."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le BioMonitor diagnostique la FA sur l'instabilité des intervalles R-R d'un cycle à l'autre, sans analyse directe de l'activité atriale. Des extrasystoles fréquentes créent la même instabilité ; l'algorithme de rejet analyse donc aussi les intervalles par paires à la recherche d'une périodicité typique (court-long en bigéminisme, normal-court-long en trigéminisme, etc.), et ne conclut à la FA qu'en son absence. Si les extrasystoles surviennent de façon irrégulière, l'algorithme est leurré. Le tachogramme (cycle court puis repos compensateur) et le diagramme de Lorenz (amas distincts, et non nuage diffus comme en FA) orientent d'emblée vers l'extrasystolie. Il faut classer ces épisodes en faux positifs, ne pas instaurer d'anticoagulation sur ce seul motif, et réduire la sensibilité de la détection de FA si les alertes se répètent.",
+    "aRetenir": "Holter implantable : amas distincts sur le diagramme de Lorenz = extrasystoles ; le rejet automatique échoue si leur survenue n'est pas périodique.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Chinitz LA, Park D, Ploux S. Encyclopédie Biotronik — des fondamentaux à l'expertise : BioMonitor, stimulateur cardiaque, défibrillateur automatique implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      }
+    ],
+    "reco": [
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bio-017",
+    "theme": "programmation",
+    "sousTheme": "Seuils, détection et sondes",
+    "marque": "Biotronik",
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Stimulateur double chambre Biotronik : vous envisagez d'activer le contrôle automatique de capture (Capture Control) sur l'oreillette. Quelles propositions sont exactes ? (plusieurs réponses)",
+    "options": [
+      "La perte de capture est reconnue par la détection d'une activité atriale propre ou rétrograde",
+      "Sans rythme atrial propre ni conduction rétrograde, la mesure peut être impossible",
+      "La capture atriale est vérifiée à chaque cycle, avec impulsion de sécurité en cas d'échec",
+      "La marge de sécurité est plus faible qu'au ventricule, l'amplitude étant ajustée en continu"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "commentaires": [
+      "Juste : le test ne repose pas sur la réponse évoquée atriale, mais sur la réapparition d'une activité atriale détectée quand la stimulation ne capture plus.",
+      "Juste : chez un patient sans rythme atrial propre ni conduction rétrograde, rien ne signale la perte de capture.",
+      "Faux : au niveau atrial, le seuil est mesuré à heures programmées et l'amplitude reste fixe jusqu'à la mesure suivante.",
+      "Faux : c'est l'inverse ; faute de vérification cycle à cycle, la marge atriale nominale est plus large pour couvrir les variations du seuil."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le contrôle de capture atrial Biotronik mesure le seuil en stimulant l'oreillette un peu au-dessus du rythme spontané, dans un mode sans suivi atrial, avec un délai AV court. Il ne s'appuie pas sur la réponse évoquée : il reconnaît la perte de capture à la détection d'une activité atriale (reprise du rythme propre ou onde P rétrograde). Chez un patient sans activité atriale propre ni conduction rétrograde, la mesure peut donc échouer. L'amplitude est ensuite réglée au seuil mesuré plus une marge et reste fixe jusqu'à la mesure suivante, sans vérification cycle à cycle : c'est pourquoi la marge atriale nominale est plus large qu'au ventricule. Comme pour tout automatisme, il faut connaître le plafond d'amplitude de l'algorithme, qui n'est pas adapté à un seuil très élevé, et garder le réglage ATM (mesure sans adaptation) quand on préfère une amplitude fixe.",
+    "aRetenir": "Capture Control atrial Biotronik : perte de capture reconnue par une activité atriale détectée, amplitude fixe entre deux mesures, donc marge plus large.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Chinitz LA, Park D, Ploux S. Encyclopédie Biotronik — des fondamentaux à l'expertise : BioMonitor, stimulateur cardiaque, défibrillateur automatique implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  }
+]

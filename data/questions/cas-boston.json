@@ -1,0 +1,706 @@
+[
+  {
+    "id": "cas-bsc-001",
+    "theme": "programmation",
+    "sousTheme": "Réduction de la stimulation ventriculaire",
+    "marque": "Boston Scientific",
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Homme de 86 ans, stimulateur double chambre Boston Scientific pour dysfonction sinusale, conduction AV normale (PR 180 ms), RYTHMIQ actif, fréquence minimale 60 bpm. Les mémoires contiennent de nombreux épisodes RYTHMIQ. Sur leurs EGM, chaque bascule suit des ESV tardives survenant juste après une stimulation atriale, marquées [VS] entre crochets, suivies d'une stimulation ventriculaire de secours à 45 bpm. Quel mécanisme explique ces bascules ?",
+    "options": [
+      "L'ESV est prise pour une onde P bloquée, et l'algorithme bascule dès la troisième P bloquée consécutive",
+      "L'ESV déclenche une stimulation de sécurité à délai AV court, comptée par RYTHMIQ comme un cycle lent",
+      "L'ESV tombe dans la fenêtre de bruit post-stimulation atriale : ignorée, elle laisse partir le secours VVI",
+      "L'ESV allonge la PRAPV, si bien que la P sinusale suivante n'est plus détectée et que la stimulation atriale s'interrompt"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : RYTHMIQ n'analyse pas les ondes P bloquées ; il ne compte que les cycles ventriculaires lents (3 sur 11).",
+      "Faux : les stimulateurs Boston Scientific n'ont pas de fenêtre de sécurité après le blanking ventriculaire post-stimulation atriale, mais une fenêtre de bruit ; il n'y a donc pas de stimulation de sécurité à délai AV court.",
+      "Juste : l'événement détecté dans la fenêtre de bruit est affiché entre crochets mais exclu de l'analyse ; il n'inhibe pas le secours VVI (15 bpm sous la fréquence minimale), et ces cycles comptent comme lents.",
+      "Faux : en phase AAI(R), rien de tel n'explique la stimulation V de secours ; le problème est l'exclusion de l'ESV de l'analyse ventriculaire."
+    ],
+    "reponseAttendue": null,
+    "explication": "En phase AAI(R) de RYTHMIQ, le canal ventriculaire garde, après chaque stimulation atriale, un blanking suivi d'une fenêtre de bruit destinée à éviter qu'un crosstalk n'inhibe le secours. Chez Boston Scientific, il n'y a pas de fenêtre de sécurité à cet endroit. Une ESV tardive tombant dans le blanking n'est pas vue ; tombant dans la fenêtre de bruit, elle est marquée [VS] mais n'entre pas dans l'analyse des intervalles ventriculaires. Elle n'inhibe donc pas la stimulation VVI de secours, délivrée 15 bpm sous la fréquence minimale à partir du dernier événement ventriculaire valide. Ces stimulations de secours et les cycles qui suivent sont comptés comme lents : 3 sur 11 suffisent pour basculer en DDD(R). Ces bascules ne traduisent donc pas un trouble conductif : relire les EGM évite de conclure à tort à un BAV paroxystique.",
+    "aRetenir": "RYTHMIQ : une ESV tardive dans la fenêtre de bruit post-stimulation atriale est ignorée, n'inhibe pas le secours VVI et peut faire basculer en DDD(R) sans aucun BAV.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Eschalier R, Ploux S, Strik M. Encyclopédie Boston Scientific : des fondamentaux à l'expertise (stimulateur, DAI endocavitaire, S-ICD, resynchronisation) — cas cliniques sur tracés. Stimuprat Éditions, 2018"
+      },
+      {
+        "titre": "Boston Scientific. Manuel de référence des stimulateurs ACCOLADE / PROPONENT / ESSENTIO / ALTRUA 2 (manuel technique officiel)"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bsc-003",
+    "theme": "programmation",
+    "sousTheme": "Réduction de la stimulation ventriculaire",
+    "marque": "Boston Scientific",
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Homme de 88 ans, actif, stimulateur double chambre Boston Scientific implanté pour BAV paroxystique, avec RYTHMIQ et AV Search+. Le BAV est devenu complet et permanent : RYTHMIQ a été désactivé au contrôle précédent. Il décrit un malaise au pic de l'effort. En tachycardie sinusale proche de la fréquence maximale de suivi (130 bpm), les EGM montrent par moments un délai AV qui s'allonge sur quelques cycles, pendant lesquels une P sur deux n'est plus suivie. Quelle correction est la plus logique ?",
+    "options": [
+      "Désactiver aussi AV Search+, dont les allongements périodiques du délai AV abaissent le point de 2:1",
+      "Réactiver RYTHMIQ pour que le boîtier repasse en AAI(R) avec stimulation VVI de secours pendant l'effort",
+      "Allonger la PRAPV pour protéger le patient contre une tachycardie par réentrée électronique",
+      "Programmer un délai AV fixe plus long pour favoriser la réapparition d'une conduction spontanée"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : AV Search+ se programme sur un écran distinct de RYTHMIQ ; laissé actif, il allonge le délai AV (300 ms en nominal) tous les 32 cycles, ce qui allonge la période réfractaire atriale totale et fait tomber une P sur deux dans la PRAPV.",
+      "Faux : en BAV complet permanent, RYTHMIQ ne ferait que multiplier les pauses et les bascules ; il a été désactivé à juste titre.",
+      "Faux : allonger la PRAPV abaisserait encore le point de 2:1 et aggraverait le problème.",
+      "Faux : en BAV complet, il n'y a pas de conduction spontanée à favoriser ; un délai AV long abaisse lui aussi le point de 2:1."
+    ],
+    "reponseAttendue": null,
+    "explication": "Chez Boston Scientific, RYTHMIQ et AV Search+ se programment séparément. Quand le BAV devient complet et permanent, il faut désactiver les deux. Laissé seul, AV Search+ continue de rechercher une conduction : tous les 32 cycles en nominal, il allonge le délai AV (300 ms en nominal) pendant 8 cycles. À l'effort, le point de 2:1 dépend de la somme délai AV + PRAPV : il chute brutalement pendant ces recherches, ce qui donne une P sur deux non suivie et une baisse brutale de la fréquence ventriculaire au pic de l'effort. Les allongements du délai AV favorisent aussi les TRE chez les patients qui ont une conduction rétrograde. Le seul geste logique est donc de désactiver AV Search+, puis de vérifier la tenue du suivi 1:1 à l'effort.",
+    "aRetenir": "BAV devenu complet chez un patient en RYTHMIQ : désactiver RYTHMIQ et AV Search+ (deux écrans distincts), sinon les recherches périodiques abaissent le point de 2:1 à l'effort.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Eschalier R, Ploux S, Strik M. Encyclopédie Boston Scientific : des fondamentaux à l'expertise (stimulateur, DAI endocavitaire, S-ICD, resynchronisation) — cas cliniques sur tracés. Stimuprat Éditions, 2018"
+      },
+      {
+        "titre": "Boston Scientific. Manuel de référence des stimulateurs ACCOLADE / PROPONENT / ESSENTIO / ALTRUA 2 (manuel technique officiel)"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bsc-004",
+    "theme": "programmation",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "Boston Scientific",
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Femme de 27 ans, BAV congénital complet, stimulateur double chambre Boston Scientific, fréquence maximale de suivi 160 bpm. L'interrogation retrouve de nombreux épisodes étiquetés « TRE ». Sur les EGM : P sinusales suivies de VP à la fréquence maximale, puis une P tombe dans une PRAPV allongée à 500 ms et n'est pas suivie, sans aucun changement de la fréquence atriale. Aucune conduction rétrograde n'est retrouvée. Quelle interprétation et quelle conduite ?",
+    "options": [
+      "Vraies TRE sur conduction VA intermittente : allonger la PRAPV de façon permanente",
+      "Tachycardie sinusale à la FMS prise pour une TRE : désactiver l'algorithme anti-TRE",
+      "Surdétection de l'onde R lointaine par le canal atrial : allonger le blanking atrial",
+      "Tachycardie atriale méconnue : abaisser la fréquence de déclenchement du repli"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : la fréquence atriale ne change pas après la P non suivie, ce qui élimine une TRE ; sans conduction rétrograde, une TRE est impossible.",
+      "Juste : l'algorithme ne comporte pas d'étape de confirmation ; une tachycardie sinusale stable à la FMS remplit ses critères. Sans conduction VA, il n'apporte rien et bloque une P toutes les 16.",
+      "Faux : les P détectées sont de vraies P sinusales ; rien n'évoque un double comptage atrial.",
+      "Faux : la fréquence atriale correspond à une tachycardie sinusale d'effort, pas à une arythmie atriale."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'algorithme anti-TRE de Boston Scientific retient une TRE après 16 cycles consécutifs AS-VP à la fréquence maximale de suivi avec des intervalles VP-AS stables, puis allonge la PRAPV à 500 ms sur un cycle. Il ne modifie pas le délai AV pour vérifier l'existence d'une conduction rétrograde : il ne peut donc pas distinguer une TRE d'une tachycardie sinusale qui se maintient à la fréquence maximale. Si la tachycardie continue au même rythme après la P non suivie, il s'agissait d'une tachycardie sinusale. Chez une patiente en BAV congénital sans conduction antérograde ni rétrograde, une TRE est impossible : l'algorithme est inutile et bloque une P toutes les 16. On le désactive, et l'on vérifie que la fréquence maximale de suivi est adaptée aux capacités d'effort de cette patiente jeune.",
+    "aRetenir": "Chez Boston Scientific, une « TRE » mémorisée à la fréquence maximale chez un jeune en BAV sans conduction rétrograde est presque toujours une tachycardie sinusale : relire l'EGM et désactiver l'algorithme anti-TRE.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Eschalier R, Ploux S, Strik M. Encyclopédie Boston Scientific : des fondamentaux à l'expertise (stimulateur, DAI endocavitaire, S-ICD, resynchronisation) — cas cliniques sur tracés. Stimuprat Éditions, 2018"
+      },
+      {
+        "titre": "Boston Scientific. Manuel de référence des stimulateurs ACCOLADE / PROPONENT / ESSENTIO / ALTRUA 2 (manuel technique officiel)"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bsc-005",
+    "theme": "programmation",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "Boston Scientific",
+    "type": "vf",
+    "difficulte": 6,
+    "question": "Vrai ou faux : sur un stimulateur Boston Scientific, l'algorithme d'interruption des TRE ne reconnaît une TRE que si la stimulation ventriculaire se fait à la fréquence maximale de suivi ; une TRE qui tourne plus lentement que cette fréquence ne sera pas détectée.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : le diagnostic exige 16 cycles consécutifs AS-VP marqués à la fréquence maximale de suivi, avec des intervalles VP-AS stables.",
+      "Faux : une TRE plus lente que la fréquence maximale (conduction VA longue, délai AV long) ne remplit pas le critère et n'est pas interrompue."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'algorithme anti-TRE de Boston Scientific compte 16 cycles consécutifs AS-VP à la fréquence maximale de suivi. Les intervalles VP-AS doivent rester stables : si l'un s'écarte de plus de 32 ms du premier, le compteur repart de zéro. Le diagnostic retenu, la PRAPV est allongée à 500 ms sur un cycle pour rompre le circuit. Une TRE dont le cycle (délai AV + temps de conduction VA) est plus long que l'intervalle de la fréquence maximale échappe donc à l'algorithme. La prévention repose sur une PRAPV plus longue que le temps de conduction rétrograde et sur l'allongement de la PRAPV après ESV, un déclencheur fréquent.",
+    "aRetenir": "L'anti-TRE Boston Scientific ne voit que les TRE à la fréquence maximale (16 cycles, VA stable à ±32 ms) ; une TRE plus lente se prévient par la PRAPV.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Eschalier R, Ploux S, Strik M. Encyclopédie Boston Scientific : des fondamentaux à l'expertise (stimulateur, DAI endocavitaire, S-ICD, resynchronisation) — cas cliniques sur tracés. Stimuprat Éditions, 2018"
+      },
+      {
+        "titre": "Boston Scientific. Manuel de référence des stimulateurs ACCOLADE / PROPONENT / ESSENTIO / ALTRUA 2 (manuel technique officiel)"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bsc-006",
+    "theme": "programmation",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "Boston Scientific",
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Femme de 63 ans, stimulateur double chambre Boston Scientific pour maladie de l'oreillette. Les mémoires montrent des replis (ATR) courts. Sur les EGM, un signal atrial apparaît quelques millisecondes après chaque QRS détecté (VS), en alternance avec la vraie P, d'où des cycles atriaux alternant autour de 250 et 450 ms. Le blanking atrial après détection ventriculaire est programmé sur « Smart ». Quelle modification proposer en première intention ?",
+    "options": [
+      "Raccourcir la PRAPV pour que ces signaux ne soient plus comptés par le repli",
+      "Augmenter le compteur d'entrée pour exiger davantage de cycles atriaux rapides",
+      "Désactiver le repli, ces épisodes étant sans doute de simples extrasystoles atriales",
+      "Remplacer le réglage « Smart » par un blanking atrial post-VS fixe plus long"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : les événements détectés dans la PRAPV sont comptés par l'algorithme de repli ; raccourcir la PRAPV ne change rien au double comptage.",
+      "Faux : c'est un palliatif qui retarde aussi le repli sur une vraie FA, sans corriger la surdétection.",
+      "Faux : il s'agit d'une surdétection de l'onde R lointaine ; supprimer le repli exposerait à un suivi rapide lors d'une vraie arythmie atriale.",
+      "Juste : le réglage « Smart » donne un blanking très court, sans fenêtre de bruit ; une valeur fixe plus longue masque l'onde R lointaine."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'alternance d'un signal court et d'un signal long, avec un signal atrial collé au QRS détecté, signe une surdétection de l'onde R lointaine par le canal atrial. Chez Boston Scientific, le blanking atrial après détection ventriculaire et celui après stimulation ventriculaire se règlent séparément, chacun sur une valeur fixe ou sur « Smart ». Le mode « Smart » raccourcit fortement le blanking, sans fenêtre de bruit, et compense par une baisse transitoire de la sensibilité atriale. Chez certains patients, cela ne suffit pas : l'onde R lointaine tombe dans la PRAPV, où les événements sont comptés par l'algorithme de repli. La correction logique est un blanking fixe plus long, puis, si besoin, une sensibilité atriale moins fine, en gardant une marge suffisante pour détecter la FA. Un blanking trop long réduit en revanche la détection des arythmies atriales rapides (flutter 2:1).",
+    "aRetenir": "Replis sur surdétection de l'onde R lointaine chez Boston Scientific : penser au blanking atrial « Smart », trop court chez certains patients, et passer à une valeur fixe plus longue.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Eschalier R, Ploux S, Strik M. Encyclopédie Boston Scientific : des fondamentaux à l'expertise (stimulateur, DAI endocavitaire, S-ICD, resynchronisation) — cas cliniques sur tracés. Stimuprat Éditions, 2018"
+      },
+      {
+        "titre": "Boston Scientific. Manuel de référence des stimulateurs ACCOLADE / PROPONENT / ESSENTIO / ALTRUA 2 (manuel technique officiel)"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bsc-007",
+    "theme": "programmation",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "Boston Scientific",
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Femme de 71 ans, stimulateur double chambre Boston Scientific, fréquence de déclenchement du repli (ATR) à 175 bpm, fréquence maximale de suivi à 150 bpm. Elle est hospitalisée pour palpitations et décompensation : tachycardie atriale régulière à 165/min, une onde atriale sur deux dans la PRAPV, stimulation ventriculaire rapide avec séquences de Wenckebach, sans repli. Vous activez l'Atrial Flutter Response (AFR) à 160 bpm. Comment agit cette fonction ?",
+    "options": [
+      "Le boîtier bascule en DDI dès que 8 cycles atriaux dépassent 160 bpm, puis la fréquence décroît",
+      "Une P détectée dans la PRAPV ouvre une fenêtre ; toute P qui y tombe n'est pas suivie et la rouvre",
+      "Le boîtier délivre une salve de stimulation atriale rapide pour interrompre la tachycardie",
+      "La fréquence maximale de suivi est abaissée à 160 bpm tant que l'arythmie persiste"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : cela décrit l'algorithme de repli (compteur d'entrée, durée), qui n'intervient pas ici puisque la tachycardie est plus lente que 175 bpm.",
+      "Juste : un événement atrial dans la PRAPV ouvre une fenêtre AFR (375 ms pour 160 bpm) ; toute détection dans cette fenêtre ne déclenche pas de délai AV et relance la fenêtre, d'où un arrêt immédiat du suivi.",
+      "Faux : l'AFR n'est pas une thérapie antitachycardique atriale ; il supprime seulement le suivi des ondes atriales rapides.",
+      "Faux : l'AFR ne modifie pas la fréquence maximale de suivi."
+    ],
+    "reponseAttendue": null,
+    "explication": "Ici, le repli ne s'est pas déclenché car la tachycardie (165/min) est plus lente que sa fréquence de déclenchement (175 bpm), et le suivi d'une onde atriale sur deux entretient une stimulation ventriculaire rapide. L'Atrial Flutter Response de Boston Scientific agit cycle à cycle : un événement atrial détecté dans la PRAPV ouvre une fenêtre dont la durée correspond à la fréquence programmée (60 000 / 160 ≈ 375 ms). Tout événement atrial détecté dans cette fenêtre (marqueur AS-Fl) ne déclenche pas de délai AV et relance la fenêtre. Pendant une arythmie atriale rapide, les ondes se succèdent toutes dans ces fenêtres : aucune n'est suivie, et le ventricule est stimulé à la fréquence minimale ou asservie. L'AFR évite aussi une stimulation atriale dans la période vulnérable. Il faut en parallèle réajuster la fréquence de déclenchement du repli et traiter l'arythmie (ici, ablation).",
+    "aRetenir": "L'Atrial Flutter Response (Boston Scientific) arrête immédiatement le suivi des ondes atriales rapides qui suivent une détection en PRAPV, là où le repli classique peut rester muet.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Eschalier R, Ploux S, Strik M. Encyclopédie Boston Scientific : des fondamentaux à l'expertise (stimulateur, DAI endocavitaire, S-ICD, resynchronisation) — cas cliniques sur tracés. Stimuprat Éditions, 2018"
+      },
+      {
+        "titre": "Boston Scientific. Manuel de référence des stimulateurs ACCOLADE / PROPONENT / ESSENTIO / ALTRUA 2 (manuel technique officiel)"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bsc-008",
+    "theme": "programmation",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "Boston Scientific",
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Femme de 87 ans, BAV complet, stimulateur Boston Scientific en DDD, fréquence maximale de suivi 130 bpm. Elle ressent des palpitations lors d'accès courts de tachycardie atriale : les EGM montrent plusieurs secondes de stimulation ventriculaire à la fréquence maximale avant le repli (ATR), puis une décroissance progressive de la fréquence. Quels réglages raccourcissent le temps passé à la fréquence maximale avant le repli ? (plusieurs réponses)",
+    "options": [
+      "Réduire le compteur d'entrée (Entry Count)",
+      "Augmenter le compteur de sortie (Exit Count)",
+      "Réduire la durée ATR (ATR Duration)",
+      "Allonger le temps de repli (Fallback Time)"
+    ],
+    "reponses": [
+      0,
+      2
+    ],
+    "commentaires": [
+      "Juste : moins de cycles atriaux rapides sont nécessaires pour lancer la durée ; le repli arrive plus tôt, au prix de replis plus fréquents sur des salves courtes.",
+      "Faux : le compteur de sortie règle le retour au mode synchrone, pas l'entrée en repli.",
+      "Juste : la durée ATR est le nombre de cycles ventriculaires pendant lesquels l'arythmie doit persister après le compteur d'entrée ; la réduire (jusqu'à 0) avance la bascule.",
+      "Faux : le temps de repli règle la vitesse de décroissance de la fréquence après la bascule ; l'allonger prolonge au contraire la stimulation rapide."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le repli ATR de Boston Scientific se déroule en plusieurs étapes. Chaque cycle atrial plus rapide que la fréquence de déclenchement incrémente le compteur d'entrée, chaque cycle plus lent le décrémente. Une fois ce compteur rempli, la durée ATR (en cycles ventriculaires) commence ; la bascule en mode non synchrone survient à la fin de la durée, sauf si le compteur de sortie s'est vidé entre-temps. Pendant ces étapes, chaque onde atriale détectée hors période réfractaire est suivie, jusqu'à la fréquence maximale. Réduire le compteur d'entrée et la durée raccourcit cette phase, au prix de replis plus fréquents sur des salves brèves. La fréquence décroît ensuite progressivement selon le temps de repli, ce qui explique que la fréquence reste élevée quelques secondes après la bascule. Chez une patiente âgée peu active, on peut aussi abaisser la fréquence maximale de suivi.",
+    "aRetenir": "Repli ATR tardif en BAV complet : réduire le compteur d'entrée et la durée ATR ; le temps de repli ne règle que la décroissance après la bascule.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Eschalier R, Ploux S, Strik M. Encyclopédie Boston Scientific : des fondamentaux à l'expertise (stimulateur, DAI endocavitaire, S-ICD, resynchronisation) — cas cliniques sur tracés. Stimuprat Éditions, 2018"
+      },
+      {
+        "titre": "Boston Scientific. Manuel de référence des stimulateurs ACCOLADE / PROPONENT / ESSENTIO / ALTRUA 2 (manuel technique officiel)"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bsc-009",
+    "theme": "programmation",
+    "sousTheme": "Seuils, détection et sondes",
+    "marque": "Boston Scientific",
+    "type": "vf",
+    "difficulte": 6,
+    "question": "Vrai ou faux : sur un stimulateur Boston Scientific, la fonction PaceSafe RAAT (seuil atrial automatique) vérifie la capture atriale à chaque cycle et délivre une impulsion atriale de secours en cas de perte de capture.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : il n'y a pas de vérification de capture atriale battement par battement chez Boston Scientific.",
+      "Juste : RAAT mesure le seuil périodiquement (par la réponse évoquée atriale) et règle l'amplitude avec une marge (environ deux fois le seuil le plus élevé des derniers tests), sans contrôle cycle à cycle."
+    ],
+    "reponseAttendue": null,
+    "explication": "PaceSafe RAAT mesure le seuil atrial environ toutes les 21 heures. Particularité de Boston Scientific : la perte de capture est jugée directement sur une réponse évoquée atriale, recueillie sur un canal dédié visible pendant le test, et non de façon indirecte sur le retour d'une activité atriale spontanée. L'amplitude est ensuite réglée avec une marge (autour de deux fois le seuil le plus élevé des derniers tests) : une hausse brutale du seuil fait remonter l'amplitude rapidement, tandis qu'une valeur basse isolée ne la fait pas baisser. Il n'y a en revanche aucune vérification de capture atriale à chaque battement, ni d'impulsion de secours. La sécurité battement par battement n'existe que pour le ventricule droit. Un test impossible (« RE basse », fusion) doit faire revenir à une programmation manuelle avec une marge classique.",
+    "aRetenir": "RAAT (Boston Scientific) = seuil atrial périodique par réponse évoquée et marge d'amplitude, sans vérification de capture cycle à cycle.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Eschalier R, Ploux S, Strik M. Encyclopédie Boston Scientific : des fondamentaux à l'expertise (stimulateur, DAI endocavitaire, S-ICD, resynchronisation) — cas cliniques sur tracés. Stimuprat Éditions, 2018"
+      },
+      {
+        "titre": "Boston Scientific. Manuel de référence des stimulateurs ACCOLADE / PROPONENT / ESSENTIO / ALTRUA 2 (manuel technique officiel)"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bsc-010",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "Boston Scientific",
+    "type": "qcu",
+    "difficulte": 9,
+    "question": "Homme de 66 ans, DAI double chambre Boston Scientific, zone TV-1 à 140 bpm pour des TV lentes connues, discrimination Rhythm ID. Au cours d'un effort, tachycardie 1:1 dans la zone TV-1 : les complexes sont corrélés au gabarit (RID+) et les thérapies sont inhibées. Plus loin dans l'épisode, une ESA survenant au moment de la détection du QRS n'est pas vue par le canal atrial ; le boîtier conclut alors « V > A » et délivre plusieurs ATP. Pourquoi la corrélation morphologique n'a-t-elle pas empêché la thérapie ?",
+    "options": [
+      "La corrélation n'est analysée que sur les trois premiers cycles de l'épisode",
+      "Une ESA non détectée efface automatiquement le gabarit de rythme sinusal",
+      "Le critère V > A, lorsqu'il est vrai, prime sur tous les autres discriminants",
+      "La zone TV-1 ne dispose d'aucune discrimination sur ces boîtiers"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : l'analyse morphologique porte sur des fenêtres glissantes de 10 cycles pendant toute la détection initiale.",
+      "Faux : le gabarit n'est pas modifié par une ESA ; il est acquis en dehors des épisodes, automatiquement ou au programmateur.",
+      "Juste : si la fréquence ventriculaire moyenne dépasse d'au moins 10 bpm la fréquence atriale moyenne, la thérapie est délivrée, quelle que soit la morphologie ; l'ESA non détectée a faussement abaissé la fréquence atriale mesurée.",
+      "Faux : la zone TV-1 bénéficie des discriminants ; c'est la zone FV qui en est dépourvue."
+    ],
+    "reponseAttendue": null,
+    "explication": "En double chambre, Rhythm ID analyse d'abord le critère V > A : il compare la fréquence moyenne des 10 derniers intervalles ventriculaires à celle des 10 derniers intervalles atriaux. Si la fréquence V dépasse la fréquence A d'au moins 10 bpm, la thérapie est délivrée sans tenir compte des autres discriminants. Sinon, la corrélation des vecteurs puis la stabilité et le seuil de fréquence de FA sont examinés. Ici, une ESA tombée dans le blanking atrial post-ventriculaire n'a pas été détectée : le repos compensateur qui suit allonge un intervalle atrial, la fréquence atriale est sous-estimée et le critère V > A devient faussement vrai. Deux mesures s'imposent : ne pas faire chevaucher la zone TV-1 avec la tachycardie sinusale d'effort (zone, durée, bêtabloquant), et revoir la combinaison des discriminants chez ce patient dont la morphologie discrimine bien.",
+    "aRetenir": "Chez Boston Scientific, « V > A » vrai déclenche la thérapie même si la morphologie est corrélée ; une P non détectée peut rendre ce critère faussement vrai en tachycardie sinusale.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Eschalier R, Ploux S, Strik M. Encyclopédie Boston Scientific : des fondamentaux à l'expertise (stimulateur, DAI endocavitaire, S-ICD, resynchronisation) — cas cliniques sur tracés. Stimuprat Éditions, 2018"
+      },
+      {
+        "titre": "Boston Scientific. Manuel de référence des DAI et CRT-D RESONATE / PERCIVA / VIGILANT / MOMENTUM (manuel technique officiel)"
+      },
+      {
+        "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      }
+    ],
+    "reco": [
+      "Consensus 2019 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bsc-011",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "Boston Scientific",
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "DAI simple chambre Boston Scientific, discrimination Rhythm ID, seuil RhythmMatch à 94 %. Épisode de FA conduite dans la zone TV : les pourcentages de corrélation oscillent entre 88 et 96 %. Le boîtier inhibe d'abord les thérapies (RID+) puis, quelques secondes plus tard, passe en RID- et délivre un ATP. Le gabarit a été vérifié récemment. Quel réglage réduit le mieux ce risque ?",
+    "options": [
+      "Abaisser le seuil RhythmMatch, par exemple vers 85 %",
+      "Relever le seuil RhythmMatch à 96 %",
+      "Reclasser la zone TV en zone FV pour éviter l'ATP",
+      "Raccourcir la durée de détection de la zone TV"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : avec un seuil plus bas, davantage de complexes de FA conduite sont jugés corrélés ; le critère « au moins 3 corrélés sur 10 » reste rempli et les thérapies restent inhibées.",
+      "Faux : un seuil plus haut rend moins de complexes corrélés et favorise les thérapies inappropriées.",
+      "Faux : dans la zone FV, aucune discrimination ne s'applique ; le risque de choc inapproprié serait plus grand.",
+      "Faux : une durée plus courte avance la décision et ne corrige pas la classification morphologique."
+    ],
+    "reponseAttendue": null,
+    "explication": "Rhythm ID compare chaque complexe de la tachycardie au gabarit de rythme sinusal et le classe corrélé (C) ou non (U) selon le seuil RhythmMatch, programmable de 70 à 96 % (94 % en nominal). La décision porte sur une fenêtre glissante de 10 cycles : au moins 3 complexes corrélés font retenir une TSV (RID+), moins de 3 une TV (RID-). Comme l'analyse se poursuit tout au long de l'épisode, des corrélations qui oscillent autour du seuil peuvent faire passer de RID+ à RID- et déclencher une thérapie inappropriée. Abaisser le seuil (vers 85 % par exemple) augmente la spécificité, au prix d'un léger risque de classer en TSV une TV de morphologie proche du rythme sinusal. Il faut aussi tenir le gabarit à jour (acquisition active chez les patients souvent stimulés).",
+    "aRetenir": "Rhythm ID : au moins 3 complexes corrélés sur 10 = TSV ; si la FA conduite oscille autour du seuil RhythmMatch (94 % en nominal), l'abaisser vers 85 % limite les thérapies inappropriées.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Eschalier R, Ploux S, Strik M. Encyclopédie Boston Scientific : des fondamentaux à l'expertise (stimulateur, DAI endocavitaire, S-ICD, resynchronisation) — cas cliniques sur tracés. Stimuprat Éditions, 2018"
+      },
+      {
+        "titre": "Boston Scientific. Manuel de référence des DAI et CRT-D RESONATE / PERCIVA / VIGILANT / MOMENTUM (manuel technique officiel)"
+      },
+      {
+        "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      }
+    ],
+    "reco": [
+      "Consensus 2019 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bsc-012",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": "Boston Scientific",
+    "type": "qcm",
+    "difficulte": 4,
+    "question": "Concernant l'ATP QUICK CONVERT des DAI Boston Scientific (stimulation antitachycardique dans la zone FV), quelles propositions sont exactes ? (plusieurs réponses)",
+    "options": [
+      "Il s'agit d'une seule salve (burst) de 8 impulsions, délivrée avant la charge des condensateurs",
+      "Il n'est délivré que si la fréquence ventriculaire moyenne est inférieure à 250 bpm",
+      "Il est délivré pendant la charge des condensateurs, sans retarder le choc",
+      "Plusieurs salves d'agressivité croissante sont programmables dans la zone FV",
+      "En cas d'échec, la charge démarre si 2 des 3 cycles qui suivent la salve restent rapides"
+    ],
+    "reponses": [
+      0,
+      1,
+      4
+    ],
+    "commentaires": [
+      "Juste : une salve unique de 8 impulsions à 88 % du cycle, non programmable, délivrée avant toute charge.",
+      "Juste : au-delà de 250 bpm, le boîtier passe directement au choc (FV rapide, surdétection ou bruit de sonde plus probables).",
+      "Faux : l'ATP pendant la charge est une option d'autres constructeurs ; chez Boston Scientific, la salve précède la charge.",
+      "Faux : une seule salve est possible dans la zone FV ; les séquences multiples se programment dans les zones TV.",
+      "Juste : après la salve (le premier cycle est ignoré), 2 cycles rapides sur 3 lancent la charge ; 2 cycles lents sur 3 font considérer la salve comme efficace."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les consensus de programmation recommandent de proposer de l'ATP pour les TV rapides jusqu'à 230 bpm, y compris dans la zone FV, car beaucoup sont monomorphes et s'arrêtent sans douleur. Chez Boston Scientific, QUICK CONVERT délivre une seule salve de 8 impulsions à 88 % du cycle de la tachycardie, avant la charge, et seulement si la fréquence moyenne est inférieure à 250 bpm. Le rythme est ensuite réanalysé : le premier cycle est ignoré, puis 2 cycles lents sur 3 signent le succès, 2 cycles rapides sur 3 lancent la charge. En cas d'échec, le choc n'est retardé que de quelques secondes. Si la tachycardie s'arrête pendant la charge, celle-ci est déviée.",
+    "aRetenir": "QUICK CONVERT (Boston Scientific) : une salve de 8 impulsions dans la zone FV, avant la charge, seulement sous 250 bpm ; la charge suit si 2 cycles sur 3 restent rapides.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Eschalier R, Ploux S, Strik M. Encyclopédie Boston Scientific : des fondamentaux à l'expertise (stimulateur, DAI endocavitaire, S-ICD, resynchronisation) — cas cliniques sur tracés. Stimuprat Éditions, 2018"
+      },
+      {
+        "titre": "Boston Scientific. Manuel de référence des DAI et CRT-D RESONATE / PERCIVA / VIGILANT / MOMENTUM (manuel technique officiel)"
+      },
+      {
+        "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      }
+    ],
+    "reco": [
+      "Consensus 2019 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bsc-013",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": "Boston Scientific",
+    "type": "vf",
+    "difficulte": 7,
+    "question": "Vrai ou faux : sur un DAI endocavitaire Boston Scientific dont le choc est programmé avec reconfirmation (option « choc non reconfirmé » sur Arrêt), si la charge a été déviée une fois au cours d'un épisode parce que l'arythmie semblait arrêtée, le choc suivant du même épisode sera délivré sans nouvelle reconfirmation.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : une seule déviation est permise par épisode ; après une charge déviée, le choc suivant est délivré comme si le choc était programmé non reconfirmé.",
+      "Faux : le boîtier ne peut pas dévier deux charges de suite dans un même épisode, pour ne pas laisser sans traitement une FV mal détectée."
+    ],
+    "reponseAttendue": null,
+    "explication": "Avec la reconfirmation active, le boîtier analyse le rythme pendant la charge et à la fin de celle-ci. La charge est déviée si le critère de persistance (6 cycles rapides sur 10) n'est plus rempli pendant la charge, ou si, après la fin de charge, 2 des 3 cycles analysés sont lents. Une FV de faible amplitude mal détectée peut ainsi être prise à tort pour une réduction spontanée. Pour limiter ce risque, une seule déviation est autorisée par épisode : si l'arythmie est redétectée, le choc suivant est délivré sans reconfirmation, synchronisé sur une onde R après une fenêtre de 500 ms (ou de façon asynchrone après 2 s sans onde R). Cette logique explique les charges très courtes (condensateurs déjà chargés) et les chocs non reconfirmés qu'on observe parfois lors des tests d'induction.",
+    "aRetenir": "DAI Boston Scientific : une seule charge déviée par épisode ; le choc suivant est délivré sans reconfirmation.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Eschalier R, Ploux S, Strik M. Encyclopédie Boston Scientific : des fondamentaux à l'expertise (stimulateur, DAI endocavitaire, S-ICD, resynchronisation) — cas cliniques sur tracés. Stimuprat Éditions, 2018"
+      },
+      {
+        "titre": "Boston Scientific. Manuel de référence des DAI et CRT-D RESONATE / PERCIVA / VIGILANT / MOMENTUM (manuel technique officiel)"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bsc-014",
+    "theme": "programmation",
+    "sousTheme": "DAI : après un choc, S-ICD et fin de vie",
+    "marque": "Boston Scientific",
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Homme de 31 ans, mort subite récupérée, dépistage automatisé avant implantation d'un S-ICD (électrode simulée en parasternal gauche). Vecteur primaire : accepté couché et assis. Vecteur secondaire : accepté couché, refusé assis. Vecteur alternatif : accepté dans les deux positions, mais le QRS est négatif couché et positif assis. Comment interprétez-vous ce dépistage ?",
+    "options": [
+      "Non éligible : il faut au moins deux vecteurs valides dans toutes les positions testées",
+      "Éligible avec trois vecteurs, la position assise n'étant qu'un test facultatif",
+      "Éligible avec deux vecteurs, puisque l'outil a accepté l'alternatif dans les deux positions",
+      "Éligible sur le seul vecteur primaire ; l'alternatif, qui change d'axe, n'est pas fiable"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : le critère minimal est un vecteur valide dans toutes les positions ; exiger deux vecteurs est une préférence de certains centres, pas la règle.",
+      "Faux : le test en décubitus et en position assise ou debout est obligatoire ; le secondaire échoue en position assise.",
+      "Faux : un QRS qui s'inverse avec la posture rend le vecteur peu fiable, car le gabarit sert à la certification des cycles et à la discrimination.",
+      "Juste : le primaire satisfait le critère minimal ; le secondaire échoue assis et l'alternatif change d'axe avec la posture."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le dépistage du S-ICD, manuel (réglette) ou automatisé (programmateur), vérifie qu'au moins un vecteur de détection garde un rapport QRS/onde T acceptable en décubitus et en position assise ou debout. Le rapport automatisé rappelle ce critère minimal. Le S-ICD s'appuie beaucoup sur la morphologie : le gabarit sert à certifier les cycles (repérer un double comptage ou une surdétection de l'onde T) et à discriminer dans la zone conditionnelle. Un QRS qui change de polarité selon la position rend donc le vecteur peu fiable, même si l'outil l'accepte ; une simple variation d'amplitude est moins gênante. Ici, seul le vecteur primaire est robuste : le patient est éligible, mais avec une seule option de détection. Une épreuve d'effort ou un test en position alternative (parasternale droite) peut aider à décider.",
+    "aRetenir": "Dépistage S-ICD : au moins un vecteur valide couché et debout ; un vecteur dont le QRS change d'axe avec la posture ne doit pas être compté comme fiable.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Eschalier R, Ploux S, Strik M. Encyclopédie Boston Scientific : des fondamentaux à l'expertise (stimulateur, DAI endocavitaire, S-ICD, resynchronisation) — cas cliniques sur tracés. Stimuprat Éditions, 2018"
+      },
+      {
+        "titre": "Boston Scientific. Manuel d'utilisation EMBLEM S-ICD / EMBLEM MRI S-ICD (manuel technique officiel)"
+      },
+      {
+        "titre": "Zeppenfeld K, et al. 2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bsc-015",
+    "theme": "programmation",
+    "sousTheme": "DAI : après un choc, S-ICD et fin de vie",
+    "marque": "Boston Scientific",
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Patient de 27 ans porteur d'un S-ICD EMBLEM. La télésurveillance montre plusieurs épisodes de tachycardie ventriculaire polymorphe non soutenue : à chaque fois, la charge a démarré, puis l'arythmie s'est arrêtée et le choc n'a pas été délivré. Quel est l'effet de l'algorithme SMART Charge ?",
+    "options": [
+      "Il transforme la zone de choc conditionnel en zone de choc simple, pour traiter plus vite les récidives éventuelles",
+      "Il allonge de 3 intervalles la confirmation avant la charge, après chaque épisode avorté, jusqu'à 5 fois",
+      "Il suspend les thérapies après 5 charges avortées, jusqu'à la prochaine interrogation",
+      "Il réduit l'énergie du premier choc pour raccourcir le temps de charge lors des récidives"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : SMART Charge ne modifie pas les zones programmées.",
+      "Juste : chaque épisode non traité allonge de 3 intervalles la période de persistance exigée avant la charge, dans la limite de 5 allongements ; on peut remettre ce prolongement à zéro au programmateur.",
+      "Faux : les thérapies restent actives ; l'algorithme retarde seulement la charge.",
+      "Faux : le S-ICD délivre toujours un choc de 80 J, non programmable en dehors du test d'induction."
+    ],
+    "reponseAttendue": null,
+    "explication": "Avant de charger, le S-ICD exige que 18 des 24 derniers intervalles certifiés soient rapides, puis que cette condition persiste (2 intervalles en nominal) et que les derniers intervalles restent rapides. SMART Charge adapte cette persistance au patient : chaque épisode chargé mais non traité l'allonge de 3 intervalles, dans la limite de 5 allongements, ce qui laisse plus de temps aux arythmies non soutenues pour s'arrêter avant la charge. L'allongement ne concerne que le premier choc d'un épisode et ne peut pas être désactivé, mais il peut être remis à zéro au programmateur. Les chocs suivants et la redétection (14 sur 24) n'en dépendent pas. En pratique, un prolongement important doit faire vérifier que le délai jusqu'au choc reste acceptable en cas de FV.",
+    "aRetenir": "SMART Charge (S-ICD) : +3 intervalles de persistance avant la charge après chaque épisode avorté, jusqu'à 5 fois ; ne touche que le premier choc et se remet à zéro au programmateur.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Eschalier R, Ploux S, Strik M. Encyclopédie Boston Scientific : des fondamentaux à l'expertise (stimulateur, DAI endocavitaire, S-ICD, resynchronisation) — cas cliniques sur tracés. Stimuprat Éditions, 2018"
+      },
+      {
+        "titre": "Boston Scientific. Manuel d'utilisation EMBLEM S-ICD / EMBLEM MRI S-ICD (manuel technique officiel)"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bsc-016",
+    "theme": "programmation",
+    "sousTheme": "DAI : après un choc, S-ICD et fin de vie",
+    "marque": "Boston Scientific",
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Implantation d'un S-ICD chez un homme obèse de 61 ans. Au test de défibrillation, la FV est bien détectée, mais le choc de 65 J échoue, puis celui de 80 J (polarité inversée) échoue aussi ; un choc externe est efficace. L'impédance de choc mesurée est nettement élevée. Quelle est l'hypothèse la plus probable ?",
+    "options": [
+      "Une sous-détection de la FV liée au vecteur de détection programmé",
+      "Un seuil de défibrillation élevé lié à la cardiopathie, sans lien avec l'implantation",
+      "Une électrode ou un boîtier trop superficiels, dans la graisse sous-cutanée",
+      "Un défaut de charge des condensateurs, à vérifier par un reformatage"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : la FV a été correctement détectée et les chocs ont été délivrés ; le problème est l'efficacité du choc.",
+      "Faux : une impédance élevée oriente d'abord vers un défaut de position, corrigible, avant de conclure à un seuil intrinsèquement élevé.",
+      "Juste : une couche de graisse entre l'électrode (ou le boîtier) et le fascia augmente l'impédance et dévie le courant loin du myocarde ; on réenfouit l'électrode et on place le boîtier plus profond et plus postérieur.",
+      "Faux : les chocs ont bien été délivrés aux énergies prévues ; rien n'évoque un défaut de charge."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le seuil de défibrillation du S-ICD est plus élevé que celui d'un DAI endocavitaire, mais le boîtier délivre 80 J. Au test d'induction, on vise en général un succès à 65 J, soit une marge de 15 J. Devant un échec, on regarde d'abord l'impédance de choc et la position du matériel sur la radiographie. Une impédance élevée évoque une électrode tunnelisée trop superficiellement ou un boîtier posé dans la graisse, fréquents chez l'obèse. Le score PRAETORIAN, calculé sur la radiographie, relie la graisse sous l'électrode et le boîtier, ainsi que la position antérieure du boîtier, au risque d'échec de défibrillation. La correction consiste à réenfouir l'électrode au contact du fascia, à placer le boîtier plus en arrière, éventuellement en position intermusculaire, et à inverser la polarité. En cas d'échecs répétés malgré ces corrections, rare, on implante un DAI endocavitaire.",
+    "aRetenir": "Échec de défibrillation d'un S-ICD avec impédance élevée : penser à une électrode ou un boîtier dans la graisse, et repositionner (score PRAETORIAN).",
+    "sources": [
+      {
+        "titre": "Bordachar P, Eschalier R, Ploux S, Strik M. Encyclopédie Boston Scientific : des fondamentaux à l'expertise (stimulateur, DAI endocavitaire, S-ICD, resynchronisation) — cas cliniques sur tracés. Stimuprat Éditions, 2018"
+      },
+      {
+        "titre": "Quast ABE, Baalman SWE, Brouwer TF, et al. A novel tool to evaluate the implant position and predict defibrillation success of the subcutaneous implantable cardioverter-defibrillator: the PRAETORIAN score. Heart Rhythm 2019;16:403-410"
+      },
+      {
+        "titre": "Boston Scientific. Manuel d'utilisation EMBLEM S-ICD / EMBLEM MRI S-ICD (manuel technique officiel)"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bsc-017",
+    "theme": "programmation",
+    "sousTheme": "DAI : après un choc, S-ICD et fin de vie",
+    "marque": "Boston Scientific",
+    "type": "qcm",
+    "difficulte": 5,
+    "question": "Jeune femme de 28 ans porteuse d'un S-ICD. À l'épreuve d'effort de contrôle, on observe au pic de l'effort une surdétection de l'onde T sur le vecteur programmé (secondaire), absente au repos. Quelles mesures sont pertinentes ? (plusieurs réponses)",
+    "options": [
+      "Tester les autres vecteurs au repos et à l'effort, puis programmer celui qui ne surdétecte pas",
+      "Allonger le compteur de détection 18/24 pour retarder la charge",
+      "Vérifier que le filtre SMART Pass est activé",
+      "Programmer de l'ATP dans la zone de choc conditionnel"
+    ],
+    "reponses": [
+      0,
+      2
+    ],
+    "commentaires": [
+      "Juste : le choix du vecteur est le principal levier ; il se valide au repos, debout et à l'effort.",
+      "Faux : le compteur 18/24 n'est pas programmable.",
+      "Juste : ce filtre passe-haut atténue les signaux de basse fréquence comme l'onde T ; il a réduit nettement les chocs inappropriés.",
+      "Faux : le S-ICD ne délivre pas d'ATP."
+    ],
+    "reponseAttendue": null,
+    "explication": "La surdétection de l'onde T est la première cause de chocs inappropriés du S-ICD, surtout à l'effort, quand l'onde R diminue et que l'onde T augmente. Les leviers de reprogrammation sont peu nombreux : choix du vecteur de détection (avec une nouvelle acquisition du gabarit), réglage des zones et filtre SMART Pass. SMART Pass s'active si l'amplitude des QRS est suffisante (au moins 0,5 mV) ; le boîtier le désactive s'il suspecte une sous-détection. Dans l'évaluation de Theuns et al., il a nettement réduit les chocs inappropriés. Le compteur 18/24 est fixe, et il n'y a pas d'ATP. Une épreuve d’effort, même simple (flexions répétées), est utile chez les patients jeunes et actifs pour valider le vecteur choisi.",
+    "aRetenir": "Surdétection de l'onde T sur un S-ICD : changer de vecteur (validé au repos et à l'effort) et vérifier SMART Pass ; le compteur 18/24 n'est pas programmable.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Eschalier R, Ploux S, Strik M. Encyclopédie Boston Scientific : des fondamentaux à l'expertise (stimulateur, DAI endocavitaire, S-ICD, resynchronisation) — cas cliniques sur tracés. Stimuprat Éditions, 2018"
+      },
+      {
+        "titre": "Theuns DAMJ et al. Prospective blinded evaluation of a novel sensing methodology designed to reduce inappropriate shocks by the subcutaneous ICD (SMART Pass). Heart Rhythm 2018;15:1515-1522",
+        "url": "https://doi.org/10.1016/j.hrthm.2018.05.011"
+      },
+      {
+        "titre": "Boston Scientific. Manuel d'utilisation EMBLEM S-ICD / EMBLEM MRI S-ICD (manuel technique officiel)"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bsc-019",
+    "theme": "programmation",
+    "sousTheme": "CRT, stimulation de conduction et insuffisance cardiaque",
+    "marque": "Boston Scientific",
+    "type": "qcm",
+    "difficulte": 8,
+    "question": "CRT-D Boston Scientific, bloc de branche gauche, fréquence maximale de suivi 120 bpm, détection VG activée. En tachycardie sinusale d'effort, les EGM montrent une intervention de l'algorithme anti-TRE, puis une longue série de cycles « RVS-LVS » suivis de stimulations VD seules, la stimulation VG étant inhibée (Inh-LVP). Quelles mesures sont adaptées ? (plusieurs réponses)",
+    "options": [
+      "Relever la fréquence maximale de suivi selon les capacités d'effort du patient",
+      "Raccourcir la période de protection VG (LVPP) ou désactiver la détection VG",
+      "Allonger la PRAPV pour éviter de nouvelles interventions anti-TRE",
+      "Passer la stimulation VG dans une autre configuration de sonde",
+      "Discuter la désactivation de l'algorithme anti-TRE en l'absence de conduction rétrograde"
+    ],
+    "reponses": [
+      0,
+      1,
+      4
+    ],
+    "commentaires": [
+      "Juste : une fréquence maximale trop basse déclenche l'algorithme anti-TRE sur la tachycardie sinusale et le décrochage du suivi.",
+      "Juste : après une détection VG tardive (BBG), la période de protection VG interdit une stimulation VG trop proche ; à l'effort, elle inhibe la stimulation VG cycle après cycle.",
+      "Faux : allonger la PRAPV abaisse le point de 2:1 et favorise la perte du suivi atrial.",
+      "Faux : le problème est une inhibition par la détection VG, pas une question de seuil ou de configuration.",
+      "Juste : l'algorithme bloque une P toutes les 16 à la fréquence maximale ; chez un patient sans conduction VA, on peut le désactiver."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les CRT Boston Scientific peuvent détecter sur la sonde VG, pour ne pas stimuler dans la période vulnérable d'une ESV d'origine gauche vue tardivement par la sonde VD. Une période de protection VG (LVPP) suit chaque détection VG et interdit une stimulation VG trop proche. À l'effort, chez un patient avec BBG, l'activation spontanée arrive tard au VG : après un cycle conduit spontanément, le cycle suivant ne peut être stimulé qu'au VD, et la séquence s'entretient. Le déclencheur est ici l'algorithme anti-TRE qui bloque une P sur une tachycardie sinusale à la fréquence maximale, trop basse. On relève donc la fréquence maximale, on raccourcit la protection VG ou l'on désactive la détection VG, et l'on discute de désactiver l'algorithme anti-TRE si aucune conduction rétrograde n'est retrouvée. Une épreuve d'effort permet ensuite de vérifier la stimulation biventriculaire au pic de l'effort.",
+    "aRetenir": "Perte de CRT à l'effort avec « Inh-LVP » : la détection VG et sa période de protection inhibent la stimulation VG ; relever la fréquence maximale et réduire la LVPP (ou couper la détection VG).",
+    "sources": [
+      {
+        "titre": "Bordachar P, Eschalier R, Ploux S, Strik M. Encyclopédie Boston Scientific : des fondamentaux à l'expertise (stimulateur, DAI endocavitaire, S-ICD, resynchronisation) — cas cliniques sur tracés. Stimuprat Éditions, 2018"
+      },
+      {
+        "titre": "Boston Scientific. Manuel de référence des DAI et CRT-D RESONATE / PERCIVA / VIGILANT / MOMENTUM (manuel technique officiel)"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-bsc-021",
+    "theme": "programmation",
+    "sousTheme": "CRT, stimulation de conduction et insuffisance cardiaque",
+    "marque": "Boston Scientific",
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "CRT-D Boston Scientific avec sonde VG bipolaire. Seuil VG en VVI à 110 bpm, configuration « VG distale → spire VD » : la morphologie du QRS change une première fois vers 4,5 V, puis la capture VG est perdue à 0,8 V. En configuration « VG distale → boîtier », un seul aspect de QRS jusqu'à la perte de capture. Quelle est l'explication la plus probable ?",
+    "options": [
+      "Une stimulation phrénique intermittente qui modifie l'aspect du QRS",
+      "Une fusion avec la conduction spontanée, favorisée par la fréquence",
+      "Un déplacement de la sonde VG, qui recule vers le sinus coronaire proximal",
+      "Une capture anodique du VD au contact de la spire, perdue sous 4,5 V"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : une stimulation phrénique ne modifie pas la morphologie du QRS et ne dépendrait pas ainsi de l'anode choisie.",
+      "Faux : le test en VVI à 110 bpm est fait justement pour éviter la fusion ; et la fusion ne dépendrait pas de la configuration.",
+      "Faux : un déplacement donnerait un seul aspect dans toutes les configurations, avec un seuil élevé.",
+      "Juste : à forte amplitude, la spire VD utilisée comme anode capte aussi le VD ; le double aspect n'apparaît que dans les configurations qui l'utilisent."
+    ],
+    "reponseAttendue": null,
+    "explication": "Quand l'aspect du QRS change pendant un seuil VG fait en VVI à fréquence élevée (sans fusion possible), deux hypothèses dominent. La première est une capture anodique : l'anode (ici la spire VD) capte aussi le myocarde à forte amplitude, d'où une stimulation « pseudo-biventriculaire ». Le double aspect ne s'observe alors qu'avec les configurations qui utilisent la spire VD. La seconde est la présence de deux sondes VG reliées par un connecteur en Y : le double aspect se voit alors dans toutes les configurations. Le vrai seuil VG est la dernière perte de capture (0,8 V). La capture anodique passe souvent inaperçue sur l'ECG en stimulation biventriculaire, et son bénéfice n'est pas démontré. On programme donc une amplitude sûre au-dessus du vrai seuil VG, sans chercher à conserver la capture anodique.",
+    "aRetenir": "Double morphologie pendant un seuil VG uniquement avec la spire VD comme anode = capture anodique du VD ; le vrai seuil VG est la dernière perte de capture.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Eschalier R, Ploux S, Strik M. Encyclopédie Boston Scientific : des fondamentaux à l'expertise (stimulateur, DAI endocavitaire, S-ICD, resynchronisation) — cas cliniques sur tracés. Stimuprat Éditions, 2018"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  }
+]

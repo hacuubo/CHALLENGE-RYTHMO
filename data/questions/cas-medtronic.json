@@ -1,0 +1,642 @@
+[
+  {
+    "id": "cas-mdt-001",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": "Medtronic",
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "À l'interrogation d'un DAI double chambre Medtronic (zone TV de 360 à 300 ms, NID TV à 16), un épisode de TV avec dissociation auriculo-ventriculaire, à cycles de 350 à 370 ms, n'a été traité par ATP qu'après près d'une minute. Pendant ce délai, le canal de marqueurs alterne cycles TS et cycles VS. Quelle est l'explication ?",
+    "options": [
+      "Le PR Logic a retenu une TSV tant que la dissociation AV n'était pas confirmée",
+      "Chaque cycle VS remet à zéro le compteur de TV, fait de cycles consécutifs",
+      "Le compteur de TV demande 75 % de cycles rapides sur une fenêtre glissante",
+      "La stimulation antibradycardique suspend la détection après chaque cycle long"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : le PR Logic ne rend son verdict qu'une fois le compteur rempli ; ici c'est le remplissage du compteur qui est retardé.",
+      "Juste : chez Medtronic, un TS ajoute 1, un FS ne change rien, et le moindre VS remet le compteur de TV à zéro ; une TV qui oscille autour de la borne basse est donc détectée en retard.",
+      "Faux : ce fonctionnement probabiliste (X/Y, 75 %) est celui du compteur de FV, pas du compteur de TV.",
+      "Faux : aucune suspension de ce type n'existe ; les cycles longs sont simplement classés VS."
+    ],
+    "reponseAttendue": null,
+    "explication": "Chez Medtronic, les deux compteurs sont de nature différente : le compteur de FV est probabiliste (75 % de cycles courts, par exemple 30/40), le compteur de TV compte des cycles consécutifs. Un cycle TS l'incrémente, un cycle FS ne le modifie pas, un cycle VS le remet à zéro. Une TV irrégulière dont les cycles oscillent autour de la borne basse de la zone est donc reconnue en retard, même si le diagnostic est évident à l'œil (dissociation AV). La parade est de placer la borne basse de la zone TV avec une marge confortable sous la TV clinique : au moins 10 à 20 bpm, marge que les auteurs conseillent d'élargir un peu chez Medtronic. Le revers de la médaille est favorable : une FA conduite, riche en cycles longs, remplit rarement ce compteur, ce qui constitue un premier filtre contre les thérapies inappropriées.",
+    "aRetenir": "Compteur de TV Medtronic = cycles consécutifs : un seul VS le remet à zéro ; laisser une marge large entre la borne basse de la zone TV et la TV clinique.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ellenbogen K, Koneru J, Ploux S. Encyclopédie Medtronic — des fondamentaux à l'expertise : stimulateur cardiaque, défibrillateur, resynchronisation, Holter implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Medtronic. Manuel de référence (Reference Manual) des défibrillateurs implantables et CRT-D (plateformes Evera, Visia AF, Claria, Amplia, Compia, Cobalt, Crome) — bibliothèque officielle des manuels techniques Medtronic"
+      },
+      {
+        "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      }
+    ],
+    "reco": [
+      "Consensus 2019 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mdt-002",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": "Medtronic",
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "DAI Medtronic : zone TV de 400 à 320 ms (NID 16), zone FV en dessous de 320 ms (NID 30/40). Une TV dont les cycles oscillent entre 310 et 330 ms alterne des marqueurs TS et FS : faute de 75 % de cycles FS, le compteur de FV ne se remplit pas. Après au moins 6 cycles FS, combien de cycles TS + FS faut-il au compteur combiné, et quelle thérapie est délivrée si l'un des 8 derniers cycles est classé FS ?",
+    "options": [
+      "30 cycles ; première thérapie de la zone TV",
+      "40 cycles ; thérapie de la zone la plus lente",
+      "35 cycles ; première thérapie de la zone FV",
+      "46 cycles ; première thérapie de la zone FV"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : 30 est le NID de FV lui-même ; le compteur combiné en exige 7/6, et un FS parmi les 8 derniers cycles oriente vers la zone FV.",
+      "Faux : 40 est la fenêtre du compteur probabiliste de FV, et la thérapie n'est pas choisie par défaut dans la zone lente.",
+      "Juste : seuil = 7/6 × 30 = 35 cycles TS ou FS ; s'il y a au moins un FS parmi les 8 derniers cycles, le boîtier retient une FV.",
+      "Faux : les NID de TV et de FV ne s'additionnent pas ; le seuil est 7/6 du NID de FV."
+    ],
+    "reponseAttendue": null,
+    "explication": "Chez Medtronic, un cycle FS n'incrémente pas le compteur de TV (cycles consécutifs) et une série de cycles TS ne remplit pas le compteur de FV : une arythmie à cheval sur la limite TV/FV risquerait donc d'échapper aux deux. Le compteur combiné, toujours actif dès qu'une zone TV et une zone FV sont programmées, corrige ce défaut. Il s'arme après 6 cycles FS, puis additionne TS et FS jusqu'à 7/6 du NID de FV en détection initiale (35 pour un NID de 30). Le boîtier examine alors les 8 derniers cycles : au moins un FS conduit au diagnostic de FV et à la première thérapie de cette zone (souvent un ATP avant ou pendant la charge) ; 8 cycles TS conduisent au diagnostic de TV.",
+    "aRetenir": "Compteur combiné Medtronic : armé après 6 FS, rempli à 7/6 du NID de FV (35 pour 30/40) ; un FS parmi les 8 derniers cycles = thérapie FV.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ellenbogen K, Koneru J, Ploux S. Encyclopédie Medtronic — des fondamentaux à l'expertise : stimulateur cardiaque, défibrillateur, resynchronisation, Holter implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Medtronic. Manuel de référence (Reference Manual) des défibrillateurs implantables et CRT-D (plateformes Evera, Visia AF, Claria, Amplia, Compia, Cobalt, Crome) — bibliothèque officielle des manuels techniques Medtronic"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mdt-003",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": "Medtronic",
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Vous programmez un DAI Medtronic en prévention primaire : zone FV à partir de 188 bpm, première thérapie par ATP. Vous hésitez entre « ATP pendant la charge » et « ATP avant la charge ». Quelles propositions sont exactes ? (plusieurs réponses)",
+    "options": [
+      "ATP pendant la charge : si l'ATP est efficace, le choc n'est pas délivré, mais l'énergie de la charge n'est guère économisée",
+      "ATP pendant la charge : le choc est retardé d'une durée égale à celle de la salve d'ATP",
+      "ATP avant la charge : un ATP inefficace retarde le choc de quelques secondes",
+      "L'option ChargeSaver bascule vers l'ATP avant la charge après plusieurs succès consécutifs de l'ATP pendant la charge",
+      "ATP avant la charge : la charge est lancée même si l'ATP a réduit l'arythmie, par sécurité"
+    ],
+    "reponses": [
+      0,
+      2,
+      3
+    ],
+    "commentaires": [
+      "Juste : la charge se fait en parallèle de l'ATP ; le choc est abandonné si le rythme est revenu, mais la batterie a déjà été sollicitée.",
+      "Faux : la salve est délivrée pendant le temps de charge, qui aurait eu lieu de toute façon ; le choc n'est pas retardé.",
+      "Juste : la charge ne démarre qu'après la reconfirmation de l'arythmie suivant l'ATP, ce qui décale le choc de quelques secondes.",
+      "Juste : ChargeSaver passe automatiquement en ATP avant la charge quand l'ATP pendant la charge a réussi sur un nombre programmable d'épisodes consécutifs.",
+      "Faux : si l'ATP est efficace, aucune charge n'est lancée ; c'est tout l'intérêt de ce mode."
+    ],
+    "reponseAttendue": null,
+    "explication": "Une part importante des tachycardies détectées en zone FV sont des TV monomorphes rapides, souvent réduites par une seule salve de 8 impulsions à 88 % du cycle (PainFREE Rx II), et le consensus d'experts recommande de programmer au moins un ATP pour les TV rapides jusqu'à 230 bpm. L'ATP pendant la charge ne retarde pas le choc en cas d'échec, mais n'économise presque pas d'énergie en cas de succès. L'ATP avant la charge économise une charge des condensateurs si la salve réussit, au prix de quelques secondes de retard si elle échoue. ChargeSaver combine les deux : il commence en ATP pendant la charge et passe en ATP avant la charge après plusieurs succès. Dans les deux cas, l'ATP en zone FV n'est délivré que si les 8 derniers cycles sont supérieurs ou égaux à une valeur programmée, ce qui évite de stimuler une FV très rapide.",
+    "aRetenir": "ATP pendant la charge = aucun retard au choc ; ATP avant la charge = économie de charge mais retard si échec ; ChargeSaver passe de l'un à l'autre après des succès répétés.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ellenbogen K, Koneru J, Ploux S. Encyclopédie Medtronic — des fondamentaux à l'expertise : stimulateur cardiaque, défibrillateur, resynchronisation, Holter implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Medtronic. Manuel de référence (Reference Manual) des défibrillateurs implantables et CRT-D (plateformes Evera, Visia AF, Claria, Amplia, Compia, Cobalt, Crome) — bibliothèque officielle des manuels techniques Medtronic"
+      },
+      {
+        "titre": "Wathen MS, et al. Prospective randomized multicenter trial of empirical antitachycardia pacing versus shocks for spontaneous rapid ventricular tachycardia in patients with implantable cardioverter-defibrillators: PainFREE Rx II trial results. Circulation 2004;110:2591-2596"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mdt-004",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": "Medtronic",
+    "type": "vf",
+    "difficulte": 6,
+    "question": "À l'interrogation d'un DAI Medtronic : FV détectée, premier choc de 35 J inefficace, redétection de la FV. Pendant la seconde charge, le rythme redevient sinusal spontanément, mais un second choc est tout de même délivré, synchronisé sur un QRS. Vrai ou faux : il s'agit d'un fonctionnement normal de l'appareil.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : seul le premier choc d'un épisode est précédé d'une phase de confirmation en fin de charge ; après redétection, le choc est engagé et délivré quoi qu'il arrive.",
+      "Faux : l'abandon de charge n'est possible qu'avant le premier choc de l'épisode ; les chocs suivants sont engagés (committed)."
+    ],
+    "reponseAttendue": null,
+    "explication": "Avant le premier choc d'un épisode, le DAI Medtronic vérifie en fin de charge que l'arythmie persiste ; si le rythme s'est normalisé, la charge est abandonnée. Après un premier choc inefficace, la situation change : un retour spontané en rythme sinusal est alors improbable, et une sous-détection prolongée d'une FV de faible amplitude pourrait faire croire à tort à une réduction. Les chocs suivants de l'épisode sont donc engagés : délivrés en fin de charge, synchronisés sur un événement détecté s'il y en a un, sinon de façon asynchrone. Ce second choc « sur rythme sinusal » n'est donc pas un dysfonctionnement. Il faut cependant relire l'épisode, car un premier choc inefficace pose la question d'une marge de défibrillation insuffisante (polarité, vecteur, énergie, position de la sonde).",
+    "aRetenir": "Medtronic : confirmation en fin de charge seulement avant le premier choc ; après redétection, le choc est engagé et délivré même si le rythme s'est normalisé.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ellenbogen K, Koneru J, Ploux S. Encyclopédie Medtronic — des fondamentaux à l'expertise : stimulateur cardiaque, défibrillateur, resynchronisation, Holter implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Medtronic. Manuel de référence (Reference Manual) des défibrillateurs implantables et CRT-D (plateformes Evera, Visia AF, Claria, Amplia, Compia, Cobalt, Crome) — bibliothèque officielle des manuels techniques Medtronic"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mdt-005",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "Medtronic",
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "DAI double chambre Medtronic, PR Logic et Wavelet actifs. Le patient a une FA paroxystique à conduction rapide, jusqu'ici toujours classée TSV à juste titre. Un épisode a pourtant déclenché quatre ATP inefficaces. À la relecture : FA en cours, mais de nombreux auriculogrammes de faible amplitude ne sont pas détectés, si bien que la fréquence atriale comptée devient inférieure à la fréquence ventriculaire. Pourquoi l'analyse morphologique n'a-t-elle pas corrigé le diagnostic ?",
+    "options": [
+      "Si V est jugé plus rapide que A, le PR Logic conclut TV sans consulter Wavelet",
+      "Wavelet ne fonctionne que sur les DAI simple chambre, pas en double chambre",
+      "Wavelet se désactive automatiquement dès que le boîtier détecte une FA",
+      "Le gabarit de Wavelet est effacé et réinitialisé à chaque commutation de mode"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : la règle V > A est prioritaire ; Wavelet n'intervient que lorsque la fréquence atriale est supérieure ou égale à la fréquence ventriculaire et que le PR Logic penche pour une TV.",
+      "Faux : sur les plateformes récentes, Wavelet peut être associé au PR Logic dans les DAI double et triple chambre.",
+      "Faux : aucune désactivation de ce type n'existe ; la FA est précisément une situation où Wavelet peut aider.",
+      "Faux : le gabarit est conservé et remis à jour automatiquement ; il n'est pas effacé par le mode switch."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le PR Logic compare d'abord les fréquences médianes atriale et ventriculaire : si V est jugé plus rapide que A, il conclut à une TV sans autre analyse. Associé au PR Logic, Wavelet ne peut corriger le diagnostic que si A ≥ V et que le PR Logic conclut à une TV (TV 1:1 ou double tachycardie supposée). Une sous-détection atriale pendant la FA crée une fausse situation V > A : c'est une cause classique de thérapie inappropriée malgré un discriminateur double chambre. La première mesure est d'optimiser la détection atriale (sensibilité, polarité, blanking post-ventriculaire). Si ces épisodes se répètent sans marge de reprogrammation, on peut discuter de fonder la discrimination sur la morphologie seule.",
+    "aRetenir": "PR Logic : V > A = TV sans appel, Wavelet non consulté ; une sous-détection atriale en FA peut donc provoquer une thérapie inappropriée.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ellenbogen K, Koneru J, Ploux S. Encyclopédie Medtronic — des fondamentaux à l'expertise : stimulateur cardiaque, défibrillateur, resynchronisation, Holter implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Medtronic. Manuel de référence (Reference Manual) des défibrillateurs implantables et CRT-D (plateformes Evera, Visia AF, Claria, Amplia, Compia, Cobalt, Crome) — bibliothèque officielle des manuels techniques Medtronic"
+      },
+      {
+        "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mdt-006",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "Medtronic",
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "DAI double chambre Medtronic dont la programmation a été reprise d'un ancien boîtier : PR Logic actif, et critère de démarrage brutal (onset) également sur Marche. Zone TV à partir de 430 ms (140 bpm). Épisode enregistré : tachycardie à 140-141 bpm, V > A avec dissociation auriculo-ventriculaire évidente ; aucune thérapie, marqueurs VS et annotation de réinitialisation par le critère de démarrage. Quelle est la conduite la plus logique ?",
+    "options": [
+      "Programmer aussi le critère de stabilité pour renforcer la spécificité du diagnostic",
+      "Allonger le NID de la zone TV à 30 intervalles",
+      "Ne rien modifier : le PR Logic corrigera au prochain épisode",
+      "Désactiver le critère de démarrage brutal et laisser discriminer le PR Logic"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : la stabilité, elle aussi prioritaire sur le PR Logic, ajouterait un risque de sous-traitement supplémentaire, notamment pour une TV un peu irrégulière.",
+      "Faux : allonger le NID ne change rien au blocage par le critère de démarrage et retarderait encore la thérapie.",
+      "Faux : les critères simple chambre programmés priment sur le PR Logic ; tant que le démarrage brutal n'est pas validé, le PR Logic n'est pas consulté.",
+      "Juste : ici V > A, le PR Logic aurait conclu à une TV ; c'est le critère de démarrage brutal, prioritaire, qui a bloqué le diagnostic."
+    ],
+    "reponseAttendue": null,
+    "explication": "Sur un DAI double ou triple chambre Medtronic, les critères de démarrage brutal et de stabilité peuvent être associés au PR Logic, mais ils sont évalués en premier et priment sur lui : si le démarrage n'est pas jugé brutal, le boîtier conclut à une TSV sans interroger le PR Logic. Le critère compare les 4 premiers cycles en zone TV aux 4 cycles précédents. Une TV qui démarre juste sous la borne de la zone (139 bpm) puis y entre (140-141 bpm) ne présente aucun « saut » de fréquence mesurable. Le plus simple est de désactiver ce critère, de laisser le PR Logic (et Wavelet) discriminer, et de revoir la borne basse de la zone TV avec une marge suffisante. C'est aussi la programmation conseillée en double chambre : discrimination par PR Logic et Wavelet, sans onset ni stabilité.",
+    "aRetenir": "Chez Medtronic, onset et stabilité priment sur le PR Logic : en double chambre, les laisser sur Arrêt.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ellenbogen K, Koneru J, Ploux S. Encyclopédie Medtronic — des fondamentaux à l'expertise : stimulateur cardiaque, défibrillateur, resynchronisation, Holter implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Medtronic. Manuel de référence (Reference Manual) des défibrillateurs implantables et CRT-D (plateformes Evera, Visia AF, Claria, Amplia, Compia, Cobalt, Crome) — bibliothèque officielle des manuels techniques Medtronic"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mdt-007",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "Medtronic",
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Vous reprogrammez un DAI simple chambre Medtronic récent (prévention primaire, zone FV unique à partir de 188 bpm, NID 30/40). Le patient a reçu un choc inapproprié sur une FA conduite à 205 bpm. Quelles propositions sont exactes ? (plusieurs réponses)",
+    "options": [
+      "Wavelet peut s'appliquer dans la zone FV, jusqu'à la limite TSV programmée",
+      "Une limite TSV à 260 ms (environ 230 bpm) est cohérente avec le consensus d'experts",
+      "Les critères de démarrage brutal et de stabilité s'appliquent aussi dans la zone FV",
+      "La programmation habituellement conseillée est Wavelet seul, démarrage brutal et stabilité sur Arrêt",
+      "Wavelet retient une TSV seulement si au moins 6 des 8 derniers complexes ressemblent au gabarit"
+    ],
+    "reponses": [
+      0,
+      1,
+      3
+    ],
+    "commentaires": [
+      "Juste : chez Medtronic, la limite TSV se programme indépendamment des zones ; la discrimination peut donc agir dans la zone FV.",
+      "Juste : le consensus recommande de discriminer jusqu'à environ 230 bpm ; au-delà, une origine supraventriculaire est très improbable.",
+      "Faux : démarrage brutal et stabilité sont limités aux zones TV (et TVR programmée via TV), pas à la zone FV.",
+      "Juste : associer les trois critères impose qu'ils soient tous remplis pour traiter, ce qui peut retenir à tort une TV un peu irrégulière.",
+      "Faux : la TV est retenue si au moins 6 des 8 complexes diffèrent du gabarit ; 3 complexes similaires suffisent pour conclure à une TSV."
+    ],
+    "reponseAttendue": null,
+    "explication": "Contrairement à d'autres constructeurs, Medtronic permet de discriminer dans la zone FV : la limite TSV se programme indépendamment des zones de détection. Le consensus d'experts recommande de discriminer jusqu'à environ 230 bpm (limite TSV à 260 ms), car des FA conduites au-delà de 200 bpm sont observées. En simple chambre, démarrage brutal et stabilité ne fonctionnent que dans les zones TV. Programmés avec Wavelet, ils exigent que tous les critères soient remplis pour traiter, ce qui diminue la sensibilité. La programmation habituelle est donc Wavelet seul, avec un gabarit recueilli et mis à jour automatiquement. Wavelet analyse les 8 derniers complexes : au moins 6 différents du gabarit donnent une TV, au moins 3 similaires donnent une TSV.",
+    "aRetenir": "DAI simple chambre Medtronic : Wavelet seul, limite TSV à 260 ms, applicable jusque dans la zone FV.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ellenbogen K, Koneru J, Ploux S. Encyclopédie Medtronic — des fondamentaux à l'expertise : stimulateur cardiaque, défibrillateur, resynchronisation, Holter implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Medtronic. Manuel de référence (Reference Manual) des défibrillateurs implantables et CRT-D (plateformes Evera, Visia AF, Claria, Amplia, Compia, Cobalt, Crome) — bibliothèque officielle des manuels techniques Medtronic"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      },
+      {
+        "titre": "Stiles MK, Fauchier L, Morillo CA, Wilkoff BL. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI",
+      "Consensus 2019 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mdt-008",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "Medtronic",
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Jeune patient porteur d'un DAI simple chambre Medtronic pour un syndrome de Brugada. À l'interrogation : plusieurs épisodes où le compteur de FV se remplit sans thérapie, avec l'annotation de discrimination de l'onde T ; l'onde R mesure 1,4 mV en détection bipolaire vraie. Quelles propositions sont exactes ? (plusieurs réponses)",
+    "options": [
+      "TWave Discrimination a évité les chocs, mais ne corrige pas la cause : l'onde R de faible amplitude",
+      "Tester la détection bipolaire intégrée (pointe – coil VD) peut augmenter nettement l'amplitude de l'onde R",
+      "TWave Discrimination peut être désactivé, puisque les thérapies ont été retenues à juste titre",
+      "Allonger le blanking post-détection à 400 ms masquerait l'onde T sans conséquence pour la détection de la FV"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "commentaires": [
+      "Juste : l'algorithme reconnaît le double comptage et retient la thérapie, mais l'onde R reste petite, ce qui expose aussi à la sous-détection d'une vraie FV.",
+      "Juste : Medtronic permet de choisir entre détection bipolaire vraie et bipolaire intégrée ; chez certains patients, l'onde R devient beaucoup plus ample, ce qui améliore le rapport R/T.",
+      "Faux : c'est précisément cet algorithme qui a évité les chocs inappropriés ; il est actif par défaut et doit le rester.",
+      "Faux : un blanking aussi long ferait perdre des cycles de FV ; ce n'est pas une stratégie acceptable sur un DAI."
+    ],
+    "reponseAttendue": null,
+    "explication": "La surdétection de l'onde T sur un rythme spontané est surtout favorisée par une onde R de petite amplitude : la sensibilité automatique, réglée sur l'onde R précédente, atteint vite des niveaux élevés. C'est fréquent dans le Brugada, la dysplasie arythmogène du VD ou la sarcoïdose. TWave Discrimination repère l'alternance régulière d'un signal rapide (R) et d'un signal lent (T) à intervalles fixes et retient la thérapie, sans supprimer la cause. Sur un DAI Medtronic, on peut essayer la détection bipolaire intégrée (pointe – coil VD) : l'amplitude moyenne n'est pas meilleure, mais le gain est parfois spectaculaire chez un patient donné. En contrepartie, cette configuration est un peu plus exposée aux interférences et aux myopotentiels. Autre option : réduire la sensibilité, en vérifiant la détection de la FV. Le repositionnement de la sonde reste le recours si aucun compromis n'est satisfaisant.",
+    "aRetenir": "Surdétection de l'onde T sur onde R petite : TWave Discrimination protège, mais il faut traiter la cause (essai de la détection bipolaire intégrée, sensibilité vérifiée, voire repositionnement).",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ellenbogen K, Koneru J, Ploux S. Encyclopédie Medtronic — des fondamentaux à l'expertise : stimulateur cardiaque, défibrillateur, resynchronisation, Holter implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Medtronic. Manuel de référence (Reference Manual) des défibrillateurs implantables et CRT-D (plateformes Evera, Visia AF, Claria, Amplia, Compia, Cobalt, Crome) — bibliothèque officielle des manuels techniques Medtronic"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mdt-009",
+    "theme": "programmation",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "Medtronic",
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Stimulateur double chambre Medtronic récent (Azure) implanté pour BAV paroxystique ; délai AV détecté allongé à 250 ms pour favoriser la conduction spontanée. L'interrogation montre une tachycardie AS-VP à 115 bpm (intervalle VA ≈ 270 ms), et l'intervention anti-TRE est active. Sur le tracé, après 8 cycles VP-AS, le délai AV d'un cycle est allongé de 50 ms. Quelle observation conduit l'algorithme à conclure à une TRE ?",
+    "options": [
+      "L'intervalle VP-AS se raccourcit d'autant que le délai AV s'allonge",
+      "La fréquence du capteur d'activité est élevée pendant la tachycardie",
+      "L'intervalle VP-AS reste inchangé malgré la modification du délai AV",
+      "L'onde P suivante tombe dans le blanking atrial post-ventriculaire"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : c'est le comportement d'une tachycardie sinusale ; le rythme atrial n'étant pas lié au VP, allonger l'AV raccourcit l'intervalle VA.",
+      "Faux : les anciens algorithmes s'appuyaient sur le capteur pour écarter une tachycardie sinusale d'effort ; le nouvel algorithme teste la relation VP-AS.",
+      "Juste : dans une TRE, la P est une conduction rétrograde du VP ; l'intervalle VA reste fixe (à quelques ms près) quel que soit le délai AV.",
+      "Faux : ce n'est pas un critère de diagnostic ; l'interruption consiste justement à faire tomber une P dans une PRAPV prolongée."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'intervention anti-TRE des stimulateurs Medtronic suspecte une TRE après 8 cycles consécutifs VP-AS avec un intervalle VA inférieur à 400 ms. Sur les plateformes récentes, une phase de confirmation a été ajoutée : le délai AV est allongé (de 50 ms) sur un cycle, et l'intervalle VA qui suit est comparé au précédent, séquence répétée plusieurs fois. Un VA stable signe une onde P rétrograde, liée au VP, donc une TRE. Un VA qui se raccourcit signe une activité atriale autonome, comme une tachycardie sinusale. La TRE confirmée est interrompue par une PRAPV portée à 400 ms sur un cycle : la P rétrograde devient réfractaire et n'est pas suivie. Cette confirmation évite de bloquer une P sinusale à l'effort, défaut des versions précédentes. Traiter la cause reste indispensable : ici le délai AV long, qui favorise l'amorçage de la TRE, au même titre qu'une ESV ou une perte de capture atriale.",
+    "aRetenir": "Anti-TRE Medtronic récent : on allonge l'AV d'un cycle ; si le VA ne bouge pas, la P est rétrograde → TRE, interrompue par une PRAPV de 400 ms sur un cycle.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ellenbogen K, Koneru J, Ploux S. Encyclopédie Medtronic — des fondamentaux à l'expertise : stimulateur cardiaque, défibrillateur, resynchronisation, Holter implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Medtronic. Manuel de référence (Reference Manual) des stimulateurs cardiaques double chambre (plateformes Adapta/Advisa/Azure) — bibliothèque officielle des manuels techniques Medtronic"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mdt-010",
+    "theme": "programmation",
+    "sousTheme": "Réduction de la stimulation ventriculaire",
+    "marque": "Medtronic",
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Homme de 67 ans, stimulateur double chambre Medtronic récent (Azure) pour dysfonction sinusale, programmé en MVP ; PR de repos à 300 ms et dyspnée d'effort. Lors d'un test de stimulation atriale à fréquence croissante, l'intervalle AP-VS s'allonge de 315 ms à 60 bpm à 360 ms à 90 bpm, sans aucune P bloquée. Quelle adaptation corrige le problème sans renoncer à limiter la stimulation ventriculaire au repos ?",
+    "options": [
+      "Passer en DDD avec un délai AV fixe de 150 ms",
+      "Activer la commutation du MVP sur PR long, avec une limite vers 300-350 ms",
+      "Raccourcir la PRAPV pour que le MVP reconnaisse enfin les ondes P bloquées",
+      "Activer l'asservissement de fréquence, l'accélération devant raccourcir le PR"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : cela supprimerait les symptômes, mais au prix d'une stimulation VD quasi permanente, alors que le patient conduit au repos.",
+      "Juste : sur les plateformes récentes, le MVP peut basculer en DDD(R) quand l'intervalle AV spontané dépasse une limite programmée ; cette fonction est sur Arrêt par défaut.",
+      "Faux : aucune P n'est bloquée ; le critère historique du MVP (P non conduites) ne sera jamais rempli.",
+      "Faux : ici le PR s'allonge avec la fréquence ; stimuler plus vite l'oreillette aggraverait le décalage AV à l'effort."
+    ],
+    "reponseAttendue": null,
+    "explication": "Dans sa première version, le MVP ne quittait le fonctionnement AAI(R) que sur des P non conduites (2 sur 4) : un PR très long mais conduit était toléré indéfiniment. À l'effort, un PR qui ne raccourcit pas fait tomber la systole atriale trop tôt, parfois sur valve mitrale fermée, avec des symptômes proches d'un syndrome du pacemaker. L'ESC 2021 retient d'ailleurs une indication de classe IIa de stimulation pour un BAV du 1er degré (PR > 300 ms) avec des symptômes de ce type. Les plateformes récentes proposent une commutation du MVP en DDD(R) quand l'intervalle AV spontané (AS-VS/AP-VS) dépasse une limite programmable ; des tests réguliers de la conduction permettent ensuite de revenir en AAI(R). Cette option, sur Arrêt par défaut, est à réserver aux patients symptomatiques. Une limite de 300 à 350 ms est un compromis raisonnable entre confort d'effort et bascules répétées.",
+    "aRetenir": "PR long conduit et symptomatique sous MVP : activer la commutation sur PR long (Arrêt par défaut) plutôt que de passer en DDD permanent.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ellenbogen K, Koneru J, Ploux S. Encyclopédie Medtronic — des fondamentaux à l'expertise : stimulateur cardiaque, défibrillateur, resynchronisation, Holter implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Medtronic. Manuel de référence (Reference Manual) des stimulateurs cardiaques double chambre (plateformes Adapta/Advisa/Azure) — bibliothèque officielle des manuels techniques Medtronic"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mdt-011",
+    "theme": "programmation",
+    "sousTheme": "CRT, stimulation de conduction et insuffisance cardiaque",
+    "marque": "Medtronic",
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Sportif de 25 ans, BAV complet post-chirurgical sans conduction antérograde ni rétrograde, porteur d'un CRT-P Medtronic à sondes épicardiques : FMS 190 bpm, délai AV adaptatif, PRAPV sur Auto. En récupération d'effort, un bloc 2:1 (séquences AS-BV-AR) s'installe brutalement et persiste plusieurs minutes. L'EGM du début de l'épisode montre une surdétection de la fin du QRS/de l'onde T sur le canal VD. Quel mécanisme entretient le 2:1 ?",
+    "options": [
+      "La PRAPV Auto s'allonge quand la fréquence ventriculaire mesurée chute",
+      "Le délai AV adaptatif s'allonge en récupération et abaisse le point 2:1",
+      "Une commutation de mode fait passer le boîtier en DDIR",
+      "Le rythme sinusal dépasse la FMS et déclenche un comportement de Wenckebach électronique"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : la surdétection fait chuter la fréquence ventriculaire mesurée, la PRAPV Auto s'allonge, et les P sinusales encore rapides y tombent une sur deux : le 2:1 s'auto-entretient.",
+      "Faux : le délai AV adaptatif se raccourcit avec la fréquence atriale ; il n'explique ni le déclenchement ni la persistance.",
+      "Faux : les P réfractaires sont bien marquées AR, sans marqueur de commutation ; le boîtier reste en suivi atrial.",
+      "Faux : on observe un bloc 2:1 fixe, pas un allongement progressif du délai AV ; la FMS de 190 bpm n'est pas atteinte en récupération."
+    ],
+    "reponseAttendue": null,
+    "explication": "La PRAPV automatique s'allonge quand la fréquence est lente (protection contre la TRE) et se raccourcit à l'effort (pour repousser le point 2:1). Elle se règle sur la fréquence ventriculaire, calculée comme une médiane sur les derniers cycles. Chez ce patient, une surdétection sur la sonde VD épicardique amorce le phénomène : une P tombe dans le blanking ou la PRAPV et n'est pas suivie. La fréquence ventriculaire chute brutalement alors que le rythme sinusal reste rapide. La PRAPV s'allonge, une P sur deux y tombe, et la tachycardie sinusale réactionnelle au bas débit entretient le cercle vicieux, bien après l'arrêt de la surdétection. Correction : PRAPV fixe la plus courte possible, sans risque ici puisque le patient n'a aucune conduction rétrograde, et réduction de la sensibilité ventriculaire, en vérifiant la détection des ESV.",
+    "aRetenir": "PRAPV Auto : une chute de la fréquence ventriculaire mesurée (surdétection, bloc) l'allonge et peut entretenir un 2:1 ; chez un BAV complet sans conduction rétrograde, préférer une PRAPV fixe courte.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ellenbogen K, Koneru J, Ploux S. Encyclopédie Medtronic — des fondamentaux à l'expertise : stimulateur cardiaque, défibrillateur, resynchronisation, Holter implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Medtronic. Manuel de référence (Reference Manual) des stimulateurs cardiaques double chambre (plateformes Adapta/Advisa/Azure) — bibliothèque officielle des manuels techniques Medtronic"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mdt-012",
+    "theme": "programmation",
+    "sousTheme": "CRT, stimulation de conduction et insuffisance cardiaque",
+    "marque": "Medtronic",
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "CRT-D Medtronic chez un patient avec BBG et PR long (280 ms) : stimulation biventriculaire à 91 %. Les épisodes mémorisés montrent qu'après une salve d'ESV, les ondes P sinusales tombent dans la PRAPV (marqueurs AR) et sont suivies de QRS conduits spontanément (VS) ; la séquence AR-VS se perpétue pendant de longues minutes. Quel réglage répond le plus spécifiquement à ce problème ?",
+    "options": [
+      "Allonger la PRAPV après ESV pour prévenir une TRE",
+      "Programmer la réponse aux événements détectés (Ventricular Sense Response)",
+      "Allonger le délai AV détecté au-delà du PR spontané",
+      "Activer la reprise du suivi atrial (Atrial Tracking Recovery)"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : une PRAPV plus longue augmente la probabilité que la P suivante y tombe ; c'est l'un des facteurs d'entretien du phénomène.",
+      "Faux : stimuler sur un QRS spontané déjà engagé gonfle le pourcentage BiV sans vraie resynchronisation ; la cause, la perte du suivi atrial, persiste.",
+      "Faux : un délai AV plus long que le PR laisserait la conduction spontanée activer les ventricules et supprimerait la resynchronisation.",
+      "Juste : l'algorithme reconnaît une série de cycles AR-VS et raccourcit temporairement la PRAPV pour que la P suivante soit de nouveau suivie."
+    ],
+    "reponseAttendue": null,
+    "explication": "Chez un patient avec PR long, une perte transitoire du synchronisme AV (ESV, test de seuil, extension de PRAPV) peut faire tomber une P dans la PRAPV. Cette P n'est pas suivie ; elle est conduite spontanément avec un PR long. Le QRS spontané qui en résulte relance une PRAPV dans laquelle tombe la P suivante, et ainsi de suite. Le phénomène est d'autant plus probable que le PR est long, que la fréquence sinusale est rapide et que la PRAPV est longue (extension post-ESV, PRAPV automatique). Atrial Tracking Recovery détecte cette succession de cycles AR-VS et raccourcit temporairement la PRAPV : la P redevient AS et est suivie d'une stimulation BiV, ce qui rétablit la séquence. Il est logique de l'activer chez les patients resynchronisés avec PR long, et de revoir les extensions de PRAPV, le risque de TRE étant moindre quand la conduction est altérée.",
+    "aRetenir": "Perte de la resynchronisation par P dans la PRAPV (cycles AR-VS) chez un PR long : activer Atrial Tracking Recovery et éviter les PRAPV inutilement longues.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ellenbogen K, Koneru J, Ploux S. Encyclopédie Medtronic — des fondamentaux à l'expertise : stimulateur cardiaque, défibrillateur, resynchronisation, Holter implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Medtronic. Manuel de référence (Reference Manual) des défibrillateurs implantables et CRT-D (plateformes Evera, Visia AF, Claria, Amplia, Compia, Cobalt, Crome) — bibliothèque officielle des manuels techniques Medtronic"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mdt-013",
+    "theme": "programmation",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "Medtronic",
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Stimulateur double chambre Medtronic en DDD : à l'interrogation, un petit signal atrial est détecté à intervalle fixe, environ 60 ms après chaque stimulation ventriculaire (écoute croisée de l'activité ventriculaire). Le blanking atrial post-ventriculaire (BAPV) est programmé en mode « partiel ». Quelles propositions sont exactes ? (plusieurs réponses)",
+    "options": [
+      "En mode partiel, aucun signal ne peut être détecté pendant toute la durée du BAPV",
+      "Un événement marqué Ab déclenche un délai AV et peut donc être suivi",
+      "Les événements Ab comptent pour la détection des arythmies atriales, d'où un risque de faux mode switch",
+      "Le mode « partiel + » réduit transitoirement la sensibilité atriale après l'événement ventriculaire",
+      "Un BAPV absolu très long est sans inconvénient pour la détection d'un flutter atrial"
+    ],
+    "reponses": [
+      2,
+      3
+    ],
+    "commentaires": [
+      "Faux : seules les 30 premières ms sont un blanking absolu ; au-delà, un signal peut être détecté et apparaît marqué Ab.",
+      "Faux : comme un AR, un Ab ne déclenche pas de délai AV ; il n'est pas suivi.",
+      "Juste : les Ab entrent dans le calcul de la fréquence atriale ; une écoute croisée systématique peut simuler une tachycardie atriale et déclencher des commutations inappropriées.",
+      "Juste : après un événement ventriculaire détecté ou stimulé, la sensibilité atriale est temporairement abaissée, ce qui supprime souvent ce type d'écoute croisée.",
+      "Faux : un long blanking absolu peut masquer une onde de flutter sur deux (flutter 2:1) et empêcher la commutation de mode."
+    ],
+    "reponseAttendue": null,
+    "explication": "Sur les plateformes récentes, le BAPV peut être absolu, partiel ou partiel +. En mode absolu, rien n'est détecté ni affiché, comme sur les anciens boîtiers. En mode partiel, seules les 30 premières ms sont aveugles (pour ne pas détecter le stimulus) ; un signal détecté ensuite est marqué Ab, ne déclenche pas de délai AV mais entre dans l'analyse des arythmies atriales. Le mode partiel + ajoute une baisse temporaire de la sensibilité atriale après l'événement ventriculaire, ce qui corrige souvent une écoute croisée sans sacrifier la sensibilité en fin de cycle. Les autres options sont moins satisfaisantes. Réduire la sensibilité atriale expose à la sous-détection de la FA, dont les signaux sont souvent petits. Un long blanking absolu fait courir le risque de méconnaître un flutter 2:1. C'est d'ailleurs grâce au blanking partiel que l'ancien algorithme de recherche du flutter masqué a disparu des plateformes récentes.",
+    "aRetenir": "BAPV Medtronic : Ab = détecté mais non suivi, compté pour le mode switch ; « partiel + » corrige souvent l'écoute croisée sans rendre l'oreillette sourde.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ellenbogen K, Koneru J, Ploux S. Encyclopédie Medtronic — des fondamentaux à l'expertise : stimulateur cardiaque, défibrillateur, resynchronisation, Holter implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Medtronic. Manuel de référence (Reference Manual) des stimulateurs cardiaques double chambre (plateformes Adapta/Advisa/Azure) — bibliothèque officielle des manuels techniques Medtronic"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mdt-014",
+    "theme": "programmation",
+    "sousTheme": "Seuils, détection et sondes",
+    "marque": "Medtronic",
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Patient dialysé, dépendant, porteur d'un stimulateur Medtronic dont la gestion automatique du seuil ventriculaire (Capture Management) est active. Vrai ou faux : l'algorithme vérifie la capture à chaque battement et délivre une impulsion de secours en cas de perte, ce qui protège ce patient des variations de seuil liées à la dialyse.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : chez Medtronic, le seuil est mesuré périodiquement (une recherche quotidienne), puis l'amplitude est adaptée pour les 24 heures suivantes, sans vérification cycle à cycle.",
+      "Juste : l'impulsion de secours n'existe que pendant la recherche de seuil ; entre deux mesures, seule la marge de sécurité programmée protège le patient."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le Capture Management ventriculaire de Medtronic mesure le seuil une fois par jour, la nuit, en analysant la réponse évoquée. Pendant la recherche, chaque impulsion test est suivie d'une impulsion de secours, ce qui évite toute pause. L'amplitude est ensuite réglée pour 24 heures (seuil multiplié par la marge programmée, sans descendre sous l'amplitude minimale programmée), sans contrôle battement par battement. C'est une différence importante avec les systèmes à vérification cycle à cycle, comme l'AutoCapture d'Abbott. Chez un dialysé, la kaliémie, la calcémie et l'équilibre acido-basique varient au fil de la journée, et le seuil avec eux : la mesure nocturne peut ne pas refléter le seuil d'avant la séance. Chez ce patient dépendant, mieux vaut programmer une amplitude fixe avec une marge large, au prix d'une consommation plus élevée.",
+    "aRetenir": "Capture Management Medtronic : mesure quotidienne et adaptation pour 24 h, sans vérification cycle à cycle ; si le seuil fluctue (dialyse), programmer une sortie fixe avec large marge.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ellenbogen K, Koneru J, Ploux S. Encyclopédie Medtronic — des fondamentaux à l'expertise : stimulateur cardiaque, défibrillateur, resynchronisation, Holter implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Medtronic. Manuel de référence (Reference Manual) des stimulateurs cardiaques double chambre (plateformes Adapta/Advisa/Azure) — bibliothèque officielle des manuels techniques Medtronic"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mdt-015",
+    "theme": "programmation",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "Medtronic",
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Stimulateur double chambre Medtronic programmé en DDD, sans asservissement, chez un patient en BAV complet. Vrai ou faux : lors d'une commutation de mode sur FA, le boîtier passe en DDIR, avec un asservissement de fréquence actif pendant l'épisode.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : chez Medtronic, le mode de repli est DDIR, même si le mode programmé n'est pas asservi ; les paramètres du capteur (dont la fréquence maximale asservie) s'appliquent alors.",
+      "Faux : le repli ne se fait pas en DDI à fréquence fixe ; le boîtier active l'asservissement pendant la commutation."
+    ],
+    "reponseAttendue": null,
+    "explication": "Lors d'une commutation de mode, les stimulateurs Medtronic passent en DDIR, que le mode programmé soit DDD ou DDDR. C'est logique chez un patient en BAV complet : en FA, le suivi atrial est suspendu et, sans capteur, la fréquence ventriculaire resterait fixée à la fréquence de base, au repos comme à l'effort. En pratique, la fréquence maximale asservie affichée sur un boîtier programmé en DDD n'est pas inutile : c'est elle qui plafonne la stimulation pendant les épisodes de repli. Les histogrammes de fréquence ventriculaire d'un patient en FA persistante montrent ainsi une répartition de fréquences plausible malgré l'absence d'asservissement programmé. Si la FA devient permanente et qu'une stratégie de contrôle de fréquence est retenue, un passage en VVIR se discute.",
+    "aRetenir": "Mode switch Medtronic = repli en DDIR, asservi même si le mode programmé est DDD : les paramètres du capteur comptent aussi chez les patients non asservis.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ellenbogen K, Koneru J, Ploux S. Encyclopédie Medtronic — des fondamentaux à l'expertise : stimulateur cardiaque, défibrillateur, resynchronisation, Holter implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Medtronic. Manuel de référence (Reference Manual) des stimulateurs cardiaques double chambre (plateformes Adapta/Advisa/Azure) — bibliothèque officielle des manuels techniques Medtronic"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mdt-017",
+    "theme": "telecardio",
+    "sousTheme": "Holter implantable",
+    "marque": "Medtronic",
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Transmission CareLink d'un Reveal LINQ implanté pour syncopes : plusieurs épisodes « Tachy » asymptomatiques. Sur l'ECG sous-cutané, l'onde T est comptée comme un second événement uniquement sur les cycles où l'onde R est de faible amplitude (graphe des intervalles en « rail »). Quelle modification de programmation est la plus appropriée ?",
+    "options": [
+      "Programmer une sensibilité plus fine (valeur en mV plus basse)",
+      "Activer le rejet ectopique en mode agressif",
+      "Allonger le blanking post-détection et le délai avant décroissance du seuil",
+      "Raccourcir la durée de pause programmée à 1,5 s"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : rendre l'appareil plus sensible favoriserait encore la détection de l'onde T.",
+      "Faux : le rejet ectopique et la recherche d'ondes P limitent les faux diagnostics de FA liés aux extrasystoles, pas le double comptage R-T.",
+      "Juste : l'onde T tombe alors dans le blanking ou pendant le plateau du seuil de détection, avant que la sensibilité n'augmente.",
+      "Faux : ce paramètre concerne la détection des pauses et augmenterait au contraire le nombre de fausses alertes."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le Reveal LINQ utilise un seuil de détection adaptatif : après chaque onde R détectée vient un blanking programmable, puis un seuil fixé à une fraction de l'amplitude de cette onde R, maintenu pendant un délai programmable avant de décroître vers la sensibilité maximale. Quand l'onde R est petite, le seuil de départ est bas et l'onde T, d'amplitude stable, le franchit : le graphe prend un aspect en « rail » (alternance RT courts et TR longs). Ce phénomène est plus fréquent à l'effort, quand l'onde R diminue. Allonger le blanking post-détection et le délai avant décroissance du seuil supprime le plus souvent ce double comptage. Il faut ensuite vérifier que les tachycardies rapides et les ondes R de petite amplitude restent bien détectées. Ces faux épisodes saturent les mémoires et la file d'alertes : les relire et adapter la programmation fait partie du suivi à distance.",
+    "aRetenir": "Faux « Tachy » sur Reveal LINQ par surdétection de l'onde T : allonger le blanking et le délai avant décroissance du seuil, puis vérifier la détection des vrais événements.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ellenbogen K, Koneru J, Ploux S. Encyclopédie Medtronic — des fondamentaux à l'expertise : stimulateur cardiaque, défibrillateur, resynchronisation, Holter implantable. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Medtronic. Reveal LINQ / LINQ II — manuel du clinicien (Clinician Manual), bibliothèque officielle des manuels techniques Medtronic"
+      },
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      }
+    ],
+    "reco": [
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  }
+]
