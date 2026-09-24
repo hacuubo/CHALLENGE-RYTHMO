@@ -105,7 +105,7 @@ export function vueSimulateur(app) {
 
   function nouveauCoeur() {
     const id = st.scenario;
-    st.coeur = new Coeur(SCENARIOS[id].def(), { variation: st.mystere ? 0.05 : 0 });
+    st.coeur = new Coeur(SCENARIOS[id].def(), { variation: st.mystere ? Math.min(0.05, SCENARIOS[id].variation ?? 1) : 0 });
     st.coeur.avancer(2500);
     st.t = 2500; st.fige = false; st.recul = 0; st.curseurs = null; st.salve = null; st.figerA = null; st.repondu = false;
     $('#figer').textContent = 'Figer'; $('#salve').textContent = 'Salve à S1';

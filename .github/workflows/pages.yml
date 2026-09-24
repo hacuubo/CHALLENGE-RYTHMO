@@ -31,6 +31,7 @@ jobs:
         run: |
           node tests/simulateur.mjs
           GRAINE=13 VARIATION=0.05 node tests/simulateur.mjs
+          GRAINE=21 VARIATION=0.05 node tests/simulateur.mjs
       - name: Vérifier que index.json et la version du cache sont à jour
         run: |
           node scripts/build-index.mjs

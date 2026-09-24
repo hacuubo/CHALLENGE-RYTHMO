@@ -1,11 +1,12 @@
 // Mesures automatiques sur le journal d'activations : cycles, intervalles AH / HV / VA, détection d'une tachycardie.
-import { SITES_VENTRICULAIRES } from './moteur.js';
+// sites dont l'activation fait le QRS (la cicatrice, de faible masse, n'en fait pas partie)
+const SITES_QRS = ['vsep', 'vbd', 'vps', 'rva', 'lvl'];
 
 // Débuts de complexes ventriculaires (première activation ventriculaire de chaque battement).
 export function battementsV(journal, t0 = -Infinity, t1 = Infinity) {
   const r = [];
   for (const x of journal) {
-    if (x.t < t0 || x.t > t1 || !SITES_VENTRICULAIRES.includes(x.s)) continue;
+    if (x.t < t0 || x.t > t1 || !SITES_QRS.includes(x.s)) continue;
     if (!r.length || x.t - r.at(-1) > 120) r.push(x.t);
   }
   return r;
