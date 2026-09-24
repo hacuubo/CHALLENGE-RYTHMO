@@ -11,6 +11,7 @@ import { vueProgression } from './vues/progression.js';
 import { vueFiches } from './vues/fiches.js';
 import { vueAPropos } from './vues/apropos.js';
 import { vueCompetitif } from './vues/competitif.js';
+import { vueSimulateur, arreterSimulateur } from './vues/simulateur.js';
 
 const app = document.getElementById('app');
 
@@ -44,6 +45,7 @@ const vues = {
   fiches: () => vueFiches(app, ctx),
   apropos: () => vueAPropos(app),
   competitif: () => vueCompetitif(app, ctx),
+  simulateur: () => vueSimulateur(app),
 };
 
 function aller(vue) {
@@ -56,6 +58,7 @@ function rendre(vue) {
   if (vue === 'quiz' && (!s || s.fini)) vue = 'accueil';
   if (vue === 'resultats' && !s) vue = 'accueil';
   if (vue !== 'quiz') arreterQuiz();
+  if (vue !== 'simulateur') arreterSimulateur();
   document.querySelectorAll('[data-nav]').forEach(b => b.classList.toggle('actif', b.dataset.nav === vue || (vue === 'quiz' && b.dataset.nav === (s?.competitif ? 'competitif' : 'accueil')) || (vue === 'config' && b.dataset.nav === 'accueil')));
   vues[vue]();
   app.focus({ preventScroll: true });

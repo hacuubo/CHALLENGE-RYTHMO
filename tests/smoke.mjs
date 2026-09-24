@@ -154,6 +154,26 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.waitForSelector('.sources-liste');
   });
 
+  await verifier(`${appareil} : simulateur d'électrophysiologie`, async () => {
+    await nav('accueil');
+    await page.click('.carte-simu');
+    await page.waitForSelector('#ecran');
+    await page.selectOption('#scenario', 'trin');
+    await page.uncheck('#figer-apres');
+    await page.fill('#s2', '320'); await page.dispatchEvent('#s2', 'change');
+    await page.click('#stimuler');
+    await page.waitForFunction(() => /Tachycardie/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 15000 });
+    await capture('simulateur');
+    await page.click('#adenosine');
+    await page.waitForFunction(() => !/Tachycardie/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 15000 });
+    await page.selectOption('#scenario', 'mystere');
+    await page.selectOption('#reponse', 'trav');
+    await page.click('#valider');
+    await page.waitForSelector('#verdict .retour');
+    await page.click('#ecran', { position: { x: 200, y: 100 } });
+    await page.waitForFunction(() => /Figé/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 3000 });
+  });
+
   await verifier(`${appareil} : tous les tracés synthétiques (ECG et EGM) se dessinent`, async () => {
     const r = await page.evaluate(async () => {
       const { dessinerECG } = await import('./js/ecg.js');

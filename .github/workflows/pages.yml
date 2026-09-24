@@ -27,6 +27,10 @@ jobs:
         run: node scripts/validate.mjs
       - name: Contrôler les biais des propositions (longueur, QCM, vrai/faux)
         run: STRICT=1 node scripts/audit-biais.mjs
+      - name: Banc d'essai du simulateur d'électrophysiologie
+        run: |
+          node tests/simulateur.mjs
+          GRAINE=13 VARIATION=0.05 node tests/simulateur.mjs
       - name: Vérifier que index.json et la version du cache sont à jour
         run: |
           node scripts/build-index.mjs
