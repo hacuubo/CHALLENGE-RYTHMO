@@ -6,11 +6,14 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
 
 ## Fonctionnalités
 
-- **819 questions** réparties en 4 thèmes et 41 sous-thèmes :
+- **970 questions** réparties en 4 thèmes :
   - ECG (troubles de conduction, tachycardies, ECG du patient stimulé) — avec **tracés générés** dans l'application
     et **61 vrais ECG 12 dérivations** (base PTB-XL, PhysioNet, CC BY 4.0), **compas de mesure** et plein écran ;
   - Programmation PM / DAI / CRT : principes génériques et algorithmes propres à **Medtronic, Abbott, Boston Scientific, Biotronik, MicroPort** ;
   - Alertes de télécardiologie : triage, conduite à tenir, organisation, cadre français ;
+  - **Lecture d'EGM de boîtier** (151 questions, 98 sur tracé) : épisodes de télésurveillance, consultation de stimulateur,
+    épisodes de défibrillateur, Holter implantable — EGM A, EGM VD, EGM de choc ou champ lointain et canal de marqueurs,
+    centrés sur les pièges de la pratique courante ;
   - Électrophysiologie : mécanismes, EEP, ablation, antiarythmiques.
 - **Types de questions** : QCU, QCM, vrai/faux, questions ouvertes (avec auto-évaluation).
 - **Difficulté de 1 à 10** sur chaque question ; filtre libre (« entre 1 et 3 », « au-dessus de 3 », « 7 à 10 »…).

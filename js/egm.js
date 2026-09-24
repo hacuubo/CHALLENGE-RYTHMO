@@ -304,7 +304,12 @@ const presets = {
       if (echeance < p.t && echeance < S.duree) {
         // la fréquence de base arrive à échéance avant la prochaine P détectée : stimulation atriale
         const refractaire = sinus.some(q => q.t < echeance && echeance - q.t < 250); // oreillette encore réfractaire
-        if (refractaire) S.spike('A', echeance); else S.AP(echeance);
+        if (refractaire) S.spike('A', echeance);
+        else {
+          // AP capturé : le nœud sinusal est dépolarisé et repart un cycle sinusal plus tard
+          S.AP(echeance);
+          for (let j = k, t = echeance + rs; j < sinus.length; j++, t += rs) sinus[j].t = t;
+        }
         S.mk(echeance, 'AP', 'A'); dernierA = echeance;
         if (echeance + avAP < S.duree) { S.VP(echeance + avAP); S.mk(echeance + avAP, 'VP', 'V'); dernierV = echeance + avAP; }
         continue;
