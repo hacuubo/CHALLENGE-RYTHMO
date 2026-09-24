@@ -14,7 +14,7 @@ export function vueConfig(app, { demarrer }) {
   const niveauActif = NIVEAUX.find(n => n.min === cfg.min && n.max === cfg.max)?.id;
   const marquesVisibles = cfg.themes.includes('programmation') || cfg.themes.includes('telecardio');
   const nbAvances = cfg.marques.length + cfg.sousThemes.length + (cfg.types.length < 4 ? 1 : 0) + (cfg.priorite !== 'hasard' ? 1 : 0);
-  const niv = stock.niveau();
+  const niv = stock.classement();
 
   app.innerHTML = `
     <h1>Entraînement ciblé</h1>

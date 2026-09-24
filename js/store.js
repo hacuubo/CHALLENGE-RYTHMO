@@ -1,6 +1,6 @@
 // Persistance locale (localStorage) : progression, niveau estimé, réglages, série en cours.
 // - Répétition espacée simple par boîtes de Leitner (1 à 5).
-// - Niveau estimé de type Elo, global et par thème, converti en niveau de difficulté 1-10.
+// - Classement ELO du mode compétitif, sur l'échelle des échecs (départ 1200, K = 40 / 20 / 10).
 
 const CLE_PROGRES = 'rythmo.progres.v1';
 const CLE_CONFIG = 'rythmo.config.v2';
@@ -15,7 +15,7 @@ const ecrire = (cle, val) => { try { localStorage.setItem(cle, JSON.stringify(va
 
 const vide = () => ({
   q: {}, sessions: [], serie: { jour: null, compte: 0, record: 0 },
-  elo: { global: 1000, n: 0, themes: {} }, points: 0, badges: {}, compteurs: { ecgJustes: 0, meilleurCombo: 0 },
+  classement: { elo: 1200, n: 0, pic: 1200, jours: {} }, points: 0, badges: {}, compteurs: { ecgJustes: 0, meilleurCombo: 0 },
 });
 let cache = null;
 
@@ -23,26 +23,54 @@ export function progres() {
   if (!cache) {
     const brut = lire(CLE_PROGRES, {});
     const v = vide();
-    cache = { ...v, ...brut, serie: { ...v.serie, ...brut.serie }, elo: { ...v.elo, ...brut.elo }, compteurs: { ...v.compteurs, ...brut.compteurs } };
+    cache = { ...v, ...brut, serie: { ...v.serie, ...brut.serie }, classement: { ...v.classement, ...brut.classement }, compteurs: { ...v.compteurs, ...brut.compteurs } };
   }
   return cache;
 }
 const sauver = () => ecrire(CLE_PROGRES, cache);
 const aujourdhui = () => new Date().toLocaleDateString('sv'); // AAAA-MM-JJ local
 
-// ----- niveau estimé (Elo) -----
-export const eloQuestion = difficulte => 700 + difficulte * 60;
-export const niveauDepuisElo = r => Math.max(1, Math.min(10, Math.round((r - 700) / 60)));
-function majElo(ancien, rq, score, n) {
-  const attendu = 1 / (1 + 10 ** ((rq - ancien) / 400));
-  const k = n < 20 ? 48 : 24;
-  return ancien + k * (score - attendu);
+// ----- Classement ELO (mode compétitif) -----
+// Chaque question a une cote fixe tirée de sa difficulté : 1 → 800 (débutant) … 10 → 2600 (grand maître).
+// Répondre revient à jouer une partie contre la question : gain = 1, réponse fausse = 0.
+export const ELO_DEPART = 1200;
+export const eloQuestion = difficulte => 800 + (difficulte - 1) * 200;
+export const niveauDepuisElo = r => Math.max(1, Math.min(10, Math.round((r - 800) / 200) + 1));
+export const TITRES = [
+  { min: 0, nom: 'Débutant' }, { min: 1000, nom: 'Amateur' }, { min: 1400, nom: 'Joueur de club' },
+  { min: 1800, nom: 'Expert' }, { min: 2000, nom: 'Candidat maître' }, { min: 2200, nom: 'Maître' },
+  { min: 2400, nom: 'Maître international' }, { min: 2500, nom: 'Grand maître' },
+];
+export function titre(elo) {
+  let i = 0;
+  while (i + 1 < TITRES.length && elo >= TITRES[i + 1].min) i++;
+  return { ...TITRES[i], suivant: TITRES[i + 1] || null };
 }
-export function niveau(theme) {
-  const e = progres().elo;
-  const t = theme ? e.themes[theme] : null;
-  const r = t ? t.r : e.global;
-  return { elo: Math.round(r), niveau: niveauDepuisElo(r), n: t ? t.n : e.n };
+export function classement() {
+  const c = progres().classement;
+  const jour = c.jours[aujourdhui()];
+  const hier = Object.keys(c.jours).filter(j => j < aujourdhui()).sort().pop();
+  const reference = hier ? c.jours[hier].elo : ELO_DEPART;
+  return { elo: Math.round(c.elo), n: c.n, pic: Math.round(c.pic), titre: titre(c.elo), niveau: niveauDepuisElo(c.elo),
+    duJour: jour ? Math.round(c.elo - reference) : 0, partiesDuJour: jour ? jour.n : 0 };
+}
+// Coefficient K de la FIDE : 40 pour les 30 premières parties, 20 ensuite, 10 au-delà de 2400.
+const coefficientK = c => (c.n < 30 ? 40 : c.elo < 2400 ? 20 : 10);
+export function jouerCompetitif(q, score) {
+  const p = progres(), c = p.classement;
+  const avant = c.elo, rq = eloQuestion(q.difficulte);
+  const attendu = 1 / (1 + 10 ** ((rq - avant) / 400));
+  const delta = Math.round(coefficientK(c) * (score - attendu));
+  c.elo = Math.max(100, avant + delta); c.n++; c.pic = Math.max(c.pic, c.elo);
+  const j = aujourdhui();
+  const jour = c.jours[j] || { n: 0, gagnees: 0 };
+  jour.n++; if (score === 1) jour.gagnees++; jour.elo = c.elo;
+  c.jours[j] = jour;
+  sauver();
+  return { avant, apres: c.elo, delta, attendu };
+}
+export function historiqueElo() {
+  return Object.entries(progres().classement.jours).sort((a, b) => a[0].localeCompare(b[0])).map(([jour, v]) => ({ jour, ...v }));
 }
 
 // score : 1 juste, 0,5 partiel, 0 faux
@@ -55,12 +83,6 @@ export function noterReponse(q, score, { differe = false } = {}) {
   e.dernier = Date.now();
   e.dernierOk = juste;
   p.q[q.id] = e;
-
-  const rq = eloQuestion(q.difficulte);
-  p.elo.global = majElo(p.elo.global, rq, score, p.elo.n); p.elo.n++;
-  const t = p.elo.themes[q.theme] || { r: 1000, n: 0 };
-  t.r = majElo(t.r, rq, score, t.n); t.n++;
-  p.elo.themes[q.theme] = t;
 
   if (juste) { p.points += q.difficulte; if (q.ecg || q.ecg12 || q.egm) p.compteurs.ecgJustes++; }
 
@@ -77,7 +99,8 @@ export function noterReponse(q, score, { differe = false } = {}) {
 export function enregistrerSession(s) {
   const p = progres();
   const rep = s.reponses.filter(Boolean);
-  p.sessions.push({ date: Date.now(), titre: s.titre, n: rep.length, ok: rep.filter(r => r.juste).length, points: s.points, examen: !!s.examen });
+  p.sessions.push({ date: Date.now(), titre: s.titre, n: rep.length, ok: rep.filter(r => r.juste).length, points: s.points, examen: !!s.examen,
+    elo: s.competitif ? { debut: s.competitif.eloDebut, fin: p.classement.elo } : undefined });
   p.sessions = p.sessions.slice(-100);
   p.compteurs.meilleurCombo = Math.max(p.compteurs.meilleurCombo || 0, s.meilleurCombo || 0);
   const nouveaux = verifierBadges(s);
@@ -85,17 +108,7 @@ export function enregistrerSession(s) {
   return nouveaux;
 }
 
-// ----- badges et grades -----
-export const GRADES = [
-  { min: 0, nom: 'Externe' }, { min: 100, nom: 'Interne' }, { min: 400, nom: 'Docteur junior' },
-  { min: 1000, nom: 'Chef de clinique' }, { min: 2500, nom: 'Rythmologue' }, { min: 5000, nom: 'Expert EHRA' },
-  { min: 9000, nom: 'Légende de l\'EP' },
-];
-export function grade(points = progres().points) {
-  let i = 0;
-  while (i + 1 < GRADES.length && points >= GRADES[i + 1].min) i++;
-  return { ...GRADES[i], suivant: GRADES[i + 1] || null };
-}
+// ----- badges -----
 export const BADGES = [
   { id: 'premiere', ico: '🎬', nom: 'Première série', desc: 'Terminer une série' },
   { id: 'parfait', ico: '💯', nom: 'Sans faute', desc: '100 % sur une série d\'au moins 10 questions' },
@@ -105,7 +118,8 @@ export const BADGES = [
   { id: 'cinqcents', ico: '🏅', nom: 'Marathonien', desc: '500 questions différentes vues' },
   { id: 'ecg50', ico: '📈', nom: 'Œil d\'ECG', desc: '50 bonnes réponses sur des tracés' },
   { id: 'examen', ico: '⏱️', nom: 'Examen réussi', desc: 'Au moins 80 % en mode examen (10 questions ou plus)' },
-  { id: 'expert', ico: '🧠', nom: 'Niveau 8', desc: 'Atteindre un niveau estimé de 8' },
+  { id: 'club', ico: '♞', nom: 'Joueur de club', desc: 'Atteindre 1400 ELO en mode compétitif' },
+  { id: 'expert', ico: '♛', nom: 'Expert', desc: 'Atteindre 1800 ELO en mode compétitif' },
 ];
 function verifierBadges(s) {
   const p = progres(), b = p.badges, nouveaux = [];
@@ -120,7 +134,8 @@ function verifierBadges(s) {
   if (vus >= 500) gagner('cinqcents');
   if (p.compteurs.ecgJustes >= 50) gagner('ecg50');
   if (s.examen && rep.length >= 10 && ok / rep.length >= 0.8) gagner('examen');
-  if (niveauDepuisElo(p.elo.global) >= 8 && p.elo.n >= 30) gagner('expert');
+  if (p.classement.pic >= 1400) gagner('club');
+  if (p.classement.pic >= 1800) gagner('expert');
   return nouveaux;
 }
 

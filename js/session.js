@@ -8,7 +8,8 @@ const SECONDES_PAR_QUESTION_EXAMEN = 90;
 export function creer(questions, titre, opts = {}) {
   const s = {
     titre, questions, i: 0, reponses: [], points: 0, combo: 0, meilleurCombo: 0,
-    debut: Date.now(), fini: false, examen: !!opts.examen, adaptatif: opts.adaptatif || null,
+    debut: Date.now(), fini: false, examen: !!opts.examen,
+    competitif: opts.competitif ? { eloDebut: stock.classement().elo } : null,
   };
   if (s.examen) s.finPrevue = s.debut + questions.length * SECONDES_PAR_QUESTION_EXAMEN * 1000;
   etat.session = s;

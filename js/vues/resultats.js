@@ -15,7 +15,7 @@ export function vueResultats(app, { demarrer }) {
   for (const { q, r } of vues) { (parTheme[q.theme] ??= { n: 0, ok: 0 }).n++; if (r?.juste) parTheme[q.theme].ok++; }
   const erreurs = vues.filter(x => !x.r?.juste);
   const msg = score >= 90 ? 'Excellent, niveau expert !' : score >= 70 ? 'Très bien, continuez comme ça.' : score >= 50 ? 'Bon début, les révisions feront le reste.' : 'Chaque erreur est une occasion d\'apprendre.';
-  const niv = stock.niveau();
+  const c = s.competitif ? stock.classement() : null;
   const badges = etat.nouveauxBadges || [];
   etat.nouveauxBadges = [];
 
@@ -26,7 +26,8 @@ export function vueResultats(app, { demarrer }) {
       <h1>${esc(s.titre)} — terminé</h1>
       <div class="score-rond" style="--p:${score}"><div>${score} %</div></div>
       <p><b>${justes}/${vues.length}</b> bonnes réponses · <b>${s.points}</b> points${s.examen ? ` · durée ${duree(Date.now() - s.debut)}` : ` · meilleure série : <b>${s.meilleurCombo}</b>`}</p>
-      <p class="note">${msg}${niv.n >= 5 ? ` Niveau estimé : <b>${niv.niveau}/10</b>.` : ''}</p>
+      ${c ? `<p class="elo-bilan">ELO ${s.competitif.eloDebut} → <b>${c.elo}</b> <span class="delta ${c.elo - s.competitif.eloDebut >= 0 ? 'plus' : 'moins'}">${c.elo - s.competitif.eloDebut >= 0 ? '+' : ''}${c.elo - s.competitif.eloDebut}</span> · ${esc(c.titre.nom)}</p>` : ''}
+      <p class="note">${msg}</p>
       ${badges.length ? `<div class="nouveaux-badges">${badges.map(b => `<div class="badge-gagne"><span>${b.ico}</span><b>${esc(b.nom)}</b><small>${esc(b.desc)}</small></div>`).join('')}</div>` : ''}
     </section>
     <section class="carte"><h2>Par thème</h2><div class="barres">
