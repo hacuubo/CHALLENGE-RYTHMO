@@ -20,13 +20,22 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
 - **Difficulté de 1 à 10** sur chaque question ; filtre libre (« entre 1 et 3 », « au-dessus de 3 », « 7 à 10 »…).
 - **Écran d'accueil** : Entraînement (Stimulation/DAI/télécardio, ECG, Électrophysiologie, Tout venant), Compétitif
   (avec l'ELO en cours), Simulateur d'électrophysiologie, Fiches, Progression, Sources.
-- **Simulateur d'électrophysiologie** : DII, V1, OD haute, paroi latérale de l'OD, isthme cavo-tricuspide, His, sinus coronaire (9-10 → 1-2) et VD apex en temps réel ;
-  stimulateur (site, train S1, extrastimulus S2-S4, couplage à la détection, salve), adénosine, choc, ablation par
-  radiofréquence, compas et retour en arrière. Scénarios : conduction normale, double voie nodale, TRIN typique et
-  atypique, TRAV orthodromique sur voie cachée, WPW, tachycardie atriale focale, flutter atrial typique isthme-dépendant, et **cas mystères** à diagnostiquer.
-  Le cœur est un réseau de sites et de voies de conduction (délais décrémentiels, périodes réfractaires) : les réentrées
-  et les réponses aux manœuvres (ESV His-réfractaire, V-A-V / V-A-A-V, PPI − TCL) émergent du modèle. Concept inspiré de
-  svtsim (S. Iravanian), code original.
+- **Simulateur d'électrophysiologie** : une baie d'EEP en temps réel.
+  - Baie : vitesse de défilement en mm/s (12,5 à 400), balayage avec barre d'effacement ou défilement, D1, D2, aVF, V1, V6,
+    OD haute, Halo, His proximal et distal, sinus coronaire décapolaire, VD apex, sonde d'ablation (bipolaire et unipolaire),
+    montages, gain par voie, bruit, relecture sur 40 s, jusqu'à trois compas avec report.
+  - Stimulateur : site, sortie en mA, trains S1 à S4, décrément automatique, rampe, salve, couplage à la détection,
+    stimulation para-hisienne ; isoprénaline, atropine, adénosine, choc ; sonde d'ablation déplaçable (cartographie) et
+    radiofréquence ; journal des événements.
+  - Physiologie : conduction décrémentielle avec Wenckebach nodal, freinage sinusal (TRS), branches droite et gauche
+    (aberration, saut V-H, signe de Coumel), réfractarité dépendante du cycle, variabilité.
+  - 17 scénarios : conduction normale, double voie nodale, TRIN typique, atypique et avec 2:1 infra-hisien, TRAV sur voie
+    latérale gauche ou postéro-septale, Coumel, PJRT, WPW (et FA préexcitée), Mahaim, TA focale, tachycardie jonctionnelle,
+    flutter typique et péri-mitral, FA, TV sur cicatrice.
+  - Cas mystères avec contexte clinique, notation de la démarche (diagnostic, manœuvres clés, traitement) et débriefing
+    avec les mesures de vos manœuvres (réponse à l'entraînement, PPI − TCL, effet de l'ESV His-réfractaire).
+  - 17 questions « tracé d'EEP » générées par le moteur, rejouées à l'identique dans le quiz.
+  Les réentrées et les réponses aux manœuvres émergent du modèle. Concept inspiré de svtsim (S. Iravanian), code original.
 - **Mode compétitif** : classement **ELO des échecs** (départ 1200, formule FIDE, K = 40 puis 20, 10 au-delà de 2400).
   Chaque question a une cote tirée de sa difficulté (niveau 1 = 800 … niveau 10 = 2600) ; les questions s'enchaînent
   sans fin, choisies juste au-dessus de votre classement. Titres de « Débutant » à « Grand maître ».
@@ -62,8 +71,10 @@ Sur mobile, ouvrir l'adresse du site puis « Ajouter à l'écran d'accueil » po
   Les nouvelles questions sont signalées automatiquement aux utilisateurs (« N nouvelles questions »).
 - Aperçu de tous les tracés ECG disponibles : `tests/ecg-galerie.html`.
 - Test de l'interface : `node tests/smoke.mjs` (Playwright/Chromium ; lancé aussi en CI).
-- Banc d'essai du simulateur : `node tests/simulateur.mjs` (induction, manœuvres, adénosine, ablation pour chaque scénario ;
-  `GRAINE=13 VARIATION=0.05` pour tester des paramètres individualisés ; lancé aussi en CI).
+- Banc d'essai du simulateur : `node tests/simulateur.mjs` (physiologie de base, induction, manœuvres, adénosine, ablation pour chaque
+  scénario ; `GRAINE=13 VARIATION=0.05` pour des paramètres individualisés ; lancé aussi en CI).
+- Questions de tracés du simulateur : `node scripts/gen-questions-simu.mjs` les régénère ; `--verifier` (en CI) échoue si le moteur
+  a changé sans régénération.
 
 ### Se tenir à jour
 
