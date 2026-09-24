@@ -45,7 +45,8 @@ function composantesSurface(journal, t0, t1) {
   for (const p of grouper(journal, ATRIUM, t0 - 300, t1, 110)) {
     const dur = p.fin - p.debut, c = p.debut + dur / 2 + 20, s = (dur + 70) / 4;
     const haut = ['sa', 'hra'].includes(p.premier), gauche = ['cs1', 'cs3', 'cs5'].includes(p.premier);
-    add('II', c, s, haut ? 0.16 : gauche ? 0.07 : -0.15);
+    // P : positive en DII si origine haute, négative si origine basse (septale ou anneau mitral inféro-latéral)
+    add('II', c, s, haut ? 0.16 : p.premier === 'cs1' ? 0.04 : gauche ? -0.08 : -0.15);
     add('V1', c - s * 0.4, s * 0.6, gauche ? 0.14 : 0.08);
     add('V1', c + s * 0.5, s * 0.6, gauche ? 0.06 : haut ? -0.05 : -0.1);
   }

@@ -56,7 +56,7 @@ export const SCENARIOS = {
       { id: 'rapide', a: 'ras', b: 'his', nodale: true, ab: nod(70, 60, 80, 330), ba: nod(45, 40, 80, 250) },
       { id: 'lente', a: 'cs9', b: 'his', nodale: true, ab: nod(190, 120, 90, 240), ba: null }),
     cible: 'lente',
-    explication: `Réentrée intranodale typique : descente par la voie lente (saut d'AH à l'induction), remontée par la voie rapide. VA très court (A et V quasi simultanés, VA mesuré sur le His < 70 ms), activation atriale rétrograde concentrique, la plus précoce sur le His. Une ESV délivrée quand le His est réfractaire ne modifie pas l'atrium. Après entraînement ventriculaire : réponse V-A-V, PPI − TCL > 115 ms. L'adénosine l'arrête. Traitement : ablation de la voie lente.`,
+    explication: `Réentrée intranodale typique : descente par la voie lente (saut d'AH à l'induction), remontée par la voie rapide. VA très court (A et V quasi simultanés, VA (début du QRS → A le plus précoce, ici au His) < 70 ms), activation atriale rétrograde concentrique, la plus précoce sur le His. Une ESV délivrée quand le His est réfractaire ne modifie pas l'atrium. Après entraînement ventriculaire : réponse V-A-V, PPI − TCL > 115 ms et SA − VA > 85 ms. L'adénosine l'arrête. Traitement : ablation de la voie lente.`,
   },
   'trin-atyp': {
     nom: 'TRIN atypique (rapide-lente)',
@@ -72,7 +72,7 @@ export const SCENARIOS = {
     court: 'Tachycardie orthodromique sur voie accessoire cachée',
     def: () => avec(base(), { id: 'vacc', a: 'cs1', b: 'lvl', ab: { bloc: true, erp: 150 }, ba: { d: 30, erp: 150 } }),
     cible: 'vacc',
-    explication: `Voie accessoire latérale gauche à conduction exclusivement rétrograde (cachée) : pas de préexcitation. Tachycardie orthodromique : descente par le nœud AV, remontée par la voie accessoire. Activation atriale excentrique, la plus précoce en SC distal (1-2), VA > 70 ms. Une ESV délivrée quand le His est réfractaire avance l'atrium : preuve d'une voie accessoire. Entraînement ventriculaire : V-A-V avec PPI − TCL < 115 ms. Ablation de la voie accessoire sur l'anneau mitral latéral.`,
+    explication: `Voie accessoire latérale gauche à conduction exclusivement rétrograde (cachée) : pas de préexcitation. Tachycardie orthodromique : descente par le nœud AV, remontée par la voie accessoire. Activation atriale excentrique, la plus précoce en SC distal (1-2), VA > 70 ms. Une ESV délivrée quand le His est réfractaire avance l'atrium : preuve d'une voie accessoire. Entraînement ventriculaire : V-A-V ; ici PPI − TCL < 115 ms, mais ce critère est validé pour les voies septales : une voie latérale gauche, loin du site de stimulation, peut donner un PPI − TCL > 115 ms. Ablation de la voie accessoire sur l'anneau mitral latéral.`,
   },
   wpw: {
     nom: 'Syndrome de Wolff-Parkinson-White (voie latérale gauche)',
@@ -91,7 +91,7 @@ export const SCENARIOS = {
       return d;
     },
     cible: 'foyer',
-    explication: `Foyer atrial à activité déclenchée, près du SC 3-4 (oreillette gauche) : la tachycardie démarre après une salve de stimulation atriale rapide, activation atriale excentrique. Après arrêt de l'entraînement ventriculaire (avec conduction rétrograde 1:1) : réponse V-A-A-V. Sous adénosine, la tachycardie continue malgré le bloc AV (dissociation), ce qui exclut une réentrée utilisant le nœud AV. Ablation du foyer.`,
+    explication: `Tachycardie atriale focale, foyer près du SC 3-4 (oreillette gauche) : induite par une salve de stimulation atriale rapide, activation atriale excentrique. Après arrêt de l'entraînement ventriculaire (avec conduction rétrograde 1:1) : réponse V-A-A-V. Sous adénosine, la tachycardie persiste malgré le bloc AV (dissociation), ce qui exclut une réentrée utilisant le nœud AV. Attention : certaines TA focales (activité déclenchée) sont arrêtées par l'adénosine ; un arrêt sous adénosine n'exclut donc pas une TA. Ablation du foyer.`,
   },
 };
 
@@ -107,8 +107,8 @@ export const SITES_STIM = [
 ];
 export const SITES_DETECTION = [{ id: '', nom: 'Aucune' }, { id: 'hra', nom: 'OD haute' }, { id: 'his', nom: 'His' }, { id: 'rva', nom: 'VD apex' }];
 export const CIBLES_ABLATION = [
-  { id: 'lente', nom: 'Triangle de Koch postérieur (voie lente)' },
-  { id: 'rapide', nom: 'Région antéro-septale (voie rapide)' },
+  { id: 'lente', nom: 'Partie basse du triangle de Koch, entre l\'ostium du SC et l\'anneau tricuspide (voie lente)' },
+  { id: 'rapide', nom: 'Région antéro-septale, près du His (voie rapide)' },
   { id: 'vacc', nom: 'Anneau mitral latéral' },
   { id: 'foyer', nom: 'Oreillette gauche, en regard du SC 3-4' },
 ];
