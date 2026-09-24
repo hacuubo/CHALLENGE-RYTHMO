@@ -54,3 +54,29 @@ export function sitePlusPrecoce(journal, t0, t1) {
   for (const x of journal) if (x.t >= t0 && x.t <= t1 && sites.includes(x.s) && (!best || x.t < best.t)) best = x;
   return best?.s ?? null;
 }
+
+// Analyse d'un entraînement (salve arrêtée à l'instant der, au cycle cl, depuis le site stimulé) :
+// réponse (V-A-V ou V-A-A-V pour un entraînement ventriculaire), PPI mesuré sur le site stimulé, PPI − TCL.
+export function analyserEntrainement(coeur, { der, site, tcl, ventriculaire }) {
+  const j = coeur.journal;
+  const ppiT = activations(j, site === 'parahis' ? 'vbd' : site, der + 1, der + 3000)[0];
+  const r = { ppi: ppiT != null ? Math.round(ppiT - der) : null, pptcl: ppiT != null && tcl ? Math.round(ppiT - der - tcl) : null, reponse: null };
+  if (ventriculaire) {
+    const Aent = j.find(x => x.s === 'hra' && x.r === `stim:${der}`)?.t;
+    if (Aent != null) {
+      const V = battementsV(j, Aent + 1, Aent + 1500).filter(v => !coeur.stims.some(s => Math.abs(s.t - v) < 5));
+      const A = activations(j, 'hra', Aent + 5, Aent + 1500);
+      if (A.length && V.length) r.reponse = A[0] < V[0] ? 'V-A-A-V' : 'V-A-V';
+    } else r.reponse = 'atrium non entraîné (pas de conduction rétrograde 1:1)';
+  }
+  return r;
+}
+
+// Effet d'une ESV délivrée à l'instant te pendant une tachycardie de cycle tcl : avance (> 0) ou retard de l'atrium suivant.
+export function analyserESV(coeur, te, tcl) {
+  const A = activations(coeur.journal, 'hra', te - tcl - 50, te + 1.5 * tcl);
+  if (A.length < 2) return null;
+  const ecartsA = A.slice(1).map((x, i) => x - A[i]);
+  const avance = tcl - Math.min(...ecartsA), retard = Math.max(...ecartsA) - tcl;
+  return Math.round(avance > 5 || avance >= retard ? avance : -retard);
+}

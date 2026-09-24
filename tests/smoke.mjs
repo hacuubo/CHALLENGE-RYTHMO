@@ -171,7 +171,7 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.click('#valider');
     await page.waitForSelector('#verdict .retour');
     await page.click('#ecran', { position: { x: 200, y: 100 } });
-    await page.waitForFunction(() => /Figé/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 3000 });
+    await page.waitForFunction(() => /Relecture/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 3000 });
   });
 
   await verifier(`${appareil} : tous les tracés synthétiques (ECG et EGM) se dessinent`, async () => {

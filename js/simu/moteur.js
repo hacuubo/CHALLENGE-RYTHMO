@@ -243,11 +243,10 @@ export class Coeur {
   }
 
   // Ablation d'une cible : voie (par identifiant) ou site automatique. Renvoie ce qui a été détruit.
-  ablater(cible, t = this.t) {
-    const touchees = [];
-    for (const v of this.voies) if (!v.coupee && (v.id === cible || (cible === 'rapide' && v.id === 'nav'))) { v.coupee = true; touchees.push(v.id); }
-    const s = this.sites[cible];
-    if (s && !s.supprime) { s.supprime = true; touchees.push(cible); }
+  ablater(cibles, t = this.t) {
+    const liste = [].concat(cibles), touchees = [];
+    for (const v of this.voies) if (!v.coupee && (liste.includes(v.id) || (liste.includes('rapide') && v.id === 'nav'))) { v.coupee = true; touchees.push(v.id); }
+    for (const c of liste) { const s = this.sites[c]; if (s && !s.supprime) { s.supprime = true; touchees.push(c); } }
     this.evenements.push({ t, texte: `Radiofréquence : ${touchees.length ? 'lésion efficace' : 'pas de tissu arythmogène ici'}` });
     return touchees;
   }
