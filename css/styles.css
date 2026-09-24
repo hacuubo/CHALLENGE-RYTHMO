@@ -340,3 +340,43 @@ details.avance > summary { cursor: pointer; font-weight: 700; margin-bottom: 12p
 .tableau-elo table { width: 100%; border-collapse: collapse; font-size: .88rem; margin-top: 8px; font-variant-numeric: tabular-nums; }
 .tableau-elo th, .tableau-elo td { border-bottom: 1px solid var(--bord); padding: 5px 4px; text-align: left; }
 .defile-x { overflow-x: auto; }
+
+/* ---------- Simulateur d'électrophysiologie ---------- */
+:root {
+  --simu-fond: #0b1118; --simu-grille: #17222d; --simu-grille-2: #26384a; --simu-texte: #9fb2c1; --simu-surface: #e8eef3;
+  --simu-od: #ff7aa8; --simu-his: #ffd24a; --simu-sc: #4fd08b; --simu-vd: #b99bff; --simu-stim: #ff5d5d; --simu-curseur: #5ec8ff;
+}
+.simu-tete { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: end; justify-content: space-between; }
+.simu-champ { display: flex; flex-direction: column; gap: 4px; font-size: .85rem; color: var(--texte-2); min-width: 0; }
+.simu-champ.large { flex: 1 1 260px; }
+.simu-champ select, .simu-champ input { font: inherit; font-size: .95rem; color: var(--texte); background: var(--surface); border: 1px solid var(--bord); border-radius: 8px; padding: 7px 8px; min-width: 0; }
+.simu-champ input[type=number] { width: 5.5em; }
+.simu-mesures { display: flex; flex-wrap: wrap; gap: 6px 14px; font-variant-numeric: tabular-nums; font-size: .9rem; color: var(--texte-2); }
+.simu-mesures b { color: var(--texte); font-size: 1rem; }
+.simu-ecran { position: relative; margin: 12px 0; }
+.simu-ecran canvas { display: block; width: 100%; border-radius: 10px; touch-action: none; cursor: crosshair; }
+.simu-etat { position: absolute; top: 6px; right: 10px; font-size: .8rem; font-weight: 700; color: #ffd24a; pointer-events: none; text-align: right; }
+.simu-message:empty { display: none; }
+.simu-message { margin-top: 8px; padding: 8px 12px; border-radius: 8px; background: var(--info-fond); font-size: .9rem; }
+.simu-recul { display: flex; gap: 10px; align-items: center; margin-top: 8px; font-size: .85rem; color: var(--texte-2); }
+.simu-recul input { width: min(320px, 60vw); }
+.simu-aide-compas { margin: 6px 0 0; }
+.simu-commandes { display: grid; gap: 14px; }
+@media (min-width: 900px) { .simu-commandes { grid-template-columns: 1.4fr 1fr; } .simu-commandes fieldset:last-child { grid-column: 1 / -1; } }
+.simu-commandes fieldset { border: 1px solid var(--bord); border-radius: 10px; padding: 10px 12px 12px; margin: 0; min-width: 0; }
+.simu-commandes legend { font-weight: 700; padding: 0 6px; }
+.simu-ligne { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; margin-bottom: 10px; }
+.simu-case { display: flex; gap: 8px; align-items: center; font-size: .9rem; margin: 4px 0 10px; }
+.actions.gauche { justify-content: flex-start; flex-wrap: wrap; }
+.btn-danger { border-color: var(--ko); color: var(--ko); }
+.simu-guide summary { cursor: pointer; }
+.simu-guide li { margin: 6px 0; }
+.carte-simu { display: flex; gap: 14px; align-items: center; width: 100%; text-align: left; border: 1px solid var(--bord); background: var(--surface); color: var(--texte);
+  border-radius: var(--rayon); padding: 14px 16px; cursor: pointer; font: inherit; box-shadow: var(--ombre); }
+.carte-simu:hover { border-color: var(--primaire-2); }
+.carte-simu .ico { font-size: 1.8rem; }
+.carte-simu small { display: block; color: var(--texte-2); margin-top: 2px; }
+.simu-recul[hidden] { display: none; }
+.simu-outils { margin-top: 10px; }
+.simu-outils .btn { padding: 9px 14px; }
+@media (max-width: 480px) { .simu-outils { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; } .simu-outils .btn { padding: 9px 4px; font-size: .9rem; } }

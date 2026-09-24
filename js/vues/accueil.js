@@ -1,4 +1,4 @@
-// Accueil : un écran simple — Entraînement (par domaine), Compétitif (classement ELO), Fiches, Progression, Sources.
+// Accueil : un écran simple — Entraînement (par domaine), Compétitif (classement ELO), Simulateur EP, Fiches, Progression, Sources.
 import * as stock from '../store.js';
 import { DOMAINES, base } from '../donnees.js';
 import { resumeSauve } from '../session.js';
@@ -37,6 +37,12 @@ export function vueAccueil(app, { demarrer, reprendre, aller }) {
         <span class="elo-texte">Questions en continu : plus votre classement monte, plus elles sont difficiles.</span>
         <span class="btn btn-primaire">Jouer</span>
       </button>
+    </section>
+
+    <section class="bloc-accueil">
+      <h2>Simulateur</h2>
+      <button class="carte-simu" data-nav="simulateur"><span class="ico">🫀</span><span><strong>Simulateur d'électrophysiologie</strong>
+        <small>Stimulez, induisez la tachycardie, faites les manœuvres, diagnostiquez et ablatez. Cas mystères.</small></span></button>
     </section>
 
     <section class="bloc-accueil grille-menu">
