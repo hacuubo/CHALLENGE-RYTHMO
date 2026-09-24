@@ -37,7 +37,7 @@ class Tas {
 // variation gaussienne (Box-Muller) pour personnaliser légèrement un scénario
 const gauss = (alea) => { let u = 0, v = 0; while (!u) u = alea(); while (!v) v = alea(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); };
 
-export const SITES_ATRIAUX = ['sa', 'hra', 'ras', 'cs9', 'cs7', 'cs5', 'cs3', 'cs1', 'foyer'];
+export const SITES_ATRIAUX = ['sa', 'hra', 'lath', 'latb', 'cti', 'ras', 'cs9', 'cs7', 'cs5', 'cs3', 'cs1', 'foyer'];
 export const SITES_VENTRICULAIRES = ['vsep', 'rva', 'lvl'];
 
 export class Coeur {

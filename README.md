@@ -20,10 +20,10 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
 - **Difficulté de 1 à 10** sur chaque question ; filtre libre (« entre 1 et 3 », « au-dessus de 3 », « 7 à 10 »…).
 - **Écran d'accueil** : Entraînement (Stimulation/DAI/télécardio, ECG, Électrophysiologie, Tout venant), Compétitif
   (avec l'ELO en cours), Simulateur d'électrophysiologie, Fiches, Progression, Sources.
-- **Simulateur d'électrophysiologie** : DII, V1, OD haute, His, sinus coronaire (9-10 → 1-2) et VD apex en temps réel ;
+- **Simulateur d'électrophysiologie** : DII, V1, OD haute, paroi latérale de l'OD, isthme cavo-tricuspide, His, sinus coronaire (9-10 → 1-2) et VD apex en temps réel ;
   stimulateur (site, train S1, extrastimulus S2-S4, couplage à la détection, salve), adénosine, choc, ablation par
   radiofréquence, compas et retour en arrière. Scénarios : conduction normale, double voie nodale, TRIN typique et
-  atypique, TRAV orthodromique sur voie cachée, WPW, tachycardie atriale focale, et **cas mystères** à diagnostiquer.
+  atypique, TRAV orthodromique sur voie cachée, WPW, tachycardie atriale focale, flutter atrial typique isthme-dépendant, et **cas mystères** à diagnostiquer.
   Le cœur est un réseau de sites et de voies de conduction (délais décrémentiels, périodes réfractaires) : les réentrées
   et les réponses aux manœuvres (ESV His-réfractaire, V-A-V / V-A-A-V, PPI − TCL) émergent du modèle. Concept inspiré de
   svtsim (S. Iravanian), code original.

@@ -49,6 +49,53 @@ function entrainementV(c) {
   return { sa: Math.round(sa), tcl: Math.round(tcl), ppi: Math.round(ppi), pptcl: Math.round(ppi - tcl), reponse, soutenue: tachycardie(c).active };
 }
 
+// entraînement depuis un site atrial : PPI − TCL mesuré sur ce site
+function entrainementA(c, site) {
+  const tcl = tachycardie(c).cycleA, cl = Math.round(tcl - 20), t0 = c.t + 50;
+  for (let i = 0; i < 12; i++) c.stimuler(site, t0 + i * cl);
+  const der = t0 + 11 * cl;
+  c.avancer(der + 3500);
+  const ppi = activations(c.journal, site, der + 1, der + 1500)[0] - der;
+  return { tcl: Math.round(tcl), ppi: Math.round(ppi), pptcl: Math.round(ppi - tcl), soutenue: tachycardie(c).active };
+}
+
+function testerFlutter(c) {
+  const couplage = induire(c, 'cs9', 1);
+  verifier(couplage != null, `induction depuis l'ostium du SC (couplage ${couplage})`);
+  if (couplage == null) return;
+  attendre(c, 4000);
+  const t = tachycardie(c);
+  verifier(t.active && t.cycleA > 210 && t.cycleA < 290 && Math.abs(t.cycleV - 2 * t.cycleA) < 15, `flutter à ${Math.round(t.cycleA)} ms, conduction 2:1 (V ${Math.round(t.cycleV)})`);
+  // sens antihoraire : la paroi latérale est activée de haut en bas, puis l'isthme, puis le septum
+  const r = c.journal.filter(x => x.t > c.t - 245 * 3);
+  const lh = r.find(x => x.s === 'lath').t, lb = r.find(x => x.s === 'latb' && x.t > lh).t, ct = r.find(x => x.s === 'cti' && x.t > lb).t, ra = r.find(x => x.s === 'ras' && x.t > ct).t;
+  verifier(lh < lb && lb < ct && ct < ra, `rotation antihoraire (OD lat. haute ${Math.round(lh)} → basse ${Math.round(lb)} → isthme ${Math.round(ct)} → septum ${Math.round(ra)})`);
+  const e1 = entrainementA(c, 'cti');
+  console.log(`    entraînement depuis l'isthme : PPI-TCL ${e1.pptcl}`);
+  verifier(e1.pptcl < 30, 'isthme dans le circuit (PPI − TCL < 30 ms)');
+  if (!e1.soutenue) induire(c, 'cs9', 1);
+  const e2 = entrainementA(c, 'cs1');
+  console.log(`    entraînement depuis le SC distal : PPI-TCL ${e2.pptcl}`);
+  verifier(e2.pptcl > 50, 'SC distal hors du circuit (PPI − TCL long)');
+  if (!e2.soutenue) induire(c, 'cs9', 1);
+  c.injecterAdenosine(); attendre(c, 4500);
+  const ta = tachycardie(c);
+  verifier(ta.active && (ta.cycleV == null || ta.cycleV > 2 * ta.cycleA + 20), 'persiste sous adénosine, bloc AV majoré');
+  attendre(c, 6000);
+  c.choc(); attendre(c, 1000);
+  c.ablater('isthme'); attendre(c, 1500);
+  // bloc bidirectionnel : stimulation de l'ostium du SC → paroi latérale activée de haut en bas
+  const tp = c.t + 50; c.stimuler('cs9', tp); attendre(c, 600);
+  const lh2 = activations(c.journal, 'lath', tp, tp + 500)[0], lb2 = activations(c.journal, 'latb', tp, tp + 500)[0];
+  verifier(lh2 < lb2, `bloc isthmique : activation latérale descendante en stimulant l'ostium du SC (${Math.round(lh2 - tp)} puis ${Math.round(lb2 - tp)} ms)`);
+  // et dans l'autre sens : stimulation latérale à la ligne → septum activé tardivement, His avant l'ostium du SC
+  const tq = c.t + 50; c.stimuler('cti', tq); attendre(c, 600);
+  const his2 = activations(c.journal, 'ras', tq, tq + 500)[0], os2 = activations(c.journal, 'cs9', tq, tq + 500)[0];
+  verifier(his2 < os2, `bloc latéral → septal : His (${Math.round(his2 - tq)} ms) avant l'ostium du SC (${Math.round(os2 - tq)} ms)`);
+  const r1 = induire(c, 'cs9', 1), r2 = induire(c, 'hra', 1);
+  verifier(r1 == null && r2 == null, `non réinductible après ablation (${r1}, ${r2})`);
+}
+
 for (const id of Object.keys(SCENARIOS)) {
   console.log(`\n${id} — ${SCENARIOS[id].nom}`);
   const c = nouveau(id);
@@ -73,6 +120,8 @@ for (const id of Object.keys(SCENARIOS)) {
     verifier(id === 'double' ? saut : !saut, id === 'double' ? 'saut de l\'AH ≥ 50 ms' : 'pas de saut de l\'AH');
     continue;
   }
+
+  if (id === 'flutter') { testerFlutter(c); continue; }
 
   const siteInduc = id === 'trin-atyp' ? 'rva' : id === 'wpw' ? 'cs1' : 'hra';
   let couplage;
