@@ -42,14 +42,16 @@ function grouper(journal, sites, t0, t1, seuil) {
 }
 
 // Complexes de surface : chaque battement devient une petite liste de gaussiennes {c, s, a} par dérivation.
-function composantesSurface(journal, t0, t1) {
+function composantesSurface(journal, t0, t1, stims = []) {
   const comp = { II: [], V1: [] };
   const add = (d, c, s, a) => comp[d].push({ c, s, a });
   const ondesP = grouper(journal, ATRIUM, t0 - 300, t1, 110);
   ondesP.forEach((p, i) => {
     const dur = p.fin - p.debut, c = p.debut + dur / 2 + 20, s = (dur + 70) / 4;
     const cycle = i ? p.debut - ondesP[i - 1].debut : 1000;
-    if (cycle < 300 && ['ras', 'cs9', 'cti'].includes(p.premier)) {
+    // ondes F réservées au rythme spontané : une salve rapide ne doit pas dessiner de dents de scie
+    const stimule = stims.some(x => x.t > p.debut - 1200 && x.t <= p.fin);
+    if (cycle < 300 && !stimule && ['ras', 'cs9', 'cti'].includes(p.premier)) {
       // flutter typique : ondes F en dents de scie, négatives en DII (descente lente, remontée rapide), positives en V1
       add('II', p.debut + cycle * 0.35, cycle * 0.22, -0.2); add('II', p.debut + cycle * 0.75, cycle * 0.1, 0.07);
       add('V1', p.debut + cycle * 0.4, cycle * 0.2, 0.15);
@@ -118,7 +120,7 @@ export function dessinerSimu(canvas, coeur, { tFin, fenetre = 4000, etiquettes =
   }
 
   const j = coeur.journal;
-  const surf = composantesSurface(j, t0, tFin);
+  const surf = composantesSurface(j, t0, tFin, coeur.stims);
   const stims = coeur.stims.filter(s => s.t >= t0 - 5 && s.t <= tFin);
   let y = 0;
   const pas = Math.min(2, 1 / (2 * pxms)); // au moins 2 échantillons par pixel, et un toutes les 2 ms

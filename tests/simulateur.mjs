@@ -88,6 +88,10 @@ function testerFlutter(c) {
   const tp = c.t + 50; c.stimuler('cs9', tp); attendre(c, 600);
   const lh2 = activations(c.journal, 'lath', tp, tp + 500)[0], lb2 = activations(c.journal, 'latb', tp, tp + 500)[0];
   verifier(lh2 < lb2, `bloc isthmique : activation latérale descendante en stimulant l'ostium du SC (${Math.round(lh2 - tp)} puis ${Math.round(lb2 - tp)} ms)`);
+  // et dans l'autre sens : stimulation latérale à la ligne → septum activé tardivement, His avant l'ostium du SC
+  const tq = c.t + 50; c.stimuler('cti', tq); attendre(c, 600);
+  const his2 = activations(c.journal, 'ras', tq, tq + 500)[0], os2 = activations(c.journal, 'cs9', tq, tq + 500)[0];
+  verifier(his2 < os2, `bloc latéral → septal : His (${Math.round(his2 - tq)} ms) avant l'ostium du SC (${Math.round(os2 - tq)} ms)`);
   const r1 = induire(c, 'cs9', 1), r2 = induire(c, 'hra', 1);
   verifier(r1 == null && r2 == null, `non réinductible après ablation (${r1}, ${r2})`);
 }
