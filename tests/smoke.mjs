@@ -40,25 +40,46 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
   };
 
   await page.goto(url);
-  await page.waitForSelector('.hero');
+  await page.waitForSelector('#go-comp');
   await capture('accueil');
 
-  await verifier(`${appareil} : défi adaptatif (10 questions)`, async () => {
-    await page.click('#go-adapt');
-    for (let i = 0; i < 10; i++) {
+  await verifier(`${appareil} : partie compétitive (ELO)`, async () => {
+    const avant = +(await page.textContent('#go-comp .elo-grand'));
+    await page.click('#go-comp');
+    for (let i = 0; i < 6; i++) {
       await page.waitForSelector('#zone');
       await repondre();
       await page.waitForSelector('#suivant');
+      if (!(await page.$('#retour .delta'))) throw new Error('variation d\'ELO absente');
       if (i === 0) await capture('correction');
-      await page.click('#suivant');
+      await page.click(i < 5 ? '#suivant' : '#arreter');
     }
-    await page.waitForSelector('.score-rond');
+    await page.waitForSelector('.elo-bilan');
     await capture('resultats');
+    await nav('accueil');
+    const apres = +(await page.textContent('#go-comp .elo-grand'));
+    if (!Number.isFinite(apres) || apres === avant) throw new Error(`ELO inchangé (${avant} → ${apres})`);
+    await nav('competitif');
+    await page.waitForSelector('#courbe svg');
+    await capture('competitif');
+  });
+
+  await verifier(`${appareil} : entraînement par domaine`, async () => {
+    await nav('accueil');
+    await page.click('[data-domaine=stim]');
+    await page.waitForSelector('#zone');
+    await repondre();
+    await page.waitForSelector('#suivant');
+    page.once('dialog', d => d.accept());
+    await page.click('#quit');
   });
 
   await verifier(`${appareil} : examen interrompu puis repris`, async () => {
     await nav('accueil');
-    await page.click('#go-exam');
+    await page.click('.lien[data-nav=config]');
+    await page.waitForSelector('#cpt');
+    await page.click('label.puce:has(input[name=mode][value=examen])');
+    await page.click('#go');
     await page.waitForSelector('#chrono');
     await repondre();
     await page.waitForSelector('#zone');
@@ -74,7 +95,11 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
 
   await verifier(`${appareil} : lecture d'ECG, compas et plein écran`, async () => {
     await nav('accueil');
-    await page.click('#go-ecg');
+    await page.click('.lien[data-nav=config]');
+    await page.waitForSelector('#cpt');
+    await page.click('label.puce:has(input[name=mode][value=entrainement])');
+    await page.check('input[name=ecgSeul]');
+    await page.click('#go');
     await page.waitForSelector('.trace canvas');
     await page.click('[data-compas]');
     const boite = await page.locator('.trace .calque').boundingBox();
@@ -105,8 +130,10 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
   });
 
   await verifier(`${appareil} : entraînement ciblé, fiches, progression, sources`, async () => {
-    await nav('config');
+    await nav('accueil');
+    await page.click('.lien[data-nav=config]');
     await page.waitForSelector('#cpt');
+    await page.uncheck('input[name=ecgSeul]');
     await page.check('input[name=niveau][value=av]');
     await capture('config');
     await page.click('#go');
@@ -120,6 +147,7 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await capture('fiches');
     await nav('progression');
     await page.waitForSelector('.grille-badges');
+    await page.waitForSelector('#courbe svg');
     await capture('progression');
     await nav('apropos');
     await page.waitForSelector('.sources-liste');

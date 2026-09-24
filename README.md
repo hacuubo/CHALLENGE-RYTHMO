@@ -17,12 +17,17 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
   - Électrophysiologie : mécanismes, EEP, ablation, antiarythmiques.
 - **Types de questions** : QCU, QCM, vrai/faux, questions ouvertes (avec auto-évaluation).
 - **Difficulté de 1 à 10** sur chaque question ; filtre libre (« entre 1 et 3 », « au-dessus de 3 », « 7 à 10 »…).
-- **Modes** : **défi adaptatif** (niveau estimé type Elo, questions juste au-dessus de votre niveau), défi aléatoire,
-  défi du jour, lecture d'ECG, **mode examen** chronométré (correction à la fin), entraînement ciblé (thèmes, marques,
-  types, sous-thèmes, niveau), révisions de ses erreurs (répétition espacée), nouveautés, **fiches** consultables avec recherche.
+- **Écran d'accueil** : Entraînement (Stimulation/DAI/télécardio, ECG, Électrophysiologie, Tout venant), Compétitif
+  (avec l'ELO en cours), Fiches, Progression, Sources.
+- **Mode compétitif** : classement **ELO des échecs** (départ 1200, formule FIDE, K = 40 puis 20, 10 au-delà de 2400).
+  Chaque question a une cote tirée de sa difficulté (niveau 1 = 800 … niveau 10 = 2600) ; les questions s'enchaînent
+  sans fin, choisies juste au-dessus de votre classement. Titres de « Débutant » à « Grand maître ».
+- **Autres modes** : **mode examen** chronométré (correction à la fin), entraînement ciblé (thèmes, marques, types,
+  sous-thèmes, niveau, tracés uniquement), révisions de ses erreurs (répétition espacée), nouveautés,
+  **fiches** consultables avec recherche.
 - **Correction didactique** : explication, commentaire pour **chaque proposition**, message « À retenir », sources cliquables,
   date de relecture et recommandations de référence, bouton **« Signaler une erreur »** (issue GitHub pré-remplie).
-- **Progression** : niveau estimé global et par thème, grades, badges, réussite par thème et par niveau, jours consécutifs,
+- **Progression** : **courbe de l'ELO jour après jour** (avec tableau des valeurs), badges, réussite par thème et par niveau, jours consécutifs,
   historique, export/import ; une série interrompue se reprend. Tout reste sur l'appareil.
 - Raccourcis clavier (1–4 / A–D, V/F, Entrée).
 - Mode clair / sombre, affichage adapté au mobile.

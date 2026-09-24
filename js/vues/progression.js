@@ -1,11 +1,12 @@
 import * as stock from '../store.js';
 import { THEMES, base } from '../donnees.js';
 import { esc, pct, toast } from '../util.js';
+import { courbeElo } from '../courbe.js';
 
 export function vueProgression(app, { appliquerApparence }) {
   const p = stock.progres();
-  const g = stock.grade();
-  const niv = stock.niveau();
+  const c = stock.classement();
+  const histo = stock.historiqueElo();
   const lignes = (tri, cle) => {
     const m = {};
     for (const q of base.questions) {
@@ -19,16 +20,18 @@ export function vueProgression(app, { appliquerApparence }) {
       <div class="note sous-barre">${v.vus}/${v.total} vues · ${v.maitrise} maîtrisée(s)</div>`).join('');
   };
   const hist = p.sessions.slice(-10).reverse();
-  const progGrade = g.suivant ? pct(p.points - g.min, g.suivant.min - g.min) : 100;
 
   app.innerHTML = `
     <h1>Ma progression</h1>
     <section class="carte">
-      <div class="ligne-reglage"><div><h2 style="margin:0">${esc(g.nom)}</h2><span class="note">${p.points} points${g.suivant ? ` · prochain grade : ${esc(g.suivant.nom)} (${g.suivant.min} pts)` : ''}</span></div>
-      <div class="niveau-rond petit-rond"><b>${niv.n >= 5 ? niv.niveau : '?'}</b><span>niveau</span></div></div>
-      <div class="progress" style="margin-top:10px"><i style="width:${progGrade}%"></i></div>
-      <p class="note">Le niveau estimé (1 à 10) s'ajuste après chaque réponse selon la difficulté de la question${niv.n < 5 ? ' ; il s\'affiche après 5 réponses' : ''}.</p>
-      <div class="barres">${Object.entries(THEMES).map(([k, t]) => { const n = stock.niveau(k); return `<div class="barre-ligne"><span>${t.nom}</span><span class="piste"><i style="width:${n.n >= 3 ? n.niveau * 10 : 0}%"></i></span><span class="val">${n.n >= 3 ? 'niv. ' + n.niveau : '—'}</span></div>`; }).join('')}</div>
+      <div class="ligne-reglage"><div><h2 style="margin:0">Classement ELO : ${c.elo}</h2>
+        <span class="note">${esc(c.titre.nom)} · record ${c.pic} · ${c.n} question(s) classée(s)</span></div>
+        <button class="btn btn-primaire" data-nav="competitif">Jouer</button></div>
+      <h3 style="margin-top:14px">Évolution jour après jour</h3>
+      <div id="courbe"></div>
+      ${histo.length ? `<details class="tableau-elo"><summary class="note">Voir les valeurs</summary><table><thead><tr><th>Jour</th><th>ELO en fin de journée</th><th>Questions</th><th>Justes</th></tr></thead><tbody>
+        ${histo.slice().reverse().map(h => `<tr><td>${new Date(h.jour + 'T12:00:00').toLocaleDateString('fr-FR')}</td><td>${Math.round(h.elo)}</td><td>${h.n}</td><td>${h.gagnees ?? 0}</td></tr>`).join('')}
+      </tbody></table></details>` : ''}
     </section>
     <section class="carte"><h2>Badges</h2><div class="grille-badges">
       ${stock.BADGES.map(b => `<div class="badge-carte ${p.badges[b.id] ? 'gagne' : ''}" title="${esc(b.desc)}"><span>${b.ico}</span><b>${esc(b.nom)}</b><small>${esc(b.desc)}</small></div>`).join('')}
@@ -46,6 +49,7 @@ export function vueProgression(app, { appliquerApparence }) {
       <button class="btn" id="raz">Réinitialiser</button></div>
       <p class="note">Vos données restent sur cet appareil (aucun compte, aucun envoi). Exportez-les pour les transférer sur un autre appareil.</p>
     </section>`;
+  courbeElo(app.querySelector('#courbe'), histo, { depart: stock.ELO_DEPART });
   const sel = app.querySelector('#theme-ui');
   sel.value = stock.apparence();
   sel.onchange = () => { stock.sauverApparence(sel.value); appliquerApparence(); };

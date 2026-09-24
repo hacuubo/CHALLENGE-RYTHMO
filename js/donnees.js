@@ -48,17 +48,28 @@ export function construireSerie(liste, n, priorite) {
   return ordre.slice(0, n);
 }
 
-// Mode adaptatif : question la plus proche d'une cible juste au-dessus du niveau estimé,
-// en évitant les questions déjà posées dans la série et en privilégiant celles jamais vues ou ratées.
-export function questionAdaptative(pool, dejaPosees) {
+// Domaines d'entraînement proposés à l'accueil.
+export const DOMAINES = [
+  { id: 'stim', nom: 'Stimulation, DAI, télécardio', ico: '⚙️', themes: ['programmation', 'telecardio'], desc: 'Programmation, EGM, alertes' },
+  { id: 'ecg', nom: 'ECG', ico: '📈', themes: ['ecg'], desc: 'Tracés, vrais ECG 12 dérivations' },
+  { id: 'ep', nom: 'Électrophysiologie', ico: '⚡', themes: ['electrophysio'], desc: 'Mécanismes, EEP, ablation' },
+  { id: 'tout', nom: 'Tout venant', ico: '🎲', themes: ['ecg', 'programmation', 'telecardio', 'electrophysio'], desc: 'Un peu de tout, au hasard' },
+];
+
+// Mode compétitif : question dont la cote est proche du classement du joueur (légèrement au-dessus),
+// jamais vue dans la partie en cours, de préférence jamais vue du tout. Les questions ouvertes
+// (auto-évaluées) sont exclues : elles ne peuvent pas compter pour un classement.
+export function questionCompetitive(dejaPosees) {
   const p = stock.progres();
+  const elo = stock.classement().elo;
   const exclus = new Set(dejaPosees);
-  const candidates = pool.filter(q => !exclus.has(q.id));
-  if (!candidates.length) return null;
+  const pool = base.questions.filter(q => q.type !== 'ouverte' && !exclus.has(q.id));
+  if (!pool.length) return null;
+  const cible = elo + 50;
   const score = q => {
-    const cible = stock.niveau(q.theme).n >= 5 ? stock.niveau(q.theme).niveau : stock.niveau().niveau;
     const e = p.q[q.id];
-    return Math.abs(q.difficulte - (cible + 0.7)) + (e ? (e.dernierOk ? 1.5 : -0.5) : 0) + Math.random() * 1.2;
+    const ecart = Math.abs(stock.eloQuestion(q.difficulte) - cible) / 200; // 1 = un cran de difficulté
+    return ecart + (e ? (e.dernierOk ? 0.8 : 0.3) : 0) + Math.random() * 0.9;
   };
-  return candidates.reduce((m, q) => { const s = score(q); return s < m.s ? { q, s } : m; }, { q: null, s: Infinity }).q;
+  return pool.reduce((m, q) => { const v = score(q); return v < m.v ? { q, v } : m; }, { q: null, v: Infinity }).q;
 }

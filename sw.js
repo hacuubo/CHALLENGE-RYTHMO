@@ -1,10 +1,10 @@
 // Service worker : application utilisable hors ligne.
 // Coquille de l'application : cache d'abord. Base de questions : réseau d'abord (mises à jour), cache en secours.
-const VERSION = 'rythmo-e4727a6b22'; // mis à jour par scripts/build-index.mjs
+const VERSION = 'rythmo-2313b10b1f'; // mis à jour par scripts/build-index.mjs
 const COQUILLE = ['./', 'index.html', 'css/styles.css', 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png',
   'js/app.js', 'js/store.js', 'js/util.js', 'js/donnees.js', 'js/session.js', 'js/ecg.js', 'js/ecg12.js', 'js/traces.js', 'js/egm.js',
   'js/vues/accueil.js', 'js/vues/config.js', 'js/vues/quiz.js', 'js/vues/resultats.js', 'js/vues/progression.js',
-  'js/vues/fiches.js', 'js/vues/apropos.js'];
+  'js/vues/fiches.js', 'js/vues/apropos.js', 'js/vues/competitif.js', 'js/courbe.js'];
 
 self.addEventListener('install', e => {
   e.waitUntil((async () => {

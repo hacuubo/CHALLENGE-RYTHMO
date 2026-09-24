@@ -1,7 +1,7 @@
 // Déroulé d'une série : entraînement (correction immédiate), examen (chronométré, correction à la fin)
-// et défi adaptatif (chaque question est choisie selon le niveau estimé).
+// et compétitif (questions enchaînées sans fin, choisies selon le classement ELO).
 import * as stock from '../store.js';
-import { THEMES, TYPES, base, questionAdaptative } from '../donnees.js';
+import { THEMES, TYPES, questionCompetitive } from '../donnees.js';
 import { etat, sauver, terminer } from '../session.js';
 import { esc, paragraphes, pct, lettre, diffBarres, moisAnnee, duree } from '../util.js';
 import { dessinerECG } from '../ecg.js';
@@ -21,14 +21,16 @@ export function vueQuiz(app, aller) {
   const q = s.questions[s.i];
   const rep = s.reponses[s.i];
   const theme = THEMES[q.theme];
-  const total = s.adaptatif ? s.adaptatif.n : s.questions.length;
+  const total = s.questions.length;
   const montrerCorrection = rep && !s.examen;
+  const c = s.competitif ? stock.classement() : null;
 
   app.innerHTML = `
     <div class="quiz-tete">
       <button class="quitter" id="quit" aria-label="Quitter la série">✕</button>
+      ${c ? `<div class="elo-tete"><span class="elo-valeur" id="elo-live">${c.elo}</span><span class="note">ELO · ${esc(c.titre.nom)} · question ${s.i + 1}</span></div>` : `
       <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${s.i + 1}"><i style="width:${pct(s.i + (rep ? 1 : 0), total)}%"></i></div>
-      <span class="note">${s.i + 1}/${total}</span>
+      <span class="note">${s.i + 1}/${total}</span>`}
       ${s.examen ? '<span class="chrono" id="chrono" aria-live="off"></span>' : ''}
     </div>
     <article class="carte">
@@ -96,14 +98,12 @@ function demarrerChrono(app, aller) {
 
 function suivant(app, aller) {
   const s = etat.session;
-  const total = s.adaptatif ? s.adaptatif.n : s.questions.length;
-  if (s.i + 1 >= total) { clearInterval(chrono); terminer(); aller('resultats'); return; }
-  if (s.adaptatif && s.i + 1 >= s.questions.length) {
-    const pool = s.adaptatif.pool.map(id => base.parId.get(id)).filter(Boolean);
-    const q = questionAdaptative(pool, s.questions.map(x => x.id));
+  if (s.competitif) {
+    // partie sans fin : une nouvelle question à chaque fois, selon le classement actuel
+    const q = questionCompetitive(s.questions.map(x => x.id));
     if (!q) { terminer(); aller('resultats'); return; }
     s.questions.push(q);
-  }
+  } else if (s.i + 1 >= s.questions.length) { clearInterval(chrono); terminer(); aller('resultats'); return; }
   s.i++;
   sauver();
   vueQuiz(app, aller);
@@ -164,8 +164,9 @@ function vueSansReinit(app, suite) {
   if (q.type === 'ouverte') zoneOuverte(app, q, rep, suite); else zoneChoix(app, q, rep, suite);
   afficherRetour(app, q, rep, suite);
   const barre = app.querySelector('.progress i');
-  const total = s.adaptatif ? s.adaptatif.n : s.questions.length;
-  if (barre) barre.style.width = pct(s.i + 1, total) + '%';
+  if (barre) barre.style.width = pct(s.i + 1, s.questions.length) + '%';
+  const live = app.querySelector('#elo-live');
+  if (live && rep.elo) live.textContent = rep.elo.apres;
 }
 
 function zoneOuverte(app, q, rep, suite) {
@@ -207,6 +208,7 @@ function enregistrer(q, rep) {
   const s = etat.session;
   s.reponses[s.i] = rep;
   stock.noterReponse(q, rep.score);
+  if (s.competitif) rep.elo = stock.jouerCompetitif(q, rep.score);
   if (rep.juste) { s.points += q.difficulte; s.combo++; s.meilleurCombo = Math.max(s.meilleurCombo, s.combo); } else s.combo = 0;
   sauver();
 }
@@ -236,16 +238,19 @@ function afficherRetour(app, q, rep, suite) {
   const r = app.querySelector('#retour');
   const partiel = q.type === 'ouverte' && rep.eval === 1;
   const cl = rep.juste ? 'ok' : partiel ? 'neutre' : 'ko';
-  const verdict = rep.juste ? `Bonne réponse ! <span class="note">+${q.difficulte} pts</span>`
-    : partiel ? 'Réponse partielle' : q.type === 'ouverte' ? 'À revoir' : 'Pas tout à fait…';
-  const total = s.adaptatif ? s.adaptatif.n : s.questions.length;
-  const dernier = s.i + 1 >= total;
+  const gain = rep.elo ? ` <span class="delta ${rep.elo.delta >= 0 ? 'plus' : 'moins'}">${rep.elo.delta >= 0 ? '+' : ''}${rep.elo.delta} ELO</span>`
+    : ` <span class="note">+${q.difficulte} pts</span>`;
+  const verdict = rep.juste ? `Bonne réponse !${rep.juste || rep.elo ? gain : ''}`
+    : (partiel ? 'Réponse partielle' : q.type === 'ouverte' ? 'À revoir' : 'Pas tout à fait…') + (rep.elo ? gain : '');
+  const dernier = !s.competitif && s.i + 1 >= s.questions.length;
   r.innerHTML = `
     <div class="retour ${cl}" aria-live="polite">
       <div class="verdict">${verdict}</div>
       ${blocCorrection(q, rep)}
     </div>
-    <div class="actions"><button class="btn btn-primaire btn-bloc" id="suivant">${dernier ? 'Voir mes résultats' : 'Question suivante →'}</button></div>`;
+    <div class="actions">${s.competitif ? '<button class="btn" id="arreter">Arrêter la partie</button>' : ''}<button class="btn btn-primaire btn-bloc" id="suivant">${dernier ? 'Voir mes résultats' : 'Question suivante →'}</button></div>`;
+  const arr = r.querySelector('#arreter');
+  if (arr) arr.onclick = () => { terminer(); location.hash = 'resultats'; };
   const b = r.querySelector('#suivant');
   b.onclick = suite;
   b.focus({ preventScroll: true });

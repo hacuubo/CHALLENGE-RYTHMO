@@ -1,6 +1,6 @@
 // Point d'entrée : chargement de la base, navigation par ancre (#vue), service worker.
 import * as stock from './store.js';
-import { base, charger, questionAdaptative } from './donnees.js';
+import { base, charger, questionCompetitive } from './donnees.js';
 import { etat, creer, reprendre as reprendreSession, sauver } from './session.js';
 import { toast } from './util.js';
 import { vueAccueil } from './vues/accueil.js';
@@ -10,6 +10,7 @@ import { vueResultats } from './vues/resultats.js';
 import { vueProgression } from './vues/progression.js';
 import { vueFiches } from './vues/fiches.js';
 import { vueAPropos } from './vues/apropos.js';
+import { vueCompetitif } from './vues/competitif.js';
 
 const app = document.getElementById('app');
 
@@ -19,10 +20,9 @@ function appliquerApparence() {
 }
 
 function demarrer(questions, titre, opts = {}) {
-  if (opts.adaptatif && !questions.length) {
-    const pool = opts.adaptatif.pool.map(id => base.parId.get(id)).filter(Boolean);
-    const q = questionAdaptative(pool, []);
-    if (q) questions = [q];
+  if (opts.competitif) {
+    const q = questionCompetitive([]);
+    questions = q ? [q] : [];
   }
   if (!questions.length) { toast('Aucune question ne correspond à ces critères.'); return; }
   creer(questions, titre, opts);
@@ -43,6 +43,7 @@ const vues = {
   progression: () => vueProgression(app, ctx),
   fiches: () => vueFiches(app, ctx),
   apropos: () => vueAPropos(app),
+  competitif: () => vueCompetitif(app, ctx),
 };
 
 function aller(vue) {
@@ -55,7 +56,7 @@ function rendre(vue) {
   if (vue === 'quiz' && (!s || s.fini)) vue = 'accueil';
   if (vue === 'resultats' && !s) vue = 'accueil';
   if (vue !== 'quiz') arreterQuiz();
-  document.querySelectorAll('[data-nav]').forEach(b => b.classList.toggle('actif', b.dataset.nav === vue || (vue === 'quiz' && b.dataset.nav === 'config')));
+  document.querySelectorAll('[data-nav]').forEach(b => b.classList.toggle('actif', b.dataset.nav === vue || (vue === 'quiz' && b.dataset.nav === (s?.competitif ? 'competitif' : 'accueil')) || (vue === 'config' && b.dataset.nav === 'accueil')));
   vues[vue]();
   app.focus({ preventScroll: true });
   window.scrollTo(0, 0);
