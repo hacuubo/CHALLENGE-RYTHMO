@@ -83,7 +83,7 @@ const P_ORIGINE = {
   septale: [0.03, -0.15, -0.16, 0.06, -0.04],
   gauche: [-0.09, 0.06, 0.05, 0.14, -0.06],
   gaucheBasse: [-0.06, -0.09, -0.1, 0.12, -0.04],
-  droiteBasse: [0.08, -0.1, -0.12, 0.05, 0.05],
+  droiteBasse: [0.08, -0.1, -0.12, -0.05, 0.05],
 };
 const categorieP = s => (['sa', 'hra', 'lath'].includes(s) ? 'haute' : ['cs1', 'oga'].includes(s) ? 'gauche' : ['cs3', 'cs5', 'foyer'].includes(s) ? 'gaucheBasse'
   : ['latm', 'latb'].includes(s) ? 'droiteBasse' : 'septale');
@@ -104,7 +104,9 @@ const QRS = {
   lateraleG: { I: [[0.25, 0.16, -0.45], [0.6, 0.12, -0.2]], II: [[0.22, 0.16, 0.35], [0.55, 0.13, 0.55]], aVF: [[0.22, 0.16, 0.35], [0.55, 0.13, 0.5]],
     V1: [[0.22, 0.14, 0.35], [0.56, 0.15, 0.85]], V6: [[0.22, 0.14, 0.2], [0.55, 0.13, 0.45]] },
 };
-const T_ONDE = { normal: [0.2, 0.3, 0.2, -0.05, 0.25], large: [-0.2, -0.25, -0.2, 0.2, -0.2] };
+// ondes T [D1, D2, aVF, V1, V6] : concordantes si QRS fin, opposées à la déflexion principale du QRS sinon
+const T_ONDE = { normal: [0.2, 0.3, 0.2, -0.05, 0.25], bbd: [0.15, 0.2, 0.15, -0.2, 0.2], bbg: [-0.2, -0.2, -0.1, 0.25, -0.2],
+  apex: [-0.15, 0.25, 0.3, 0.2, 0.15], lateraleG: [0.2, -0.15, -0.15, -0.2, 0.1] };
 
 // Composantes gaussiennes {c, s, a} des dérivations de surface sur la fenêtre [t0, t1].
 export function composantesSurface(journal, t0, t1, stims) {
@@ -142,15 +144,17 @@ export function composantesSurface(journal, t0, t1, stims) {
     const gauche = Math.max(0, Math.min(1, (tv - Math.min(tr, b.t.vbd ?? tr) - 5) / 20)) * (1 - pre);
     const droit = Math.max(0, Math.min(1, (tr - tv - 20) / 25)) * (1 - pre) * (1 - gauche);
     const norm = Math.max(0, 1 - pre - gauche - droit);
-    const paceApex = stims.some(x => x.s === 'rva' && Math.abs(x.t - b.debut) < 8);
+    // activation débutant à l'apex du VD sans passer par la branche droite (stimulation apicale, voie atrio-fasciculaire) : axe gauche ou supérieur
+    const tbd = journal.find(x => x.s === 'bbd' && Math.abs(x.t - tr) < 80)?.t;
+    const paceApex = stims.some(x => x.s === 'rva' && Math.abs(x.t - b.debut) < 8) || (tbd == null || tr < tbd) && tr <= b.debut + 5;
     const paraHis = stims.find(x => x.s === 'parahis' && Math.abs(x.t - b.debut) < 8);
     // para-hisien : capture du His = QRS fin (activation par le tissu de conduction) ; myocarde seul = QRS large de type retard gauche
     const poids = paraHis ? (paraHis.his ? { normal: 1 } : { bbg: 1 }) : { normal: norm, bbd: droit, lateraleG: pre, [paceApex ? 'apex' : 'bbg']: gauche };
     const W = paraHis ? (paraHis.his ? 100 : 145) : 85 + 1.3 * Math.max(0, b.fin - b.debut - 45), o = b.debut;
     for (const [m, w] of Object.entries(poids)) if (w > 0.01) for (const d of DERIV) for (const [u, s, a] of QRS[m][d] || []) comp[d].push({ c: o + u * W, s: s * W, a: a * w });
     const rr = i ? o - qrs[i - 1].debut : 800;
-    const tT = o + Math.max(200, 390 * Math.sqrt(Math.min(1200, rr) / 1000)) - 40, large = Math.min(1, pre + gauche + droit);
-    DERIV.forEach((d, k) => comp[d].push({ c: tT, s: 45, a: T_ONDE.normal[k] * (1 - large) + T_ONDE.large[k] * large }));
+    const tT = o + Math.max(200, 390 * Math.sqrt(Math.min(1200, rr) / 1000)) - 40;
+    DERIV.forEach((d, k) => comp[d].push({ c: tT, s: 45, a: Object.entries(poids).reduce((sum, [m, w]) => sum + w * T_ONDE[m][k], 0) }));
   });
   return comp;
 }

@@ -89,7 +89,7 @@ const simu = (scenario, etapes, fin, { vitesse = 50, montage = 'standard', legen
     commentaires: [
       `Juste : A et V quasi simultanés (VA ${m.VA} ms, < 70 ms), activation atriale rétrograde concentrique, la plus précoce au His.`,
       'Faux : une voie latérale gauche active d\'abord le SC distal (activation excentrique) avec un VA > 70 ms.',
-      'Faux : un foyer gauche donne une activation excentrique et un rapport A-V indépendant du nœud AV.',
+      'Faux : un foyer gauche donne une activation excentrique et une relation VA variable, l\'A ne dépendant pas du V.',
       'Faux : la forme atypique a un RP long et une activation la plus précoce à l\'ostium du SC.',
     ],
     explication: `Le tracé montre une tachycardie régulière où chaque A tombe dans le V (VA ${m.VA} ms mesuré sur le His) avec une activation concentrique : His d'abord, puis SC proximal vers distal. Un VA < 70 ms élimine pratiquement une réentrée orthodromique, car l'influx doit traverser le ventricule avant de remonter par la voie accessoire. Le saut d'AH à l'induction oriente vers une descente par la voie lente. Ces éléments sont en faveur d'une TRIN typique, à confirmer par les manœuvres (entraînement ventriculaire, ESV His-réfractaire).`,
@@ -115,7 +115,7 @@ const simu = (scenario, etapes, fin, { vitesse = 50, montage = 'standard', legen
     commentaires: [
       'Faux : après le dernier A entraîné vient un V, pas un second A : la réponse est V-A-V.',
       `Faux : PPI − TCL = ${a.pptcl} ms, au-delà de 115 ms : l'apex du VD est loin du circuit, ce qui oriente vers la TRIN.`,
-      `Juste : réponse V-A-V et PPI − TCL = ${a.ppi} − ${R(tcl)} = ${a.pptcl} ms > 115 ms : le circuit ne passe pas par le ventricule.`,
+      `Juste : réponse V-A-V et PPI − TCL = ${a.ppi} − ${R(tcl)} = ${a.pptcl} ms > 115 ms : l'apex du VD est éloigné du circuit.`,
       'Faux : l\'absence de fusion du QRS n\'empêche pas d\'interpréter la réponse ni le PPI ; elle est même attendue dans la TRIN.',
     ],
     explication: `À l'arrêt de l'entraînement, le dernier A entraîné est suivi d'un V (réponse V-A-V) : la tachycardie utilise le nœud AV, ce qui élimine une tachycardie atriale. Le PPI mesuré sur le site de stimulation (${a.ppi} ms) dépasse le cycle de ${a.pptcl} ms : l'apex du VD est éloigné du circuit. Un PPI − TCL > 115 ms (et un SA − VA > 85 ms) est en faveur d'une TRIN ; une valeur < 115 ms oriente vers une réentrée utilisant une voie accessoire septale (Michaud). Mesurez toujours le PPI sur l'électrogramme du site stimulé.`,
@@ -164,7 +164,7 @@ const simu = (scenario, etapes, fin, { vitesse = 50, montage = 'standard', legen
   affirmer(av >= 10, `TRAV : avance de l'A (${av})`);
   ajouter({
     difficulte: 7,
-    question: `Tachycardie orthodromique (cycle ${R(tcl)} ms, SC distal activé en premier). Une ESV est délivrée à l'apex du VD 30 ms avant le His attendu, alors que le His est déjà engagé (tracé). L'A suivant est avancé de ${av} ms avec la même séquence. Que prouve cette réponse ?`,
+    question: `Tachycardie orthodromique (cycle ${R(tcl)} ms, SC distal activé en premier). Une ESV est délivrée à l'apex du VD 30 ms avant le His attendu, quand le His est réfractaire : le His suivant n'est pas modifié (tracé). L'A suivant est avancé de ${av} ms avec la même séquence. Que prouve cette réponse ?`,
     simu: simu('trav', etapes, r.marques.dernierStim + 900, { vitesse: 50 }),
     options: ['L\'existence d\'une voie accessoire à conduction rétrograde', 'Une conduction rétrograde par la voie rapide du nœud AV intact', 'Une réentrée intranodale avec une voie finale commune basse', 'Une réinitialisation d\'un foyer atrial gauche par l\'ESV'],
     reponses: [0],
@@ -174,7 +174,7 @@ const simu = (scenario, etapes, fin, { vitesse = 50, montage = 'standard', legen
       'Faux : dans une TRIN, une ESV His-réfractaire n\'atteint pas le circuit nodal et ne modifie pas l\'atrium.',
       'Faux : pour réinitialiser un foyer atrial, l\'ESV devrait atteindre l\'oreillette, ce qui impose déjà une voie extranodale quand le His est réfractaire.',
     ],
-    explication: `Une ESV délivrée quand le His est réfractaire (au moment ou juste avant le His attendu) ne peut pas remonter par le système His-nœud AV. Si l'A suivant est avancé avec la même séquence d'activation, l'influx est passé par une voie accessoire : c'est la preuve de son existence. Elle participe au circuit si l'ESV avance l'atrium ou arrête la tachycardie sans l'atteindre. À l'inverse, l'absence d'avance n'exclut pas une voie éloignée du site de stimulation, comme une voie latérale gauche stimulée depuis l'apex du VD.`,
+    explication: `Une ESV délivrée quand le His est réfractaire (au moment ou juste avant le His attendu) ne peut pas remonter par le système His-nœud AV. Si l'A suivant est avancé avec la même séquence d'activation, l'influx est passé par une voie accessoire : c'est la preuve de son existence. Elle participe au circuit si l'ESV retarde l'atrium ou arrête la tachycardie sans l'atteindre. À l'inverse, l'absence d'avance n'exclut pas une voie éloignée du site de stimulation, comme une voie latérale gauche stimulée depuis l'apex du VD.`,
     aRetenir: 'ESV His-réfractaire qui avance l\'atrium avec la même séquence = voie accessoire ; qui arrête la tachycardie sans atteindre l\'atrium = voie participante.',
     sources: [SRC.josephson, SRC.knight],
   });
@@ -253,7 +253,7 @@ for (const [scenario, site] of [['septale', 'cs9'], ['normal', 'ras']]) {
   affirmer(cti.a.pptcl > 50 && Math.abs(cs1.a.pptcl) < 30, 'flutter péri-mitral');
   ajouter({
     difficulte: 8,
-    question: `Tachycardie atriale régulière à ${R(tcl)} ms chez une patiente déjà traitée par isolation des veines pulmonaires. Entraînement à ${cl} ms : PPI − TCL = ${cti.a.pptcl} ms depuis l'isthme cavo-tricuspide, ${cs1.a.pptcl} ms depuis le SC distal (tracé : entraînement depuis l'isthme). Quel est le mécanisme le plus probable ?`,
+    question: `Tachycardie atriale régulière de cycle ${R(tcl)} ms chez une patiente déjà traitée par isolation des veines pulmonaires. Entraînement à ${cl} ms : PPI − TCL = ${cti.a.pptcl} ms depuis l'isthme cavo-tricuspide, ${cs1.a.pptcl} ms depuis le SC distal (tracé : entraînement depuis l'isthme). Quel est le mécanisme le plus probable ?`,
     simu: simu('flutter-mitral', [...ind.etapes, { salve: { site: 'cti', cl, n: 12 } }, { attendre: 3100 }], cti.r.marques.dernierStim + 1200, { vitesse: 50, montage: 'flutter' }),
     options: ['Flutter typique dépendant de l\'isthme cavo-tricuspide', 'Tachycardie atriale focale de l\'oreillette droite', 'Macroréentrée péri-mitrale (flutter gauche)', 'Réentrée intranodale avec conduction atriale lente'],
     reponses: [2],
@@ -276,7 +276,7 @@ for (const [scenario, site] of [['septale', 'cs9'], ['normal', 'ras']]) {
   affirmer(Math.abs(t.cycleV - 2 * t.cycleA) < 25, 'TRIN 2:1');
   ajouter({
     difficulte: 8,
-    question: `Tachycardie avec un cycle atrial de ${R(t.cycleA)} ms et un cycle ventriculaire de ${R(t.cycleV)} ms. Sur le His, chaque A est suivi d'un H, mais un H sur deux n'est pas suivi de V (tracé). Que peut-on affirmer ?`,
+    question: `Tachycardie avec un cycle atrial de ${R(t.cycleA)} ms et un cycle ventriculaire de ${R(t.cycleV)} ms. Sur le His, chaque A est associé à un H, mais un H sur deux n'est pas suivi de V (tracé). Que peut-on affirmer ?`,
     simu: simu('trin-21', etapes, r.t - 200, { vitesse: 50 }),
     options: ['Réentrée orthodromique avec un bloc AV fonctionnel 2:1', 'Tachycardie atriale avec bloc nodal 2:1', 'Flutter atrial conduit en 2:1 au nœud AV', 'Circuit qui ne passe pas par les ventricules'],
     reponses: [3],
@@ -286,7 +286,7 @@ for (const [scenario, site] of [['septale', 'cs9'], ['normal', 'ras']]) {
       'Faux : le flutter donne une activité atriale continue et un bloc au-dessus du His ; ici chaque A a son H, A et H quasi simultanés.',
       'Juste : le bloc sous le His prouve que les ventricules sont en dehors du circuit, ce qui exclut une TRAV ; c\'est ici une TRIN.',
     ],
-    explication: `Le bloc 2:1 est situé sous le His : chaque A est suivi d'un H, mais un H sur deux ne conduit pas aux ventricules (période réfractaire du tissu de conduction plus longue que le cycle). La tachycardie continue malgré ce bloc : le ventricule n'appartient donc pas au circuit, ce qui exclut une réentrée orthodromique. Associé à des A et H quasi simultanés, cela signe une TRIN. Ce bloc fonctionnel disparaît souvent spontanément ou sous isoprénaline.`,
+    explication: `Le bloc 2:1 est situé sous le His : chaque A est suivi d'un H, mais un H sur deux ne conduit pas aux ventricules (période réfractaire du tissu de conduction plus longue que le cycle). La tachycardie continue malgré ce bloc : le ventricule n'appartient donc pas au circuit, ce qui exclut une réentrée orthodromique. Associé à des A et H quasi simultanés, cela est très évocateur d'une TRIN (une tachycardie jonctionnelle focale avec conduction rétrograde 1:1 reste possible). Ce bloc fonctionnel disparaît souvent spontanément ou sous isoprénaline.`,
     aRetenir: 'Une tachycardie qui persiste avec un bloc AV (ou sous le His) exclut une TRAV.',
     sources: [SRC.josephson, SRC.esc],
   });
@@ -333,7 +333,7 @@ for (const [scenario, site] of [['septale', 'cs9'], ['normal', 'ras']]) {
     difficulte: 6,
     question: `Tachycardie à QRS larges induite par deux extrastimulus ventriculaires chez un patient aux antécédents d'infarctus. Quel élément du tracé signe l'origine ventriculaire ?`,
     simu: simu('tv', etapes, r.t - 200, { vitesse: 25 }),
-    options: ['Le QRS large de type retard droit', 'La régularité du cycle ventriculaire', 'Des V plus nombreux que les A, dissociés', 'Un His précédant chaque V avec un HV normal'],
+    options: ['Le QRS large de type retard droit', 'La régularité du cycle ventriculaire', 'Des V plus nombreux que les A (dissociation VA)', 'Un His précédant chaque V avec un HV normal'],
     reponses: [2],
     commentaires: [
       'Faux : une TSV avec bloc de branche ou préexcitation peut donner le même QRS large.',
@@ -419,15 +419,15 @@ for (const [scenario, site] of [['septale', 'cs9'], ['normal', 'ras']]) {
     difficulte: 8,
     question: `Garçon de 14 ans, cardiomyopathie dilatée. Tachycardie incessante à ${R(tcl)} ms, RP long, activation atriale la plus précoce à l'ostium du SC (tracé). Une ESV His-réfractaire ${effet}. Quel est le diagnostic ?`,
     simu: simu('pjrt', [{ attendre: 8000 }], r0.t - 200, { vitesse: 50 }),
-    options: ['Réentrée intranodale atypique (rapide-lente)', 'Tachycardie atriale focale basse, près du SC', 'Tachycardie réciprocante permanente (PJRT)', 'Réentrée intranodale typique (lente-rapide)'],
+    options: ['Réentrée intranodale atypique (rapide-lente)', 'Tachycardie atriale focale basse, près du SC', 'Tachycardie jonctionnelle réciprocante permanente (PJRT)', 'Réentrée intranodale typique (lente-rapide)'],
     reponses: [2],
     commentaires: [
       'Faux : la TRIN atypique a le même aspect, mais une ESV His-réfractaire ne peut pas atteindre son circuit, intranodal.',
-      'Faux : une ESV His-réfractaire ne peut atteindre un foyer atrial que par une voie accessoire ; son effet ici prouve une voie participante.',
-      `Juste : tachycardie incessante à RP long, voie postéro-septale lente et décrémentielle : l'ESV His-réfractaire ${effet}, preuve de la participation de la voie.`,
+      'Faux : une ESV His-réfractaire ne peut atteindre l\'oreillette que par une voie accessoire : son effet prouve une voie accessoire, ce qui rend une TA très improbable.',
+      `Juste : l'ESV His-réfractaire ${effet} : preuve d'une voie accessoire rétrograde ; avec le caractère incessant, le RP long et la sortie à l'ostium du SC, c'est une PJRT.`,
       'Faux : la TRIN typique a un RP très court, A et V quasi simultanés.',
     ],
-    explication: `La tachycardie jonctionnelle réciprocante permanente (maladie de Coumel) est une réentrée orthodromique utilisant une voie accessoire postéro-septale à conduction rétrograde lente et décrémentielle. Elle est incessante, à RP long, avec des P négatives en inférieur et une activation la plus précoce à l'ostium du SC. Le diagnostic différentiel est la TRIN atypique et la TA basse. L'ESV His-réfractaire tranche : si elle retarde ou avance l'atrium, ou arrête la tachycardie sans l'atteindre, la voie accessoire participe au circuit. Son caractère incessant expose à la cardiomyopathie rythmique, réversible après ablation.`,
+    explication: `La tachycardie jonctionnelle réciprocante permanente (maladie de Coumel) est une réentrée orthodromique utilisant une voie accessoire postéro-septale à conduction rétrograde lente et décrémentielle. Elle est incessante, à RP long, avec des P négatives en inférieur et une activation la plus précoce à l'ostium du SC. Le diagnostic différentiel est la TRIN atypique et la TA basse. L'ESV His-réfractaire tranche : si elle retarde l'atrium ou arrête la tachycardie sans l'atteindre, la voie participe au circuit ; si elle l'avance avec la même séquence, une voie accessoire existe, et sa participation est très probable si toute la tachycardie est recalée. Son caractère incessant expose à la cardiomyopathie rythmique, réversible après ablation.`,
     aRetenir: 'Tachycardie incessante à RP long, sortie à l\'ostium du SC, modifiée par une ESV His-réfractaire : PJRT (voie décrémentielle postéro-septale).',
     sources: [SRC.esc, SRC.josephson],
   });
@@ -446,7 +446,7 @@ for (const [scenario, site] of [['septale', 'cs9'], ['normal', 'ras']]) {
     reponses: [0],
     commentaires: [
       'Juste : descente par une voie atrio-fasciculaire (anneau tricuspide latéral vers la branche droite), remontée par la branche droite, le His et le nœud AV.',
-      'Faux : une TV fasciculaire a un aspect de retard droit et n\'est pas induite ni entretenue par l\'oreillette avec un A après chaque V.',
+      'Faux : une TV fasciculaire a un aspect de retard droit avec axe gauche et ne dépend pas de l\'oreillette (dissociation VA fréquente).',
       'Faux : en bloc de branche gauche, le His précède le V avec un HV normal ; ici le V débute avant le His.',
       'Faux : une voie latérale gauche préexciterait la paroi latérale du VG, avec un aspect de retard droit en V1.',
     ],
@@ -472,7 +472,7 @@ for (const [scenario, site] of [['septale', 'cs9'], ['normal', 'ras']]) {
     simu: simu('wpw', etapes, r.t - 200, { vitesse: 25 }),
     options: haut
       ? ['Voie à haut risque de mort subite (RR ≤ 250 ms)', 'Voie à faible risque, aucune ablation à discuter', 'Mesure non valide en fibrillation atriale', 'Voie à conduction exclusivement rétrograde']
-      : ['Voie à haut risque de mort subite (RR ≤ 250 ms)', 'Voie à moindre risque ; l\'ablation reste à discuter', 'Mesure non valide en fibrillation atriale', 'Voie à conduction exclusivement rétrograde'],
+      : ['Voie à haut risque de mort subite (RR ≤ 250 ms)', 'Voie à moindre risque selon le SPERRI ; ablation indiquée si symptômes', 'Mesure non valide en fibrillation atriale', 'Voie à conduction exclusivement rétrograde'],
     reponses: [haut ? 0 : 1],
     commentaires: haut ? [
       `Juste : RR préexcité le plus court ${sperri} ms (≤ 250 ms) : voie à conduction antérograde rapide, risque de FA conduite très vite et de fibrillation ventriculaire ; ablation recommandée.`,
@@ -481,11 +481,11 @@ for (const [scenario, site] of [['septale', 'cs9'], ['normal', 'ras']]) {
       'Faux : la voie conduit dans le sens antérograde, puisque les QRS sont préexcités.',
     ] : [
       `Faux : le plus court RR préexcité mesure ${sperri} ms, au-dessus du seuil de 250 ms.`,
-      `Juste : ${sperri} ms (> 250 ms) est un critère de voie à moindre risque ; l'ablation reste raisonnable chez un patient symptomatique ou selon le contexte.`,
+      `Juste : ${sperri} ms (> 250 ms) est un critère de voie à moindre risque ; l'ablation reste indiquée chez un patient symptomatique.`,
       'Faux : le plus court RR préexcité en FA est justement la mesure de référence du risque.',
       'Faux : la voie conduit dans le sens antérograde, puisque les QRS sont préexcités.',
     ],
-    explication: `Chez un patient porteur d'une voie accessoire manifeste, la fibrillation atriale peut être conduite très rapidement aux ventricules par la voie, jusqu'à la fibrillation ventriculaire. Le plus court intervalle RR entre deux QRS préexcités (SPERRI) en FA spontanée ou induite évalue ce risque : ≤ 250 ms signe une voie à haut risque. Le tracé montre des QRS larges, préexcités, irréguliers, parfois fusionnés avec des QRS fins. Selon les recommandations ESC 2019, l'ablation est recommandée chez les patients à haut risque et raisonnable chez la plupart des patients symptomatiques.`,
+    explication: `Chez un patient porteur d'une voie accessoire manifeste, la fibrillation atriale peut être conduite très rapidement aux ventricules par la voie, jusqu'à la fibrillation ventriculaire. Le plus court intervalle RR entre deux QRS préexcités (SPERRI) en FA spontanée ou induite évalue ce risque : ≤ 250 ms signe une voie à haut risque. Le tracé montre des QRS larges, préexcités, irréguliers, parfois fusionnés avec des QRS fins. Selon les recommandations ESC 2019, l'ablation est recommandée (classe I) chez les patients symptomatiques (TRAV récidivante ou FA préexcitée) et chez les asymptomatiques à haut risque (SPERRI ≤ 250 ms, période réfractaire de la voie ≤ 250 ms, voies multiples, TRAV inductible).`,
     aRetenir: 'FA préexcitée : RR préexcité le plus court ≤ 250 ms = voie à haut risque.',
     sources: [SRC.esc],
   });

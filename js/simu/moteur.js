@@ -209,7 +209,7 @@ export class Coeur {
     if (!SITES_ATRIAUX.includes(site) || !capture) return;
     const tr = this.trainAtrial;
     tr.n = t - tr.der <= 400 ? tr.n + 1 : 1;
-    tr.rapide = t - tr.der <= 250 ? (tr.rapide || 0) + 1 : 0;
+    tr.rapide = t - tr.der <= 220 ? (tr.rapide || 0) + 1 : 0;
     tr.der = t;
     // salve atriale très rapide sur oreillette vulnérable : fibrillation atriale
     if (tr.rapide >= 8 && Object.values(this.sites).some(x => x.fibrillable)) { this.demarrerFA(t + 5); tr.rapide = 0; }

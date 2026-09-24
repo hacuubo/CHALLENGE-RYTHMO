@@ -135,7 +135,7 @@ export function vueSimulateur(app) {
       <ul>
         <li><b>Baie</b> : vitesse en mm/s comme sur une baie (25 mm/s pour une vue d'ensemble, 100 à 200 mm/s pour mesurer). Balayage : le tracé s'écrit de gauche à droite et efface l'ancien derrière une barre ; défilement : le tracé glisse vers la gauche. Figez pour relire (jusqu'à 40 s en arrière) et poser jusqu'à trois compas ; « Report » reporte le dernier intervalle.</li>
         <li><b>Montages</b> : standard (D1, D2, V1, OD haute, His proximal et distal, SC décapolaire, VD), flutter (Halo autour de l'anneau tricuspide), ablation (électrogrammes bipolaire distal et unipolaire de la sonde), complet.</li>
-        <li><b>Extrastimulus</b> : train de S1 (ex. 8 × 600 ms) puis S2, S3, S4 (0 = désactivé). Diminuez S2 par pas de 10 ms (bouton « S2 − 10 » ou décrément automatique). Saut de l'AH ≥ 50 ms = double voie nodale. Période réfractaire effective : du tissu stimulé quand S2 ne capture plus ; du nœud AV quand S2 capture mais n'est plus suivi d'un H. Un retard droit sur S2 court = aberration fonctionnelle.</li>
+        <li><b>Extrastimulus</b> : train de S1 (ex. 8 × 600 ms) puis S2, S3, S4 (0 = désactivé). Diminuez S2 par pas de 10 ms (bouton « S2 − 10 » ou décrément automatique). Saut de l'AH ≥ 50 ms pour 10 ms de raccourcissement du couplage = double voie nodale. Période réfractaire effective : du tissu stimulé quand S2 ne capture plus ; du nœud AV quand S2 capture mais n'est plus suivi d'un H. Un retard droit sur S2 court = aberration fonctionnelle.</li>
         <li><b>Rampe et salve</b> : rampe atriale jusqu'au point de Wenckebach (allongement progressif de l'AH puis bloc) ; salve continue au cycle S1 ; après une salve de 30 s, mesurez le temps de récupération sinusale (TRS &lt; 1500 ms, TRS corrigé &lt; 525 ms).</li>
         <li><b>Isoprénaline</b> : accélère le sinus, améliore la conduction nodale et facilite l'induction ; certaines tachycardies ne s'induisent que sous isoprénaline. <b>Adénosine</b> : bloc AV transitoire (dans le simulateur, 1,5 s après le clic ; en clinique, 10 à 20 s après un bolus IV rapide rincé).</li>
         <li><b>Pendant la tachycardie</b> : mesurez le VA sur le His et regardez l'activation atriale la plus précoce (His, SC proximal, SC distal, Halo).</li>
@@ -331,9 +331,10 @@ export function vueSimulateur(app) {
     const sc = SCENARIOS[st.scenario], juste = rep === st.scenario;
     const cles = sc.manoeuvres || [], faites = cles.filter(m => st.faites.has(m));
     const cible = sc.cible ? [].concat(sc.cible) : [];
-    const ablOk = !cible.length || st.coeur.voies.some(v => v.coupee && cible.includes(v.id)) || cible.some(c => st.coeur.sites[c]?.supprime);
+    const tire = st.actions.some(a => a.texte.startsWith('Radiofréquence'));
+    const ablOk = !cible.length || st.coeur.voies.some(v => v.coupee && cible.includes(v.id)) || cible.some(c => st.coeur.sites[c]?.supprime) || (sc.ablationOptionnelle && !tire);
     const blocAV = st.coeur.voies.some(v => v.coupee && (v.id === 'nav' || v.id === 'rapide')) && !cible.includes('rapide');
-    const ablInutile = !cible.length && st.actions.some(a => a.texte.startsWith('Radiofréquence'));
+    const ablInutile = !cible.length && tire;
     const note = Math.round(((juste ? 5 : 0) + (cles.length ? 3 * faites.length / cles.length : 3) + (ablOk && !blocAV && !ablInutile ? 2 : 0)) * 10) / 10;
     const posNom = sc.position ? POSITIONS.find(p => p.id === sc.position)?.nom : '';
     $('#verdict').innerHTML = `<div class="retour ${juste ? 'ok' : 'ko'}"><h3>${juste ? 'Bon diagnostic !' : 'Ce n\'est pas ça.'} Note : ${note} / 10</h3>
@@ -341,7 +342,7 @@ export function vueSimulateur(app) {
       <h4>Manœuvres clés pour ce diagnostic</h4>
       <ul class="simu-check">${cles.map(m => `<li class="${st.faites.has(m) ? 'fait' : 'manque'}">${st.faites.has(m) ? '✓' : '✗'} ${esc(MANOEUVRES[m])}</li>`).join('') || '<li>—</li>'}</ul>
       ${st.analyses.length ? `<h4>Vos mesures</h4><ul>${st.analyses.map(a => `<li>${esc(a)}</li>`).join('')}</ul>` : ''}
-      <h4>Traitement</h4><p>${cible.length ? (ablOk ? `✓ Substrat détruit (${esc(posNom)}).` : `✗ Substrat non traité ; cible attendue : ${esc(posNom)}.`) : ablInutile ? '✗ Tir de radiofréquence sans cible arythmogène.' : '✓ Pas d\'ablation nécessaire.'}${blocAV ? ' <b>✗ Bloc AV iatrogène.</b>' : ''}</p>
+      <h4>Traitement</h4><p>${st.scenario === 'fa' ? (ablInutile ? '✗ Tir sans cible modélisée.' : '✓ Isolation des veines pulmonaires indiquée (non modélisée ici).') : cible.length ? (sc.ablationOptionnelle && !tire ? `✓ Abstention ou traitement médical acceptables ; si ablation : ${esc(posNom)}.` : ablOk ? `✓ Substrat détruit (${esc(posNom)}).` : `✗ Substrat non traité ; cible attendue : ${esc(posNom)}.`) : ablInutile ? '✗ Tir de radiofréquence sans cible arythmogène.' : '✓ Pas d\'ablation nécessaire.'}${blocAV ? ' <b>✗ Bloc AV iatrogène.</b>' : ''}</p>
       <div class="actions serre gauche"><button class="btn btn-primaire" id="autre">Nouveau cas mystère</button></div></div>`;
     $('#autre').onclick = () => choisir('mystere');
   };

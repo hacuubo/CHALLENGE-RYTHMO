@@ -82,14 +82,14 @@ export const SCENARIOS = {
   trin: {
     contexte: `Femme de 38 ans, tachycardies régulières à QRS fins depuis l'adolescence, arrêtées par des manœuvres vagales ; ECG de base normal.`,
     position: 'koch',
-    manoeuvres: ['extraA', 'induction', 'esvHis', 'entrainementV', 'adenosine'],
+    manoeuvres: ['extraA', 'induction', 'esvHis', 'entrainementV', 'stimV'],
     nom: 'TRIN typique (lente-rapide)',
     court: 'Tachycardie par réentrée intranodale typique',
     def: () => avec(sans(base(), 'nav'),
       { id: 'rapide', a: 'ras', b: 'his', nodale: true, ab: nod(70, 60, 80, 330), ba: nod(45, 40, 80, 250) },
       { id: 'lente', a: 'cs9', b: 'his', nodale: true, ab: nod(190, 120, 90, 240), ba: null }),
     cible: 'lente',
-    explication: `Réentrée intranodale typique : descente par la voie lente (saut d'AH à l'induction), remontée par la voie rapide. VA très court (A et V quasi simultanés, VA (début du QRS → A le plus précoce, ici au His) < 70 ms), activation atriale rétrograde concentrique, la plus précoce sur le His. Une ESV délivrée quand le His est réfractaire ne modifie pas l'atrium. Après entraînement ventriculaire : réponse V-A-V, PPI − TCL > 115 ms et SA − VA > 85 ms. L'adénosine l'arrête. Traitement : ablation de la voie lente.`,
+    explication: `Réentrée intranodale typique : descente par la voie lente (saut d'AH à l'induction), remontée par la voie rapide. VA très court (A et V quasi simultanés, VA < 70 ms (du début du QRS à l'A le plus précoce, ici au His)), activation atriale rétrograde concentrique, la plus précoce sur le His. Une ESV délivrée quand le His est réfractaire ne modifie pas l'atrium. Après entraînement ventriculaire : réponse V-A-V, PPI − TCL > 115 ms et SA − VA > 85 ms. L'adénosine l'arrête. Traitement : ablation de la voie lente.`,
   },
   'trin-atyp': {
     contexte: 'Femme de 52 ans, tachycardie régulière à QRS fins avec P négatives en inférieur et RP long.',
@@ -126,7 +126,7 @@ export const SCENARIOS = {
   flutter: {
     contexte: 'Homme de 67 ans, BPCO, palpitations ; ECG : ondes en dents de scie en D2, D3, aVF.',
     position: 'isthme',
-    manoeuvres: ['induction', 'entrainementA', 'adenosine'],
+    manoeuvres: ['induction', 'entrainementA'],
     nom: 'Flutter atrial typique (antihoraire, isthme-dépendant)',
     court: 'Flutter atrial typique isthme-dépendant',
     def: () => {
@@ -141,7 +141,7 @@ export const SCENARIOS = {
       return d;
     },
     cible: 'isthme',
-    explication: `Macroréentrée autour de l'anneau tricuspide, dans le sens antihoraire (vu de la pointe, comme en OAG) : montée par le septum (ostium du SC puis His), SC activé du proximal au distal, descente par la paroi latérale de l'OD (OD latérale haute puis basse), retour par l'isthme cavo-tricuspide, zone de conduction lente. Cycle atrial ≈ 240 ms, conduction AV 2:1 (≈ 120/min, fréquence atriale ≈ 245/min) ; ondes F en dents de scie, négatives en DII, positives en V1. Induction par stimulation de l'ostium du SC (extrastimulus court ou salve), qui bloque dans l'isthme dans le sens septal → latéral. Entraînement depuis l'isthme : PPI − TCL < 20-30 ms (site dans le circuit) ; depuis le SC distal : PPI − TCL long (hors circuit). L'adénosine majore le bloc AV sans arrêter le flutter. Ablation de l'isthme cavo-tricuspide, avec pour objectif un bloc bidirectionnel. En stimulant l'ostium du SC, la paroi latérale est activée de haut en bas, tardivement : bloc septal → latéral. En stimulant l'isthme latéral, en dehors de la ligne, le septum est activé tardivement, His avant ostium du SC : bloc latéral → septal.`,
+    explication: `Macroréentrée autour de l'anneau tricuspide, dans le sens antihoraire (vu de la pointe, comme en OAG) : montée par le septum (ostium du SC puis His), SC activé du proximal au distal, descente par la paroi latérale de l'OD (OD latérale haute puis basse), retour par l'isthme cavo-tricuspide, zone de conduction lente. Cycle atrial ≈ 245 ms (≈ 245/min), conduction AV 2:1 (≈ 120/min) ; ondes F en dents de scie, négatives en DII, positives en V1. Induction par stimulation de l'ostium du SC (extrastimulus court ou salve), qui bloque dans l'isthme dans le sens septal → latéral. Entraînement depuis l'isthme : PPI − TCL < 20-30 ms (site dans le circuit) ; depuis le SC distal : PPI − TCL long (hors circuit). L'adénosine majore le bloc AV sans arrêter le flutter. Ablation de l'isthme cavo-tricuspide, avec pour objectif un bloc bidirectionnel. En stimulant l'ostium du SC, la paroi latérale est activée de haut en bas, tardivement : bloc septal → latéral. En stimulant l'isthme latéral, en dehors de la ligne, le septum est activé tardivement, His avant ostium du SC : bloc latéral → septal.`,
   },
   ta: {
     contexte: 'Femme de 60 ans, tachycardie régulière à 150/min, ondes P différentes de la P sinusale.',
@@ -171,7 +171,7 @@ export const SCENARIOS = {
   pjrt: {
     contexte: 'Garçon de 14 ans adressé pour cardiomyopathie dilatée et tachycardie quasi permanente à 150/min, P négatives en D2, D3, aVF.',
     position: 'ostium',
-    manoeuvres: ['induction', 'esvHis', 'cartographie'],
+    manoeuvres: ['induction', 'esvHis', 'entrainementV', 'cartographie'],
     nom: 'Tachycardie jonctionnelle réciprocante permanente (Coumel)',
     court: 'Tachycardie jonctionnelle réciprocante permanente (PJRT)',
     def: () => avec(base(), { id: 'vacc-sept', a: 'cs9', b: 'vps', ab: { bloc: true, erp: 150 }, ba: nod(190, 90, 110, 90) }),
@@ -189,7 +189,7 @@ export const SCENARIOS = {
     explication: `Voie atrio-fasciculaire : insertion atriale sur la paroi latérale de l'anneau tricuspide, insertion distale dans la branche droite près de l'apex du VD. Conduction antérograde seule et décrémentielle. En rythme sinusal, préexcitation minime ou absente ; elle augmente en stimulant la paroi latérale de l'OD ou avec un extrastimulus atrial court (retard de conduction dans la voie, AV qui s'allonge avec un HV qui raccourcit). Tachycardie antidromique à QRS large type retard gauche, VA rétrograde par la branche droite et le nœud AV, His activé juste après le V. Ablation au site du potentiel de Mahaim, sur l'anneau tricuspide latéral.`,
   },
   'trin-21': {
-    contexte: 'Femme de 29 ans, palpitations régulières ; tachycardie à 90/min seulement sur le Holter, avec des P rapides.',
+    contexte: 'Femme de 29 ans, palpitations régulières ; tachycardie à 90/min sur le Holter, avec une onde P supplémentaire entre deux QRS (fréquence atriale ≈ 180/min).',
     position: 'koch',
     manoeuvres: ['extraA', 'induction', 'entrainementV'],
     nom: 'TRIN typique avec bloc 2:1 infra-hisien',
@@ -218,10 +218,10 @@ export const SCENARIOS = {
       return d;
     },
     cible: 'vacc-lat',
-    explication: `Tachycardie orthodromique sur voie accessoire latérale gauche, avec un bloc de branche gauche fonctionnel à l'induction qui se pérennise (phénomène de « linking » : pénétration rétrograde cachée de la branche gauche). En bloc de branche gauche, l'influx doit traverser le septum avant d'atteindre la paroi latérale du VG : le VA s'allonge de plus de 35 ms et le cycle de la tachycardie s'allonge d'autant (signe de Coumel), ce qui prouve qu'une voie accessoire homolatérale au bloc participe au circuit. Quand le bloc de branche disparaît, le cycle raccourcit. Ablation de la voie accessoire latérale gauche.`,
+    explication: `Tachycardie orthodromique sur voie accessoire latérale gauche, avec un bloc de branche gauche fonctionnel à l'induction qui se pérennise (phénomène de « linking » : pénétration rétrograde cachée de la branche gauche). En bloc de branche gauche, l'influx doit traverser le septum avant d'atteindre la paroi latérale du VG : le VA s'allonge de plus de 35 ms et le cycle de la tachycardie s'allonge aussi, parfois moins que le VA car l'AH peut raccourcir (signe de Coumel), ce qui prouve qu'une voie accessoire homolatérale au bloc participe au circuit. Quand le bloc de branche disparaît, le cycle raccourcit. Ablation de la voie accessoire latérale gauche.`,
   },
   'flutter-mitral': {
-    contexte: `Femme de 63 ans, antécédent d'isolation des veines pulmonaires ; tachycardie atriale régulière à 220/min.`,
+    contexte: `Femme de 63 ans, antécédent d'isolation des veines pulmonaires ; tachycardie atriale régulière à 270/min (cycle ≈ 220 ms).`,
     position: 'mitral-lat',
     manoeuvres: ['induction', 'entrainementA'],
     nom: 'Flutter péri-mitral (tachycardie atriale macroréentrante gauche)',
@@ -240,8 +240,9 @@ export const SCENARIOS = {
   },
   jonctionnelle: {
     contexte: `Homme de 21 ans, tachycardie à QRS fins favorisée par l'effort, parfois dissociée des P.`,
-    position: 'his',
-    manoeuvres: ['iso', 'salveA', 'adenosine'],
+    position: 'cryo-his',
+    ablationOptionnelle: true,
+    manoeuvres: ['iso', 'salveA', 'extraA', 'adenosine'],
     nom: 'Tachycardie jonctionnelle focale',
     court: 'Tachycardie jonctionnelle focale',
     def: () => {
@@ -253,7 +254,7 @@ export const SCENARIOS = {
       return d;
     },
     cible: 'jet',
-    explication: `Automatisme anormal de la jonction AV (His), favorisé par l'isoprénaline : ici déclenché par une salve atriale, facilité sous isoprénaline. Chaque V est précédé d'un H avec un HV normal ; les A suivent en rétrograde (VA court, activation concentrique) quand la conduction rétrograde le permet, sinon ils sont dissociés, ce qui exclut une réentrée. L'adénosine peut ralentir la conduction rétrograde sans arrêter la tachycardie. Une extrasystole atriale délivrée quand le His est réfractaire ne modifie pas la tachycardie, contrairement à une TRIN. Traitement : cryoablation prudente ou traitement médical, le risque de bloc AV est élevé.`,
+    explication: `Automatisme anormal de la jonction AV (His), favorisé par l'isoprénaline ; démasqué ici, pour les besoins du modèle, par une salve atriale sous isoprénaline : un automatisme n'est classiquement ni induit ni arrêté par la stimulation programmée. Chaque V est précédé d'un H avec un HV normal ; les A suivent en rétrograde (VA court, activation concentrique) quand la conduction rétrograde le permet, sinon ils sont dissociés, ce qui exclut une réentrée. L'adénosine peut ralentir la conduction rétrograde sans arrêter la tachycardie. Une extrasystole atriale délivrée quand le His est réfractaire ne modifie pas la tachycardie, contrairement à une TRIN. Traitement : cryoablation prudente ou traitement médical, le risque de bloc AV est élevé.`,
   },
   tv: {
     contexte: 'Homme de 68 ans, infarctus inférolatéral ancien, FEVG 35 %, tachycardie à QRS larges à 170/min.',
@@ -274,17 +275,17 @@ export const SCENARIOS = {
       return d;
     },
     cible: 'tv-isthme',
-    explication: `Réentrée dans une cicatrice du VG (séquelle d'infarctus) : isthme de conduction lente entre deux zones de bloc. Tachycardie à QRS large type retard droit (sortie ventriculaire gauche), His non visible avant le V ou dissocié, dissociation VA ou conduction rétrograde 2:1 : les V sont plus nombreux que les A, ce qui signe l'origine ventriculaire. Induite par extrastimulus ventriculaires (S2, S3). L'entraînement depuis l'isthme donne un PPI − TCL court (< 30 ms). Ablation de l'isthme de la cicatrice.`,
+    explication: `Réentrée dans une cicatrice du VG (séquelle d'infarctus) : isthme de conduction lente entre deux zones de bloc. Tachycardie à QRS large type retard droit (sortie ventriculaire gauche), His non visible avant le V ou dissocié, dissociation VA ou conduction rétrograde 2:1 : les V sont plus nombreux que les A, ce qui signe l'origine ventriculaire. Induite par des extrastimulus ventriculaires (S2, S3). L'entraînement depuis l'isthme donne une fusion cachée, un PPI − TCL < 30 ms et un stimulus-QRS égal à l'électrogramme-QRS (Stevenson). Ablation de l'isthme de la cicatrice.`,
   },
   fa: {
     contexte: 'Homme de 58 ans, fibrillation atriale paroxystique symptomatique.',
     position: null,
-    manoeuvres: ['salveA', 'adenosine'],
+    manoeuvres: ['salveA'],
     nom: 'Fibrillation atriale',
     court: 'Fibrillation atriale',
     def: () => { const d = base(); d.sites.hra.fibrillable = true; return d; },
     cible: null,
-    explication: `Oreillette vulnérable : une salve atriale très rapide (cycle ≤ 250 ms) déclenche une fibrillation atriale. Activité atriale désorganisée et variable d'un dipôle à l'autre, cycles atriaux courts et irréguliers, conduction AV irrégulière filtrée par le nœud AV (QRS fins, RR irréguliers). L'adénosine ne l'arrête pas mais majore transitoirement le bloc AV. Arrêt par choc électrique externe. Traitement ablatif : isolation des veines pulmonaires (non modélisée ici).`,
+    explication: `Oreillette vulnérable : une salve atriale très rapide (cycle de 200 à 150 ms) déclenche une fibrillation atriale. Activité atriale désorganisée et variable d'un dipôle à l'autre, cycles atriaux courts et irréguliers, conduction AV irrégulière filtrée par le nœud AV (QRS fins, RR irréguliers). L'adénosine ne l'arrête pas mais majore transitoirement le bloc AV. Arrêt par choc électrique externe. Traitement ablatif : isolation des veines pulmonaires (non modélisée ici).`,
   },
 };
 
@@ -311,7 +312,8 @@ export const POSITIONS = [
   { id: 'isthme', nom: 'Isthme cavo-tricuspide', a: 'cti', v: 'rva', stim: 'cti', cibles: ['isthme'] },
   { id: 'koch', nom: 'Triangle de Koch, partie basse (voie lente)', a: 'cs9', v: 'vps', stim: 'cs9', cibles: ['lente'] },
   { id: 'ostium', nom: 'Ostium du SC, postéro-septal', a: 'cs9', v: 'vps', stim: 'cs9', cibles: ['vacc-sept'] },
-  { id: 'his', nom: 'Région antéro-septale, près du His', a: 'ras', v: 'vbd', stim: 'parahis', cibles: ['rapide', 'nav', 'jet'] },
+  { id: 'his', nom: 'Région antéro-septale, près du His (radiofréquence)', a: 'ras', v: 'vbd', stim: 'parahis', cibles: ['rapide', 'nav', 'jet'] },
+  { id: 'cryo-his', nom: 'Région para-hisienne (cryoablation prudente)', a: 'ras', v: 'vbd', stim: 'parahis', cibles: ['jet'] },
   { id: 'mitral-lat', nom: 'Anneau mitral latéral (transseptal)', a: 'cs1', v: 'lvl', stim: 'cs1', cibles: ['vacc-lat', 'og-lat'] },
   { id: 'og-lat', nom: 'Oreillette gauche inféro-latérale (en regard du SC 3-4)', a: 'cs3', v: 'lvl', stim: 'cs3', cibles: ['foyer'] },
   { id: 'vd-apex', nom: 'Apex du VD', a: null, v: 'rva', stim: 'rva', cibles: [] },
