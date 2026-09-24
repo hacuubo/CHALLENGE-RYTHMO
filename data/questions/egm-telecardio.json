@@ -8,11 +8,12 @@
     "difficulte": 4,
     "question": "Transmission automatique d'un DAI double chambre programmé DDD (cardiomyopathie ischémique, prévention primaire) : alerte « épisode de tachyarythmie atriale de 9 h ». Le patient est asymptomatique et n'a pas d'antécédent connu de FA. Quelle est votre interprétation de l'épisode transmis ?",
     "egm": {
-      "preset": "fa-mode-switch"
+      "preset": "fa-mode-switch",
+      "appareil": "dai"
     },
     "options": [
       "Surdétection de l'onde R lointaine sur le canal atrial : fausse alerte",
-      "Flutter atrial 2:1 masqué par le blanking, sans repli de mode",
+      "Flutter dont une onde sur deux est masquée par le blanking",
       "FA avec repli de mode approprié et réponse ventriculaire irrégulière",
       "Bruit sur la sonde atriale avec signaux non physiologiques"
     ],
@@ -57,7 +58,8 @@
     "difficulte": 6,
     "question": "Même type d'épisode, durée 9 h, chez un homme de 72 ans porteur d'un DAI pour cardiopathie ischémique (FEVG 30 %), hypertendu, sans FA documentée à l'ECG ni risque hémorragique élevé. Selon les recommandations ESC 2024, quelle conduite proposer ?",
     "egm": {
-      "preset": "fa-mode-switch"
+      "preset": "fa-mode-switch",
+      "appareil": "dai"
     },
     "options": [
       "Débuter un AOD sans discussion : tout AHRE de plus de 6 min l'impose",
@@ -109,7 +111,8 @@
     "difficulte": 5,
     "question": "DAI double chambre programmé DDD, transmission de routine. Sur cet épisode, le marqueur MS traduit un fonctionnement normal : le boîtier cesse de suivre l'activité atriale rapide pour ne pas stimuler le ventricule à la fréquence maximale de suivi.",
     "egm": {
-      "preset": "fa-mode-switch"
+      "preset": "fa-mode-switch",
+      "appareil": "dai"
     },
     "options": [
       "Vrai",
@@ -123,7 +126,7 @@
       "Faux : il ne s'agit pas d'un dysfonctionnement ; c'est la réponse attendue du boîtier devant une FA."
     ],
     "reponseAttendue": null,
-    "explication": "En mode DDD, chaque AS déclenche un délai AV puis une stimulation ventriculaire. Sans repli de mode, une FA serait suivie jusqu'à la fréquence maximale de suivi, avec une stimulation ventriculaire rapide et irrégulière mal tolérée. L'algorithme de repli de mode (critères de détection propres à chaque constructeur) fait passer le boîtier dans un mode sans suivi atrial ; ici, après le marqueur MS, les ventricules sont détectés (VS) à une fréquence irrégulière et non plus stimulés à la suite de chaque AS. Réflexe à avoir : un marqueur MS n'est pas une panne, mais il signe un épisode atrial qu'il faut valider sur l'EGM puis intégrer à la prise en charge (anticoagulation, contrôle de fréquence ou de rythme).",
+    "explication": "En mode DDD, chaque AS déclenche un délai AV puis une stimulation ventriculaire. Sans repli de mode, une FA serait suivie jusqu'à la fréquence maximale de suivi, avec une stimulation ventriculaire rapide et irrégulière mal tolérée. L'algorithme de repli de mode (critères de détection propres à chaque constructeur) fait passer le boîtier dans un mode sans suivi atrial ; ici, dès le début de la FA, les ventricules ne sont plus stimulés à la suite de chaque AS : ils sont détectés (VS) à une fréquence irrégulière, et le marqueur MS signe la bascule. Réflexe à avoir : un marqueur MS n'est pas une panne, mais il signe un épisode atrial qu'il faut valider sur l'EGM puis intégrer à la prise en charge (anticoagulation, contrôle de fréquence ou de rythme).",
     "aRetenir": "Le repli de mode est la réponse normale du boîtier à une FA : il évite de stimuler le ventricule au rythme de l'oreillette.",
     "sources": [
       {
@@ -149,7 +152,8 @@
     "difficulte": 6,
     "question": "Alerte d'AHRE sur un DAI double chambre. Quels éléments de cet EGM permettent de retenir une vraie FA plutôt qu'une fausse alerte ?",
     "egm": {
-      "preset": "fa-mode-switch"
+      "preset": "fa-mode-switch",
+      "appareil": "dai"
     },
     "options": [
       "Activité atriale rapide et désorganisée, intervalles A-A de 130 à 220 ms",
@@ -168,7 +172,7 @@
       "Juste : les signaux atriaux ne sont pas calés sur les QRS, contrairement à une onde R lointaine.",
       "Faux : AR signifie seulement « A détecté en période réfractaire » ; en FA, de nombreux signaux tombent dans ces périodes.",
       "Juste : la conduction d'une FA donne une réponse ventriculaire irrégulière (531 à 1023 ms).",
-      "Faux : les QRS détectés ont la même morphologie qu'en rythme de base sur l'EGM de choc ; il n'y a pas d'argument ventriculaire."
+      "Faux : les QRS détectés sont fins sur l'EGM de choc (QRS conduits), plus étroits que les complexes stimulés du début du tracé ; rien n'évoque une origine ventriculaire."
     ],
     "reponseAttendue": null,
     "explication": "Trois arguments convergent : l'EGM atrial montre une activité rapide et désorganisée (130 à 220 ms), sans lien fixe avec les QRS, et la réponse ventriculaire devient irrégulière. Le marqueur AR n'est pas un signe de surdétection : il indique qu'un signal atrial est tombé dans une période réfractaire, ce qui est constant en FA. Une surdétection d'onde R lointaine donnerait au contraire un AR à intervalle fixe juste après chaque QRS, avec un rythme sinusal régulier par ailleurs. Réflexe à avoir : regarder le tracé atrial lui-même et sa relation avec le V, pas seulement les compteurs et les marqueurs.",
@@ -201,13 +205,14 @@
     "difficulte": 7,
     "question": "DAI double chambre programmé DDD chez un patient en BAV complet, fréquence maximale de suivi 130/min. La télésurveillance signale 6 h de stimulation ventriculaire à 120/min, sans aucun épisode atrial ni repli de mode. Le patient signale palpitations et essoufflement. Quelle est votre interprétation ?",
     "egm": {
-      "preset": "flutter-blanking"
+      "preset": "flutter-blanking",
+      "appareil": "dai"
     },
     "options": [
       "Tachycardie sinusale à 120/min, suivie normalement par le boîtier",
       "Tachycardie par réentrée électronique entretenue par une conduction rétrograde",
       "Tachycardie atriale focale à 120/min avec repli de mode retardé",
-      "Flutter 2:1 dont une onde F sur deux tombe dans le blanking post-ventriculaire"
+      "Flutter suivi en 2:1, une onde F sur deux tombant dans le blanking"
     ],
     "reponses": [
       3
@@ -219,8 +224,8 @@
       "Juste : le boîtier ne voit qu'une onde F sur deux (A-A affiché 500 ms) et suit à 120/min sans repli de mode."
     ],
     "reponseAttendue": null,
-    "explication": "Les marqueurs affichent un A-A régulier à 500 ms et un VP après chaque AS : en apparence, un rythme atrial à 120/min correctement suivi. Mais l'EGM atrial montre une seconde déflexion entre deux AS, au moment de la stimulation ventriculaire : elle tombe dans le blanking atrial post-ventriculaire et n'est pas comptée. Le vrai cycle atrial est donc d'environ 250 ms (240/min) : c'est un flutter 2:1 dont le boîtier ne voit que la moitié des ondes, sous le seuil de repli de mode. Une TRE se ferait à la fréquence maximale de suivi (130/min), pas à 120/min. Réflexe à avoir : devant une stimulation ventriculaire stable autour de 110 à 150/min sans épisode atrial, compter toutes les déflexions de l'EGM atrial, pas les marqueurs.",
-    "aRetenir": "Stimulation V stable vers 120/min sans épisode atrial : chercher un flutter 2:1 dont une onde sur deux est masquée par le blanking.",
+    "explication": "Les marqueurs affichent un A-A régulier à 500 ms et un VP après chaque AS : en apparence, un rythme atrial à 120/min correctement suivi. Mais l'EGM atrial montre une seconde déflexion entre deux AS, au moment de la stimulation ventriculaire : elle tombe dans le blanking atrial post-ventriculaire et n'est pas comptée. Le vrai cycle atrial est donc d'environ 250 ms (240/min) : c'est un flutter dont le boîtier ne voit qu'une onde sur deux (suivi en 2:1, la conduction AV propre étant bloquée), sous le seuil de repli de mode. Une TRE se ferait à la fréquence maximale de suivi (130/min), pas à 120/min. Réflexe à avoir : devant une stimulation ventriculaire stable autour de 110 à 150/min sans épisode atrial, compter toutes les déflexions de l'EGM atrial, pas les marqueurs.",
+    "aRetenir": "Stimulation V stable vers 120/min sans épisode atrial : chercher un flutter dont une onde sur deux est masquée par le blanking.",
     "sources": [
       {
         "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers Step by Step: An Illustrated Guide. Wiley-Blackwell",
@@ -245,7 +250,8 @@
     "difficulte": 7,
     "question": "Chez ce patient (DAI double chambre, BAV complet), le flutter est confirmé à l'ECG. Quelle modification de programmation réduit le risque que ce suivi rapide non reconnu se reproduise ?",
     "egm": {
-      "preset": "flutter-blanking"
+      "preset": "flutter-blanking",
+      "appareil": "dai"
     },
     "options": [
       "Allonger le blanking post-ventriculaire pour limiter le double comptage",
@@ -289,7 +295,8 @@
     "difficulte": 6,
     "question": "Chez ce porteur de DAI double chambre, la télésurveillance a révélé ce flutter, confirmé ensuite à l'ECG (flutter typique). Que faut-il organiser ?",
     "egm": {
-      "preset": "flutter-blanking"
+      "preset": "flutter-blanking",
+      "appareil": "dai"
     },
     "options": [
       "Évaluer l'anticoagulation selon le score CHA2DS2-VA, comme pour une FA",
@@ -335,7 +342,8 @@
     "question": "DAI double chambre chez un patient sans antécédent de FA. La télésurveillance transmet chaque semaine des dizaines d'« épisodes AHRE » courts, avec un compteur de charge atriale en hausse. Le patient est asymptomatique. Quelle est votre interprétation de cet EGM ?",
     "egm": {
       "preset": "far-field-r",
-      "legende": "Rythme de base, transmission hebdomadaire"
+      "legende": "Rythme de base, transmission hebdomadaire",
+      "appareil": "dai"
     },
     "options": [
       "Salves de tachycardie atriale à 280/min conduites de façon intermittente",
@@ -383,7 +391,8 @@
     "difficulte": 7,
     "question": "Chez ce patient (DAI double chambre, fausses alertes d'AHRE répétées), quelle correction de programmation proposer, et avec quelle précaution ?",
     "egm": {
-      "preset": "far-field-r"
+      "preset": "far-field-r",
+      "appareil": "dai"
     },
     "options": [
       "Raccourcir la PVARP pour que ces signaux sortent de la période réfractaire",
@@ -401,7 +410,7 @@
       "Juste : allonger le blanking (ou réduire la sensibilité atriale) supprime le double comptage, au risque de masquer un flutter ou une FA."
     ],
     "reponseAttendue": null,
-    "explication": "Le signal lointain survient quelques dizaines de millisecondes après le QRS : l'allonger dans le blanking atrial post-ventriculaire, ou diminuer la sensibilité atriale (valeur en mV plus élevée) en gardant une marge suffisante par rapport à l'amplitude de l'onde P, supprime le double comptage. La précaution est symétrique : un blanking trop long peut masquer une onde F sur deux en flutter 2:1, et une sensibilité trop basse peut sous-détecter la FA. Il faut donc vérifier sur les transmissions suivantes que les vrais épisodes restent détectés. Raccourcir la PVARP ou augmenter la sensibilité aggrave le problème, et désactiver le repli de mode expose à un suivi rapide en cas de vraie FA. Réflexe à avoir : corriger la détection atriale en pensant toujours au risque inverse.",
+    "explication": "Le signal lointain survient quelques dizaines de millisecondes après le QRS : allonger le blanking atrial post-ventriculaire pour qu'il le recouvre, ou diminuer la sensibilité atriale (valeur en mV plus élevée) en gardant une marge suffisante par rapport à l'amplitude de l'onde P, supprime le double comptage. La précaution est symétrique : un blanking trop long peut masquer une onde F sur deux en flutter 2:1, et une sensibilité trop basse peut sous-détecter la FA. Il faut donc vérifier sur les transmissions suivantes que les vrais épisodes restent détectés. Raccourcir la PVARP ou augmenter la sensibilité aggrave le problème, et désactiver le repli de mode expose à un suivi rapide en cas de vraie FA. Réflexe à avoir : corriger la détection atriale en pensant toujours au risque inverse.",
     "aRetenir": "Onde R lointaine : allonger le blanking post-ventriculaire ou réduire la sensibilité atriale, puis vérifier que la FA reste détectée.",
     "sources": [
       {
@@ -427,7 +436,8 @@
     "difficulte": 4,
     "question": "Porteur de DAI double chambre, 74 ans, hypertendu. Les « épisodes AHRE » transmis, dont cet EGM est représentatif, justifient d'évaluer une anticoagulation par AOD selon le score CHA2DS2-VA.",
     "egm": {
-      "preset": "far-field-r"
+      "preset": "far-field-r",
+      "appareil": "dai"
     },
     "options": [
       "Vrai",
@@ -441,7 +451,7 @@
       "Juste : l'EGM montre un rythme sinusal avec double comptage atrial ; aucune arythmie atriale n'est présente, l'anticoagulation n'est pas en question."
     ],
     "reponseAttendue": null,
-    "explication": "L'EGM montre un rythme sinusal régulier ; le second signal atrial est l'onde R captée par la sonde atriale. Ces « AHRE » sont de fausses alertes : discuter une anticoagulation exposerait le patient au risque hémorragique sans aucun bénéfice. Les essais ARTESiA et NOAH-AFNET 6 portaient sur des épisodes confirmés, et le consensus HRS 2023 rappelle que les épisodes détectés par le boîtier doivent être validés sur l'EGM. Réflexe à avoir : ne jamais discuter une anticoagulation sur un compteur d'AHRE sans avoir lu au moins un EGM représentatif.",
+    "explication": "L'EGM montre un rythme sinusal régulier ; le second signal atrial est l'onde R captée par la sonde atriale. Ces « AHRE » sont de fausses alertes : discuter une anticoagulation exposerait le patient au risque hémorragique sans aucun bénéfice. Les essais ARTESiA et NOAH-AFNET 6 portaient sur de vrais épisodes de FA détectés par le boîtier, pas sur des artefacts de détection, et le consensus HRS 2023 rappelle que les épisodes détectés par le boîtier doivent être validés sur l'EGM. Réflexe à avoir : ne jamais discuter une anticoagulation sur un compteur d'AHRE sans avoir lu au moins un EGM représentatif.",
     "aRetenir": "Pas d'anticoagulation sur un compteur d'AHRE : lire l'EGM, les fausses alertes par onde R lointaine sont fréquentes.",
     "sources": [
       {
@@ -539,7 +549,7 @@
       "Juste : kaliémie, ischémie, décompensation cardiaque, observance du bêtabloquant et interactions sont à rechercher."
     ],
     "reponseAttendue": null,
-    "explication": "Un épisode isolé de TV réduit par ATP chez un patient asymptomatique n'est pas une urgence vitale, mais ce n'est pas non plus un non-événement. Il faut informer le médecin responsable, rechercher un facteur favorisant (hypokaliémie, ischémie, insuffisance cardiaque, arrêt du bêtabloquant, médicament allongeant le QT) et avancer le contact médical. En cas de récidives, l'ESC 2022 recommande d'optimiser le traitement antiarythmique et de discuter l'ablation. Désactiver l'ATP serait une erreur : les consensus recommandent l'ATP dans toutes les zones TV car elle réduit les chocs. Réflexe à avoir : graduer la réponse, ni banalisation ni surréaction, et tracer l'action dans le dossier.",
+    "explication": "Un épisode isolé de TV réduit par ATP chez un patient asymptomatique n'est pas une urgence vitale, mais ce n'est pas non plus un non-événement. Il faut informer le médecin responsable, rechercher un facteur favorisant (hypokaliémie, ischémie, insuffisance cardiaque, arrêt du bêtabloquant, médicament allongeant le QT) et avancer le contact médical. En cas de récidives, l'ESC 2022 recommande d'optimiser le traitement antiarythmique et de discuter l'ablation. Désactiver l'ATP serait une erreur : les consensus recommandent l'ATP dans toutes les zones TV car elle réduit les chocs. Il faut aussi aborder la conduite automobile, temporairement suspendue après une thérapie appropriée. Réflexe à avoir : graduer la réponse, ni banalisation ni surréaction, et tracer l'action dans le dossier.",
     "aRetenir": "TV réduite par ATP, patient asymptomatique : pas d'urgence vitale, mais médecin prévenu, cause recherchée, contrôle avancé.",
     "sources": [
       {
@@ -568,13 +578,13 @@
     "marque": null,
     "type": "ouverte",
     "difficulte": 6,
-    "question": "DAI en prévention secondaire, épisode transmis ci-dessous. Décrivez la thérapie délivrée (type, nombre d'impulsions, cycle de couplage) et expliquez pourquoi le patient ne l'a pas ressentie.",
+    "question": "DAI en prévention secondaire, épisode transmis ci-dessous. Décrivez la thérapie délivrée (type, nombre d'impulsions, cycle de stimulation) et expliquez pourquoi le patient ne l'a pas ressentie.",
     "egm": {
       "preset": "tv-atp"
     },
-    "reponseAttendue": "Salve (burst) d'ATP de 8 impulsions à 290 ms, soit environ 88 % du cycle de la TV (330 ms), délivrée après confirmation du diagnostic (marqueurs TD). Stimuler plus vite que la TV permet de pénétrer le circuit de réentrée et de l'interrompre : retour en rythme sinusal (VS à 790 ms). L'ATP est une stimulation indolore, contrairement au choc : ces épisodes passent souvent inaperçus et seule la télésurveillance les révèle.",
-    "explication": "Les marqueurs TP montrent 8 impulsions à 290 ms, un cycle raccourci par rapport à celui de la TV (330 ms), soit environ 88 %, valeur habituelle d'une salve d'ATP. L'ATP interrompt les TV de réentrée monomorphes dans une large proportion de cas et évite ainsi un choc ; les consensus de programmation recommandent de l'activer dans toutes les zones TV, y compris les TV rapides jusqu'à 230/min. Comme elle est indolore, le patient ne sait souvent pas qu'il a fait une TV : la télésurveillance est alors la seule source d'information. Réflexe à avoir : un épisode traité par ATP compte comme une TV soutenue et doit être pris en charge comme tel.",
-    "aRetenir": "L'ATP est indolore : une TV réduite par ATP passe souvent inaperçue et doit pourtant être prise en charge.",
+    "reponseAttendue": "Salve (burst) d'ATP de 8 impulsions à 290 ms, soit environ 88 % du cycle de la TV (330 ms), délivrée après confirmation du diagnostic (marqueurs TD). Stimuler plus vite que la TV permet de pénétrer le circuit de réentrée et de l'interrompre : retour en rythme sinusal (VS à 790 ms). L'ATP est une stimulation le plus souvent indolore (au plus quelques palpitations), contrairement au choc : ces épisodes passent souvent inaperçus et seule la télésurveillance les révèle.",
+    "explication": "Les marqueurs TP montrent 8 impulsions à 290 ms, un cycle raccourci par rapport à celui de la TV (330 ms), soit environ 88 %, valeur habituelle d'une salve d'ATP. L'ATP interrompt les TV de réentrée monomorphes dans une large proportion de cas et évite ainsi un choc ; les consensus de programmation recommandent de l'activer dans toutes les zones TV, y compris les TV rapides jusqu'à 230/min. Comme elle est le plus souvent indolore, le patient ne sait souvent pas qu'il a fait une TV : la télésurveillance est alors la seule source d'information. Réflexe à avoir : un épisode traité par ATP compte comme une TV soutenue et doit être pris en charge comme tel.",
+    "aRetenir": "L'ATP est le plus souvent indolore : une TV réduite par ATP passe souvent inaperçue et doit pourtant être prise en charge.",
     "sources": [
       {
         "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
@@ -666,7 +676,7 @@
       "Faux : après un choc approprié, la conduite est suspendue temporairement (de l'ordre de 3 mois pour un permis de groupe 1)."
     ],
     "reponseAttendue": null,
-    "explication": "La règle pratique donnée aux patients est simple : un choc unique suivi d'un bon état général conduit à contacter le centre (transmission manuelle) ; plusieurs chocs rapprochés, ou un choc accompagné de malaise, douleur thoracique, dyspnée ou perte de connaissance, conduisent à appeler le 15. Ici, l'épisode est une FV : une évaluation le jour même est justifiée pour rechercher un facteur déclenchant (syndrome coronarien, hypokaliémie, décompensation cardiaque, médicament). L'ESC 2022 recommande par ailleurs une suspension temporaire de la conduite après une thérapie appropriée. Réflexe à avoir : graduer la réponse sur le nombre de chocs et les symptômes, et ne jamais banaliser une FV traitée.",
+    "explication": "La règle pratique donnée aux patients est simple : un choc unique suivi d'un bon état général conduit à contacter le centre (transmission manuelle) ; plusieurs chocs rapprochés, ou un choc accompagné de malaise, douleur thoracique, dyspnée ou perte de connaissance, conduisent à appeler le 15. Ici, l'épisode est une FV : une évaluation le jour même est justifiée pour rechercher un facteur déclenchant (syndrome coronarien, hypokaliémie, décompensation cardiaque, médicament). Le consensus de l'EHRA recommande par ailleurs d'interrompre la conduite pendant 3 mois après une thérapie appropriée (permis de groupe 1). Réflexe à avoir : graduer la réponse sur le nombre de chocs et les symptômes, et ne jamais banaliser une FV traitée.",
     "aRetenir": "Choc unique bien toléré : évaluation rapide ; chocs répétés ou symptômes : 15 ; toujours rechercher la cause.",
     "sources": [
       {
@@ -676,6 +686,10 @@
       {
         "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
         "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      },
+      {
+        "titre": "Vijgen J et al. Consensus statement of the European Heart Rhythm Association: updated recommendations for driving by patients with implantable cardioverter defibrillators. Europace 2009;11:1097-1107",
+        "url": "https://doi.org/10.1093/europace/eup112"
       }
     ],
     "reco": [
@@ -741,13 +755,13 @@
       3
     ],
     "commentaires": [
-      "Faux : les QRS ont la même morphologie qu'en rythme de base sur l'EGM de choc, et A > V.",
+      "Faux : les QRS sont fins et identiques d'un cycle à l'autre sur l'EGM de choc, ce qui exclut une TV polymorphe ; et A > V.",
       "Faux : l'activité atriale est désorganisée et la réponse ventriculaire irrégulière, ce n'est pas un flutter 2:1.",
       "Faux : il n'y a qu'un signal ventriculaire par QRS ; la fréquence élevée est réelle.",
       "Juste : activité atriale rapide et désorganisée, V irrégulier (300 à 440 ms) de morphologie inchangée : FA conduite."
     ],
     "reponseAttendue": null,
-    "explication": "L'EGM atrial montre une FA (activité rapide et désorganisée, intervalles de 140 à 215 ms). La réponse ventriculaire est rapide et irrégulière (300 à 440 ms), avec des QRS de même morphologie que le rythme de base sur l'EGM de choc : la fréquence atriale est supérieure à la fréquence ventriculaire, ce n'est pas une TV. Les VS franchissent la limite de la zone TV et sont classés TS, d'où une thérapie inappropriée. Réflexe à avoir : A > V, irrégularité et morphologie identique au rythme de base signent une FA conduite ; c'est la première cause de chocs inappropriés.",
+    "explication": "L'EGM atrial montre une FA (activité rapide et désorganisée, intervalles de 140 à 215 ms). La réponse ventriculaire est rapide et irrégulière (300 à 440 ms), avec des QRS fins et identiques d'un cycle à l'autre sur l'EGM de choc (morphologie d'un QRS conduit) : la fréquence atriale est supérieure à la fréquence ventriculaire, ce n'est pas une TV. Les VS franchissent la limite de la zone TV et sont classés TS, d'où une thérapie inappropriée. Réflexe à avoir : A > V, irrégularité et QRS conduits de morphologie constante signent une FA conduite ; c'est la première cause de chocs inappropriés.",
     "aRetenir": "A > V, V irrégulier, morphologie inchangée : FA conduite en zone TV, thérapie inappropriée.",
     "sources": [
       {
@@ -793,13 +807,13 @@
     ],
     "commentaires": [
       "Juste : une réponse ventriculaire plus lente reste sous la zone TV.",
-      "Juste : les consensus recommandent d'activer les discriminateurs au moins jusqu'à 200/min.",
+      "Juste : les consensus recommandent d'appliquer les discriminateurs au-delà de 200/min, si possible jusqu'à 230/min.",
       "Juste : une détection plus longue réduit les thérapies sur des épisodes transitoires (MADIT-RIT, ADVANCE III).",
       "Faux : l'énergie du choc ne change rien au fait que la thérapie est inappropriée.",
       "Faux : chez un patient en prévention secondaire, supprimer les thérapies l'expose à une mort subite."
     ],
     "reponseAttendue": null,
-    "explication": "Le choc inapproprié vient d'une FA conduite dans la zone TV. Trois leviers se complètent : ralentir la réponse ventriculaire (bêtabloquant, éventuellement ablation de la FA), s'assurer que les discriminateurs de TSV sont actifs et bien paramétrés (stabilité, morphologie, relation A-V ; au moins jusqu'à 200/min selon le consensus 2015), et allonger la durée de détection si la TV documentée le permet. Augmenter l'énergie du choc ne corrige rien, et désactiver les thérapies chez un patient en prévention secondaire est dangereux. La découverte de cette FA impose aussi de discuter l'anticoagulation. Réflexe à avoir : après un choc inapproprié, agir à la fois sur l'arythmie et sur la programmation.",
+    "explication": "Le choc inapproprié vient d'une FA conduite dans la zone TV. Trois leviers se complètent : ralentir la réponse ventriculaire (bêtabloquant, éventuellement ablation de la FA), s'assurer que les discriminateurs de TSV sont actifs et bien paramétrés (stabilité, morphologie, relation A-V ; au-delà de 200/min et si possible jusqu'à 230/min selon le consensus 2015), et allonger la durée de détection si la TV documentée le permet. Augmenter l'énergie du choc ne corrige rien, et désactiver les thérapies chez un patient en prévention secondaire est dangereux. La découverte de cette FA impose aussi de discuter l'anticoagulation. Réflexe à avoir : après un choc inapproprié, agir à la fois sur l'arythmie et sur la programmation.",
     "aRetenir": "Choc inapproprié sur FA : contrôle de fréquence, discriminateurs actifs, détection plus longue, et anticoagulation à discuter.",
     "sources": [
       {
@@ -932,7 +946,7 @@
       "Juste : au-delà de la limite supérieure des discriminateurs, toute tachycardie est traitée ; le traitement freinateur limite la fréquence d'effort."
     ],
     "reponseAttendue": null,
-    "explication": "Le piège est de croire que le DAI a « raté » une TV. Il a correctement reconnu une tachycardie sinusale, mais le patient a atteint 167/min, dans la zone TV. Deux points à vérifier : que la limite au-delà de laquelle les discriminateurs ne s'appliquent plus soit supérieure à la fréquence d'effort maximale atteignable (le consensus 2015 recommande des discriminateurs actifs au moins jusqu'à 200/min), et que le traitement freinateur soit adapté (éventuellement évalué par une épreuve d'effort). Abaisser la zone ou désactiver les discriminateurs multiplierait les thérapies inappropriées. Réflexe à avoir : une thérapie retenue à juste titre ne se corrige pas, mais elle révèle un chevauchement entre fréquence d'effort et zone TV qu'il faut anticiper.",
+    "explication": "Le piège est de croire que le DAI a « raté » une TV. Il a correctement reconnu une tachycardie sinusale, mais le patient a atteint 167/min, dans la zone TV. Deux points à vérifier : que la limite au-delà de laquelle les discriminateurs ne s'appliquent plus soit supérieure à la fréquence d'effort maximale atteignable (le consensus 2015 recommande d'appliquer les discriminateurs au-delà de 200/min, si possible jusqu'à 230/min), et que le traitement freinateur soit adapté (éventuellement évalué par une épreuve d'effort). Abaisser la zone ou désactiver les discriminateurs multiplierait les thérapies inappropriées. Réflexe à avoir : une thérapie retenue à juste titre ne se corrige pas, mais elle révèle un chevauchement entre fréquence d'effort et zone TV qu'il faut anticiper.",
     "aRetenir": "Tachycardie sinusale en zone TV : vérifier la limite des discriminateurs et le traitement freinateur, ne pas les désactiver.",
     "sources": [
       {
@@ -993,7 +1007,7 @@
     "marque": null,
     "type": "qcu",
     "difficulte": 5,
-    "question": "Vendredi 18 h, alerte de télésurveillance sur un DAI double chambre : « bruit détecté sur la sonde VD », avec plusieurs épisodes courts en zone FV non traités. Le patient, joint, va bien. Quelle est votre interprétation ?",
+    "question": "Vendredi 18 h, alerte de télésurveillance sur un DAI double chambre : plusieurs épisodes courts en zone FV, non traités. Le patient, joint, va bien. Quelle est votre interprétation ?",
     "egm": {
       "preset": "bruit-sonde"
     },
@@ -1249,9 +1263,10 @@
     "marque": null,
     "type": "qcu",
     "difficulte": 5,
-    "question": "CRT-D, patient en rythme sinusal. Alerte de télésurveillance : « pourcentage de stimulation biventriculaire à 67 % » (99 % au contrôle précédent). Quelle est la cause de la perte de stimulation biventriculaire sur cet EGM ?",
+    "question": "CRT-D chez un patient en insuffisance cardiaque (FEVG 25 %, bloc de branche gauche). Alerte de télésurveillance : « pourcentage de stimulation biventriculaire à 67 % » (99 % au contrôle précédent). Quelle est la cause de la perte de stimulation biventriculaire sur cet EGM ?",
     "egm": {
-      "preset": "crt-perte-biv"
+      "preset": "crt-perte-biv",
+      "appareil": "dai"
     },
     "options": [
       "Extrasystoles ventriculaires fréquentes, un cycle sur trois",
@@ -1295,7 +1310,8 @@
     "difficulte": 6,
     "question": "Même patient (CRT-D, 67 % de stimulation BV à cause d'ESV fréquentes). Quelle prise en charge proposer ?",
     "egm": {
-      "preset": "crt-perte-biv"
+      "preset": "crt-perte-biv",
+      "appareil": "dai"
     },
     "options": [
       "Quantifier les ESV (Holter) et les réduire : traitement médical ou ablation",
@@ -1313,7 +1329,7 @@
       "Faux : cela supprimerait la resynchronisation chez un patient insuffisant cardiaque."
     ],
     "reponseAttendue": null,
-    "explication": "Le bénéfice de la resynchronisation dépend d'une stimulation biventriculaire quasi permanente : les meilleurs résultats sont observés au-delà de 98 % (Hayes 2011), et l'ESC 2021 recommande de viser une stimulation la plus proche possible de 100 %. Avec des ESV un cycle sur trois, il faut quantifier la charge extrasystolique (Holter), corriger les facteurs favorisants (kaliémie, décompensation), optimiser le traitement (bêtabloquant, amiodarone) et discuter l'ablation des ESV si elles restent fréquentes. Les fonctions de stimulation déclenchée sur événement ventriculaire détecté augmentent le compteur mais ne restaurent pas une resynchronisation efficace. Réflexe à avoir : un pourcentage BV sous 98 % est une alerte clinique, pas un chiffre à accepter.",
+    "explication": "Le bénéfice de la resynchronisation dépend d'une stimulation biventriculaire quasi permanente : les meilleurs résultats sont observés au-delà de 98 % (Hayes 2011), et l'ESC 2021 recommande de viser une stimulation la plus proche possible de 100 %. Avec des ESV un cycle sur trois, il faut quantifier la charge extrasystolique (Holter), corriger les facteurs favorisants (kaliémie, décompensation), optimiser le traitement (bêtabloquant, amiodarone) et discuter l'ablation des ESV si elles restent fréquentes. Les fonctions de stimulation déclenchée sur événement ventriculaire détecté augmentent le compteur mais ne restaurent qu'imparfaitement une resynchronisation efficace. Réflexe à avoir : un pourcentage BV sous 98 % est une alerte clinique, pas un chiffre à accepter.",
     "aRetenir": "CRT : viser au moins 98 % de stimulation BV ; des ESV fréquentes se quantifient et se traitent.",
     "sources": [
       {
@@ -1664,7 +1680,7 @@
     ],
     "commentaires": [
       "Juste : les transmissions ne sont pas lues en temps réel, en particulier la nuit et le week-end.",
-      "Faux : aucun centre de télésurveillance n'assure une lecture en temps réel permettant de remplacer le 15."
+      "Faux : les transmissions ne sont pas lues en temps réel ; la télésurveillance ne remplace jamais le 15."
     ],
     "reponseAttendue": null,
     "explication": "Les transmissions sont analysées pendant les heures ouvrables du centre, avec un délai variable ; elles ne déclenchent pas d'intervention d'urgence. Le consensus HRS 2023 insiste sur l'information du patient à l'inclusion : ce que la télésurveillance fait, ce qu'elle ne fait pas, et qui appeler en cas de symptôme. Un patient qui attend un rappel après des chocs répétés perd un temps précieux. Réflexe à avoir : remettre des consignes écrites simples dès l'inclusion et les rappeler à chaque contact.",
@@ -1721,7 +1737,7 @@
     "marque": null,
     "type": "qcu",
     "difficulte": 5,
-    "question": "Après un choc approprié pour TV, un porteur de DAI (permis de conduire voiture, usage privé) demande quand il pourra reprendre le volant. Selon les recommandations ESC 2022, que lui répondre ?",
+    "question": "Après un choc approprié pour TV, un porteur de DAI (permis de conduire voiture, usage privé) demande quand il pourra reprendre le volant. Selon le consensus européen (EHRA), que lui répondre ?",
     "options": [
       "Dès le lendemain, s'il se sent parfaitement bien",
       "Jamais : un choc contre-indique définitivement la conduite",
@@ -1735,19 +1751,27 @@
       "Faux : le risque de récidive avec perte de connaissance est maximal dans les premières semaines.",
       "Faux : la restriction est temporaire pour un permis de groupe 1.",
       "Faux : ce délai est trop court après une thérapie appropriée.",
-      "Juste : l'ESC 2022 recommande une interruption de trois mois après une thérapie appropriée (groupe 1)."
+      "Juste : le consensus de l'EHRA recommande une interruption de trois mois après une thérapie appropriée (groupe 1)."
     ],
     "reponseAttendue": null,
-    "explication": "Le risque de récidive d'arythmie, éventuellement avec syncope, est le plus élevé dans les mois qui suivent une thérapie appropriée. L'ESC 2022 recommande pour les conducteurs de groupe 1 une interruption de la conduite de trois mois après une thérapie appropriée ; après une thérapie inappropriée, la conduite reprend une fois la cause corrigée. Les règles nationales (et celles des permis professionnels, beaucoup plus restrictives) s'appliquent également et doivent être vérifiées. Réflexe à avoir : aborder la conduite automobile systématiquement après toute thérapie, et le tracer dans le dossier.",
+    "explication": "Le risque de récidive d'arythmie, éventuellement avec syncope, est le plus élevé dans les mois qui suivent une thérapie appropriée. Le consensus de l'EHRA (Vijgen 2009) recommande pour les conducteurs de groupe 1 une interruption de la conduite de trois mois après une thérapie appropriée ; après une thérapie inappropriée, la conduite reprend une fois la cause corrigée. En France, l'aptitude à la conduite relève de l'arrêté du 28 mars 2022 : le DAI est définitivement incompatible avec les permis du groupe lourd ; pour le groupe léger, l'incompatibilité est temporaire (après l'implantation et après une thérapie) et son appréciation revient au médecin agréé, en lien avec le cardiologue. Réflexe à avoir : aborder la conduite automobile systématiquement après toute thérapie, et le tracer dans le dossier.",
     "aRetenir": "Après un choc approprié, pas de conduite (groupe 1) pendant environ trois mois ; toujours en parler au patient.",
     "sources": [
       {
+        "titre": "Vijgen J et al. Consensus statement of the European Heart Rhythm Association: updated recommendations for driving by patients with implantable cardioverter defibrillators. Europace 2009;11:1097-1107",
+        "url": "https://doi.org/10.1093/europace/eup112"
+      },
+      {
         "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
         "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Arrêté du 28 mars 2022 fixant la liste des affections médicales incompatibles ou compatibles avec ou sans aménagements ou restrictions pour l'obtention, le renouvellement ou le maintien du permis de conduire — Légifrance",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000045464112"
       }
     ],
     "reco": [
-      "ESC 2022 VA"
+      "EHRA 2009 conduite et DAI"
     ],
     "revise": "2026-09"
   },
@@ -2033,7 +2057,7 @@
     "type": "ouverte",
     "difficulte": 5,
     "question": "Un porteur de DAI appelle : il a reçu un seul choc il y a deux heures et se sent bien. Quelles consignes lui donner ?",
-    "reponseAttendue": "Faire une transmission manuelle, rester au repos et ne pas conduire. Appeler le 15 en cas de nouveau choc, de malaise, douleur thoracique, essoufflement ou perte de connaissance. Le centre analyse la transmission et le rappelle pour décider de la suite (consultation, bilan étiologique, adaptation du traitement). Après un choc approprié, la conduite est suspendue temporairement (environ trois mois pour un permis de groupe 1 selon l'ESC 2022).",
+    "reponseAttendue": "Faire une transmission manuelle, rester au repos et ne pas conduire. Appeler le 15 en cas de nouveau choc, de malaise, douleur thoracique, essoufflement ou perte de connaissance. Le centre analyse la transmission et le rappelle pour décider de la suite (consultation, bilan étiologique, adaptation du traitement). Après un choc approprié, la conduite est suspendue temporairement (trois mois pour un permis de groupe 1 selon le consensus de l'EHRA).",
     "explication": "Un choc unique bien toléré n'impose pas d'appeler le 15, mais il doit être analysé rapidement : approprié ou non, cause, efficacité. La transmission manuelle permet au centre de disposer de l'EGM. Les consignes de sécurité (15 si récidive ou symptôme, pas de conduite) doivent être données clairement, idéalement confirmées par écrit. Réflexe à avoir : graduer selon le nombre de chocs et les symptômes, et donner systématiquement la consigne de conduite.",
     "aRetenir": "Choc unique bien toléré : transmission manuelle, repos, pas de conduite, 15 si récidive ou symptôme.",
     "sources": [
@@ -2044,6 +2068,10 @@
       {
         "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
         "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      },
+      {
+        "titre": "Vijgen J et al. Consensus statement of the European Heart Rhythm Association: updated recommendations for driving by patients with implantable cardioverter defibrillators. Europace 2009;11:1097-1107",
+        "url": "https://doi.org/10.1093/europace/eup112"
       }
     ],
     "reco": [
@@ -2135,7 +2163,7 @@
       "Faux : aucune restriction n'est justifiée par cette pause physiologique."
     ],
     "reponseAttendue": null,
-    "explication": "Les pauses nocturnes précédées d'un ralentissement sinusal progressif sont fréquentes chez les sujets jeunes et sportifs, et traduisent un tonus vagal élevé. L'ESC 2018 retient la stimulation en cas de corrélation entre syncope et bradycardie, ou de pause asymptomatique de plus de 6 s ; l'ESC 2021 ne recommande pas de stimuler des bradycardies asymptomatiques ou réversibles. Le piège est de réagir au chiffre de 3 s sans regarder le contexte (sommeil, âge, symptômes, ondes P). Réflexe à avoir : lire l'heure, le mode d'installation et les symptômes avant de qualifier une pause.",
+    "explication": "Les pauses nocturnes précédées d'un ralentissement sinusal progressif sont fréquentes chez les sujets jeunes et sportifs, et traduisent un tonus vagal élevé. Chez un patient suivi pour syncopes, l'ESC 2018 retient la stimulation en cas de corrélation entre syncope et bradycardie, ou de pause asymptomatique de plus de 6 s ; ici, ni syncope ni pause de cette durée, et l'ESC 2021 ne recommande pas de stimuler des bradycardies asymptomatiques ou réversibles. Le piège est de réagir au chiffre de 3 s sans regarder le contexte (sommeil, âge, symptômes, ondes P). Réflexe à avoir : lire l'heure, le mode d'installation et les symptômes avant de qualifier une pause.",
     "aRetenir": "Pause nocturne précédée d'un ralentissement sinusal chez un jeune asymptomatique : vagale, pas d'indication de stimulation.",
     "sources": [
       {
