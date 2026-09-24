@@ -1,0 +1,2271 @@
+[
+  {
+    "id": "egm-tele-001",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes atriaux",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Transmission automatique d'un DAI double chambre programmé DDD (cardiomyopathie ischémique, prévention primaire) : alerte « épisode de tachyarythmie atriale de 9 h ». Le patient est asymptomatique et n'a pas d'antécédent connu de FA. Quelle est votre interprétation de l'épisode transmis ?",
+    "egm": {
+      "preset": "fa-mode-switch",
+      "appareil": "dai"
+    },
+    "options": [
+      "Surdétection de l'onde R lointaine sur le canal atrial : fausse alerte",
+      "Flutter dont une onde sur deux est masquée par le blanking",
+      "FA avec repli de mode approprié et réponse ventriculaire irrégulière",
+      "Bruit sur la sonde atriale avec signaux non physiologiques"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : l'onde R lointaine donne un signal atrial à intervalle fixe juste après chaque VS, sur un rythme sinusal régulier, pas une activité continue et désorganisée.",
+      "Faux : le flutter masqué donne un A-A affiché régulier et un suivi rapide sans marqueur MS ; ici l'activité est chaotique et le repli de mode a eu lieu.",
+      "Juste : activité atriale rapide et désorganisée (A-A 130 à 220 ms), dissociée du V, VS devenus irréguliers et marqueur MS.",
+      "Faux : un bruit de sonde donne des signaux brefs et anguleux, souvent en salves, sans passage d'un suivi régulier à une réponse ventriculaire irrégulière."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le début du tracé montre un suivi atrial normal (AS puis VP à 833 ms), puis l'EGM atrial devient rapide et désorganisé, avec des intervalles A-A de 130 à 220 ms marqués AS ou AR. Les VS deviennent irréguliers (531 à 1023 ms) et le marqueur MS signe le repli de mode : c'est une FA vraie, conduite de façon irrégulière. Une onde R lointaine se reconnaîtrait à un signal atrial calé sur chaque QRS, sur fond de rythme sinusal régulier ; un bruit de sonde, à des signaux non physiologiques sans activité atriale organisée ni désorganisée. Réflexe à avoir : avant de retenir un AHRE, ouvrir l'EGM et vérifier que l'activité atriale est rapide, désorganisée et indépendante du ventricule.",
+    "aRetenir": "Un AHRE ne se valide qu'à la lecture de l'EGM atrial : activité rapide, désorganisée, dissociée du V.",
+    "sources": [
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      },
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers Step by Step: An Illustrated Guide. Wiley-Blackwell",
+        "url": null
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA",
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-002",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes atriaux",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Même type d'épisode, durée 9 h, chez un homme de 72 ans porteur d'un DAI pour cardiopathie ischémique (FEVG 30 %), hypertendu, sans FA documentée à l'ECG ni risque hémorragique élevé. Selon les recommandations ESC 2024, quelle conduite proposer ?",
+    "egm": {
+      "preset": "fa-mode-switch",
+      "appareil": "dai"
+    },
+    "options": [
+      "Débuter un AOD sans discussion : tout AHRE de plus de 6 min l'impose",
+      "Discuter un AOD en décision partagée après évaluation du risque hémorragique",
+      "Prescrire de l'aspirine, alternative validée par ARTESiA dans cette situation",
+      "Aucune mesure : un épisode de moins de 24 h n'a pas de valeur pronostique"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : pour une FA infraclinique détectée par le boîtier, l'AOD « peut être envisagé » (classe IIb) et non imposé.",
+      "Juste : CHA2DS2-VA à 4 (insuffisance cardiaque, HTA, âge 65-74 ans, maladie vasculaire) ; AOD envisageable (IIb) en pesant bénéfice et saignement.",
+      "Faux : l'aspirine était le comparateur d'ARTESiA, moins efficace que l'apixaban ; ce n'est pas un traitement validé des AHRE.",
+      "Faux : les AHRE sont associés à un surrisque d'AVC et de progression vers une FA clinique (ASSERT), même s'il est plus faible qu'en FA clinique."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'épisode est confirmé à l'EGM (FA vraie, repli de mode) mais n'est pas documenté sur un ECG : il s'agit d'une FA infraclinique détectée par le boîtier. Le score CHA2DS2-VA vaut 4 (insuffisance cardiaque ou FEVG altérée, HTA, âge 65-74 ans, antécédent d'infarctus). L'ESC 2024 indique qu'un AOD peut être envisagé (classe IIb) chez ces patients à risque thromboembolique élevé, en excluant ceux à haut risque hémorragique. ARTESiA (apixaban contre aspirine) a réduit les AVC et embolies d'environ un tiers au prix de plus de saignements majeurs ; NOAH-AFNET 6 (edoxaban contre placebo) n'a pas montré de bénéfice significatif. Réflexe à avoir : épisode confirmé à l'EGM, score CHA2DS2-VA, risque hémorragique, puis décision partagée tracée, avec suivi de la durée et de la charge de FA.",
+    "aRetenir": "FA infraclinique confirmée à l'EGM : AOD à discuter (IIb) selon CHA2DS2-VA et le risque hémorragique, jamais automatique.",
+    "sources": [
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "Healey JS et al. Apixaban for stroke prevention in subclinical atrial fibrillation (ARTESiA). N Engl J Med 2024;390:107-117",
+        "url": "https://doi.org/10.1056/NEJMoa2310234"
+      },
+      {
+        "titre": "Kirchhof P et al. Anticoagulation with edoxaban in patients with atrial high-rate episodes (NOAH-AFNET 6). N Engl J Med 2023;389:1167-1179",
+        "url": "https://doi.org/10.1056/NEJMoa2303062"
+      },
+      {
+        "titre": "McIntyre WF et al. Direct oral anticoagulants for stroke prevention in patients with device-detected atrial fibrillation: a study-level meta-analysis of the NOAH-AFNET 6 and ARTESiA trials. Circulation 2024;149:981-988",
+        "url": "https://doi.org/10.1161/CIRCULATIONAHA.123.067512"
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-003",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes atriaux",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "DAI double chambre programmé DDD, transmission de routine. Sur cet épisode, le marqueur MS traduit un fonctionnement normal : le boîtier cesse de suivre l'activité atriale rapide pour ne pas stimuler le ventricule à la fréquence maximale de suivi.",
+    "egm": {
+      "preset": "fa-mode-switch",
+      "appareil": "dai"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : le repli de mode bascule vers un mode sans suivi atrial (type DDI ou VDI) dès que les critères de tachyarythmie atriale sont remplis.",
+      "Faux : il ne s'agit pas d'un dysfonctionnement ; c'est la réponse attendue du boîtier devant une FA."
+    ],
+    "reponseAttendue": null,
+    "explication": "En mode DDD, chaque AS déclenche un délai AV puis une stimulation ventriculaire. Sans repli de mode, une FA serait suivie jusqu'à la fréquence maximale de suivi, avec une stimulation ventriculaire rapide et irrégulière mal tolérée. L'algorithme de repli de mode (critères de détection propres à chaque constructeur) fait passer le boîtier dans un mode sans suivi atrial ; ici, dès le début de la FA, les ventricules ne sont plus stimulés à la suite de chaque AS : ils sont détectés (VS) à une fréquence irrégulière, et le marqueur MS signe la bascule. Réflexe à avoir : un marqueur MS n'est pas une panne, mais il signe un épisode atrial qu'il faut valider sur l'EGM puis intégrer à la prise en charge (anticoagulation, contrôle de fréquence ou de rythme).",
+    "aRetenir": "Le repli de mode est la réponse normale du boîtier à une FA : il évite de stimuler le ventricule au rythme de l'oreillette.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers Step by Step: An Illustrated Guide. Wiley-Blackwell",
+        "url": null
+      },
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-004",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes atriaux",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Alerte d'AHRE sur un DAI double chambre. Quels éléments de cet EGM permettent de retenir une vraie FA plutôt qu'une fausse alerte ?",
+    "egm": {
+      "preset": "fa-mode-switch",
+      "appareil": "dai"
+    },
+    "options": [
+      "Activité atriale rapide et désorganisée, intervalles A-A de 130 à 220 ms",
+      "Absence de relation fixe entre les signaux atriaux et les VS",
+      "Marqueurs AR, preuve d'une surdétection de l'onde R lointaine",
+      "Cycles V-V devenus irréguliers après le début de l'épisode",
+      "QRS larges sur l'EGM de choc, preuve d'une origine ventriculaire"
+    ],
+    "reponses": [
+      0,
+      1,
+      3
+    ],
+    "commentaires": [
+      "Juste : c'est la signature d'une FA sur l'EGM atrial.",
+      "Juste : les signaux atriaux ne sont pas calés sur les QRS, contrairement à une onde R lointaine.",
+      "Faux : AR signifie seulement « A détecté en période réfractaire » ; en FA, de nombreux signaux tombent dans ces périodes.",
+      "Juste : la conduction d'une FA donne une réponse ventriculaire irrégulière (531 à 1023 ms).",
+      "Faux : les QRS détectés sont fins sur l'EGM de choc (QRS conduits), plus étroits que les complexes stimulés du début du tracé ; rien n'évoque une origine ventriculaire."
+    ],
+    "reponseAttendue": null,
+    "explication": "Trois arguments convergent : l'EGM atrial montre une activité rapide et désorganisée (130 à 220 ms), sans lien fixe avec les QRS, et la réponse ventriculaire devient irrégulière. Le marqueur AR n'est pas un signe de surdétection : il indique qu'un signal atrial est tombé dans une période réfractaire, ce qui est constant en FA. Une surdétection d'onde R lointaine donnerait au contraire un AR à intervalle fixe juste après chaque QRS, avec un rythme sinusal régulier par ailleurs. Réflexe à avoir : regarder le tracé atrial lui-même et sa relation avec le V, pas seulement les compteurs et les marqueurs.",
+    "aRetenir": "FA vraie = EGM atrial rapide et désorganisé, sans lien fixe avec le V, réponse ventriculaire irrégulière.",
+    "sources": [
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      },
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers Step by Step: An Illustrated Guide. Wiley-Blackwell",
+        "url": null
+      }
+    ],
+    "reco": [
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-005",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes atriaux",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "DAI double chambre programmé DDD chez un patient en BAV complet, fréquence maximale de suivi 130/min. La télésurveillance signale 6 h de stimulation ventriculaire à 120/min, sans aucun épisode atrial ni repli de mode. Le patient signale palpitations et essoufflement. Quelle est votre interprétation ?",
+    "egm": {
+      "preset": "flutter-blanking",
+      "appareil": "dai"
+    },
+    "options": [
+      "Tachycardie sinusale à 120/min, suivie normalement par le boîtier",
+      "Tachycardie par réentrée électronique entretenue par une conduction rétrograde",
+      "Tachycardie atriale focale à 120/min avec repli de mode retardé",
+      "Flutter suivi en 2:1, une onde F sur deux tombant dans le blanking"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : l'EGM atrial montre une activité supplémentaire entre deux AS ; le vrai cycle atrial est d'environ 250 ms.",
+      "Faux : une TRE se fait à la fréquence maximale de suivi (130/min ici) et démarre sur une ESV avec P rétrograde.",
+      "Faux : une tachycardie atriale à 120/min ne comporterait pas de déflexion atriale intercalée au moment des VP.",
+      "Juste : le boîtier ne voit qu'une onde F sur deux (A-A affiché 500 ms) et suit à 120/min sans repli de mode."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les marqueurs affichent un A-A régulier à 500 ms et un VP après chaque AS : en apparence, un rythme atrial à 120/min correctement suivi. Mais l'EGM atrial montre une seconde déflexion entre deux AS, au moment de la stimulation ventriculaire : elle tombe dans le blanking atrial post-ventriculaire et n'est pas comptée. Le vrai cycle atrial est donc d'environ 250 ms (240/min) : c'est un flutter dont le boîtier ne voit qu'une onde sur deux (suivi en 2:1, la conduction AV propre étant bloquée), sous le seuil de repli de mode. Une TRE se ferait à la fréquence maximale de suivi (130/min), pas à 120/min. Réflexe à avoir : devant une stimulation ventriculaire stable autour de 110 à 150/min sans épisode atrial, compter toutes les déflexions de l'EGM atrial, pas les marqueurs.",
+    "aRetenir": "Stimulation V stable vers 120/min sans épisode atrial : chercher un flutter dont une onde sur deux est masquée par le blanking.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers Step by Step: An Illustrated Guide. Wiley-Blackwell",
+        "url": null
+      },
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-006",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes atriaux",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Chez ce patient (DAI double chambre, BAV complet), le flutter est confirmé à l'ECG. Quelle modification de programmation réduit le risque que ce suivi rapide non reconnu se reproduise ?",
+    "egm": {
+      "preset": "flutter-blanking",
+      "appareil": "dai"
+    },
+    "options": [
+      "Allonger le blanking post-ventriculaire pour limiter le double comptage",
+      "Raccourcir le blanking post-ventriculaire ou activer la recherche de flutter",
+      "Augmenter la fréquence maximale de suivi au-dessus de la fréquence du flutter",
+      "Programmer une fréquence de repli de mode plus élevée pour éviter les replis"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : allonger le blanking masque encore plus d'ondes F ; c'est la correction de l'onde R lointaine, pas du flutter.",
+      "Juste : moins de blanking ou un algorithme de recherche de flutter masqué (selon constructeur) permet de voir toutes les ondes F et de déclencher le repli de mode.",
+      "Faux : cela aggraverait le problème en autorisant un suivi encore plus rapide.",
+      "Faux : un seuil de repli plus élevé rendrait la détection du flutter encore plus difficile."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le flutter n'est pas reconnu parce qu'une onde F sur deux tombe dans le blanking atrial post-ventriculaire : le boîtier mesure un cycle double (500 ms) et suit à 120/min. La correction consiste à raccourcir ce blanking (en surveillant l'apparition d'une onde R lointaine) ou à activer l'algorithme de recherche de flutter masqué disponible chez certains constructeurs, qui allonge transitoirement la PVARP pour démasquer les ondes F. Allonger le blanking, qui est la correction de la surdétection d'onde R lointaine, aggraverait ici la situation. Le traitement du flutter lui-même (anticoagulation, ablation de l'isthme cavotricuspide si typique) reste nécessaire. Réflexe à avoir : toute modification du blanking atrial a un effet dans les deux sens, flutter masqué d'un côté, onde R lointaine de l'autre.",
+    "aRetenir": "Flutter masqué par le blanking : raccourcir le blanking post-ventriculaire ou activer la recherche de flutter, jamais l'allonger.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers Step by Step: An Illustrated Guide. Wiley-Blackwell",
+        "url": null
+      },
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-007",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes atriaux",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Chez ce porteur de DAI double chambre, la télésurveillance a révélé ce flutter, confirmé ensuite à l'ECG (flutter typique). Que faut-il organiser ?",
+    "egm": {
+      "preset": "flutter-blanking",
+      "appareil": "dai"
+    },
+    "options": [
+      "Évaluer l'anticoagulation selon le score CHA2DS2-VA, comme pour une FA",
+      "Proposer une ablation de l'isthme cavotricuspide",
+      "Classer l'alerte comme fausse, aucun épisode atrial n'ayant été enregistré",
+      "Programmer le DAI en VVI pour supprimer définitivement tout suivi atrial"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "commentaires": [
+      "Juste : le flutter relève de la même stratégie antithrombotique que la FA.",
+      "Juste : c'est le traitement de référence du flutter typique, très efficace.",
+      "Faux : l'absence de compteur atrial est précisément le piège du flutter masqué ; le patient est symptomatique.",
+      "Faux : chez un patient en BAV complet, le VVI supprime la synchronisation AV ; il faut corriger la détection, pas la supprimer."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le flutter atrial expose au même risque thromboembolique que la FA : l'anticoagulation se discute selon le score CHA2DS2-VA (ESC 2024). Pour un flutter typique symptomatique, l'ablation de l'isthme cavotricuspide est le traitement de référence. Le piège est de conclure à l'absence d'épisode parce que le compteur atrial est vide : c'est justement le principe du flutter masqué par le blanking. Passer en VVI chez un patient en BAV complet ferait perdre la synchronisation AV en rythme sinusal ; il vaut mieux raccourcir le blanking ou activer la recherche de flutter. Réflexe à avoir : un compteur atrial vide n'exclut pas un flutter si la stimulation ventriculaire est rapide et stable.",
+    "aRetenir": "Flutter découvert en télésurveillance : anticoagulation selon CHA2DS2-VA, ablation de l'isthme si typique, correction de la détection.",
+    "sources": [
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ESC 2024 FA"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-008",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes atriaux",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "DAI double chambre chez un patient sans antécédent de FA. La télésurveillance transmet chaque semaine des dizaines d'« épisodes AHRE » courts, avec un compteur de charge atriale en hausse. Le patient est asymptomatique. Quelle est votre interprétation de cet EGM ?",
+    "egm": {
+      "preset": "far-field-r",
+      "legende": "Rythme de base, transmission hebdomadaire",
+      "appareil": "dai"
+    },
+    "options": [
+      "Salves de tachycardie atriale à 280/min conduites de façon intermittente",
+      "Conduction rétrograde ventriculo-atriale avec onde P rétrograde détectée",
+      "Surdétection de l'onde R lointaine sur le canal atrial : fausse alerte",
+      "Extrasystoles atriales précoces bloquées, fréquentes et non conduites"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : le rythme atrial vrai (AS) est régulier à 857 ms ; le signal surnuméraire est calé sur chaque QRS.",
+      "Faux : une P rétrograde surviendrait nettement après le QRS ; ici le signal atrial coïncide avec le QRS de l'EGM VD.",
+      "Juste : un AR apparaît à intervalle fixe juste après chaque VS : c'est l'onde R vue par la sonde atriale (double comptage).",
+      "Faux : une ESA bloquée serait suivie d'une pause et ne tomberait pas à chaque cycle au moment exact du QRS."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le rythme de base est sinusal régulier (AS à 857 ms, VS à 857 ms). À chaque cycle, un petit signal atrial marqué AR apparaît au moment même du QRS de l'EGM VD, à 215 ms de l'AS : c'est l'onde R ventriculaire captée à distance par la sonde atriale. Le canal atrial compte ainsi deux événements par cycle (215 puis 642 ms), ce qui peut remplir les critères d'AHRE ou de repli de mode selon l'algorithme. Une P rétrograde surviendrait avec un délai après le QRS, et une vraie tachycardie atriale donnerait une activité atriale rapide indépendante des QRS. Réflexe à avoir : un signal atrial toujours calé sur le QRS est un signal ventriculaire lointain jusqu'à preuve du contraire.",
+    "aRetenir": "Signal atrial calé sur chaque QRS = onde R lointaine : fausse alerte d'AHRE, pas de FA.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers Step by Step: An Illustrated Guide. Wiley-Blackwell",
+        "url": null
+      }
+    ],
+    "reco": [
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-009",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes atriaux",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Chez ce patient (DAI double chambre, fausses alertes d'AHRE répétées), quelle correction de programmation proposer, et avec quelle précaution ?",
+    "egm": {
+      "preset": "far-field-r",
+      "appareil": "dai"
+    },
+    "options": [
+      "Raccourcir la PVARP pour que ces signaux sortent de la période réfractaire",
+      "Augmenter la sensibilité atriale pour mieux séparer onde P et onde R",
+      "Désactiver le repli de mode, responsable de la répétition des épisodes",
+      "Allonger le blanking post-ventriculaire puis vérifier la détection de FA"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : le signal serait toujours détecté, et même compté comme un AS susceptible d'être suivi.",
+      "Faux : augmenter la sensibilité (valeur en mV plus basse) ferait détecter encore plus l'onde R lointaine.",
+      "Faux : le repli de mode protège le patient en cas de vraie FA ; il ne faut pas le supprimer.",
+      "Juste : allonger le blanking (ou réduire la sensibilité atriale) supprime le double comptage, au risque de masquer un flutter ou une FA."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le signal lointain survient quelques dizaines de millisecondes après le QRS : allonger le blanking atrial post-ventriculaire pour qu'il le recouvre, ou diminuer la sensibilité atriale (valeur en mV plus élevée) en gardant une marge suffisante par rapport à l'amplitude de l'onde P, supprime le double comptage. La précaution est symétrique : un blanking trop long peut masquer une onde F sur deux en flutter 2:1, et une sensibilité trop basse peut sous-détecter la FA. Il faut donc vérifier sur les transmissions suivantes que les vrais épisodes restent détectés. Raccourcir la PVARP ou augmenter la sensibilité aggrave le problème, et désactiver le repli de mode expose à un suivi rapide en cas de vraie FA. Réflexe à avoir : corriger la détection atriale en pensant toujours au risque inverse.",
+    "aRetenir": "Onde R lointaine : allonger le blanking post-ventriculaire ou réduire la sensibilité atriale, puis vérifier que la FA reste détectée.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers Step by Step: An Illustrated Guide. Wiley-Blackwell",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-010",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes atriaux",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 4,
+    "question": "Porteur de DAI double chambre, 74 ans, hypertendu. Les « épisodes AHRE » transmis, dont cet EGM est représentatif, justifient d'évaluer une anticoagulation par AOD selon le score CHA2DS2-VA.",
+    "egm": {
+      "preset": "far-field-r",
+      "appareil": "dai"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : il n'y a pas de FA ; ces épisodes sont des artefacts de détection (onde R lointaine).",
+      "Juste : l'EGM montre un rythme sinusal avec double comptage atrial ; aucune arythmie atriale n'est présente, l'anticoagulation n'est pas en question."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'EGM montre un rythme sinusal régulier ; le second signal atrial est l'onde R captée par la sonde atriale. Ces « AHRE » sont de fausses alertes : discuter une anticoagulation exposerait le patient au risque hémorragique sans aucun bénéfice. Les essais ARTESiA et NOAH-AFNET 6 portaient sur de vrais épisodes de FA détectés par le boîtier, pas sur des artefacts de détection, et le consensus HRS 2023 rappelle que les épisodes détectés par le boîtier doivent être validés sur l'EGM. Réflexe à avoir : ne jamais discuter une anticoagulation sur un compteur d'AHRE sans avoir lu au moins un EGM représentatif.",
+    "aRetenir": "Pas d'anticoagulation sur un compteur d'AHRE : lire l'EGM, les fausses alertes par onde R lointaine sont fréquentes.",
+    "sources": [
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      },
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA",
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-011",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes ventriculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "DAI double chambre en prévention secondaire (TV monomorphe sur séquelle d'infarctus), zone TV programmée à partir de 160/min avec ATP. Alerte automatique « thérapie délivrée » ; le patient, joint par téléphone, n'a rien ressenti. Quelle est votre interprétation ?",
+    "egm": {
+      "preset": "tv-atp"
+    },
+    "options": [
+      "TV à 182/min dissociée de l'oreillette, réduite par une salve d'ATP",
+      "Tachycardie sinusale rapide conduite, traitée à tort par une salve d'ATP",
+      "TSV avec aberration, arrêtée par l'ATP par conduction rétrograde",
+      "TV réduite par l'ATP puis relayée par une FA à conduction rapide"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : V à 330 ms plus rapide que A à 800 ms (V > A), ATP puis retour en rythme sinusal.",
+      "Faux : le rythme atrial reste à 800 ms (75/min) pendant que le ventricule bat à 182/min.",
+      "Faux : une TSV impose une fréquence atriale au moins égale à la fréquence ventriculaire ; ici V > A.",
+      "Faux : après l'ATP, l'EGM atrial reste sinusal et régulier (AS à 800 ms) avec un VS à 790 ms."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le ventricule bat à 330 ms (182/min) alors que l'oreillette reste sinusale à 800 ms : la fréquence V est supérieure à la fréquence A, argument le plus fort en faveur d'une TV. Les marqueurs TS puis TD montrent la détection puis le diagnostic en zone TV ; la morphologie de l'EGM de choc est large et différente du rythme de base. Une salve de 8 impulsions à 290 ms (88 % du cycle) interrompt la TV et le rythme sinusal reprend (VS à 790 ms). Réflexe à avoir : compter A et V ; V > A signe une TV quelle que soit la tolérance clinique.",
+    "aRetenir": "V plus rapide que A = TV jusqu'à preuve du contraire, même chez un patient qui n'a rien ressenti.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires",
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-012",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes ventriculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Même patient (DAI en prévention secondaire) : c'est le premier épisode depuis 2 ans, il est asymptomatique, sans modification récente de traitement. Quelle conduite tenir après cette TV réduite par ATP ?",
+    "egm": {
+      "preset": "tv-atp"
+    },
+    "options": [
+      "Aucune action : l'ATP a été efficace et le patient n'a rien ressenti",
+      "Appeler le SAMU pour une hospitalisation en urgence en soins intensifs",
+      "Désactiver l'ATP, inutile chez un patient resté asymptomatique",
+      "Prévenir le médecin, chercher une cause, avancer le contrôle"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : une TV traitée est un événement qui doit être tracé, porté à la connaissance du médecin et expliqué.",
+      "Faux : un épisode isolé réduit par ATP chez un patient asymptomatique ne relève pas du SAMU.",
+      "Faux : l'ATP est précisément ce qui a évité un choc ; elle réduit les chocs sans nuire (consensus 2015).",
+      "Juste : kaliémie, ischémie, décompensation cardiaque, observance du bêtabloquant et interactions sont à rechercher."
+    ],
+    "reponseAttendue": null,
+    "explication": "Un épisode isolé de TV réduit par ATP chez un patient asymptomatique n'est pas une urgence vitale, mais ce n'est pas non plus un non-événement. Il faut informer le médecin responsable, rechercher un facteur favorisant (hypokaliémie, ischémie, insuffisance cardiaque, arrêt du bêtabloquant, médicament allongeant le QT) et avancer le contact médical. En cas de récidives, l'ESC 2022 recommande d'optimiser le traitement antiarythmique et de discuter l'ablation. Désactiver l'ATP serait une erreur : les consensus recommandent l'ATP dans toutes les zones TV car elle réduit les chocs. Il faut aussi aborder la conduite automobile, temporairement suspendue après une thérapie appropriée. Réflexe à avoir : graduer la réponse, ni banalisation ni surréaction, et tracer l'action dans le dossier.",
+    "aRetenir": "TV réduite par ATP, patient asymptomatique : pas d'urgence vitale, mais médecin prévenu, cause recherchée, contrôle avancé.",
+    "sources": [
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires",
+      "HRS 2023 télésurveillance",
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-013",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes ventriculaires",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 6,
+    "question": "DAI en prévention secondaire, épisode transmis ci-dessous. Décrivez la thérapie délivrée (type, nombre d'impulsions, cycle de stimulation) et expliquez pourquoi le patient ne l'a pas ressentie.",
+    "egm": {
+      "preset": "tv-atp"
+    },
+    "reponseAttendue": "Salve (burst) d'ATP de 8 impulsions à 290 ms, soit environ 88 % du cycle de la TV (330 ms), délivrée après confirmation du diagnostic (marqueurs TD). Stimuler plus vite que la TV permet de pénétrer le circuit de réentrée et de l'interrompre : retour en rythme sinusal (VS à 790 ms). L'ATP est une stimulation le plus souvent indolore (au plus quelques palpitations), contrairement au choc : ces épisodes passent souvent inaperçus et seule la télésurveillance les révèle.",
+    "explication": "Les marqueurs TP montrent 8 impulsions à 290 ms, un cycle raccourci par rapport à celui de la TV (330 ms), soit environ 88 %, valeur habituelle d'une salve d'ATP. L'ATP interrompt les TV de réentrée monomorphes dans une large proportion de cas et évite ainsi un choc ; les consensus de programmation recommandent de l'activer dans toutes les zones TV, y compris les TV rapides jusqu'à 230/min. Comme elle est le plus souvent indolore, le patient ne sait souvent pas qu'il a fait une TV : la télésurveillance est alors la seule source d'information. Réflexe à avoir : un épisode traité par ATP compte comme une TV soutenue et doit être pris en charge comme tel.",
+    "aRetenir": "L'ATP est le plus souvent indolore : une TV réduite par ATP passe souvent inaperçue et doit pourtant être prise en charge.",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      },
+      {
+        "titre": "Stiles MK et al. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires",
+      "Consensus 2019 programmation DAI",
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-014",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes ventriculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Un porteur de DAI appelle le centre : il a ressenti « un coup de poing dans la poitrine » il y a une heure en jardinant et se sent bien depuis. Il a fait une transmission manuelle. Quelle est votre interprétation de l'épisode ?",
+    "egm": {
+      "preset": "fv-choc"
+    },
+    "options": [
+      "FA rapide classée en zone FV, choc inapproprié puis rythme électro-entraîné",
+      "Bruit de sonde interprété comme une FV, choc inapproprié en rythme sinusal",
+      "FV en zone FV, traitée par un choc efficace, puis stimulation de relais",
+      "TV monomorphe rapide réduite par le choc, suivie d'un BAV complet post-choc"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : l'activité est chaotique sur l'EGM VD et sur l'EGM de choc, sans QRS organisés conduits.",
+      "Faux : un bruit de sonde n'apparaît que sur l'EGM proche (VD) ; ici l'EGM de choc montre aussi une FV.",
+      "Juste : activité ventriculaire désorganisée à 200-240 ms (FS), charge, choc (CD), puis stimulation post-choc.",
+      "Faux : l'activité n'est pas monomorphe, et la stimulation post-choc n'est pas la preuve d'un BAV."
+    ],
+    "reponseAttendue": null,
+    "explication": "Après deux cycles sinusaux (820 ms), l'activité ventriculaire devient rapide, polymorphe et désorganisée sur l'EGM VD comme sur l'EGM de choc, avec des cycles de 200 à 240 ms classés FS : c'est une FV. Le boîtier charge (Chg) pendant la détection, délivre un choc (CD) qui rétablit un rythme organisé, puis assure une stimulation ventriculaire de relais (VP vers 60/min). La concordance entre EGM proche et EGM de choc élimine un bruit de sonde, qui ne serait visible que sur le canal VD. Réflexe à avoir : devant un choc, comparer l'EGM VD et l'EGM de choc avant de conclure à une arythmie vraie ou à un artefact.",
+    "aRetenir": "Arythmie visible sur l'EGM VD et sur l'EGM de choc = vraie arythmie ; sur le seul EGM VD = penser au bruit.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-015",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes ventriculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Même patient : un seul choc, il se sent parfaitement bien, pas de douleur ni d'essoufflement. Que lui dites-vous au téléphone ?",
+    "egm": {
+      "preset": "fv-choc"
+    },
+    "options": [
+      "Appeler le 15 : tout choc, même unique et bien toléré, impose le SAMU",
+      "Rien à prévoir : un choc efficace et bien toléré ne nécessite aucun bilan",
+      "Venir dans la journée pour ECG, bilan biologique et recherche d'une cause",
+      "Reprendre ses activités et le volant dès demain puisque le choc a marché"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : un choc unique bien toléré relève d'une évaluation rapide, pas systématiquement du SAMU.",
+      "Faux : une FV traitée impose de rechercher une cause (ischémie, trouble ionique, insuffisance cardiaque).",
+      "Juste : évaluation rapide, recherche d'une ischémie et d'un trouble ionique, contrôle du boîtier.",
+      "Faux : après un choc approprié, la conduite est suspendue temporairement (de l'ordre de 3 mois pour un permis de groupe 1)."
+    ],
+    "reponseAttendue": null,
+    "explication": "La règle pratique donnée aux patients est simple : un choc unique suivi d'un bon état général conduit à contacter le centre (transmission manuelle) ; plusieurs chocs rapprochés, ou un choc accompagné de malaise, douleur thoracique, dyspnée ou perte de connaissance, conduisent à appeler le 15. Ici, l'épisode est une FV : une évaluation le jour même est justifiée pour rechercher un facteur déclenchant (syndrome coronarien, hypokaliémie, décompensation cardiaque, médicament). Le consensus de l'EHRA recommande par ailleurs d'interrompre la conduite pendant 3 mois après une thérapie appropriée (permis de groupe 1). Réflexe à avoir : graduer la réponse sur le nombre de chocs et les symptômes, et ne jamais banaliser une FV traitée.",
+    "aRetenir": "Choc unique bien toléré : évaluation rapide ; chocs répétés ou symptômes : 15 ; toujours rechercher la cause.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      },
+      {
+        "titre": "Vijgen J et al. Consensus statement of the European Heart Rhythm Association: updated recommendations for driving by patients with implantable cardioverter defibrillators. Europace 2009;11:1097-1107",
+        "url": "https://doi.org/10.1093/europace/eup112"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires",
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-016",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes ventriculaires",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "DAI double chambre, épisode transmis après un choc. Sur cet EGM, la stimulation ventriculaire (VP) vers 60/min qui suit le choc témoigne d'un BAV complet post-choc justifiant une hospitalisation.",
+    "egm": {
+      "preset": "fv-choc"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : la stimulation après un choc est une fonction normale de relais, pas la preuve d'un BAV.",
+      "Juste : le DAI assure une stimulation post-choc ; le tracé ne permet pas de conclure à un BAV complet."
+    ],
+    "reponseAttendue": null,
+    "explication": "Après un choc, le myocarde et le nœud sinusal peuvent être transitoirement déprimés : le DAI assure alors une stimulation de relais selon ses paramètres post-choc. Les VP à 1022 puis 1000 ms montrent que le boîtier stimule à sa fréquence de base, rien de plus. Parler de BAV complet supposerait de voir des ondes P conduites puis non conduites sur une période plus longue. Réflexe à avoir : ne pas surinterpréter les quelques cycles qui suivent un choc ; juger la conduction sur les transmissions suivantes ou au contrôle.",
+    "aRetenir": "La stimulation de relais après un choc est une fonction normale du DAI, pas la preuve d'un BAV.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers Step by Step: An Illustrated Guide. Wiley-Blackwell",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-017",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes ventriculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "DAI double chambre en prévention secondaire, avec une zone TV basse programmée pour une TV lente documentée. Le patient a reçu une salve d'ATP puis un choc en montant un escalier ; l'épisode enregistré, classé TV, est ci-dessous. Quelle est votre interprétation ?",
+    "egm": {
+      "preset": "fa-conduite-zone-tv"
+    },
+    "options": [
+      "TV polymorphe irrégulière associée à une FA : thérapie appropriée",
+      "Flutter atrial 2:1 régulier dans la zone TV : thérapie inappropriée",
+      "Surdétection de l'onde T doublant la fréquence ventriculaire mesurée",
+      "FA à conduction rapide en zone TV : thérapie inappropriée"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : les QRS sont fins et identiques d'un cycle à l'autre sur l'EGM de choc, ce qui exclut une TV polymorphe ; et A > V.",
+      "Faux : l'activité atriale est désorganisée et la réponse ventriculaire irrégulière, ce n'est pas un flutter 2:1.",
+      "Faux : il n'y a qu'un signal ventriculaire par QRS ; la fréquence élevée est réelle.",
+      "Juste : activité atriale rapide et désorganisée, V irrégulier (300 à 440 ms) de morphologie inchangée : FA conduite."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'EGM atrial montre une FA (activité rapide et désorganisée, intervalles de 140 à 215 ms). La réponse ventriculaire est rapide et irrégulière (300 à 440 ms), avec des QRS fins et identiques d'un cycle à l'autre sur l'EGM de choc (morphologie d'un QRS conduit) : la fréquence atriale est supérieure à la fréquence ventriculaire, ce n'est pas une TV. Les VS franchissent la limite de la zone TV et sont classés TS, d'où une thérapie inappropriée. Réflexe à avoir : A > V, irrégularité et QRS conduits de morphologie constante signent une FA conduite ; c'est la première cause de chocs inappropriés.",
+    "aRetenir": "A > V, V irrégulier, morphologie inchangée : FA conduite en zone TV, thérapie inappropriée.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires",
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-018",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes ventriculaires",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Chez ce patient (DAI, choc inapproprié sur FA conduite en zone TV), quelles mesures réduisent le risque de récidive de thérapie inappropriée ?",
+    "egm": {
+      "preset": "fa-conduite-zone-tv"
+    },
+    "options": [
+      "Renforcer le contrôle de fréquence de la FA (bêtabloquant à dose efficace)",
+      "Vérifier l'activation des discriminateurs (stabilité, morphologie, relation A-V)",
+      "Allonger la durée de détection lorsque la zone basse le permet",
+      "Augmenter l'énergie du premier choc pour éviter une seconde thérapie",
+      "Désactiver toutes les thérapies ventriculaires le temps de traiter la FA"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "commentaires": [
+      "Juste : une réponse ventriculaire plus lente reste sous la zone TV.",
+      "Juste : les consensus recommandent d'appliquer les discriminateurs au-delà de 200/min, si possible jusqu'à 230/min.",
+      "Juste : une détection plus longue réduit les thérapies sur des épisodes transitoires (MADIT-RIT, ADVANCE III).",
+      "Faux : l'énergie du choc ne change rien au fait que la thérapie est inappropriée.",
+      "Faux : chez un patient en prévention secondaire, supprimer les thérapies l'expose à une mort subite."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le choc inapproprié vient d'une FA conduite dans la zone TV. Trois leviers se complètent : ralentir la réponse ventriculaire (bêtabloquant, éventuellement ablation de la FA), s'assurer que les discriminateurs de TSV sont actifs et bien paramétrés (stabilité, morphologie, relation A-V ; au-delà de 200/min et si possible jusqu'à 230/min selon le consensus 2015), et allonger la durée de détection si la TV documentée le permet. Augmenter l'énergie du choc ne corrige rien, et désactiver les thérapies chez un patient en prévention secondaire est dangereux. La découverte de cette FA impose aussi de discuter l'anticoagulation. Réflexe à avoir : après un choc inapproprié, agir à la fois sur l'arythmie et sur la programmation.",
+    "aRetenir": "Choc inapproprié sur FA : contrôle de fréquence, discriminateurs actifs, détection plus longue, et anticoagulation à discuter.",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      },
+      {
+        "titre": "Stiles MK et al. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      },
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA",
+      "Consensus 2019 programmation DAI",
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-019",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes ventriculaires",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 6,
+    "question": "Porteur de DAI, 70 ans, hypertendu, sans FA connue. Au-delà de la reprogrammation, la découverte de cette FA sur l'EGM impose aussi d'évaluer l'anticoagulation selon le score CHA2DS2-VA.",
+    "egm": {
+      "preset": "fa-conduite-zone-tv"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : la FA est confirmée sur l'EGM ; le risque thromboembolique doit être évalué (et l'ECG recherché pour la documenter).",
+      "Faux : le choc inapproprié ne résume pas le problème ; la FA a ses propres conséquences thromboemboliques."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le piège est de ne traiter que la programmation du DAI. La FA vue sur l'EGM est une vraie FA (activité atriale désorganisée, conduction irrégulière) : il faut évaluer le risque thromboembolique avec le score CHA2DS2-VA (ici au moins 2 : âge 65-74 ans et HTA) et le risque hémorragique. Si la FA est documentée sur un ECG, l'anticoagulation suit les recommandations de la FA clinique ; si elle reste uniquement détectée par le boîtier, l'AOD se discute (classe IIb) selon l'ESC 2024. Réflexe à avoir : toute FA confirmée en télésurveillance déclenche une évaluation de l'anticoagulation, même si l'alerte portait sur une thérapie ventriculaire.",
+    "aRetenir": "Une FA découverte à l'occasion d'un choc inapproprié doit aussi faire évaluer l'anticoagulation.",
+    "sources": [
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA",
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-020",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes ventriculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "DAI double chambre en prévention secondaire (TV lente sous amiodarone), zone TV programmée à partir de 150/min. Alerte « épisode en zone TV, thérapie retenue (SVT) » survenu pendant une séance de vélo d'appartement. Quelle est votre interprétation ?",
+    "egm": {
+      "preset": "tsv-1-1"
+    },
+    "options": [
+      "Tachycardie sinusale d'effort 1:1, thérapie retenue à juste titre",
+      "TV avec conduction rétrograde 1:1, thérapie retenue à tort par l'algorithme",
+      "Flutter atrial conduit en 2:1, correctement reconnu comme une TSV",
+      "TV lente non traitée à cause d'une dysfonction de la détection"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : accélération progressive de 520 à 360 ms, A avant V à intervalle constant, morphologie inchangée.",
+      "Faux : une TV démarre brutalement ; ici l'accélération est progressive et l'A précède toujours le V.",
+      "Faux : il y a autant de A que de V (1:1) et les cycles A-A ne sont pas ceux d'un flutter.",
+      "Faux : la détection a fonctionné (TS) et le discriminateur a classé l'épisode en TSV."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les cycles raccourcissent progressivement de 520 à 360 ms (115 à 167/min), avec une onde A précédant chaque V à intervalle constant et une morphologie ventriculaire identique au rythme de base. Ce démarrage progressif est typique d'une tachycardie sinusale d'effort : le discriminateur (critère de démarrage, morphologie, relation A-V selon le constructeur) a retenu la thérapie à juste titre (marqueur SVT). Une TV avec conduction rétrograde 1:1 démarrerait brutalement, souvent par un V précédant l'A, avec un changement de morphologie. Réflexe à avoir : en relation 1:1, regarder le mode de démarrage, la chambre qui commence et la morphologie.",
+    "aRetenir": "Tachycardie 1:1 à démarrage progressif, A avant V, morphologie inchangée : tachycardie sinusale, thérapie retenue à juste titre.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-021",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes ventriculaires",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Même patient (tachycardie sinusale d'effort à 167/min en zone TV, thérapie retenue). Quelle attitude adopter ?",
+    "egm": {
+      "preset": "tsv-1-1"
+    },
+    "options": [
+      "Abaisser la zone TV à 140/min pour traiter plus tôt ce type d'épisode",
+      "Désactiver les discriminateurs, qui ont retardé une thérapie nécessaire",
+      "Remplacer l'ATP par un choc d'emblée dans la zone TV",
+      "Vérifier la limite des discriminateurs et le traitement freinateur"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : cela ferait entrer encore plus de tachycardies sinusales dans la zone TV.",
+      "Faux : les discriminateurs ont fonctionné ; les désactiver exposerait à un choc inapproprié.",
+      "Faux : aucune thérapie n'était indiquée, et l'ATP reste recommandée dans les zones TV.",
+      "Juste : au-delà de la limite supérieure des discriminateurs, toute tachycardie est traitée ; le traitement freinateur limite la fréquence d'effort."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le piège est de croire que le DAI a « raté » une TV. Il a correctement reconnu une tachycardie sinusale, mais le patient a atteint 167/min, dans la zone TV. Deux points à vérifier : que la limite au-delà de laquelle les discriminateurs ne s'appliquent plus soit supérieure à la fréquence d'effort maximale atteignable (le consensus 2015 recommande d'appliquer les discriminateurs au-delà de 200/min, si possible jusqu'à 230/min), et que le traitement freinateur soit adapté (éventuellement évalué par une épreuve d'effort). Abaisser la zone ou désactiver les discriminateurs multiplierait les thérapies inappropriées. Réflexe à avoir : une thérapie retenue à juste titre ne se corrige pas, mais elle révèle un chevauchement entre fréquence d'effort et zone TV qu'il faut anticiper.",
+    "aRetenir": "Tachycardie sinusale en zone TV : vérifier la limite des discriminateurs et le traitement freinateur, ne pas les désactiver.",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      },
+      {
+        "titre": "Stiles MK et al. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      }
+    ],
+    "reco": [
+      "Consensus 2019 programmation DAI",
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-022",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : épisodes ventriculaires",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 7,
+    "question": "DAI double chambre, tachycardie en relation 1:1. Dans ce cas, le critère « V plus rapide que A » ne peut pas trancher : le DAI doit s'appuyer sur d'autres critères, comme le mode de démarrage, la morphologie ou la chambre d'origine.",
+    "egm": {
+      "preset": "tsv-1-1"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : avec autant de A que de V, le comptage des chambres n'aide pas ; les autres critères prennent le relais.",
+      "Faux : le critère V > A n'est utile que lorsque les fréquences diffèrent."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le comptage des chambres classe de façon fiable les tachycardies où V > A (TV) et celles où A > V (FA, flutter, tachycardie atriale conduite). En relation 1:1, le diagnostic différentiel inclut la tachycardie sinusale, la tachycardie atriale, la réentrée nodale ou par voie accessoire et la TV avec conduction rétrograde 1:1. Les algorithmes utilisent alors le démarrage (progressif ou brutal), la morphologie de l'EGM ventriculaire comparée à un gabarit, et parfois la chambre d'origine ou la réponse à une stimulation. Réflexe à avoir : en 1:1, lire le début de l'épisode, qui contient le plus d'information.",
+    "aRetenir": "En relation 1:1, le démarrage et la morphologie remplacent le comptage des chambres pour distinguer TV et TSV.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ]
+  },
+  {
+    "id": "egm-tele-023",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : alertes techniques",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Vendredi 18 h, alerte de télésurveillance sur un DAI double chambre : plusieurs épisodes courts en zone FV, non traités. Le patient, joint, va bien. Quelle est votre interprétation ?",
+    "egm": {
+      "preset": "bruit-sonde"
+    },
+    "options": [
+      "Salves de FV non soutenues, spontanément résolutives sans thérapie",
+      "Signaux non physiologiques évoquant une dysfonction de sonde VD",
+      "Myopotentiels pectoraux captés par l'EGM de choc",
+      "Surdétection de l'onde T liée à une hyperkaliémie"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : l'EGM de choc montre un rythme sinusal régulier et ininterrompu pendant les salves.",
+      "Juste : signaux anguleux à intervalles très courts (81 à 154 ms) sur le seul EGM VD, EGM de choc normal.",
+      "Faux : les myopotentiels se verraient surtout sur l'EGM de choc (boîtier-coil), qui est ici propre.",
+      "Faux : la surdétection de l'onde T donne un signal régulier par cycle, pas des salves anarchiques."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les salves de signaux anguleux, à intervalles de 81 à 154 ms incompatibles avec une activité myocardique, n'apparaissent que sur l'EGM VD bipolaire. Pendant ce temps, l'EGM de choc et le canal atrial montrent un rythme sinusal régulier à 833 ms, sans interruption. Ce découplage entre EGM proche et EGM lointain oriente vers un problème du conducteur de détection ou de la connexion. Des myopotentiels se verraient sur l'EGM de choc, et une onde T surdétectée donnerait un signal régulier à chaque cycle. Réflexe à avoir : bruit sur le seul canal VD avec EGM de choc normal = dysfonction de sonde jusqu'à preuve du contraire.",
+    "aRetenir": "Signaux non physiologiques sur l'EGM VD seul, EGM de choc sinusal : dysfonction de sonde probable.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implantable cardioverter-defibrillator sensing problems II. Circ Arrhythm Electrophysiol 2015;8:212-220",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002514"
+      },
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      }
+    ],
+    "reco": [
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-024",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : alertes techniques",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Même alerte (bruit sur la sonde VD d'un DAI, épisodes FV non soutenus), reçue un vendredi à 18 h. Le patient va bien. Quelle conduite ?",
+    "egm": {
+      "preset": "bruit-sonde"
+    },
+    "options": [
+      "Programmer une consultation de contrôle dans les trois mois",
+      "Attendre la transmission du lundi pour confirmer le problème",
+      "Demander une transmission manuelle quotidienne jusqu'au prochain contrôle",
+      "Joindre le patient ce soir et organiser une prise en charge rapide"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : le risque de choc inapproprié est immédiat ; trois mois, c'est beaucoup trop tard.",
+      "Faux : le week-end suffit pour qu'un épisode devienne soutenu et déclenche des chocs.",
+      "Faux : surveiller ne protège pas des chocs ; il faut agir sur la sonde ou la programmation.",
+      "Juste : consignes au patient, interrogation, tendances d'impédance, radiographie, révision de sonde, suspension des thérapies sous surveillance si besoin."
+    ],
+    "reponseAttendue": null,
+    "explication": "Un bruit de sonde avec épisodes en zone FV expose à des chocs inappropriés répétés, douloureux et potentiellement proarythmiques, et chez un patient stimulodépendant à une inhibition de la stimulation. C'est une alerte à traiter le jour même : joindre le patient, lui expliquer quoi faire en cas de choc (15, urgences, où un aimant peut suspendre les thérapies), et organiser rapidement interrogation, analyse des tendances d'impédance, radiographie et révision de sonde. Le consensus HRS 2023 demande que l'organisation prévoie le traitement des alertes urgentes en dehors des heures ouvrables. Réflexe à avoir : une alerte de bruit sur la sonde de défibrillation ne se laisse jamais passer le week-end.",
+    "aRetenir": "Bruit sur la sonde d'un DAI : alerte du jour même, risque de chocs inappropriés, prise en charge hospitalière rapide.",
+    "sources": [
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      },
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implantable cardioverter-defibrillator sensing problems II. Circ Arrhythm Electrophysiol 2015;8:212-220",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002514"
+      }
+    ],
+    "reco": [
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-025",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : alertes techniques",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "DAI double chambre, alerte de bruit sur la sonde VD. Quels éléments orientent vers une dysfonction de sonde plutôt que vers une arythmie ventriculaire ?",
+    "egm": {
+      "preset": "bruit-sonde"
+    },
+    "options": [
+      "Intervalles très courts, souvent inférieurs à 150 ms, incompatibles avec un QRS",
+      "Signaux présents sur l'EGM VD mais absents de l'EGM de choc",
+      "Rythme sinusal régulier et inchangé sur le canal A et sur l'EGM de choc",
+      "Hausse brutale de l'impédance de stimulation sur les tendances",
+      "Arrêt spontané de l'épisode, sans thérapie délivrée"
+    ],
+    "reponses": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "commentaires": [
+      "Juste : aucun myocarde ne se dépolarise à 81 ms d'intervalle ; ce sont des signaux non physiologiques.",
+      "Juste : une vraie arythmie ventriculaire serait visible sur les deux EGM.",
+      "Juste : le rythme sous-jacent continue normalement pendant le bruit.",
+      "Juste : une variation brutale d'impédance est un argument fort de fracture ou de défaut d'isolant.",
+      "Faux : une TV ou une FV non soutenue s'arrête aussi spontanément ; ce critère ne discrimine pas."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le bruit de sonde associe des intervalles non physiologiques (souvent < 150 ms), une discordance entre EGM proche (VD) et EGM lointain (choc), et un rythme de fond qui continue imperturbable sur le canal atrial et l'EGM de choc. Les tendances d'impédance (hausse brutale en cas de fracture, baisse en cas de défaut d'isolant) renforcent le diagnostic ; des algorithmes constructeurs combinent ces critères. L'arrêt spontané de l'épisode n'a aucune valeur discriminante : les TV et FV non soutenues s'arrêtent aussi seules. Réflexe à avoir : EGM proche contre EGM lointain, puis tendances d'impédance.",
+    "aRetenir": "Bruit de sonde : intervalles non physiologiques, EGM de choc normal, rythme de fond inchangé, impédance anormale.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implantable cardioverter-defibrillator sensing problems II. Circ Arrhythm Electrophysiol 2015;8:212-220",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002514"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-026",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : alertes techniques",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "DAI double chambre chez un patient porteur d'une cardiomyopathie hypertrophique. Alerte : « nombreux épisodes en zone TV non soutenus » ; le patient est asymptomatique. Quelle est votre interprétation ?",
+    "egm": {
+      "preset": "surdetection-t"
+    },
+    "options": [
+      "Double comptage ventriculaire par surdétection de l'onde T",
+      "Extrasystoles ventriculaires en bigéminisme détectées en zone TV",
+      "Double comptage atrial par détection de l'onde R lointaine",
+      "Salves de TV lente à 130/min, non soutenues et asymptomatiques"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : un TS apparaît 300 ms après chaque VS, au sommet de l'onde T ample de l'EGM VD.",
+      "Faux : l'EGM de choc ne montre qu'un QRS par cycle, sans extrasystole.",
+      "Faux : le problème est sur le canal ventriculaire ; le canal atrial compte normalement (769 ms).",
+      "Faux : le rythme réel est sinusal à 78/min ; seule la mesure est doublée."
+    ],
+    "reponseAttendue": null,
+    "explication": "Chaque cycle comporte un VS sur le QRS puis un TS 300 ms plus tard, au sommet d'une onde T ample sur l'EGM VD. Les intervalles mesurés alternent 300 et 469 ms, ce qui fait entrer la fréquence apparente dans la zone TV, alors que le canal atrial et l'EGM de choc montrent un rythme sinusal à 769 ms (78/min) avec un seul QRS par cycle. Des ESV bigéminées apparaîtraient sur l'EGM de choc avec une autre morphologie. La surdétection de l'onde T est favorisée par une onde R de faible amplitude, une onde T ample (cardiomyopathie hypertrophique, hyperkaliémie, QT long, syndrome de Brugada). Réflexe à avoir : devant une alternance régulière d'intervalles courts et longs, vérifier ce que le marqueur surnuméraire désigne sur l'EGM.",
+    "aRetenir": "Alternance d'intervalles courts et longs avec un marqueur sur l'onde T : double comptage ventriculaire.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implantable cardioverter-defibrillator sensing problems II. Circ Arrhythm Electrophysiol 2015;8:212-220",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002514"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-027",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : alertes techniques",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Chez ce porteur de DAI (surdétection de l'onde T), quelles démarches sont pertinentes ?",
+    "egm": {
+      "preset": "surdetection-t"
+    },
+    "options": [
+      "Contrôler la kaliémie, une hyperkaliémie augmentant l'amplitude de l'onde T",
+      "Augmenter la sensibilité ventriculaire (valeur en mV plus basse)",
+      "Envisager un autre vecteur de détection ou un filtre de l'onde T, selon le constructeur",
+      "Désactiver la zone FV en attendant le prochain contrôle",
+      "Raccourcir la période réfractaire ventriculaire après détection"
+    ],
+    "reponses": [
+      0,
+      2
+    ],
+    "commentaires": [
+      "Juste : corriger une hyperkaliémie peut suffire à faire disparaître la surdétection.",
+      "Faux : augmenter la sensibilité ferait détecter encore plus l'onde T.",
+      "Juste : changer de vecteur (bipolaire vrai ou intégré) ou utiliser un filtre peut séparer R et T.",
+      "Faux : désactiver la zone FV prive le patient de sa protection contre la mort subite.",
+      "Faux : une période réfractaire plus courte laisse l'onde T encore plus exposée à la détection."
+    ],
+    "reponseAttendue": null,
+    "explication": "La surdétection de l'onde T se traite en cherchant d'abord une cause réversible (hyperkaliémie, médicament, ischémie) et en mesurant l'amplitude de l'onde R : si elle est faible, la marge entre R et T est réduite. Les solutions de programmation comprennent le changement de vecteur de détection, les filtres ou algorithmes dédiés à l'onde T selon le constructeur, et l'ajustement prudent de la sensibilité ou de sa décroissance. Toute baisse de sensibilité doit être mise en balance avec la détection de la FV, dont les signaux sont de faible amplitude. Si l'onde R est trop faible, une révision de sonde se discute. Réflexe à avoir : corriger la cause, puis la programmation, sans jamais sacrifier la détection de la FV.",
+    "aRetenir": "Surdétection de l'onde T : kaliémie, amplitude de l'onde R, vecteur ou filtre ; ne jamais sacrifier la détection de la FV.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implantable cardioverter-defibrillator sensing problems II. Circ Arrhythm Electrophysiol 2015;8:212-220",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002514"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-028",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : alertes techniques",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "DAI double chambre, alerte d'épisodes en zone TV. Sur cet EGM, la fréquence ventriculaire réelle du patient est d'environ 155/min.",
+    "egm": {
+      "preset": "surdetection-t"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : 155/min est la fréquence apparente liée au double comptage.",
+      "Juste : le rythme réel est sinusal à 769 ms, soit environ 78/min."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le boîtier compte deux événements par cycle, le QRS et l'onde T, d'où des intervalles alternant 300 et 469 ms et une fréquence apparente proche du double de la fréquence réelle. La fréquence vraie se lit sur le canal atrial (A-A à 769 ms) et sur l'EGM de choc, où chaque cycle ne comporte qu'un QRS : environ 78/min. Réflexe à avoir : vérifier la fréquence sur un canal indépendant (EGM de choc, canal atrial) avant d'accepter la fréquence calculée par le boîtier.",
+    "aRetenir": "Double comptage : la fréquence réelle se lit sur l'EGM de choc ou le canal atrial, pas sur les intervalles mesurés.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-029",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : alertes techniques",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "CRT-D chez un patient en insuffisance cardiaque (FEVG 25 %, bloc de branche gauche). Alerte de télésurveillance : « pourcentage de stimulation biventriculaire à 67 % » (99 % au contrôle précédent). Quelle est la cause de la perte de stimulation biventriculaire sur cet EGM ?",
+    "egm": {
+      "preset": "crt-perte-biv",
+      "appareil": "dai"
+    },
+    "options": [
+      "Extrasystoles ventriculaires fréquentes, un cycle sur trois",
+      "Passage en FA avec conduction ventriculaire rapide",
+      "Délai AV programmé trop long, dépassé par la conduction spontanée",
+      "Perte de capture VG avec stimulation VD seule"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : un VS prématuré (770 ms) de morphologie différente sur l'EGM de choc survient tous les trois cycles.",
+      "Faux : le canal atrial reste sinusal et régulier (AS à 800 ms).",
+      "Faux : une conduction spontanée surviendrait à chaque cycle, avec une morphologie de QRS conduite.",
+      "Faux : une perte de capture VG ne fait pas baisser le compteur de stimulation BV, le boîtier continuant à stimuler."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le rythme atrial est sinusal et régulier à 800 ms. Un cycle sur trois, un événement ventriculaire survient avant la fin du délai AV (VS à 770 ms), avec une morphologie large et différente sur l'EGM de choc : c'est une extrasystole ventriculaire qui inhibe la stimulation biventriculaire. Deux battements sur trois sont stimulés, ce qui donne environ 67 % de stimulation BV. Une perte de capture VG ne modifierait pas le compteur, puisque le boîtier continue à délivrer ses impulsions. Réflexe à avoir : devant une baisse du pourcentage BV, chercher sur l'EGM ce qui inhibe la stimulation (ESV, FA, conduction spontanée).",
+    "aRetenir": "Baisse du % de stimulation BV : identifier sur l'EGM ce qui l'inhibe, ici des ESV fréquentes.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Hayes DL et al. Cardiac resynchronization therapy and the relationship of percent biventricular pacing to symptoms and survival. Heart Rhythm 2011;8:1469-1475",
+        "url": "https://doi.org/10.1016/j.hrthm.2011.04.015"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-030",
+    "theme": "telecardio",
+    "sousTheme": "EGM de télésurveillance : alertes techniques",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Même patient (CRT-D, 67 % de stimulation BV à cause d'ESV fréquentes). Quelle prise en charge proposer ?",
+    "egm": {
+      "preset": "crt-perte-biv",
+      "appareil": "dai"
+    },
+    "options": [
+      "Quantifier les ESV (Holter) et les réduire : traitement médical ou ablation",
+      "Allonger le délai AV pour laisser davantage de conduction spontanée",
+      "Accepter ce taux, une stimulation BV au-delà de 60 % étant suffisante",
+      "Désactiver la stimulation VG pour préserver la longévité du boîtier"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : l'objectif est une stimulation BV la plus proche possible de 100 % (au moins 98 %).",
+      "Faux : allonger le délai AV réduirait encore la stimulation biventriculaire.",
+      "Faux : le bénéfice de la resynchronisation diminue nettement en dessous de 98 %.",
+      "Faux : cela supprimerait la resynchronisation chez un patient insuffisant cardiaque."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le bénéfice de la resynchronisation dépend d'une stimulation biventriculaire quasi permanente : les meilleurs résultats sont observés au-delà de 98 % (Hayes 2011), et l'ESC 2021 recommande de viser une stimulation la plus proche possible de 100 %. Avec des ESV un cycle sur trois, il faut quantifier la charge extrasystolique (Holter), corriger les facteurs favorisants (kaliémie, décompensation), optimiser le traitement (bêtabloquant, amiodarone) et discuter l'ablation des ESV si elles restent fréquentes. Les fonctions de stimulation déclenchée sur événement ventriculaire détecté augmentent le compteur mais ne restaurent qu'imparfaitement une resynchronisation efficace. Réflexe à avoir : un pourcentage BV sous 98 % est une alerte clinique, pas un chiffre à accepter.",
+    "aRetenir": "CRT : viser au moins 98 % de stimulation BV ; des ESV fréquentes se quantifient et se traitent.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Hayes DL et al. Cardiac resynchronization therapy and the relationship of percent biventricular pacing to symptoms and survival. Heart Rhythm 2011;8:1469-1475",
+        "url": "https://doi.org/10.1016/j.hrthm.2011.04.015"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-031",
+    "theme": "telecardio",
+    "sousTheme": "EGM de Holter implantable",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Holter implantable posé pour syncopes inexpliquées. Alerte « pause de 4,2 s » à 14 h ; le patient, rappelé, n'a ressenti aucun symptôme à ce moment. Quelle est votre interprétation ?",
+    "egm": {
+      "preset": "ilr-fausse-pause"
+    },
+    "options": [
+      "Pause sinusale de 4,2 s justifiant à elle seule une stimulation",
+      "BAV paroxystique avec ondes P non conduites",
+      "Artefact de mouvement masquant l'ECG sous-cutané",
+      "Fausse pause par sous-détection de QRS de faible amplitude"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : des QRS de petite amplitude sont visibles pendant la « pause » ; le rythme a continué.",
+      "Faux : chaque onde P est suivie d'un petit QRS ; la conduction est conservée.",
+      "Faux : le tracé est propre et lisible ; ce n'est pas un artefact.",
+      "Juste : les QRS deviennent trop petits pour être détectés, d'où une pause fictive de 4167 ms."
+    ],
+    "reponseAttendue": null,
+    "explication": "Pendant l'intervalle classé « Pause » (4167 ms), l'ECG sous-cutané montre des ondes P suivies de QRS de faible amplitude, au même rythme qu'avant (environ 833 ms). Le Holter n'a pas détecté ces QRS, dont l'amplitude a chuté (changement de position, contact tissulaire), et a calculé un intervalle long. Les fausses pauses par sous-détection sont la première cause d'alertes de pause des Holter implantables, et les constructeurs ont développé des algorithmes pour les réduire. Réflexe à avoir : avant de parler de pause, chercher des QRS de petite amplitude dans l'intervalle incriminé.",
+    "aRetenir": "Alerte de pause d'un Holter implantable : chercher de petits QRS dans la pause avant de conclure.",
+    "sources": [
+      {
+        "titre": "Gopinathannair R et al. Effectiveness of SharpSense algorithms in reducing bradycardia and pause detection: real-world performance in Confirm Rx insertable cardiac monitor. J Interv Card Electrophysiol 2022;63:661-668",
+        "url": "https://doi.org/10.1007/s10840-021-01099-4"
+      },
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      }
+    ],
+    "reco": [
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-032",
+    "theme": "telecardio",
+    "sousTheme": "EGM de Holter implantable",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Chez ce porteur de Holter implantable, ces fausses alertes de pause se répètent plusieurs fois par semaine et encombrent la file de télésurveillance. Que faire ?",
+    "egm": {
+      "preset": "ilr-fausse-pause"
+    },
+    "options": [
+      "Désactiver la détection des pauses pour supprimer les fausses alertes",
+      "Ajuster la détection (sensibilité, critères de pause) et surveiller",
+      "Explanter le Holter implantable, devenu inutilisable pour le diagnostic",
+      "Implanter un stimulateur par sécurité devant la répétition des alertes"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : le Holter a été posé pour syncopes ; supprimer la détection des pauses lui retire son intérêt.",
+      "Juste : reprogrammer la sensibilité ou les critères de pause, selon le constructeur, réduit les fausses alertes sans perdre le diagnostic.",
+      "Faux : l'appareil reste utile ; il faut corriger sa détection.",
+      "Faux : aucune pause vraie n'est documentée ; un stimulateur ne serait pas indiqué."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les fausses alertes répétées créent une surcharge de travail et un risque réel : la « fatigue des alertes », qui fait passer à côté du vrai événement. Le consensus HRS 2023 recommande d'adapter la programmation et les alertes au patient plutôt que de les subir. Ici, il faut ajuster la sensibilité ou les critères de pause (selon le constructeur), éventuellement activer les algorithmes de réduction des fausses pauses, tout en gardant la détection active puisque l'indication est une syncope. Implanter un stimulateur sur une pause fictive serait une erreur grave. Réflexe à avoir : corriger la détection, jamais la désactiver quand elle porte l'indication.",
+    "aRetenir": "Fausses alertes répétées : reprogrammer la détection plutôt que la désactiver, pour éviter la fatigue des alertes.",
+    "sources": [
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      },
+      {
+        "titre": "Gopinathannair R et al. Effectiveness of SharpSense algorithms in reducing bradycardia and pause detection: real-world performance in Confirm Rx insertable cardiac monitor. J Interv Card Electrophysiol 2022;63:661-668",
+        "url": "https://doi.org/10.1007/s10840-021-01099-4"
+      }
+    ],
+    "reco": [
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-033",
+    "theme": "telecardio",
+    "sousTheme": "EGM de Holter implantable",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Holter implantable chez un homme de 74 ans suivi pour syncopes, avec bloc de branche droit à l'ECG. Alerte automatique de pause ; il signale avoir fait un malaise avec chute ce jour-là. Quelle est votre interprétation ?",
+    "egm": {
+      "preset": "ilr-vraie-pause"
+    },
+    "options": [
+      "Pause sinusale d'origine vagale, sans activité atriale",
+      "BAV paroxystique avec ondes P régulières non conduites",
+      "Fausse pause par sous-détection de QRS de faible amplitude",
+      "BAV 2:1 stable avec fréquence ventriculaire à 35/min"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : les ondes P continuent régulièrement pendant la pause.",
+      "Juste : des ondes P régulières ne sont suivies d'aucun QRS pendant 5,75 s, puis la conduction reprend.",
+      "Faux : aucun QRS, même petit, n'est visible pendant la pause.",
+      "Faux : plusieurs P consécutives sont bloquées ; ce n'est pas un rapport 2:1 fixe."
+    ],
+    "reponseAttendue": null,
+    "explication": "Après deux QRS conduits, les ondes P se poursuivent régulièrement sans aucun QRS pendant 5750 ms, puis la conduction reprend. La fréquence sinusale ne ralentit pas pendant l'épisode, ce qui oriente vers un BAV paroxystique intrinsèque (maladie du tissu de conduction, cohérente avec le bloc de branche) plutôt que vers un BAV vagal, où le sinus ralentit aussi. Une fausse pause montrerait de petits QRS dans l'intervalle. Réflexe à avoir : dans une pause, regarder ce que font les ondes P : absentes (pause sinusale), régulières et bloquées (BAV), ralenties en même temps que le bloc (origine vagale).",
+    "aRetenir": "Ondes P régulières non conduites pendant la pause : BAV paroxystique, surtout sur trouble conductif connu.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "2018 ESC Guidelines for the diagnosis and management of syncope. Eur Heart J 2018;39:1883-1948",
+        "url": "https://doi.org/10.1093/eurheartj/ehy037"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ESC 2018 syncope"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-034",
+    "theme": "telecardio",
+    "sousTheme": "EGM de Holter implantable",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Même patient (Holter implantable, BAV paroxystique de 5,75 s corrélé à un malaise avec chute). Quelle conduite le jour de l'alerte ?",
+    "egm": {
+      "preset": "ilr-vraie-pause"
+    },
+    "options": [
+      "Joindre le patient le jour même et programmer un stimulateur",
+      "Attendre une deuxième pause documentée avant toute décision",
+      "Consultation de routine le mois prochain pour discuter d'un stimulateur",
+      "Débuter un bêtabloquant pour prévenir de nouveaux malaises"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : le BAV paroxystique intrinsèque est une indication de stimulation (classe I, ESC 2021).",
+      "Faux : la corrélation symptôme-rythme est déjà établie ; attendre n'apporte rien.",
+      "Faux : un BAV paroxystique symptomatique expose à une récidive traumatique ou prolongée à court terme.",
+      "Faux : un bêtabloquant aggraverait la conduction AV."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le Holter implantable a documenté un BAV paroxystique de près de 6 s concomitant d'un malaise avec chute : le diagnostic de la syncope est fait. L'ESC 2021 recommande la stimulation en cas de BAV paroxystique intrinsèque du deuxième ou troisième degré (classe I). Il faut joindre le patient le jour même, lui déconseiller la conduite, vérifier ses traitements bradycardisants et organiser une implantation rapide, avec hospitalisation et surveillance selon la clinique. Réflexe à avoir : une vraie pause corrélée aux symptômes est une alerte du jour même, pas un résultat à discuter en consultation.",
+    "aRetenir": "BAV paroxystique documenté par un Holter implantable et corrélé aux symptômes : stimulation, sans attendre.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "2018 ESC Guidelines for the diagnosis and management of syncope. Eur Heart J 2018;39:1883-1948",
+        "url": "https://doi.org/10.1093/eurheartj/ehy037"
+      },
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ESC 2018 syncope",
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-035",
+    "theme": "telecardio",
+    "sousTheme": "EGM de Holter implantable",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Holter implantable posé après un AVC ischémique jugé cryptogénique. Alerte « FA, épisode de 45 min ». Quelle est votre interprétation de l'ECG sous-cutané ?",
+    "egm": {
+      "preset": "ilr-fausse-fa"
+    },
+    "options": [
+      "FA paroxystique confirmée, justifiant une anticoagulation",
+      "Extrasystoles atriales fréquentes classées FA à tort",
+      "Flutter atrial à conduction variable classé en FA",
+      "Extrasystoles ventriculaires bigéminées classées FA"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : chaque QRS est précédé d'une onde P ; l'irrégularité suit un schéma court-long répétitif.",
+      "Juste : des P prématurées, parfois dans l'onde T, précèdent les QRS précoces : ESA fréquentes.",
+      "Faux : il n'y a pas d'ondes F régulières ; la ligne de base est isoélectrique entre les complexes.",
+      "Faux : les QRS précoces sont fins, identiques aux autres et précédés d'une P."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'irrégularité suit un schéma répétitif court-long (environ 530 à 620 ms puis 1070 à 1130 ms) et chaque QRS, y compris les précoces, est précédé d'une onde P, parfois déformant l'onde T précédente. Ce sont des extrasystoles atriales fréquentes, que l'algorithme de détection de FA, fondé sur l'irrégularité des intervalles R-R, a classées à tort en FA. Une vraie FA se reconnaîtrait à l'absence d'onde P et à une irrégularité complète, sans schéma répétitif. Après un AVC, la conséquence de l'erreur serait lourde : une anticoagulation injustifiée ou, à l'inverse, une perte de confiance dans l'outil. Réflexe à avoir : chercher les ondes P avant de valider une FA sur un Holter implantable.",
+    "aRetenir": "Irrégularité court-long avec une P devant chaque QRS : ESA fréquentes, pas de FA.",
+    "sources": [
+      {
+        "titre": "Sanders P et al. Performance of a new atrial fibrillation detection algorithm in a miniaturized insertable cardiac monitor: results from the Reveal LINQ Usability Study. Heart Rhythm 2016;13:1425-1430",
+        "url": "https://doi.org/10.1016/j.hrthm.2016.03.005"
+      },
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA",
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-036",
+    "theme": "telecardio",
+    "sousTheme": "EGM de Holter implantable",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 4,
+    "question": "Holter implantable, alerte de FA. Les algorithmes de détection de FA des Holter implantables étant validés, un épisode classé FA peut servir de base à la décision d'anticoagulation sans relecture de l'ECG sous-cutané.",
+    "egm": {
+      "preset": "ilr-fausse-fa"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : les fausses détections (ESA, arythmie sinusale, bruit) sont fréquentes ; la relecture est indispensable.",
+      "Juste : tout épisode doit être relu par un soignant formé avant une décision thérapeutique."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les algorithmes de détection de FA des Holter implantables reposent sur l'irrégularité des intervalles R-R : ils sont sensibles mais leur valeur prédictive positive est imparfaite, en particulier en présence d'extrasystoles atriales ou d'une arythmie sinusale. Le consensus HRS 2023 rappelle que les épisodes doivent être vérifiés sur les tracés, et l'ESC 2024 exige une documentation fiable de la FA avant de poser le diagnostic. Réflexe à avoir : relire chaque épisode (ondes P, régularité, artefacts) avant d'en tirer une conséquence thérapeutique.",
+    "aRetenir": "Un épisode « FA » d'un Holter implantable se relit toujours avant toute décision d'anticoagulation.",
+    "sources": [
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      },
+      {
+        "titre": "Sanders P et al. Performance of a new atrial fibrillation detection algorithm in a miniaturized insertable cardiac monitor: results from the Reveal LINQ Usability Study. Heart Rhythm 2016;13:1425-1430",
+        "url": "https://doi.org/10.1016/j.hrthm.2016.03.005"
+      },
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA",
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-037",
+    "theme": "telecardio",
+    "sousTheme": "Triage des alertes : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Un porteur de DAI appelle le centre de télésurveillance : il vient de recevoir trois chocs en vingt minutes. Il est conscient, angoissé, et encore au téléphone. Quelle consigne donner ?",
+    "options": [
+      "Appeler le 15 sans délai : orage rythmique ou chocs inappropriés",
+      "Faire une transmission manuelle et attendre l'analyse du lendemain",
+      "Le rassurer : des chocs répétés prouvent que le DAI fonctionne bien",
+      "Venir en consultation programmée dans la semaine pour un contrôle"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : chocs multiples rapprochés = urgence, quelle qu'en soit la cause.",
+      "Faux : une nouvelle série de chocs peut survenir à tout moment ; l'analyse différée est dangereuse.",
+      "Faux : des chocs répétés signent soit une arythmie récidivante grave, soit des chocs inappropriés.",
+      "Faux : le délai est incompatible avec la gravité de la situation."
+    ],
+    "reponseAttendue": null,
+    "explication": "Plusieurs chocs rapprochés correspondent soit à un orage rythmique (au moins trois épisodes de TV ou FV soutenue en 24 h nécessitant une intervention, ESC 2022), soit à des chocs inappropriés en série (bruit de sonde, FA rapide, surdétection). Dans les deux cas, c'est une urgence : le patient doit appeler le 15 et être pris en charge en milieu hospitalier sous monitorage, où un aimant peut suspendre les thérapies si elles sont inappropriées. La transmission manuelle reste utile, mais ne remplace pas l'appel. Réflexe à avoir : chocs multiples ou choc avec symptômes = 15, choc unique bien toléré = contacter le centre.",
+    "aRetenir": "Chocs multiples rapprochés : appel du 15 immédiat, que les chocs soient appropriés ou non.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires",
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-038",
+    "theme": "telecardio",
+    "sousTheme": "Triage des alertes : pièges de pratique",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 3,
+    "question": "La télésurveillance ne remplace pas les services d'urgence : le patient doit savoir qu'en cas de choc mal toléré ou de chocs répétés, il appelle le 15 sans attendre l'analyse de sa transmission.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : les transmissions ne sont pas lues en temps réel, en particulier la nuit et le week-end.",
+      "Faux : les transmissions ne sont pas lues en temps réel ; la télésurveillance ne remplace jamais le 15."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les transmissions sont analysées pendant les heures ouvrables du centre, avec un délai variable ; elles ne déclenchent pas d'intervention d'urgence. Le consensus HRS 2023 insiste sur l'information du patient à l'inclusion : ce que la télésurveillance fait, ce qu'elle ne fait pas, et qui appeler en cas de symptôme. Un patient qui attend un rappel après des chocs répétés perd un temps précieux. Réflexe à avoir : remettre des consignes écrites simples dès l'inclusion et les rappeler à chaque contact.",
+    "aRetenir": "La télésurveillance n'est pas un service d'urgence : chocs répétés ou mal tolérés = 15.",
+    "sources": [
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      }
+    ],
+    "reco": [
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-039",
+    "theme": "telecardio",
+    "sousTheme": "Triage des alertes : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Au contrôle, un porteur de DAI rapporte avoir ressenti un choc la nuit précédente, au réveil. L'interrogation ne retrouve aucun épisode détecté, aucune charge ni choc délivré, et toutes les mesures sont normales. Quelle conduite ?",
+    "options": [
+      "Suspecter une défaillance de la mémoire du DAI et prévoir son remplacement",
+      "Conclure à un choc inapproprié non mémorisé et désactiver les thérapies",
+      "Évoquer un choc fantôme, rassurer et expliquer, sans reprogrammation",
+      "Abaisser la zone FV pour mieux enregistrer le prochain épisode"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : les DAI mémorisent toute charge et tout choc ; l'absence d'événement est fiable.",
+      "Faux : un choc délivré est toujours enregistré ; désactiver les thérapies serait dangereux.",
+      "Juste : sensation de choc sans aucun choc délivré, fréquente au réveil et chez les patients anxieux.",
+      "Faux : aucune arythmie n'est en cause ; modifier la zone FV n'a aucune justification."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le choc fantôme est la sensation d'avoir reçu un choc alors que le DAI n'en a délivré aucun, ce que confirme l'absence de charge et de choc en mémoire. Il est fréquent, surtout la nuit ou au réveil, et associé à l'anxiété et aux antécédents de chocs réels. La conduite consiste à vérifier soigneusement la mémoire, puis à expliquer et rassurer, en proposant si besoin un accompagnement psychologique. Réflexe à avoir : un choc ressenti se vérifie toujours dans la mémoire, mais une mémoire vide et des mesures normales permettent de conclure au choc fantôme.",
+    "aRetenir": "Choc ressenti sans charge ni choc en mémoire : choc fantôme, expliquer et rassurer.",
+    "sources": [
+      {
+        "titre": "Kraaier K et al. Incidence and predictors of phantom shocks in implantable cardioverter defibrillator recipients. Neth Heart J 2013;21:191-195",
+        "url": "https://doi.org/10.1007/s12471-012-0345-z"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-040",
+    "theme": "telecardio",
+    "sousTheme": "Triage des alertes : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Après un choc approprié pour TV, un porteur de DAI (permis de conduire voiture, usage privé) demande quand il pourra reprendre le volant. Selon le consensus européen (EHRA), que lui répondre ?",
+    "options": [
+      "Dès le lendemain, s'il se sent parfaitement bien",
+      "Jamais : un choc contre-indique définitivement la conduite",
+      "Après une semaine, en l'absence de nouvel épisode",
+      "Après une interruption d'environ trois mois"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : le risque de récidive avec perte de connaissance est maximal dans les premières semaines.",
+      "Faux : la restriction est temporaire pour un permis de groupe 1.",
+      "Faux : ce délai est trop court après une thérapie appropriée.",
+      "Juste : le consensus de l'EHRA recommande une interruption de trois mois après une thérapie appropriée (groupe 1)."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le risque de récidive d'arythmie, éventuellement avec syncope, est le plus élevé dans les mois qui suivent une thérapie appropriée. Le consensus de l'EHRA (Vijgen 2009) recommande pour les conducteurs de groupe 1 une interruption de la conduite de trois mois après une thérapie appropriée ; après une thérapie inappropriée, la conduite reprend une fois la cause corrigée. En France, l'aptitude à la conduite relève de l'arrêté du 28 mars 2022 : le DAI est définitivement incompatible avec les permis du groupe lourd ; pour le groupe léger, l'incompatibilité est temporaire (après l'implantation et après une thérapie) et son appréciation revient au médecin agréé, en lien avec le cardiologue. Réflexe à avoir : aborder la conduite automobile systématiquement après toute thérapie, et le tracer dans le dossier.",
+    "aRetenir": "Après un choc approprié, pas de conduite (groupe 1) pendant environ trois mois ; toujours en parler au patient.",
+    "sources": [
+      {
+        "titre": "Vijgen J et al. Consensus statement of the European Heart Rhythm Association: updated recommendations for driving by patients with implantable cardioverter defibrillators. Europace 2009;11:1097-1107",
+        "url": "https://doi.org/10.1093/europace/eup112"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Arrêté du 28 mars 2022 fixant la liste des affections médicales incompatibles ou compatibles avec ou sans aménagements ou restrictions pour l'obtention, le renouvellement ou le maintien du permis de conduire — Légifrance",
+        "url": null
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-041",
+    "theme": "telecardio",
+    "sousTheme": "Triage des alertes : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Alerte « pas de transmission depuis 21 jours » chez un porteur de DAI dont la sonde fait l'objet d'une surveillance renforcée à la suite d'un avis de sécurité. Quelle conduite ?",
+    "options": [
+      "Considérer l'absence de transmission comme une absence d'événement",
+      "Attendre la prochaine consultation annuelle déjà programmée",
+      "Joindre le patient pour rétablir la connexion et vérifier son état",
+      "Arrêter la télésurveillance, le patient n'étant pas observant"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : sans transmission, le centre est aveugle ; aucun événement ne peut être exclu.",
+      "Faux : sur une sonde sous surveillance, attendre des mois expose à une dysfonction non détectée.",
+      "Juste : causes fréquentes : transmetteur débranché, déménagement, hospitalisation, voyage, problème de réseau.",
+      "Faux : la non-transmission est le plus souvent technique ; elle se corrige et ne justifie pas d'arrêter le suivi."
+    ],
+    "reponseAttendue": null,
+    "explication": "Une absence de transmission n'est pas une absence d'événement : c'est une perte de surveillance. Le consensus HRS 2023 recommande de surveiller la connectivité des patients et de disposer d'une procédure de relance. Les causes sont souvent simples (transmetteur débranché ou déplacé, changement de box, hospitalisation, séjour prolongé ailleurs) mais le contact permet aussi de vérifier l'état clinique. Chez un patient porteur d'une sonde sous avis de sécurité, le rétablissement de la connexion est prioritaire, et une interrogation au centre se discute si elle tarde. Réflexe à avoir : traiter une alerte de non-transmission comme une alerte à part entière.",
+    "aRetenir": "Pas de transmission ne veut pas dire pas d'événement : relancer le patient et rétablir la connexion.",
+    "sources": [
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      }
+    ],
+    "reco": [
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-042",
+    "theme": "telecardio",
+    "sousTheme": "Triage des alertes : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Femme de 70 ans, hypertendue, sans autre antécédent, chez qui des épisodes de FA ont été confirmés sur l'EGM de son stimulateur. Quel est son score CHA2DS2-VA (ESC 2024) ?",
+    "options": [
+      "1 point",
+      "2 points",
+      "3 points",
+      "4 points"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : l'âge et l'HTA comptent chacun un point.",
+      "Juste : âge 65-74 ans (1) et HTA (1) ; le sexe féminin n'est plus compté.",
+      "Faux : ce serait le score CHA2DS2-VASc, qui comptait le sexe féminin.",
+      "Faux : ni insuffisance cardiaque, ni diabète, ni antécédent vasculaire ou d'AVC."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'ESC 2024 a remplacé le CHA2DS2-VASc par le CHA2DS2-VA, qui ne compte plus le sexe féminin : insuffisance cardiaque (1), HTA (1), âge ≥ 75 ans (2), diabète (1), AVC, AIT ou embolie (2), maladie vasculaire (1), âge 65-74 ans (1). Cette patiente a donc 2 points. Pour une FA clinique, l'anticoagulation est recommandée à partir de 2 ; pour une FA infraclinique détectée par le boîtier, l'AOD se discute (classe IIb) chez les patients à risque élevé. Réflexe à avoir : utiliser le CHA2DS2-VA et ne plus ajouter de point pour le sexe féminin.",
+    "aRetenir": "Depuis l'ESC 2024 : score CHA2DS2-VA, sans point pour le sexe féminin.",
+    "sources": [
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-043",
+    "theme": "telecardio",
+    "sousTheme": "Triage des alertes : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Porteur d'un stimulateur double chambre, 68 ans, diabétique, sans autre antécédent. L'EGM confirme une FA dont l'épisode le plus long a duré 36 h ; aucun ECG n'a été enregistré pendant l'épisode. Quelle attitude est la plus appropriée ?",
+    "options": [
+      "Anticoagulation à discuter comme pour une FA clinique",
+      "Aspirine seule, traitement validé des épisodes prolongés",
+      "Aucune anticoagulation : un AHRE ne relève jamais d'un AOD",
+      "Contrôler la durée des épisodes à un an avant toute décision"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : ARTESiA n'incluait que des épisodes de moins de 24 h ; au-delà, le risque se rapproche de celui de la FA clinique.",
+      "Faux : l'aspirine n'est pas un traitement validé de prévention des AVC dans la FA.",
+      "Faux : les épisodes prolongés sont associés à un risque d'AVC nettement plus élevé.",
+      "Faux : laisser un an sans décision chez un patient à 2 points de CHA2DS2-VA n'est pas justifié."
+    ],
+    "reponseAttendue": null,
+    "explication": "ARTESiA incluait des épisodes de 6 minutes à 24 heures, et la sous-analyse d'ASSERT montrait un surrisque d'AVC concentré chez les patients dont les épisodes dépassaient 24 h. Un épisode confirmé de 36 h sort donc du champ de ces essais : la plupart des équipes l'assimilent à une FA clinique et discutent l'anticoagulation selon le score CHA2DS2-VA (ici 2 : âge 65-74 ans et diabète), en tenant compte du risque hémorragique. Un ECG lors d'un prochain épisode reste utile pour documenter la FA. Réflexe à avoir : lire la durée de l'épisode le plus long, pas seulement la charge totale, avant de choisir sa stratégie.",
+    "aRetenir": "Épisode confirmé de plus de 24 h : hors du champ d'ARTESiA, discuter l'anticoagulation comme pour une FA clinique.",
+    "sources": [
+      {
+        "titre": "Healey JS et al. Apixaban for stroke prevention in subclinical atrial fibrillation (ARTESiA). N Engl J Med 2024;390:107-117",
+        "url": "https://doi.org/10.1056/NEJMoa2310234"
+      },
+      {
+        "titre": "Van Gelder IC et al. Duration of device-detected subclinical atrial fibrillation and occurrence of stroke in ASSERT. Eur Heart J 2017;38:1339-1344",
+        "url": "https://doi.org/10.1093/eurheartj/ehx042"
+      },
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-044",
+    "theme": "telecardio",
+    "sousTheme": "Triage des alertes : pièges de pratique",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Au sujet des essais ARTESiA et NOAH-AFNET 6 sur l'anticoagulation des épisodes de FA détectés par un boîtier, quelles affirmations sont exactes ?",
+    "options": [
+      "Dans ARTESiA, l'apixaban réduit les AVC et embolies par rapport à l'aspirine",
+      "La méta-analyse des deux essais montre plus de saignements majeurs sous AOD",
+      "Dans NOAH-AFNET 6, l'edoxaban réduit significativement le critère principal",
+      "ARTESiA incluait des épisodes durant de 6 minutes à 24 heures",
+      "Le bénéfice absolu sur les AVC y est large, de l'ordre de 3 % par an"
+    ],
+    "reponses": [
+      0,
+      1,
+      3
+    ],
+    "commentaires": [
+      "Juste : réduction d'environ un tiers des AVC et embolies systémiques.",
+      "Juste : la méta-analyse de McIntyre confirme l'excès de saignements majeurs.",
+      "Faux : NOAH-AFNET 6, arrêté précocement, n'a pas montré de réduction significative du critère principal.",
+      "Juste : les épisodes de plus de 24 h étaient exclus.",
+      "Faux : le taux d'AVC étant bas (environ 1 % par an), le bénéfice absolu est faible, de l'ordre de 0,5 % par an."
+    ],
+    "reponseAttendue": null,
+    "explication": "ARTESiA (apixaban contre aspirine, épisodes de 6 min à 24 h, CHA2DS2-VASc ≥ 3) a réduit les AVC et embolies systémiques d'environ un tiers, au prix d'une augmentation des saignements majeurs. NOAH-AFNET 6 (edoxaban contre placebo) a été arrêté précocement sans bénéfice significatif sur son critère composite, avec un signal de sécurité défavorable. La méta-analyse des deux essais retrouve une réduction des AVC ischémiques et une augmentation des saignements majeurs. Le taux d'AVC observé étant bas (environ 1 % par an), le bénéfice absolu reste modeste, d'où la classe IIb de l'ESC 2024. Réflexe à avoir : présenter au patient un bénéfice absolu modeste et un risque hémorragique réel, et décider ensemble.",
+    "aRetenir": "AHRE : l'AOD réduit les AVC d'environ un tiers mais augmente les saignements ; bénéfice absolu modeste, décision partagée.",
+    "sources": [
+      {
+        "titre": "Healey JS et al. Apixaban for stroke prevention in subclinical atrial fibrillation (ARTESiA). N Engl J Med 2024;390:107-117",
+        "url": "https://doi.org/10.1056/NEJMoa2310234"
+      },
+      {
+        "titre": "Kirchhof P et al. Anticoagulation with edoxaban in patients with atrial high-rate episodes (NOAH-AFNET 6). N Engl J Med 2023;389:1167-1179",
+        "url": "https://doi.org/10.1056/NEJMoa2303062"
+      },
+      {
+        "titre": "McIntyre WF et al. Direct oral anticoagulants for stroke prevention in patients with device-detected atrial fibrillation: a study-level meta-analysis of the NOAH-AFNET 6 and ARTESiA trials. Circulation 2024;149:981-988",
+        "url": "https://doi.org/10.1161/CIRCULATIONAHA.123.067512"
+      },
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-045",
+    "theme": "telecardio",
+    "sousTheme": "Triage des alertes : pièges de pratique",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 5,
+    "question": "Patient en FA permanente, anticoagulé et bien contrôlé en fréquence. Son stimulateur génère chaque jour une alerte « charge de FA élevée ». Quelle(s) attitude(s) adopter ?",
+    "options": [
+      "Adapter ou désactiver cette alerte devenue sans valeur décisionnelle, et le tracer",
+      "Laisser l'alerte telle quelle et la clôturer chaque jour sans la lire",
+      "Arrêter la télésurveillance, trop génératrice d'alertes pour ce patient",
+      "Suspendre l'anticoagulation, la FA étant désormais connue et stable"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : l'alerte n'apporte plus d'information ; l'adapter réduit la fatigue des alertes (en gardant par exemple l'alerte de fréquence ventriculaire rapide).",
+      "Faux : clôturer sans lire habitue l'équipe à ignorer les alertes et fait rater les vrais événements.",
+      "Faux : la télésurveillance garde tout son intérêt pour la sonde, la batterie et la réponse ventriculaire.",
+      "Faux : la FA permanente reste une indication d'anticoagulation selon le score de risque."
+    ],
+    "reponseAttendue": null,
+    "explication": "Une alerte qui se déclenche chaque jour sans pouvoir modifier la prise en charge est source de « fatigue des alertes » : l'équipe finit par clôturer sans lire et risque de manquer l'alerte importante. Le consensus HRS 2023 recommande de personnaliser les alertes selon le patient. Ici, l'alerte de charge de FA peut être désactivée ou adaptée, en conservant les alertes utiles (fréquence ventriculaire rapide en FA, perte de stimulation, sonde, batterie) et en traçant la décision dans le dossier. Réflexe à avoir : toute alerte doit pouvoir mener à une action ; sinon, on la reprogramme.",
+    "aRetenir": "Une alerte qui ne change plus la prise en charge se reprogramme, de façon tracée, pour éviter la fatigue des alertes.",
+    "sources": [
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      }
+    ],
+    "reco": [
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-046",
+    "theme": "telecardio",
+    "sousTheme": "Triage des alertes : pièges de pratique",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Alerte de télésurveillance sur un CRT-D : le pourcentage de stimulation biventriculaire est passé de 99 % à 88 %. Quelles causes faut-il rechercher ?",
+    "options": [
+      "FA avec conduction ventriculaire rapide",
+      "Extrasystoles ventriculaires fréquentes",
+      "Conduction AV spontanée plus rapide que le délai AV programmé",
+      "Perte de capture VG isolée, sans autre anomalie"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "commentaires": [
+      "Juste : c'est la cause la plus fréquente de perte de stimulation BV.",
+      "Juste : chaque ESV inhibe la stimulation biventriculaire.",
+      "Juste : une conduction AV raccourcie (effort, sevrage d'un bêtabloquant) court-circuite la stimulation.",
+      "Faux : une perte de capture VG ne fait pas baisser le compteur, qui compte les impulsions délivrées."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le compteur de stimulation BV baisse lorsque des événements ventriculaires spontanés inhibent la stimulation : FA conduite rapidement, ESV fréquentes, conduction AV spontanée plus rapide que le délai AV programmé. En revanche, une perte de capture VG ne modifie pas ce compteur, puisque le boîtier continue à délivrer ses impulsions : un compteur à 99 % peut masquer une resynchronisation inefficace, qu'il faut rechercher par le seuil VG, l'ECG ou les algorithmes de capture effective selon le constructeur. Réflexe à avoir : un bon pourcentage BV ne garantit pas une stimulation VG efficace.",
+    "aRetenir": "Un % BV qui baisse fait chercher FA, ESV et conduction spontanée ; un % BV normal n'exclut pas une perte de capture VG.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Hayes DL et al. Cardiac resynchronization therapy and the relationship of percent biventricular pacing to symptoms and survival. Heart Rhythm 2011;8:1469-1475",
+        "url": "https://doi.org/10.1016/j.hrthm.2011.04.015"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-047",
+    "theme": "telecardio",
+    "sousTheme": "Triage des alertes : pièges de pratique",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 6,
+    "question": "Vendredi 19 h, l'infirmière de télésurveillance reçoit une alerte « choc délivré » chez un porteur de DAI et n'arrive pas à joindre le patient. Décrivez la démarche.",
+    "reponseAttendue": "Analyser d'abord l'EGM : choc approprié ou non, nombre de chocs, efficacité, rythme après le choc, épisodes en cours. Multiplier les tentatives de contact (patient, proches, personne de confiance, médecin traitant) et prévenir le médecin d'astreinte selon le protocole. Si les chocs sont multiples, inefficaces ou suggèrent une situation grave, et que le patient reste injoignable, faire appel aux secours (15) selon la procédure du centre. Tout tracer dans le dossier.",
+    "explication": "L'analyse de l'EGM oriente l'urgence : un choc unique approprié et efficace, suivi d'un rythme stable, ne se gère pas comme un orage rythmique ou une série de chocs inappropriés. Le consensus HRS 2023 demande une procédure écrite d'escalade, incluant les horaires non ouvrables, les contacts à solliciter et le rôle du médecin responsable. Un patient injoignable après des chocs multiples ou inefficaces justifie l'appel aux secours. La traçabilité protège le patient et l'équipe. Réflexe à avoir : EGM d'abord, puis escalade selon le protocole, sans laisser une alerte grave en suspens jusqu'au lundi.",
+    "aRetenir": "Alerte grave hors heures ouvrables : lire l'EGM, escalader selon le protocole écrit, tracer chaque action.",
+    "sources": [
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      }
+    ],
+    "reco": [
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-048",
+    "theme": "telecardio",
+    "sousTheme": "Triage des alertes : pièges de pratique",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 5,
+    "question": "Un porteur de DAI appelle : il a reçu un seul choc il y a deux heures et se sent bien. Quelles consignes lui donner ?",
+    "reponseAttendue": "Faire une transmission manuelle, rester au repos et ne pas conduire. Appeler le 15 en cas de nouveau choc, de malaise, douleur thoracique, essoufflement ou perte de connaissance. Le centre analyse la transmission et le rappelle pour décider de la suite (consultation, bilan étiologique, adaptation du traitement). Après un choc approprié, la conduite est suspendue temporairement (trois mois pour un permis de groupe 1 selon le consensus de l'EHRA).",
+    "explication": "Un choc unique bien toléré n'impose pas d'appeler le 15, mais il doit être analysé rapidement : approprié ou non, cause, efficacité. La transmission manuelle permet au centre de disposer de l'EGM. Les consignes de sécurité (15 si récidive ou symptôme, pas de conduite) doivent être données clairement, idéalement confirmées par écrit. Réflexe à avoir : graduer selon le nombre de chocs et les symptômes, et donner systématiquement la consigne de conduite.",
+    "aRetenir": "Choc unique bien toléré : transmission manuelle, repos, pas de conduite, 15 si récidive ou symptôme.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      },
+      {
+        "titre": "Vijgen J et al. Consensus statement of the European Heart Rhythm Association: updated recommendations for driving by patients with implantable cardioverter defibrillators. Europace 2009;11:1097-1107",
+        "url": "https://doi.org/10.1093/europace/eup112"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires",
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-049",
+    "theme": "telecardio",
+    "sousTheme": "Triage des alertes : pièges de pratique",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 7,
+    "question": "La télésurveillance signale 5 épisodes de TV traités (ATP puis choc) en 12 heures chez un porteur de DAI. Quelle est la définition de cette situation et quels sont les premiers éléments de prise en charge ?",
+    "reponseAttendue": "Orage rythmique : au moins trois épisodes de TV ou FV soutenue en 24 h, séparés d'au moins 5 min, nécessitant une intervention (ATP ou choc). Prise en charge : hospitalisation en urgence via le 15 en unité de soins intensifs sous monitorage ; recherche et correction des facteurs déclenchants (ischémie, hypokaliémie, hypomagnésémie, décompensation cardiaque, médicament, hyperthyroïdie) ; sédation, bêtabloquant, amiodarone ; reprogrammation du DAI (ATP, éviter les chocs inutiles) ; discussion rapide d'une ablation si l'orage persiste.",
+    "explication": "L'ESC 2022 définit l'orage rythmique par au moins trois épisodes d'arythmie ventriculaire soutenue en 24 h nécessitant une intervention, séparés d'au moins 5 minutes. C'est une urgence vitale, associée à une mortalité accrue et à un retentissement psychologique majeur des chocs répétés. La prise en charge associe correction des causes, sédation (qui réduit le tonus sympathique), bêtabloquant et amiodarone, reprogrammation pour privilégier l'ATP, et ablation de TV en cas d'échec. Réflexe à avoir : compter les épisodes traités sur 24 h ; au-delà de deux, penser orage et organiser une hospitalisation.",
+    "aRetenir": "Orage rythmique : au moins 3 épisodes de TV/FV traités en 24 h ; hospitalisation urgente, causes, sédation, bêtabloquant, amiodarone, ablation.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-050",
+    "theme": "telecardio",
+    "sousTheme": "Triage des alertes : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Aux urgences, un porteur de DAI reçoit des chocs répétés alors que le scope montre un rythme sinusal à 75/min ; un bruit de sonde est suspecté. Le programmateur n'est pas disponible. Quelle conduite ?",
+    "options": [
+      "Poser un aimant pour suspendre les thérapies antitachycardiques",
+      "Poser un aimant sur le boîtier pour passer en stimulation asynchrone VOO",
+      "Administrer de l'amiodarone intraveineuse pour prévenir les récidives",
+      "Délivrer un choc électrique externe pour réinitialiser le DAI"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : l'aimant suspend la détection et les thérapies tant qu'il est en place, sous monitorage.",
+      "Faux : sur la plupart des DAI, l'aimant ne modifie pas la stimulation (contrairement au stimulateur).",
+      "Faux : il n'y a pas d'arythmie à traiter ; les chocs sont inappropriés.",
+      "Faux : un choc externe n'a aucune indication en rythme sinusal."
+    ],
+    "reponseAttendue": null,
+    "explication": "Sur la plupart des DAI, l'application d'un aimant suspend la détection des tachyarythmies et les thérapies tant qu'il reste en place, sans modifier la stimulation antibradycardique (le comportement exact dépend du constructeur et de la programmation). C'est le geste d'urgence en cas de chocs inappropriés, à condition de garder le patient sous monitorage avec un défibrillateur externe prêt, puisqu'il n'est plus protégé. Le piège est de raisonner comme pour un stimulateur, où l'aimant déclenche une stimulation asynchrone. Réflexe à avoir : chocs inappropriés en série = aimant sur le boîtier, scope et défibrillateur externe à portée de main.",
+    "aRetenir": "Aimant sur un DAI : suspension des thérapies antitachycardiques, pas de passage en asynchrone ; garder un défibrillateur externe prêt.",
+    "sources": [
+      {
+        "titre": "Crossley GH et al. The HRS/ASA expert consensus statement on the perioperative management of patients with implantable defibrillators, pacemakers and arrhythmia monitors. Heart Rhythm 2011;8:1114-1154",
+        "url": "https://doi.org/10.1016/j.hrthm.2010.12.023"
+      },
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implantable cardioverter-defibrillator sensing problems II. Circ Arrhythm Electrophysiol 2015;8:212-220",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002514"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-051",
+    "theme": "telecardio",
+    "sousTheme": "Triage des alertes : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Holter implantable chez un sportif de 24 ans suivi pour palpitations. Alerte : pause de 3,5 s à 3 h du matin, précédée d'un ralentissement sinusal progressif, sans symptôme. Quelle conduite ?",
+    "options": [
+      "Stimulateur double chambre : toute pause de plus de 3 s l'impose",
+      "Pause vagale nocturne sans valeur pathologique : pas de stimulateur",
+      "Exploration électrophysiologique urgente pour BAV paroxystique",
+      "Arrêt de tout sport jusqu'à l'implantation d'un stimulateur"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : les pauses nocturnes asymptomatiques ne sont pas une indication de stimulation.",
+      "Juste : ralentissement sinusal progressif pendant le sommeil chez un sportif : tonus vagal.",
+      "Faux : le mécanisme est sinusal et vagal, pas un BAV.",
+      "Faux : aucune restriction n'est justifiée par cette pause physiologique."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les pauses nocturnes précédées d'un ralentissement sinusal progressif sont fréquentes chez les sujets jeunes et sportifs, et traduisent un tonus vagal élevé. Chez un patient suivi pour syncopes, l'ESC 2018 retient la stimulation en cas de corrélation entre syncope et bradycardie, ou de pause asymptomatique de plus de 6 s ; ici, ni syncope ni pause de cette durée, et l'ESC 2021 ne recommande pas de stimuler des bradycardies asymptomatiques ou réversibles. Le piège est de réagir au chiffre de 3 s sans regarder le contexte (sommeil, âge, symptômes, ondes P). Réflexe à avoir : lire l'heure, le mode d'installation et les symptômes avant de qualifier une pause.",
+    "aRetenir": "Pause nocturne précédée d'un ralentissement sinusal chez un jeune asymptomatique : vagale, pas d'indication de stimulation.",
+    "sources": [
+      {
+        "titre": "2018 ESC Guidelines for the diagnosis and management of syncope. Eur Heart J 2018;39:1883-1948",
+        "url": "https://doi.org/10.1093/eurheartj/ehy037"
+      },
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "ESC 2018 syncope"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-052",
+    "theme": "telecardio",
+    "sousTheme": "Triage des alertes : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "L'infirmière de télésurveillance reçoit l'alerte d'une FV traitée par un choc efficace chez un porteur de DAI. Le patient, joint, va bien. Qui prévenir et comment ?",
+    "options": [
+      "Clôturer seule l'alerte, puisque le choc a été efficace",
+      "Attendre la revue hebdomadaire des transmissions",
+      "Informer le médecin responsable le jour même, en traçant",
+      "Envoyer un courrier au médecin traitant sans autre démarche"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : une thérapie pour FV est un événement médical qui relève de la décision du médecin.",
+      "Faux : une FV traitée ne peut pas attendre plusieurs jours.",
+      "Juste : le protocole de délégation prévoit l'escalade médicale des alertes significatives.",
+      "Faux : informer le médecin traitant est utile mais ne remplace pas la décision du rythmologue."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le consensus HRS 2023 décrit une organisation où les soignants non médecins trient les alertes selon des protocoles écrits, sous la responsabilité d'un médecin. Une thérapie délivrée pour FV est une alerte significative : le médecin responsable doit en être informé le jour même pour décider du bilan étiologique, des consignes (conduite, traitement) et du suivi. La clôture autonome est réservée aux alertes que le protocole définit comme non significatives. Réflexe à avoir : connaître la liste des alertes à escalader et tracer chaque décision.",
+    "aRetenir": "Thérapie délivrée pour FV : escalade au médecin responsable le jour même, selon le protocole, et traçabilité.",
+    "sources": [
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      }
+    ],
+    "reco": [
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-tele-053",
+    "theme": "telecardio",
+    "sousTheme": "Triage des alertes : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Alerte de télésurveillance : « indicateur de remplacement électif (ERI/RRT) atteint » sur le stimulateur d'un patient stimulodépendant. Quelle conduite ?",
+    "options": [
+      "Remplacement en urgence dans la nuit, le boîtier pouvant s'arrêter à tout moment",
+      "Attendre l'indicateur de fin de vie pour exploiter toute la longévité de la pile",
+      "Aucune action : cet indicateur ne concerne que les fonctions de télésurveillance",
+      "Planifier le remplacement rapidement, dans le délai prévu par le constructeur"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : l'ERI laisse une réserve de fonctionnement prévue (souvent de l'ordre de quelques mois) ; ce n'est pas une urgence de nuit.",
+      "Faux : en fin de vie, des fonctions peuvent être dégradées ou désactivées ; c'est dangereux chez un stimulodépendant.",
+      "Faux : l'ERI concerne la batterie du boîtier et donc la stimulation elle-même.",
+      "Juste : programmer le changement de boîtier dans les semaines qui suivent, en priorité chez un stimulodépendant."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'indicateur de remplacement électif signale que la batterie arrive en fin de service : le constructeur garantit une période de fonctionnement résiduelle (souvent de l'ordre de quelques mois, selon le modèle et la programmation). Il faut planifier le remplacement dans ce délai, d'autant plus rapidement que le patient est stimulodépendant. Attendre l'indicateur de fin de vie expose à un fonctionnement dégradé (changement de mode, fonctions désactivées) voire à une perte de stimulation. Réflexe à avoir : ERI = planification rapide du changement, sans panique ni attentisme, en vérifiant la stimulodépendance.",
+    "aRetenir": "ERI/RRT : planifier le remplacement dans le délai prévu par le constructeur, en priorité chez un stimulodépendant.",
+    "sources": [
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      },
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  }
+]

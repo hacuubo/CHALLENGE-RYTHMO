@@ -1,10 +1,7 @@
 // Fiches : relecture libre des questions et explications, par thème et sous-thème, avec recherche.
 import { THEMES, base } from '../donnees.js';
 import { esc } from '../util.js';
-import { blocCorrection } from './quiz.js';
-import { dessinerECG } from '../ecg.js';
-import { chargerECG12, dessinerECG12 } from '../ecg12.js';
-import { monterTrace } from '../traces.js';
+import { blocCorrection, afficherTrace } from './quiz.js';
 
 const PAGE = 40;
 const filtre = { theme: 'ecg', texte: '', sous: '' };
@@ -42,8 +39,8 @@ export function vueFiches(app, { demarrer }) {
     liste.innerHTML = `<p class="note">${qs.length} fiche(s)${t ? ' (tous thèmes)' : ''}</p>` + qs.slice(0, limite).map(q => {
       const entete = q.sousTheme !== groupe ? `<h2 class="titre-groupe">${esc(q.sousTheme)} <button class="btn petit-btn" data-sous="${esc(q.sousTheme)}">S'entraîner</button></h2>` : '';
       groupe = q.sousTheme;
-      return `${entete}<details class="fiche" data-id="${q.id}"><summary><span class="badge">${q.difficulte}/10</span> ${q.ecg || q.ecg12 ? '🩺 ' : ''}${esc(q.question)}</summary>
-        <div class="fiche-corps">${q.ecg || q.ecg12 ? '<div class="trace"></div>' : ''}
+      return `${entete}<details class="fiche" data-id="${q.id}"><summary><span class="badge">${q.difficulte}/10</span> ${q.ecg || q.ecg12 || q.egm ? '🩺 ' : ''}${esc(q.question)}</summary>
+        <div class="fiche-corps">${q.ecg || q.ecg12 || q.egm ? '<div class="trace"></div>' : ''}
         ${q.type === 'ouverte' ? `<div class="modele"><b>${esc(q.reponseAttendue)}</b></div>` : `<ul class="fiche-options">${q.options.map((o, i) => `<li class="${q.reponses.includes(i) ? 'juste' : ''}">${q.reponses.includes(i) ? '✅' : '▫️'} ${esc(o)}${q.commentaires ? `<br><small>${esc(q.commentaires[i])}</small>` : ''}</li>`).join('')}</ul>`}
         ${blocCorrection(q, { juste: true })}</div></details>`;
     }).join('') + (qs.length > limite ? '<div class="actions"><button class="btn btn-bloc" id="plus">Afficher plus</button></div>' : '');
@@ -57,9 +54,7 @@ export function vueFiches(app, { demarrer }) {
       const div = d.querySelector('.trace');
       if (!d.open || !div || div.dataset.fait) return;
       div.dataset.fait = '1';
-      const q = base.parId.get(d.dataset.id);
-      if (q.ecg) monterTrace(div, (c, o) => dessinerECG(c, q.ecg, q.id, o), { legende: 'DII · 25 mm/s · 10 mm/mV' });
-      else chargerECG12(q.ecg12.fichier).then(e => monterTrace(div, (c, o) => dessinerECG12(c, e, o), { legende: '12 dérivations · 25 mm/s · 10 mm/mV' })).catch(() => { div.textContent = 'ECG indisponible hors ligne.'; });
+      afficherTrace(div, base.parId.get(d.dataset.id));
     }));
   };
   app.querySelectorAll('[name=ft]').forEach(r => r.onchange = () => { filtre.theme = r.value; filtre.sous = ''; limite = PAGE; remplirSous(); afficher(); });

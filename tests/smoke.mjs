@@ -125,14 +125,20 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.waitForSelector('.sources-liste');
   });
 
-  await verifier(`${appareil} : tous les tracés synthétiques se dessinent`, async () => {
+  await verifier(`${appareil} : tous les tracés synthétiques (ECG et EGM) se dessinent`, async () => {
     const r = await page.evaluate(async () => {
       const { dessinerECG } = await import('./js/ecg.js');
+      const { dessinerEGM, PRESETS_EGM } = await import('./js/egm.js');
       const idx = await (await fetch('data/questions/index.json')).json();
       const ko = [];
-      for (const f of idx.fichiers) for (const q of await (await fetch('data/questions/' + f)).json()) if (q.ecg) {
+      for (const p of PRESETS_EGM) {
         const d = document.createElement('div'); const c = document.createElement('canvas'); d.append(c); document.body.append(d);
-        if (!dessinerECG(c, q.ecg, q.id)) ko.push(q.id);
+        if (!dessinerEGM(c, { preset: p }, 'test')) ko.push('egm:' + p);
+        d.remove();
+      }
+      for (const f of idx.fichiers) for (const q of await (await fetch('data/questions/' + f)).json()) if (q.ecg || q.egm) {
+        const d = document.createElement('div'); const c = document.createElement('canvas'); d.append(c); document.body.append(d);
+        if (!(q.ecg ? dessinerECG(c, q.ecg, q.id) : dessinerEGM(c, q.egm, q.id))) ko.push(q.id);
         d.remove();
       }
       return ko;

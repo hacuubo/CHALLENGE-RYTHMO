@@ -1,0 +1,2075 @@
+[
+  {
+    "id": "egm-pm-001",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : lecture des marqueurs",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Contrôle systématique d'un stimulateur double chambre (DDD, fréquence de base 60/min, délai AV après détection 160 ms, fréquence maximale de suivi 130/min) implanté pour BAV paroxystique. Patient au repos, asymptomatique. Comment interprétez-vous ce tracé ?",
+    "egm": {
+      "preset": "ddd-as-vp"
+    },
+    "options": [
+      "Stimulation séquentielle AP-VP à la fréquence de base, sans activité atriale propre",
+      "Suivi atrial : P sinusales détectées (AS) puis stimulation V au terme du délai AV",
+      "Conduction AV spontanée avec pseudo-fusion : les spikes V tombent dans des QRS propres",
+      "Double comptage atrial : chaque onde P est comptée deux fois sur le canal atrial"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : il n'y a pas de spike atrial et la fréquence (72/min) dépasse la fréquence de base (60/min).",
+      "Juste : chaque AS (sans spike sur l'EGM A) est suivi d'un VP 160 ms plus tard, à 833 ms soit 72/min.",
+      "Faux : l'EGM VD montre une large réponse évoquée après chaque spike, pas un QRS spontané préexistant.",
+      "Faux : un seul marqueur atrial par cycle, à intervalle régulier de 833 ms."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le canal de marqueurs se lit en premier : événements atriaux au-dessus de la ligne (AS = P détectée, AP = P stimulée), ventriculaires au-dessous (VS/VP), avec les intervalles A-A et V-V en ms. Ici, chaque AS à 833 ms (72/min) déclenche un VP après le délai AV programmé de 160 ms : c'est le suivi atrial normal du mode DDD (comportement « VDD »). L'EGM atrial ne montre pas de spike, ce qui confirme que les P sont spontanées ; la fréquence supérieure à la fréquence de base exclut une stimulation séquentielle AP-VP. La réponse évoquée ventriculaire visible sur l'EGM VD et sur l'EGM champ lointain confirme la capture. Réflexe : lire les marqueurs, puis vérifier sur les EGM que chaque marqueur correspond à un vrai signal.",
+    "aRetenir": "AS suivi de VP à délai fixe = suivi atrial normal en DDD : lire les marqueurs, puis les confronter aux EGM.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-002",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Femme de 72 ans, stimulateur DDD implanté il y a 3 ans pour dysfonction sinusale ; PR spontané à 170 ms et QRS fins avant l'implantation. Délai AV après détection resté à 160 ms, algorithme de réduction de la stimulation ventriculaire désactivé. Au contrôle : 95 % de stimulation ventriculaire. Quelle est la conduite la plus adaptée ?",
+    "egm": {
+      "preset": "ddd-as-vp"
+    },
+    "options": [
+      "Ne rien modifier : le suivi atrial avec VP est le fonctionnement attendu d'un mode DDD",
+      "Proposer d'emblée une mise à niveau en resynchronisation pour prévenir la cardiomyopathie",
+      "Raccourcir le délai AV à 120 ms pour garantir une capture ventriculaire complète et stable",
+      "Tester la conduction AV propre puis activer un algorithme de réduction de la stimulation VD"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : le fonctionnement est techniquement normal, mais la programmation est inadaptée à l'indication.",
+      "Faux : la mise à niveau se discute en cas d'insuffisance cardiaque avec FEVG altérée et stimulation VD élevée, pas en prévention ici.",
+      "Faux : raccourcir le délai AV augmenterait encore la stimulation VD, délétère à long terme.",
+      "Juste : le délai AV de 160 ms, plus court que le PR de 170 ms, impose une stimulation VD inutile chez une patiente sans trouble conductif."
+    ],
+    "reponseAttendue": null,
+    "explication": "Dans la dysfonction sinusale à conduction AV conservée, la stimulation VD est inutile et, à pourcentage élevé, associée à l'insuffisance cardiaque et à la FA ; les recommandations ESC 2021 demandent de la minimiser par la programmation. Ici, le délai AV de 160 ms, plus court que le PR spontané, « vole » la conduction : chaque AS est suivi d'un VP. Il faut vérifier la conduction propre (allongement temporaire du délai AV) puis activer une hystérésis/recherche de conduction AV ou un mode de préservation de la conduction selon le constructeur. Attention au PR très long (> 300 ms) où un délai AV excessif peut être mal toléré. Réflexe : devant un % VP élevé, se demander si le patient en a vraiment besoin.",
+    "aRetenir": "Un % de stimulation VD élevé chez un patient à conduction conservée est un défaut de programmation à corriger.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Chung MK et al. 2023 HRS/APHRS/LAHRS guideline on cardiac physiologic pacing for the avoidance and mitigation of heart failure. Heart Rhythm 2023;20:e17-e91",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1538"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "HRS 2023 stimulation physiologique"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-003",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : lecture des marqueurs",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Stimulateur DDD implanté pour syncopes ; délai AV après détection programmé à 150 ms avec raccourcissement dynamique à l'effort. Tracé enregistré pendant une marche dans le couloir. Affirmation : ce tracé prouve que le patient a un trouble de conduction AV permanent.",
+    "egm": {
+      "preset": "ddd-as-vp",
+      "fc": 90,
+      "av": 120
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : un VP à 120 ms de chaque P peut simplement devancer une conduction AV normale.",
+      "Juste : la stimulation ventriculaire systématique ne prouve rien sur la conduction propre, masquée par le délai AV programmé."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le tracé montre un suivi atrial à 667 ms (90/min) avec un délai AS-VP de 120 ms, raccourci par l'algorithme de délai AV dynamique. Un VP délivré 120 ms après la P précède toute conduction spontanée si le PR du patient est plus long : la stimulation systématique masque la conduction AV, elle ne la démontre pas. Pour savoir si le patient conduit, il faut allonger temporairement le délai AV (ou utiliser un test de conduction) et observer l'apparition de VS. Cette confusion conduit à étiqueter à tort des patients « BAV » et à laisser des % VP élevés. Réflexe : un VP n'est jamais une preuve de bloc.",
+    "aRetenir": "Un VP systématique masque la conduction AV : seul un allongement du délai AV permet de la tester.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ]
+  },
+  {
+    "id": "egm-pm-004",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : lecture des marqueurs",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 3,
+    "question": "Stimulateur DDD implanté il y a 2 ans pour BAV du 2e degré Mobitz II paroxystique, fréquence de base 60/min ; délai AV après détection allongé à 250 ms (hystérésis AV). L'IDE de télésurveillance s'inquiète de ne voir aucun spike sur cet EGM. Affirmation : l'absence de stimulation traduit une défaillance du stimulateur.",
+    "egm": {
+      "preset": "ddd-as-vs"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : l'absence de spike correspond ici à une inhibition appropriée par l'activité spontanée.",
+      "Juste : chaque P détectée est conduite (VS 190 ms plus tard, avant la fin du délai AV de 250 ms) ; le stimulateur est inhibé normalement."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le tracé montre AS puis VS à 190 ms, à 882 ms (68/min) : la conduction AV spontanée survient avant l'expiration du délai AV programmé (250 ms), ce qui inhibe la stimulation ventriculaire ; la fréquence sinusale supérieure à la fréquence de base inhibe aussi la stimulation atriale. C'est exactement ce que l'on cherche chez un patient à BAV paroxystique : stimuler seulement en cas de besoin. Une défaillance se traduirait par des pauses sans spike alors que la fréquence tombe sous la fréquence de base, ou par des spikes sans capture. Réflexe : un stimulateur « silencieux » avec rythme propre au-dessus de la fréquence de base est un stimulateur qui fonctionne.",
+    "aRetenir": "Pas de spike + rythme propre au-dessus de la fréquence de base = inhibition normale, pas une panne.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-005",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : lecture des marqueurs",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Contrôle d'un stimulateur DDD implanté pour BAV paroxystique. Vous analysez ce tracé en début de consultation. Que permet-il de conclure concernant la stimulation ventriculaire ?",
+    "egm": {
+      "preset": "ddd-as-vs"
+    },
+    "options": [
+      "Rien sur la capture : aucun VP n'est émis, seul un test de seuil pourra l'évaluer",
+      "La capture ventriculaire est efficace puisque chaque P est suivie d'un QRS",
+      "Le seuil de capture est forcément bas, puisque la sonde détecte correctement",
+      "La sonde ventriculaire est probablement déplacée, car aucun VP n'apparaît"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : un rythme conduit renseigne sur la détection (VS, onde R ample), pas sur la capture.",
+      "Faux : ces QRS sont spontanés (VS), ils ne disent rien de l'efficacité d'un VP.",
+      "Faux : une bonne détection n'exclut pas un seuil de stimulation élevé.",
+      "Faux : l'absence de VP est ici normale (inhibition par la conduction spontanée)."
+    ],
+    "reponseAttendue": null,
+    "explication": "Sur ce tracé, toutes les activations ventriculaires sont spontanées (VS 190 ms après chaque AS) : on peut juger la détection (onde R nette sur l'EGM VD, marquage correct), mais pas la stimulation. Or c'est la capture qui protégera le patient le jour où le BAV réapparaîtra. Détection et seuil de stimulation sont deux propriétés distinctes de l'interface sonde-myocarde : une onde R ample peut coexister avec un seuil élevé (fibrose, micro-déplacement). Réflexe : ne jamais conclure « tout va bien » sur un tracé sans stimulation ; mesurer le seuil (ou vérifier l'algorithme de capture automatique).",
+    "aRetenir": "Un rythme spontané teste la détection, pas la capture : le seuil doit être mesuré.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-006",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Homme de 81 ans, stimulateur DDD pour dysfonction sinusale et BAV du 1er degré, asservissement désactivé, fréquence de base 60/min. Il se plaint d'essoufflement et de fatigue dès qu'il monte un étage. Histogramme : 85 % des cycles entre 60 et 70/min, 90 % de stimulation atriale. Ce tracé est enregistré pendant une marche dans le couloir. Quelle est la conduite la plus pertinente ?",
+    "egm": {
+      "preset": "ddd-ap-vp"
+    },
+    "options": [
+      "Augmenter la fréquence de base à 80/min de façon permanente",
+      "Activer le mode switch pour éviter le suivi des arythmies atriales",
+      "Activer l'asservissement (DDDR) et réévaluer la réponse à l'effort",
+      "Raccourcir le délai AV pour améliorer le remplissage ventriculaire"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : une fréquence fixe plus élevée stimule inutilement au repos sans s'adapter à l'effort.",
+      "Faux : le tracé ne montre aucune arythmie atriale ; le problème est l'absence d'accélération.",
+      "Juste : AP-VP à 1000 ms pendant la marche et histogramme « plat » signent une incompétence chronotrope, indication de l'asservissement.",
+      "Faux : le délai AV n'est pas le problème ; la fréquence reste bloquée à 60/min."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le tracé montre une stimulation séquentielle AP-VP à 1000 ms (60/min), la fréquence de base, alors que le patient marche : le nœud sinusal ne s'accélère pas et, sans capteur, rien ne remplace cette accélération. L'histogramme concentré sur 60-70/min confirme l'incompétence chronotrope. Les recommandations ESC 2021 proposent l'asservissement de fréquence chez les patients avec incompétence chronotrope symptomatique ; il faut ensuite régler la pente et vérifier la réponse (test de marche, histogramme). Augmenter la fréquence de base ne corrige pas l'effort et majore la stimulation au repos. Réflexe : toujours croiser symptômes d'effort et histogramme de fréquences.",
+    "aRetenir": "Histogramme plat + symptômes d'effort = incompétence chronotrope : penser asservissement.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-007",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : lecture des marqueurs",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Contrôle d'un stimulateur DDD (fréquence de base 60/min, délai AV après stimulation atriale 180 ms). Que permet d'affirmer ce tracé ? (plusieurs réponses)",
+    "egm": {
+      "preset": "ddd-ap-vp"
+    },
+    "options": [
+      "La stimulation se fait à la fréquence de base (intervalle AP-AP de 1000 ms)",
+      "Chaque VP est suivi d'une réponse ventriculaire évoquée : la capture V est efficace",
+      "Le patient n'a aucune conduction AV propre, sinon des VS apparaîtraient",
+      "La stimulation est asynchrone, comme sous aimant, faute d'événement détecté",
+      "Une fibrillation atriale est masquée par la stimulation atriale permanente"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "commentaires": [
+      "Juste : AP-AP et VP-VP à 1000 ms, soit 60/min.",
+      "Juste : l'EGM VD et l'EGM champ lointain montrent un complexe évoqué large après chaque spike.",
+      "Faux : un délai AV de 180 ms peut devancer une conduction AV propre simplement plus lente que 180 ms.",
+      "Faux : aucun élément ne prouve l'asynchronisme ; sans activité spontanée, un mode inhibé stimule aussi à la fréquence de base.",
+      "Faux : l'oreillette est capturée à chaque AP, sans activité fibrillatoire sur l'EGM A."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le tracé montre AP puis VP 180 ms plus tard, à 1000 ms : stimulation séquentielle à la fréquence de base, avec capture ventriculaire visible (réponse évoquée sur l'EGM VD et sur l'EGM champ lointain). On ne peut pas en déduire l'absence de conduction AV : le délai AV programmé peut simplement être plus court que le temps de conduction propre. On ne peut pas non plus affirmer un fonctionnement asynchrone : sans événement spontané, un mode DDD inhibé produit exactement ce tracé ; seul un événement spontané survenant pendant l'enregistrement permettrait de trancher. Réflexe : distinguer ce que le tracé montre de ce qu'il ne peut pas montrer.",
+    "aRetenir": "AP-VP à la fréquence de base prouve la capture, pas l'absence de conduction ni l'asynchronisme.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-008",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Homme de 79 ans, BAV complet, stimulateur double chambre programmé en DDI 60/min en raison de FA paroxystiques fréquentes ; sonde VD implantée il y a 3 semaines. Il appelle pour des malaises brefs. Quel est votre diagnostic sur ce tracé d'interrogation ?",
+    "egm": {
+      "preset": "perte-capture-v"
+    },
+    "options": [
+      "Sur-détection ventriculaire inhibant la stimulation pendant les pauses",
+      "Sous-détection ventriculaire avec spikes tombant en période réfractaire",
+      "Perte de capture ventriculaire intermittente, P non conduites : pauses",
+      "Pseudo-fusion : spikes V superposés à des QRS spontanés simultanés"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : en cas de sur-détection, il n'y aurait pas de spike (inhibition) ; ici les VP sont émis à 1000 ms.",
+      "Faux : la sous-détection suppose une activité ventriculaire spontanée non vue ; il n'y en a aucune.",
+      "Juste : trois spikes V ne sont suivis d'aucune réponse évoquée alors que les P (AS) continuent sans être conduites.",
+      "Faux : il n'y a aucun QRS spontané, seulement des spikes isolés sans réponse."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les VP sont délivrés régulièrement à 1000 ms (60/min, mode DDI : pas de suivi des AS à 750 ms), mais trois d'entre eux ne sont suivis d'aucun complexe évoqué, ni sur l'EGM VD ni sur l'EGM champ lointain : c'est une perte de capture. Le patient étant en BAV complet, les P ne sont pas conduites et chaque échec produit une asystolie ventriculaire de 2 s ou plus. À 3 semaines de l'implantation, il faut évoquer un déplacement (ou micro-déplacement) de sonde ou une élévation du seuil liée à la maturation. Réflexe : spike présent sans réponse = capture ; pas de spike = détection.",
+    "aRetenir": "Spike sans réponse évoquée = perte de capture ; pause sans spike = sur-détection.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-009",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Patiente de 84 ans en BAV complet, stimulateur double chambre programmé en DDI 60/min ; elle est adressée pour lipothymies. Ce tracé est obtenu à l'interrogation. Quelle est la première action à réaliser ?",
+    "egm": {
+      "preset": "perte-capture-v"
+    },
+    "options": [
+      "Augmenter aussitôt amplitude et durée d'impulsion V, puis mesurer le seuil",
+      "Mesurer d'abord l'onde R en baissant la fréquence de base à 30/min",
+      "Diminuer la sensibilité ventriculaire pour éviter les inhibitions inappropriées",
+      "Programmer un contrôle rapproché à un mois avec radiographie thoracique"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : la priorité est de restaurer une capture fiable chez une patiente dépendante, avant tout diagnostic étiologique.",
+      "Faux : baisser la fréquence chez une patiente sans échappement l'expose à une asystolie prolongée.",
+      "Faux : le problème est la capture, pas la détection ; la sensibilité n'y change rien.",
+      "Faux : différer expose à une syncope ou à un décès ; la correction doit être immédiate."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le tracé montre des VP sans réponse évoquée chez une patiente dont les P ne sont pas conduites : chaque perte de capture est une pause. La première mesure est de sécuriser : programmer une sortie ventriculaire élevée (amplitude et durée d'impulsion) et vérifier la capture sur l'EGM et l'ECG. Viennent ensuite le seuil, l'impédance (fracture, défaut de connexion), la radiographie (déplacement), la recherche d'une cause métabolique ou médicamenteuse (hyperkaliémie, antiarythmique de classe I) et la décision de reprise de sonde. Réflexe : chez un patient dépendant, on sécurise d'abord, on comprend ensuite.",
+    "aRetenir": "Perte de capture chez un dépendant : augmenter immédiatement la sortie, puis explorer.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ]
+  },
+  {
+    "id": "egm-pm-010",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Homme de 79 ans en BAV complet, sonde VD implantée il y a 3 semaines ; pertes de capture sur ce tracé, sortie V déjà sécurisée. Seuil ventriculaire mesuré à 2,0 V à 0,4 ms (0,6 V à 0,4 ms à l'implantation), impédance stable à 610 Ω, pas d'algorithme de capture automatique. Quelles propositions sont adaptées ? (plusieurs réponses)",
+    "egm": {
+      "preset": "perte-capture-v"
+    },
+    "options": [
+      "Programmer au moins 4,0 V à 0,4 ms (marge de sécurité ×2 en amplitude)",
+      "Programmer 2,5 V à 0,4 ms : 0,5 V de marge suffit si l'impédance est stable",
+      "Rechercher un déplacement de sonde par une radiographie comparative",
+      "Conclure à une fracture du conducteur au vu de l'élévation du seuil"
+    ],
+    "reponses": [
+      0,
+      2
+    ],
+    "commentaires": [
+      "Juste : la marge classique est de deux fois le seuil en amplitude (ou trois fois en durée).",
+      "Faux : une marge de 0,5 V est insuffisante face aux fluctuations du seuil, surtout en phase précoce.",
+      "Juste : une élévation du seuil à 3 semaines impose d'éliminer un déplacement ou micro-déplacement.",
+      "Faux : une fracture élève l'impédance ; ici elle est stable."
+    ],
+    "reponseAttendue": null,
+    "explication": "À distance de l'implantation, la marge de sécurité usuelle est de 2 fois le seuil en amplitude (à durée égale) ou 3 fois en durée d'impulsion ; une marge de quelques dixièmes de volt expose à une nouvelle perte de capture lors d'une fluctuation (sommeil, médicaments, hyperkaliémie). Un seuil triplé à 3 semaines avec impédance stable évoque un micro-déplacement ou une réaction inflammatoire à l'interface : radiographie comparative et contrôle rapproché du seuil, avec reprise si le seuil continue de monter. Une fracture s'accompagne d'une impédance élevée ou instable. Réflexe : marge ×2 en amplitude et enquête étiologique systématique.",
+    "aRetenir": "Marge de capture : 2 × le seuil en amplitude ; un seuil qui monte précocement impose de chercher un déplacement.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-011",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Femme de 68 ans, stimulateur DDD (fréquence de base 60/min) implanté pour BAV complet, sensibilité atriale programmée à 1,0 mV. Contrôle de routine. Quel est le problème principal visible sur ce tracé ?",
+    "egm": {
+      "preset": "sous-detection-a"
+    },
+    "options": [
+      "Perte de capture atriale par élévation du seuil de stimulation",
+      "Sur-détection de l'onde R lointaine responsable d'événements AR",
+      "Fonctionnement normal : hystérésis de fréquence atriale active",
+      "Sous-détection atriale : des P spontanées ne sont pas marquées"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : les AP sans réponse atriale tombent peu après une P non détectée, oreillette encore réfractaire ; les autres AP capturent, le seuil n'est pas en cause.",
+      "Faux : il n'y a aucun marqueur AR sur ce tracé.",
+      "Faux : une hystérésis n'explique ni des P visibles sans marqueur ni des AP délivrés juste après une P spontanée.",
+      "Juste : la plupart des P, de faible amplitude, n'ont aucun marqueur ; le stimulateur délivre alors des AP à 1000 ms, en compétition avec le rythme sinusal."
+    ],
+    "reponseAttendue": null,
+    "explication": "Sur l'EGM atrial, le rythme sinusal (environ 78/min) est plus rapide que la fréquence de base, mais seules quelques P, plus amples, sont marquées AS ; les autres, de faible amplitude, n'ont aucun marqueur. Le stimulateur, qui « ne les voit pas », continue de stimuler l'oreillette à la fréquence de base (AP à 1000 ms du dernier événement atrial détecté ou stimulé) : les AP tombent peu après une P non détectée. Certains restent sans réponse atriale parce que l'oreillette vient d'être dépolarisée et est encore réfractaire (absence de capture fonctionnelle, sans rapport avec le seuil) ; d'autres, plus tardifs, la capturent : c'est une stimulation atriale compétitive par sous-détection. Chaque événement atrial est suivi d'un VP à 170-180 ms, ce qui est attendu chez cette patiente en BAV complet. Causes à rechercher : valeur de sensibilité trop élevée par rapport à l'amplitude des P, P variables (posture, respiration), maturation ou déplacement de la sonde atriale. Réflexe : chaque déflexion atriale de l'EGM doit avoir son marqueur ; une déflexion sans marqueur (hors blanking) = sous-détection.",
+    "aRetenir": "Une P visible sur l'EGM sans marqueur = sous-détection atriale, source de stimulation atriale compétitive.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-012",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Patiente en BAV complet, stimulateur DDD, avec la sous-détection atriale visible sur ce tracé : l'amplitude des P mesurée varie de 0,6 à 1,5 mV selon les cycles, pour une sensibilité atriale bipolaire programmée à 1,0 mV. Quelle modification corrige le problème ?",
+    "egm": {
+      "preset": "sous-detection-a"
+    },
+    "options": [
+      "Programmer 2,0 mV pour rendre le canal atrial plus sélectif et plus fiable",
+      "Programmer 0,3 mV puis vérifier l'absence de détection du champ lointain",
+      "Augmenter l'amplitude atriale pour mieux sécuriser la capture des AP",
+      "Allonger la PVARP pour supprimer la stimulation atriale compétitive"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : augmenter la valeur en mV rend le canal moins sensible et aggrave la sous-détection.",
+      "Juste : « augmenter la sensibilité » = diminuer la valeur en mV ; 0,3 mV donne une marge ×2 sur la plus petite P.",
+      "Faux : les AP sans réponse tombent en période réfractaire, ce n'est pas un problème de seuil ; plus d'énergie ne supprimerait pas la compétition.",
+      "Faux : la PVARP ne modifie pas la détection des P survenant hors période réfractaire."
+    ],
+    "reponseAttendue": null,
+    "explication": "La valeur de sensibilité est un seuil : plus elle est basse en mV, plus le canal est sensible. Avec des P de 0,6 à 1,5 mV, un seuil à 1,0 mV laisse passer les plus petites. La règle pratique est de programmer une valeur au plus égale à la moitié (idéalement au tiers) de la plus petite amplitude mesurée : ici 0,3 mV. La valeur retenue doit rester programmable en détection bipolaire ; si la sous-détection persiste malgré tout, il faut suspecter un problème de sonde. Après la modification, il faut vérifier l'absence de détection de l'onde R lointaine (marqueurs AR fixes juste après le QRS) et de faux épisodes de mode switch. Réflexe : toujours dire « valeur en mV » pour éviter l'erreur de sens.",
+    "aRetenir": "Pour corriger une sous-détection, on diminue la valeur de sensibilité (en mV), avec une marge ×2 à ×3.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-013",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Chez cette patiente en BAV complet (stimulateur DDD), aux antécédents de FA paroxystique, pourquoi l'anomalie visible sur ce tracé doit-elle être corrigée sans attendre le prochain contrôle ?",
+    "egm": {
+      "preset": "sous-detection-a"
+    },
+    "options": [
+      "Les AP non nécessaires épuisent la pile du stimulateur en quelques semaines",
+      "Elle expose à une asystolie ventriculaire par inhibition du canal ventriculaire",
+      "Elle entraîne une tachycardie par réentrée électronique à la fréquence maximale",
+      "Un AP compétitif peut tomber en période vulnérable atriale et déclencher une FA"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : la surconsommation est minime et sans commune mesure avec quelques semaines.",
+      "Faux : la sous-détection atriale n'inhibe pas le canal ventriculaire.",
+      "Faux : une TRE nécessite la détection d'une P rétrograde, pas une sous-détection.",
+      "Juste : un AP délivré peu après une P non vue peut survenir à la fin de la période réfractaire atriale et induire une FA."
+    ],
+    "reponseAttendue": null,
+    "explication": "Quand une P spontanée n'est pas vue, le stimulateur délivre l'AP au terme de son intervalle de base sans en tenir compte. Sur ce tracé, certains AP tombent si tôt que l'oreillette est encore réfractaire (aucune réponse) ; d'autres la capturent un peu plus tard, à la sortie de sa période réfractaire, c'est-à-dire dans la période vulnérable où une impulsion peut déclencher une FA, surtout chez une patiente déjà sujette aux arythmies atriales. S'y ajoutent une perte du synchronisme AV (le VP suit l'AP et non la P sinusale, ce qui compte chez une patiente stimulée en permanence) et une sous-estimation de la charge en FA si les ondes f sont elles aussi mal détectées. Réflexe : une sous-détection atriale n'est pas un détail esthétique, elle est proarythmique.",
+    "aRetenir": "La sous-détection atriale entraîne une stimulation compétitive potentiellement proarythmique.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-014",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Homme de 76 ans, BAV complet, stimulateur DDD ; stimulation atriale programmée en unipolaire à 5,0 V lors d'un changement de boîtier récent. Contrôle post-opératoire. Comment interprétez-vous les cycles marqués SV ?",
+    "egm": {
+      "preset": "crosstalk-vsp"
+    },
+    "options": [
+      "ESV détectées dans la fenêtre de sécurité : fonctionnement normal, rien à faire",
+      "Crosstalk : le canal V détecte l'AP, d'où une stimulation de sécurité à AV court",
+      "Perte de capture atriale avec conduction AV spontanée précoce vers le ventricule",
+      "Sous-détection ventriculaire : les VP tombent sur des QRS spontanés non vus"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : une ESV produirait un vrai complexe sur l'EGM VD et l'EGM champ lointain ; ici il n'y a qu'un petit artefact.",
+      "Juste : un VS survient 25 ms après l'AP sans QRS sur l'EGM VD, puis un VP est délivré à AV court (≈ 110 ms), marqué SV.",
+      "Faux : un intervalle de 25 ms est incompatible avec une conduction AV, et le patient est en BAV complet.",
+      "Faux : il n'y a pas de QRS spontané ; le VS est un artefact de stimulation atriale."
+    ],
+    "reponseAttendue": null,
+    "explication": "Un cycle sur trois, le canal ventriculaire détecte un signal 25 ms après l'AP (VS) alors que l'EGM VD ne montre aucun QRS : c'est la détection croisée (crosstalk) de l'impulsion atriale, favorisée par une stimulation atriale unipolaire à haute énergie. Le stimulateur, qui ne peut pas savoir s'il s'agit d'une ESV ou d'un artefact, applique la stimulation ventriculaire de sécurité : VP à AV court (≈ 110 ms), marqueur SV. Ce comportement est protecteur mais signale une programmation à corriger. Réflexe : derrière chaque VS, vérifier qu'il existe un vrai QRS sur l'EGM.",
+    "aRetenir": "VS juste après un AP sans QRS visible + SV = crosstalk : la sécurité ventriculaire a joué son rôle.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-015",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Même patient dépendant. Quel serait le principal danger de ce phénomène si la stimulation ventriculaire de sécurité était désactivée ?",
+    "egm": {
+      "preset": "crosstalk-vsp"
+    },
+    "options": [
+      "Déclenchement d'une tachycardie par réentrée électronique à fréquence maximale",
+      "Mode switch inapproprié avec perte durable du synchronisme auriculo-ventriculaire",
+      "Inhibition de la stimulation ventriculaire, avec asystolie chez ce patient",
+      "Stimulation ventriculaire dans l'onde T, avec risque de fibrillation ventriculaire"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : une TRE nécessite une P rétrograde détectée, pas une détection croisée.",
+      "Faux : le crosstalk concerne le canal ventriculaire, il ne génère pas d'événements atriaux.",
+      "Juste : l'artefact détecté serait pris pour un QRS et inhiberait le VP ; chez un patient en BAV complet, c'est l'asystolie.",
+      "Faux : c'est justement la stimulation de sécurité à AV court qui évite de stimuler tardivement ; sans elle il n'y aurait pas de VP du tout."
+    ],
+    "reponseAttendue": null,
+    "explication": "Sans stimulation de sécurité, le signal détecté juste après l'AP serait interprété comme une activité ventriculaire propre : le VP serait inhibé à chaque cycle concerné. Chez un patient sans rythme d'échappement, un crosstalk à chaque cycle signifie une asystolie ventriculaire, avec des P stimulées sur le tracé (piège : l'ECG montre des spikes atriaux et on croit l'appareil actif). La stimulation de sécurité délivre un VP à AV court (≈ 100-120 ms) : assez tôt pour éviter l'onde T si le signal était une vraie ESV, et assez sûr si c'était un artefact. Réflexe : ne jamais désactiver la sécurité ventriculaire chez un patient dépendant.",
+    "aRetenir": "Le crosstalk sans stimulation de sécurité provoque une asystolie chez le patient dépendant.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-016",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Quelles modifications peuvent corriger ce crosstalk ? (plusieurs réponses)",
+    "egm": {
+      "preset": "crosstalk-vsp"
+    },
+    "options": [
+      "Allonger la période de blanking ventriculaire post-atriale",
+      "Réduire la sensibilité ventriculaire (augmenter la valeur en mV) si l'onde R le permet",
+      "Réduire l'énergie de stimulation atriale en conservant une marge de sécurité",
+      "Désactiver la stimulation ventriculaire de sécurité",
+      "Augmenter la sensibilité ventriculaire (diminuer la valeur en mV)",
+      "Raccourcir le délai AV après stimulation atriale à 60 ms"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "commentaires": [
+      "Juste : un blanking post-atrial plus long masque l'artefact d'AP sur le canal V (sans excès, pour ne pas manquer les ESV précoces).",
+      "Juste : un canal V moins sensible ne voit plus l'artefact, à condition de garder une marge sur l'onde R.",
+      "Juste : une impulsion atriale moins énergique (ou bipolaire) génère un artefact plus petit.",
+      "Faux : la sécurité ventriculaire est ce qui protège le patient ; la supprimer expose à l'asystolie.",
+      "Faux : un canal plus sensible détecterait encore plus facilement l'artefact atrial.",
+      "Faux : un délai AV très court ne supprime pas la détection de l'artefact et n'est pas physiologique."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le crosstalk résulte d'un grand artefact d'AP (stimulation unipolaire, amplitude élevée) vu par un canal ventriculaire très sensible pendant une fenêtre non masquée. On agit sur chacun de ces éléments : repasser la stimulation atriale en bipolaire si la sonde le permet, réduire l'énergie atriale (en gardant une marge ×2), diminuer la sensibilité ventriculaire (augmenter la valeur en mV) si l'onde R est ample, ou allonger le blanking ventriculaire post-atrial. Un blanking trop long risque de masquer de vraies ESV précoces ; on vérifie après chaque modification la disparition des SV. Réflexe : corriger la cause, ne jamais retirer le filet de sécurité.",
+    "aRetenir": "Crosstalk : moins d'artefact atrial, canal V moins sensible ou blanking plus long, jamais suppression de la sécurité.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-017",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Homme de 70 ans, BAV complet, stimulateur simple chambre VVI 60/min ; il décrit des lipothymies en portant ses sacs de courses. Impédance de sonde stable à 520 Ω, seuil inchangé. Quel est le mécanisme de la pause enregistrée ?",
+    "egm": {
+      "preset": "myopotentiels"
+    },
+    "options": [
+      "Sur-détection de myopotentiels inhibant la stimulation ventriculaire",
+      "Perte de capture ventriculaire intermittente favorisée par l'effort",
+      "Fracture du conducteur, les artefacts étant typiques d'un bruit de contact",
+      "Hystérésis de fréquence : le stimulateur attend un rythme d'échappement"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : des signaux de haute fréquence et faible amplitude sont détectés (VS à 550-650 ms), chaque VS réinitialise l'intervalle et le VP est inhibé.",
+      "Faux : il n'y a pas de spike sans réponse pendant la pause ; il n'y a pas de spike du tout.",
+      "Faux : l'impédance stable et le déclenchement par l'effort musculaire orientent vers des myopotentiels.",
+      "Faux : une hystérésis retarderait un seul VP, pas une pause de 3 s ponctuée de VS."
+    ],
+    "reponseAttendue": null,
+    "explication": "Pendant l'effort musculaire, un bruit continu de haute fréquence apparaît sur l'EGM ventriculaire (et, plus faible, sur l'EGM champ lointain) ; le stimulateur en détecte une partie (VS à 550-650 ms) et, à chaque détection, réinitialise son intervalle d'échappement : aucun VP n'est délivré pendant environ 3 s, soit une asystolie chez ce patient en BAV complet. Le contexte (port de charge, muscles pectoraux) et l'impédance stable orientent vers des myopotentiels plutôt qu'une fracture. Réflexe : une pause sans spike = sur-détection ; chercher sur l'EGM ce qui a été détecté.",
+    "aRetenir": "Pause sans spike avec VS sur du bruit à l'effort = myopotentiels ; le patient dépendant est en danger.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Swerdlow CD, Asirvatham SJ, Ellenbogen KA, Friedman PA. Troubleshooting implantable cardioverter-defibrillator sensing problems II. Circ Arrhythm Electrophysiol 2015;8:212-220",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002514"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-018",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Même patient (BAV complet, VVI). Détection ventriculaire bipolaire ; lors d'un contrôle antérieur, la valeur de sensibilité a été ramenée à 0,9 mV « par sécurité » ; onde R spontanée non mesurable (patient dépendant), notée à 8 mV à l'implantation. Quelle est la meilleure correction ?",
+    "egm": {
+      "preset": "myopotentiels"
+    },
+    "options": [
+      "Remonter la valeur de sensibilité (ex. 2,5 mV) puis refaire un test de provocation",
+      "Abaisser la sensibilité à 0,5 mV pour mieux détecter les vrais QRS du patient",
+      "Programmer définitivement en VOO pour supprimer toute possibilité d'inhibition",
+      "Augmenter la fréquence de base à 80/min pour raccourcir la durée des pauses"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : une valeur de 0,9 mV est inutilement sensible pour une onde R de 8 mV ; 2,5 mV garde une marge ×3 et ignore le bruit.",
+      "Faux : diminuer encore la valeur en mV rendrait le canal plus sensible aux myopotentiels.",
+      "Faux : le VOO permanent expose à une stimulation compétitive si un rythme propre réapparaît et n'est pas une correction.",
+      "Faux : les pauses dépendent de la détection du bruit, pas de la fréquence de base."
+    ],
+    "reponseAttendue": null,
+    "explication": "La sensibilité ventriculaire a été rendue excessive (0,9 mV) alors que l'onde R mesurait 8 mV : le canal détecte désormais les myopotentiels. Il faut revenir à une valeur qui garde une marge de 2 à 3 fois sur l'onde R (ici environ 2,5 mV) puis vérifier par un test de provocation sous EGM que le bruit n'est plus détecté. Si la détection était unipolaire, le passage en bipolaire serait la première mesure ; un bruit persistant en bipolaire à sensibilité nominale doit faire suspecter un défaut d'isolant. Réflexe : « plus sensible » n'est pas « plus sûr » chez un patient dépendant.",
+    "aRetenir": "Chez un dépendant, une sensibilité V excessive expose aux inhibitions par myopotentiels : garder une marge raisonnable, pas maximale.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Swerdlow CD, Asirvatham SJ, Ellenbogen KA, Friedman PA. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-019",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 5,
+    "question": "Chez ce patient dépendant, décrivez le test de provocation à réaliser en consultation pour confirmer la sur-détection de myopotentiels, et les précautions à prendre.",
+    "egm": {
+      "preset": "myopotentiels"
+    },
+    "reponseAttendue": "Sous EGM et marqueurs en temps réel (et ECG), faire réaliser des manœuvres isométriques sollicitant les pectoraux et le membre supérieur homolatéral (mains jointes poussées puis tirées, élévation du bras, pression sur la loge) ; rechercher des signaux parasites marqués VS et des pauses reproduisant les symptômes. Précautions : patient allongé, programmateur prêt à interrompre (stimulation d'urgence), manœuvres brèves, arrêt immédiat en cas de pause ; répéter le test après reprogrammation pour vérifier la correction.",
+    "explication": "Le test de provocation transforme une plainte vague (lipothymies à l'effort) en diagnostic objectif : il reproduit le bruit, montre qu'il est détecté et qu'il inhibe la stimulation. Chez un patient dépendant, chaque inhibition est une pause : le test doit être court, sous surveillance, avec possibilité d'interruption immédiate. Il sert aussi de contrôle après correction (sensibilité, polarité). Un bruit reproduit par la pression locale ou les mouvements du bras, avec variations d'impédance, doit faire rechercher un problème de sonde ou de connexion. Réflexe : on ne valide pas une correction de sur-détection sans refaire le test.",
+    "aRetenir": "Myopotentiels : provoquer sous EGM, corriger, puis re-provoquer pour vérifier.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-020",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Femme de 74 ans, stimulateur DDD pour BAV paroxystique, délai AV après détection 250 ms. Elle est asymptomatique. Comment interprétez-vous les marqueurs AR ?",
+    "egm": {
+      "preset": "far-field-r"
+    },
+    "options": [
+      "Ondes P rétrogrades conduites par voie nodale après chaque QRS",
+      "Extrasystoles atriales bloquées tombant en période réfractaire",
+      "Onde R détectée en champ lointain sur le canal atrial (double comptage)",
+      "Fibrillation atriale débutante détectée de façon intermittente"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : une P rétrograde surviendrait plus tard (généralement plus de 100 ms après le QRS) et nécessiterait une conduction VA.",
+      "Faux : des ESA auraient un couplage variable par rapport à la P précédente et ne seraient pas liées au QRS.",
+      "Juste : l'AR survient à intervalle fixe, environ 35 ms après chaque VS, pendant le QRS : c'est l'onde R vue par la sonde atriale.",
+      "Faux : l'EGM atrial reste organisé, sans activité rapide et irrégulière."
+    ],
+    "reponseAttendue": null,
+    "explication": "Chaque cycle comporte AS, VS 180 ms plus tard, puis un AR environ 35 ms après le VS : l'intervalle A-A affiché alterne 642 et 215 ms. Un signal atrial parfaitement couplé au QRS, survenant pendant la dépolarisation ventriculaire, est une onde R lointaine (far-field) détectée par la sonde atriale après la fin du blanking atrial post-ventriculaire. Il est marqué AR car il tombe dans la PVARP : il n'est pas suivi, mais il est compté par les algorithmes de mode switch et de détection des arythmies atriales. Réflexe : un événement atrial à couplage fixe et très court avec le QRS = champ lointain jusqu'à preuve du contraire.",
+    "aRetenir": "AR à couplage fixe et court après chaque QRS = onde R lointaine sur le canal atrial.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD, Asirvatham SJ, Ellenbogen KA, Friedman PA. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-021",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Même patiente : la télésurveillance transmet 350 épisodes de « TA/FA » de quelques secondes avec mode switch, charge en arythmie atriale estimée à 4 %. Le médecin traitant propose une anticoagulation. Quelle est votre attitude ?",
+    "egm": {
+      "preset": "far-field-r"
+    },
+    "options": [
+      "Débuter un anticoagulant oral direct : la charge dépasse le seuil de risque",
+      "Revoir les EGM des épisodes : faux épisodes probables par double comptage",
+      "Désactiver le mode switch pour ne plus générer d'épisodes ni d'alertes",
+      "Prescrire un antiarythmique pour réduire le nombre d'épisodes détectés"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : anticoaguler sur de faux épisodes expose au risque hémorragique sans bénéfice.",
+      "Juste : la détection de l'onde R lointaine peut suffire à faire compter une fréquence atriale élevée ; aucun épisode ne doit être accepté sans EGM.",
+      "Faux : c'est la détection qu'il faut corriger ; supprimer le mode switch exposerait au suivi rapide d'une vraie FA.",
+      "Faux : on ne traite pas un artefact de détection par un antiarythmique."
+    ],
+    "reponseAttendue": null,
+    "explication": "Avec une onde R lointaine comptée à chaque cycle, l'appareil voit deux événements atriaux par cycle ; dès que la fréquence sinusale s'élève, la fréquence atriale calculée peut franchir le seuil de mode switch et générer de très nombreux épisodes courts. Les recommandations (consensus HRS 2023 de télésurveillance, ESC 2024 FA) imposent de valider par les EGM tout épisode d'arythmie atriale détecté par un appareil avant toute décision thérapeutique. Ici, la correction est programmatique (blanking atrial post-ventriculaire, sensibilité atriale), puis on réévalue la charge réelle. Réflexe : pas d'anticoagulation sur un compteur, seulement sur des EGM relus.",
+    "aRetenir": "Aucune décision d'anticoagulation sur des épisodes atriaux non validés par l'EGM.",
+    "sources": [
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      },
+      {
+        "titre": "Van Gelder IC et al. 2024 ESC Guidelines for the management of atrial fibrillation developed in collaboration with EACTS. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA",
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-022",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Toujours chez cette patiente, quelle programmation corrige le plus spécifiquement ce phénomène ?",
+    "egm": {
+      "preset": "far-field-r"
+    },
+    "options": [
+      "Allonger la PVARP pour que les événements AR ne soient plus du tout comptés",
+      "Augmenter la sensibilité atriale pour mieux distinguer l'onde P de l'onde R",
+      "Raccourcir le délai AV pour stimuler le ventricule avant l'onde R spontanée",
+      "Allonger le blanking atrial post-ventriculaire pour masquer l'onde R lointaine"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : les AR sont déjà dans la PVARP ; ils ne sont pas suivis mais restent comptés pour le mode switch.",
+      "Faux : diminuer la valeur en mV rendrait l'onde R lointaine encore plus facilement détectée.",
+      "Faux : un QRS stimulé génère aussi un champ lointain ; on augmenterait en plus la stimulation VD.",
+      "Juste : l'onde R lointaine survient ~35 ms après le VS ; un blanking qui couvre cette fenêtre l'empêche d'être détectée et comptée."
+    ],
+    "reponseAttendue": null,
+    "explication": "Il faut distinguer la PVARP (période réfractaire : les événements sont vus, marqués AR, comptés pour les algorithmes, mais non suivis) du blanking atrial post-ventriculaire (PVAB : le canal est aveugle, rien n'est vu ni compté). Pour supprimer l'onde R lointaine des compteurs, il faut qu'elle tombe dans le blanking. L'autre option est de réduire la sensibilité atriale (augmenter la valeur en mV) si les P sont nettement plus amples que le champ lointain. Un blanking trop long masque en revanche des ondes de flutter : c'est un compromis à vérifier. Réflexe : réfractaire = vu mais ignoré pour le suivi ; blanking = pas vu du tout.",
+    "aRetenir": "Onde R lointaine : allonger le blanking atrial post-ventriculaire (ou désensibiliser l'oreillette), pas la PVARP.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD, Asirvatham SJ, Ellenbogen KA, Friedman PA. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-023",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Homme de 71 ans, stimulateur DDD pour BAV, fréquence maximale de suivi 130/min, mode switch actif. Il consulte pour des palpitations depuis 48 heures ; l'ECG n'a pas encore été réalisé. Quel diagnostic retenez-vous sur ce tracé ?",
+    "egm": {
+      "preset": "flutter-blanking"
+    },
+    "options": [
+      "Tachycardie sinusale correctement suivie à 120/min par le stimulateur",
+      "Flutter 2:1 avec une onde F sur deux masquée par le blanking atrial",
+      "Tachycardie par réentrée électronique à la fréquence maximale de suivi",
+      "Wenckebach électronique par dépassement de la fréquence maximale"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : entre deux AS se trouve une autre activation atriale non marquée ; la vraie fréquence atriale est de 240/min.",
+      "Juste : l'EGM A montre une activité régulière à 250 ms (240/min) dont une onde sur deux, juste après le VP, n'est pas marquée.",
+      "Faux : la tachycardie est à 500 ms (120/min), sous la fréquence maximale de 130/min, sans P rétrograde.",
+      "Faux : le rapport AS-VP est fixe, sans allongement progressif ni P non suivie."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les marqueurs indiquent AS-VP à 500 ms (120/min), ce qui pourrait passer pour une tachycardie sinusale suivie. Mais l'EGM atrial montre une seconde activation entre deux AS, environ 100 ms après chaque VP : elle tombe dans le blanking atrial post-ventriculaire et n'est ni vue ni comptée. La fréquence atriale réelle est de 240/min (flutter), l'appareil n'en voit que la moitié (120/min), en dessous du seuil de mode switch : il suit donc le flutter en 2:1. Réflexe : toujours compter les activations atriales sur l'EGM, pas seulement les marqueurs.",
+    "aRetenir": "Tachycardie suivie à fréquence « ronde » : compter les ondes atriales sur l'EGM, une sur deux peut être masquée.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-024",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 8,
+    "question": "Même patient. Quelles mesures de programmation limitent ce piège ? (plusieurs réponses)",
+    "egm": {
+      "preset": "flutter-blanking"
+    },
+    "options": [
+      "Raccourcir le blanking atrial post-ventriculaire, en vérifiant l'absence de champ lointain",
+      "Activer, s'il existe, l'algorithme de recherche de flutter masqué du constructeur",
+      "Allonger le blanking atrial post-ventriculaire pour stabiliser la détection atriale",
+      "Augmenter la fréquence maximale de suivi pour mieux suivre l'activité atriale",
+      "Diminuer la sensibilité atriale en augmentant la valeur programmée en mV"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "commentaires": [
+      "Juste : un blanking plus court laisse voir l'onde F qui suit le VP, ce qui révèle la vraie fréquence atriale.",
+      "Juste : ces algorithmes allongent transitoirement la PVARP ou modifient le cycle pour démasquer une onde cachée dans le blanking.",
+      "Faux : un blanking plus long masquerait encore plus d'ondes atriales.",
+      "Faux : une fréquence maximale plus haute favoriserait le suivi rapide du flutter.",
+      "Faux : un canal moins sensible risquerait en plus de manquer des ondes F."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le verrouillage en 2:1 survient quand une onde F sur deux tombe systématiquement dans le blanking atrial post-ventriculaire, déterminé par le délai AV et la durée du blanking. On le prévient en raccourcissant le blanking (au prix d'un risque de champ lointain, à vérifier) et/ou le délai AV, ou en activant un algorithme de recherche de flutter masqué quand le constructeur le propose. Au-delà de la programmation, il faut traiter le flutter lui-même : anticoagulation selon le risque, et discussion d'une ablation de l'isthme cavo-tricuspide. Réflexe : le blanking atrial est un compromis entre champ lointain et flutter masqué.",
+    "aRetenir": "Blanking atrial post-ventriculaire : trop long, il masque le flutter ; trop court, il laisse voir l'onde R.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-025",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Même patient. Affirmation : l'absence de tout marqueur de mode switch dans les mémoires de l'appareil prouve qu'il n'a présenté aucune arythmie atriale depuis le dernier contrôle.",
+    "egm": {
+      "preset": "flutter-blanking"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : ce tracé montre justement un flutter suivi sans mode switch.",
+      "Juste : un flutter dont une onde sur deux est masquée peut ne jamais atteindre le seuil de mode switch ; les mémoires sont alors faussement rassurantes."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le mode switch ne se déclenche que si l'appareil voit une fréquence atriale supérieure à son seuil. Un flutter 2:1 dont une onde F sur deux tombe dans le blanking est vu à la moitié de sa fréquence réelle et peut rester sous le seuil : pas de mode switch, pas d'épisode mémorisé, mais un suivi à haute fréquence. De même, une sous-détection atriale (ondes f de faible amplitude) peut faire sous-estimer la charge en FA. Réflexe : des palpitations avec des mémoires « vides » imposent de relire l'EGM en temps réel et de faire un ECG, pas de rassurer.",
+    "aRetenir": "Des mémoires sans épisode n'excluent pas une arythmie atriale masquée ou sous-détectée.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "HRS 2023 télésurveillance"
+    ]
+  },
+  {
+    "id": "egm-pm-026",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Homme de 32 ans, BAV complet congénital, stimulateur DDD, fréquence maximale de suivi 120/min. Il se plaint d'une fatigue brutale et d'une sensation de « trou » lors des sprints au football. Enregistrement à l'effort. Quel est le mécanisme ?",
+    "egm": {
+      "preset": "wenckebach-electronique"
+    },
+    "options": [
+      "Wenckebach électronique : la fréquence sinusale dépasse la fréquence maximale de suivi",
+      "Bloc 2:1 électronique par des P tombant dans le blanking atrial post-ventriculaire",
+      "Sous-détection atriale des P de faible amplitude apparaissant à l'effort intense",
+      "Tachycardie par réentrée électronique déclenchée par une ESV d'effort"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : P à 444 ms (135/min), VP limités à 500 ms (120/min), délai AS-VP qui s'allonge jusqu'à une P non suivie (AR).",
+      "Faux : la P non suivie est marquée AR (vue en PVARP), pas masquée dans le blanking ; et la conduction n'est pas 2:1.",
+      "Faux : toutes les P ont un marqueur (AS ou AR) ; aucune n'est sous-détectée.",
+      "Faux : l'activité atriale est sinusale, antérograde, sans ESV initiatrice ni P rétrograde."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le rythme sinusal est à 444 ms (135/min), au-dessus de la fréquence maximale de suivi (120/min, 500 ms) : le stimulateur ne peut pas délivrer un VP plus tôt que 500 ms après le précédent, il allonge donc le délai AS-VP à chaque cycle, jusqu'à ce qu'une P tombe dans la PVARP (AR) et ne soit pas suivie ; le VP suivant arrive à 722 ms et le cycle recommence. C'est l'équivalent électronique d'un Mobitz I. Chez un sujet jeune, ce plafond à 120/min limite la performance à l'effort. Réflexe : devant une plainte d'effort chez un patient en BAV, regarder la fréquence maximale de suivi.",
+    "aRetenir": "P plus rapides que la fréquence maximale de suivi → allongement AS-VP puis P non suivie : Wenckebach électronique.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-027",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Même patient sportif de 32 ans. Quelle programmation est la plus adaptée ?",
+    "egm": {
+      "preset": "wenckebach-electronique"
+    },
+    "options": [
+      "Réduire la fréquence maximale de suivi pour éviter tout suivi rapide à l'effort",
+      "Allonger la PVARP pour supprimer les événements AR survenant à l'effort",
+      "Abaisser le seuil de mode switch à 130/min pour passer en mode non suivi",
+      "Monter la fréquence maximale de suivi (ex. 160-170/min) en raccourcissant la PVARP"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : cela aggraverait la limitation d'effort chez un patient au nœud sinusal normal.",
+      "Faux : une PVARP plus longue abaisse le point de bloc 2:1 et aggrave la chute de fréquence.",
+      "Faux : le mode switch sur un rythme sinusal d'effort supprimerait le synchronisme AV au moment où il est le plus utile.",
+      "Juste : il faut que le patient puisse suivre son rythme sinusal d'effort ; la PVARP (et le délai AV) doivent être assez courts pour que le point de bloc 2:1 reste au-dessus de la nouvelle limite."
+    ],
+    "reponseAttendue": null,
+    "explication": "Chez un patient jeune en BAV à nœud sinusal normal, la fréquence maximale de suivi doit être adaptée à sa fréquence sinusale d'effort (souvent 150-170/min selon l'âge et l'activité). Pour que cette limite soit atteignable, la période réfractaire atriale totale (délai AV + PVARP) doit être suffisamment courte : on raccourcit la PVARP et on active le raccourcissement dynamique du délai AV à l'effort. En raccourcissant la PVARP, il faut vérifier l'absence de conduction rétrograde longue exposant aux TRE et activer les protections anti-TRE. Réflexe : fréquence maximale, délai AV et PVARP se règlent ensemble.",
+    "aRetenir": "Chez le jeune en BAV, adapter la fréquence maximale de suivi à l'effort et raccourcir la PVARP en conséquence.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ]
+  },
+  {
+    "id": "egm-pm-028",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : lecture des marqueurs",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Sur ce tracé d'effort d'un stimulateur DDD, que signifie le marqueur AR ?",
+    "egm": {
+      "preset": "wenckebach-electronique"
+    },
+    "options": [
+      "Une P non détectée par le stimulateur, par sous-détection atriale",
+      "Une stimulation atriale de rattrapage délivrée après une P bloquée",
+      "Une P détectée en période réfractaire atriale, comptée mais non suivie",
+      "Une onde R lointaine détectée sur le canal atrial après le QRS"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : une P sous-détectée n'aurait aucun marqueur ; AR prouve au contraire qu'elle a été vue.",
+      "Faux : une stimulation atriale serait marquée AP avec un spike.",
+      "Juste : AR = événement atrial vu pendant une période réfractaire (ici la PVARP) : il est pris en compte par certains algorithmes mais ne déclenche pas de VP.",
+      "Faux : ici l'AR correspond à une vraie P sinusale, non couplée au QRS."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le marqueur AR (« atrial refractory ») signale une activité atriale détectée pendant une période réfractaire atriale, typiquement la PVARP. Elle n'est pas suivie d'un VP, mais elle est comptée pour le mode switch et les diagnostics d'arythmie atriale. Ici, la P sinusale tombe dans la PVARP parce que le VP précédent a été retardé par la limite de fréquence maximale : c'est la P « bloquée » du Wenckebach électronique. Confondre AR et sous-détection conduit à augmenter à tort la sensibilité atriale. Réflexe : AR = vue et ignorée pour le suivi ; absence de marqueur = non vue.",
+    "aRetenir": "AR = P vue en période réfractaire, non suivie ; ce n'est pas une sous-détection.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-029",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Femme de 80 ans, stimulateur DDD pour BAV paroxystique, PVARP 220 ms, extension de PVARP après ESV désactivée, fréquence maximale de suivi 120/min. Palpitations soudaines pendant la consultation. Quel est le diagnostic ?",
+    "egm": {
+      "preset": "ttre"
+    },
+    "options": [
+      "Tachycardie sinusale suivie à la fréquence maximale de suivi",
+      "Flutter atrial 2:1 avec une onde F sur deux masquée",
+      "Tachycardie par réentrée électronique initiée par une ESV",
+      "Wenckebach électronique par fréquence sinusale élevée"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : la tachycardie démarre brutalement après une ESV, avec une P survenant toujours 240 ms après le VP : c'est une activation rétrograde.",
+      "Faux : l'EGM A ne montre qu'une activation par cycle, liée au VP précédent.",
+      "Juste : une ESV (VS) est suivie d'une P rétrograde détectée hors PVARP (AS 240 ms plus tard), suivie à la fréquence maximale, et chaque VP relance la boucle.",
+      "Faux : le rapport AS-VP est fixe à 1:1, sans P non suivie."
+    ],
+    "reponseAttendue": null,
+    "explication": "Séquence typique : l'ESV (VS) est conduite de façon rétrograde vers l'oreillette ; la P rétrograde survient 240 ms plus tard, après la fin d'une PVARP de 220 ms (non prolongée après ESV) : elle est détectée (AS) et suivie. Le VP est délivré dès que la fréquence maximale le permet (500 ms, soit 120/min), il est à son tour conduit de façon rétrograde, et la boucle s'entretient : le stimulateur constitue la branche antérograde du circuit. Le signe clé : un intervalle VP-AS fixe (temps de conduction VA) et une tachycardie à la fréquence maximale de suivi. Réflexe : tachycardie VP à la fréquence maximale avec VP-AS constant = TRE.",
+    "aRetenir": "TRE : ESV → P rétrograde hors PVARP → VP à la fréquence maximale, intervalle VP-AS constant.",
+    "sources": [
+      {
+        "titre": "Alasti M et al. Pacemaker-mediated arrhythmias. J Arrhythm 2018;34:485-492",
+        "url": "https://doi.org/10.1002/joa3.12098"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-030",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Même patiente. Quelles mesures sont adaptées pour prévenir la récidive ? (plusieurs réponses)",
+    "egm": {
+      "preset": "ttre"
+    },
+    "options": [
+      "Programmer une PVARP supérieure au temps de conduction rétrograde (ici ≈ 240 ms)",
+      "Activer l'extension de PVARP après ESV",
+      "Activer l'algorithme de détection et d'interruption des TRE du constructeur",
+      "Augmenter la fréquence maximale de suivi pour mieux tolérer la tachycardie",
+      "Augmenter la sensibilité atriale pour détecter plus tôt la P rétrograde"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "commentaires": [
+      "Juste : une P rétrograde tombant dans la PVARP est marquée AR et n'est plus suivie ; il faut garder une marge au-dessus du temps VA.",
+      "Juste : l'ESV est le déclencheur le plus fréquent ; prolonger la PVARP après elle empêche le suivi de la P rétrograde.",
+      "Juste : ces algorithmes reconnaissent un suivi prolongé à la fréquence maximale avec VP-AS stable et rompent la boucle (PVARP allongée ou VP omis sur un cycle).",
+      "Faux : cela rendrait la TRE plus rapide et moins bien tolérée.",
+      "Faux : la P rétrograde est déjà détectée ; c'est son suivi qu'il faut empêcher."
+    ],
+    "reponseAttendue": null,
+    "explication": "La prévention de la TRE repose sur l'empêchement du suivi de la P rétrograde : PVARP supérieure au temps de conduction VA (mesurable par un test de conduction rétrograde au programmateur), extension de PVARP après ESV, et algorithmes spécifiques de détection et d'interruption. Une PVARP longue abaisse cependant le point de bloc 2:1 : chez un patient actif, préférer les algorithmes et l'extension post-ESV à une PVARP fixe très longue. Réflexe : mesurer le temps de conduction VA avant de raccourcir une PVARP.",
+    "aRetenir": "TRE : PVARP > temps VA, extension post-ESV et algorithme anti-TRE ; ne pas monter la fréquence maximale.",
+    "sources": [
+      {
+        "titre": "Alasti M et al. Pacemaker-mediated arrhythmias. J Arrhythm 2018;34:485-492",
+        "url": "https://doi.org/10.1002/joa3.12098"
+      },
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-031",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : dysfonctions et corrections",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 4,
+    "question": "Même patiente, tachycardie en cours au moment du tracé, programmateur momentanément indisponible. Affirmation : l'application d'un aimant sur le boîtier interrompt habituellement cette tachycardie.",
+    "egm": {
+      "preset": "ttre"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : sous aimant, la plupart des stimulateurs passent en stimulation asynchrone : la détection atriale est suspendue et la boucle est rompue.",
+      "Faux : la réponse à l'aimant de la plupart des stimulateurs supprime la détection, ce qui interrompt la TRE."
+    ],
+    "reponseAttendue": null,
+    "explication": "La TRE nécessite la détection de la P rétrograde par le canal atrial. Sous aimant, la plupart des stimulateurs passent en mode asynchrone (DOO/VOO) à la fréquence aimant : plus aucune détection, donc plus de suivi, et la boucle s'arrête. C'est une manœuvre diagnostique et thérapeutique simple, à condition de connaître la réponse à l'aimant du boîtier (programmable sur certains appareils). Il faut ensuite corriger la programmation pour éviter la récidive. Réflexe : aimant = rupture de la TRE, puis reprogrammation.",
+    "aRetenir": "Un aimant interrompt une TRE en supprimant la détection atriale.",
+    "sources": [
+      {
+        "titre": "Alasti M et al. Pacemaker-mediated arrhythmias. J Arrhythm 2018;34:485-492",
+        "url": "https://doi.org/10.1002/joa3.12098"
+      },
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-032",
+    "theme": "programmation",
+    "sousTheme": "EGM de stimulateur : lecture des marqueurs",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Patient de 77 ans, stimulateur DDD pour BAV paroxystique, mode switch actif. Épisode transmis par télésurveillance. Comment l'interprétez-vous ?",
+    "egm": {
+      "preset": "fa-mode-switch"
+    },
+    "options": [
+      "Sous-détection atriale : les marqueurs AR signent des P non vues",
+      "Détection de l'onde R lointaine responsable d'un faux épisode",
+      "Tachycardie par réentrée électronique interrompue par le mode switch",
+      "Entrée en FA correctement détectée, avec mode switch approprié"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : AR signifie « vu en période réfractaire » : ces activités sont bien détectées et comptées.",
+      "Faux : l'activité atriale n'a pas de couplage fixe avec le QRS ; elle est continue et désorganisée.",
+      "Faux : il n'y a ni ESV initiatrice, ni P rétrograde, ni VP à la fréquence maximale.",
+      "Juste : l'EGM A devient rapide et désorganisé (cycles de 130 à 220 ms), marqué AS/AR, l'appareil déclenche le mode switch (MS) et cesse le suivi ; les VS irréguliers traduisent la conduction de la FA."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le tracé commence par deux cycles AS-VP à 833 ms, puis l'EGM atrial devient fibrillatoire : activations rapides et irrégulières, marquées AS ou AR selon qu'elles tombent hors ou dans une période réfractaire. Toutes sont comptées ; la fréquence atriale dépasse le seuil et l'appareil déclenche le mode switch (MS) vers un mode sans suivi. Les QRS deviennent spontanés (VS) et irréguliers : c'est la conduction AV de la FA, au-dessus de la fréquence de base. Le stimulateur fonctionne donc correctement. Réflexe : AR n'est pas une anomalie de détection, c'est souvent la preuve qu'elle fonctionne.",
+    "aRetenir": "FA avec AS/AR multiples puis MS et VS irréguliers = détection et mode switch appropriés.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-033",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Même patient : 77 ans, hypertendu et diabétique, sans antécédent d'AVC, asymptomatique. Plusieurs épisodes comparables dont un de 26 heures, EGM relus et confirmés. Pas de risque hémorragique élevé. Quelle conduite est conforme aux recommandations ESC 2024 ?",
+    "egm": {
+      "preset": "fa-mode-switch"
+    },
+    "options": [
+      "Discuter avec le patient une anticoagulation orale directe (décision partagée)",
+      "Ne rien proposer : une FA détectée par l'appareil ne justifie jamais d'anticoaguler",
+      "Prescrire de l'aspirine en première intention, faute d'ECG documentant la FA",
+      "Désactiver le mode switch pour limiter la détection de ces épisodes asymptomatiques"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : la FA infraclinique détectée par un appareil, chez un patient à risque thromboembolique élevé sans risque hémorragique élevé, peut justifier un AOD (ESC 2024, ARTESIA).",
+      "Faux : les recommandations ESC 2024 permettent de considérer l'anticoagulation dans cette situation à haut risque.",
+      "Faux : les antiplaquettaires ne sont pas recommandés pour prévenir les AVC liés à la FA.",
+      "Faux : modifier la détection ne change pas le risque ; cela priverait seulement des informations."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les épisodes sont validés par l'EGM : il s'agit de vraie FA infraclinique détectée par l'appareil. Chez ce patient à score CHA2DS2-VA élevé (âge, hypertension, diabète) sans risque hémorragique élevé, les recommandations ESC 2024 indiquent qu'un anticoagulant oral direct peut être envisagé, sur la base notamment d'ARTESIA, dans le cadre d'une décision partagée ; un épisode long (plusieurs heures) renforce la discussion. Il faut aussi rechercher une FA clinique (ECG, Holter) : une FA documentée sur ECG relève des recommandations habituelles. L'aspirine n'a pas sa place. Réflexe : valider l'EGM, évaluer le risque, puis discuter l'anticoagulation.",
+    "aRetenir": "FA infraclinique validée + risque élevé : discuter un AOD en décision partagée, jamais l'aspirine.",
+    "sources": [
+      {
+        "titre": "Van Gelder IC et al. 2024 ESC Guidelines for the management of atrial fibrillation developed in collaboration with EACTS. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "Healey JS et al. Apixaban for stroke prevention in subclinical atrial fibrillation (ARTESIA). N Engl J Med 2024;390:107-117",
+        "url": "https://doi.org/10.1056/NEJMoa2310234"
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-034",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Consultation de contrôle d'un stimulateur double chambre. Quelle séquence de travail est la plus sûre ?",
+    "options": [
+      "Réinitialiser les compteurs, mesurer les seuils, puis lire les épisodes mémorisés",
+      "Sauvegarder données et épisodes, vérifier pile et impédances, puis détection et seuils",
+      "Mesurer les seuils en premier, car ils conditionnent la sécurité, puis lire les mémoires",
+      "Programmer d'emblée VVI 30/min pour évaluer le rythme propre, puis lire les mémoires"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : réinitialiser avant d'avoir lu et sauvegardé fait perdre définitivement les diagnostics.",
+      "Juste : on conserve d'abord les informations (alertes, épisodes, compteurs), on fait les vérifications sans risque, puis les tests actifs.",
+      "Faux : lire les mémoires d'abord oriente les tests ; certains tests ou reprogrammations peuvent effacer ou modifier des données.",
+      "Faux : une chute brutale à 30/min peut provoquer une asystolie chez un patient dépendant."
+    ],
+    "reponseAttendue": null,
+    "explication": "La première étape d'un contrôle est l'interrogation et la sauvegarde de l'état initial : programmation, alertes, épisodes avec EGM, compteurs et histogrammes. Viennent ensuite les éléments sans risque (état de la pile, impédances, mesures automatiques), puis les tests actifs : rythme propre et amplitudes de détection (en baissant la fréquence progressivement), puis seuils de stimulation. On termine par la vérification et l'impression de la programmation finale, et la remise à zéro des compteurs seulement après sauvegarde. Réflexe : lire et sauvegarder avant de toucher à quoi que ce soit.",
+    "aRetenir": "Toujours sauvegarder l'interrogation initiale avant tout test ou toute remise à zéro.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "HRS 2023 télésurveillance"
+    ]
+  },
+  {
+    "id": "egm-pm-035",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Pour mesurer l'onde R d'un patient implanté pour BAV complet, vous programmez temporairement VVI 30/min : aucun QRS propre n'apparaît et le patient pâlit. Quelle est la bonne réaction ?",
+    "options": [
+      "Attendre quelques secondes supplémentaires que l'échappement s'installe",
+      "Réduire encore la fréquence à 20/min pour démasquer le rythme propre",
+      "Poursuivre en diminuant la sensibilité pour faciliter la détection du QRS",
+      "Interrompre aussitôt le test et noter l'absence de rythme d'échappement"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : chaque seconde d'asystolie expose à la syncope ou à une arythmie ventriculaire.",
+      "Faux : baisser encore la fréquence prolonge l'asystolie chez un patient sans échappement.",
+      "Faux : il n'y a rien à détecter ; la sensibilité ne crée pas de rythme propre.",
+      "Juste : l'information utile est obtenue (patient dépendant) ; prolonger l'asystolie n'apporte rien."
+    ],
+    "reponseAttendue": null,
+    "explication": "Chez un patient potentiellement dépendant, la recherche du rythme propre se fait en diminuant la fréquence par paliers, sous ECG, en surveillant l'apparition d'un échappement et la tolérance ; l'absence d'échappement au premier palier suffit à conclure. La mesure de l'onde R n'est pas indispensable si le patient n'a pas de rythme propre : on s'appuie sur les valeurs antérieures. La dépendance doit être notée dans le dossier car elle conditionne la conduite en cas d'IRM, de chirurgie, de changement de boîtier ou d'extraction. Réflexe : on arrête le test au premier signe, on ne « cherche » pas l'échappement.",
+    "aRetenir": "Patient sans échappement pendant un test : on restaure immédiatement la stimulation et on note la dépendance.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-036",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 3,
+    "question": "Affirmation : passer la sensibilité ventriculaire programmée de 2,5 mV à 1,0 mV rend le stimulateur moins sensible.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : une valeur plus basse en mV est un seuil de détection plus bas, donc un canal plus sensible.",
+      "Juste : diminuer la valeur en mV rend le stimulateur plus sensible, et donc plus exposé à la sur-détection."
+    ],
+    "reponseAttendue": null,
+    "explication": "La sensibilité programmée est l'amplitude minimale qu'un signal doit atteindre pour être détecté. À 1,0 mV, des signaux plus petits qu'à 2,5 mV sont vus : le canal est plus sensible (moins de risque de sous-détection, plus de risque de sur-détection de myopotentiels, d'onde T ou de champ lointain). Le langage courant « augmenter la sensibilité » correspond donc à diminuer la valeur en mV, source d'erreurs fréquentes dans les transmissions orales. Réflexe : toujours formuler la consigne en valeur (« passer à 1,0 mV ») et non en « plus » ou « moins sensible ».",
+    "aRetenir": "Valeur de sensibilité plus basse (mV) = stimulateur plus sensible.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-037",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Télésurveillance : l'impédance de stimulation VD est passée de 540 Ω à plus de 2 500 Ω en une semaine ; le seuil n'est plus mesuré par l'algorithme automatique. Patient en BAV complet. Quelle hypothèse et quelle conduite ?",
+    "options": [
+      "Rupture d'isolant : programmer une sensibilité plus basse et revoir le patient à 3 mois",
+      "Maturation normale de l'interface sonde-myocarde : contrôle habituel à 6 mois",
+      "Fracture du conducteur ou défaut de connexion : convocation rapide pour vérification",
+      "Artefact de mesure isolé : le négliger tant que le patient reste asymptomatique"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : une rupture d'isolant fait chuter l'impédance, pas monter.",
+      "Faux : la maturation ne multiplie pas l'impédance par cinq en une semaine.",
+      "Juste : une élévation brutale de l'impédance évoque une fracture ou un problème de vis de connexion, avec risque de perte de capture chez un patient dépendant.",
+      "Faux : chez un patient dépendant, attendre des symptômes peut signifier attendre une syncope."
+    ],
+    "reponseAttendue": null,
+    "explication": "Plus que la valeur absolue, c'est la variation brutale de l'impédance par rapport aux mesures antérieures qui est significative. Une hausse franche oriente vers une fracture du conducteur ou un défaut de connexion ; une chute oriente vers une rupture d'isolant. Chez un patient dépendant, il faut le voir rapidement : vérification de la capture, mesures dans les différentes configurations de polarité (une sonde bipolaire peut parfois être reprogrammée sur un trajet intact), radiographie, puis reprise chirurgicale si le défaut est confirmé. Le consensus HRS 2023 classe les alertes d'intégrité de sonde parmi les alertes à traiter en priorité. Réflexe : impédance qui s'envole chez un dépendant = consultation le jour même ou le lendemain.",
+    "aRetenir": "Impédance brutalement élevée = fracture ou connexion ; chez un dépendant, c'est une urgence relative.",
+    "sources": [
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      },
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ],
+    "reco": [
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-038",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Parmi ces constatations au contrôle d'un stimulateur, lesquelles doivent faire suspecter une rupture d'isolant de la sonde ? (plusieurs réponses)",
+    "options": [
+      "Chute brutale de l'impédance de stimulation (ex. de 600 à 220 Ω)",
+      "Signaux parasites détectés sur une détection bipolaire lors des mouvements du bras",
+      "Élévation brutale de l'impédance au-delà de 2 000 Ω",
+      "Usure de la pile plus rapide que la longévité prévue",
+      "Onde R et impédance identiques à celles du contrôle précédent"
+    ],
+    "reponses": [
+      0,
+      1,
+      3
+    ],
+    "commentaires": [
+      "Juste : la perte d'isolant crée une fuite de courant, qui abaisse l'impédance mesurée.",
+      "Juste : un défaut d'isolant entre les conducteurs peut générer du bruit ou laisser passer des myopotentiels, même en bipolaire.",
+      "Faux : une impédance qui s'élève évoque une fracture du conducteur ou un défaut de connexion.",
+      "Juste : la fuite de courant augmente la consommation et peut raccourcir la longévité.",
+      "Faux : des mesures stables ne suggèrent pas de défaut de sonde."
+    ],
+    "reponseAttendue": null,
+    "explication": "Une rupture d'isolant (interne entre conducteurs, ou externe) se traduit typiquement par une baisse de l'impédance de stimulation, parfois par une sur-détection de bruit ou de myopotentiels (y compris sur une sonde bipolaire) et par une consommation accrue d'énergie. La fracture de conducteur donne à l'inverse une impédance élevée ou instable, avec perte de capture ou bruit intermittent. La lecture conjointe impédance + EGM + tendance dans le temps est plus informative qu'une valeur isolée. Réflexe : impédance basse = isolant ; impédance haute = conducteur ou connexion.",
+    "aRetenir": "Rupture d'isolant : impédance basse, bruit, surconsommation ; fracture : impédance haute.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Swerdlow CD, Asirvatham SJ, Ellenbogen KA, Friedman PA. Troubleshooting implantable cardioverter-defibrillator sensing problems II. Circ Arrhythm Electrophysiol 2015;8:212-220",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002514"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-039",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 2,
+    "question": "Un anesthésiste vous appelle : il compte poser un aimant sur le stimulateur cardiaque (non défibrillateur) d'un patient pendant une chirurgie. Quel est l'effet habituel d'un aimant sur un stimulateur ?",
+    "options": [
+      "Arrêt complet de toute stimulation pendant toute la durée de sa mise en place",
+      "Stimulation asynchrone (VOO/DOO) à la fréquence aimant, tant qu'il est en place",
+      "Reprogrammation définitive du stimulateur en mode VVI à 60/min après retrait",
+      "Désactivation de la seule détection atriale, le mode DDD restant inchangé"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : c'est le contraire, l'aimant n'arrête pas la stimulation d'un stimulateur.",
+      "Juste : l'aimant suspend la détection ; le stimulateur stimule à fréquence fixe et revient à sa programmation au retrait (réponse programmable sur certains appareils).",
+      "Faux : l'effet est transitoire, il disparaît au retrait de l'aimant.",
+      "Faux : la détection est suspendue dans les deux cavités."
+    ],
+    "reponseAttendue": null,
+    "explication": "Sur la plupart des stimulateurs, l'aimant déclenche une stimulation asynchrone (VOO ou DOO) à une fréquence aimant propre au constructeur, qui protège le patient dépendant contre l'inhibition par le bistouri électrique. L'effet cesse au retrait. À l'inverse, sur un défibrillateur, l'aimant suspend la détection et les thérapies de tachycardie mais ne modifie pas la stimulation antibradycardique : confondre les deux est un piège classique. Chez un patient non dépendant avec rythme propre rapide, la stimulation asynchrone peut entrer en compétition avec le rythme spontané ; la reprogrammation est parfois préférable. Réflexe : toujours préciser « stimulateur ou défibrillateur ? » avant de parler d'aimant.",
+    "aRetenir": "Aimant sur un stimulateur = stimulation asynchrone transitoire, pas arrêt de la stimulation.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ]
+  },
+  {
+    "id": "egm-pm-040",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Affirmation : sur de nombreux stimulateurs, la fréquence de stimulation sous aimant diminue lorsque la pile approche de l'indicateur de remplacement électif, ce qui renseigne sur l'état de la pile.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : la fréquence aimant change selon des valeurs définies par chaque constructeur quand l'indicateur de remplacement est atteint.",
+      "Faux : la fréquence aimant est bien un indicateur historique de l'état de la pile sur de nombreux boîtiers."
+    ],
+    "reponseAttendue": null,
+    "explication": "La fréquence de stimulation sous aimant est fixée par le constructeur et se modifie (généralement diminue) au passage à l'indicateur de remplacement électif, parfois de façon progressive. Elle a longtemps servi de contrôle « transtéléphonique » de la pile et reste utile en l'absence de programmateur. Les valeurs sont spécifiques à chaque modèle : il faut se référer au manuel du constructeur plutôt qu'à une valeur apprise par cœur. Réflexe : une fréquence aimant inhabituelle impose d'interroger l'appareil.",
+    "aRetenir": "La fréquence aimant renseigne sur la pile, selon des valeurs propres à chaque constructeur.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-041",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Un patient porteur d'un stimulateur étiqueté « IRM compatible sous conditions » doit passer une IRM lombaire. Quelles vérifications ou actions sont nécessaires ? (plusieurs réponses)",
+    "options": [
+      "Vérifier que l'ensemble boîtier et sondes est validé, sans sonde abandonnée",
+      "Contrôler seuils, impédances et pile, et respecter le délai post-implantation requis",
+      "Programmer le mode IRM adapté au degré de dépendance du patient",
+      "Rétablir et vérifier la programmation habituelle après l'examen",
+      "Se dispenser de toute programmation si le patient n'est pas dépendant",
+      "Placer un aimant sur le boîtier pendant l'examen à la place du mode IRM"
+    ],
+    "reponses": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "commentaires": [
+      "Juste : la compatibilité concerne le système complet (boîtier et sondes du même ensemble validé).",
+      "Juste : les conditions d'utilisation imposent des paramètres de sonde corrects et un délai minimal après implantation.",
+      "Juste : mode asynchrone chez le dépendant, mode sans stimulation ou asynchrone chez le non-dépendant selon le constructeur.",
+      "Juste : oublier la reprogrammation laisse le patient en mode IRM, parfois asynchrone.",
+      "Faux : le mode IRM reste nécessaire pour éviter les détections parasites et les réponses inappropriées.",
+      "Faux : l'aimant n'est pas une alternative au mode IRM, et son comportement dans le champ magnétique est imprévisible."
+    ],
+    "reponseAttendue": null,
+    "explication": "La compatibilité IRM « sous conditions » s'applique à un système complet : boîtier et sondes validés ensemble, sans sonde abandonnée ni adaptateur, dans le respect des conditions du constructeur (délai après implantation, zone d'examen, champ). Avant l'examen : contrôle des paramètres, programmation du mode IRM adapté (asynchrone chez le patient dépendant), surveillance pendant l'examen par un personnel formé ; après : restauration et vérification de la programmation. Les recommandations ESC 2021 et le consensus HRS 2017 encadrent aussi l'IRM chez les porteurs d'appareils non compatibles, avec des précautions renforcées. Réflexe : on vérifie le système, pas le boîtier seul, et on n'oublie pas l'« après ».",
+    "aRetenir": "IRM : système complet validé, mode IRM adapté à la dépendance, puis reprogrammation vérifiée.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Indik JH et al. 2017 HRS expert consensus statement on magnetic resonance imaging and radiation exposure in patients with cardiovascular implantable electronic devices. Heart Rhythm 2017;14:e97-e153",
+        "url": "https://doi.org/10.1016/j.hrthm.2017.04.025"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "HRS 2017 IRM"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-042",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Patient en BAV complet sans rythme d'échappement, stimulateur DDD IRM-compatible sous conditions. Quel mode programmer pendant l'IRM ?",
+    "options": [
+      "Stimulation asynchrone (DOO) à une fréquence adaptée, supérieure au rythme propre",
+      "Mode sans stimulation (ODO) pour éviter tout échauffement des électrodes de sonde",
+      "Mode DDD standard avec sensibilité maximale pour mieux détecter l'activité propre",
+      "Mode VVI inhibé à 40/min pour limiter au maximum la stimulation pendant l'examen"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : chez le patient dépendant, seule une stimulation asynchrone garantit une stimulation insensible aux signaux induits par l'IRM.",
+      "Faux : sans stimulation, un patient sans échappement est en asystolie pendant tout l'examen.",
+      "Faux : les gradients de l'IRM seraient détectés et inhiberaient la stimulation.",
+      "Faux : un mode inhibé expose à l'inhibition par les signaux induits, avec une fréquence de base en plus trop basse."
+    ],
+    "reponseAttendue": null,
+    "explication": "Pendant l'IRM, les gradients et la radiofréquence induisent des signaux que le stimulateur peut détecter : un mode inhibé risque alors de s'arrêter de stimuler. Chez un patient dépendant, on programme donc un mode asynchrone (DOO ou VOO) à une fréquence adaptée, supérieure au rythme propre pour éviter la compétition. Chez un patient non dépendant, un mode sans stimulation (ODO/OVO) ou asynchrone est possible selon le constructeur et le rythme propre. Pendant l'examen : surveillance continue (ECG, oxymétrie), personnel formé et matériel de réanimation disponible, puis reprogrammation vérifiée. Le piège le plus grave est le mode sans stimulation chez un dépendant. Réflexe : dépendant = asynchrone ; non dépendant = mode choisi selon le rythme propre.",
+    "aRetenir": "IRM chez le patient dépendant : mode asynchrone, jamais de mode sans stimulation.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Indik JH et al. 2017 HRS expert consensus statement on magnetic resonance imaging and radiation exposure in patients with cardiovascular implantable electronic devices. Heart Rhythm 2017;14:e97-e153",
+        "url": "https://doi.org/10.1016/j.hrthm.2017.04.025"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "HRS 2017 IRM"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-043",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Homme de 79 ans, stimulateur DDD pour BAV complet il y a 4 ans, stimulation VD à 99 %. Dyspnée NYHA III malgré un traitement optimal, FEVG passée de 60 % à 32 %, sans autre cause retrouvée. Quelle est la conduite recommandée ?",
+    "options": [
+      "Discuter une mise à niveau en resynchronisation ou en stimulation de conduction",
+      "Activer un algorithme de réduction de la stimulation VD pour descendre sous 40 %",
+      "Allonger le délai AV à 300 ms pour favoriser la conduction AV spontanée",
+      "Poursuivre le suivi habituel, la stimulation VD n'altérant pas la FEVG"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : cardiomyopathie induite par la stimulation VD avec FEVG ≤ 35 % : la mise à niveau (CRT, ou stimulation du système de conduction) est recommandée à discuter.",
+      "Faux : en BAV complet, il n'y a pas de conduction à préserver ; ces algorithmes n'apportent rien.",
+      "Faux : sans conduction AV, allonger le délai AV ne supprime pas la stimulation VD.",
+      "Faux : la stimulation VD chronique peut induire une dysfonction ventriculaire gauche."
+    ],
+    "reponseAttendue": null,
+    "explication": "Une stimulation VD quasi permanente peut induire une dysfonction VG par dyssynchronie (cardiomyopathie induite par la stimulation). Chez un patient en BAV complet, on ne peut pas réduire la stimulation : il faut la rendre plus physiologique. Les recommandations ESC 2021 proposent la mise à niveau vers une CRT chez les patients porteurs d'un stimulateur avec stimulation VD importante qui développent une insuffisance cardiaque avec FEVG ≤ 35 % ; la ligne directrice HRS 2023 place aussi la stimulation du système de conduction parmi les options. Réflexe : chez un patient stimulé à 100 %, suivre la FEVG et y penser devant toute dyspnée.",
+    "aRetenir": "Stimulation VD élevée + FEVG effondrée sans autre cause : penser cardiomyopathie induite et mise à niveau.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Chung MK et al. 2023 HRS/APHRS/LAHRS guideline on cardiac physiologic pacing for the avoidance and mitigation of heart failure. Heart Rhythm 2023;20:e17-e91",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1538"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT",
+      "HRS 2023 stimulation physiologique"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-044",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 5,
+    "question": "Patient à conduction AV conservée (PR 180 ms) implanté pour dysfonction sinusale : le pourcentage de stimulation VD est à 70 %. Quelles causes rechercher ? (plusieurs réponses)",
+    "options": [
+      "Délai AV programmé plus court que le PR spontané",
+      "Algorithme de préservation de la conduction désactivé ou inopérant",
+      "Suivi d'une tachycardie atriale jusqu'à la fréquence maximale de suivi",
+      "Sensibilité ventriculaire trop élevée (valeur en mV trop basse)",
+      "Hystérésis de délai AV activée"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "commentaires": [
+      "Juste : si le délai AV expire avant la conduction propre, chaque cycle est stimulé.",
+      "Juste : c'est la première vérification ; certains algorithmes se désactivent aussi après échecs répétés de conduction.",
+      "Juste : une arythmie atriale suivie (mode switch absent ou tardif) est conduite par VP.",
+      "Faux : une sur-détection ventriculaire inhiberait les VP, elle diminuerait leur pourcentage.",
+      "Faux : l'hystérésis AV favorise au contraire la conduction spontanée."
+    ],
+    "reponseAttendue": null,
+    "explication": "Un % VP élevé chez un patient à conduction conservée doit faire vérifier : le délai AV (plus court que le PR, notamment après stimulation atriale où le temps de conduction est plus long), l'activation effective des algorithmes de préservation de la conduction, et la survenue d'arythmies atriales suivies. Il faut aussi rechercher une vraie dégradation de la conduction (BAV apparu au fil du temps), qui justifierait la stimulation. La sur-détection ventriculaire et l'hystérésis AV diminuent le % VP. Réflexe : un % VP inattendu est une question à résoudre, pas un chiffre à reporter.",
+    "aRetenir": "% VP élevé inattendu : délai AV, algorithme de préservation, arythmie atriale suivie, vraie dégradation de conduction.",
+    "sources": [
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ]
+  },
+  {
+    "id": "egm-pm-045",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Patiente de 74 ans, FA permanente rapide mal contrôlée : stimulateur VVIR implanté puis ablation de la jonction AV réalisée ce jour. Quelle fréquence de base programmer pour les premières semaines ?",
+    "options": [
+      "40/min, pour favoriser l'apparition d'un rythme d'échappement jonctionnel",
+      "Environ 80-90/min, puis diminution progressive après quelques semaines",
+      "60/min, la fréquence de base standard étant suffisante dès l'ablation",
+      "110/min, afin de compenser la perte définitive de la contribution atriale"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : une fréquence basse majore le risque de torsades de pointes dans les suites immédiates.",
+      "Juste : une fréquence de base élevée les premières semaines réduit le risque d'arythmie ventriculaire et de mort subite décrit après ablation de la jonction.",
+      "Faux : c'est précisément la programmation d'emblée à 60/min qui a été associée aux morts subites après ablation.",
+      "Faux : une fréquence aussi élevée n'est pas justifiée et serait mal tolérée."
+    ],
+    "reponseAttendue": null,
+    "explication": "Après ablation de la jonction AV, des fibrillations ventriculaires et morts subites ont été décrites dans les premiers jours ou semaines, attribuées à l'allongement de la repolarisation lié à la bradycardie brutale et au remodelage. Les séries publiées ont montré qu'une stimulation à fréquence élevée (de l'ordre de 90/min) pendant les premières semaines réduisait ce risque ; la fréquence est ensuite diminuée progressivement (vers 60-70/min). Le piège est de programmer d'emblée la fréquence habituelle. Réflexe : « pace and ablate » = fréquence de base haute au départ, à redescendre lors du contrôle suivant.",
+    "aRetenir": "Après ablation de la jonction AV, programmer une fréquence de base élevée (80-90/min) les premières semaines.",
+    "sources": [
+      {
+        "titre": "Geelen P et al. Ventricular fibrillation and sudden death after radiofrequency catheter ablation of the atrioventricular junction. Pacing Clin Electrophysiol 1997;20:343-348",
+        "url": "https://doi.org/10.1111/j.1540-8159.1997.tb06179.x"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "revise": "2026-09",
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ]
+  },
+  {
+    "id": "egm-pm-046",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Homme de 68 ans, stimulateur DDDR avec capteur accélérométrique. Il signale des palpitations lorsqu'il conduit son tracteur ; la télésurveillance montre des phases de stimulation AP-VP à 110-120/min, sans arythmie atriale. Quelle est l'explication la plus probable ?",
+    "options": [
+      "Tachycardie par réentrée électronique déclenchée par des ESV à l'effort",
+      "Sur-détection atriale de myopotentiels suivie jusqu'à la fréquence maximale",
+      "Asservissement déclenché par les vibrations, interprétées comme un effort",
+      "Tachycardie sinusale d'effort correctement suivie par le stimulateur"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : une TRE comporte des P rétrogrades détectées (AS), pas une stimulation atriale.",
+      "Faux : un suivi de myopotentiels donnerait des AS suivis de VP, pas des AP.",
+      "Juste : un accéléromètre détecte les vibrations mécaniques et les interprète comme une activité physique, d'où une stimulation atriale rapide.",
+      "Faux : une tachycardie sinusale serait détectée (AS), pas stimulée (AP)."
+    ],
+    "reponseAttendue": null,
+    "explication": "La clé est le marqueur : des AP à 110-120/min signifient que c'est le stimulateur qui impose la fréquence, ce qui, sans arythmie, renvoie au capteur. L'accéléromètre répond aux vibrations (tracteur, moto, trajets sur route pavée) autant qu'au mouvement du patient. On réduit la réactivité du capteur (seuil d'activité, pente) en vérifiant que la réponse reste adaptée à l'effort réel, et on explique le phénomène au patient. Réflexe : fréquence élevée en AP = capteur ; en AS = oreillette (sinus ou arythmie suivie).",
+    "aRetenir": "Tachycardie stimulée (AP) sans arythmie = asservissement : chercher ce qui stimule le capteur.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-047",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 6,
+    "question": "Affirmation : chez un patient porteur d'un stimulateur asservi à un capteur de ventilation minute (impédance transthoracique), une stimulation rapide inexpliquée en réanimation peut résulter d'une interaction avec un monitorage respiratoire par impédance.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : le signal de mesure d'impédance du moniteur peut être interprété par le capteur comme une hyperventilation, d'où une accélération de la stimulation.",
+      "Faux : cette interaction entre capteur de ventilation minute et monitorage par impédance est bien décrite."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les capteurs de ventilation minute mesurent les variations d'impédance transthoracique entre la sonde et le boîtier. Les moniteurs qui mesurent la fréquence respiratoire par impédance (électrodes ECG) injectent un courant qui peut être interprété par le capteur comme une ventilation accrue : le stimulateur accélère jusqu'à la fréquence maximale d'asservissement. D'autres situations modifient ce capteur (ventilation mécanique, hyperventilation). La solution est de désactiver temporairement l'asservissement ou de changer le mode de monitorage. Réflexe : en réanimation, une stimulation rapide en AP ou VP sans arythmie fait penser au capteur.",
+    "aRetenir": "Capteur de ventilation minute + monitorage par impédance = risque de stimulation rapide inappropriée.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-048",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Vendredi soir, alerte de télésurveillance : un stimulateur a atteint l'indicateur de remplacement électif (ERI/RRT). Patient de 85 ans en BAV complet, dépendant ; le prochain contrôle est prévu dans 5 mois. Que faites-vous ?",
+    "options": [
+      "Attendre le contrôle à 5 mois, la pile durant encore longtemps après l'ERI",
+      "Hospitaliser le patient en urgence la nuit même pour remplacer le boîtier",
+      "Diminuer la fréquence de base à 40/min pour prolonger la pile jusqu'au contrôle",
+      "Contacter le patient et programmer le remplacement dans les semaines à venir"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : la réserve après l'ERI est généralement de l'ordre de 3 mois ; attendre 5 mois expose à la fin de vie de la pile.",
+      "Faux : l'ERI n'est pas la fin de vie ; en l'absence de dysfonction, le remplacement est programmé, pas fait en urgence de nuit.",
+      "Faux : baisser la fréquence chez un patient dépendant est dangereux et n'est pas une stratégie.",
+      "Juste : l'ERI laisse une réserve limitée (de l'ordre de quelques mois selon le constructeur) ; un patient dépendant doit être remplacé sans tarder."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'indicateur de remplacement électif signale qu'il reste une réserve de fonctionnement limitée, habituellement de l'ordre de 3 mois selon le constructeur, avant la fin de vie (EOS) où la stimulation n'est plus garantie. La conduite est de joindre le patient, vérifier l'absence de dysfonction et planifier le remplacement rapidement, en priorité chez le patient dépendant. Au passage en ERI, certains appareils simplifient leur fonctionnement (mode, asservissement), ce qui peut entraîner des symptômes. Le consensus HRS 2023 range les alertes de pile parmi les alertes à traiter rapidement. Réflexe : ERI = remplacement programmé à brève échéance, pas au prochain contrôle.",
+    "aRetenir": "ERI : remplacement à programmer dans les semaines qui suivent, plus vite encore chez le dépendant.",
+    "sources": [
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      },
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ],
+    "reco": [
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-049",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Affirmation : au passage à l'indicateur de remplacement électif, certains stimulateurs double chambre basculent vers un mode simplifié (par exemple VVI) et désactivent l'asservissement, ce qui peut entraîner des symptômes.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : pour économiser l'énergie, de nombreux boîtiers modifient leur fonctionnement à l'ERI, avec perte possible du synchronisme AV et de l'asservissement.",
+      "Faux : ces modifications de comportement à l'ERI existent sur de nombreux boîtiers et sont décrites dans les manuels des constructeurs."
+    ],
+    "reponseAttendue": null,
+    "explication": "À l'ERI, de nombreux stimulateurs réduisent leur consommation : passage en mode simple chambre (souvent VVI), arrêt de l'asservissement et de certains algorithmes, fréquence parfois modifiée. Chez un patient qui bénéficiait du synchronisme AV, ce basculement peut provoquer un syndrome du stimulateur (fatigue, dyspnée, pulsations cervicales). Un patient qui appelle pour une fatigue nouvelle avec un boîtier ancien doit faire penser à l'ERI. Le comportement exact est propre à chaque modèle et décrit dans son manuel. Réflexe : symptômes nouveaux sur un boîtier ancien = interroger la pile.",
+    "aRetenir": "À l'ERI, un stimulateur peut passer en mode simplifié sans asservissement, source de symptômes.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-050",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 8,
+    "question": "Stimulateur DDD : délai AV après détection 180 ms, PVARP 300 ms, fréquence maximale de suivi 140/min. Un patient jeune décrit à l'effort une chute brutale de sa fréquence cardiaque, qui semble se diviser par deux, au lieu d'un plafonnement progressif. Expliquez le mécanisme et la correction.",
+    "reponseAttendue": "Période réfractaire atriale totale = délai AV + PVARP = 180 + 300 = 480 ms, soit un point de bloc 2:1 à 60 000 / 480 = 125/min, inférieur à la fréquence maximale de suivi (140/min). Dès que le sinus dépasse 125/min, une P sur deux tombe dans la PVARP : bloc 2:1 brutal (fréquence ventriculaire divisée par deux) sans phase de Wenckebach. Correction : raccourcir la PVARP et/ou activer le raccourcissement dynamique du délai AV pour que le point 2:1 soit au-dessus de la fréquence maximale (en vérifiant la conduction rétrograde et les protections anti-TRE).",
+    "explication": "Le comportement d'un DDD aux fréquences élevées dépend de deux limites : la fréquence maximale de suivi, qui produit un Wenckebach électronique, et le point de bloc 2:1, fixé par la période réfractaire atriale totale (délai AV + PVARP). Si le point 2:1 est plus bas que la fréquence maximale, la zone de Wenckebach disparaît et le patient passe brutalement d'un suivi 1:1 à un bloc 2:1, très symptomatique. Ici, 60 000 / 480 = 125/min < 140/min. Réflexe : à chaque réglage de la fréquence maximale, recalculer le point 2:1.",
+    "aRetenir": "Point de bloc 2:1 = 60 000 / (délai AV + PVARP) : il doit rester au-dessus de la fréquence maximale de suivi.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      },
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-051",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 5,
+    "question": "Comment évaluer en consultation la dépendance d'un patient à son stimulateur, en toute sécurité ?",
+    "reponseAttendue": "Sous ECG (et EGM/marqueurs), patient allongé : diminuer la fréquence de base par paliers (ex. de 10/min) en mode inhibé (VVI ou DDI), ou allonger le délai AV pour la conduction, en observant l'apparition d'un rythme propre et la tolérance ; interrompre immédiatement en l'absence d'échappement ou en cas de symptômes (restauration de la programmation). Conclure : dépendant si pas de rythme d'échappement satisfaisant. Noter le résultat dans le dossier (important pour IRM, chirurgie, changement de boîtier, extraction).",
+    "explication": "La dépendance se définit par l'absence de rythme d'échappement suffisant quand la stimulation s'arrête. On la recherche par une diminution progressive de la fréquence et non par une coupure brutale : l'échappement peut mettre plusieurs secondes à apparaître après une longue période de stimulation (suppression par overdrive), et une chute brutale expose à une asystolie prolongée. Le test est arrêté au premier signe d'intolérance. L'information change la conduite dans de nombreuses situations (mode IRM, préparation d'une chirurgie, remplacement, risque en cas de perte de capture). Réflexe : paliers progressifs, ECG, arrêt immédiat.",
+    "aRetenir": "Dépendance : baisser la fréquence par paliers sous ECG, arrêter au premier signe, noter le résultat.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-pm-052",
+    "theme": "programmation",
+    "sousTheme": "Consultation de contrôle : pièges de pratique",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 5,
+    "question": "Au contrôle d'un stimulateur DDD, l'amplitude des P mesurée est de 1,2 mV et la sensibilité atriale est programmée à 1,0 mV. Que pensez-vous de ce réglage et que faites-vous ?",
+    "reponseAttendue": "La marge de sécurité est insuffisante (1,2 / 1,0 ≈ 1,2) : les P varient avec la posture, la respiration, l'effort, et les ondes f de FA sont souvent plus petites, d'où un risque de sous-détection (stimulation atriale compétitive, mode switch manqué, charge en FA sous-estimée). Programmer une valeur offrant une marge d'au moins 2 (idéalement 3) : environ 0,4 à 0,6 mV (0,3 mV acceptable si le champ lointain n'est pas détecté), puis vérifier l'absence de détection de l'onde R lointaine (AR couplés au QRS) et de faux mode switch.",
+    "explication": "Une sensibilité programmée juste sous l'amplitude mesurée « fonctionne » le jour du contrôle mais ne tolère aucune variation. Or l'amplitude atriale fluctue beaucoup, et la FA génère des signaux plus petits et variables que les P sinusales : une détection atriale trop peu sensible fait manquer la FA, retarde ou empêche le mode switch et fausse les diagnostics. À l'inverse, une valeur trop basse expose au champ lointain, d'où la vérification après modification. Réflexe : marge de détection ×2 à ×3, contrôlée en rythme sinusal et, si possible, sur les EGM d'arythmie.",
+    "aRetenir": "Détection atriale : garder une marge ×2 à ×3 sous l'amplitude des P, puis vérifier le champ lointain.",
+    "sources": [
+      {
+        "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+        "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+      },
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010",
+        "url": null
+      }
+    ],
+    "revise": "2026-09"
+  }
+]

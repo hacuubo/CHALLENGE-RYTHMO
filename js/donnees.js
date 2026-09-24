@@ -28,7 +28,7 @@ export async function charger() {
   base.parId = new Map(base.questions.map(q => [q.id, q]));
 }
 
-export const aTrace = q => !!(q.ecg || q.ecg12);
+export const aTrace = q => !!(q.ecg || q.ecg12 || q.egm);
 
 export function filtrer(cfg) {
   return base.questions.filter(q =>

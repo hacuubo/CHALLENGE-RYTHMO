@@ -9,6 +9,9 @@ const PRESETS = ['sinus', 'bav1', 'bav2-m1', 'bav2-m2', 'bav2-21', 'bav3', 'paus
   'flutter', 'tsv', 'wpw', 'tv', 'torsades', 'fv', 'aai', 'vvi', 'ddd', 'vdd', 'crt', 'perte-capture-v',
   'perte-capture-a', 'sous-detection', 'sur-detection', 'ttre', 'fusion', 'asystolie'];
 
+// presets EGM lus dans js/egm.js (source unique)
+const PRESETS_EGM = [...fs.readFileSync(path.join(path.dirname(new URL(import.meta.url).pathname), '..', 'js', 'egm.js'), 'utf8')
+  .matchAll(/^  '?([a-z0-9-]+)'?\(S/gm)].map(m => m[1]);
 const dir = path.join(path.dirname(new URL(import.meta.url).pathname), '..', 'data', 'questions');
 let files = process.argv.slice(2);
 if (!files.length) {
@@ -54,6 +57,8 @@ for (const f of files) {
       if (q.type === 'vf' && q.reponses?.length !== 1) err(f, id, 'vf : 1 réponse');
     }
     if (q.ecg && !PRESETS.includes(q.ecg.preset)) err(f, id, 'preset ECG inconnu : ' + q.ecg.preset);
+    if (q.egm && !PRESETS_EGM.includes(q.egm.preset)) err(f, id, 'preset EGM inconnu : ' + q.egm.preset);
+    if ([q.ecg, q.ecg12, q.egm].filter(Boolean).length > 1) err(f, id, 'un seul tracé par question');
     if (q.ecg12) {
       const fe = path.join(dir, '..', 'ecg', `${q.ecg12.fichier}.json`);
       if (!fs.existsSync(fe)) err(f, id, 'fichier ECG 12 dérivations introuvable : ' + q.ecg12.fichier);

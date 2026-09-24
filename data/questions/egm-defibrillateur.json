@@ -1,0 +1,1993 @@
+[
+  {
+    "id": "egm-dai-001",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies appropriées",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Homme de 67 ans, cardiopathie ischémique (FEVG 30 %), DAI double chambre implanté en prévention secondaire pour une TV monomorphe à 170/min. Zone TV programmée à 375 ms (160/min) avec ATP puis chocs, zone FV à 250 ms (240/min). La télésurveillance transmet une alerte « thérapie délivrée » ; le patient, joint par téléphone, n'a rien ressenti. Comment interprétez-vous l'épisode ?",
+    "egm": {
+      "preset": "tv-atp",
+      "legende": "Épisode mémorisé — DAI double chambre"
+    },
+    "options": [
+      "Tachycardie sinusale conduite 1:1, traitée à tort par un ATP",
+      "TSV par réentrée nodale 1:1, interrompue par l'ATP délivré",
+      "TV monomorphe dissociée des oreillettes, réduite par un ATP",
+      "FA rapide conduite dans la zone TV, ATP resté sans effet"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : en tachycardie sinusale chaque V est précédé d'un A au même rythme ; ici il y a bien plus de V que de A.",
+      "Faux : une réentrée nodale donne une relation 1:1 (ou A ≥ V) ; ici les oreillettes battent à 75/min pendant que les ventricules battent à 180/min.",
+      "Juste : cycle V régulier à 330 ms, activité atriale sinusale indépendante à 800 ms (V > A), puis retour en rythme sinusal juste après les 8 impulsions.",
+      "Faux : l'EGM atrial montre des P sinusales régulières à 800 ms, pas une activité rapide et désorganisée."
+    ],
+    "reponseAttendue": null,
+    "explication": "La première lecture d'un épisode de DAI consiste à compter A et V et à regarder leur relation. Ici, le canal atrial montre des P sinusales à 800 ms (75/min) sans lien avec l'activité ventriculaire régulière à 330 ms (≈ 180/min) : il y a plus de V que de A, ce qui signe une TV dans l'immense majorité des cas. Le DAI détecte en zone TV (TS puis TD), délivre un ATP de 8 impulsions, et le rythme sinusal réapparaît aussitôt : la thérapie est appropriée et efficace. Le piège est de conclure à une thérapie inappropriée parce que le patient n'a rien senti : l'ATP est indolore, c'est justement son intérêt. Réflexe : compter A et V, puis vérifier ce qui se passe juste après la thérapie.",
+    "aRetenir": "Plus de V que de A et retour en sinusal juste après l'ATP : TV traitée de façon appropriée et efficace.",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires",
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-002",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies appropriées",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Homme de 67 ans, cardiopathie ischémique (FEVG 30 %), DAI double chambre implanté en prévention secondaire pour une TV monomorphe à 170/min. Zone TV programmée à 375 ms (160/min) avec ATP puis chocs, zone FV à 250 ms (240/min). En relisant cet épisode, quel élément établit le plus sûrement le diagnostic de TV ?",
+    "egm": {
+      "preset": "tv-atp",
+      "legende": "Épisode mémorisé — DAI double chambre"
+    },
+    "options": [
+      "Une activité ventriculaire plus rapide que l'activité atriale",
+      "Une fréquence ventriculaire nettement supérieure à 170/min",
+      "La parfaite régularité des cycles ventriculaires à 330 ms",
+      "La réduction de la tachycardie par l'ATP délivré"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : V > A (dissociation) signe une TV dans l'immense majorité des cas, les exceptions (jonctionnelle avec bloc rétrograde) étant rares.",
+      "Faux : la fréquence seule ne distingue pas TV et TSV ; une tachycardie sinusale ou une FA peuvent atteindre ces fréquences.",
+      "Faux : une TSV (flutter 2:1, réentrée) est aussi parfaitement régulière ; la régularité écarte surtout la FA.",
+      "Faux : un ATP peut aussi interrompre une TSV par réentrée ou un flutter ; son efficacité ne prouve pas l'origine ventriculaire."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le critère le plus robuste pour classer un épisode sur un DAI double chambre est la relation A/V. Quand les V sont plus nombreux que les A, comme ici (V à 330 ms, A sinusal à 800 ms), le diagnostic de TV est quasi certain. La fréquence et la régularité ne font pas la différence : une tachycardie sinusale, un flutter 2:1 ou une réentrée sont aussi rapides et réguliers. La réduction par ATP est un argument faible, car l'ATP interrompt aussi des TSV par réentrée. Réflexe : toujours commencer par la relation A/V avant de juger la morphologie ou la réponse à la thérapie.",
+    "aRetenir": "Sur un EGM double chambre, V > A = TV jusqu'à preuve du contraire ; la réponse à l'ATP ne prouve rien.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-003",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies appropriées",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Homme de 67 ans, cardiopathie ischémique (FEVG 30 %), DAI double chambre implanté en prévention secondaire pour une TV monomorphe à 170/min. Zone TV programmée à 375 ms (160/min) avec ATP puis chocs, zone FV à 250 ms (240/min). L'interne vous demande quel type d'ATP a été délivré sur cet épisode. Que lui répondez-vous ?",
+    "egm": {
+      "preset": "tv-atp",
+      "legende": "Épisode mémorisé — DAI double chambre"
+    },
+    "options": [
+      "Une rampe de 8 impulsions dont le cycle raccourcit de 10 ms à chaque impulsion",
+      "Une stimulation atriale rapide à 88 % du cycle, pour capturer l'oreillette",
+      "Une salve de 8 impulsions calée à 88 % du cycle sinusal atrial de 800 ms",
+      "Une salve (burst) de 8 impulsions à cycle fixe, environ 88 % du cycle de la TV"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : dans une rampe, les intervalles raccourcissent d'impulsion en impulsion ; ici, les impulsions successives restent espacées de 290 ms.",
+      "Faux : l'ATP est délivré sur le canal ventriculaire (TP sous la ligne), pas sur l'oreillette.",
+      "Faux : l'ATP est calculé sur le cycle de la tachycardie ventriculaire, pas sur le cycle atrial.",
+      "Juste : après la première impulsion, les marqueurs TP se succèdent tous les 290 ms, soit 88 % du cycle de 330 ms : c'est une salve (burst)."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les marqueurs TP montrent 8 impulsions ventriculaires qui se succèdent à cycle fixe de 290 ms, soit 88 % du cycle de la TV (330 ms) : c'est un ATP en salve (burst), le schéma validé par PainFREE Rx II et proposé par défaut par la plupart des constructeurs. La rampe se reconnaît à des intervalles qui raccourcissent au sein de la séquence. L'ATP ventriculaire se calcule toujours sur le cycle de la TV, jamais sur le cycle atrial. Réflexe : lire les intervalles entre les marqueurs de thérapie pour identifier le schéma délivré avant de le modifier.",
+    "aRetenir": "Intervalles TP identiques = burst ; intervalles qui raccourcissent = rampe.",
+    "sources": [
+      {
+        "titre": "Wathen MS et al. Prospective randomized multicenter trial of empirical antitachycardia pacing versus shocks for spontaneous rapid ventricular tachycardia in patients with implantable cardioverter-defibrillators (PainFREE Rx II). Circulation 2004;110:2591-2596",
+        "url": "https://doi.org/10.1161/01.CIR.0000145610.64014.E4"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-004",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies appropriées",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 5,
+    "question": "Homme de 67 ans, cardiopathie ischémique (FEVG 30 %), DAI double chambre implanté en prévention secondaire pour une TV monomorphe à 170/min. Zone TV programmée à 375 ms (160/min) avec ATP puis chocs, zone FV à 250 ms (240/min). Joint au téléphone, le patient se sent bien. C'est le premier épisode depuis l'implantation. Quelles conduites sont adaptées ?",
+    "egm": {
+      "preset": "tv-atp",
+      "legende": "Épisode mémorisé — DAI double chambre"
+    },
+    "options": [
+      "Remplacer l'ATP par un choc d'emblée, l'ATP pouvant accélérer la TV",
+      "L'adresser aux urgences pour un choc électrique externe de contrôle",
+      "Vérifier la dose de bêtabloquant et prévoir une consultation rapprochée",
+      "Relever la zone TV à 200/min pour éviter de nouvelles thérapies",
+      "Rechercher un facteur déclenchant : kaliémie, ischémie, décompensation, observance"
+    ],
+    "reponses": [
+      2,
+      4
+    ],
+    "commentaires": [
+      "Faux : l'ATP réduit la majorité des TV monomorphes sans douleur ; le risque d'accélération est faible et couvert par le choc qui suit.",
+      "Faux : la TV est réduite et le patient est en rythme sinusal ; un choc externe n'a aucun sens.",
+      "Juste : l'optimisation du traitement de fond et une consultation rapprochée sont la suite logique d'une TV traitée efficacement.",
+      "Faux : une zone à 200/min laisserait sa TV clinique (≈ 180/min) sans traitement.",
+      "Juste : toute TV traitée doit faire rechercher une cause favorisante corrigible."
+    ],
+    "reponseAttendue": null,
+    "explication": "Une TV réduite par un ATP chez un patient asymptomatique ne relève pas des urgences, mais elle ne doit pas être banalisée : il faut rechercher un facteur déclenchant (hypokaliémie, ischémie, poussée d'insuffisance cardiaque, arrêt du bêtabloquant) et revoir le traitement. Les pièges sont de sur-réagir (urgences, choc externe) ou de modifier la programmation à contresens : relever la zone au-dessus de la fréquence de la TV clinique la rendrait invisible, et supprimer l'ATP exposerait le patient à des chocs évitables. En prévention secondaire, la zone la plus lente reste sous la fréquence de la TV documentée. Réflexe : une TV réduite par ATP = rechercher la cause et optimiser le traitement, sans toucher à ce qui fonctionne.",
+    "aRetenir": "TV réduite par ATP chez un patient qui va bien : chercher la cause, optimiser le traitement, ne pas déprogrammer l'ATP.",
+    "sources": [
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires",
+      "HRS 2023 télésurveillance",
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-005",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies appropriées",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Homme de 67 ans, cardiopathie ischémique (FEVG 30 %), DAI double chambre implanté en prévention secondaire pour une TV monomorphe à 170/min. Zone TV programmée à 375 ms (160/min) avec ATP puis chocs, zone FV à 250 ms (240/min). Vrai ou faux : sur cet épisode, c'est le succès de l'ATP qui permet à lui seul d'affirmer qu'il s'agissait d'une TV et non d'une TSV.",
+    "egm": {
+      "preset": "tv-atp",
+      "legende": "Épisode mémorisé — DAI double chambre"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : un ATP peut aussi interrompre une réentrée supraventriculaire ou un flutter ; ce n'est pas un critère diagnostique.",
+      "Juste : c'est la dissociation V > A visible avant l'ATP qui fait le diagnostic, pas la réponse à la thérapie."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'argument décisif sur ce tracé est la relation A/V : les ventricules battent à 330 ms pendant que les oreillettes restent sinusales à 800 ms. La réduction par l'ATP confirme l'efficacité de la thérapie, pas le mécanisme : une réentrée nodale, une réentrée par voie accessoire ou un flutter peuvent aussi être interrompus par une stimulation ventriculaire rapide. Le piège est inverse aussi : un ATP inefficace n'exclut pas une TV. Réflexe : poser le diagnostic sur les EGM avant la thérapie (relation A/V, morphologie, démarrage), puis juger l'efficacité après.",
+    "aRetenir": "Le diagnostic se fait sur les EGM avant la thérapie ; la réponse à l'ATP ne classe pas le rythme.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-006",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies appropriées",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Homme de 67 ans, cardiopathie ischémique (FEVG 30 %), DAI double chambre implanté en prévention secondaire pour une TV monomorphe à 170/min. Zone TV programmée à 375 ms (160/min) avec ATP puis chocs, zone FV à 250 ms (240/min). Ce patient a présenté quatre épisodes identiques en un mois, tous réduits par le premier ATP malgré un bêtabloquant bien dosé. Un collègue propose de passer la zone TV en « surveillance seule » pour lui épargner ces thérapies. Quelle est la meilleure attitude ?",
+    "egm": {
+      "preset": "tv-atp",
+      "legende": "Épisode mémorisé — DAI double chambre"
+    },
+    "options": [
+      "Passer la zone TV en surveillance, la zone FV suffisant à le protéger",
+      "Garder l'ATP et discuter antiarythmique ou ablation de la TV",
+      "Remplacer l'ATP par un choc d'emblée, plus sûr en cas de récidive",
+      "Abaisser la zone TV à 130/min pour traiter les TV plus précocement"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : une TV à 180/min est sous la zone FV (240/min) ; en surveillance seule, elle ne serait plus traitée du tout.",
+      "Juste : les récidives de TV monomorphe chez un porteur de DAI doivent faire discuter l'escalade antiarythmique ou l'ablation, en gardant la thérapie efficace.",
+      "Faux : un choc d'emblée expose à des chocs douloureux évitables alors que l'ATP réduit ces TV à chaque fois.",
+      "Faux : une zone aussi basse capte la tachycardie sinusale d'effort et la FA, source de thérapies inappropriées."
+    ],
+    "reponseAttendue": null,
+    "explication": "Des TV monomorphes récidivantes, même bien réduites par ATP, témoignent d'un substrat actif : les recommandations ESC 2022 invitent à discuter l'ablation de la TV (ou l'escalade antiarythmique, en particulier l'amiodarone) chez le porteur de DAI qui récidive. Passer la zone TV en surveillance laisserait une TV à 180/min sans traitement, puisqu'elle est sous la zone FV : c'est un piège classique de « désescalade » dangereux. Remplacer l'ATP par un choc ou abaisser la zone augmenterait les chocs, appropriés ou non. Réflexe : quand l'ATP marche, on le garde, et on traite le substrat.",
+    "aRetenir": "TV récidivantes réduites par ATP : on garde l'ATP et on traite le substrat (antiarythmique, ablation).",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires",
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-007",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies appropriées",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Femme de 59 ans, cardiomyopathie dilatée (FEVG 25 %), DAI double chambre en prévention primaire. Son mari l'a trouvée au sol ; elle a repris connaissance en quelques secondes et se plaint d'avoir « reçu un coup dans la poitrine ». Aux urgences, vous interrogez le DAI. Comment interprétez-vous l'épisode ?",
+    "egm": {
+      "preset": "fv-choc",
+      "legende": "Épisode mémorisé — DAI double chambre"
+    },
+    "options": [
+      "Bruit de sonde détecté en zone FV, choc inapproprié",
+      "FV détectée en zone FV, charge puis choc efficace",
+      "TV monomorphe rapide réduite par un ATP en charge",
+      "FA rapide conduite en zone FV, choc inapproprié"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : un bruit de sonde n'apparaît que sur l'EGM VD ; ici l'EGM de choc montre aussi la FV.",
+      "Juste : activité ventriculaire rapide et désorganisée (cycles ≈ 200-240 ms) sur l'EGM VD et sur l'EGM de choc, charge, choc, puis stimulation.",
+      "Faux : l'activité est polymorphe et irrégulière, et aucun marqueur d'ATP n'apparaît ; c'est un choc qui l'a réduite.",
+      "Faux : l'activité ventriculaire est elle-même désorganisée, sur les deux canaux ventriculaires ; il ne s'agit pas de QRS conduits."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'épisode montre un passage brutal d'un rythme sinusal à une activité ventriculaire rapide, polymorphe et désorganisée, visible à la fois sur l'EGM VD et sur l'EGM de choc : c'est une FV, détectée en zone FV (marqueurs FS). Le DAI charge ses condensateurs (Chg) pendant que la FV persiste, puis délivre un choc (CD) qui la réduit. Le choc est donc approprié et efficace, et la syncope s'explique par la FV elle-même. Le piège est de conclure trop vite à un bruit de sonde devant des signaux très rapides : le bruit reste limité à l'EGM VD, alors qu'une FV se voit sur tous les canaux ventriculaires. Réflexe : confronter systématiquement l'EGM VD et l'EGM de choc.",
+    "aRetenir": "Activité désorganisée sur l'EGM VD ET l'EGM de choc = vraie FV ; limitée à l'EGM VD = bruit.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-008",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies appropriées",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Femme de 59 ans, cardiomyopathie dilatée (FEVG 25 %), DAI double chambre en prévention primaire. Son mari l'a trouvée au sol ; elle a repris connaissance en quelques secondes et se plaint d'avoir « reçu un coup dans la poitrine ». L'infirmière du service vous demande à quoi correspondent les derniers événements marqués VP, à la fin de l'enregistrement. Que lui répondez-vous ?",
+    "egm": {
+      "preset": "fv-choc",
+      "legende": "Épisode mémorisé — DAI double chambre"
+    },
+    "options": [
+      "Une stimulation asynchrone de sécurité imposée après chaque choc délivré",
+      "Un ATP de consolidation délivré automatiquement après la réduction",
+      "La stimulation d'une TV lente résiduelle, non reconnue par le DAI",
+      "Une stimulation de secours post-choc, en attendant un rythme propre"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : les VP sont espacés d'environ 1000 ms (60/min) et aucun signe de stimulation asynchrone n'apparaît ; c'est une stimulation antibradycardique.",
+      "Faux : un ATP est rapide (cycle proche de celui de la TV) ; des impulsions à 60/min sont une stimulation antibradycardique.",
+      "Faux : chaque VP est suivi d'un complexe stimulé, sans tachycardie sous-jacente ; il n'y a pas de TV résiduelle.",
+      "Juste : après un choc, le rythme propre peut être déprimé ; le DAI assure une stimulation de secours, souvent à amplitude majorée, selon la programmation post-choc."
+    ],
+    "reponseAttendue": null,
+    "explication": "Après un choc, le nœud sinusal et la conduction peuvent être transitoirement sidérés. Les DAI disposent d'une stimulation antibradycardique post-choc, programmable en fréquence, amplitude et durée, souvent à sortie majorée pour garantir la capture sur un myocarde choqué. Les VP à 1000 ms (60/min) correspondent à ce fonctionnement normal. Le piège est de les interpréter comme une thérapie anti-tachycardique supplémentaire ou comme une anomalie de détection. Réflexe : après un choc, vérifier la reprise d'un rythme propre et la capture de la stimulation post-choc.",
+    "aRetenir": "Des VP lents juste après un choc = stimulation post-choc, fonctionnement normal.",
+    "sources": [
+      {
+        "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. Wiley-Blackwell",
+        "url": null
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-009",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies appropriées",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Femme de 59 ans, cardiomyopathie dilatée (FEVG 25 %), DAI double chambre en prévention primaire. Son mari l'a trouvée au sol ; elle a repris connaissance en quelques secondes et se plaint d'avoir « reçu un coup dans la poitrine ». Elle est désormais consciente, en rythme sinusal, et demande à rentrer chez elle. Quelle est la conduite la plus adaptée ?",
+    "egm": {
+      "preset": "fv-choc",
+      "legende": "Épisode mémorisé — DAI double chambre"
+    },
+    "options": [
+      "Hospitaliser pour rechercher une cause aiguë (ischémie, ions, IC)",
+      "Laisser rentrer : le choc a été efficace, contrôle prévu à trois mois",
+      "Désactiver les chocs pour lui éviter un nouveau traumatisme",
+      "Débuter un antiarythmique de classe IC et la laisser rentrer"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : une FV avec syncope impose de rechercher une cause aiguë (syndrome coronarien, trouble ionique, décompensation) et de revoir le traitement.",
+      "Faux : un choc efficace ne dispense pas de chercher pourquoi la FV est survenue.",
+      "Faux : c'est précisément la thérapie qui vient de la sauver ; la désactiver serait une faute.",
+      "Faux : les antiarythmiques de classe IC sont contre-indiqués sur cardiopathie avec dysfonction VG."
+    ],
+    "reponseAttendue": null,
+    "explication": "Un choc approprié sur FV avec perte de connaissance n'est pas un « simple choc » : c'est un arrêt cardiaque récupéré grâce au DAI. Il faut hospitaliser pour rechercher une cause aiguë (ischémie, dyskaliémie, décompensation cardiaque, facteur médicamenteux), optimiser le traitement et discuter les restrictions de conduite prévues par la réglementation. Renvoyer la patiente au motif que « le DAI a fait son travail » est le piège de la sous-réaction. Les antiarythmiques de classe IC sont contre-indiqués sur cardiopathie structurelle. Réflexe : choc avec syncope, douleur ou chocs multiples = prise en charge hospitalière.",
+    "aRetenir": "Choc approprié avec syncope = hospitalisation et recherche d'une cause, même si tout est rentré dans l'ordre.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires",
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-010",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies appropriées",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 4,
+    "question": "Femme de 59 ans, cardiomyopathie dilatée (FEVG 25 %), DAI double chambre en prévention primaire. Son mari l'a trouvée au sol ; elle a repris connaissance en quelques secondes et se plaint d'avoir « reçu un coup dans la poitrine ». Vrai ou faux : un choc approprié et efficace, comme sur cet épisode, n'a pas de valeur pronostique propre : il montre seulement que le DAI fonctionne.",
+    "egm": {
+      "preset": "fv-choc",
+      "legende": "Épisode mémorisé — DAI double chambre"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : les chocs, appropriés comme inappropriés, sont associés à une surmortalité chez l'insuffisant cardiaque (SCD-HeFT).",
+      "Juste : un choc approprié est un marqueur de gravité de la cardiopathie, qui doit faire réévaluer toute la prise en charge."
+    ],
+    "reponseAttendue": null,
+    "explication": "Dans l'analyse de SCD-HeFT (Poole, 2008), les patients ayant reçu un choc approprié avaient une mortalité nettement plus élevée que ceux sans choc, et les chocs inappropriés étaient eux aussi associés à une surmortalité. Le choc approprié est donc un marqueur de progression de la maladie (et peut-être un facteur aggravant), pas un simple « test réussi » du DAI. C'est l'une des raisons pour lesquelles la programmation moderne cherche à éviter les chocs non nécessaires (ATP, durée de détection prolongée). Réflexe : après un choc, réévaluer l'insuffisance cardiaque, l'ischémie et le traitement de fond.",
+    "aRetenir": "Un choc, même approprié, est un signal de gravité qui impose de réévaluer la cardiopathie.",
+    "sources": [
+      {
+        "titre": "Poole JE et al. Prognostic importance of defibrillator shocks in patients with heart failure. N Engl J Med 2008;359:1009-1017",
+        "url": "https://doi.org/10.1056/NEJMoa071098"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-011",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies inappropriées et surdétection",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Homme de 71 ans, cardiomyopathie dilatée, DAI double chambre implanté en 2014 en prévention primaire. La programmation n'a jamais été revue : zone TV à 133/min (450 ms) avec ATP puis chocs, discriminateurs désactivés. La télésurveillance signale un épisode en zone TV. Comment interprétez-vous cet épisode ?",
+    "egm": {
+      "preset": "fa-conduite-zone-tv",
+      "legende": "Épisode mémorisé — DAI double chambre"
+    },
+    "options": [
+      "TV polymorphe avec conduction rétrograde vers l'oreillette",
+      "Flutter atrial conduit en 2:1, classé à juste titre en zone TV",
+      "FA à réponse ventriculaire rapide et irrégulière, classée à tort en TV",
+      "TV monomorphe associée à une FA (double tachycardie)"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : les EGM ventriculaires gardent une morphologie fine et constante d'un cycle à l'autre, et l'oreillette est plus rapide que le ventricule.",
+      "Faux : un flutter 2:1 donne des V réguliers ; ici les cycles V varient de 300 à 440 ms.",
+      "Juste : activité atriale rapide et désorganisée, V irréguliers entre 300 et 440 ms, morphologie identique sur les VS du début et les TS : FA conduite.",
+      "Faux : dans une double tachycardie, la TV est régulière et de morphologie différente ; ici les V sont irréguliers et inchangés."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'EGM atrial montre une activité rapide et désorganisée (intervalles A-A de 140 à 215 ms) : c'est une FA. Les ventricules suivent de manière irrégulière (300 à 440 ms), avec une morphologie identique sur les premiers VS et sur les cycles classés TS. Le DAI classe ces cycles en zone TV uniquement parce que la zone est programmée très bas (133/min) et que les discriminateurs sont désactivés : c'est une fausse détection de TV, source classique de thérapies inappropriées. Le piège est de lire « TV » sur le compteur sans regarder les EGM. Réflexe : A plus rapide que V + V irréguliers + morphologie inchangée = FA conduite.",
+    "aRetenir": "A > V, V irréguliers et morphologie inchangée : FA conduite dans la zone TV, pas une TV.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      },
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA",
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-012",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies inappropriées et surdétection",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Homme de 71 ans, cardiomyopathie dilatée, DAI double chambre implanté en 2014 en prévention primaire. La programmation n'a jamais été revue : zone TV à 133/min (450 ms) avec ATP puis chocs, discriminateurs désactivés. La télésurveillance signale un épisode en zone TV. Quels éléments de ce tracé permettent de reconnaître une détection inappropriée sur FA ?",
+    "egm": {
+      "preset": "fa-conduite-zone-tv",
+      "legende": "Épisode mémorisé — DAI double chambre"
+    },
+    "options": [
+      "Un démarrage par une ESV suivie d'une accélération brutale",
+      "Une irrégularité marquée des cycles ventriculaires",
+      "Une activité atriale plus rapide que l'activité ventriculaire",
+      "Une dissociation avec plus de V que de A",
+      "Des EGM ventriculaires de même morphologie sur les VS et sur les TS"
+    ],
+    "reponses": [
+      1,
+      2,
+      4
+    ],
+    "commentaires": [
+      "Faux : l'épisode ne débute pas par une ESV ; la FA est présente dès le début de l'enregistrement.",
+      "Juste : les cycles V varient de 300 à 440 ms, irrégularité typique de la FA.",
+      "Juste : A > V est le profil d'une tachycardie atriale conduite, ici une FA.",
+      "Faux : c'est l'inverse ; V > A orienterait vers une TV.",
+      "Juste : les premiers VS et les TS ont la même morphologie sur l'EGM VD et l'EGM de choc, en faveur d'une conduction supraventriculaire (à confirmer par comparaison au gabarit enregistré en rythme sinusal)."
+    ],
+    "reponseAttendue": null,
+    "explication": "Trois arguments classiques, lisibles sans algorithme, orientent vers une FA conduite : la relation A/V (A plus rapide que V), l'irrégularité des cycles ventriculaires et la morphologie ventriculaire inchangée d'un cycle à l'autre (et, pour le discriminateur, identique au gabarit du rythme sinusal). Ce sont précisément les critères qu'utilisent les discriminateurs (relation A/V, stabilité, morphologie). Un démarrage brutal par une ESV et une dissociation V > A seraient au contraire en faveur d'une TV. Réflexe : devant tout épisode « TV », vérifier ces trois critères avant de parler de thérapie appropriée.",
+    "aRetenir": "Relation A/V, régularité et morphologie : les trois clés pour démasquer une FA classée en TV.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-013",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies inappropriées et surdétection",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Homme de 71 ans, cardiomyopathie dilatée, DAI double chambre implanté en 2014 en prévention primaire. La programmation n'a jamais été revue : zone TV à 133/min (450 ms) avec ATP puis chocs, discriminateurs désactivés. La télésurveillance signale un épisode en zone TV. Parmi ces discriminateurs, lequel, s'il avait été actif, était le plus directement adapté pour rejeter ce type d'épisode ?",
+    "egm": {
+      "preset": "fa-conduite-zone-tv",
+      "legende": "Épisode mémorisé — DAI double chambre"
+    },
+    "options": [
+      "Le critère de démarrage brutal (onset)",
+      "Le critère « fréquence V supérieure à A »",
+      "Le délai de sécurité (« time-out ») de la TSV",
+      "La stabilité des cycles ventriculaires"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : la FA débute souvent brutalement ; le critère onset sert surtout à reconnaître la tachycardie sinusale, qui accélère progressivement.",
+      "Faux : V > A oriente vers la TV ; ici A > V, ce critère seul ne retient pas la thérapie, il faut y associer stabilité ou morphologie.",
+      "Faux : le time-out délivre la thérapie après une durée donnée même si le rythme est classé TSV ; il ne rejette rien.",
+      "Juste : la FA conduite donne des cycles V irréguliers ; le critère de stabilité la reconnaît, avec une efficacité qui baisse aux fréquences très rapides où la FA se régularise."
+    ],
+    "reponseAttendue": null,
+    "explication": "Chaque discriminateur vise une TSV particulière. La stabilité (régularité des cycles V) est le critère classique de la FA, qui conduit de manière irrégulière ; la morphologie est l'autre critère utile, en simple comme en double chambre. Le critère de démarrage progressif (onset) est conçu pour la tachycardie sinusale ; il est peu utile en FA, qui débute souvent brutalement. La relation « V > A » sert à affirmer une TV et ne suffit pas à rejeter une FA. Attention : aux fréquences très rapides, la FA se régularise et la stabilité perd en performance. Réflexe : connaître la cible de chaque discriminateur et vérifier sur les EGM mémorisés que ceux programmés couvrent les TSV du patient.",
+    "aRetenir": "Stabilité (et morphologie) contre la FA ; démarrage progressif contre la tachycardie sinusale.",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      },
+      {
+        "titre": "Gold MR et al. Prospective comparison of discrimination algorithms to prevent inappropriate ICD therapy: primary results of the Rhythm ID Going Head to Head Trial (RIGHT). Heart Rhythm 2012;9:370-377",
+        "url": "https://doi.org/10.1016/j.hrthm.2011.10.004"
+      },
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-014",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies inappropriées et surdétection",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Homme de 71 ans, cardiomyopathie dilatée, DAI double chambre implanté en 2014 en prévention primaire. La programmation n'a jamais été revue : zone TV à 133/min (450 ms) avec ATP puis chocs, discriminateurs désactivés. La télésurveillance signale un épisode en zone TV. Le patient n'a pas encore reçu de choc. Quelles mesures prenez-vous ?",
+    "egm": {
+      "preset": "fa-conduite-zone-tv",
+      "legende": "Épisode mémorisé — DAI double chambre"
+    },
+    "options": [
+      "Activer les discriminateurs TSV/TV pour les fréquences jusqu'à 230/min",
+      "Allonger la durée de détection (6 à 12 s ou environ 30 cycles)",
+      "Contrôler la fréquence de la FA et évaluer l'indication d'anticoagulation",
+      "Relever la zone la plus lente vers 185-200/min (prévention primaire)",
+      "Désactiver toutes les thérapies en attendant la consultation"
+    ],
+    "reponses": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "commentaires": [
+      "Juste : le consensus recommande des discriminateurs actifs jusqu'à 230/min.",
+      "Juste : une durée de détection prolongée réduit les thérapies inutiles sans surmortalité (MADIT-RIT, ADVANCE III).",
+      "Juste : la FA doit être prise en charge pour elle-même (fréquence, risque thrombo-embolique selon ESC 2024).",
+      "Juste : en prévention primaire, le consensus recommande une zone la plus lente entre 185 et 200/min.",
+      "Faux : désactiver les thérapies laisse un patient à haut risque sans protection ; il faut reprogrammer, pas désarmer."
+    ],
+    "reponseAttendue": null,
+    "explication": "Cette programmation date d'avant les consensus actuels. En prévention primaire, le consensus 2015 (confirmé en 2019) recommande une zone la plus lente entre 185 et 200/min, une durée de détection prolongée (6 à 12 s ou 30 cycles) et des discriminateurs TSV/TV actifs jusqu'à 230/min ; ces réglages réduisent les thérapies inappropriées et, dans MADIT-RIT, la mortalité. La FA elle-même doit être traitée : contrôle de fréquence (bêtabloquant), décision d'anticoagulation selon le score CHA2DS2-VA, discussion d'une stratégie de contrôle du rythme. Désactiver les thérapies serait une sur-réaction dangereuse. Réflexe : un épisode inapproprié est l'occasion de remettre toute la programmation aux standards actuels.",
+    "aRetenir": "FA en zone TV : traiter la FA et remettre la programmation au consensus (zone haute, durée longue, discriminateurs).",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      },
+      {
+        "titre": "Stiles MK et al. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      },
+      {
+        "titre": "Moss AJ et al. Reduction in inappropriate therapy and mortality through ICD programming (MADIT-RIT). N Engl J Med 2012;367:2275-2283",
+        "url": "https://doi.org/10.1056/NEJMoa1211107"
+      },
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA",
+      "Consensus 2019 programmation DAI",
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-015",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies inappropriées et surdétection",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Homme de 71 ans, cardiomyopathie dilatée, DAI double chambre implanté en 2014 en prévention primaire. La programmation n'a jamais été revue : zone TV à 133/min (450 ms) avec ATP puis chocs, discriminateurs désactivés. La télésurveillance signale un épisode en zone TV. Hier soir, il a reçu trois chocs sur ce type d'épisode. Il arrive aux urgences conscient, la FA persiste à 150-190/min et aucun programmateur n'est disponible avant une heure. Quelle est la première mesure ?",
+    "egm": {
+      "preset": "fa-conduite-zone-tv",
+      "legende": "Épisode mémorisé — DAI double chambre"
+    },
+    "options": [
+      "Cardioversion externe immédiate sans autre mesure préalable",
+      "Amiodarone IV seule, en laissant les thérapies du DAI actives",
+      "Poser un aimant sur le boîtier, sous scope, défibrillateur externe prêt",
+      "Laisser le DAI actif, les chocs finiront par réduire la FA"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : la cardioversion n'arrête pas les chocs inappropriés si la FA récidive, et elle impose d'évaluer le risque thrombo-embolique.",
+      "Faux : l'amiodarone agit en plusieurs heures ; pendant ce temps, les chocs inappropriés continuent.",
+      "Juste : l'aimant suspend la détection des tachycardies tant qu'il est en place ; la surveillance scopée et un défibrillateur externe assurent la sécurité.",
+      "Faux : les chocs n'ont pas réduit la FA et chaque choc inapproprié est douloureux et potentiellement pro-arythmique."
+    ],
+    "reponseAttendue": null,
+    "explication": "Devant des chocs inappropriés répétés chez un patient conscient, la priorité est d'arrêter les chocs. Sur la plupart des DAI, un aimant posé sur le boîtier suspend la détection et les thérapies anti-tachycardiques tant qu'il reste en place, sans modifier la stimulation ; le patient doit alors être scopé avec un défibrillateur externe à portée. On traite ensuite la FA (contrôle de fréquence, anticoagulation, cardioversion éventuelle après évaluation) et on reprogramme le DAI dès que possible. Le piège est d'attendre le programmateur ou de traiter la FA en laissant le DAI choquer. Réflexe : chocs répétés chez un patient conscient = aimant d'abord, sous surveillance.",
+    "aRetenir": "Chocs inappropriés en série chez un patient conscient : aimant sur le boîtier sous scope, puis traitement de la cause.",
+    "sources": [
+      {
+        "titre": "Jacob S et al. Clinical applications of magnets on cardiac rhythm management devices. Europace 2011;13:1222-1230",
+        "url": "https://doi.org/10.1093/europace/eur137"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      },
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA",
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-016",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies appropriées",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Homme de 52 ans, cardiomyopathie hypertrophique, DAI double chambre en prévention secondaire pour une TV documentée à 165/min. Zone TV à 400 ms (150/min), discriminateurs actifs. Il signale des palpitations en montant les escaliers. Le DAI n'a délivré aucune thérapie. Comment interprétez-vous cet épisode ?",
+    "egm": {
+      "preset": "tsv-1-1",
+      "legende": "Épisode mémorisé — DAI double chambre"
+    },
+    "options": [
+      "TV lente avec conduction rétrograde 1:1, non traitée à tort",
+      "Tachycardie sinusale d'effort, thérapie retenue à juste titre",
+      "Flutter atrial conduit 1:1, thérapie retenue à tort",
+      "Tachycardie jonctionnelle retenue par le critère de stabilité"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : en TV avec conduction rétrograde, le V précède l'A ; ici l'A précède toujours le V, avec une accélération progressive.",
+      "Juste : accélération progressive de 520 à 360 ms, chaque V précédé d'un A avec un intervalle A-V constant de 150 ms : tachycardie sinusale, correctement classée TSV.",
+      "Faux : un flutter 1:1 démarre brutalement à un cycle fixe ; ici la fréquence augmente progressivement comme lors d'un effort.",
+      "Faux : une tachycardie jonctionnelle ne s'accompagne pas d'une activation atriale précédant chaque V de 150 ms ni d'une accélération d'effort."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le tracé montre une accélération progressive (cycles de 520 à 360 ms), une relation 1:1 avec l'oreillette activée avant le ventricule et un intervalle A-V constant de 150 ms : c'est une tachycardie sinusale d'effort. Une fois dans la zone TV (cycles ≤ 400 ms), le DAI la classe TSV (marqueur SVT) et retient la thérapie : le fonctionnement est normal. Le piège est de croire à une TV non traitée ou de vouloir « corriger » le DAI. Réflexe : devant un épisode 1:1, regarder le démarrage (progressif ou brutal) et quelle cavité est activée en premier.",
+    "aRetenir": "Tachycardie 1:1 qui accélère progressivement, A avant V : tachycardie sinusale, thérapie retenue à juste titre.",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      },
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-017",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies appropriées",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Homme de 52 ans, cardiomyopathie hypertrophique, DAI double chambre en prévention secondaire pour une TV documentée à 165/min. Zone TV à 400 ms (150/min), discriminateurs actifs. Il signale des palpitations en montant les escaliers. Quel ensemble d'éléments de cet épisode a permis au DAI de retenir la thérapie ?",
+    "egm": {
+      "preset": "tsv-1-1",
+      "legende": "Épisode mémorisé — DAI double chambre"
+    },
+    "options": [
+      "Accélération progressive et association 1:1, A avant V, A-V constant",
+      "Irrégularité des cycles ventriculaires et fréquence atriale supérieure",
+      "Fréquence située au-dessus de la zone FV et QRS élargis sur l'EGM",
+      "Dissociation atrio-ventriculaire et démarrage brutal sur une ESV"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : un démarrage progressif et une association 1:1 avec un A-V stable sont les critères de la tachycardie sinusale.",
+      "Faux : irrégularité des cycles et A > V sont les critères de la FA ; ici, les cycles sont réguliers et A = V.",
+      "Faux : la fréquence (≈ 167/min) est dans la zone TV, et la morphologie ventriculaire ne change pas.",
+      "Faux : une dissociation et un démarrage brutal orienteraient au contraire vers une TV."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les discriminateurs d'un DAI double chambre combinent la relation A/V, le mode de démarrage, la stabilité et la morphologie. Ici, la tachycardie s'installe progressivement (critère onset négatif), l'association est 1:1 avec l'oreillette activée 150 ms avant chaque ventricule, et la morphologie ne change pas : l'algorithme conclut à une TSV. Irrégularité et A > V caractériseraient une FA ; dissociation et démarrage brutal, une TV. Réflexe : pour valider une décision du DAI, retrouver sur l'EGM les critères qu'il a utilisés.",
+    "aRetenir": "Démarrage progressif + 1:1 avec A-V stable : signature de la tachycardie sinusale pour les discriminateurs.",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      },
+      {
+        "titre": "Gold MR et al. Prospective comparison of discrimination algorithms to prevent inappropriate ICD therapy: primary results of the Rhythm ID Going Head to Head Trial (RIGHT). Heart Rhythm 2012;9:370-377",
+        "url": "https://doi.org/10.1016/j.hrthm.2011.10.004"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-018",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies appropriées",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 6,
+    "question": "Homme de 52 ans, cardiomyopathie hypertrophique, DAI double chambre en prévention secondaire pour une TV documentée à 165/min. Zone TV à 400 ms (150/min), discriminateurs actifs. Il signale des palpitations en montant les escaliers. Vrai ou faux : sur cet épisode, la conduite adaptée est de ne modifier ni la zone ni les discriminateurs, et de vérifier plutôt le traitement bêtabloquant et la tolérance à l'effort.",
+    "egm": {
+      "preset": "tsv-1-1",
+      "legende": "Épisode mémorisé — DAI double chambre"
+    },
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : le DAI a correctement retenu la thérapie ; la zone est cohérente avec la TV clinique à 165/min, c'est la tachycardie sinusale qu'il faut limiter.",
+      "Faux : désactiver les discriminateurs ou relever la zone au-dessus de 165/min exposerait à des chocs inappropriés ou à une TV non traitée."
+    ],
+    "reponseAttendue": null,
+    "explication": "La zone TV à 150/min est adaptée à ce patient en prévention secondaire (environ 10 à 15/min sous sa TV clinique à 165/min), et les discriminateurs ont fonctionné. Désactiver les discriminateurs exposerait à des chocs inappropriés sur la prochaine tachycardie sinusale ; relever la zone au-dessus de 165/min ferait ignorer sa TV. La bonne action est clinique : dose de bêtabloquant (également utile dans la CMH), conseils d'effort, éventuellement épreuve d'effort pour vérifier le comportement du DAI. Réflexe : quand le DAI a eu raison, on corrige la cause de la tachycardie, pas la programmation.",
+    "aRetenir": "Tachycardie sinusale correctement retenue : ne pas toucher à la programmation, agir sur la fréquence sinusale.",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      },
+      {
+        "titre": "Stiles MK et al. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires",
+      "Consensus 2019 programmation DAI",
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-019",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies inappropriées et surdétection",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Femme de 44 ans, DAI double chambre en prévention primaire (cardiomyopathie). Zone TV à 320 ms (188/min), zone FV à 250 ms (240/min). La télésurveillance signale des épisodes non soutenus répétés. Elle est asymptomatique. Comment interprétez-vous cet enregistrement ?",
+    "egm": {
+      "preset": "surdetection-t",
+      "legende": "Enregistrement transmis — DAI double chambre"
+    },
+    "options": [
+      "Surdétection de l'onde T avec double comptage ventriculaire",
+      "Bigéminisme ventriculaire à couplage fixe de 300 ms",
+      "Surdétection de l'onde R lointaine sur le canal atrial",
+      "TV non soutenue à 200/min interrompue spontanément"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : chaque VS est suivi 300 ms plus tard d'un TS qui coïncide avec l'onde T ample de l'EGM VD ; l'EGM de choc ne montre qu'un QRS par cycle.",
+      "Faux : l'EGM de choc ne montre aucune ESV, seulement des QRS sinusaux suivis de leur onde T.",
+      "Faux : le problème est sur le canal ventriculaire ; le canal atrial ne montre que des P sinusales à 769 ms.",
+      "Faux : il n'y a pas de tachycardie ; le rythme sinusal à 78/min est stable du début à la fin."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le rythme est sinusal à 78/min (A-A 769 ms), avec un QRS par P sur l'EGM de choc. Pourtant, le canal ventriculaire compte deux événements par cycle : le QRS (VS) puis, 300 ms plus tard, l'onde T ample de l'EGM VD (TS). Les intervalles V-V alternent 469 / 300 ms, signature typique d'un double comptage. Le risque est une détection inappropriée de TV ou de FV, surtout à l'effort. Réflexe : devant des intervalles courts-longs alternés, superposer le marqueur sur l'EGM de choc et chercher ce que le DAI a compté.",
+    "aRetenir": "Intervalles V-V alternés court-long en rythme sinusal = double comptage (onde T) jusqu'à preuve du contraire.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implantable cardioverter-defibrillator sensing problems II. Circ Arrhythm Electrophysiol 2015;8:212-220",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002514"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-020",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies inappropriées et surdétection",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Femme de 44 ans, DAI double chambre en prévention primaire (cardiomyopathie). Zone TV à 320 ms (188/min), zone FV à 250 ms (240/min). La télésurveillance signale des épisodes non soutenus répétés. Elle est asymptomatique. Quel élément du tracé permet de trancher entre un double comptage et de vraies ESV ?",
+    "egm": {
+      "preset": "surdetection-t",
+      "legende": "Enregistrement transmis — DAI double chambre"
+    },
+    "options": [
+      "Le marqueur TS, qui prouve un vrai événement ventriculaire",
+      "L'EGM de choc ne montre qu'un QRS par cycle, sans ESV",
+      "L'intervalle A-A de 769 ms, qui exclut toute tachycardie",
+      "La faible amplitude de l'onde R sur l'EGM de la sonde VD"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : le marqueur indique ce que le DAI a compté, pas ce qui s'est réellement passé ; c'est justement lui qui est en cause.",
+      "Juste : l'EGM de choc, champ lointain proche d'un ECG, montre un seul QRS par cycle : le deuxième événement compté est l'onde T.",
+      "Faux : un rythme sinusal régulier est compatible avec un bigéminisme ventriculaire ; il ne tranche pas.",
+      "Faux : une onde R faible favorise la surdétection de l'onde T, mais ne prouve pas l'absence d'ESV."
+    ],
+    "reponseAttendue": null,
+    "explication": "Pour savoir si un événement compté est réel, il faut une deuxième source d'information que la sonde en cause. L'EGM de choc (boîtier-coil) enregistre en champ lointain et ressemble à un ECG : il montre ici un seul QRS par cycle, suivi de son onde T. Le second marqueur ventriculaire ne correspond donc à aucune dépolarisation : c'est l'onde T ample de l'EGM VD qui est détectée. Le marqueur, lui, reflète l'interprétation du DAI et ne peut pas valider sa propre erreur. Réflexe : toujours confronter l'EGM de détection à l'EGM de choc.",
+    "aRetenir": "L'EGM de choc sert d'arbitre : un QRS par cycle = le second événement compté est un artefact ou une onde T.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implantable cardioverter-defibrillator sensing problems II. Circ Arrhythm Electrophysiol 2015;8:212-220",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002514"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-021",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies inappropriées et surdétection",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Femme de 44 ans, DAI double chambre en prévention primaire (cardiomyopathie). Zone TV à 320 ms (188/min), zone FV à 250 ms (240/min). La télésurveillance signale des épisodes non soutenus répétés. Elle est asymptomatique. Quelles mesures correctrices sont pertinentes ?",
+    "egm": {
+      "preset": "surdetection-t",
+      "legende": "Enregistrement transmis — DAI double chambre"
+    },
+    "options": [
+      "Activer ou ajuster l'algorithme de rejet de l'onde T, selon le constructeur",
+      "Réduire la sensibilité en vérifiant que la FV reste bien détectée",
+      "Augmenter la sensibilité pour mieux détecter le QRS de faible amplitude",
+      "Rechercher une dyskaliémie ou une autre cause métabolique",
+      "Abaisser la zone TV pour reconnaître plus tôt les vrais épisodes"
+    ],
+    "reponses": [
+      0,
+      1,
+      3
+    ],
+    "commentaires": [
+      "Juste : la plupart des constructeurs proposent un rejet de l'onde T ou un réglage du seuil de départ et de la décroissance de la sensibilité.",
+      "Juste : réduire la sensibilité peut supprimer la détection de l'onde T, à condition de ne pas compromettre la détection de la FV.",
+      "Faux : rendre le DAI plus sensible aggraverait la détection de l'onde T.",
+      "Juste : une hyperkaliémie peut rendre l'onde T ample et pointue et favoriser sa surdétection.",
+      "Faux : abaisser la zone TV augmenterait encore le risque de classer le double comptage en tachycardie."
+    ],
+    "reponseAttendue": null,
+    "explication": "La correction d'une surdétection de l'onde T suit un ordre : éliminer une cause réversible (hyperkaliémie, trouble métabolique, médicament allongeant le QT), puis agir sur la détection. Les options sont l'algorithme de rejet de l'onde T propre à chaque constructeur, le réglage du seuil de départ et de la pente de décroissance de la sensibilité, la réduction de la sensibilité maximale (en s'assurant que la FV reste détectée), voire un autre vecteur de détection si la sonde le permet. Si l'onde R est trop faible pour trouver un réglage sûr, une révision de sonde se discute. Augmenter la sensibilité ou abaisser la zone TV aggraverait le problème. Réflexe : corriger la cause, puis la détection, sans jamais sacrifier la détection de la FV.",
+    "aRetenir": "Surdétection de l'onde T : cause métabolique, rejet de l'onde T, sensibilité réduite prudemment, sans perdre la détection de la FV.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implantable cardioverter-defibrillator sensing problems II. Circ Arrhythm Electrophysiol 2015;8:212-220",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002514"
+      },
+      {
+        "titre": "Barold SS, Herweg B. The effect of hyperkalaemia on cardiac rhythm devices. Europace 2014;16:467-476",
+        "url": "https://doi.org/10.1093/europace/eut383"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-022",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies inappropriées et surdétection",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Femme de 44 ans, DAI double chambre en prévention primaire (cardiomyopathie). Zone TV à 320 ms (188/min), zone FV à 250 ms (240/min). La télésurveillance signale des épisodes non soutenus répétés. Elle est asymptomatique. L'amplitude de l'onde R mesurée sur la sonde VD a baissé de 9 à 3 mV en deux ans. Pourquoi cette baisse favorise-t-elle ce phénomène ?",
+    "egm": {
+      "preset": "surdetection-t",
+      "legende": "Enregistrement transmis — DAI double chambre"
+    },
+    "options": [
+      "Une onde R faible allonge la période réfractaire ventriculaire du DAI",
+      "Une onde R faible majore l'impédance et donc l'amplitude de l'onde T",
+      "La sensibilité auto-ajustable repart d'une fraction de l'onde R précédente",
+      "Le DAI passe en sensibilité fixe maximale dès que R descend sous 5 mV"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : les périodes réfractaires sont programmées et ne dépendent pas de l'amplitude de l'onde R.",
+      "Faux : l'impédance de la sonde n'a pas de lien direct avec l'amplitude de l'onde T détectée.",
+      "Juste : le seuil de détection après chaque QRS est calculé à partir de l'amplitude de l'onde R ; si R est faible, le seuil est bas et l'onde T le franchit.",
+      "Faux : il n'existe pas de bascule générique de ce type ; la sensibilité reste auto-ajustable selon les règles du constructeur."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les DAI utilisent une sensibilité auto-ajustable : après chaque événement détecté, le seuil repart d'une fraction de l'amplitude de l'onde R, puis décroît jusqu'à la sensibilité maximale programmée. Si l'onde R est ample, le seuil reste haut pendant la repolarisation et l'onde T n'est pas vue. Si l'onde R diminue (maturation, fibrose, déplacement de sonde), le seuil de départ baisse et l'onde T, relativement ample, peut le franchir. Une chute progressive de l'onde R est donc un signal à surveiller, qui peut conduire à une révision de sonde. Réflexe : devant une surdétection de l'onde T, toujours regarder la tendance de l'onde R.",
+    "aRetenir": "Onde R qui baisse = seuil auto-ajustable plus bas = onde T détectée ; surveiller la tendance de l'onde R.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      },
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implantable cardioverter-defibrillator sensing problems II. Circ Arrhythm Electrophysiol 2015;8:212-220",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002514"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-023",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies inappropriées et surdétection",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Homme de 63 ans, DAI double chambre implanté il y a 9 ans. Troisième alerte de télésurveillance en une semaine : « épisode FV non soutenu ». Il n'a ressenti aucun choc. Comment interprétez-vous cet épisode ?",
+    "egm": {
+      "preset": "bruit-sonde",
+      "legende": "Épisode transmis — DAI double chambre"
+    },
+    "options": [
+      "FV non soutenue, arrêtée spontanément avant la charge",
+      "Myopotentiels pectoraux détectés sur le vecteur de choc",
+      "Surdétection de l'onde T avec double comptage ventriculaire",
+      "Signaux non physiologiques sur la sonde VD, évoquant une fracture"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : une FV serait visible sur l'EGM de choc et interromprait le rythme sinusal ; ici, les QRS continuent normalement.",
+      "Faux : les myopotentiels se voient surtout sur les vecteurs incluant le boîtier ; ici l'EGM de choc est parfaitement propre.",
+      "Faux : les signaux n'ont aucun lien avec l'onde T et sont bien plus rapides qu'un double comptage.",
+      "Juste : salves de signaux très rapides et irréguliers sur l'EGM VD seul, EGM de choc normal, rythme sinusal conservé : bruit de sonde."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les salves de signaux à intervalles de 80 à 160 ms, anarchiques, n'apparaissent que sur l'EGM VD bipolaire, alors que l'EGM de choc montre un rythme sinusal régulier et que le canal atrial reste sinusal : c'est un bruit non physiologique. Chez un patient implanté depuis 9 ans, la première hypothèse est une rupture du conducteur ou de l'isolant de la sonde VD ; un problème de connexion est possible surtout près de l'implantation. Les alertes répétées de « FV non soutenue » sont un mode de révélation classique. Le piège est de classer ces épisodes comme de vraies arythmies non soutenues. Réflexe : un signal que l'on ne voit que sur un canal n'est pas cardiaque.",
+    "aRetenir": "Signaux très rapides sur l'EGM VD seul avec EGM de choc normal : bruit de sonde, penser fracture.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implantable cardioverter-defibrillator sensing problems II. Circ Arrhythm Electrophysiol 2015;8:212-220",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002514"
+      },
+      {
+        "titre": "Swerdlow CD et al. Downloadable software algorithm reduces inappropriate shocks caused by implantable cardioverter-defibrillator lead fractures: a prospective study. Circulation 2010;122:1449-1455",
+        "url": "https://doi.org/10.1161/CIRCULATIONAHA.110.962407"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-024",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies inappropriées et surdétection",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Homme de 63 ans, DAI double chambre implanté il y a 9 ans. Troisième alerte de télésurveillance en une semaine : « épisode FV non soutenu ». Il n'a ressenti aucun choc. Quel argument du tracé est le plus en faveur d'un bruit de sonde plutôt que d'une FV ?",
+    "egm": {
+      "preset": "bruit-sonde",
+      "legende": "Épisode transmis — DAI double chambre"
+    },
+    "options": [
+      "Les salves s'arrêtent spontanément en quelques secondes",
+      "La fréquence des signaux dépasse largement 250/min",
+      "Les signaux sont absents de l'EGM de choc, qui reste sinusal",
+      "Il n'y a pas d'activité atriale rapide associée"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : une FV peut aussi être non soutenue et s'arrêter spontanément.",
+      "Faux : une FV peut être très rapide ; c'est plutôt le caractère non physiologique (intervalles < 160 ms) qui compte.",
+      "Juste : une FV se voit sur tous les vecteurs ventriculaires ; un signal limité à l'EGM VD avec des QRS sinusaux intacts sur l'EGM de choc est un artefact.",
+      "Faux : l'absence de FA n'aide pas à distinguer une FV d'un bruit de sonde."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le critère décisif est la comparaison des canaux : la FV est une activité électrique du myocarde, visible sur l'EGM de la sonde VD comme sur l'EGM de choc. Un bruit généré par la sonde reste limité au dipôle défaillant, pendant que les autres canaux montrent un rythme sinusal intact. Des intervalles très courts (moins de 150-160 ms, en dessous de la réfractarité myocardique) renforcent le diagnostic. La durée et l'arrêt spontané ne départagent pas. Réflexe : chercher la continuité du rythme sinusal sur l'EGM de choc pendant les salves.",
+    "aRetenir": "Rythme sinusal intact sur l'EGM de choc pendant les salves = bruit, pas FV.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implantable cardioverter-defibrillator sensing problems II. Circ Arrhythm Electrophysiol 2015;8:212-220",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002514"
+      },
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-025",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies inappropriées et surdétection",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Homme de 63 ans, DAI double chambre implanté il y a 9 ans. Troisième alerte de télésurveillance en une semaine : « épisode FV non soutenu ». Il n'a ressenti aucun choc. L'impédance de stimulation VD est à 520 Ω, stable sur la courbe de tendance. Quelle est votre conduite ?",
+    "egm": {
+      "preset": "bruit-sonde",
+      "legende": "Épisode transmis — DAI double chambre"
+    },
+    "options": [
+      "Impédance normale : ce sont des interférences, simple surveillance",
+      "Réduire la sensibilité VD et revoir le patient dans six mois",
+      "Allonger la durée de détection et conclure à un artefact isolé",
+      "Une impédance normale n'exclut pas une fracture : révision rapide"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : des interférences extérieures touchent en général plusieurs canaux ; un bruit localisé à la sonde VD et récidivant signe un défaut de sonde.",
+      "Faux : réduire la sensibilité masque le problème sans le corriger, et une fracture peut évoluer vers la perte de stimulation ou de détection.",
+      "Faux : c'est une mesure temporaire au mieux ; la sonde reste défaillante et le risque de chocs inappropriés persiste.",
+      "Juste : l'impédance peut rester normale au début d'une fracture ou lors d'une rupture intermittente ; le bruit suffit à poser le diagnostic."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le bruit non physiologique est souvent le premier signe d'une fracture, avant toute anomalie d'impédance. Une impédance normale et stable ne permet donc pas d'éliminer le diagnostic. Les tests de provocation (manœuvres du bras, pression sur la loge) en EGM temps réel, la radiographie et les compteurs de cycles courts aident, mais la conduite est la révision rapide de la sonde (nouvelle sonde, avec ou sans extraction). Se contenter d'une reprogrammation (sensibilité, durée de détection) expose à des chocs inappropriés et à une perte de fonction. Réflexe : bruit de sonde avéré = révision, même avec des mesures normales.",
+    "aRetenir": "Bruit de sonde avec impédance normale : on ne se rassure pas, on programme une révision rapide.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implantable cardioverter-defibrillator sensing problems II. Circ Arrhythm Electrophysiol 2015;8:212-220",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002514"
+      },
+      {
+        "titre": "Swerdlow CD et al. Downloadable software algorithm reduces inappropriate shocks caused by implantable cardioverter-defibrillator lead fractures: a prospective study. Circulation 2010;122:1449-1455",
+        "url": "https://doi.org/10.1161/CIRCULATIONAHA.110.962407"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-026",
+    "theme": "programmation",
+    "sousTheme": "EGM de défibrillateur : thérapies inappropriées et surdétection",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Homme de 63 ans, DAI double chambre implanté il y a 9 ans. Troisième alerte de télésurveillance en une semaine : « épisode FV non soutenu ». Il n'a ressenti aucun choc. La révision de sonde est programmée dans 48 heures. Quelle mesure est la plus sûre en attendant ?",
+    "egm": {
+      "preset": "bruit-sonde",
+      "legende": "Épisode transmis — DAI double chambre"
+    },
+    "options": [
+      "Renvoyer à domicile, l'alerte d'intégrité de sonde suffisant à le protéger",
+      "Hospitaliser sous scope avec détection ajustée ou suspendue",
+      "Programmer une stimulation VOO pour éviter toute inhibition par le bruit",
+      "Renvoyer à domicile en réglant la sensibilité VD au minimum possible"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : une alerte d'intégrité aide au diagnostic et peut prolonger la détection, mais ne supprime pas le risque de chocs inappropriés.",
+      "Juste : sous surveillance scopée avec défibrillateur externe, on peut limiter le risque de chocs inappropriés sans laisser le patient sans protection.",
+      "Faux : ce patient a un rythme propre ; une stimulation asynchrone serait compétitive et ne règle pas le risque de chocs.",
+      "Faux : une sensibilité très réduite peut faire manquer une vraie FV, sans garantir la disparition du bruit."
+    ],
+    "reponseAttendue": null,
+    "explication": "Une fracture de sonde de DAI expose à deux dangers : des chocs inappropriés en série (souvent très mal vécus) et, chez le patient dépendant, une inhibition de la stimulation. En attendant la révision, la solution la plus sûre est de garder le patient sous surveillance scopée, avec un défibrillateur externe à disposition, et de reprogrammer la détection (allongement ou suspension selon le contexte). Renvoyer le patient à domicile avec une simple reprogrammation revient à parier que le bruit ne déclenchera pas de choc. Réflexe : bruit de sonde = situation semi-urgente, on ne se contente pas de reprogrammer.",
+    "aRetenir": "Fracture de sonde de DAI : surveillance hospitalière et révision rapide, pas de simple reprogrammation.",
+    "sources": [
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implantable cardioverter-defibrillator sensing problems II. Circ Arrhythm Electrophysiol 2015;8:212-220",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002514"
+      },
+      {
+        "titre": "Swerdlow CD et al. Downloadable software algorithm reduces inappropriate shocks caused by implantable cardioverter-defibrillator lead fractures: a prospective study. Circulation 2010;122:1449-1455",
+        "url": "https://doi.org/10.1161/CIRCULATIONAHA.110.962407"
+      },
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      }
+    ],
+    "reco": [
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-027",
+    "theme": "programmation",
+    "sousTheme": "Défibrillateur : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Homme de 69 ans, CRT-D pour cardiomyopathie ischémique (FEVG 28 %, BBG), NYHA II-III. Au contrôle, le compteur affiche 68 % de stimulation biventriculaire. Quelle est la cause de la perte de resynchronisation visible sur ce tracé ?",
+    "egm": {
+      "preset": "crt-perte-biv",
+      "legende": "Enregistrement en consultation — CRT-D",
+      "appareil": "dai"
+    },
+    "options": [
+      "Des ESV fréquentes qui inhibent la stimulation BV un cycle sur trois",
+      "Une conduction AV spontanée plus rapide que le délai AV programmé",
+      "Une perte de capture VG avec stimulation VD seule persistante",
+      "Un suivi atrial limité par la fréquence maximale de suivi"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : un cycle sur trois, un complexe large, différent, est détecté (VS) avant la stimulation BV : ESV en trigéminisme.",
+      "Faux : les complexes détectés ont une morphologie différente des QRS conduits ; ils ne sont pas liés au délai AV.",
+      "Faux : les cycles stimulés (BV) ont une morphologie constante ; ce sont les cycles VS qui manquent la stimulation.",
+      "Faux : la fréquence sinusale est de 75/min (800 ms), bien en dessous de toute fréquence maximale de suivi."
+    ],
+    "reponseAttendue": null,
+    "explication": "Sur ce tracé, le rythme sinusal est régulier à 75/min et suivi d'une stimulation BV, sauf un cycle sur trois : un complexe ventriculaire de morphologie différente, large sur l'EGM de choc, est détecté (VS) avant la stimulation prévue, qui est inhibée. Ce sont des ESV en trigéminisme, qui expliquent à elles seules un pourcentage de stimulation BV proche de 67 %. Le piège est d'attribuer la baisse à un délai AV trop long et de le raccourcir sans effet. Réflexe : devant un pourcentage BV bas, identifier la cause (ESV, FA, conduction AV, fréquence maximale) avant de toucher aux réglages.",
+    "aRetenir": "Pourcentage BV bas : identifier la cause (ESV, FA, conduction AV) avant de modifier la programmation.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Hayes DL et al. Cardiac resynchronization therapy and the relationship of percent biventricular pacing to symptoms and survival. Heart Rhythm 2011;8:1469-1475",
+        "url": "https://doi.org/10.1016/j.hrthm.2011.04.015"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-028",
+    "theme": "programmation",
+    "sousTheme": "Défibrillateur : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Homme de 69 ans, CRT-D pour cardiomyopathie ischémique (FEVG 28 %, BBG), NYHA II-III. Au contrôle, le compteur affiche 68 % de stimulation biventriculaire. Quel pourcentage de stimulation biventriculaire faut-il viser chez ce patient ?",
+    "egm": {
+      "preset": "crt-perte-biv",
+      "legende": "Enregistrement en consultation — CRT-D",
+      "appareil": "dai"
+    },
+    "options": [
+      "Au moins 90 %",
+      "Au moins 85 %",
+      "Au moins 75 %",
+      "Au moins 98 %"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : 90 % paraît élevé mais reste associé à un bénéfice moindre que ≥ 98 %.",
+      "Faux : à 85 %, une part importante des cycles n'est pas resynchronisée.",
+      "Faux : 75 % est nettement insuffisant, proche de la situation de ce patient.",
+      "Juste : le bénéfice clinique et la survie sont maximaux au-delà de 98 % de stimulation BV (Hayes, 2011)."
+    ],
+    "reponseAttendue": null,
+    "explication": "Dans la grande cohorte de télésurveillance analysée par Hayes et al., la réduction de mortalité la plus importante était observée pour un pourcentage de stimulation BV supérieur à 98 %, avec un gradient continu : chaque point perdu compte. Un pourcentage de 90 % paraît rassurant mais ne l'est pas. Les recommandations ESC 2021 insistent sur la nécessité d'une stimulation BV aussi proche que possible de 100 %. Réflexe : considérer tout pourcentage BV inférieur à 98 % comme un problème à expliquer.",
+    "aRetenir": "Objectif de stimulation biventriculaire : au moins 98 %, idéalement proche de 100 %.",
+    "sources": [
+      {
+        "titre": "Hayes DL et al. Cardiac resynchronization therapy and the relationship of percent biventricular pacing to symptoms and survival. Heart Rhythm 2011;8:1469-1475",
+        "url": "https://doi.org/10.1016/j.hrthm.2011.04.015"
+      },
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-029",
+    "theme": "programmation",
+    "sousTheme": "Défibrillateur : pièges de pratique",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Homme de 69 ans, CRT-D pour cardiomyopathie ischémique (FEVG 28 %, BBG), NYHA II-III. Au contrôle, le compteur affiche 68 % de stimulation biventriculaire. Quelles actions sont adaptées pour restaurer la resynchronisation ?",
+    "egm": {
+      "preset": "crt-perte-biv",
+      "legende": "Enregistrement en consultation — CRT-D",
+      "appareil": "dai"
+    },
+    "options": [
+      "Allonger le délai AV pour favoriser la conduction spontanée",
+      "Discuter l'ablation des ESV si elles sont fréquentes et monomorphes",
+      "Compter sur la stimulation déclenchée sur VS pour corriger le problème",
+      "Se satisfaire de 68 % puisque le patient reste en classe NYHA II-III",
+      "Quantifier la charge en ESV (Holter) et corriger une dyskaliémie"
+    ],
+    "reponses": [
+      1,
+      4
+    ],
+    "commentaires": [
+      "Faux : allonger le délai AV favoriserait la conduction spontanée et réduirait encore la stimulation BV.",
+      "Juste : l'ablation d'ESV fréquentes qui limitent la stimulation BV est une option reconnue chez le patient resynchronisé.",
+      "Faux : la stimulation déclenchée sur VS tombe dans une ESV déjà en cours ; elle améliore le compteur, pas la resynchronisation.",
+      "Faux : un pourcentage de 68 % prive le patient d'une grande partie du bénéfice de la CRT.",
+      "Juste : la quantification et la correction des facteurs favorisants sont la première étape."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les ESV fréquentes sont une cause majeure de perte de stimulation BV. La démarche consiste à quantifier leur charge (Holter, compteurs), corriger les facteurs favorisants (kaliémie, magnésémie, ischémie, décompensation), optimiser le traitement médical (bêtabloquant, amiodarone si besoin), et discuter l'ablation si les ESV sont fréquentes et monomorphes. La stimulation déclenchée sur événement détecté (« trigger ») fait remonter le compteur BV sans resynchroniser réellement, puisque l'impulsion tombe dans un complexe déjà amorcé : c'est un piège classique. Réflexe : juger la resynchronisation sur la qualité réelle des cycles, pas sur le compteur seul.",
+    "aRetenir": "ESV qui limitent la CRT : quantifier, corriger, traiter (médicaments, ablation) ; la stimulation déclenchée ne resynchronise pas.",
+    "sources": [
+      {
+        "titre": "2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      },
+      {
+        "titre": "Hayes DL et al. Cardiac resynchronization therapy and the relationship of percent biventricular pacing to symptoms and survival. Heart Rhythm 2011;8:1469-1475",
+        "url": "https://doi.org/10.1016/j.hrthm.2011.04.015"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-030",
+    "theme": "programmation",
+    "sousTheme": "Défibrillateur : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 3,
+    "question": "Un dimanche après-midi, un patient porteur de DAI appelle le service : il a ressenti un choc il y a une heure, sans perte de connaissance, et il se sent bien. Que lui conseillez-vous ?",
+    "options": [
+      "Transmettre à distance et être revu rapidement, sans urgence vitale",
+      "Appeler le SAMU immédiatement, même s'il se sent parfaitement bien",
+      "Ne rien faire : un choc isolé ne justifie aucun contrôle ni transmission",
+      "Se rendre aux urgences pour faire désactiver le DAI par précaution"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : un choc isolé bien toléré justifie une transmission et un avis rythmologique rapide, sans appel au 15.",
+      "Faux : l'appel au 15 est réservé aux chocs multiples ou au choc accompagné de symptômes (syncope, douleur, dyspnée).",
+      "Faux : tout choc doit être analysé pour savoir s'il était approprié et s'il faut agir.",
+      "Faux : désactiver le DAI laisserait le patient sans protection ; rien ne le justifie ici."
+    ],
+    "reponseAttendue": null,
+    "explication": "La consigne classique donnée aux porteurs de DAI distingue deux situations. Un choc isolé, sans symptôme associé, chez un patient qui se sent bien : pas d'urgence vitale, mais une transmission (ou un contact avec le centre) et un avis rapide pour analyser l'épisode. Plusieurs chocs rapprochés, ou un choc accompagné d'une syncope, d'une douleur thoracique ou d'une dyspnée : appel au 15. Les deux pièges sont la sur-réaction (urgences inutiles) et la sous-réaction (ignorer un choc qui était peut-être inapproprié). Réflexe : choc isolé et patient bien = transmission et avis rapide.",
+    "aRetenir": "Choc isolé bien toléré : transmission et avis rapide ; chocs multiples ou symptômes : SAMU.",
+    "sources": [
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires",
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-031",
+    "theme": "programmation",
+    "sousTheme": "Défibrillateur : pièges de pratique",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 4,
+    "question": "Lors de l'éducation d'un patient qui vient d'être implanté d'un DAI, dans quelles situations lui dites-vous d'appeler le 15 ?",
+    "options": [
+      "Deux chocs ou plus en quelques heures",
+      "Un choc suivi d'une douleur thoracique ou d'une dyspnée",
+      "Un choc précédé ou suivi d'une perte de connaissance",
+      "Un bip sonore du boîtier sans choc ni symptôme",
+      "Un choc unique, bien toléré, sans aucun symptôme"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "commentaires": [
+      "Juste : des chocs répétés font craindre un orage rythmique ou des chocs inappropriés en série.",
+      "Juste : les symptômes associés font craindre une cause aiguë (ischémie, décompensation).",
+      "Juste : une syncope signe une arythmie mal tolérée.",
+      "Faux : un bip sonore signale une alerte technique ; il faut contacter le centre, pas le 15.",
+      "Faux : un choc unique bien toléré relève d'une transmission et d'un avis rapide, pas du 15."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'éducation du patient doit être simple et répétée. Appel au 15 : chocs multiples (orage rythmique ou chocs inappropriés en série) et choc accompagné de symptômes (syncope, douleur, dyspnée, malaise persistant). Choc unique bien toléré : contact avec le centre et transmission. Alerte sonore ou vibratoire du boîtier : contact avec le centre, car elle signale souvent un problème technique (sonde, batterie) qui doit être analysé rapidement. Réflexe : remettre au patient une consigne écrite qui distingue ces trois situations.",
+    "aRetenir": "Chocs multiples ou choc avec symptômes = 15 ; choc isolé bien toléré ou alerte sonore = contacter le centre.",
+    "sources": [
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires",
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-032",
+    "theme": "programmation",
+    "sousTheme": "Défibrillateur : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Un patient porteur de DAI est admis pour « orage rythmique ». Quelle définition correspond à ce terme ?",
+    "options": [
+      "Au moins deux chocs, appropriés ou non, dans la même semaine",
+      "Au moins trois chocs en 24 heures, qu'ils soient appropriés ou non",
+      "Au moins trois épisodes de TV ou FV soutenue en 24 heures",
+      "Au moins cinq épisodes de TV non soutenue en 24 heures"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : deux chocs en une semaine ne répondent pas à la définition, et les chocs inappropriés n'en font pas partie.",
+      "Faux : des chocs inappropriés (FA, bruit de sonde) ne constituent pas un orage rythmique ; c'est un piège fréquent.",
+      "Juste : l'orage rythmique se définit par au moins trois épisodes distincts d'arythmie ventriculaire soutenue en 24 h, séparés d'au moins 5 minutes et nécessitant une intervention (ATP ou choc).",
+      "Faux : les épisodes non soutenus n'entrent pas dans la définition."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'orage rythmique correspond à au moins trois épisodes distincts de TV ou FV soutenue en 24 heures, séparés d'au moins 5 minutes et nécessitant une intervention, chez le porteur de DAI une thérapie appropriée (ATP ou choc). La définition repose sur des arythmies ventriculaires réelles : une salve de chocs inappropriés sur FA ou sur fracture de sonde n'est pas un orage, et sa prise en charge est complètement différente (aimant, reprogrammation, révision de sonde). Réflexe : avant de parler d'orage, interroger le DAI pour vérifier que les thérapies sont appropriées.",
+    "aRetenir": "Orage rythmique = ≥ 3 épisodes de TV/FV soutenue en 24 h ; vérifier d'abord que les thérapies sont appropriées.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-033",
+    "theme": "programmation",
+    "sousTheme": "Défibrillateur : pièges de pratique",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Patient ischémique porteur de DAI, admis après cinq chocs en 12 heures ; entre les chocs, le scope montre des salves de TV monomorphe. Quelles mesures sont adaptées ?",
+    "options": [
+      "Discuter précocement une ablation de la TV avec un centre expert",
+      "Débuter un antiarythmique de classe IC par voie intraveineuse",
+      "Désactiver les thérapies pour épargner les chocs au patient",
+      "Interroger le DAI pour confirmer que les thérapies sont appropriées",
+      "Corriger kaliémie et magnésémie, rechercher une ischémie aiguë",
+      "Sédation, bêtabloquant et amiodarone intraveineuse"
+    ],
+    "reponses": [
+      0,
+      3,
+      4,
+      5
+    ],
+    "commentaires": [
+      "Juste : l'ESC 2022 recommande l'ablation pour l'orage rythmique sur TV monomorphe ; elle se discute tôt, sans attendre l'échec prolongé du traitement médical.",
+      "Faux : les antiarythmiques de classe IC sont contre-indiqués sur cardiopathie ischémique.",
+      "Faux : des chocs appropriés sont salvateurs ; on peut optimiser l'ATP, mais pas désarmer le DAI.",
+      "Juste : c'est le premier geste, car des chocs inappropriés se traitent tout autrement.",
+      "Juste : les facteurs déclenchants corrigibles doivent être recherchés systématiquement.",
+      "Juste : la sédation et le blocage adrénergique, associés à l'amiodarone, sont la base du traitement de l'orage rythmique."
+    ],
+    "reponseAttendue": null,
+    "explication": "La prise en charge de l'orage rythmique associe : confirmation du caractère approprié des thérapies (interrogation du DAI), correction des facteurs déclenchants (ischémie, dyskaliémie, décompensation), sédation et blocage adrénergique (les bêtabloquants non sélectifs comme le propranolol sont souvent utilisés), amiodarone intraveineuse, et ablation de la TV, recommandée par l'ESC 2022 pour l'orage sur TV monomorphe et à discuter tôt avec un centre expert. La programmation du DAI peut être ajustée (ATP supplémentaires) mais pas désactivée. Les antiarythmiques de classe IC sont contre-indiqués. Réflexe : orage = unité de soins intensifs, sédation, bêtabloquant, amiodarone, et appel précoce au centre d'ablation.",
+    "aRetenir": "Orage rythmique : confirmer, corriger, sédater, bêtabloquer, amiodarone, et discuter tôt l'ablation.",
+    "sources": [
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-034",
+    "theme": "programmation",
+    "sousTheme": "Défibrillateur : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Un anesthésiste vous demande ce que fait un aimant posé sur un DAI transveineux actuel. Que lui répondez-vous ?",
+    "options": [
+      "Il fait passer la stimulation en mode asynchrone, comme sur un stimulateur",
+      "Il suspend les thérapies tant qu'il est en place, sans changer la stimulation",
+      "Il désactive définitivement les thérapies jusqu'à la prochaine reprogrammation",
+      "Il déclenche une charge de test puis un choc interne de contrôle du DAI"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : c'est le comportement d'un stimulateur ; sur un DAI, l'aimant ne rend pas la stimulation asynchrone.",
+      "Juste : sur la plupart des DAI, l'aimant inhibe la détection et les thérapies anti-tachycardiques tant qu'il est en place, sans modifier la stimulation.",
+      "Faux : sur les DAI actuels, l'effet cesse dès que l'aimant est retiré ; la réponse exacte dépend du constructeur.",
+      "Faux : l'aimant ne déclenche aucune charge ni aucun choc."
+    ],
+    "reponseAttendue": null,
+    "explication": "Sur la grande majorité des DAI actuels, l'aimant suspend la détection des tachyarythmies et donc les thérapies, uniquement tant qu'il est maintenu sur le boîtier ; il ne modifie pas la stimulation antibradycardique, qui n'est pas rendue asynchrone. C'est une différence essentielle avec le stimulateur cardiaque. Certains constructeurs permettent de programmer la réponse à l'aimant, d'où l'intérêt de connaître le boîtier du patient. Réflexe : aimant sur un DAI = thérapies suspendues, stimulation inchangée ; chez un patient dépendant exposé au bistouri, cela ne suffit pas.",
+    "aRetenir": "Aimant sur un DAI : suspend les thérapies tant qu'il est en place, ne rend pas la stimulation asynchrone.",
+    "sources": [
+      {
+        "titre": "Jacob S et al. Clinical applications of magnets on cardiac rhythm management devices. Europace 2011;13:1222-1230",
+        "url": "https://doi.org/10.1093/europace/eur137"
+      },
+      {
+        "titre": "Stühlinger M et al. EHRA consensus on prevention and management of interference due to medical procedures in patients with cardiac implantable electronic devices. Europace 2022;24:1512-1537",
+        "url": "https://doi.org/10.1093/europace/euac040"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-035",
+    "theme": "programmation",
+    "sousTheme": "Défibrillateur : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Patient stimulodépendant porteur d'un DAI, programmé pour une chirurgie thoracique avec bistouri électrique monopolaire. Quelle préparation est adaptée ?",
+    "options": [
+      "Poser un aimant sur le boîtier pendant toute la durée de l'intervention",
+      "Reprogrammer : thérapies suspendues, stimulation asynchrone, sous scope",
+      "Aucune précaution si le bistouri est utilisé par salves brèves",
+      "Suspendre les thérapies seulement, en laissant la stimulation en DDD"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : l'aimant suspend les thérapies mais ne rend pas la stimulation asynchrone ; le bistouri peut inhiber la stimulation du patient dépendant.",
+      "Juste : chez le patient dépendant, il faut à la fois éviter les chocs et l'inhibition de la stimulation ; seule une reprogrammation permet les deux.",
+      "Faux : en chirurgie sus-ombilicale avec bistouri monopolaire, le risque d'interférence est élevé chez ce patient.",
+      "Faux : en mode inhibé, les interférences du bistouri peuvent supprimer la stimulation et provoquer une asystolie."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le bistouri monopolaire utilisé au-dessus de l'ombilic peut être détecté par le DAI, avec deux risques : un choc inapproprié et l'inhibition de la stimulation. Chez un patient non dépendant, un aimant suffit souvent à éviter les chocs. Chez un patient dépendant, l'aimant ne protège pas contre l'inhibition, car il ne rend pas la stimulation asynchrone sur un DAI : il faut reprogrammer (thérapies suspendues, mode asynchrone à fréquence adaptée), avec un scope et des électrodes de défibrillation externe en place, puis reprogrammer à l'identique après l'intervention. Réflexe : DAI + dépendance + bistouri sus-ombilical = reprogrammation, pas aimant seul.",
+    "aRetenir": "Patient dépendant avec DAI et bistouri sus-ombilical : reprogrammer (thérapies off + asynchrone), l'aimant ne suffit pas.",
+    "sources": [
+      {
+        "titre": "Stühlinger M et al. EHRA consensus on prevention and management of interference due to medical procedures in patients with cardiac implantable electronic devices. Europace 2022;24:1512-1537",
+        "url": "https://doi.org/10.1093/europace/euac040"
+      },
+      {
+        "titre": "Crossley GH et al. The Heart Rhythm Society (HRS)/American Society of Anesthesiologists (ASA) expert consensus statement on the perioperative management of patients with implantable defibrillators, pacemakers and arrhythmia monitors. Heart Rhythm 2011;8:1114-1154",
+        "url": "https://doi.org/10.1016/j.hrthm.2010.12.023"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-036",
+    "theme": "programmation",
+    "sousTheme": "Défibrillateur : pièges de pratique",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 4,
+    "question": "Vrai ou faux : pour une cure de hernie inguinale sous bistouri monopolaire chez un porteur de DAI non stimulodépendant, une reprogrammation préalable n'est en général pas nécessaire, à condition qu'un aimant et une surveillance adaptée soient disponibles.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : sous l'ombilic, le risque d'interférence est faible ; il suffit de disposer d'un aimant, d'un scope et d'un défibrillateur externe.",
+      "Faux : la reprogrammation systématique n'est pas nécessaire en chirurgie sous-ombilicale chez un patient non dépendant."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les consensus sur la gestion périopératoire (HRS/ASA 2011, EHRA 2022) stratifient le risque selon le site opératoire, le type de bistouri et la dépendance. En chirurgie sous-ombilicale, le risque que le DAI détecte le bistouri est faible : une reprogrammation n'est en général pas nécessaire, mais un aimant doit être disponible, avec monitorage et défibrillateur externe. Désactiver systématiquement les DAI multiplie les risques d'oubli de réactivation. Réflexe : adapter la préparation au site opératoire et à la dépendance, pas appliquer une recette unique.",
+    "aRetenir": "Chirurgie sous-ombilicale, patient non dépendant : pas de reprogrammation systématique, aimant et surveillance disponibles.",
+    "sources": [
+      {
+        "titre": "Stühlinger M et al. EHRA consensus on prevention and management of interference due to medical procedures in patients with cardiac implantable electronic devices. Europace 2022;24:1512-1537",
+        "url": "https://doi.org/10.1093/europace/euac040"
+      },
+      {
+        "titre": "Crossley GH et al. The Heart Rhythm Society (HRS)/American Society of Anesthesiologists (ASA) expert consensus statement on the perioperative management of patients with implantable defibrillators, pacemakers and arrhythmia monitors. Heart Rhythm 2011;8:1114-1154",
+        "url": "https://doi.org/10.1016/j.hrthm.2010.12.023"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-037",
+    "theme": "programmation",
+    "sousTheme": "Défibrillateur : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Les thérapies d'un DAI ont été désactivées par programmation avant une chirurgie. L'intervention est terminée. Quelle étape est indispensable avant de retirer le scope et les électrodes de défibrillation externe ?",
+    "options": [
+      "Attendre la consultation de contrôle à 3 mois",
+      "Réactiver les thérapies par télésurveillance",
+      "Réactiver les thérapies et contrôler le DAI",
+      "Poser un aimant pour réactiver les thérapies"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : laisser un DAI désactivé expose le patient à une mort subite non traitée.",
+      "Faux : la télésurveillance ne permet pas de reprogrammer le DAI ; il faut un programmateur.",
+      "Juste : le patient doit rester surveillé avec un défibrillateur externe tant que les thérapies ne sont pas réactivées et vérifiées.",
+      "Faux : l'aimant suspend les thérapies ; il ne réactive pas des thérapies désactivées par programmation."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'oubli de réactivation est une erreur grave et documentée : le patient repart avec un DAI qui ne le protège plus. Les consensus insistent pour que le patient reste sous surveillance scopée, avec un défibrillateur externe à disposition, jusqu'à la réactivation et au contrôle du DAI par programmateur. La télésurveillance ne permet pas de modifier la programmation, et l'aimant ne fait que suspendre temporairement les thérapies. Réflexe : pas de sortie de salle de surveillance sans vérification écrite de la réactivation des thérapies.",
+    "aRetenir": "DAI désactivé pour une chirurgie : pas de retrait du scope sans réactivation vérifiée des thérapies.",
+    "sources": [
+      {
+        "titre": "Crossley GH et al. The Heart Rhythm Society (HRS)/American Society of Anesthesiologists (ASA) expert consensus statement on the perioperative management of patients with implantable defibrillators, pacemakers and arrhythmia monitors. Heart Rhythm 2011;8:1114-1154",
+        "url": "https://doi.org/10.1016/j.hrthm.2010.12.023"
+      },
+      {
+        "titre": "Stühlinger M et al. EHRA consensus on prevention and management of interference due to medical procedures in patients with cardiac implantable electronic devices. Europace 2022;24:1512-1537",
+        "url": "https://doi.org/10.1093/europace/euac040"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-038",
+    "theme": "programmation",
+    "sousTheme": "Défibrillateur : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Une patiente de 88 ans, porteuse d'un DAI, en soins palliatifs pour un cancer métastatique, demande qu'on arrête « les chocs ». Elle a une activité ventriculaire propre. Quelle est l'attitude adaptée ?",
+    "options": [
+      "Refuser : désactiver un DAI équivaut juridiquement à une euthanasie",
+      "Explanter le boîtier, seul moyen fiable de supprimer les chocs",
+      "Désactiver aussi la stimulation, qui accompagne toujours l'arrêt des chocs",
+      "Désactiver les chocs, laisser la stimulation, tracer la décision"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : l'arrêt d'un traitement que le patient ne souhaite plus est éthiquement et juridiquement distinct de l'euthanasie.",
+      "Faux : une simple reprogrammation suffit ; une chirurgie d'explantation n'a aucun sens ici.",
+      "Faux : l'arrêt des chocs et l'arrêt de la stimulation sont deux décisions distinctes ; la stimulation contribue au confort.",
+      "Juste : c'est une demande légitime de limitation thérapeutique ; la stimulation peut être maintenue et la décision est tracée dans le dossier."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les consensus HRS et EHRA de 2010 sur la fin de vie reconnaissent le droit du patient (ou de son représentant) à demander la désactivation des thérapies de son DAI : c'est un arrêt de traitement, distinct de l'euthanasie ou du suicide assisté, et, en France, un droit prévu par la loi Claeys-Leonetti de 2016 (refus de l'obstination déraisonnable). La décision est partagée, expliquée, tracée dans le dossier, et la désactivation se fait par programmation. La stimulation antibradycardique peut être maintenue : elle ne prolonge pas l'agonie et contribue au confort ; son arrêt est une décision séparée. Réflexe : anticiper la discussion sur les chocs dès que le projet de soins devient palliatif.",
+    "aRetenir": "Fin de vie : désactiver les chocs est un droit du patient, par programmation, en gardant la stimulation.",
+    "sources": [
+      {
+        "titre": "Lampert R et al. HRS Expert Consensus Statement on the management of cardiovascular implantable electronic devices (CIEDs) in patients nearing end of life or requesting withdrawal of therapy. Heart Rhythm 2010;7:1008-1026",
+        "url": "https://doi.org/10.1016/j.hrthm.2010.04.033"
+      },
+      {
+        "titre": "Padeletti L et al. EHRA Expert Consensus Statement on the management of cardiovascular implantable electronic devices in patients nearing end of life or requesting withdrawal of therapy. Europace 2010;12:1480-1489",
+        "url": "https://doi.org/10.1093/europace/euq275"
+      },
+      {
+        "titre": "Loi n° 2016-87 du 2 février 2016 créant de nouveaux droits en faveur des malades et des personnes en fin de vie (loi Claeys-Leonetti). Journal officiel du 3 février 2016",
+        "url": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000031970253"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-039",
+    "theme": "programmation",
+    "sousTheme": "Défibrillateur : pièges de pratique",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 3,
+    "question": "Vrai ou faux : chez un patient en fin de vie, la désactivation des chocs de son DAI entraîne son décès à court terme.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : la désactivation supprime une protection contre une arythmie éventuelle ; elle ne provoque pas le décès.",
+      "Juste : le patient décède de sa maladie ; la désactivation évite seulement des chocs douloureux et inutiles en fin de vie."
+    ],
+    "reponseAttendue": null,
+    "explication": "Désactiver les chocs ne provoque aucune arythmie et ne précipite pas le décès : le patient mourra de sa maladie sous-jacente, sans chocs répétés et douloureux pendant l'agonie. Cette idée fausse, partagée par des patients, des familles et des soignants, retarde souvent la discussion. La stimulation antibradycardique, si elle est maintenue, n'a pas d'effet sur la durée de l'agonie. Réflexe : expliquer clairement que l'arrêt des chocs ne « tue » pas, pour permettre une décision sereine.",
+    "aRetenir": "Désactiver les chocs en fin de vie ne provoque pas le décès : cela évite des chocs inutiles.",
+    "sources": [
+      {
+        "titre": "Lampert R et al. HRS Expert Consensus Statement on the management of cardiovascular implantable electronic devices (CIEDs) in patients nearing end of life or requesting withdrawal of therapy. Heart Rhythm 2010;7:1008-1026",
+        "url": "https://doi.org/10.1016/j.hrthm.2010.04.033"
+      },
+      {
+        "titre": "Padeletti L et al. EHRA Expert Consensus Statement on the management of cardiovascular implantable electronic devices in patients nearing end of life or requesting withdrawal of therapy. Europace 2010;12:1480-1489",
+        "url": "https://doi.org/10.1093/europace/euq275"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-040",
+    "theme": "programmation",
+    "sousTheme": "Défibrillateur : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Appel de l'équipe mobile de soins palliatifs, un vendredi soir : un patient agonique à domicile, porteur de DAI, a reçu plusieurs chocs. Aucun programmateur ne peut être apporté avant lundi. Que conseillez-vous ?",
+    "options": [
+      "Fixer un aimant sur le boîtier avec du ruban adhésif",
+      "Transférer le patient aux urgences pour reprogrammation",
+      "Administrer de l'amiodarone pour espacer les chocs",
+      "Attendre lundi, les chocs cessant souvent d'eux-mêmes"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : l'aimant maintenu sur le boîtier suspend les thérapies ; c'est la solution pragmatique en l'absence de programmateur.",
+      "Faux : un transfert d'un patient agonique est contraire au projet de soins alors qu'une solution simple existe.",
+      "Faux : l'amiodarone n'arrêtera pas les chocs rapidement et n'a pas sa place ici.",
+      "Faux : laisser le patient subir des chocs en fin de vie est inacceptable."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les consensus de fin de vie recommandent d'anticiper la désactivation, mais en urgence et sans programmateur, un aimant maintenu sur le boîtier (par exemple fixé par un ruban adhésif) suspend les thérapies sur la plupart des DAI. C'est la mesure la plus simple pour épargner des chocs au patient agonique. Un transfert aux urgences est contraire au projet de soins, et les médicaments n'arrêtent pas les chocs à court terme. Réflexe : toute équipe qui suit un porteur de DAI en fin de vie doit savoir où trouver un aimant.",
+    "aRetenir": "Fin de vie sans programmateur : un aimant fixé sur le boîtier suspend les chocs.",
+    "sources": [
+      {
+        "titre": "Lampert R et al. HRS Expert Consensus Statement on the management of cardiovascular implantable electronic devices (CIEDs) in patients nearing end of life or requesting withdrawal of therapy. Heart Rhythm 2010;7:1008-1026",
+        "url": "https://doi.org/10.1016/j.hrthm.2010.04.033"
+      },
+      {
+        "titre": "Padeletti L et al. EHRA Expert Consensus Statement on the management of cardiovascular implantable electronic devices in patients nearing end of life or requesting withdrawal of therapy. Europace 2010;12:1480-1489",
+        "url": "https://doi.org/10.1093/europace/euq275"
+      },
+      {
+        "titre": "Jacob S et al. Clinical applications of magnets on cardiac rhythm management devices. Europace 2011;13:1222-1230",
+        "url": "https://doi.org/10.1093/europace/eur137"
+      }
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-041",
+    "theme": "programmation",
+    "sousTheme": "Défibrillateur : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Vous programmez un DAI neuf en prévention primaire (FEVG 30 %, aucune arythmie ventriculaire documentée). Quelle programmation de la zone la plus lente est conforme au consensus ?",
+    "options": [
+      "Détection vers 185-200/min, durée prolongée (6-12 s ou ~30 cycles)",
+      "Détection vers 150/min, durée courte (12 cycles) pour traiter tôt",
+      "Détection vers 170/min, choc d'emblée sans ATP dans toutes les zones",
+      "Une zone FV à 250/min seulement, sans zone TV ni discriminateurs"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : c'est la recommandation du consensus 2015, reprise en 2019, fondée sur MADIT-RIT et ADVANCE III.",
+      "Faux : une zone basse et une durée courte multiplient les thérapies inutiles et inappropriées.",
+      "Faux : l'ATP est recommandé dans toutes les zones chez les patients avec cardiopathie structurelle.",
+      "Faux : une zone unique aussi haute laisserait des TV rapides sans traitement."
+    ],
+    "reponseAttendue": null,
+    "explication": "En prévention primaire, le consensus HRS/EHRA/APHRS/SOLAECE 2015 (mis à jour en 2019) recommande une zone la plus lente entre 185 et 200/min, une durée de détection prolongée (6 à 12 secondes ou 30 cycles), l'ATP dans toutes les zones pour les patients avec cardiopathie structurelle, et des discriminateurs actifs jusqu'à 230/min. Ces réglages, validés par MADIT-RIT et ADVANCE III, réduisent les thérapies inappropriées et inutiles sans augmenter les syncopes. Le piège est de garder des programmations anciennes à zones basses et durées courtes. Réflexe : vérifier à chaque contrôle que la programmation respecte le consensus.",
+    "aRetenir": "Prévention primaire : zone ≥ 185-200/min, détection prolongée, ATP partout, discriminateurs jusqu'à 230/min.",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      },
+      {
+        "titre": "Stiles MK et al. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      },
+      {
+        "titre": "Gasparini M et al. Effect of long-detection interval vs standard-detection interval for implantable cardioverter-defibrillators on antitachycardia pacing and shock delivery (ADVANCE III). JAMA 2013;309:1903-1911",
+        "url": "https://doi.org/10.1001/jama.2013.4598"
+      }
+    ],
+    "reco": [
+      "Consensus 2019 programmation DAI",
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-042",
+    "theme": "programmation",
+    "sousTheme": "Défibrillateur : pièges de pratique",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Vrai ou faux : dans l'essai MADIT-RIT, programmer la thérapie à partir de 200/min (détection à haute fréquence) a réduit les thérapies inappropriées, mais aussi la mortalité toutes causes.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : le bras « haute fréquence » a réduit les thérapies inappropriées et la mortalité toutes causes (HR 0,45) par rapport à la programmation conventionnelle.",
+      "Faux : la réduction de mortalité a bien été observée dans le bras haute fréquence, ce qui a fondé les recommandations de programmation actuelles."
+    ],
+    "reponseAttendue": null,
+    "explication": "MADIT-RIT (2012) a comparé, en prévention primaire, une programmation conventionnelle (thérapie dès 170/min après 2,5 s) à une thérapie limitée aux fréquences ≥ 200/min, et à une détection retardée (60 s entre 170 et 199/min, 12 s entre 200 et 249/min). Les deux stratégies ont fortement réduit les thérapies inappropriées. La mortalité toutes causes a été significativement réduite dans le bras haute fréquence (HR 0,45) ; dans le bras détection retardée, la baisse n'atteignait pas la significativité (HR 0,56, p = 0,06). Complétés par ADVANCE III, ces résultats fondent le consensus 2015. Réflexe : une programmation « prudente » à zone basse et détection rapide n'est pas plus sûre, elle est plus délétère.",
+    "aRetenir": "MADIT-RIT : thérapie limitée aux fréquences ≥ 200/min = moins de thérapies inappropriées et moins de décès.",
+    "sources": [
+      {
+        "titre": "Moss AJ et al. Reduction in inappropriate therapy and mortality through ICD programming (MADIT-RIT). N Engl J Med 2012;367:2275-2283",
+        "url": "https://doi.org/10.1056/NEJMoa1211107"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-043",
+    "theme": "programmation",
+    "sousTheme": "Défibrillateur : pièges de pratique",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Chez un patient porteur de DAI avec cardiopathie ischémique, une TV monomorphe régulière à 225/min tombe dans la zone FV. Que recommande le consensus pour cette zone ?",
+    "options": [
+      "Un choc d'emblée, l'ATP étant proscrit au-delà de 200/min",
+      "Une zone en simple surveillance, sans thérapie programmée",
+      "Un choc de faible énergie, puis une cardioversion externe",
+      "Un ATP pendant la charge, puis un choc si l'ATP a échoué"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : PainFREE Rx II a montré l'efficacité et la sécurité de l'ATP sur les TV rapides.",
+      "Faux : une TV à 225/min doit être traitée ; une zone sans thérapie serait dangereuse.",
+      "Faux : la cardioversion externe n'est pas une stratégie programmée ; le DAI délivre des chocs à pleine énergie.",
+      "Juste : le consensus recommande l'ATP pour les tachycardies jusqu'à environ 230/min, y compris en zone FV pendant la charge."
+    ],
+    "reponseAttendue": null,
+    "explication": "PainFREE Rx II a montré qu'un ATP en salve réduit une majorité des TV rapides (188-250/min) sans augmenter les syncopes ni les accélérations. Le consensus 2015 recommande donc de programmer l'ATP pour les tachycardies jusqu'à environ 230/min dans toutes les zones chez les patients avec cardiopathie structurelle, y compris en zone FV, pendant ou avant la charge, pour ne pas retarder le choc si l'ATP échoue. Le piège est de croire que tout ce qui est en zone FV doit être choqué d'emblée. Réflexe : vérifier que l'ATP en charge est programmé dans la zone FV.",
+    "aRetenir": "TV rapide régulière jusqu'à ~230/min, même en zone FV : ATP pendant la charge, puis choc si échec.",
+    "sources": [
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      },
+      {
+        "titre": "Wathen MS et al. Prospective randomized multicenter trial of empirical antitachycardia pacing versus shocks for spontaneous rapid ventricular tachycardia in patients with implantable cardioverter-defibrillators (PainFREE Rx II). Circulation 2004;110:2591-2596",
+        "url": "https://doi.org/10.1161/01.CIR.0000145610.64014.E4"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-044",
+    "theme": "programmation",
+    "sousTheme": "Défibrillateur : pièges de pratique",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 6,
+    "question": "Un porteur de DAI a reçu hier un choc, bien toléré. La transmission montre un choc délivré sur une FA rapide conduite à 200/min. Quelles sont vos mesures, immédiates et à distance ?",
+    "options": null,
+    "reponses": null,
+    "reponseAttendue": "Choc inapproprié sur FA : contrôler la fréquence (bêtabloquant), décider de l'anticoagulation selon le CHA2DS2-VA, reprogrammer le DAI (zone et durée de détection au consensus, discriminateurs actifs jusqu'à 230/min), revoir le patient rapidement, discuter une stratégie de contrôle du rythme (cardioversion, ablation).",
+    "explication": "Un choc sur FA est inapproprié : il faut le reconnaître sur les EGM (A > V, V irréguliers, morphologie inchangée). La prise en charge a deux volets. Le volet FA : contrôle de fréquence, décision d'anticoagulation selon ESC 2024, discussion d'une stratégie de contrôle du rythme, en particulier chez l'insuffisant cardiaque. Le volet DAI : remettre la programmation aux standards (zone ≥ 185-200/min en prévention primaire, détection prolongée, discriminateurs actifs), car un choc inapproprié est douloureux, altère la qualité de vie et est associé à une surmortalité. Le piège est de ne traiter que l'un des deux volets. Réflexe : choc inapproprié sur FA = traiter la FA ET corriger la programmation.",
+    "aRetenir": "Choc inapproprié sur FA : traiter la FA (fréquence, anticoagulation) et corriger la programmation.",
+    "sources": [
+      {
+        "titre": "2024 ESC Guidelines for the management of atrial fibrillation. Eur Heart J 2024;45:3314-3414",
+        "url": "https://doi.org/10.1093/eurheartj/ehae176"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      },
+      {
+        "titre": "Poole JE et al. Prognostic importance of defibrillator shocks in patients with heart failure. N Engl J Med 2008;359:1009-1017",
+        "url": "https://doi.org/10.1056/NEJMoa071098"
+      }
+    ],
+    "reco": [
+      "ESC 2024 FA",
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-045",
+    "theme": "programmation",
+    "sousTheme": "Défibrillateur : pièges de pratique",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 5,
+    "question": "Un patient porteur de DAI appelle, inquiet : il est certain d'avoir reçu un choc cette nuit en dormant. La transmission, complète, ne montre aucun épisode, aucune charge et aucune thérapie. Que concluez-vous et que faites-vous ?",
+    "options": null,
+    "reponses": null,
+    "reponseAttendue": "Choc fantôme : aucune thérapie n'a été délivrée (tout choc est mémorisé). On rassure le patient en lui expliquant les données, on vérifie l'intégrité du système, sans reprogrammer, et on dépiste une anxiété liée au DAI (soutien psychologique, thérapie cognitivo-comportementale si besoin).",
+    "explication": "Tout choc délivré par un DAI est mémorisé, avec ses EGM et ses compteurs. Si la transmission complète ne montre aucune charge ni thérapie, il s'agit d'un « choc fantôme », fréquent chez les patients anxieux ou qui ont déjà reçu des chocs. La conduite consiste à rassurer le patient en lui montrant les données, à vérifier l'intégrité du système (mesures, alertes), et à dépister une anxiété ou une dépression liées au DAI, qui justifient un accompagnement spécifique. Il n'y a aucune raison de reprogrammer. Réflexe : un choc ressenti mais non mémorisé n'a pas eu lieu, mais la souffrance du patient est réelle.",
+    "aRetenir": "Choc ressenti mais aucune thérapie mémorisée : choc fantôme, rassurer et dépister l'anxiété.",
+    "sources": [
+      {
+        "titre": "Ferrick AM et al. 2023 HRS/EHRA/APHRS/LAHRS expert consensus statement on practical management of the remote device clinic. Heart Rhythm 2023;20:e92-e144",
+        "url": "https://doi.org/10.1016/j.hrthm.2023.03.1525"
+      },
+      {
+        "titre": "2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      }
+    ],
+    "reco": [
+      "ESC 2022 arythmies ventriculaires",
+      "HRS 2023 télésurveillance"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "egm-dai-046",
+    "theme": "programmation",
+    "sousTheme": "Défibrillateur : pièges de pratique",
+    "marque": null,
+    "type": "ouverte",
+    "difficulte": 7,
+    "question": "Aux urgences, un porteur de DAI reçoit des chocs à répétition alors qu'il est parfaitement conscient ; le scope montre un rythme sinusal à 80/min. Que faites-vous en premier, et pourquoi ?",
+    "options": null,
+    "reponses": null,
+    "reponseAttendue": "Poser immédiatement un aimant sur le boîtier pour suspendre les thérapies (chocs inappropriés : patient conscient en rythme sinusal), sous scope avec défibrillateur externe prêt ; puis interroger le DAI, rechercher un bruit ou une fracture de sonde (ou une surdétection) et organiser la révision.",
+    "explication": "Des chocs chez un patient conscient, en rythme sinusal au scope, sont par définition inappropriés : aucune FV ni TV rapide ne laisse un patient conscient avec un rythme sinusal à 80/min. La cause la plus fréquente de chocs répétés dans ce contexte est un bruit de sonde (fracture) ou une surdétection. La priorité est d'arrêter les chocs : un aimant posé sur le boîtier suspend la détection sur la plupart des DAI, sous surveillance scopée avec défibrillateur externe prêt. Ensuite seulement viennent l'interrogation, l'analyse des EGM et la révision de sonde. Réflexe : chocs + patient conscient + rythme sinusal = aimant d'abord.",
+    "aRetenir": "Chocs chez un patient conscient en rythme sinusal : aimant immédiatement, puis chercher le bruit de sonde.",
+    "sources": [
+      {
+        "titre": "Jacob S et al. Clinical applications of magnets on cardiac rhythm management devices. Europace 2011;13:1222-1230",
+        "url": "https://doi.org/10.1093/europace/eur137"
+      },
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implantable cardioverter-defibrillator sensing problems II. Circ Arrhythm Electrophysiol 2015;8:212-220",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002514"
+      },
+      {
+        "titre": "Swerdlow CD et al. Downloadable software algorithm reduces inappropriate shocks caused by implantable cardioverter-defibrillator lead fractures: a prospective study. Circulation 2010;122:1449-1455",
+        "url": "https://doi.org/10.1161/CIRCULATIONAHA.110.962407"
+      }
+    ],
+    "revise": "2026-09"
+  }
+]

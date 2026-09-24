@@ -36,7 +36,7 @@ export function vueAccueil(app, { demarrer, reprendre, aller }) {
       <button class="tuile tuile-vedette" id="go-adapt"><span class="ico">🧭</span><strong>Défi adaptatif</strong><small>10 questions ajustées à votre niveau (${niv.n >= 5 ? 'niveau ' + niv.niveau : 'calibrage en cours'})</small></button>
       <button class="tuile" id="go-alea"><span class="ico">🎲</span><strong>Défi aléatoire</strong><small>10 questions, tous thèmes, tous niveaux</small></button>
       <button class="tuile" id="go-jour"><span class="ico">📅</span><strong>Défi du jour</strong><small>5 questions tirées pour aujourd'hui</small></button>
-      <button class="tuile" id="go-ecg"><span class="ico">🩺</span><strong>Lecture d'ECG</strong><small>${nbTraces} tracés à interpréter, compas de mesure</small></button>
+      <button class="tuile" id="go-ecg"><span class="ico">🩺</span><strong>Lecture ECG et EGM</strong><small>${nbTraces} tracés à interpréter, compas de mesure</small></button>
       <button class="tuile" id="go-exam"><span class="ico">⏱️</span><strong>Mode examen</strong><small>20 questions chronométrées, correction à la fin</small></button>
       <button class="tuile" id="go-rev" ${aRevoir ? '' : 'disabled'}><span class="ico">🔁</span><strong>Révisions</strong><small>${aRevoir ? `${aRevoir} question(s) à revoir` : 'Rien à revoir pour l\'instant'}</small></button>
       <button class="tuile" data-nav="config"><span class="ico">🎯</span><strong>Entraînement ciblé</strong><small>Thèmes, marques, niveau, types</small></button>
@@ -55,7 +55,7 @@ export function vueAccueil(app, { demarrer, reprendre, aller }) {
     const l = base.questions.slice().sort((a, b) => a.id.localeCompare(b.id)).map(q => ({ q, k: r() })).sort((a, b) => a.k - b.k).slice(0, 5).map(x => x.q);
     demarrer(l, 'Défi du jour');
   };
-  $('#go-ecg').onclick = () => demarrer(melanger(base.questions.filter(aTrace)).slice(0, 10), 'Lecture d\'ECG');
+  $('#go-ecg').onclick = () => demarrer(melanger(base.questions.filter(aTrace)).slice(0, 10), 'Lecture ECG et EGM');
   $('#go-exam').onclick = () => demarrer(melanger(base.questions).slice(0, 20), 'Examen blanc', { examen: true });
   if (aRevoir) $('#go-rev').onclick = () => demarrer(stock.aReviser(base.questions).slice(0, 15), 'Révisions');
   if (enCours) {
