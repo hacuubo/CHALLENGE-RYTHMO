@@ -1,6 +1,7 @@
 // Validation de la base de questions : node scripts/validate.mjs [fichiers...]
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const THEMES = ['ecg', 'programmation', 'telecardio', 'electrophysio'];
 const TYPES = ['qcu', 'qcm', 'vf', 'ouverte'];
@@ -10,9 +11,9 @@ const PRESETS = ['sinus', 'bav1', 'bav2-m1', 'bav2-m2', 'bav2-21', 'bav3', 'paus
   'perte-capture-a', 'sous-detection', 'sur-detection', 'ttre', 'fusion', 'asystolie'];
 
 // presets EGM lus dans js/egm.js (source unique)
-const PRESETS_EGM = [...fs.readFileSync(path.join(path.dirname(new URL(import.meta.url).pathname), '..', 'js', 'egm.js'), 'utf8')
+const PRESETS_EGM = [...fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'js', 'egm.js'), 'utf8')
   .matchAll(/^  '?([a-z0-9-]+)'?\(S/gm)].map(m => m[1]);
-const dir = path.join(path.dirname(new URL(import.meta.url).pathname), '..', 'data', 'questions');
+const dir = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'data', 'questions');
 let files = process.argv.slice(2);
 if (!files.length) {
   files = fs.readdirSync(dir).filter(f => f.endsWith('.json') && f !== 'index.json').map(f => path.join(dir, f));

@@ -42,8 +42,9 @@ class Scene {
     if (ff) this.g('FF', t + 40, 0.12, 20);
   }
   Pretro(t) { this.g('A', t, -0.8, 6); this.g('A', t + 10, 0.6, 7); this.g('FF', t + 30, -0.1, 18); }
-  AP(t) {
+  AP(t, { capture = true } = {}) {
     this.spike('A', t); this.spike('V', t, 0.25); this.spike('FF', t, 0.35);
+    if (!capture) return;
     this.g('A', t + 15, -0.9, 9); this.g('A', t + 35, 0.4, 12); this.g('FF', t + 50, 0.12, 22);
   }
   // --- activations ventriculaires ---
@@ -381,11 +382,202 @@ const presets = {
     S.mk(2500, 'FA', 'X');
     return ['SC'];
   },
+  // Mode AAI à commutation automatique (type MVP) : PR long respecté, une P non conduite,
+  // back-up ventriculaire 80 ms après l'événement atrial suivant
+  'mvp-p-bloquee'(S, o) {
+    const rr = cycle(o.fc || 70), pr = o.pr || 240;
+    let i = 0;
+    for (let t = 200; t < S.duree; t += rr, i++) {
+      S.P(t); S.mk(t, 'AS', 'A');
+      if (i === 3) continue;
+      if (i === 4) { S.VP(t + 80); S.mk(t + 80, 'VP', 'V'); continue; }
+      S.R(t + pr); S.mk(t + pr, 'VS', 'V');
+    }
+    return ['A', 'V', 'FF'];
+  },
+  // Vérification de capture cycle à cycle : absence de réponse évoquée → impulsion de secours à haute énergie
+  'capture-auto-backup'(S) {
+    const rr = cycle(75), av = 150;
+    let i = 0;
+    for (let t = 200; t < S.duree; t += rr, i++) {
+      S.P(t); S.mk(t, 'AS', 'A');
+      if (i === 3 || i === 7) {
+        S.VP(t + av, { capture: false }); S.mk(t + av, 'VP', 'V');
+        S.VP(t + av + 100); S.spike('V', t + av + 100, 2.2); S.spike('FF', t + av + 100, 0.9);
+        S.mk(t + av + 100, 'VP', 'V'); S.mk(t + av + 100, 'Back-up', 'X');
+      } else { S.VP(t + av); S.mk(t + av, 'VP', 'V'); }
+    }
+    return ['A', 'V', 'FF'];
+  },
+  // TV traitée par ATP : accélération en TV rapide (zone FV), charge du condensateur
+  'tv-atp-acceleration'(S) {
+    const ra = cycle(75);
+    for (let a = 150; a < S.duree; a += ra) { S.P(a); S.mk(a, 'AS', 'A'); }
+    S.R(330); S.mk(330, 'VS', 'V');
+    let t = 1100, n = 0;
+    for (; n < 8; t += 360, n++) { S.TVbatt(t, 360); S.mk(t, n < 3 ? 'TS' : 'TD', 'V'); }
+    S.mk(t, 'ATP', 'X');
+    for (let k = 0; k < 8; k++, t += 317) { S.VP(t); S.mk(t, 'TP', 'V'); }
+    for (n = 0; t < S.duree; t += 230 + S.rand() * 20, n++) {
+      S.g('V', t + 20, 0.9, 10); S.g('V', t + 45, -0.8, 12);
+      S.g('FF', t + 50, -0.9, 30); S.g('FF', t + 140, 0.6, 32);
+      S.mk(t, 'FS', 'V');
+      if (n === 8) S.mk(t, 'Chg', 'X');
+    }
+    return ['A', 'V', 'FF'];
+  },
+  // TV lente sous la limite de la zone TV : V > A, dissociation, aucune détection ni thérapie
+  'tv-lente-sous-zone'(S, o) {
+    const cyc = o.cycle || 500;
+    for (let a = 150; a < S.duree; a += cycle(75)) { S.P(a); S.mk(a, 'AS', 'A'); }
+    S.R(330); S.mk(330, 'VS', 'V'); S.R(1130); S.mk(1130, 'VS', 'V');
+    for (let t = 1700; t < S.duree; t += cyc) { S.TVbatt(t, cyc); S.mk(t, 'VS', 'V'); }
+    return ['A', 'V', 'FF'];
+  },
+  // Tachycardie atriale / flutter conduit en 2:1 dans la zone TV : A > V, discriminateur, thérapie retenue
+  'ta-2-1-zone-tv'(S, o) {
+    const cyc = o.cycle || 190, ra = cycle(72);
+    let t = 200;
+    for (let k = 0; k < 2; k++, t += ra) { S.P(t); S.mk(t, 'AS', 'A'); S.R(t + 170); S.mk(t + 170, 'VS', 'V'); }
+    const acts = S.flutterA(t, S.duree, cyc);
+    let n = 0;
+    acts.forEach((a, i) => {
+      if (i % 2 === 0) {
+        S.mk(a, 'AS', 'A');
+        if (a + 150 < S.duree) { S.R(a + 150, { tAmp: 0.08 }); S.mk(a + 150, n++ < 4 ? 'VS' : 'TS', 'V'); }
+      } else S.mk(a, 'AR', 'A');
+    });
+    S.mk(S.duree - 1600, 'SVT', 'X');
+    return ['A', 'V', 'FF'];
+  },
+  // TV à conduction rétrograde 1:1 : début brutal par un battement ventriculaire, morphologie différente, A après V
+  'tv-1-1'(S, o) {
+    const cyc = o.cycle || 380, rr = cycle(70);
+    let t = 200;
+    for (let k = 0; k < 2; k++, t += rr) { S.P(t); S.mk(t, 'AS', 'A'); S.R(t + 170); S.mk(t + 170, 'VS', 'V'); }
+    let v = t + 170 - rr + 470, n = 0;
+    for (; v < S.duree; v += cyc, n++) {
+      S.TVbatt(v, cyc); S.mk(v, n < 3 ? 'TS' : 'TD', 'V');
+      if (v + 170 < S.duree) { S.Pretro(v + 170); S.mk(v + 170, 'AS', 'A'); }
+    }
+    return ['A', 'V', 'FF'];
+  },
+  // Double comptage du QRS : composante tardive de l'EGM VD détectée après le blanking (QRS large)
+  'double-comptage-r'(S) {
+    const rr = cycle(72);
+    for (let t = 200; t < S.duree; t += rr) {
+      S.P(t); S.mk(t, 'AS', 'A');
+      const r = t + 170;
+      S.g('V', r + 20, 0.9, 7); S.g('V', r + 34, -0.7, 8);
+      S.g('V', r + 150, 0.55, 9); S.g('V', r + 166, -0.45, 10);
+      S.g('V', r + 380, 0.12, 40);
+      S.g('FF', r + 40, 0.8, 22); S.g('FF', r + 120, -0.45, 26); S.g('FF', r + 360, 0.25, 50);
+      S.ffR(r);
+      S.mk(r, 'VS', 'V'); S.mk(r + 150, 'FS', 'V');
+    }
+    return ['A', 'V', 'FF'];
+  },
+  // Interférence électromagnétique : signal parasite simultané sur tous les canaux
+  'interference-emi'(S) {
+    const rr = cycle(72), t0 = 2400, t1 = 5600;
+    for (let t = 200; t < S.duree; t += rr) {
+      S.P(t); S.R(t + 170);
+      if (t < t0 - 100 || t > t1) { S.mk(t, 'AS', 'A'); S.mk(t + 170, 'VS', 'V'); }
+    }
+    for (const k of ['A', 'V', 'FF']) S.fn(k, x => (x >= t0 && x < t1 ? 0.35 * Math.sin(2 * Math.PI * x / 23) * (1 + 0.3 * Math.sin(x / 70)) : 0));
+    for (let x = t0 + 20, i = 0; x < t1; x += 90 + S.rand() * 60, i++) S.mk(x, i % 2 ? 'AR' : 'AS', 'A');
+    for (let x = t0 + 60; x < t1; x += 110 + S.rand() * 70) S.mk(x, 'FS', 'V');
+    return ['A', 'V', 'FF'];
+  },
+  // Bruit sur la sonde atriale : détection atriale très rapide, commutation de mode inappropriée
+  'bruit-sonde-a'(S) {
+    const rr = cycle(70), av = 160;
+    const salves = [[1900, 3300], [4700, 5900]];
+    const pics = salves.flatMap(([a, b]) => S.bruit('A', a, b, 1.1));
+    const ev = [];
+    for (let t = 200; t < S.duree; t += rr) { S.P(t); ev.push(t); }
+    pics.filter((_, i) => i % 4 === 0).forEach(p => ev.push(p.t));
+    ev.sort((a, b) => a - b).forEach((t, i, arr) => S.mk(t, i && t - arr[i - 1] < 300 ? 'AR' : 'AS', 'A'));
+    for (let t = 200; t < 1900; t += rr) { S.VP(t + av); S.mk(t + av, 'VP', 'V'); }
+    S.mk(2700, 'MS', 'X');
+    for (let v = 2000 + av; v < S.duree; v += 1000) { S.VP(v); S.mk(v, 'VP', 'V'); }
+    return ['A', 'V', 'FF'];
+  },
+  // FV : premier choc inefficace, recharge, second choc efficace
+  'choc-inefficace'(S) {
+    let t = 300;
+    for (; t < 1100; t += 800) { S.P(t - 170); S.mk(t - 170, 'AS', 'A'); S.R(t); S.mk(t, 'VS', 'V'); }
+    const debut = 1300, c1 = 4300, c2 = 8000;
+    S.fibV(debut, c2); S.fibA(debut, c2, 0);
+    for (let v = debut + 60; v < c2; v += 170 + S.rand() * 70) if (v < c1 - 20 || v > c1 + 450) S.mk(v, 'FS', 'V');
+    S.mk(debut + 1400, 'Chg', 'X'); S.choc(c1);
+    S.mk(c1 + 1700, 'Chg', 'X'); S.choc(c2);
+    for (let v = c2 + 900; v < S.duree; v += 1000) { S.VP(v); S.mk(v, 'VP', 'V'); }
+    return ['A', 'V', 'FF'];
+  },
+  // CRT en FA : conduction spontanée rapide et irrégulière, perte de la stimulation biventriculaire
+  'crt-fa-conduite'(S) {
+    const acts = S.fibA(100, S.duree);
+    acts.forEach(a => S.mk(a, 'AS', 'A'));
+    let t = 300;
+    while (t < S.duree) {
+      const rr = 430 + S.rand() * 380;
+      if (rr > 760) { S.BV(t); S.mk(t, 'BV', 'V'); } else { S.R(t, { tAmp: 0.06 }); S.mk(t, 'VS', 'V'); }
+      t += rr;
+    }
+    return ['A', 'V', 'FF'];
+  },
+  // VVI 60/min avec hystérésis de fréquence à 50/min, sur fond de FA
+  'hysteresis-vvi'(S) {
+    S.fibA(0, S.duree, 0.05);
+    [300, 1250, 2200].forEach(t => { S.R(t, { tAmp: 0.08 }); S.mk(t, 'VS', 'V'); });
+    [3400, 4400, 5400].forEach(t => { S.VP(t); S.mk(t, 'VP', 'V'); });
+    [6150, 7050].forEach(t => { S.R(t, { tAmp: 0.08 }); S.mk(t, 'VS', 'V'); });
+    return ['V', 'FF'];
+  },
+  // Holter implantable : vraie FA (RR irrégulièrement irréguliers, pas d'onde P)
+  'ilr-fa'(S) {
+    S.fibA(0, S.duree, 0.05);
+    for (let t = 250; t < S.duree; t += 420 + S.rand() * 520) {
+      S.g('FF', t, 0.9, 10); S.g('FF', t + 20, -0.25, 10); S.g('FF', t + 260, 0.18, 45); S.mk(t, 'VS', 'V');
+    }
+    S.mk(2200, 'FA', 'X');
+    return ['SC'];
+  },
+  // Perte de capture atriale intermittente en DDD (conduction AV conservée)
+  'perte-capture-a'(S) {
+    const rr = cycle(60), av = 250;
+    let i = 0;
+    for (let t = 200; t < S.duree; t += rr, i++) {
+      const ok = ![2, 3, 5].includes(i);
+      S.AP(t, { capture: ok }); S.mk(t, 'AP', 'A');
+      if (ok) { S.R(t + 200); S.mk(t + 200, 'VS', 'V'); } else { S.VP(t + av); S.mk(t + av, 'VP', 'V'); }
+    }
+    return ['A', 'V', 'FF'];
+  },
+  // Fusion et pseudo-fusion : DAV proche du PR spontané
+  'pseudo-fusion'(S) {
+    const rr = cycle(72), av = 200;
+    const pr = [230, 205, 185, 180, 210, 190, 230, 185, 200, 240];
+    let i = 0;
+    for (let t = 200; t < S.duree; t += rr, i++) {
+      S.P(t); S.mk(t, 'AS', 'A');
+      const p = pr[i % pr.length];
+      if (p + 20 <= av) { S.R(t + p); S.mk(t + p, 'VS', 'V'); } // détection avant la fin du DAV
+      else if (p < av + 25) { S.R(t + p); S.spike('V', t + av); S.spike('A', t + av, 0.3); S.spike('FF', t + av, 0.5); S.mk(t + av, 'VP', 'V'); } // pseudo-fusion
+      else { S.VP(t + av); S.mk(t + av, 'VP', 'V'); }
+    }
+    return ['A', 'V', 'FF'];
+  },
 };
+
+const DUREES = { 'tv-atp-acceleration': 10000, 'choc-inefficace': 10000 };
 
 export const PRESETS_EGM = Object.keys(presets);
 // scénarios propres au défibrillateur (3e canal = EGM de choc) ; les autres peuvent préciser `appareil: 'dai'`
-const PRESETS_DAI = ['tv-atp', 'fv-choc', 'fa-conduite-zone-tv', 'tsv-1-1', 'bruit-sonde', 'surdetection-t'];
+const PRESETS_DAI = ['tv-atp', 'fv-choc', 'fa-conduite-zone-tv', 'tsv-1-1', 'bruit-sonde', 'surdetection-t',
+  'tv-atp-acceleration', 'tv-lente-sous-zone', 'ta-2-1-zone-tv', 'tv-1-1', 'double-comptage-r', 'interference-emi',
+  'choc-inefficace', 'crt-fa-conduite'];
 
 // ---------------------------------------------------------------------------------------
 // Rendu
@@ -393,7 +585,7 @@ const PRESETS_DAI = ['tv-atp', 'fv-choc', 'fa-conduite-zone-tv', 'tsv-1-1', 'bru
 export function dessinerEGM(canvas, def, seed = 'egm', opts = {}) {
   const fn = presets[def.preset];
   if (!fn) return null;
-  const duree = def.duree || 8000;
+  const duree = def.duree || DUREES[def.preset] || 8000;
   const S = new Scene(rng(seed + def.preset), duree);
   let canaux = fn(S, def) || ['A', 'V', 'FF'];
   // 3e canal : « EGM de choc » pour un défibrillateur, « champ lointain » pour un stimulateur

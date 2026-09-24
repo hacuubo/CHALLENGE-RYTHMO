@@ -1,0 +1,419 @@
+[
+  {
+    "id": "prog-mod-001",
+    "theme": "programmation",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Stimulateur double chambre en DDD, fréquence de base 60/min, délai AV après stimulation atriale 200 ms, cycles de temporisation à base ventriculaire. Chez ce patient à fonction sinusale défaillante, chaque stimulation atriale est conduite spontanément avec un intervalle AP-VS de 150 ms. À quelle fréquence l'oreillette est-elle réellement stimulée au repos ?",
+    "options": [
+      "57/min",
+      "60/min",
+      "63/min",
+      "75/min"
+    ],
+    "reponses": [2],
+    "commentaires": [
+      "Faux : on obtiendrait un cycle de 1 050 ms en ajoutant à tort la différence de délai AV ; le cycle raccourcit au contraire.",
+      "Faux : 60/min ne serait respecté qu'avec une temporisation à base atriale, où l'intervalle A-A est fixe.",
+      "Juste : intervalle VA de 800 ms (1 000 − 200) démarré sur le VS à 150 ms, soit un cycle A-A de 950 ms, environ 63/min.",
+      "Faux : 75/min correspond à l'intervalle VA seul (800 ms), sans tenir compte de l'intervalle AP-VS."
+    ],
+    "reponseAttendue": null,
+    "explication": "En temporisation à base ventriculaire, c'est l'intervalle d'échappement atrial (intervalle VA = intervalle de base − délai AV stimulé = 1 000 − 200 = 800 ms) qui est fixe et démarre sur tout événement ventriculaire, stimulé ou détecté. Si la conduction spontanée survient avant la fin du délai AV (VS à 150 ms), le cycle A-A vaut 150 + 800 = 950 ms, soit environ 63/min : la fréquence de stimulation atriale dépasse légèrement la fréquence de base programmée. L'écart est d'autant plus grand que la conduction AV est rapide par rapport au délai AV programmé. En temporisation à base atriale, l'intervalle A-A est au contraire fixe (1 000 ms) quel que soit le moment du VS. Cette nuance explique des fréquences « anormales » de quelques battements lors d'un contrôle, sans aucune dysfonction.",
+    "aRetenir": "Base ventriculaire : A-A = intervalle VA + AV réel ; une conduction AV plus courte que le délai AV programmé accélère la stimulation atriale.",
+    "sources": [
+      { "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210", "url": "https://doi.org/10.1016/j.jacc.2016.10.061" },
+      { "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide, 2nd ed. Wiley-Blackwell, 2010" }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-mod-002",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Stimulateur en DDD, fréquence de base 60/min, délai AV après détection 120 ms, délai AV après stimulation 150 ms. Lorsque la fréquence sinusale ralentit, on passe d'un cycle AS-VP à un cycle AP-VP ; l'intervalle entre les deux spikes ventriculaires mesure alors 1 030 ms, puis revient à 1 000 ms. Quelle est l'explication ?",
+    "options": [
+      "Une hystérésis de fréquence activée par l'onde P détectée",
+      "Une temporisation à base atriale : l'intervalle A-A reste fixe",
+      "Une sous-détection de l'onde P qui précède le spike atrial",
+      "Un intervalle VA allongé par une temporisation à base ventriculaire"
+    ],
+    "reponses": [1],
+    "commentaires": [
+      "Faux : une hystérésis allongerait l'intervalle d'échappement bien au-delà de 30 ms et durablement, pas d'une valeur égale à la différence des délais AV.",
+      "Juste : A-A fixé à 1 000 ms depuis la P détectée ; le V-V s'allonge de la différence entre délai AV stimulé et détecté (150 − 120 = 30 ms).",
+      "Faux : une P non détectée donnerait un spike atrial compétitif, pas un allongement fixe de 30 ms du cycle ventriculaire.",
+      "Faux : en base ventriculaire, l'intervalle VA (850 ms) partant du VP plus le délai AV stimulé (150 ms) donnerait exactement 1 000 ms."
+    ],
+    "reponseAttendue": null,
+    "explication": "En base atriale, le boîtier minute l'intervalle de base d'un événement atrial au suivant : la P détectée ouvre un cycle A-A de 1 000 ms, le spike atrial suivant tombe donc 1 000 ms après elle. Le ventricule a été stimulé 120 ms après la P détectée, et le sera 150 ms après le spike atrial : l'intervalle VP-VP vaut 1 000 + 30 = 1 030 ms. Avec une temporisation à base ventriculaire, l'intervalle VA (1 000 − 150 = 850 ms) démarre sur le VP et le cycle V-V reste de 1 000 ms. Ces quelques dizaines de millisecondes ne traduisent aucune dysfonction ; savoir quel type de temporisation utilise le boîtier évite de les prendre pour une anomalie.",
+    "aRetenir": "Base atriale : A-A fixe ; lors d'un passage AS-VP → AP-VP, le V-V s'allonge de la différence entre délais AV stimulé et détecté.",
+    "sources": [
+      { "titre": "Bordachar P, Ploux S, Ritter P, et al. Stimulateur cardiaque implantable : interrogation et programmation. Stimuprat Éditions, 2015 (chapitre « Modes de stimulation »)" },
+      { "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide, 2nd ed. Wiley-Blackwell, 2010" }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-mod-004",
+    "theme": "programmation",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 9,
+    "question": "Stimulateur en DDD chez un patient en BAV complet : FMS 120/min (500 ms), délai AV après détection 150 ms, PVARP 260 ms, sans raccourcissement dynamique. La fréquence sinusale se stabilise à 125/min (480 ms). Quelles propositions sont exactes ? (plusieurs réponses)",
+    "options": [
+      "L'intervalle AS-VP s'allonge de 20 ms à chaque cycle",
+      "L'intervalle AS-VP ne peut jamais dépasser 240 ms",
+      "La fréquence ventriculaire dépasse brièvement 120/min au début de chaque séquence",
+      "La P non suivie tombe dans la PVARP et est marquée comme événement réfractaire",
+      "Le bloc 2:1 électronique n'apparaîtra qu'au-delà de 170/min"
+    ],
+    "reponses": [0, 1, 3],
+    "commentaires": [
+      "Juste : le VP ne peut survenir que 500 ms après le précédent alors que les P arrivent toutes les 480 ms, d'où un retard croissant de 20 ms par cycle.",
+      "Juste : une P n'est suivie que si elle tombe hors de la PVARP ; l'AS-VP ne peut donc pas dépasser intervalle de la FMS − PVARP = 500 − 260 = 240 ms.",
+      "Faux : aucun intervalle VP-VP n'est plus court que 500 ms ; la pause suivant la P bloquée allonge même le cycle.",
+      "Juste : la P arrive alors moins de 260 ms après le VP ; elle est détectée en période réfractaire (marqueur de type AR) et ne déclenche pas de délai AV.",
+      "Faux : TARP = 150 + 260 = 410 ms, le bloc 2:1 apparaît dès 146/min environ."
+    ],
+    "reponseAttendue": null,
+    "explication": "Entre la FMS (120/min) et le point 2:1 (60 000/410 ≈ 146/min), le stimulateur a un comportement de Wenckebach électronique. Chaque VP est retardé jusqu'à la fin de l'intervalle de la FMS : l'AS-VP passe de 150 à 170, 190, 210 puis 230 ms. La P suivante tombe 250 ms après le VP, donc dans la PVARP de 260 ms : elle n'est pas suivie, et le cycle reprend avec un délai AV de 150 ms. On obtient ici une conduction 6:5 (cinq P suivies sur six) et une fréquence ventriculaire moyenne d'environ 104/min, jamais au-dessus de 120/min. La borne « intervalle de la FMS − PVARP » (240 ms) limite l'AS-VP et permet de prévoir la longueur des séquences.",
+    "aRetenir": "Wenckebach électronique : AS-VP allongé de (intervalle FMS − cycle sinusal) à chaque cycle, sans dépasser intervalle FMS − PVARP, puis P dans la PVARP.",
+    "sources": [
+      { "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide, 2nd ed. Wiley-Blackwell, 2010" },
+      { "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210", "url": "https://doi.org/10.1016/j.jacc.2016.10.061" }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-mod-006",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Patient en DDD, délai AV stimulé 200 ms. Sur un Holter, une ESV à QRS large débute presque en même temps qu'un spike atrial. Un spike ventriculaire est délivré 200 ms après le spike atrial, dans le segment ST de l'ESV, sans capture. Les autres cycles sont normaux. Quelle est l'explication la plus probable ?",
+    "options": [
+      "L'ESV est tombée dans le blanking ventriculaire post-atrial",
+      "Crosstalk : le spike atrial a été détecté par le canal ventriculaire",
+      "Perte de capture ventriculaire par élévation du seuil",
+      "Stimulation de sécurité normale après détection dans la fenêtre dédiée"
+    ],
+    "reponses": [0],
+    "commentaires": [
+      "Juste : pendant les quelques dizaines de ms de blanking qui suivent le spike atrial, le canal V est aveugle ; l'ESV n'est pas vue et le VP part à la fin du délai AV complet.",
+      "Faux : un crosstalk entraînerait une inhibition du VP ou une stimulation de sécurité précoce, pas un VP à 200 ms.",
+      "Faux : le spike tombe dans la période réfractaire myocardique de l'ESV ; l'absence de capture est fonctionnelle.",
+      "Faux : la stimulation de sécurité survient à un délai AV raccourci (environ 100 à 120 ms), pas à la fin du délai AV programmé."
+    ],
+    "reponseAttendue": null,
+    "explication": "Après chaque stimulation atriale, le canal ventriculaire est rendu aveugle pendant une courte période de blanking (typiquement 20 à 50 ms) pour ne pas détecter l'artefact atrial (crosstalk). Une ESV dont la déflexion atteint la sonde ventriculaire pendant ce blanking n'est pas détectée : le délai AV se poursuit et le VP est délivré à 200 ms, en période réfractaire du myocarde, donc sans capture. Si l'ESV avait été détectée juste après le blanking, dans la fenêtre de sécurité, le boîtier aurait délivré une stimulation de sécurité à délai AV court. Allonger le blanking réduit le crosstalk mais augmente le risque de méconnaître des ESV ; c'est un compromis. Ce phénomène explique aussi certaines bascules inappropriées d'algorithmes de réduction de stimulation ventriculaire qui « voient » une pause.",
+    "aRetenir": "ESV simultanée au spike atrial : invisible dans le blanking post-atrial, d'où un VP à délai AV complet non capturant ; ce n'est ni un crosstalk ni une perte de capture.",
+    "sources": [
+      { "titre": "Bordachar P, Ploux S, Ritter P, et al. Stimulateur cardiaque implantable : interrogation et programmation. Stimuprat Éditions, 2015 (chapitres « Modes de stimulation » et « Délais AV et périodes réfractaires »)" },
+      { "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide, 2nd ed. Wiley-Blackwell, 2010" }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-mod-007",
+    "theme": "programmation",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Patiente de 69 ans, dysfonction sinusale, stimulateur programmé en AAI à 60/min avec une période réfractaire atriale courte (200 ms). À l'interrogation, le QRS conduit est détecté par le canal atrial 250 ms après chaque spike atrial. À quelle fréquence l'oreillette est-elle stimulée ?",
+    "options": [
+      "Environ 71/min",
+      "60/min",
+      "Environ 48/min",
+      "40/min"
+    ],
+    "reponses": [2],
+    "commentaires": [
+      "Faux : l'onde R détectée ne raccourcit pas le cycle, elle le rallonge en recyclant l'intervalle d'échappement.",
+      "Faux : 60/min serait obtenu si l'onde R tombait dans la période réfractaire atriale.",
+      "Juste : l'onde R, hors période réfractaire, recycle l'intervalle de 1 000 ms : cycle A-A de 250 + 1 000 = 1 250 ms, soit 48/min.",
+      "Faux : 40/min ne correspond à aucun calcul ; le cycle vaut 1 250 ms, pas 1 500 ms."
+    ],
+    "reponseAttendue": null,
+    "explication": "En AAI, tout signal détecté par le canal atrial hors période réfractaire est interprété comme une onde P et recycle l'intervalle d'échappement. Ici, l'onde R lointaine est vue 250 ms après le spike, au-delà de la période réfractaire de 200 ms : le spike suivant n'arrive que 1 000 ms après elle, soit un cycle de 1 250 ms (48/min) au lieu de 60/min. Le patient est donc stimulé plus lentement que prévu, ce qui peut entretenir des symptômes de bradycardie. La correction consiste à allonger la période réfractaire atriale au-delà du moment de détection de l'onde R et/ou à rendre le canal atrial moins sensible (valeur en mV plus élevée), en vérifiant la bonne détection des vraies P. Le mode AAI simple chambre est aujourd'hui rarement choisi, mais le même piège existe en mode AAI(R) programmé sur un double chambre.",
+    "aRetenir": "En AAI, une onde R lointaine détectée hors période réfractaire recycle l'échappement et ralentit la stimulation : A-A = délai de détection de l'onde R + intervalle de base.",
+    "sources": [
+      { "titre": "Bordachar P, Ploux S, Ritter P, et al. Stimulateur cardiaque implantable : interrogation et programmation. Stimuprat Éditions, 2015 (chapitre « Modes de stimulation »)" },
+      { "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210", "url": "https://doi.org/10.1016/j.jacc.2016.10.061" }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-mod-008",
+    "theme": "programmation",
+    "sousTheme": "Asservissement et algorithmes de fréquence",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Patient de 71 ans, dysfonction sinusale, conduction AV normale, stimulé en AAI à 70/min avec une hystérésis de fréquence à 50/min, sans hystérésis de recherche. Son rythme sinusal habituel est à 60/min. Après une pause sinusale de 1,5 s, la stimulation démarre. Que se passe-t-il ensuite ?",
+    "options": [
+      "Retour au rythme sinusal à 60/min dès le cycle suivant",
+      "Stimulation atriale à 50/min, fréquence d'hystérésis",
+      "Alternance régulière d'un cycle stimulé et d'un cycle sinusal",
+      "Stimulation à 70/min tant que le sinus reste sous 70/min"
+    ],
+    "reponses": [3],
+    "commentaires": [
+      "Faux : chaque spike atrial dépolarise l'oreillette et réinitialise le nœud sinusal, qui n'a jamais le temps d'émerger à 60/min.",
+      "Faux : la fréquence d'hystérésis n'est qu'un seuil de déclenchement après un événement détecté ; une fois stimulé, le boîtier stimule à la fréquence de base.",
+      "Faux : une alternance supposerait que le sinus devance le spike, impossible avec un cycle sinusal (1 000 ms) plus long que l'intervalle de stimulation (857 ms).",
+      "Juste : une fois la stimulation lancée à 70/min, le rythme sinusal à 60/min est surentraîné en permanence ; seule une accélération au-delà de 70/min rend la main au sinus."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'hystérésis allonge l'intervalle d'échappement après un événement détecté (ici 1 200 ms) pour laisser s'exprimer le rythme propre, mais la stimulation se fait ensuite à la fréquence de base (857 ms). Dans cet exemple, le rythme sinusal à 60/min (1 000 ms) est plus lent que 70/min : chaque spike atrial réinitialise le nœud sinusal et le patient reste stimulé indéfiniment, ce qui annule le bénéfice attendu de l'hystérésis. C'est pour cela que les constructeurs proposent une hystérésis « de recherche » : le boîtier abaisse périodiquement sa fréquence jusqu'à la fréquence d'hystérésis pour démasquer un rythme propre. Sans cette option, l'hystérésis n'est efficace que si le rythme spontané reste au-dessus de la fréquence de base, avec des chutes transitoires.",
+    "aRetenir": "Sans hystérésis de recherche, une fois la stimulation lancée, un rythme propre plus lent que la fréquence de base reste surentraîné.",
+    "sources": [
+      { "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210", "url": "https://doi.org/10.1016/j.jacc.2016.10.061" },
+      { "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide, 2nd ed. Wiley-Blackwell, 2010" }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-mod-009",
+    "theme": "programmation",
+    "sousTheme": "Asservissement et algorithmes de fréquence",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 5,
+    "question": "En DDDR, la fréquence maximale asservie se programme indépendamment de la fréquence maximale de suivi : chez un patient en incompétence chronotrope, la stimulation asservie peut donc dépasser la fréquence maximale de suivi.",
+    "options": ["Vrai", "Faux"],
+    "reponses": [0],
+    "commentaires": [
+      "Juste : les deux plafonds sont distincts ; la fréquence maximale de suivi limite le suivi des P détectées, la fréquence maximale asservie limite la stimulation pilotée par le capteur.",
+      "Faux : rien n'empêche de programmer une fréquence maximale asservie supérieure à la fréquence maximale de suivi, avec stimulation AP-VP au-delà de celle-ci."
+    ],
+    "reponseAttendue": null,
+    "explication": "En DDDR, le stimulateur suit la plus rapide des deux fréquences : fréquence atriale spontanée (suivie jusqu'à la fréquence maximale de suivi) ou fréquence indiquée par le capteur (jusqu'à la fréquence maximale asservie). Ces deux limites sont programmables séparément. Chez un patient en incompétence chronotrope, c'est la fréquence asservie qui pilote une stimulation séquentielle AP-VP et elle peut dépasser la fréquence maximale de suivi si on l'a programmée plus haut. On choisit parfois une fréquence maximale de suivi plus basse pour limiter le suivi d'arythmies atriales, tout en laissant le capteur accélérer davantage. Il faut alors vérifier la tolérance (angor, cardiopathie) de la fréquence maximale asservie.",
+    "aRetenir": "DDDR : fréquence maximale de suivi (suivi des P) et fréquence maximale asservie (capteur) sont deux plafonds indépendants.",
+    "sources": [
+      { "titre": "Bordachar P, Ploux S, Ritter P, et al. Stimulateur cardiaque implantable : interrogation et programmation. Stimuprat Éditions, 2015 (chapitre « Modes de stimulation »)" },
+      { "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210", "url": "https://doi.org/10.1016/j.jacc.2016.10.061" }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-mod-010",
+    "theme": "programmation",
+    "sousTheme": "Modes et choix du mode",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Patient de 80 ans porteur d'un système VDD à sonde unique (dipôle atrial flottant) pour BAV complet. Il présente désormais des accès de FA paroxystique. Vers quel mode de repli la commutation de mode doit-elle faire basculer le boîtier pendant les accès ?",
+    "options": [
+      "DDI(R)",
+      "VDI(R)",
+      "VVT",
+      "VOO"
+    ],
+    "reponses": [1],
+    "commentaires": [
+      "Faux : le DDI suppose une stimulation atriale, impossible avec un dipôle atrial flottant.",
+      "Juste : le VDI(R) conserve la détection atriale (utile pour suivre l'arythmie et sortir du repli) sans aucun suivi des P, avec stimulation ventriculaire à la fréquence de base ou asservie.",
+      "Faux : le VVT déclenche un spike à chaque QRS détecté, sans intérêt pendant une FA.",
+      "Faux : un mode asynchrone exposerait à une stimulation compétitive sur les QRS conduits."
+    ],
+    "reponseAttendue": null,
+    "explication": "En VDD, chaque P détectée déclenche une stimulation ventriculaire jusqu'à la fréquence maximale de suivi : pendant une FA, le ventricule serait stimulé rapidement et irrégulièrement. La commutation de mode fait passer le boîtier dans un mode sans suivi atrial. Faute de stimulation atriale possible, ce sera un VDI(R) : l'oreillette reste détectée (pour mesurer l'arythmie et revenir en VDD à sa fin) mais ne déclenche plus rien, et le ventricule est stimulé comme en VVI(R). Les algorithmes de repli et de protection contre la réentrée électronique doivent donc être programmés sur ces systèmes. La moindre qualité de la détection atriale d'un dipôle flottant peut toutefois rendre ce repli moins fiable.",
+    "aRetenir": "VDD : mode de repli VDI(R), puisqu'aucune stimulation atriale n'est possible.",
+    "sources": [
+      { "titre": "Bordachar P, Ploux S, Ritter P, et al. Stimulateur cardiaque implantable : interrogation et programmation. Stimuprat Éditions, 2015 (chapitre « Modes de stimulation »)" },
+      { "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520", "url": "https://doi.org/10.1093/eurheartj/ehab364" }
+    ],
+    "reco": ["ESC 2021 stimulation et CRT"],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-mod-011",
+    "theme": "programmation",
+    "sousTheme": "Modes et choix du mode",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 4,
+    "question": "En mode DVI, une onde P sinusale ne peut pas inhiber la stimulation atriale, puisque l'oreillette n'est pas détectée.",
+    "options": ["Vrai", "Faux"],
+    "reponses": [0],
+    "commentaires": [
+      "Juste : en DVI, seul le ventricule est détecté ; le spike atrial part à la fin de l'intervalle VA sauf si un QRS détecté l'a recyclé.",
+      "Faux : la deuxième lettre V signifie que la détection ne porte que sur le ventricule ; l'onde P est ignorée."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le DVI stimule l'oreillette et le ventricule mais ne détecte que le ventricule. Le spike atrial est délivré à la fin de l'intervalle d'échappement atrial, calculé depuis le dernier événement ventriculaire ; seule une détection ventriculaire peut le décaler. Une onde P sinusale survenant juste avant n'est pas vue : le spike atrial peut alors tomber dans la P ou juste après, sans capture, ou en période vulnérable atriale avec un risque d'induire une FA. C'est pourquoi ce mode, historique, n'a quasiment plus d'indication quand on dispose du DDD ou du DDI. On le rencontre encore surtout comme mode de fonctionnement particulier, par exemple quand la détection atriale est inutilisable.",
+    "aRetenir": "DVI : stimulation atriale sans détection atriale, donc stimulation atriale compétitive possible en rythme sinusal.",
+    "sources": [
+      { "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide, 2nd ed. Wiley-Blackwell, 2010" },
+      { "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210", "url": "https://doi.org/10.1016/j.jacc.2016.10.061" }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-mod-012",
+    "theme": "programmation",
+    "sousTheme": "Modes et choix du mode",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 5,
+    "question": "Lors d'un contrôle, on programme temporairement un stimulateur en VVT. Chaque QRS spontané, y compris les ESV, comporte désormais un spike inscrit dans le complexe. Quels sont les intérêts reconnus de ce mode déclenché ? (plusieurs réponses)",
+    "options": [
+      "Visualiser le moment où chaque QRS, ESV comprises, est détecté",
+      "Éviter une pause chez un patient dépendant exposé à une surdétection",
+      "Économiser la pile par rapport au mode VVI",
+      "Tester la capture ventriculaire à chaque battement spontané"
+    ],
+    "reponses": [0, 1],
+    "commentaires": [
+      "Juste : le spike déclenché marque l'instant de la détection ; on vérifie ainsi que tous les QRS, ESV comprises, sont vus et à quel moment.",
+      "Juste : un signal parasite détecté (myopotentiels, interférence) déclenche un spike au lieu d'inhiber le boîtier, ce qui protège temporairement un patient dépendant.",
+      "Faux : stimuler à chaque détection consomme davantage d'énergie ; c'est la raison de l'abandon de ce mode en programmation permanente.",
+      "Faux : le spike tombe en période réfractaire du QRS spontané ; il ne capture pas et n'apprend rien sur le seuil."
+    ],
+    "reponseAttendue": null,
+    "explication": "En VVT (ou AAT), un événement détecté hors période réfractaire déclenche immédiatement une stimulation dans la même cavité ; en l'absence d'activité spontanée, la stimulation se fait à la fréquence de base. Le spike tombe dans la période réfractaire du myocarde qui vient de se dépolariser : il est sans danger et sans capture, et donne une pseudo-fusion ou une fusion. Ce mode sert à tester la détection (chaque QRS ou chaque ESV porte un spike, dont la position montre quand la sonde voit l'activation). Il peut aussi éviter une inhibition chez un patient dépendant exposé à une surdétection, à condition de limiter la fréquence maximale ou d'allonger la période réfractaire pour éviter un emballement. Sa consommation d'énergie explique qu'il ne soit plus utilisé en programmation permanente.",
+    "aRetenir": "Modes déclenchés (VVT/AAT) : test de la détection et protection temporaire contre l'inhibition ; coûteux en énergie, pas de programmation durable.",
+    "sources": [
+      { "titre": "Bordachar P, Ploux S, Ritter P, et al. Stimulateur cardiaque implantable : interrogation et programmation. Stimuprat Éditions, 2015 (chapitre « Modes de stimulation »)" },
+      { "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide, 2nd ed. Wiley-Blackwell, 2010" }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-mod-013",
+    "theme": "programmation",
+    "sousTheme": "Modes et choix du mode",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Chez un patient en BAV complet porteur d'un stimulateur double chambre, dans quelle situation une programmation en DDIR, avec une fréquence de base assez élevée, reste-t-elle acceptable ?",
+    "options": [
+      "Fonction sinusale normale chez un sujet actif de 45 ans",
+      "Dysfonction sinusale, oreillette stimulée en permanence, FA paroxystique mal gérée par le repli",
+      "FA permanente avec réponse ventriculaire lente",
+      "BAV 2:1 paroxystique avec fréquence sinusale de repos à 85/min"
+    ],
+    "reponses": [1],
+    "commentaires": [
+      "Faux : en DDI, les P sinusales plus rapides que la fréquence de base ne sont pas suivies ; le sujet perdrait la synchronisation AV et l'accélération à l'effort.",
+      "Juste : l'oreillette étant presque toujours stimulée, chaque spike atrial est suivi d'un délai AV ; pendant la FA, les P rapides ne sont jamais suivies.",
+      "Faux : en FA permanente, la stimulation atriale est inutile ; un VVIR est indiqué.",
+      "Faux : avec un sinus à 85/min, le DDI stimulerait le ventricule sans le synchroniser aux P, comme un VVI, dès que le bloc s'installe."
+    ],
+    "reponseAttendue": null,
+    "explication": "En DDI, une P détectée inhibe la stimulation atriale mais ne déclenche jamais de délai AV ; seule la stimulation atriale synchronise le ventricule. En BAV complet avec fonction sinusale normale, le DDI se comporte donc comme un VVI dès que le sinus dépasse la fréquence de base : il est inadapté. En revanche, si une dysfonction sinusale impose une stimulation atriale quasi permanente (fréquence de base plutôt élevée, asservissement actif), la synchronisation AV est préservée par les séquences AP-VP, et l'absence de suivi protège contre l'emballement ventriculaire lors des accès de FA. C'est une solution de recours quand la commutation de mode fonctionne mal. En FA permanente, le VVIR reste le mode recommandé.",
+    "aRetenir": "DDI(R) en BAV complet : acceptable seulement si l'oreillette est stimulée en permanence (dysfonction sinusale), notamment en cas de FA paroxystique mal gérée par le repli.",
+    "sources": [
+      { "titre": "Bordachar P, Ploux S, Ritter P, et al. Stimulateur cardiaque implantable : interrogation et programmation. Stimuprat Éditions, 2015 (chapitre « Modes de stimulation »)" },
+      { "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520", "url": "https://doi.org/10.1093/eurheartj/ehab364" }
+    ],
+    "reco": ["ESC 2021 stimulation et CRT"],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-mod-014",
+    "theme": "programmation",
+    "sousTheme": "Modes et choix du mode",
+    "marque": null,
+    "type": "vf",
+    "difficulte": 3,
+    "question": "Patient porteur d'un système VDD à sonde unique. Un aimant posé sur le boîtier le fait habituellement passer en DOO.",
+    "options": ["Vrai", "Faux"],
+    "reponses": [1],
+    "commentaires": [
+      "Faux : un système VDD ne peut pas stimuler l'oreillette ; le mode aimant ne peut pas être double chambre.",
+      "Juste : sous aimant, le VDD passe habituellement en VOO, stimulation ventriculaire asynchrone à la fréquence aimant."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'aimant fait passer un stimulateur dans un mode asynchrone correspondant aux cavités qu'il peut stimuler : AOO pour un AAI, VOO pour un VVI, DOO pour un DDD ou un DDI. Un système VDD n'ayant pas de stimulation atriale, son mode aimant est le VOO. La fréquence aimant et même la réponse à l'aimant (programmable, parfois désactivable) dépendent du constructeur et de l'état de la pile : il faut les vérifier dans la notice ou sur la carte du patient. Chez un patient dépendant opéré avec un bistouri monopolaire, le VOO protège contre l'inhibition, mais au prix d'une stimulation compétitive si le rythme propre est plus rapide que la fréquence aimant.",
+    "aRetenir": "Mode aimant = mode asynchrone des cavités stimulables : VDD → VOO.",
+    "sources": [
+      { "titre": "Bordachar P, Ploux S, Ritter P, et al. Stimulateur cardiaque implantable : interrogation et programmation. Stimuprat Éditions, 2015 (chapitre « Modes de stimulation »)" },
+      { "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210", "url": "https://doi.org/10.1016/j.jacc.2016.10.061" }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-mod-015",
+    "theme": "programmation",
+    "sousTheme": "Modes et choix du mode",
+    "marque": null,
+    "type": "qcm",
+    "difficulte": 5,
+    "question": "Patient de 76 ans en BAV complet, stimulé en VDD à 60/min, PVARP 300 ms, conduction rétrograde VA mesurée à 220 ms. La nuit, sa fréquence sinusale descend à 55/min. Quelles conséquences attendez-vous ? (plusieurs réponses)",
+    "options": [
+      "Une stimulation ventriculaire de type VVI à 60/min, sans synchronisation AV",
+      "Des P rétrogrades tombant dans la PVARP, donc non suivies",
+      "Un risque de symptômes de syndrome du pacemaker",
+      "Une stimulation atriale à 60/min qui maintient la synchronie AV",
+      "Une réentrée électronique à la fréquence maximale de suivi"
+    ],
+    "reponses": [0, 1, 2],
+    "commentaires": [
+      "Juste : sans P détectée avant la fin de l'intervalle de base, le VDD stimule le ventricule comme un VVI.",
+      "Juste : la P rétrograde arrive 220 ms après le VP, dans la PVARP de 300 ms ; elle est détectée en période réfractaire et ne déclenche rien.",
+      "Juste : la contraction atriale sur valves AV fermées, par conduction rétrograde, peut donner des symptômes de syndrome du pacemaker.",
+      "Faux : aucune stimulation atriale n'est possible en VDD.",
+      "Faux : la PVARP, plus longue que le temps VA, empêche justement le suivi des P rétrogrades."
+    ],
+    "reponseAttendue": null,
+    "explication": "En VDD, le ventricule n'est synchronisé que sur les P détectées ; si le sinus ralentit sous la fréquence de base, le boîtier stimule le ventricule à la fréquence de base, comme un VVI. Chez un patient à conduction rétrograde, chaque VP est suivi d'une P rétrograde : ici elle tombe dans la PVARP (220 < 300 ms), ce qui évite une réentrée électronique mais crée une contraction atriale sur valves fermées. Le remède proposé est d'abaisser la fréquence de base (40 à 50/min), éventuellement avec une hystérésis, pour laisser le sinus piloter. Si une dysfonction sinusale apparaît, un vrai mode double chambre avec stimulation atriale devient nécessaire.",
+    "aRetenir": "VDD : sous la fréquence de base, fonctionnement VVI avec risque de conduction rétrograde ; programmer une fréquence de base basse.",
+    "sources": [
+      { "titre": "Bordachar P, Ploux S, Ritter P, et al. Stimulateur cardiaque implantable : interrogation et programmation. Stimuprat Éditions, 2015 (chapitre « Modes de stimulation »)" },
+      { "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520", "url": "https://doi.org/10.1093/eurheartj/ehab364" }
+    ],
+    "reco": ["ESC 2021 stimulation et CRT"],
+    "revise": "2026-09"
+  },
+  {
+    "id": "prog-mod-016",
+    "theme": "ecg",
+    "sousTheme": "ECG stimulé : modes et fonctionnement",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Patient porteur d'un stimulateur VVI à 60/min, sans hystérésis, sonde à la pointe du VD. Son QRS spontané a un aspect de bloc de branche droit complet. Entre deux spikes consécutifs, l'intervalle est exactement de 1 000 ms, mais entre le début d'un QRS spontané et le spike suivant, on mesure 1 080 ms. Quelle est l'explication ?",
+    "options": [
+      "Une hystérésis de fréquence mal documentée",
+      "Une usure de pile avec baisse de la fréquence",
+      "Une détection tardive du QRS par la sonde VD",
+      "Une surdétection de l'onde T du QRS spontané"
+    ],
+    "reponses": [2],
+    "commentaires": [
+      "Faux : la question précise l'absence d'hystérésis, qui allongerait d'ailleurs l'échappement de plusieurs centaines de ms.",
+      "Faux : une usure de pile allongerait aussi l'intervalle entre deux spikes, qui est ici exactement de 1 000 ms.",
+      "Juste : avec un retard droit, le VD est activé tard ; la sonde voit le QRS environ 80 ms après son début et l'échappement part de ce moment.",
+      "Faux : une surdétection de l'onde T redémarrerait l'échappement 300 à 400 ms après le début du QRS, pas 80 ms."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le stimulateur ne voit pas le début du QRS sur l'ECG, mais le moment où le front d'activation passe sous l'électrode de détection. En bloc de branche droit, le ventricule droit est activé tardivement : la sonde VD détecte le QRS plusieurs dizaines de ms après son début. L'intervalle d'échappement (1 000 ms) démarre de ce point, d'où un intervalle apparent plus long quand on le mesure depuis le début du QRS. L'intervalle entre deux spikes, lui, est exact, ce qui élimine une dérive de fréquence. Avant de conclure à une anomalie de fréquence d'échappement, il faut donc raisonner à partir du point de détection, visible sur le canal de marqueurs.",
+    "aRetenir": "L'échappement part du moment de détection par la sonde, pas du début du QRS : en retard droit, il paraît plus long sur l'ECG.",
+    "sources": [
+      { "titre": "Bordachar P, Ploux S, Ritter P, et al. Stimulateur cardiaque implantable : interrogation et programmation. Stimuprat Éditions, 2015 (chapitre « Modes de stimulation »)" },
+      { "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide, 2nd ed. Wiley-Blackwell, 2010" }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  }
+]

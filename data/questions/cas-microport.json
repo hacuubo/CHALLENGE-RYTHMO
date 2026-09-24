@@ -1,0 +1,613 @@
+[
+  {
+    "id": "cas-mp-001",
+    "theme": "programmation",
+    "sousTheme": "Réduction de la stimulation ventriculaire",
+    "marque": "MicroPort",
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Homme de 68 ans, stimulateur double chambre MicroPort en SafeR-R pour dysfonction sinusale ; fréquence de base 60 bpm, critère de BAV du 1er degré « repos + effort », PR long max 350 ms, PR long min 250 ms. Au repos, l'oreillette est stimulée à la fréquence de base et les intervalles AR mesurent 410 à 430 ms sur une vingtaine de cycles consécutifs. Que fait le boîtier ?",
+    "options": [
+      "Il bascule en DDD après 6 cycles, l'AR dépassant le PR long max",
+      "Il bascule en DDD dès 2 cycles consécutifs au-delà de la limite",
+      "Il reste en AAI : sur oreillette stimulée, la limite est de 450 ms",
+      "Il reste en AAI : ce critère ne s'applique qu'au-delà de 100 bpm"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : sur oreillette stimulée, la limite n'est pas le PR long programmé mais cette valeur augmentée de 100 ms.",
+      "Faux : le critère de BAV du 1er degré exige 6 intervalles longs consécutifs ; 2 événements consécutifs correspondent au critère de BAV complet (P bloquées).",
+      "Juste : la limite sur oreillette stimulée vaut PR long + 100 ms, soit 450 ms à la fréquence de base ; des AR à 410-430 ms ne déclenchent rien.",
+      "Faux : programmé en « repos + effort », le critère s'applique aussi au repos ; seule l'option « effort uniquement » le réserve à l'effort."
+    ],
+    "reponseAttendue": null,
+    "explication": "En SafeR, le critère de BAV du 1er degré est rempli quand 6 intervalles PR ou AR consécutifs dépassent la limite. La valeur programmée s'applique aux ondes P détectées ; pour une oreillette stimulée, le boîtier ajoute automatiquement 100 ms (non programmable), car la stimulation atriale allonge le temps de conduction jusqu'au ventricule. En « repos + effort », la limite varie entre le PR long max (à la fréquence de base) et le PR long min (à la fréquence maximale). Ici, la limite est de 350 + 100 = 450 ms : des AR à 410-430 ms sont tolérés et le patient reste en AAI. Connaître cette règle évite de croire à une panne de l'algorithme devant un AR long sans bascule.",
+    "aRetenir": "SafeR, BAV du 1er degré : 6 PR/AR longs consécutifs ; la limite sur oreillette stimulée est le PR long programmé + 100 ms.",
+    "sources": [
+      {
+        "titre": "MicroPort CRM. Tech Corner – SafeR Pacing Mode (RE06200054D, avril 2023), documentation technique officielle"
+      },
+      {
+        "titre": "Mahfouz K, Bordachar P, Grosmaire D, Ritter P. Stimulateur cardiaque implantable – Cas cliniques basés sur des tracés MicroPort. Stimuprat Éditions, 2019"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mp-002",
+    "theme": "programmation",
+    "sousTheme": "Réduction de la stimulation ventriculaire",
+    "marque": "MicroPort",
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Femme de 74 ans, stimulateur MicroPort en SafeR pour dysfonction sinusale, fréquence de base 60 bpm, pause maximale 2 s. Les mémoires montrent de nombreuses bascules en DDD sur le critère de pause : chaque fois, une extrasystole ventriculaire survient au moment d'une stimulation atriale et n'est pas détectée. La conduction AV est normale et la patiente est asymptomatique. Quel réglage proposez-vous ?",
+    "options": [
+      "Porter la pause à 4 s : le critère de BAV complet reste protecteur",
+      "Passer en DDD définitif avec un délai AV long pour ces extrasystoles",
+      "Désactiver le critère de BAV complet, qui aggrave ces bascules",
+      "Allonger le blanking ventriculaire qui suit la stimulation atriale"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : à 60 bpm, un vrai BAV complet sera reconnu (2 P bloquées) bien avant 4 s ; allonger la pause supprime la plupart des bascules sans perte de sécurité.",
+      "Faux : la conduction est normale ; le DDD définitif ferait perdre le bénéfice de SafeR pour quelques bascules sans conséquence clinique.",
+      "Faux : le critère de BAV complet (2 événements atriaux bloqués consécutifs) n'est pas en cause ici ; c'est lui qui protège d'un vrai BAV.",
+      "Faux : allonger ce blanking masquerait davantage d'extrasystoles et de QRS, et multiplierait les bascules."
+    ],
+    "reponseAttendue": null,
+    "explication": "En SafeR, le boîtier fonctionne en AAI (ADI) mais doit protéger le canal ventriculaire de la détection du stimulus atrial : un court blanking ventriculaire suit chaque stimulation atriale. Une extrasystole ventriculaire tardive, contemporaine de la stimulation atriale, tombe dans ce blanking : elle n'est pas vue et la pause compensatrice qui suit peut atteindre la valeur programmée, d'où une bascule inappropriée en DDD. Ces bascules sont d'autant plus fréquentes que la pause est programmée courte (2 s). La pause est programmable à 2, 3 ou 4 s : à 4 s, la plupart de ces bascules disparaissent. La sécurité est conservée car, à une fréquence de base de 60 bpm, un vrai BAV complet remplit le critère de 2 événements atriaux bloqués consécutifs bien avant 4 s de pause.",
+    "aRetenir": "Bascules SafeR sur « pause » liées aux ESV : allonger la pause à 4 s ; le critère de BAV complet (2 P bloquées) reste le filet de sécurité.",
+    "sources": [
+      {
+        "titre": "Mahfouz K, Bordachar P, Grosmaire D, Ritter P. Stimulateur cardiaque implantable – Cas cliniques basés sur des tracés MicroPort. Stimuprat Éditions, 2019"
+      },
+      {
+        "titre": "MicroPort CRM. Tech Corner – SafeR Pacing Mode (RE06200054D, avril 2023), documentation technique officielle"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mp-003",
+    "theme": "programmation",
+    "sousTheme": "Réduction de la stimulation ventriculaire",
+    "marque": "MicroPort",
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Homme de 66 ans, stimulateur MicroPort en SafeR pour dysfonction sinusale, fréquence de base 50 bpm, sans asservissement. Quelques bascules en DDD sur le critère de BAV du 1er degré sont enregistrées. Sur les EGM, un rythme jonctionnel légèrement plus rapide que la stimulation atriale fait apparaître les QRS juste avant chaque stimulation atriale, avec de faux intervalles AR très longs ; aucune onde P n'est bloquée. Quelle attitude est la plus adaptée ?",
+    "options": [
+      "Réviser la sonde ventriculaire, qui sous-détecte les QRS",
+      "Programmer un DDD définitif, la conduction AV étant altérée",
+      "Désactiver le critère de pause, qui déclenche ces bascules",
+      "Relever la fréquence de base ou activer l'asservissement"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : les QRS sont bien détectés ; c'est leur position par rapport à la stimulation atriale qui crée de faux AR longs.",
+      "Faux : il n'y a pas de trouble conductif ; un DDD définitif ferait stimuler le ventricule sans raison.",
+      "Faux : la bascule se fait sur le critère de BAV du 1er degré, pas sur celui de pause.",
+      "Juste : une stimulation atriale plus rapide reprend la main sur le rythme jonctionnel ; si les bascules sont rares et asymptomatiques, on peut aussi simplement les respecter."
+    ],
+    "reponseAttendue": null,
+    "explication": "Chez un patient atteint de dysfonction sinusale, un rythme jonctionnel actif peut entrer en compétition avec la stimulation atriale (dissociation isorythmique). Si le jonctionnel est un peu plus rapide, chaque QRS survient juste avant la stimulation atriale : le boîtier mesure alors un faux intervalle AR très long. Après 6 cycles consécutifs, le critère de BAV du 1er degré est rempli et SafeR bascule en DDD, alors que la conduction est normale. Il n'y a ni P bloquée ni pause, donc les autres critères ne sont pas en cause. Relever la fréquence de base ou activer l'asservissement permet à l'oreillette stimulée de reprendre la commande et fait disparaître ces bascules. Rares et asymptomatiques, elles peuvent aussi être respectées : elles rétablissent au moins une séquence AV physiologique.",
+    "aRetenir": "SafeR : un rythme jonctionnel actif peut simuler un PR long et faire basculer sur le critère de BAV du 1er degré ; relever la fréquence atriale suffit souvent.",
+    "sources": [
+      {
+        "titre": "Mahfouz K, Bordachar P, Grosmaire D, Ritter P. Stimulateur cardiaque implantable – Cas cliniques basés sur des tracés MicroPort. Stimuprat Éditions, 2019"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mp-004",
+    "theme": "programmation",
+    "sousTheme": "Réduction de la stimulation ventriculaire",
+    "marque": "MicroPort",
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Chez un patient MicroPort programmé en SafeR, sans aucun trouble de la conduction AV, quelles anomalies peuvent provoquer des bascules en DDD enregistrées dans les mémoires ? (plusieurs réponses)",
+    "options": [
+      "Une sous-détection atriale, le QRS conduit tombant dans le blanking ventriculaire qui suit la stimulation atriale",
+      "Une sous-détection ventriculaire intermittente touchant deux cycles consécutifs",
+      "Une surdétection de myopotentiels sur le canal atrial chez un patient à dysfonction sinusale marquée",
+      "Une perte de capture ventriculaire intermittente pendant le fonctionnement en AAI",
+      "Une extrasystole atriale détectée comme prématurée, faisant entrer le boîtier en suspicion d'arythmie atriale"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "commentaires": [
+      "Juste : la P sous-détectée est suivie d'une stimulation atriale inefficace, et le QRS qu'elle a conduit, masqué par le blanking, fait compter une activité atriale bloquée ; répété, cela remplit le critère de BAV du 2e degré.",
+      "Juste : deux QRS consécutifs non détectés sont interprétés comme deux activités atriales bloquées consécutives, soit le critère de BAV complet.",
+      "Juste : les myopotentiels inhibent la stimulation atriale ; faute de rythme propre, la pause ventriculaire qui en résulte remplit le critère de pause.",
+      "Faux : en AAI, le ventricule n'est pas stimulé ; une perte de capture ventriculaire ne se voit qu'après la bascule en DDD.",
+      "Faux : pendant la suspicion d'arythmie atriale, les trois critères de bloc sont suspendus ; seul le critère de pause reste actif."
+    ],
+    "reponseAttendue": null,
+    "explication": "SafeR ne fonctionne bien qu'avec une détection atriale et ventriculaire fiable et une capture atriale efficace, car tout défaut est lu comme un bloc. Une sous-détection atriale fait stimuler l'oreillette en période réfractaire ; le QRS conduit par la P non vue tombe dans le blanking ventriculaire post-stimulation atriale et le cycle est compté comme bloqué (critère de BAV du 2e degré, 3 sur 12). Une sous-détection ventriculaire sur deux cycles consécutifs imite un BAV complet. Des myopotentiels surdétectés sur le canal atrial inhibent la stimulation atriale et, chez un patient très bradycarde, créent une pause ventriculaire. À l'inverse, pendant une suspicion d'arythmie atriale, les critères de bloc sont suspendus pour éviter justement ces bascules. Analyser chaque épisode de bascule mémorisé permet donc de dépister des problèmes de sonde intermittents.",
+    "aRetenir": "En SafeR, un défaut de détection (A ou V) ou une surdétection atriale se traduit par des bascules en DDD : relire les EGM des bascules, c'est dépister les problèmes de sonde.",
+    "sources": [
+      {
+        "titre": "Mahfouz K, Bordachar P, Grosmaire D, Ritter P. Stimulateur cardiaque implantable – Cas cliniques basés sur des tracés MicroPort. Stimuprat Éditions, 2019"
+      },
+      {
+        "titre": "MicroPort CRM. Tech Corner – SafeR Pacing Mode (RE06200054D, avril 2023), documentation technique officielle"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mp-006",
+    "theme": "programmation",
+    "sousTheme": "Seuils, détection et sondes",
+    "marque": "MicroPort",
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Concernant l'Autoseuil ventriculaire (Autothreshold) des stimulateurs MicroPort, quelles propositions sont exactes ? (plusieurs réponses)",
+    "options": [
+      "Le seuil est mesuré automatiquement toutes les 6 heures, soit 4 fois par jour",
+      "La capture est reconnue en distinguant la réponse évoquée de la polarisation de la sonde",
+      "La capture est vérifiée à chaque battement, avec une impulsion de secours en cas de perte",
+      "Réglé sur « Suivi », il mesure le seuil sans modifier l'amplitude programmée",
+      "Réglé sur « Auto », il fixe l'amplitude à 1,5 fois le seuil mesuré"
+    ],
+    "reponses": [
+      0,
+      1,
+      3
+    ],
+    "commentaires": [
+      "Juste : les mesures sont planifiées toutes les 6 heures, et l'amplitude est adaptée pour les 6 heures suivantes.",
+      "Juste : le test compare le signal après un stimulus efficace (réponse évoquée + polarisation) à celui d'un stimulus inefficace (polarisation seule).",
+      "Faux : c'est le principe de l'AutoCapture (Abbott) ; l'Autoseuil MicroPort n'a pas de vérification cycle à cycle, d'où une marge de sécurité plus large.",
+      "Juste : « Suivi » fournit les courbes de seuil sans adaptation ; « Auto » mesure et adapte ; « Non » ne mesure rien.",
+      "Faux : l'amplitude est réglée au double du seuil (marge de 100 %), sans descendre sous une valeur minimale programmable."
+    ],
+    "reponseAttendue": null,
+    "explication": "Il existe deux grandes façons d'automatiser la gestion du seuil : la vérification de capture à chaque battement, qui autorise une amplitude proche du seuil avec impulsion de secours, et la mesure planifiée sans vérification cycle à cycle, qui impose une marge plus large. MicroPort a retenu la seconde avec l'Autoseuil. La capture est reconnue grâce à la réponse évoquée, distinguée de la polarisation résiduelle de la sonde. Les mesures ont lieu toutes les 6 heures (fréquence cardiaque inférieure à 95 bpm) ; pendant le test, le délai AV ou l'intervalle d'échappement est raccourci pour éviter la fusion, et une stimulation de sécurité suit chaque stimulus inefficace. En « Auto », l'amplitude est ensuite réglée au double du seuil, sans descendre sous un minimum programmable ; en « Suivi », seules les mesures sont enregistrées. Si une fusion persiste, le test est abandonné et la sortie est forcée à une valeur haute jusqu'à la mesure suivante.",
+    "aRetenir": "Autoseuil V MicroPort : mesure par réponse évoquée toutes les 6 h, amplitude au double du seuil ; pas de vérification battement par battement.",
+    "sources": [
+      {
+        "titre": "Mahfouz K, Bordachar P, Grosmaire D, Ritter P. Stimulateur cardiaque implantable – Cas cliniques basés sur des tracés MicroPort. Stimuprat Éditions, 2019"
+      },
+      {
+        "titre": "MicroPort CRM. Pacemaker Features & Algorithms (SafeR, Dplus, Autothreshold, Fallback Mode Switch) – page professionnelle officielle"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mp-007",
+    "theme": "programmation",
+    "sousTheme": "Seuils, détection et sondes",
+    "marque": "MicroPort",
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Homme de 63 ans, stimulateur double chambre MicroPort pour BAV complet, détection atriale réglée sur Autosensing « Auto ». Au repos, les ondes P mesurent plus de 5 mV. Il se plaint d'une dyspnée brutale à l'effort. L'épisode enregistré montre, au-delà de 120 bpm, des ondes P dont l'amplitude varie beaucoup avec la respiration, quelques P non détectées et une chute brutale de la fréquence ventriculaire stimulée. Quelle est l'explication et la correction ?",
+    "options": [
+      "Un Wenckebach électronique : relever la fréquence maximale de suivi",
+      "Une sous-détection atriale : passer à une sensibilité atriale fixe",
+      "Une perte de capture V à l'effort : augmenter l'amplitude ventriculaire",
+      "Une écoute croisée ventriculo-atriale : allonger le blanking atrial"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : un Wenckebach électronique donne un allongement progressif du délai AV à la fréquence maximale, pas des P non détectées.",
+      "Juste : l'Autosensing a réglé une sensibilité peu élevée d'après les grandes P de repos ; les P moins amples de l'effort passent sous le seuil de détection.",
+      "Faux : une perte de capture donnerait des spikes V non suivis de QRS ; ici, ce sont des P non détectées qui ne déclenchent pas de délai AV.",
+      "Faux : une écoute croisée donnerait des détections atriales en excès ; ici, il en manque."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'Autosensing des stimulateurs MicroPort moyenne l'amplitude des signaux sur 8 cycles et règle la sensibilité à environ un tiers (37,5 %) de cette moyenne. Ce seuil reste fixe pendant tout le cycle, contrairement au contrôle automatique de sensibilité d'un DAI, qui décroît au fil du cycle. Avec de grandes ondes P, le boîtier devient donc peu sensible ; si l'amplitude chute brutalement (effort, respiration ample), des P ne sont plus détectées et, en BAV complet, la fréquence ventriculaire s'effondre. Quand la détection revient, la P suivante peut tomber dans la fenêtre d'accélération atriale (calculée sur un faux cycle long) : le boîtier suspecte une arythmie atriale, ne suit plus qu'une P sur deux, voire se replie en DDI. Chez ce patient, programmer une sensibilité atriale fixe, avec une marge suffisante, a supprimé les symptômes.",
+    "aRetenir": "Autosensing MicroPort : seuil à environ un tiers de l'amplitude moyenne des 8 derniers signaux ; de grandes P de repos exposent à une sous-détection à l'effort.",
+    "sources": [
+      {
+        "titre": "Mahfouz K, Bordachar P, Grosmaire D, Ritter P. Stimulateur cardiaque implantable – Cas cliniques basés sur des tracés MicroPort. Stimuprat Éditions, 2019"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mp-008",
+    "theme": "programmation",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "MicroPort",
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Concernant l'algorithme anti-TRE (tachycardie par réentrée électronique) des stimulateurs double chambre MicroPort, quelles propositions sont exactes ? (plusieurs réponses)",
+    "options": [
+      "Une TRE est suspectée sur plusieurs cycles consécutifs quand l'intervalle entre la stimulation V et la P qui suit est court et stable",
+      "Pour confirmer, le boîtier allonge le délai AV sur un cycle : si la P suivante se décale d'autant, elle est rétrograde",
+      "Il peut être désactivé chez un patient dépourvu de conduction ventriculo-atriale",
+      "Il ne reconnaît que les TRE qui tournent exactement à la fréquence maximale programmée",
+      "La TRE est interrompue par une période réfractaire atriale allongée appliquée sur un cycle"
+    ],
+    "reponses": [
+      0,
+      1,
+      4
+    ],
+    "commentaires": [
+      "Juste : un intervalle V-P court et stable sur plusieurs cycles fait suspecter une conduction rétrograde entretenue.",
+      "Juste : une P sinusale ne bouge pas quand on décale la stimulation V ; une P rétrograde suit le ventricule avec le même intervalle V-P.",
+      "Faux : la détection et l'interruption des TRE ne sont pas déprogrammables en mode avec suivi atrial.",
+      "Faux : l'algorithme reconnaît aussi les TRE plus lentes que la fréquence maximale, quand délai AV + conduction rétrograde dépassent le cycle minimal.",
+      "Juste : sur le cycle suivant, une période réfractaire atriale d'environ 500 ms couvre la P rétrograde, qui ne déclenche plus de délai AV."
+    ],
+    "reponseAttendue": null,
+    "explication": "Une TRE naît quand une dissociation AV (ESV, P sous-détectée, perte de capture atriale, délai AV trop long) laisse la voie nodale récupérer : la stimulation ventriculaire est alors conduite à l'oreillette, et le boîtier se synchronise sur cette P rétrograde. Chez MicroPort, l'algorithme est toujours actif en mode avec suivi atrial. Il suspecte une TRE quand l'intervalle V-P est court et stable sur plusieurs cycles, puis la confirme en modulant le délai AV : une P rétrograde se décale avec le ventricule, une P sinusale non. Il interrompt la TRE par une période réfractaire atriale d'environ 500 ms sur un cycle. Il reconnaît aussi les TRE plus lentes que la fréquence maximale. En option « Reprog », il raccourcit en plus les délais AV de repos et d'effort si plus de 10 TRE sont détectées par jour, ce qu'un message signale à l'interrogation. Un compteur de TRE non nul doit faire rechercher la cause (sous-détection ou perte de capture atriale, ESV, délai AV long).",
+    "aRetenir": "Anti-TRE MicroPort : intervalle V-P stable, confirmation par modulation du délai AV, arrêt par une longue période réfractaire atriale ; non déprogrammable.",
+    "sources": [
+      {
+        "titre": "Mahfouz K, Bordachar P, Grosmaire D, Ritter P. Stimulateur cardiaque implantable – Cas cliniques basés sur des tracés MicroPort. Stimuprat Éditions, 2019"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy, 5th ed. Elsevier, 2017"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mp-009",
+    "theme": "programmation",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "MicroPort",
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Stimulateur MicroPort en SafeR (fréquence maximale 130 bpm) chez un patient à dysfonction sinusale. Un épisode mémorisé montre une accélération ventriculaire spontanée modérée, chaque QRS étant suivi d'une onde P à intervalle RP fixe ; après 6 cycles, le boîtier bascule en DDD. Suivent des cycles P-V stimulés à la fréquence maximale, que le boîtier interrompt après avoir allongé une fois le délai AV. Quelle est l'interprétation ?",
+    "options": [
+      "Une tachycardie atriale suivie à la fréquence maximale, puis un repli",
+      "Un vrai BAV du 1er degré à l'effort, avec stimulation V appropriée",
+      "Une surdétection de l'onde T sur le canal atrial après la bascule",
+      "Un RIVA à conduction rétrograde imitant un PR long, puis une TRE"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : l'intervalle RP fixe montre que les P dépendent des ventricules ; une tachycardie atriale ne se laisserait pas décaler par la modulation du délai AV.",
+      "Faux : la « P » est rétrograde et suit le QRS ; le PR long mesuré est un artefact de lecture du boîtier.",
+      "Faux : l'onde T ne donne pas un intervalle RP fixe dès la phase spontanée, et la confirmation par modulation du délai AV signe une conduction rétrograde.",
+      "Juste : la P rétrograde est prise pour une P sinusale suivie d'un PR très long, d'où la bascule sur le critère de BAV du 1er degré, puis une TRE reconnue et interrompue par l'algorithme anti-TRE."
+    ],
+    "reponseAttendue": null,
+    "explication": "Un rythme idioventriculaire accéléré (RIVA) avec conduction rétrograde 1:1 produit des P qui suivent chaque QRS à intervalle RP constant. En SafeR (fonctionnement ADI), le boîtier interprète la P rétrograde comme sinusale et mesure un « PR » égal au cycle moins le RP, très long : après 6 cycles, le critère de BAV du 1er degré est rempli et il bascule en DDD. Il se synchronise alors sur ces P rétrogrades : c'est une TRE, ici plafonnée à la fréquence maximale par l'allongement du délai AV. L'algorithme anti-TRE la reconnaît (intervalle V-P stable), la confirme par une modulation du délai AV qui décale d'autant la P rétrograde, puis l'interrompt par une période réfractaire atriale prolongée sur un cycle. Ce cas rare montre comment la bascule de mode crée les conditions d'une TRE.",
+    "aRetenir": "En SafeR, un RIVA à conduction rétrograde peut simuler un PR long, faire basculer en DDD et amorcer une TRE, que l'algorithme anti-TRE interrompt.",
+    "sources": [
+      {
+        "titre": "Mahfouz K, Bordachar P, Grosmaire D, Ritter P. Stimulateur cardiaque implantable – Cas cliniques basés sur des tracés MicroPort. Stimuprat Éditions, 2019"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mp-010",
+    "theme": "programmation",
+    "sousTheme": "Asservissement et algorithmes de fréquence",
+    "marque": "MicroPort",
+    "type": "qcm",
+    "difficulte": 6,
+    "question": "Femme de 66 ans, stimulateur double chambre MicroPort pour maladie de l'atrium, sans antécédent connu de troubles respiratoires nocturnes. La courbe de suivi des apnées du sommeil montre un index d'événements respiratoires (RDI) durablement supérieur à 20/h, parallèlement à une hausse de la charge en FA. Quelles propositions sont exactes ? (plusieurs réponses)",
+    "options": [
+      "Cette mesure repose sur le capteur de ventilation-minute, qui doit être activé",
+      "Un RDI au-dessus de 20/h fait suspecter un SAS sévère, à confirmer par polysomnographie",
+      "La mesure fonctionne aussi quand seul l'accéléromètre est programmé",
+      "Le RDI suffit pour poser le diagnostic et prescrire d'emblée une PPC"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "commentaires": [
+      "Juste : les apnées et hypopnées sont repérées sur les variations de l'impédance transthoracique ; l'asservissement doit être au moins en apprentissage avec la ventilation-minute.",
+      "Juste : le seuil de 20 événements/h a été choisi pour dépister le SAS sévère (étude DREAM), mais le diagnostic reste polysomnographique.",
+      "Faux : l'accéléromètre ne renseigne pas sur la respiration ; sans ventilation-minute, aucun RDI n'est calculé.",
+      "Faux : le RDI du boîtier est un outil de dépistage, pas un diagnostic ; il faut une polysomnographie avant de traiter."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les stimulateurs MicroPort disposent de deux capteurs : un accéléromètre et un capteur de ventilation-minute, qui mesure l'impédance transthoracique. La composante dynamique de ce signal suit les mouvements respiratoires : le boîtier repère, pendant une fenêtre nocturne programmée, les pauses respiratoires (10 à 60 s sans cycle) et les réductions de ventilation d'au moins 50 %. Il en déduit un index d'événements respiratoires par heure (RDI). Dans l'étude DREAM, un RDI d'au moins 20/h identifiait bien les SAS sévères de la polysomnographie. Le SAS est fréquent chez les porteurs de stimulateur et favorise la FA : sa découverte doit mener à une polysomnographie, puis à une prise en charge spécialisée. Sans ventilation-minute activée, cette surveillance n'est pas disponible.",
+    "aRetenir": "Suivi des apnées MicroPort : RDI calculé par la ventilation-minute ; au-delà de 20/h, suspicion de SAS sévère à confirmer par polysomnographie.",
+    "sources": [
+      {
+        "titre": "Defaye P, de la Cruz I, Martí-Almor J, et al. A pacemaker transthoracic impedance sensor with an advanced algorithm to identify severe sleep apnea: the DREAM European study. Heart Rhythm 2014;11:842-848"
+      },
+      {
+        "titre": "Mahfouz K, Bordachar P, Grosmaire D, Ritter P. Stimulateur cardiaque implantable – Cas cliniques basés sur des tracés MicroPort. Stimuprat Éditions, 2019"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mp-011",
+    "theme": "programmation",
+    "sousTheme": "Asservissement et algorithmes de fréquence",
+    "marque": "MicroPort",
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Vous programmez l'asservissement de fréquence d'un DAI double chambre MicroPort de dernière génération chez un patient en insuffisance chronotrope. Sur quel capteur repose-t-il ?",
+    "options": [
+      "L'accéléromètre seul, la ventilation-minute ayant été retirée",
+      "La ventilation-minute seule, plus physiologique en cas d'IC",
+      "L'accéléromètre associé à la ventilation-minute, comme les PM",
+      "Le signal SonR de la sonde atriale, reflet de la contractilité"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : dans les DAI MicroPort actuels, la ventilation-minute est désactivée ; seul l'accéléromètre pilote l'asservissement.",
+      "Faux : la ventilation-minute n'est plus disponible sur les DAI de la marque.",
+      "Faux : l'association des deux capteurs est propre aux stimulateurs MicroPort, pas aux DAI.",
+      "Faux : le signal SonR sert à optimiser les délais AV et VV en CRT, pas à l'asservissement."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les stimulateurs MicroPort associent un accéléromètre, très réactif en début d'effort, et un capteur de ventilation-minute, qui prend le relais en milieu et en fin d'effort. Ce capteur envoie de petites impulsions entre deux électrodes pour mesurer l'impédance transthoracique. Dans un DAI, dont la sensibilité ventriculaire est très élevée pour détecter la FV, ces impulsions peuvent être surdétectées et prises pour une arythmie ventriculaire, avec un risque de thérapie inappropriée. MicroPort a donc supprimé la ventilation-minute dans ses DAI : l'asservissement y repose sur l'accéléromètre seul. Il faut en tenir compte pour les efforts peu mobilisateurs du tronc (vélo, port de charge), mal captés par un accéléromètre.",
+    "aRetenir": "DAI MicroPort : asservissement par accéléromètre seul ; la ventilation-minute, sujette à surdétection dans un DAI, a été supprimée.",
+    "sources": [
+      {
+        "titre": "Ritter P, Chauvel R, Iscolo N, Grosmaire D, Ploux S, Bordachar P. Défibrillateur automatique implantable – Cas cliniques basés sur des tracés MicroPort. Stimuprat Éditions"
+      },
+      {
+        "titre": "Mahfouz K, Bordachar P, Grosmaire D, Ritter P. Stimulateur cardiaque implantable – Cas cliniques basés sur des tracés MicroPort. Stimuprat Éditions, 2019"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mp-012",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "MicroPort",
+    "type": "vf",
+    "difficulte": 6,
+    "question": "Sur un DAI double chambre MicroPort, une tachycardie détectée dans la section TV rapide de la zone FV est analysée par PARAD+ : si elle est classée TSV, la thérapie est suspendue.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : PARAD+ n'opère que dans les zones TV lente et TV ; en zone FV, section TV rapide incluse, seule la fréquence décide du traitement.",
+      "Juste : en zone FV, il n'y a pas de discrimination TV/TSV ; la stabilité n'y sert qu'à choisir entre un ATP avant la charge et un choc d'emblée."
+    ],
+    "reponseAttendue": null,
+    "explication": "Chez MicroPort, la zone la plus haute (FV) peut être divisée en une section TV rapide et une section FV. Aucune discrimination entre TV et TSV n'y est appliquée : une tachycardie rapide y est toujours traitée. Dans la section TV rapide, le critère de stabilité (rythme stable à 30 ms près, 4 derniers cycles dans la section) sert seulement à décider si un ATP est délivré avant la charge ; une tachycardie instable reçoit d'emblée un choc. PARAD+ (stabilité, association PR, accélération, cycles longs) n'intervient que dans les zones TV lente et TV. C'est pourquoi il faut placer la limite basse de la zone FV au-dessus des fréquences qu'une TSV conduite peut atteindre chez le patient, comme le recommande le consensus de programmation.",
+    "aRetenir": "DAI MicroPort : pas de discrimination en zone FV (TV rapide incluse) ; la stabilité n'y décide que de l'ATP avant la charge.",
+    "sources": [
+      {
+        "titre": "Ritter P, Chauvel R, Iscolo N, Grosmaire D, Ploux S, Bordachar P. Défibrillateur automatique implantable – Cas cliniques basés sur des tracés MicroPort. Stimuprat Éditions"
+      },
+      {
+        "titre": "Stiles MK et al. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      }
+    ],
+    "reco": [
+      "Consensus 2019 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mp-013",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "MicroPort",
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Homme de 87 ans, CRT-D MicroPort, zone TV lente de surveillance à partir de 130 bpm. Un épisode classé « TV » a duré 1 min 30. Sur l'EGM, la tachycardie débute par un événement atrial ; le PR s'allonge rapidement, puis plus aucune onde P n'est marquée pendant la tachycardie, régulière à environ 140 bpm, qui s'arrête sur une extrasystole atriale bloquée. Pourquoi PARAD+ a-t-il classé cette TSV en TV ?",
+    "options": [
+      "Les P tombent dans le blanking post-ventriculaire : fausse dissociation",
+      "L'accélération initiale d'origine atriale oriente toujours vers une TV",
+      "La morphologie des QRS diffère de celle du gabarit en rythme sinusal",
+      "Le critère de cycle long a reconnu une FA, classée comme une TV"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : les P non vues font conclure à un rythme stable sans association P-R, que l'arbre décisionnel classe en TV.",
+      "Faux : une accélération d'origine atriale oriente vers une TSV ; de plus, les premiers cycles hors zone ont empêché de valider ce critère.",
+      "Faux : PARAD+ ne comporte pas d'analyse de morphologie ; c'est justement l'une de ses limites.",
+      "Faux : la recherche de cycles longs sert à reconnaître une FA sur rythme stable et dissocié pour différer la thérapie, pas à classer en TV."
+    ],
+    "reponseAttendue": null,
+    "explication": "PARAD+ classe d'abord selon la stabilité des RR, puis selon l'association P-R. Un rythme stable sans association est classé TV. Ici, le PR s'allonge tant que les P de la tachycardie supraventriculaire tombent juste après le QRS précédent, dans le blanking atrial post-ventriculaire : le canal atrial ne les voit plus et le boîtier croit à une dissociation. Les premiers cycles, hors zone, ont par ailleurs faussé le cycle de référence, si bien que l'accélération d'origine atriale n'a pas été retenue. Faute de critère morphologique, rien ne corrige l'erreur ; la zone étant en simple surveillance, aucune thérapie n'a été délivrée, mais un ATP ou un choc programmé aurait été inapproprié. Relire l'EGM (début par une P, arrêt sur une P bloquée) redresse le diagnostic.",
+    "aRetenir": "PARAD+ : des P cachées dans le blanking post-ventriculaire créent une fausse dissociation, et une TSV peut être classée TV.",
+    "sources": [
+      {
+        "titre": "Ritter P, Chauvel R, Iscolo N, Grosmaire D, Ploux S, Bordachar P. Défibrillateur automatique implantable – Cas cliniques basés sur des tracés MicroPort. Stimuprat Éditions"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mp-014",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": "MicroPort",
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "DAI double chambre MicroPort : zone TV 160-220 bpm (salves, puis rampes, puis chocs) ; zone FV au-delà de 220 bpm avec une section TV rapide jusqu'à 240 bpm (une salve avant la charge si TV stable). Une TV stable à 230 bpm reçoit la salve de TV rapide, sans succès ; elle ralentit à 200 bpm et est redétectée en zone TV. Quelle thérapie le boîtier délivre-t-il ensuite ?",
+    "options": [
+      "La première salve d'ATP programmée en zone TV",
+      "Aucune thérapie tant que la TV reste en zone TV",
+      "Le premier choc programmé en zone TV",
+      "Un choc à énergie maximale de la zone FV"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : l'ATP de zone TV est de degré 1, inférieur à l'ATP de TV rapide déjà délivré (degré 2) ; il n'est plus disponible dans cet épisode.",
+      "Faux : un changement de zone permet d'engager la ligne de thérapie suivante de la nouvelle zone.",
+      "Juste : la gradation impose une thérapie au moins aussi agressive que la précédente ; la suivante disponible en zone TV est le premier choc.",
+      "Faux : la tachycardie est redétectée en zone TV ; ce sont les thérapies de cette zone qui s'appliquent."
+    ],
+    "reponseAttendue": null,
+    "explication": "Chez MicroPort, les thérapies d'un même épisode suivent une gradation stricte : chaque programme engagé doit être d'un degré d'agressivité au moins égal au précédent. Les ATP des zones TV lente et TV sont de degré 1, l'ATP de la section TV rapide de degré 2, puis viennent les chocs par énergie croissante. Ici, la salve de TV rapide (degré 2) a déjà été délivrée ; lorsque la TV est redétectée en zone TV, les salves et rampes de cette zone (degré 1) ne sont plus accessibles et le boîtier charge pour le premier choc de la zone TV. Ce comportement, qui surprend à la lecture de l'épisode, n'est pas une panne. Il faut en tenir compte au moment de programmer l'ATP de TV rapide et les énergies de la zone TV.",
+    "aRetenir": "DAI MicroPort : gradation sans retour en arrière dans un épisode ; après l'ATP de TV rapide, une TV redétectée en zone TV reçoit directement un choc.",
+    "sources": [
+      {
+        "titre": "Ritter P, Chauvel R, Iscolo N, Grosmaire D, Ploux S, Bordachar P. Défibrillateur automatique implantable – Cas cliniques basés sur des tracés MicroPort. Stimuprat Éditions"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mp-015",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": "MicroPort",
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Sur un DAI MicroPort, quand toutes les thérapies programmées d'une zone ont été délivrées sans réduire une TV qui reste dans cette zone, le boîtier recommence le programme depuis la première thérapie.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : une fois les thérapies de la zone épuisées, le DAI ne traite plus tant que l'épisode n'est pas terminé ou que la tachycardie ne change pas de zone.",
+      "Juste : les thérapies ne sont relancées qu'au changement de zone (avec une agressivité au moins égale) ou lors d'un nouvel épisode, après un retour en rythme lent (6 cycles lents ou stimulés sur 8)."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le DAI considère que l'épisode continue tant qu'il n'a pas retrouvé une majorité de rythme lent, c'est-à-dire au moins 6 cycles lents ou stimulés sur 8. Une TV réduite quelques cycles puis récidivante, ou entretenue par une bigéminie ventriculaire qui empêche le retour en rythme lent, reste donc dans le même épisode. Si toutes les thérapies de la zone sont épuisées, le boîtier n'intervient plus ; il ne reprend que si la tachycardie change de zone ou lors d'un épisode ultérieur. C'est un piège classique des TV lentes traitées par ATP seul : le patient peut rester longtemps en TV, avec un risque de décompensation cardiaque. Ce scénario doit faire revoir la stratégie : programmation des thérapies, traitement antiarythmique, voire ablation.",
+    "aRetenir": "Thérapies d'une zone épuisées = DAI inactif jusqu'à la fin de l'épisode (6 cycles lents sur 8) ou jusqu'à un changement de zone.",
+    "sources": [
+      {
+        "titre": "Ritter P, Chauvel R, Iscolo N, Grosmaire D, Ploux S, Bordachar P. Défibrillateur automatique implantable – Cas cliniques basés sur des tracés MicroPort. Stimuprat Éditions"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mp-016",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": "MicroPort",
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "DAI MicroPort avec « Commutation Auto ATP » active ; en zone TV, ATP 1 = salves, ATP 2 = rampes, puis chocs. L'avant-dernier épisode de TV a été réduit par une rampe. Au dernier épisode, tous les ATP ont échoué et c'est un choc qui a réduit la TV. Une nouvelle TV survient dans la même zone. Quelle sera la première thérapie ?",
+    "options": [
+      "Une salve, les ATP ayant tous échoué lors du dernier épisode",
+      "Un choc, puisque c'est lui qui a réduit la dernière TV",
+      "Une rampe, dernier programme d'ATP à avoir été efficace",
+      "Une salve, la fonction étant remise à zéro après un choc"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : un échec des ATP ne modifie pas l'ordre ; seul un ATP efficace le fait.",
+      "Faux : la fonction ne concerne que les ATP ; un choc efficace ne devient jamais la première thérapie.",
+      "Juste : la fonction place en tête le dernier programme d'ATP efficace des zones TV et TV lente, ici la rampe.",
+      "Faux : un choc ne remet pas la fonction à zéro ; il ne change rien à l'ordre des ATP."
+    ],
+    "reponseAttendue": null,
+    "explication": "La « Commutation Auto ATP » des DAI MicroPort applique en premier, lors de l'épisode suivant, le programme d'ATP (ATP 1 ou ATP 2 des zones TV et TV lente) qui a réduit la dernière TV traitée avec succès par ATP. Les chocs n'entrent pas dans cette mémoire : un épisode réduit par un choc ne change pas l'ordre. Ici, la dernière réduction par ATP est due à une rampe : la nouvelle TV reçoit donc d'abord une rampe, puis les salves. La rampe étant une thérapie agressive, qui atteint vite le couplage minimal et peut accélérer une TV, cette fonction se décide au cas par cas. À la relecture, un ATP qui ne commence pas par le programme attendu s'explique souvent ainsi.",
+    "aRetenir": "Commutation Auto ATP (MicroPort) : le dernier ATP efficace passe en tête au prochain épisode ; les chocs ne sont pas pris en compte.",
+    "sources": [
+      {
+        "titre": "Ritter P, Chauvel R, Iscolo N, Grosmaire D, Ploux S, Bordachar P. Défibrillateur automatique implantable – Cas cliniques basés sur des tracés MicroPort. Stimuprat Éditions"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mp-017",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": "MicroPort",
+    "type": "vf",
+    "difficulte": 6,
+    "question": "Sur un CRT-D MicroPort, on peut programmer une fréquence maximale de suivi (par exemple 150 bpm) supérieure à la limite basse d'une zone de TV lente (par exemple 130 bpm).",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : ce chevauchement est autorisé ; il garantit la resynchronisation à l'effort chez un patient qui a aussi besoin d'une zone lente.",
+      "Faux : MicroPort, comme Biotronik, autorise ce chevauchement entre stimulation antibradycardique et zone de tachycardie."
+    ],
+    "reponseAttendue": null,
+    "explication": "Chez un patient resynchronisé actif, la fréquence sinusale d'effort peut dépasser une fréquence maximale de suivi trop basse. Le boîtier passe alors en Wenckebach électronique : le délai AV s'allonge, la conduction spontanée reprend et la resynchronisation est perdue au moment où elle est le plus utile. Les DAI MicroPort (comme Biotronik) permettent de programmer la fréquence maximale indépendamment des zones de tachycardie, même au-dessus de la limite d'une zone de TV lente. Le patient garde ainsi la stimulation biventriculaire à l'effort, tandis que la discrimination et la persistance de la zone lente gèrent les vraies TV lentes. Une fréquence maximale trop basse se repère sur les courbes de fréquence, sur des épisodes TSV d'effort ou sur un taux de stimulation BiV qui chute à l'effort.",
+    "aRetenir": "CRT-D MicroPort : la fréquence maximale de suivi peut chevaucher la zone de TV lente, pour préserver la resynchronisation à l'effort.",
+    "sources": [
+      {
+        "titre": "Ritter P, Chauvel R, Iscolo N, Grosmaire D, Ploux S, Bordachar P. Défibrillateur automatique implantable – Cas cliniques basés sur des tracés MicroPort. Stimuprat Éditions"
+      },
+      {
+        "titre": "Glikson M et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-mp-018",
+    "theme": "programmation",
+    "sousTheme": "Suivi, longévité, IRM et interférences",
+    "marque": "MicroPort",
+    "type": "vf",
+    "difficulte": 5,
+    "question": "Sur un DAI MicroPort de la plateforme Platinium, l'aimant suspend la détection des arythmies et les thérapies sans déclencher de stimulation asynchrone à la fréquence magnétique.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : à partir de Platinium, l'aimant inhibe détection et thérapies, et la stimulation antibradycardique n'est pas remplacée par un mode asynchrone.",
+      "Faux : c'était le comportement des plateformes antérieures, qui stimulaient à la fréquence magnétique (96 bpm en début de vie, 80 bpm au remplacement recommandé)."
+    ],
+    "reponseAttendue": null,
+    "explication": "Sur les DAI MicroPort antérieurs à Platinium, l'aimant suspendait les thérapies et imposait une stimulation à la fréquence magnétique, qui dépendait de l'usure de la pile (96 bpm en début de vie, 80 bpm au remplacement recommandé). À partir de Platinium, il inhibe seulement la détection des arythmies et les thérapies ; la stimulation n'est pas remplacée par un mode asynchrone. Après une charge récente (orage rythmique, défaut de sonde), l'inhibition se prolonge brièvement après le retrait de l'aimant, pour laisser le temps de démarrer l'interrogation. Au retrait de l'aimant, la détection reprend et les thérapies redémarrent au début de chaque zone. En chirurgie avec bistouri monopolaire, l'aimant évite donc un choc inapproprié, mais ne protège pas un patient stimulo-dépendant de l'inhibition par surdétection : il faut alors reprogrammer le boîtier en mode asynchrone.",
+    "aRetenir": "DAI MicroPort Platinium : l'aimant suspend détection et thérapies sans passer en stimulation asynchrone ; chez un patient dépendant, il faut reprogrammer.",
+    "sources": [
+      {
+        "titre": "Ritter P, Chauvel R, Iscolo N, Grosmaire D, Ploux S, Bordachar P. Défibrillateur automatique implantable – Cas cliniques basés sur des tracés MicroPort. Stimuprat Éditions"
+      },
+      {
+        "titre": "Stühlinger M et al. EHRA consensus on prevention and management of interference due to medical procedures in patients with cardiac implantable electronic devices. Europace 2022;24:1512-1537"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  }
+]

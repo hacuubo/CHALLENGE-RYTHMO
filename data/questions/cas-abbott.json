@@ -1,0 +1,645 @@
+[
+  {
+    "id": "cas-abt-001",
+    "theme": "programmation",
+    "sousTheme": "Seuils, détection et sondes",
+    "marque": "Abbott",
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Homme de 82 ans, BAV complet, stimulateur Abbott avec AutoCapture ventriculaire en marche. À l'interrogation, le dernier seuil mesuré est de 0,625 V et l'amplitude ventriculaire délivrée est de 0,875 V (0,4 ms). L'interne s'inquiète d'une marge insuffisante chez ce patient dépendant. Que lui répondez-vous ?",
+    "options": [
+      "Marge insuffisante : il faut repasser en amplitude fixe au double du seuil",
+      "Marge insuffisante : l'algorithme aurait dû ajouter 1 V au seuil mesuré",
+      "Fonctionnement normal : marge fixe de 0,25 V et capture vérifiée à chaque cycle",
+      "Fonctionnement normal : la durée d'impulsion a été allongée pour garder la marge"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : la règle du « double du seuil » concerne une amplitude fixe sans vérification de capture ; ici la sécurité repose sur le contrôle cycle à cycle.",
+      "Faux : la marge de l'AutoCapture ventriculaire est fixe, non programmable, de 0,25 V au-dessus du seuil mesuré.",
+      "Juste : amplitude = seuil + 0,25 V ; chaque stimulus est vérifié par la réponse évoquée et suivi d'une impulsion de secours à 5 V en cas de perte de capture.",
+      "Faux : l'AutoCapture n'ajuste que l'amplitude ; la durée d'impulsion reste celle qui est programmée."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'AutoCapture ventriculaire d'Abbott mesure le seuil périodiquement (toutes les 8 h en nominal, ou 24 h) par l'analyse de la réponse évoquée, puis règle l'amplitude au seuil plus une marge fixe de 0,25 V. Une telle marge serait dangereuse sans surveillance ; elle est acceptable parce que la capture est vérifiée à chaque cycle et qu'une impulsion de secours de 5 V est délivrée 80 à 100 ms après tout stimulus inefficace, avant une nouvelle recherche de seuil. Seule l'amplitude est adaptée, pas la durée d'impulsion. Le gain principal est la longévité, sans perte de sécurité chez le patient dépendant. La marge « double du seuil » reste la règle quand l'amplitude est fixe ou quand l'algorithme n'est pas utilisable (signal de polarisation trop important au test de configuration).",
+    "aRetenir": "AutoCapture ventriculaire Abbott : amplitude = seuil + 0,25 V, rendue sûre par la vérification cycle à cycle et le secours à 5 V.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Mahfouz K, Ploux S, et al. Stimulateur cardiaque implantable : cas cliniques basés sur des tracés Abbott. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Abbott. Portail officiel des notices et manuels techniques (eLabeling / eIFU) — manuels d'aide (Help Manual) des stimulateurs, DAI et CRT-D Abbott",
+        "url": "https://manuals.eifu.abbott/en/index.html"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-abt-002",
+    "theme": "programmation",
+    "sousTheme": "Seuils, détection et sondes",
+    "marque": "Abbott",
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Stimulateur double chambre Abbott avec AutoCapture ventriculaire, chez un patient en BAV paroxystique dont la conduction AV est souvent présente. Quelles dispositions de l'algorithme visent à éviter qu'un battement de fusion soit pris pour une perte de capture ? (plusieurs réponses)",
+    "options": [
+      "Pendant la recherche de seuil, des délais AV très courts (50 ms stimulé / 25 ms détecté en nominal)",
+      "Après une première impulsion de secours, un allongement du délai AV de 100 ms au cycle suivant",
+      "Un passage systématique en stimulation unipolaire pendant la recherche de seuil",
+      "Une vérification de la contraction ventriculaire par l'accéléromètre, insensible à la fusion"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "commentaires": [
+      "Juste : un délai AV court fait précéder la conduction spontanée ; des délais plus longs (100/70 ou 120/100 ms) exposent à des fusions et à des seuils faux.",
+      "Juste : l'algorithme suppose d'abord une fusion et laisse à la conduction la possibilité de s'exprimer ; la perte de capture n'est retenue qu'après deux secours consécutifs.",
+      "Faux : la configuration de stimulation n'est pas modifiée pour la recherche ; sur les boîtiers récents l'AutoCapture fonctionne avec les configurations programmées.",
+      "Faux : la capture est jugée sur la réponse évoquée électrique, pas sur un capteur mécanique."
+    ],
+    "reponseAttendue": null,
+    "explication": "Une fusion entre l'impulsion et un QRS conduit modifie la réponse évoquée et peut être interprétée comme une perte de capture, ce qui déclenche à tort des impulsions de secours et fausse la mesure du seuil. L'AutoCapture d'Abbott s'en protège de deux façons. Pendant la recherche de seuil, il utilise des délais AV très courts (50/25 ms en nominal, recommandés) pour devancer la conduction spontanée. En fonctionnement courant en double chambre, une seule absence de réponse évoquée entraîne un allongement de 100 ms des délais AV au cycle suivant, comme une recherche de conduction ; la procédure de récupération de capture ne démarre qu'après deux pertes consécutives. La vérification repose sur la réponse évoquée électrique, jamais sur un capteur mécanique. Chez un patient à conduction AV fréquente, il faut donc interpréter avec prudence des impulsions de secours isolées.",
+    "aRetenir": "AutoCapture Abbott et fusion : délais AV courts pendant la recherche de seuil, allongement de 100 ms après un premier secours.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Mahfouz K, Ploux S, et al. Stimulateur cardiaque implantable : cas cliniques basés sur des tracés Abbott. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Abbott. Portail officiel des notices et manuels techniques (eLabeling / eIFU) — manuels d'aide (Help Manual) des stimulateurs, DAI et CRT-D Abbott",
+        "url": "https://manuals.eifu.abbott/en/index.html"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-abt-004",
+    "theme": "programmation",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "Abbott",
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Stimulateur double chambre Abbott, réponse aux TRE programmée sur « Stimulation A » (Atrial Pace). Après 8 cycles VP-AS consécutifs au-dessus de la fréquence de détection des TRE, avec des intervalles VP-AS stables, comment le boîtier confirme-t-il puis interrompt-il la tachycardie ?",
+    "options": [
+      "Il allonge la PVARP sur un cycle, sans test de confirmation préalable",
+      "Décalage du délai AV sur un cycle ; si VP-AS est stable, P non suivie puis stimulation A",
+      "Il omet une stimulation ventriculaire puis commute en DDI(R) pendant une durée programmée",
+      "Il délivre une salve atriale rapide pour rendre le nœud AV réfractaire en rétrograde"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : Abbott n'allonge pas la PVARP d'emblée ; il teste d'abord la relation VP-AS, puis interrompt la TRE par une stimulation atriale.",
+      "Juste : un VP-AS inchangé malgré la modification de 50 ms du délai AV prouve que l'oreillette dépend du ventricule ; la P suivante n'est pas suivie et une stimulation atriale est délivrée 330 ms plus tard.",
+      "Faux : il n'y a pas de commutation de mode ; le boîtier reste en mode synchrone après l'interruption.",
+      "Faux : aucune salve atriale n'est délivrée ; une seule stimulation atriale resynchronise la séquence AV."
+    ],
+    "reponseAttendue": null,
+    "explication": "L'algorithme TRE d'Abbott se programme sur Arrêt, Passif (détection et diagnostics sans intervention) ou Stimulation A, avec une fréquence de détection réglable (90 à 180 bpm, sans dépasser la fréquence maximale de suivi). Une TRE est suspectée après 8 cycles VP-AS consécutifs au-dessus de cette fréquence avec des intervalles VP-AS stables. Pour la distinguer d'une tachycardie sinusale suivie, le boîtier modifie le délai AV de 50 ms au 9e cycle : si l'intervalle VP-AS suivant ne change pas, l'activation atriale dépend bien de la stimulation ventriculaire et le diagnostic est retenu. L'onde P suivante ne déclenche pas de délai AV et une stimulation atriale est délivrée 330 ms après elle, ce qui rétablit une séquence AV normale. Si le VP-AS varie, le diagnostic est écarté et la recherche est suspendue pour 256 cycles. La prévention reste la PVARP adaptée au temps de conduction VA.",
+    "aRetenir": "TRE chez Abbott : 8 cycles VP-AS stables, test par décalage du délai AV, puis P non suivie et stimulation atriale 330 ms plus tard.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Mahfouz K, Ploux S, et al. Stimulateur cardiaque implantable : cas cliniques basés sur des tracés Abbott. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Abbott. Portail officiel des notices et manuels techniques (eLabeling / eIFU) — manuels d'aide (Help Manual) des stimulateurs, DAI et CRT-D Abbott",
+        "url": "https://manuals.eifu.abbott/en/index.html"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-abt-005",
+    "theme": "programmation",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "Abbott",
+    "type": "vf",
+    "difficulte": 6,
+    "question": "Sur un stimulateur Abbott, l'algorithme de détection et d'interruption des TRE peut, dans de rares cas, classer à tort une tachycardie sinusale en TRE et laisser une onde P sinusale sans stimulation ventriculaire.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : une variabilité respiratoire de l'intervalle P-P ou une extrasystole atriale au moment du test peut donner un VP-AS faussement stable et leurrer la phase de confirmation.",
+      "Faux : la phase de confirmation réduit fortement ces erreurs mais ne les supprime pas ; des faux diagnostics ont été rapportés."
+    ],
+    "reponseAttendue": null,
+    "explication": "C'est vrai. Pendant une tachycardie sinusale suivie au-dessus de la fréquence de détection des TRE, les intervalles VP-AS peuvent être stables, comme dans une TRE. La modification du délai AV sert justement à trancher : en tachycardie sinusale, la P ne dépend pas du ventricule et l'intervalle VP-AS varie. Mais si la fréquence sinusale fluctue au même moment (variabilité respiratoire) ou si une extrasystole atriale survient, le VP-AS peut paraître inchangé et la TRE est retenue à tort. La P suivante n'est alors pas suivie : chez un patient à conduction conservée, on voit un QRS spontané ; en BAV, un cycle ventriculaire long. L'erreur est isolée et sans gravité le plus souvent, mais elle doit être reconnue à la relecture des épisodes pour ne pas conclure à des TRE répétées.",
+    "aRetenir": "Un « épisode TRE » Abbott se relit : la confirmation par décalage du délai AV peut être leurrée par une tachycardie sinusale.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Mahfouz K, Ploux S, et al. Stimulateur cardiaque implantable : cas cliniques basés sur des tracés Abbott. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-abt-006",
+    "theme": "programmation",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "Abbott",
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Concernant la commutation automatique de mode (AMS) des stimulateurs Abbott, fondée sur l'intervalle atrial filtré (FARI), quelles affirmations sont exactes ? (plusieurs réponses)",
+    "options": [
+      "Un cycle atrial plus court que le FARI raccourcit celui-ci de 39 ms ; un cycle plus long l'allonge de 23 ms",
+      "Une onde P détectée dans la PRAPV (marqueur AR) entre dans le calcul du FARI",
+      "Une onde F tombant dans le blanking atrial post-ventriculaire entre dans le calcul du FARI",
+      "Le retour en mode synchrone exige que la fréquence atriale filtrée repasse sous la fréquence maximale de suivi",
+      "La commutation survient dès le premier cycle atrial plus court que l'intervalle de détection des tachycardies atriales"
+    ],
+    "reponses": [
+      0,
+      1,
+      3
+    ],
+    "commentaires": [
+      "Juste : le FARI se rapproche vite des cycles courts et s'en éloigne plus lentement, ce qui filtre les cycles rapides isolés.",
+      "Juste : un événement en PRAPV ne déclenche pas de délai AV mais il est compté pour le diagnostic d'arythmie atriale.",
+      "Faux : un signal tombant dans le blanking n'est pas vu du tout ; c'est pourquoi un flutter 2:1 peut échapper à la commutation.",
+      "Juste : la sortie se fait sur la fréquence maximale de suivi et non sur la fréquence de détection des tachycardies atriales.",
+      "Faux : la commutation exige que le FARI, et non un cycle isolé, devienne plus court que l'intervalle de détection."
+    ],
+    "reponseAttendue": null,
+    "explication": "Chez Abbott, la commutation de mode repose sur un intervalle atrial filtré, actualisé à chaque cycle : un intervalle P-P plus court que le FARI le diminue de 39 ms, un intervalle plus long l'augmente de 23 ms. La commutation vers un mode non synchrone (DDI(R) ou VVI(R)) survient quand le FARI devient plus court que l'intervalle de détection des tachycardies atriales ; le retour en mode synchrone exige que la fréquence filtrée redescende sous la fréquence maximale de suivi. Les événements détectés en PRAPV sont comptés, pas ceux du blanking : un BAPV trop long peut masquer un flutter 2:1, un BAPV trop court favorise l'écoute croisée. Une alternance cycle court / cycle long, typique de l'écoute croisée de l'onde R, fait lentement dériver le FARI et peut aboutir à une commutation. L'enregistrement d'un épisode TA/FA utilise des critères un peu plus spécifiques que la commutation elle-même.",
+    "aRetenir": "AMS Abbott : FARI −39 / +23 ms, AR compté mais pas le blanking, sortie sous la fréquence maximale de suivi.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Mahfouz K, Ploux S, et al. Stimulateur cardiaque implantable : cas cliniques basés sur des tracés Abbott. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Abbott. Portail officiel des notices et manuels techniques (eLabeling / eIFU) — manuels d'aide (Help Manual) des stimulateurs, DAI et CRT-D Abbott",
+        "url": "https://manuals.eifu.abbott/en/index.html"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-abt-007",
+    "theme": "programmation",
+    "sousTheme": "Intervalles, fréquence maximale et mode switch",
+    "marque": "Abbott",
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Femme de 70 ans, stimulateur Abbott en DDDR pour BAV paroxystique, asservissement actif. Les mémoires montrent de nombreux « épisodes TA/FA ». Sur l'EGM : après une ESV, une P rétrograde tombe dans la PRAPV (AR) ; la stimulation atriale suivante ne capture pas, le ventricule est stimulé en fin de délai AV, une nouvelle P rétrograde tombe en PRAPV, et la séquence se répète. Le seuil atrial est normal. Quel est le diagnostic ?",
+    "options": [
+      "Tachycardie par réentrée électronique entretenue par la conduction rétrograde VA",
+      "Synchronie VA répétitive non réentrante, avec perte de capture fonctionnelle",
+      "Perte de capture atriale par élévation du seuil de stimulation atriale",
+      "Écoute croisée : onde R lointaine détectée par la sonde atriale en PRAPV"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : la P rétrograde tombe en PRAPV et ne déclenche aucun délai AV ; il n'y a pas de boucle de réentrée.",
+      "Juste : la stimulation atriale tombe dans la réfractaire du myocarde atrial dépolarisé par la P rétrograde, puis le VP relance la conduction VA : la séquence s'auto-entretient.",
+      "Faux : le seuil est normal ; la perte de capture est fonctionnelle, liée au moment de la stimulation.",
+      "Faux : le signal atrial correspond à une vraie activation rétrograde, déclenchée par l'ESV puis par chaque VP."
+    ],
+    "reponseAttendue": null,
+    "explication": "La synchronie VA répétitive non réentrante nécessite un mode avec stimulation atriale (DDD(R), DDI(R), pas VDD) et une conduction rétrograde. Une ESV conduite vers l'oreillette donne une P rétrograde en PRAPV ; l'impulsion atriale suivante tombe dans la réfractaire du myocarde atrial et ne capture pas ; le VP en fin de délai AV remonte de nouveau vers l'oreillette. Contrairement à la TRE, la P rétrograde n'est pas suivie : ce n'est pas une réentrée. L'asservissement, une fréquence de base élevée, un overdrive atrial, un délai AV long et une PRAPV longue la favorisent. Chez Abbott, le calcul du FARI intègre aussi les cycles stimulés, si bien que ces séquences sont enregistrées comme des épisodes TA/FA, alors qu'elles passent souvent inaperçues chez d'autres constructeurs. Correctifs : baisser la fréquence de base ou l'asservissement, raccourcir le délai AV et la PRAPV, revoir la réponse aux ESV si elle est en cause. Ces séquences peuvent donner un syndrome du pacemaker et même déclencher une vraie FA.",
+    "aRetenir": "AR suivi d'un AP inefficace en boucle = synchronie VA répétitive non réentrante ; chez Abbott, elle apparaît comme de faux épisodes TA/FA.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Mahfouz K, Ploux S, et al. Stimulateur cardiaque implantable : cas cliniques basés sur des tracés Abbott. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-abt-008",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "Abbott",
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Sur l'EGM d'un DAI Abbott, les premiers cycles rapides d'une TV à début brutal portent le marqueur « - » au lieu de T ou F. Pourquoi ?",
+    "options": [
+      "Ces cycles tombent dans la période de blanking post-détection et ne sont pas mesurés",
+      "Leur morphologie correspond au gabarit sinusal de référence",
+      "SecureSense les a classés comme du bruit de sonde",
+      "L'intervalle instantané est rapide mais la moyenne des 4 derniers reste sinusale"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : un signal tombant dans le blanking n'est pas détecté du tout et ne porterait aucun marqueur.",
+      "Faux : la morphologie n'intervient qu'une fois le compteur rempli, dans la discrimination ; elle ne change pas le marqueur de zone.",
+      "Faux : SecureSense agit sur la décision de traiter ; il ne modifie pas la classification des intervalles.",
+      "Juste : si l'intervalle instantané ou la moyenne des 4 derniers intervalles est en zone sinusale, le cycle n'est pas classé : c'est une transition de rythme."
+    ],
+    "reponseAttendue": null,
+    "explication": "Les DAI Abbott classent chaque intervalle à partir de deux valeurs : l'intervalle instantané et la moyenne des 4 derniers intervalles, en cours compris. Si les deux sont dans la même zone, le cycle y est classé ; s'ils sont dans deux zones de tachycardie différentes, il est classé dans la plus rapide ; si l'une des deux valeurs est en zone sinusale, le cycle n'est pas classé (marqueur « - »). Au début d'une TV brutale, la moyenne reste lente pendant quelques cycles : les premiers intervalles apparaissent donc en « - », puis en T ou F. Les cycles comptés dans les compteurs n'ont pas besoin d'être consécutifs, et le premier compteur rempli détermine le diagnostic. Cette moyenne amortit les cycles courts isolés, mais retarde légèrement la détection : il faut en tenir compte en lisant les compteurs.",
+    "aRetenir": "DAI Abbott : un cycle est classé si l'intervalle instantané et la moyenne des 4 derniers concordent ; sinon il est marqué « - ».",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ritter P, Ploux S, Garrigue S, Reuter S, Hayes D, Ellenbogen KA, et al. Défibrillateur automatique implantable : cas cliniques basés sur les tracés St Jude Medical. Stimuprat Éditions, 2016"
+      },
+      {
+        "titre": "Abbott. Portail officiel des notices et manuels techniques (eLabeling / eIFU) — manuels d'aide (Help Manual) des stimulateurs, DAI et CRT-D Abbott",
+        "url": "https://manuals.eifu.abbott/en/index.html"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-abt-009",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "Abbott",
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Homme de 66 ans, cardiopathie ischémique, DAI simple chambre Abbott. La discrimination repose sur la seule morphologie far-field (début brutal et stabilité en Passif). Un épisode régulier, à début brutal, dans la zone TV, est classé TSV à chaque redétection pendant plus de 20 minutes ; l'ECG des urgences montre une TV septale. Le score de similitude des complexes avec le gabarit est élevé. Quelle adaptation est la plus logique ?",
+    "options": [
+      "Remettre début brutal et stabilité en marche, avec diagnostic TV si 2 critères sur 3",
+      "Abaisser le seuil de similitude morphologique pour classer moins de complexes comme conduits",
+      "Désactiver la mise à jour automatique du gabarit morphologique",
+      "Remplacer la morphologie par l'historique des intervalles sinusaux seul"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : le début brutal et la régularité auraient classé cet épisode en TV ; l'association 2 sur 3 évite de dépendre d'un seul critère leurré.",
+      "Faux : abaisser le seuil de similitude fait classer plus de complexes comme conduits ; il faudrait au contraire le relever (par exemple de 90 à 95 %).",
+      "Faux : le problème vient de la ressemblance réelle entre TV septale et QRS sinusal, pas de la mise à jour du gabarit.",
+      "Faux : l'historique des intervalles sinusaux ne sert qu'à reconnaître une FA régularisée et ne distingue pas une TV régulière."
+    ],
+    "reponseAttendue": null,
+    "explication": "Depuis que la morphologie Abbott analyse l'EGM de champ lointain, elle est assez performante pour qu'on propose, en simple chambre, de discriminer sur ce seul critère (début brutal et stabilité en Passif), car le début brutal est souvent leurré par une FA qui se régularise. Mais une TV septale peut avoir un EGM très proche du QRS sinusal : la morphologie la classe alors en TSV et la thérapie est retenue indéfiniment, ce qui est dangereux. Chez ce patient, deux corrections sont possibles : réactiver les trois critères avec une règle « 2 sur 3 », ou relever le seuil de similitude si les scores séparent bien TV et rythme sinusal. Le mode Passif permet justement de voir, a posteriori, ce qu'auraient conclu les autres critères. Ce cas rappelle qu'aucun réglage n'est universel : les épisodes enregistrés doivent guider la programmation de chaque patient.",
+    "aRetenir": "Morphologie seule en simple chambre : efficace contre la FA, mais une TV septale peut la leurrer ; relire les critères passifs et adapter.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ritter P, Ploux S, Garrigue S, Reuter S, Ellenbogen KA. Défibrillateurs Saint Jude Medical : nouvelles recommandations, algorithme SecureSense. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Stiles MK, et al. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      }
+    ],
+    "reco": [
+      "Consensus 2019 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-abt-010",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "Abbott",
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Homme de 37 ans, cardiomyopathie hypertrophique, DAI simple chambre Abbott : zone TV de 180 à 222 bpm avec discrimination morphologique, zone FV au-delà de 222 bpm. Il reçoit un choc, conscient, pendant une FA rapide : l'épisode, d'abord classé TSV vers 210 bpm, a accéléré à 230 bpm avec des complexes identiques au gabarit. Quel réglage aurait le plus probablement évité ce choc ?",
+    "options": [
+      "Allonger le nombre de cycles de redétection en zone FV",
+      "Programmer un ATP pendant la charge en zone FV",
+      "Zone FV à partir de 250 bpm, pour discriminer jusqu'à 230 bpm au moins",
+      "Activer le critère de stabilité en zone FV pour reconnaître l'irrégularité de la FA"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : la FA persistant, un compteur plus long ne ferait que retarder le même choc.",
+      "Faux : l'ATP ne réduit pas une FA ; il ne ferait qu'ajouter une stimulation inutile avant le choc.",
+      "Juste : chez Abbott, la discrimination ne s'applique que dans les zones TV ; la limite basse de la zone FV fixe donc la fréquence maximale de discrimination.",
+      "Faux : aucun discriminateur ne fonctionne en zone FV sur ces DAI : toute détection FV est traitée."
+    ],
+    "reponseAttendue": null,
+    "explication": "Sur les DAI Abbott, les discriminateurs TSV/TV (morphologie, stabilité, début brutal) n'agissent que dans les zones TV : un épisode détecté en zone FV est traité sans discrimination. Ici, la morphologie reconnaissait bien la FA ; c'est le passage des cycles en zone FV qui a déclenché le choc. Le consensus recommande de maintenir la discrimination jusqu'à des fréquences élevées (jusqu'à 230 bpm) ; il faut donc placer la limite basse de la zone FV au-delà de cette fréquence, avec des durées de détection longues. Chez un sujet jeune, en FA rapide, il faut aussi traiter la cause : ralentir la conduction, discuter une stratégie de contrôle du rythme et l'anticoagulation, car la cardiomyopathie hypertrophique expose au risque embolique. Un choc inapproprié chez un patient conscient a un retentissement psychologique important.",
+    "aRetenir": "DAI Abbott : pas de discrimination en zone FV ; sa limite basse doit laisser la discrimination fonctionner jusqu'à 230 bpm environ.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ritter P, Ploux S, Garrigue S, Reuter S, Ellenbogen KA. Défibrillateurs Saint Jude Medical : nouvelles recommandations, algorithme SecureSense. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      },
+      {
+        "titre": "Stiles MK, et al. 2019 HRS/EHRA/APHRS/LAHRS focused update to 2015 expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2020;17:e220-e228",
+        "url": "https://doi.org/10.1016/j.hrthm.2019.02.034"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI",
+      "Consensus 2019 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-abt-011",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "Abbott",
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "DAI double chambre Abbott, zone TV à partir de 160 bpm. Un flutter atypique à 340/min est conduit de façon régulière en 2:1 (170 bpm). Le boîtier classe l'épisode dans la branche V < A. Quel discriminateur de cette branche permet de reconnaître le flutter conduit, alors que la régularité des cycles plaide pour une TV ?",
+    "options": [
+      "Le début brutal, qui identifie la cavité ayant accéléré en premier",
+      "La stabilité des seuls cycles ventriculaires, qui retrouve un rythme régulier",
+      "L'association AV : des intervalles AV constants malgré la régularité",
+      "L'historique des intervalles sinusaux, qui compte les cycles longs"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : l'analyse du démarrage et de la cavité initiale sert dans la branche V = A.",
+      "Faux : un flutter 2:1 est régulier ; la stabilité seule plaide donc à tort pour une TV.",
+      "Juste : si l'écart entre intervalles AV (delta AV) reste faible, le ventricule est lié à l'oreillette : le rythme est une TSV conduite.",
+      "Faux : ce critère vise à reconnaître une FA qui se régularise ; il ne démasque pas un flutter conduit régulièrement en 2:1."
+    ],
+    "reponseAttendue": null,
+    "explication": "Dans un DAI double chambre Abbott, le rapport des fréquences oriente l'analyse. Dans la branche V < A, les critères utiles sont la stabilité des intervalles et la morphologie. Un flutter conduit en 2:1 ou 3:1 est régulier : la stabilité seule le prendrait pour une TV. D'où le complément « association AV » : on mesure l'écart entre intervalles AV sur les cycles de détection ; s'il reste sous le delta programmé, le ventricule suit l'oreillette et le rythme est classé TSV. Ce critère ne s'applique que si le rythme est stable. La morphologie, si elle est concordante avec le gabarit, conforte le diagnostic. Piège : une sous-détection atriale (petits signaux, blanking) peut faire basculer à tort l'épisode dans la branche V > A, où la thérapie est délivrée sans autre critère.",
+    "aRetenir": "Branche V < A chez Abbott : stabilité + association AV pour démasquer un flutter conduit régulièrement.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ritter P, Ploux S, Garrigue S, Reuter S, Hayes D, Ellenbogen KA, et al. Défibrillateur automatique implantable : cas cliniques basés sur les tracés St Jude Medical. Stimuprat Éditions, 2016"
+      },
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-abt-012",
+    "theme": "programmation",
+    "sousTheme": "DAI : indications, zones et thérapies",
+    "marque": "Abbott",
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "L'essai PROVIDE (1 670 patients en prévention primaire, DAI St. Jude Medical) comparait une programmation classique à une programmation à trois zones avec détection prolongée et ATP. Quel a été son résultat principal ?",
+    "options": [
+      "Moins de chocs inappropriés, mais davantage de syncopes arythmiques",
+      "Aucune différence sur les chocs, l'ATP ayant été souvent inefficace",
+      "Moins de chocs, mais une mortalité plus élevée par retard de traitement",
+      "Moins de chocs et, de façon notable, une mortalité totale plus faible"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : l'allongement des durées de détection n'a pas entraîné de hausse des syncopes ni de problème de sécurité majeur.",
+      "Faux : le nombre de chocs a nettement diminué dans le bras expérimental.",
+      "Faux : la mortalité totale était au contraire plus faible dans le bras expérimental.",
+      "Juste : la programmation expérimentale a réduit les chocs et s'est accompagnée d'une baisse significative de la mortalité totale."
+    ],
+    "reponseAttendue": null,
+    "explication": "PROVIDE, seul grand essai de programmation mené sur des DAI St. Jude Medical, comparait une programmation « traditionnelle » (une zone TV et une zone FV, 12 cycles chacune) à trois zones : TV1 d'environ 181 à 213 bpm (25 cycles), TV2 de 214 à 249 bpm (18 cycles), FV au-delà de 250 bpm (12 cycles), avec ATP. Le bras expérimental a reçu moins de chocs, et la mortalité totale y était plus faible, comme dans MADIT-RIT. Ces résultats ont contribué au consensus de 2015 : durées de détection longues (au moins 6 s, environ 30 intervalles), zone de thérapie la plus basse entre 185 et 200 bpm en prévention primaire, ATP dans toutes les zones chez les patients à cardiopathie structurelle. Message : programmer « nominal » n'est pas neutre pour le pronostic.",
+    "aRetenir": "PROVIDE (St. Jude) : trois zones, détection prolongée et ATP = moins de chocs et mortalité plus faible.",
+    "sources": [
+      {
+        "titre": "Saeed M, et al. Programming implantable cardioverter-defibrillators in patients with primary prevention indication to prolong time to first shock: results from the PROVIDE study. J Cardiovasc Electrophysiol 2014;25:52-59"
+      },
+      {
+        "titre": "Wilkoff BL et al. 2015 HRS/EHRA/APHRS/SOLAECE expert consensus statement on optimal implantable cardioverter-defibrillator programming and testing. Heart Rhythm 2016;13:e50-e86",
+        "url": "https://doi.org/10.1016/j.hrthm.2015.11.018"
+      }
+    ],
+    "reco": [
+      "Consensus 2015 programmation DAI"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-abt-013",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "Abbott",
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Patient porteur d'un DAI double chambre Abbott avec SecureSense en marche, opéré sans suspension préalable des thérapies. Le bistouri électrique monopolaire, utilisé sur le thorax, déclenche un choc. Pourquoi SecureSense n'a-t-il pas retenu la thérapie ?",
+    "options": [
+      "SecureSense ne fonctionne que dans la zone TV, jamais en zone FV",
+      "Le bruit est aussi vu sur le canal de discrimination : compteur remis à zéro",
+      "SecureSense ne retient la thérapie qu'en présence d'une impédance de sonde anormale",
+      "SecureSense n'analyse que les signaux plus lents que 250 bpm"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : SecureSense fonctionne dans les zones TV et FV.",
+      "Juste : une interférence externe est vue sur tous les canaux ; la concordance entre canal bipolaire et canal de discrimination est interprétée comme une vraie arythmie.",
+      "Faux : l'algorithme compare les cycles courts des deux canaux ; il n'utilise pas l'impédance.",
+      "Faux : il n'existe pas de telle limite de fréquence ; la surdétection de bruit est justement très rapide."
+    ],
+    "reponseAttendue": null,
+    "explication": "SecureSense compte les cycles courts vus sur le canal bipolaire de détection et remet ce compteur à zéro dès que deux cycles courts apparaissent sur le canal de discrimination (bobine VD – boîtier). Un bruit de sonde, local, n'est vu que sur le canal bipolaire : la thérapie est retenue. Une interférence externe comme le bistouri électrique crée des signaux amples et rapides sur tous les canaux (atrial, bipolaire et discrimination) : le compteur est sans cesse remis à zéro et le boîtier traite comme une vraie FV. SecureSense ne protège donc pas contre les interférences électromagnétiques. En chirurgie, il faut suspendre les thérapies (aimant, préféré car réversible immédiatement, ou programmation), surveiller le patient avec un défibrillateur externe disponible, préférer le bistouri bipolaire et placer la plaque de retour loin du boîtier.",
+    "aRetenir": "SecureSense ne retient la thérapie que si le bruit est absent du canal de discrimination ; il ne protège pas du bistouri électrique.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ritter P, Ploux S, Garrigue S, Reuter S, Ellenbogen KA. Défibrillateurs Saint Jude Medical : nouvelles recommandations, algorithme SecureSense. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Stühlinger M et al. EHRA consensus on prevention and management of interference due to medical procedures in patients with cardiac implantable electronic devices. Europace 2022;24:1512-1537",
+        "url": "https://doi.org/10.1093/europace/euac040"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-abt-014",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "Abbott",
+    "type": "qcm",
+    "difficulte": 7,
+    "question": "Un DAI Abbott enregistre des épisodes de « surdétection V non soutenue » (SNS) signalés par SecureSense, sans aucune thérapie. Parmi ces situations, lesquelles peuvent en être à l'origine ? (plusieurs réponses)",
+    "options": [
+      "Une surdétection de l'onde T sur le seul canal bipolaire, quand l'onde R y est de faible amplitude",
+      "Des pertes de capture VD intermittentes, suivies d'un QRS conduit détecté sur le canal bipolaire",
+      "Un décalage de détection entre les deux canaux lors d'ESV couplées près de la limite de la zone TV",
+      "Des salves de FV courtes, vues à la fois sur le canal bipolaire et sur le canal de discrimination"
+    ],
+    "reponses": [
+      0,
+      1,
+      2
+    ],
+    "commentaires": [
+      "Juste : l'onde T surdétectée crée des cycles courts sur le canal bipolaire seulement, car l'onde R est plus ample sur le canal de discrimination.",
+      "Juste : le QRS conduit après un stimulus inefficace crée un cycle court sur le canal bipolaire, alors que le canal de discrimination ne voit qu'un QRS.",
+      "Juste : un retard de détection de quelques dizaines de ms entre canaux (bloc de branche, ESV du VD) peut classer un cycle court d'un côté et long de l'autre : faux positif.",
+      "Faux : une vraie arythmie donne des cycles courts sur les deux canaux, ce qui remet le compteur à zéro."
+    ],
+    "reponseAttendue": null,
+    "explication": "Une fois activé, le compteur de SecureSense s'incrémente à chaque cycle court du canal bipolaire et n'est remis à zéro que par des cycles courts sur le canal de discrimination. S'il atteint 10 (ou un multiple de 10) sans que le compteur TV/FV soit rempli, un épisode de surdétection non soutenue est enregistré, avec alerte possible. Conçu pour la fracture de sonde, l'algorithme révèle en pratique d'autres surdétections limitées au canal bipolaire : onde T (surtout quand l'onde R y est petite), myopotentiels, onde P. Il peut aussi signaler des situations inattendues : pertes de capture VD avec QRS conduit tardif, ou faux positifs liés à un décalage de détection entre les deux canaux. Le compteur restant actif longtemps après son activation (255 cycles VS/VP), même des anomalies très intermittentes sont repérées. Chaque épisode SNS impose donc une relecture de l'EGM avant de conclure à un problème de sonde.",
+    "aRetenir": "Un épisode SNS de SecureSense n'est pas toujours une fracture : onde T, perte de capture ou décalage entre canaux peuvent l'expliquer.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ritter P, Ploux S, Garrigue S, Reuter S, Ellenbogen KA. Défibrillateurs Saint Jude Medical : nouvelles recommandations, algorithme SecureSense. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-abt-015",
+    "theme": "programmation",
+    "sousTheme": "CRT, stimulation de conduction et insuffisance cardiaque",
+    "marque": "Abbott",
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Homme de 67 ans, cardiomyopathie dilatée avec BBG, CRT-D Abbott. Réponse clinique médiocre, stimulation biventriculaire à 70 %. Les mémoires contiennent des épisodes de surdétection V non soutenue ; sur l'EGM, après chaque BV, un signal tardif est détecté sur le canal bipolaire mais pas sur le canal de discrimination, et le cycle suivant est souvent VS. Quelle est la conduite la plus adaptée ?",
+    "options": [
+      "Ajuster les réglages de détection post-stimulation (niveau et retard d'adaptation)",
+      "Baisser la sensibilité ventriculaire maximale jusqu'à faire disparaître le signal",
+      "Programmer SecureSense sur Arrêt pour ne plus enregistrer ces épisodes",
+      "Remplacer la sonde VD, ce signal évoquant une fracture de conducteur"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : c'est une surdétection de l'onde T après stimulation ; les DAI Abbott permettent de régler séparément la détection après stimulation et après détection.",
+      "Faux : baisser la sensibilité maximale expose à la sous-détection d'une FV, alors qu'un réglage ciblé suffit.",
+      "Faux : SecureSense ne fait que révéler le problème ; l'arrêter ne corrige ni la surdétection ni la perte de stimulation BV.",
+      "Faux : un signal survenant à un délai fixe après chaque stimulation est une onde T, pas un bruit de fracture."
+    ],
+    "reponseAttendue": null,
+    "explication": "Le signal détecté à distance fixe de chaque stimulation, sur le seul canal bipolaire, est une onde T post-stimulation. Il remet à zéro l'intervalle d'échappement ou limite le suivi atrial : le cycle suivant est spontané et le pourcentage de stimulation biventriculaire chute, ce qui explique en partie la mauvaise réponse. SecureSense a permis le diagnostic, mais il ne supprime ni la surdétection ni ses conséquences sur la stimulation. Les DAI Abbott disposent de réglages de sensibilité automatique distincts après stimulation et après détection (niveau de départ, retard d'adaptation) : on corrige de façon ciblée la détection après stimulation, sans toucher à la sensibilité maximale. Il faut viser une stimulation biventriculaire aussi proche que possible de 100 %, et vérifier ensuite le résultat sur l'EGM et les compteurs.",
+    "aRetenir": "CRT-D Abbott : une onde T surdétectée après stimulation fait chuter la stimulation BV ; on corrige les réglages de détection post-stimulation.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ritter P, Ploux S, Garrigue S, Reuter S, Ellenbogen KA. Défibrillateurs Saint Jude Medical : nouvelles recommandations, algorithme SecureSense. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+        "url": "https://doi.org/10.1093/eurheartj/ehab364"
+      }
+    ],
+    "reco": [
+      "ESC 2021 stimulation et CRT"
+    ],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-abt-016",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "Abbott",
+    "type": "vf",
+    "difficulte": 7,
+    "question": "Pour SecureSense, programmer le canal de discrimination en « distal VD – boîtier » plutôt qu'en « bobine VD – boîtier » améliore la reconnaissance d'une fracture du conducteur de l'électrode distale.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : l'électrode distale devient commune aux deux canaux comparés ; un bruit né de ce conducteur apparaît alors sur les deux.",
+      "Juste : la configuration bobine VD – boîtier (nominale) est la plus adaptée pour détecter une fracture ; le vecteur distal – boîtier n'est qu'un recours en cas de sous-détection sur le canal de discrimination."
+    ],
+    "reponseAttendue": null,
+    "explication": "C'est faux. SecureSense repose sur la discordance entre le canal bipolaire (pointe-anneau) et le canal de discrimination. Avec le vecteur bobine VD – boîtier, proposé en nominal, les deux canaux ne partagent aucune électrode : un bruit né du conducteur de la pointe ou de l'anneau n'apparaît que sur le canal bipolaire. Si l'on choisit distal VD – boîtier, l'électrode distale appartient aux deux canaux : un bruit de ce conducteur peut apparaître sur les deux, remettre le compteur à zéro et laisser délivrer une thérapie inappropriée. Ce vecteur reste une option quand le signal bobine – boîtier est trop petit (sous-détection sur le canal de discrimination), en sachant qu'il change aussi le vecteur de la morphologie far-field. Autre recours : programmer SecureSense en Passif. Les paramètres de détection du canal de discrimination ne sont pas programmables.",
+    "aRetenir": "SecureSense : garder le vecteur bobine VD – boîtier ; distal – boîtier affaiblit la détection des fractures du conducteur distal.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ritter P, Ploux S, Garrigue S, Reuter S, Ellenbogen KA. Défibrillateurs Saint Jude Medical : nouvelles recommandations, algorithme SecureSense. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Abbott. Gallant™ Dual Chamber ICD (CDDRA500T) — Product Highlights & Product Specifications (MAT-2400586 v4.0)"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-abt-017",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "Abbott",
+    "type": "qcm",
+    "difficulte": 8,
+    "question": "À propos du fonctionnement détaillé de SecureSense (DAI Abbott), quelles affirmations sont exactes ? (plusieurs réponses)",
+    "options": [
+      "En cas de sous-détection franche sur le canal de discrimination, l'algorithme passe de lui-même en Passif pour l'épisode",
+      "Une fois une première thérapie délivrée, l'algorithme est suspendu jusqu'à la fin de l'épisode",
+      "La sensibilité et la période réfractaire du canal de discrimination sont programmables",
+      "Le nombre d'épisodes non soutenus nécessaires pour déclencher une alerte n'est pas programmable"
+    ],
+    "reponses": [
+      0,
+      1
+    ],
+    "commentaires": [
+      "Juste : des signaux trop petits, une pause prolongée ou un seul cycle vu sur ce canal suspendent l'inhibition, pour ne pas retenir la thérapie d'une vraie TV/FV.",
+      "Juste : après un choc, le signal du canal de discrimination est déformé ; l'algorithme ne reprend qu'au retour en rythme sinusal.",
+      "Faux : les réglages de détection de ce canal sont fixes ; on peut seulement changer de vecteur (bobine ou distal – boîtier).",
+      "Faux : ce nombre est programmable ; en revanche, un seul épisode soutenu avec thérapie retenue suffit à déclencher l'alerte."
+    ],
+    "reponseAttendue": null,
+    "explication": "Tout algorithme capable de retenir une thérapie doit protéger la sensibilité. SecureSense se met donc de lui-même en Passif pendant un épisode si le canal de discrimination détecte mal : au moins deux signaux de moins de 0,6 mV, une pause de plus de 2,2 s entre deux détections, ou un seul cycle détecté pendant la tachycardie. La thérapie peut alors être délivrée et une alerte de sous-détection est affichée au programmateur. Après une première thérapie, l'algorithme est suspendu jusqu'au retour sinusal, car le choc déforme transitoirement le signal de champ lointain. Les paramètres de détection du canal de discrimination (réfractaire, niveau d'adaptation, sensibilité maximale) ne sont pas programmables. Côté alertes, un épisode soutenu avec thérapie retenue déclenche d'emblée vibration et alerte à distance ; le nombre d'épisodes non soutenus nécessaire est programmable.",
+    "aRetenir": "SecureSense se met en Passif si le canal de discrimination détecte mal, et s'efface après la première thérapie d'un épisode.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ritter P, Ploux S, Garrigue S, Reuter S, Ellenbogen KA. Défibrillateurs Saint Jude Medical : nouvelles recommandations, algorithme SecureSense. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Abbott. Portail officiel des notices et manuels techniques (eLabeling / eIFU) — manuels d'aide (Help Manual) des stimulateurs, DAI et CRT-D Abbott",
+        "url": "https://manuals.eifu.abbott/en/index.html"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  },
+  {
+    "id": "cas-abt-018",
+    "theme": "programmation",
+    "sousTheme": "DAI : discrimination et chocs inappropriés",
+    "marque": "Abbott",
+    "type": "ouverte",
+    "difficulte": 8,
+    "question": "DAI simple chambre Abbott avec sonde de défibrillation à bipôle intégré, SecureSense en marche (vecteur bobine VD – boîtier). Un choc inapproprié survient en rythme sinusal : l'EGM montre un double comptage par détection de l'onde P, surtout visible sur le canal de discrimination et par intermittence sur le canal bipolaire. Pourquoi SecureSense n'a-t-il pas protégé le patient, et que proposez-vous ?",
+    "options": null,
+    "reponses": null,
+    "reponseAttendue": "La bobine distale est probablement à cheval sur la valve tricuspide, en partie dans l'oreillette : le canal bobine – boîtier voit l'onde P et présente des cycles courts, qui remettent le compteur de bruit à zéro. La surdétection est donc « concordante » et la thérapie n'est pas retenue. Conduite : contrôler la position de la sonde (radiographie, amplitude de l'onde R) ; le passage du canal de discrimination en distal VD – boîtier réduirait la surdétection sur ce canal mais pas sur le canal bipolaire ; baisser la sensibilité expose à la sous-détection d'une FV. La solution est le repositionnement de la sonde, la bobine distale entièrement dans le VD.",
+    "explication": "La surdétection de l'onde P par la sonde de défibrillation est rare. Elle s'observe surtout avec les sondes à bipôle intégré placées près de l'anneau tricuspide (bobine distale à cheval sur la valve, petites cavités, cardiomyopathie hypertrophique, enfants) ou après un recul de sonde, qui s'accompagne d'une baisse de l'onde R. SecureSense protège bien contre une surdétection limitée au canal bipolaire, comme celle de l'onde T. Ici, le canal de discrimination passe par la bobine, qui voit l'oreillette : il présente lui aussi des cycles courts, le compteur est remis à zéro et le choc est délivré. Chez un patient dépendant ou en BAV, la même surdétection peut aussi inhiber la stimulation. Les réglages de sensibilité ont peu de marge sans risque de sous-détection : la vraie solution est de repositionner la sonde et de vérifier à l'implantation que la bobine distale est entièrement dans le VD.",
+    "aRetenir": "Onde P vue par une bobine proche de la tricuspide : SecureSense est pris en défaut ; la solution est le repositionnement de la sonde.",
+    "sources": [
+      {
+        "titre": "Bordachar P, Ritter P, Ploux S, Garrigue S, Reuter S, Ellenbogen KA. Défibrillateurs Saint Jude Medical : nouvelles recommandations, algorithme SecureSense. Stimuprat Éditions, 2017"
+      },
+      {
+        "titre": "Swerdlow CD et al. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",
+        "url": "https://doi.org/10.1161/CIRCEP.114.002344"
+      }
+    ],
+    "reco": [],
+    "revise": "2026-09"
+  }
+]

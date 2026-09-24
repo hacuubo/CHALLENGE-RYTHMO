@@ -4,11 +4,12 @@
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 let chromium;
 try { ({ chromium } = await import('playwright')); } catch { ({ chromium } = await import('playwright-core')); }
 
-const racine = path.join(path.dirname(new URL(import.meta.url).pathname), '..');
+const racine = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.webmanifest': 'application/manifest+json' };
 const serveur = http.createServer((req, res) => {
   const p = path.join(racine, decodeURIComponent(new URL(req.url, 'http://x').pathname).replace(/\/$/, '/index.html'));

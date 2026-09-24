@@ -120,10 +120,10 @@ officiels des fabricants ; ouvrages de référence reconnus. Pas de blog, forum 
 
 ## Tracés EGM de boîtier (`egm`)
 
-`"egm": { "preset": "tv-atp", "appareil": "dai", "legende": "…" }` — l'application dessine 8 s d'EGM à 25 mm/s : EGM A bipolaire,
+`"egm": { "preset": "tv-atp", "appareil": "dai", "legende": "…" }` — l'application dessine 8 s d'EGM (10 s pour `tv-atp-acceleration` et `choc-inefficace`) à 25 mm/s : EGM A bipolaire,
 EGM VD bipolaire, EGM de choc (DAI) ou « EGM champ lointain » (stimulateur), puis le **canal de marqueurs** (marqueurs atriaux
 au-dessus de la ligne avec l'intervalle A-A, ventriculaires au-dessous avec l'intervalle V-V, en ms ; étiquettes
-d'événement en bleu : MS, SV, ATP, Chg, CD, SVT, Pause, FA). Les Holter implantables n'ont qu'un canal « ECG sous-cutané ».
+d'événement en bleu : MS, SV, ATP, Chg, CD, SVT, Pause, FA, Back-up). Les Holter implantables n'ont qu'un canal « ECG sous-cutané ».
 Aperçu : `tests/egm-galerie.html`. Marqueurs : AS/AP (A détecté/stimulé), AR (A détecté en période réfractaire),
 VS/VP (V détecté/stimulé), BV (stimulation biventriculaire), TS/TD (détection/diagnostic zone TV), FS (zone FV),
 TP (impulsions d'ATP), MS (mode switch), SV (stimulation ventriculaire de sécurité), Chg (charge), CD (choc délivré).
@@ -152,9 +152,26 @@ TP (impulsions d'ATP), MS (mode switch), SV (stimulation ventriculaire de sécur
 | `ilr-fausse-pause` | — | Holter implantable : QRS de faible amplitude non détectés → « Pause » alors que les QRS sont visibles |
 | `ilr-vraie-pause` | — | Holter implantable : P visibles non suivies de QRS ≈ 4,9 s (BAV paroxystique) |
 | `ilr-fausse-fa` | — | Holter implantable : irrégularité par ESA fréquentes, P visibles, classé « FA » à tort |
+| `perte-capture-a` | `fc` | spikes A non suivis d'onde P |
+| `mvp-p-bloquee` | `fc`, `pr` | AAI à commutation (type MVP) : PR long respecté, une P non conduite, back-up VP 80 ms après l'AS suivant (pause V-V ≈ 1 550 ms) |
+| `capture-auto-backup` | — | vérification de capture cycle à cycle : à deux reprises, un VP sans réponse évoquée est suivi 100 ms plus tard d'une impulsion de secours (« Back-up ») qui capture |
+| `tv-atp-acceleration` | — | 10 s : TV à 360 ms dissociée (A 800 ms), ATP 8 impulsions à 317 ms, accélération en TV rapide ≈ 235 ms classée FS, charge |
+| `tv-lente-sous-zone` | `cycle` (défaut 500) | 2 battements sinusaux puis TV lente V > A, morphologie différente sur l'EGM de choc, marqueurs VS seuls (sous la zone TV) |
+| `ta-2-1-zone-tv` | `cycle` (A, défaut 190) | tachycardie atriale / flutter 2:1 : A à 190 ms (AS/AR), V à 380 ms classé TS, QRS identique au sinusal, marqueur SVT |
+| `tv-1-1` | `cycle` (défaut 380) | TV débutant par un ventricule prématuré, conduction rétrograde 1:1 (V-A ≈ 170 ms), morphologie différente du sinusal, TS puis TD |
+| `double-comptage-r` | — | QRS large dont la composante tardive de l'EGM VD est détectée ≈ 150 ms après le VS (FS) : intervalles alternés 150 / 680 ms |
+| `interference-emi` | — | parasite haute fréquence simultané sur l'EGM A, l'EGM VD et l'EGM de choc (≈ 3 s), comptés AS/AR et FS ; QRS sinusaux visibles au travers |
+| `bruit-sonde-a` | — | stimulateur DDD : salves de signaux non physiologiques sur l'EGM A seul (AS/AR très rapprochés), commutation de mode (MS), VP à 1 000 ms |
+| `choc-inefficace` | — | 10 s : FV, charge, premier choc (CD) inefficace, redétection, deuxième charge et choc efficace, puis VP |
+| `crt-fa-conduite` | — | CRT en FA : conduction rapide et irrégulière (VS), stimulation BV seulement après les cycles les plus longs |
+| `hysteresis-vvi` | — | VVI 60/min en FA : VS à 950 ms, premier VP à 1 200 ms (hystérésis 50/min), puis VP à 1 000 ms, reprise spontanée à 750 ms |
+| `ilr-fa` | — | Holter implantable : vraie FA (RR irrégulièrement irréguliers, pas d'onde P, ligne de base fibrillante) |
+| `perte-capture-a` | — | DDD 60/min, conduction conservée : AP suivis d'une P et d'un VS à 200 ms, sauf 3 AP sans capture suivis d'un VP à 250 ms |
+| `pseudo-fusion` | — | DDD, délai AV 200 ms proche du PR spontané (180-240 ms) : VS, VP et spikes tombant dans des QRS spontanés (pseudo-fusion) |
 
 `appareil` (`dai` ou `pm`) fixe le libellé du 3e canal ; par défaut `dai` pour tv-atp, fv-choc, fa-conduite-zone-tv, tsv-1-1,
-bruit-sonde et surdetection-t, `pm` pour les autres.
+bruit-sonde, surdetection-t, tv-atp-acceleration, tv-lente-sous-zone, ta-2-1-zone-tv, tv-1-1, double-comptage-r,
+interference-emi, choc-inefficace et crt-fa-conduite, `pm` pour les autres.
 `sous-detection-a` : sinus 78/min, une P sur trois détectée, AP compétitifs à la fréquence de base (1000 ms), V toujours stimulé.
 
 Comme pour l'ECG, l'énoncé ne décrit pas le tracé : c'est à l'utilisateur de le lire.
