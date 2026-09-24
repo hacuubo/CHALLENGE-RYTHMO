@@ -13,7 +13,7 @@
     "options": [
       "Surdétection de l'onde R lointaine sur le canal atrial : fausse alerte",
       "Flutter atrial 2:1 masqué par le blanking, sans repli de mode",
-      "Début de FA avec repli de mode approprié et réponse ventriculaire irrégulière",
+      "FA avec repli de mode approprié et réponse ventriculaire irrégulière",
       "Bruit sur la sonde atriale avec signaux non physiologiques"
     ],
     "reponses": [
@@ -389,7 +389,7 @@
       "Raccourcir la PVARP pour que ces signaux sortent de la période réfractaire",
       "Augmenter la sensibilité atriale pour mieux séparer onde P et onde R",
       "Désactiver le repli de mode, responsable de la répétition des épisodes",
-      "Allonger le blanking post-ventriculaire, puis vérifier la détection de la FA"
+      "Allonger le blanking post-ventriculaire puis vérifier la détection de FA"
     ],
     "reponses": [
       3
@@ -476,7 +476,7 @@
     },
     "options": [
       "TV à 182/min dissociée de l'oreillette, réduite par une salve d'ATP",
-      "Tachycardie sinusale conduite, traitée à tort par une salve d'ATP",
+      "Tachycardie sinusale rapide conduite, traitée à tort par une salve d'ATP",
       "TSV avec aberration, arrêtée par l'ATP par conduction rétrograde",
       "TV réduite par l'ATP puis relayée par une FA à conduction rapide"
     ],
@@ -527,7 +527,7 @@
       "Aucune action : l'ATP a été efficace et le patient n'a rien ressenti",
       "Appeler le SAMU pour une hospitalisation en urgence en soins intensifs",
       "Désactiver l'ATP, inutile chez un patient resté asymptomatique",
-      "Prévenir le médecin, rechercher un facteur déclenchant, avancer le contrôle"
+      "Prévenir le médecin, chercher une cause, avancer le contrôle"
     ],
     "reponses": [
       3
@@ -609,7 +609,7 @@
     "options": [
       "FA rapide classée en zone FV, choc inapproprié puis rythme électro-entraîné",
       "Bruit de sonde interprété comme une FV, choc inapproprié en rythme sinusal",
-      "FV détectée en zone FV, traitée par un choc efficace, puis stimulation de relais",
+      "FV en zone FV, traitée par un choc efficace, puis stimulation de relais",
       "TV monomorphe rapide réduite par le choc, suivie d'un BAV complet post-choc"
     ],
     "reponses": [
@@ -735,7 +735,7 @@
       "TV polymorphe irrégulière associée à une FA : thérapie appropriée",
       "Flutter atrial 2:1 régulier dans la zone TV : thérapie inappropriée",
       "Surdétection de l'onde T doublant la fréquence ventriculaire mesurée",
-      "FA à conduction rapide dans la zone TV : détection et thérapie inappropriées"
+      "FA à conduction rapide en zone TV : thérapie inappropriée"
     ],
     "reponses": [
       3
@@ -873,17 +873,17 @@
       "preset": "tsv-1-1"
     },
     "options": [
+      "Tachycardie sinusale d'effort 1:1, thérapie retenue à juste titre",
       "TV avec conduction rétrograde 1:1, thérapie retenue à tort par l'algorithme",
-      "Tachycardie sinusale d'effort en relation 1:1, thérapie retenue à juste titre",
       "Flutter atrial conduit en 2:1, correctement reconnu comme une TSV",
       "TV lente non traitée à cause d'une dysfonction de la détection"
     ],
     "reponses": [
-      1
+      0
     ],
     "commentaires": [
-      "Faux : une TV démarre brutalement ; ici l'accélération est progressive et l'A précède toujours le V.",
       "Juste : accélération progressive de 520 à 360 ms, A avant V à intervalle constant, morphologie inchangée.",
+      "Faux : une TV démarre brutalement ; ici l'accélération est progressive et l'A précède toujours le V.",
       "Faux : il y a autant de A que de V (1:1) et les cycles A-A ne sont pas ceux d'un flutter.",
       "Faux : la détection a fonctionné (TS) et le discriminateur a classé l'épisode en TSV."
     ],
@@ -920,7 +920,7 @@
       "Abaisser la zone TV à 140/min pour traiter plus tôt ce type d'épisode",
       "Désactiver les discriminateurs, qui ont retardé une thérapie nécessaire",
       "Remplacer l'ATP par un choc d'emblée dans la zone TV",
-      "Vérifier la limite des discriminateurs et adapter le traitement freinateur"
+      "Vérifier la limite des discriminateurs et le traitement freinateur"
     ],
     "reponses": [
       3
@@ -998,7 +998,7 @@
       "preset": "bruit-sonde"
     },
     "options": [
-      "Salves de FV non soutenues, spontanément résolutives",
+      "Salves de FV non soutenues, spontanément résolutives sans thérapie",
       "Signaux non physiologiques évoquant une dysfonction de sonde VD",
       "Myopotentiels pectoraux captés par l'EGM de choc",
       "Surdétection de l'onde T liée à une hyperkaliémie"
@@ -1048,8 +1048,8 @@
     "options": [
       "Programmer une consultation de contrôle dans les trois mois",
       "Attendre la transmission du lundi pour confirmer le problème",
-      "Demander une transmission manuelle quotidienne jusqu'au contrôle",
-      "Joindre le patient ce soir et organiser une prise en charge hospitalière rapide"
+      "Demander une transmission manuelle quotidienne jusqu'au prochain contrôle",
+      "Joindre le patient ce soir et organiser une prise en charge rapide"
     ],
     "reponses": [
       3
@@ -1254,18 +1254,18 @@
       "preset": "crt-perte-biv"
     },
     "options": [
-      "Délai AV trop long, dépassé par la conduction spontanée",
-      "Passage en FA avec conduction ventriculaire rapide",
       "Extrasystoles ventriculaires fréquentes, un cycle sur trois",
+      "Passage en FA avec conduction ventriculaire rapide",
+      "Délai AV programmé trop long, dépassé par la conduction spontanée",
       "Perte de capture VG avec stimulation VD seule"
     ],
     "reponses": [
-      2
+      0
     ],
     "commentaires": [
-      "Faux : une conduction spontanée surviendrait à chaque cycle, avec une morphologie de QRS conduite.",
-      "Faux : le canal atrial reste sinusal et régulier (AS à 800 ms).",
       "Juste : un VS prématuré (770 ms) de morphologie différente sur l'EGM de choc survient tous les trois cycles.",
+      "Faux : le canal atrial reste sinusal et régulier (AS à 800 ms).",
+      "Faux : une conduction spontanée surviendrait à chaque cycle, avec une morphologie de QRS conduite.",
       "Faux : une perte de capture VG ne fait pas baisser le compteur de stimulation BV, le boîtier continuant à stimuler."
     ],
     "reponseAttendue": null,
@@ -1342,7 +1342,7 @@
       "preset": "ilr-fausse-pause"
     },
     "options": [
-      "Pause sinusale de 4,2 s justifiant une stimulation",
+      "Pause sinusale de 4,2 s justifiant à elle seule une stimulation",
       "BAV paroxystique avec ondes P non conduites",
       "Artefact de mouvement masquant l'ECG sous-cutané",
       "Fausse pause par sous-détection de QRS de faible amplitude"
@@ -1387,7 +1387,7 @@
     },
     "options": [
       "Désactiver la détection des pauses pour supprimer les fausses alertes",
-      "Ajuster la détection (sensibilité, critères de pause) et poursuivre la surveillance",
+      "Ajuster la détection (sensibilité, critères de pause) et surveiller",
       "Explanter le Holter implantable, devenu inutilisable pour le diagnostic",
       "Implanter un stimulateur par sécurité devant la répétition des alertes"
     ],
@@ -1475,18 +1475,18 @@
       "preset": "ilr-vraie-pause"
     },
     "options": [
-      "Consultation de routine le mois prochain pour discuter d'un stimulateur",
+      "Joindre le patient le jour même et programmer un stimulateur",
       "Attendre une deuxième pause documentée avant toute décision",
-      "Joindre le patient le jour même et organiser l'implantation d'un stimulateur",
+      "Consultation de routine le mois prochain pour discuter d'un stimulateur",
       "Débuter un bêtabloquant pour prévenir de nouveaux malaises"
     ],
     "reponses": [
-      2
+      0
     ],
     "commentaires": [
-      "Faux : un BAV paroxystique symptomatique expose à une récidive traumatique ou prolongée à court terme.",
-      "Faux : la corrélation symptôme-rythme est déjà établie ; attendre n'apporte rien.",
       "Juste : le BAV paroxystique intrinsèque est une indication de stimulation (classe I, ESC 2021).",
+      "Faux : la corrélation symptôme-rythme est déjà établie ; attendre n'apporte rien.",
+      "Faux : un BAV paroxystique symptomatique expose à une récidive traumatique ou prolongée à court terme.",
       "Faux : un bêtabloquant aggraverait la conduction AV."
     ],
     "reponseAttendue": null,
@@ -1614,7 +1614,7 @@
     "difficulte": 4,
     "question": "Un porteur de DAI appelle le centre de télésurveillance : il vient de recevoir trois chocs en vingt minutes. Il est conscient, angoissé, et encore au téléphone. Quelle consigne donner ?",
     "options": [
-      "Appeler le 15 sans délai : orage rythmique ou chocs inappropriés en série",
+      "Appeler le 15 sans délai : orage rythmique ou chocs inappropriés",
       "Faire une transmission manuelle et attendre l'analyse du lendemain",
       "Le rassurer : des chocs répétés prouvent que le DAI fonctionne bien",
       "Venir en consultation programmée dans la semaine pour un contrôle"
@@ -1834,18 +1834,18 @@
     "difficulte": 7,
     "question": "Porteur d'un stimulateur double chambre, 68 ans, diabétique, sans autre antécédent. L'EGM confirme une FA dont l'épisode le plus long a duré 36 h ; aucun ECG n'a été enregistré pendant l'épisode. Quelle attitude est la plus appropriée ?",
     "options": [
-      "Aucune anticoagulation : un AHRE ne relève jamais d'un AOD",
+      "Anticoagulation à discuter comme pour une FA clinique",
       "Aspirine seule, traitement validé des épisodes prolongés",
-      "Discuter l'anticoagulation comme pour une FA clinique : épisode hors du champ d'ARTESiA",
+      "Aucune anticoagulation : un AHRE ne relève jamais d'un AOD",
       "Contrôler la durée des épisodes à un an avant toute décision"
     ],
     "reponses": [
-      2
+      0
     ],
     "commentaires": [
-      "Faux : les épisodes prolongés sont associés à un risque d'AVC nettement plus élevé.",
-      "Faux : l'aspirine n'est pas un traitement validé de prévention des AVC dans la FA.",
       "Juste : ARTESiA n'incluait que des épisodes de moins de 24 h ; au-delà, le risque se rapproche de celui de la FA clinique.",
+      "Faux : l'aspirine n'est pas un traitement validé de prévention des AVC dans la FA.",
+      "Faux : les épisodes prolongés sont associés à un risque d'AVC nettement plus élevé.",
       "Faux : laisser un an sans décision chez un patient à 2 points de CHA2DS2-VA n'est pas justifié."
     ],
     "reponseAttendue": null,
@@ -2082,17 +2082,17 @@
     "difficulte": 5,
     "question": "Aux urgences, un porteur de DAI reçoit des chocs répétés alors que le scope montre un rythme sinusal à 75/min ; un bruit de sonde est suspecté. Le programmateur n'est pas disponible. Quelle conduite ?",
     "options": [
+      "Poser un aimant pour suspendre les thérapies antitachycardiques",
       "Poser un aimant sur le boîtier pour passer en stimulation asynchrone VOO",
-      "Poser un aimant sur le boîtier pour suspendre les thérapies antitachycardiques",
       "Administrer de l'amiodarone intraveineuse pour prévenir les récidives",
       "Délivrer un choc électrique externe pour réinitialiser le DAI"
     ],
     "reponses": [
-      1
+      0
     ],
     "commentaires": [
-      "Faux : sur la plupart des DAI, l'aimant ne modifie pas la stimulation (contrairement au stimulateur).",
       "Juste : l'aimant suspend la détection et les thérapies tant qu'il est en place, sous monitorage.",
+      "Faux : sur la plupart des DAI, l'aimant ne modifie pas la stimulation (contrairement au stimulateur).",
       "Faux : il n'y a pas d'arythmie à traiter ; les chocs sont inappropriés.",
       "Faux : un choc externe n'a aucune indication en rythme sinusal."
     ],
@@ -2162,9 +2162,9 @@
     "difficulte": 4,
     "question": "L'infirmière de télésurveillance reçoit l'alerte d'une FV traitée par un choc efficace chez un porteur de DAI. Le patient, joint, va bien. Qui prévenir et comment ?",
     "options": [
-      "Clôturer seule l'alerte, le choc ayant été efficace",
+      "Clôturer seule l'alerte, puisque le choc a été efficace",
       "Attendre la revue hebdomadaire des transmissions",
-      "Transmettre au médecin responsable le jour même et tracer l'action",
+      "Informer le médecin responsable le jour même, en traçant",
       "Envoyer un courrier au médecin traitant sans autre démarche"
     ],
     "reponses": [
