@@ -1,0 +1,1091 @@
+[
+  {
+    "id": "simu-001",
+    "theme": "electrophysio",
+    "sousTheme": "Lecture de tracés d'EEP (simulateur)",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Extrastimulus atrial depuis l'OD haute (8 × S1 600 ms). Au couplage S2 = 340 ms, l'AH mesurait 128 ms. Le tracé montre S2 = 330 ms : l'AH mesure 254 ms. Quelle est l'interprétation ?",
+    "simu": {
+      "scenario": "double",
+      "graine": 7,
+      "etapes": [
+        {
+          "train": {
+            "site": "hra",
+            "extras": [
+              330
+            ]
+          }
+        },
+        {
+          "attendre": 900
+        }
+      ],
+      "fin": 8280,
+      "vitesse": 100,
+      "montage": "standard",
+      "legende": "S2 = 330 ms"
+    },
+    "options": [
+      "Décrément nodal habituel, sans signification particulière",
+      "Saut de conduction de la voie rapide vers la voie lente",
+      "Aberration fonctionnelle dans la branche droite",
+      "Conduction antérograde par une voie accessoire lente"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : le décrément physiologique est progressif ; un allongement de 126 ms pour 10 ms de raccourcissement du couplage est un saut.",
+      "Juste : la voie rapide est réfractaire à ce couplage, l'influx descend par la voie lente : saut d'AH ≥ 50 ms pour 10 ms, définition de la double voie nodale.",
+      "Faux : une aberration touche le QRS (et le HV), pas l'intervalle AH ; ici le saut est au-dessus du His.",
+      "Faux : une voie accessoire antérograde préexcite le ventricule (HV court) ; ici le His précède normalement le V."
+    ],
+    "explication": "L'extrastimulus atrial explore la courbe de conduction nodale : quand S2 raccourcit, l'AH s'allonge progressivement (décrément). Ici l'AH passe brutalement de 128 à 254 ms pour 10 ms de couplage en moins : la voie rapide a atteint sa période réfractaire effective et la conduction bascule sur la voie lente. C'est la définition de la double voie nodale (saut ≥ 50 ms pour 10 ms). Cette physiologie est fréquente et ne justifie un traitement que si une TRIN est inductible ou documentée.",
+    "aRetenir": "Saut d'AH ≥ 50 ms pour 10 ms de raccourcissement du couplage = double voie nodale ; en soi, pas une indication d'ablation.",
+    "sources": [
+      {
+        "titre": "Josephson ME. Josephson's Clinical Cardiac Electrophysiology: Techniques and Interpretations, 6e éd. Wolters Kluwer, 2021",
+        "url": null
+      },
+      {
+        "titre": "Brugada J, Katritsis DG et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      }
+    ],
+    "reponseAttendue": null,
+    "revise": "2026-09"
+  },
+  {
+    "id": "simu-002",
+    "theme": "electrophysio",
+    "sousTheme": "Lecture de tracés d'EEP (simulateur)",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 5,
+    "question": "Induction par extrastimulus atrial (S2 = 330 ms) d'une tachycardie à QRS fins, cycle 326 ms. Lisez la séquence d'activation sur le tracé (His d, SC 9-10 à 1-2). Quel est le diagnostic le plus probable ?",
+    "simu": {
+      "scenario": "trin",
+      "graine": 7,
+      "etapes": [
+        {
+          "train": {
+            "site": "hra",
+            "s1": 600,
+            "n": 8,
+            "extras": [
+              330
+            ]
+          }
+        },
+        {
+          "attendre": 4000
+        }
+      ],
+      "fin": 11385,
+      "vitesse": 100,
+      "montage": "standard",
+      "legende": ""
+    },
+    "options": [
+      "Réentrée intranodale typique (lente-rapide)",
+      "Réentrée orthodromique sur voie latérale gauche",
+      "Tachycardie atriale focale de l'oreillette gauche",
+      "Réentrée intranodale atypique (rapide-lente)"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : A et V quasi simultanés (VA 21 ms, < 70 ms), activation atriale rétrograde concentrique, la plus précoce au His.",
+      "Faux : une voie latérale gauche active d'abord le SC distal (activation excentrique) avec un VA > 70 ms.",
+      "Faux : un foyer gauche donne une activation excentrique et un rapport A-V indépendant du nœud AV.",
+      "Faux : la forme atypique a un RP long et une activation la plus précoce à l'ostium du SC."
+    ],
+    "explication": "Le tracé montre une tachycardie régulière où chaque A tombe dans le V (VA 21 ms mesuré sur le His) avec une activation concentrique : His d'abord, puis SC proximal vers distal. Un VA < 70 ms élimine pratiquement une réentrée orthodromique, car l'influx doit traverser le ventricule avant de remonter par la voie accessoire. Le saut d'AH à l'induction oriente vers une descente par la voie lente. Ces éléments sont en faveur d'une TRIN typique, à confirmer par les manœuvres (entraînement ventriculaire, ESV His-réfractaire).",
+    "aRetenir": "VA < 70 ms avec activation concentrique la plus précoce au His : TRIN typique ; la TRAV est pratiquement exclue.",
+    "sources": [
+      {
+        "titre": "Brugada J, Katritsis DG et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Josephson ME. Josephson's Clinical Cardiac Electrophysiology: Techniques and Interpretations, 6e éd. Wolters Kluwer, 2021",
+        "url": null
+      }
+    ],
+    "reponseAttendue": null,
+    "revise": "2026-09"
+  },
+  {
+    "id": "simu-003",
+    "theme": "electrophysio",
+    "sousTheme": "Lecture de tracés d'EEP (simulateur)",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Tachycardie à QRS fins, cycle 326 ms. Entraînement depuis l'apex du VD à 296 ms, avec conduction rétrograde 1:1, puis arrêt (tracé). Le PPI mesuré sur le VD est de 460 ms. Quelle est la conclusion ?",
+    "simu": {
+      "scenario": "trin",
+      "graine": 7,
+      "etapes": [
+        {
+          "train": {
+            "site": "hra",
+            "s1": 600,
+            "n": 8,
+            "extras": [
+              330
+            ]
+          }
+        },
+        {
+          "attendre": 4000
+        },
+        {
+          "salve": {
+            "site": "rva",
+            "cl": 296,
+            "n": 15
+          }
+        },
+        {
+          "attendre": 3000
+        }
+      ],
+      "fin": 17079,
+      "vitesse": 50,
+      "montage": "standard",
+      "legende": ""
+    },
+    "options": [
+      "Réponse V-A-A-V : tachycardie atriale",
+      "Réponse V-A-V, PPI − TCL < 115 ms : réentrée sur voie septale",
+      "Réponse V-A-V, PPI − TCL de 134 ms : réentrée intranodale",
+      "Manœuvre non interprétable sans fusion du QRS"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : après le dernier A entraîné vient un V, pas un second A : la réponse est V-A-V.",
+      "Faux : PPI − TCL = 134 ms, au-delà de 115 ms : l'apex du VD est loin du circuit, ce qui oriente vers la TRIN.",
+      "Juste : réponse V-A-V et PPI − TCL = 460 − 326 = 134 ms > 115 ms : le circuit ne passe pas par le ventricule.",
+      "Faux : l'absence de fusion du QRS n'empêche pas d'interpréter la réponse ni le PPI ; elle est même attendue dans la TRIN."
+    ],
+    "explication": "À l'arrêt de l'entraînement, le dernier A entraîné est suivi d'un V (réponse V-A-V) : la tachycardie utilise le nœud AV, ce qui élimine une tachycardie atriale. Le PPI mesuré sur le site de stimulation (460 ms) dépasse le cycle de 134 ms : l'apex du VD est éloigné du circuit. Un PPI − TCL > 115 ms (et un SA − VA > 85 ms) est en faveur d'une TRIN ; une valeur < 115 ms oriente vers une réentrée utilisant une voie accessoire septale (Michaud). Mesurez toujours le PPI sur l'électrogramme du site stimulé.",
+    "aRetenir": "Entraînement VD : V-A-V + PPI − TCL > 115 ms → TRIN ; < 115 ms → TRAV (voie septale).",
+    "sources": [
+      {
+        "titre": "Michaud GF et al. Differentiation of atypical atrioventricular node re-entrant tachycardia from orthodromic reciprocating tachycardia using a septal accessory pathway by the response to ventricular pacing. J Am Coll Cardiol 2001;38:1163-7",
+        "url": "https://doi.org/10.1016/S0735-1097(01)01480-2"
+      },
+      {
+        "titre": "Knight BP et al. Diagnostic value of tachycardia features and pacing maneuvers during paroxysmal supraventricular tachycardia. J Am Coll Cardiol 2000;36:574-82",
+        "url": "https://doi.org/10.1016/S0735-1097(00)00770-1"
+      },
+      {
+        "titre": "Brugada J, Katritsis DG et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      }
+    ],
+    "reponseAttendue": null,
+    "revise": "2026-09"
+  },
+  {
+    "id": "simu-004",
+    "theme": "electrophysio",
+    "sousTheme": "Lecture de tracés d'EEP (simulateur)",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Tachycardie à QRS fins, cycle 399 ms, induite par une salve atriale. Entraînement ventriculaire à 369 ms avec conduction rétrograde 1:1, puis arrêt (tracé). Quelle réponse observe-t-on, et qu'en concluez-vous ?",
+    "simu": {
+      "scenario": "ta",
+      "graine": 7,
+      "etapes": [
+        {
+          "salve": {
+            "site": "hra",
+            "cl": 300,
+            "n": 10
+          }
+        },
+        {
+          "attendre": 6000
+        },
+        {
+          "salve": {
+            "site": "rva",
+            "cl": 369,
+            "n": 20
+          }
+        },
+        {
+          "attendre": 3000
+        }
+      ],
+      "fin": 20316,
+      "vitesse": 50,
+      "montage": "standard",
+      "legende": ""
+    },
+    "options": [
+      "V-A-V : réentrée impliquant le nœud AV",
+      "V-A-A-V : tachycardie atriale",
+      "V-A-V : réentrée sur voie accessoire",
+      "Pseudo-V-A-A-V : réentrée intranodale atypique"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : après le dernier A entraîné, l'activité suivante est un A et non un V.",
+      "Juste : le dernier A entraîné est suivi d'un second A avant tout V : le foyer atrial reprend sans dépendre du ventricule.",
+      "Faux : une TRAV redonnerait un V après le dernier A entraîné, puisque ce V fait partie du circuit.",
+      "Faux : la pseudo-V-A-A-V s'observe quand le VA est très long ; ici le dernier A entraîné est bien identifié juste après le dernier stimulus."
+    ],
+    "explication": "À l'arrêt d'un entraînement ventriculaire avec conduction rétrograde 1:1, on identifie le dernier A entraîné, puis l'activité suivante. Ici on voit A puis A avant le prochain V : réponse V-A-A-V, qui signe une tachycardie atriale (Knight 1999). En cas de TRIN ou de TRAV, le circuit passe par le ventricule, le dernier A entraîné est suivi d'un V (V-A-V). Piège : quand le VA est long (TRIN atypique, voie décrémentielle), on peut confondre le dernier A entraîné avec un A spontané (pseudo-V-A-A-V).",
+    "aRetenir": "Arrêt de l'entraînement ventriculaire : V-A-A-V = tachycardie atriale ; V-A-V = circuit passant par le nœud AV ou une voie accessoire.",
+    "sources": [
+      {
+        "titre": "Knight BP et al. A technique for the rapid diagnosis of atrial tachycardia in the electrophysiology laboratory. J Am Coll Cardiol 1999;33:775-81",
+        "url": "https://doi.org/10.1016/S0735-1097(98)00614-7"
+      },
+      {
+        "titre": "Brugada J, Katritsis DG et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      }
+    ],
+    "reponseAttendue": null,
+    "revise": "2026-09"
+  },
+  {
+    "id": "simu-005",
+    "theme": "electrophysio",
+    "sousTheme": "Lecture de tracés d'EEP (simulateur)",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Tachycardie orthodromique (cycle 337 ms, SC distal activé en premier). Une ESV est délivrée à l'apex du VD 30 ms avant le His attendu, alors que le His est déjà engagé (tracé). L'A suivant est avancé de 25 ms avec la même séquence. Que prouve cette réponse ?",
+    "simu": {
+      "scenario": "trav",
+      "graine": 7,
+      "etapes": [
+        {
+          "train": {
+            "site": "hra",
+            "s1": 600,
+            "n": 8,
+            "extras": [
+              330
+            ]
+          }
+        },
+        {
+          "attendre": 4000
+        },
+        {
+          "stim": {
+            "site": "rva",
+            "delai": 199
+          }
+        },
+        {
+          "attendre": 3100
+        }
+      ],
+      "fin": 12684,
+      "vitesse": 50,
+      "montage": "standard",
+      "legende": ""
+    },
+    "options": [
+      "L'existence d'une voie accessoire à conduction rétrograde",
+      "Une conduction rétrograde par la voie rapide du nœud AV intact",
+      "Une réentrée intranodale avec une voie finale commune basse",
+      "Une réinitialisation d'un foyer atrial gauche par l'ESV"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : le His étant réfractaire, l'influx ne peut atteindre l'oreillette qu'en court-circuitant le nœud AV, donc par une voie accessoire.",
+      "Faux : pour remonter par le nœud AV, l'influx doit passer par le His, qui est ici réfractaire.",
+      "Faux : dans une TRIN, une ESV His-réfractaire n'atteint pas le circuit nodal et ne modifie pas l'atrium.",
+      "Faux : pour réinitialiser un foyer atrial, l'ESV devrait atteindre l'oreillette, ce qui impose déjà une voie extranodale quand le His est réfractaire."
+    ],
+    "explication": "Une ESV délivrée quand le His est réfractaire (au moment ou juste avant le His attendu) ne peut pas remonter par le système His-nœud AV. Si l'A suivant est avancé avec la même séquence d'activation, l'influx est passé par une voie accessoire : c'est la preuve de son existence. Elle participe au circuit si l'ESV avance l'atrium ou arrête la tachycardie sans l'atteindre. À l'inverse, l'absence d'avance n'exclut pas une voie éloignée du site de stimulation, comme une voie latérale gauche stimulée depuis l'apex du VD.",
+    "aRetenir": "ESV His-réfractaire qui avance l'atrium avec la même séquence = voie accessoire ; qui arrête la tachycardie sans atteindre l'atrium = voie participante.",
+    "sources": [
+      {
+        "titre": "Josephson ME. Josephson's Clinical Cardiac Electrophysiology: Techniques and Interpretations, 6e éd. Wolters Kluwer, 2021",
+        "url": null
+      },
+      {
+        "titre": "Knight BP et al. Diagnostic value of tachycardia features and pacing maneuvers during paroxysmal supraventricular tachycardia. J Am Coll Cardiol 2000;36:574-82",
+        "url": "https://doi.org/10.1016/S0735-1097(00)00770-1"
+      }
+    ],
+    "reponseAttendue": null,
+    "revise": "2026-09"
+  },
+  {
+    "id": "simu-006",
+    "theme": "electrophysio",
+    "sousTheme": "Lecture de tracés d'EEP (simulateur)",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Stimulation para-hisienne en rythme sinusal : 15 mA (capture du His et du myocarde septal) puis 5 mA (myocarde seul, QRS élargi). L'intervalle stimulus-A mesuré sur l'ostium du SC, site atrial le plus précoce, est de 80 ms à 15 mA et de 80 ms à 5 mA, avec la même séquence atriale. Quelle est la conclusion ?",
+    "simu": {
+      "scenario": "septale",
+      "graine": 7,
+      "etapes": [
+        {
+          "choc": true
+        },
+        {
+          "salve": {
+            "site": "parahis",
+            "cl": 500,
+            "n": 5,
+            "mA": 15
+          }
+        },
+        {
+          "attendre": 700
+        },
+        {
+          "marque": "haut"
+        },
+        {
+          "salve": {
+            "site": "parahis",
+            "cl": 500,
+            "n": 5,
+            "mA": 5
+          }
+        },
+        {
+          "attendre": 700
+        }
+      ],
+      "fin": 8405,
+      "vitesse": 25,
+      "montage": "standard",
+      "legende": "15 mA puis 5 mA"
+    },
+    "options": [
+      "Conduction rétrograde exclusivement par le nœud AV",
+      "Conduction rétrograde extranodale : voie septale",
+      "Conduction rétrograde nodale et extranodale (fusion)",
+      "Absence de conduction rétrograde ventriculo-atriale"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : si l'oreillette était activée par le nœud AV, perdre la capture du His allongerait le stimulus-A (l'influx doit d'abord rejoindre le His).",
+      "Juste : le stimulus-A reste à 80 ms que le His soit capturé ou non : l'oreillette est activée par le myocarde ventriculaire, via une voie septale.",
+      "Faux : une fusion modifie la séquence ou le stimulus-A d'un site à l'autre ; ici tout est inchangé.",
+      "Faux : chaque stimulation est suivie d'une activation atriale, la conduction rétrograde existe."
+    ],
+    "explication": "La stimulation para-hisienne compare deux situations : sortie haute (His et myocarde capturés) et sortie basse (myocarde seul). Si la conduction rétrograde est nodale, la perte de capture du His allonge le stimulus-A d'autant que le temps nécessaire à l'influx pour rejoindre le His par le myocarde et les branches, sans changer la séquence. Si elle passe par une voie septale, le stimulus-A au site de sortie ne change pas, car l'oreillette est activée depuis le myocarde ventriculaire proche. Ici il reste stable (80 puis 80 ms) : conduction extranodale. Mesurez le stimulus-A à chaque site atrial, pas seulement au plus précoce, pour dépister une fusion.",
+    "aRetenir": "Para-hisien : stimulus-A allongé sans capture du His = conduction nodale ; inchangé au site de sortie = voie accessoire septale.",
+    "sources": [
+      {
+        "titre": "Hirao K et al. Para-Hisian pacing. A new method for differentiating retrograde conduction over an accessory AV pathway from conduction over the AV node. Circulation 1996;94:1027-35",
+        "url": "https://doi.org/10.1161/01.CIR.94.5.1027"
+      },
+      {
+        "titre": "Josephson ME. Josephson's Clinical Cardiac Electrophysiology: Techniques and Interpretations, 6e éd. Wolters Kluwer, 2021",
+        "url": null
+      }
+    ],
+    "reponseAttendue": null,
+    "revise": "2026-09"
+  },
+  {
+    "id": "simu-007",
+    "theme": "electrophysio",
+    "sousTheme": "Lecture de tracés d'EEP (simulateur)",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Stimulation para-hisienne en rythme sinusal : 15 mA (capture du His et du myocarde septal) puis 5 mA (myocarde seul, QRS élargi). L'intervalle stimulus-A mesuré sur le His (A), site atrial le plus précoce, est de 66 ms à 15 mA et de 135 ms à 5 mA, avec la même séquence atriale. Quelle est la conclusion ?",
+    "simu": {
+      "scenario": "normal",
+      "graine": 7,
+      "etapes": [
+        {
+          "choc": true
+        },
+        {
+          "salve": {
+            "site": "parahis",
+            "cl": 500,
+            "n": 5,
+            "mA": 15
+          }
+        },
+        {
+          "attendre": 700
+        },
+        {
+          "marque": "haut"
+        },
+        {
+          "salve": {
+            "site": "parahis",
+            "cl": 500,
+            "n": 5,
+            "mA": 5
+          }
+        },
+        {
+          "attendre": 700
+        }
+      ],
+      "fin": 8405,
+      "vitesse": 25,
+      "montage": "standard",
+      "legende": "15 mA puis 5 mA"
+    },
+    "options": [
+      "Conduction rétrograde par le nœud AV seul",
+      "Conduction rétrograde extranodale : voie accessoire septale",
+      "Conduction rétrograde nodale et extranodale (fusion)",
+      "Absence de conduction rétrograde ventriculo-atriale"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : le stimulus-A s'allonge de 69 ms à la perte de capture du His, avec la même séquence : l'influx doit rejoindre le His avant de remonter par le nœud AV.",
+      "Faux : une voie septale donnerait un stimulus-A inchangé au site de sortie, que le His soit capturé ou non.",
+      "Faux : une fusion modifierait la séquence d'activation atriale entre les deux sorties.",
+      "Faux : chaque stimulation est suivie d'une activation atriale, la conduction rétrograde existe."
+    ],
+    "explication": "La stimulation para-hisienne compare deux situations : sortie haute (His et myocarde capturés) et sortie basse (myocarde seul). Si la conduction rétrograde est nodale, la perte de capture du His allonge le stimulus-A d'autant que le temps nécessaire à l'influx pour rejoindre le His par le myocarde et les branches, sans changer la séquence. Si elle passe par une voie septale, le stimulus-A au site de sortie ne change pas, car l'oreillette est activée depuis le myocarde ventriculaire proche. Ici il passe de 66 à 135 ms : conduction nodale. Mesurez le stimulus-A à chaque site atrial, pas seulement au plus précoce, pour dépister une fusion.",
+    "aRetenir": "Para-hisien : stimulus-A allongé sans capture du His = conduction nodale ; inchangé au site de sortie = voie accessoire septale.",
+    "sources": [
+      {
+        "titre": "Hirao K et al. Para-Hisian pacing. A new method for differentiating retrograde conduction over an accessory AV pathway from conduction over the AV node. Circulation 1996;94:1027-35",
+        "url": "https://doi.org/10.1161/01.CIR.94.5.1027"
+      },
+      {
+        "titre": "Josephson ME. Josephson's Clinical Cardiac Electrophysiology: Techniques and Interpretations, 6e éd. Wolters Kluwer, 2021",
+        "url": null
+      }
+    ],
+    "reponseAttendue": null,
+    "revise": "2026-09"
+  },
+  {
+    "id": "simu-008",
+    "theme": "electrophysio",
+    "sousTheme": "Lecture de tracés d'EEP (simulateur)",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Flutter atrial à cycle 245 ms, ondes F négatives en inférieur. Entraînement depuis l'isthme cavo-tricuspide (Halo 1-2) à 225 ms : le PPI mesuré sur le site de stimulation est de 245 ms (tracé, montage Halo). Quelle est la conclusion ?",
+    "simu": {
+      "scenario": "flutter",
+      "graine": 7,
+      "etapes": [
+        {
+          "train": {
+            "site": "cs9",
+            "s1": 600,
+            "n": 8,
+            "extras": [
+              270
+            ]
+          }
+        },
+        {
+          "attendre": 4000
+        },
+        {
+          "salve": {
+            "site": "cti",
+            "cl": 225,
+            "n": 12
+          }
+        },
+        {
+          "attendre": 3100
+        }
+      ],
+      "fin": 15250,
+      "vitesse": 50,
+      "montage": "flutter",
+      "legende": ""
+    },
+    "options": [
+      "L'isthme est hors du circuit : flutter non isthme-dépendant",
+      "L'isthme est dans le circuit : flutter isthme-dépendant",
+      "Le flutter a été transformé en fibrillation atriale",
+      "Le PPI n'est pas interprétable au niveau de l'isthme"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : un site hors du circuit donnerait un PPI nettement plus long que le cycle ; ici PPI − TCL = 0 ms.",
+      "Juste : PPI − TCL = 0 ms (< 20-30 ms) : l'isthme fait partie du circuit, cible de l'ablation.",
+      "Faux : le flutter reprend à l'identique après l'arrêt de l'entraînement, sans activité désorganisée.",
+      "Faux : le PPI se mesure justement sur l'électrogramme du site stimulé, ici le dipôle de l'isthme."
+    ],
+    "explication": "L'entraînement consiste à stimuler un peu plus vite que la tachycardie puis à mesurer le retour (PPI) sur le site stimulé. Si ce site est dans le circuit, l'influx fait un tour de circuit et revient au bout d'un cycle : PPI ≈ TCL (écart < 20-30 ms). Ici l'écart est de 0 ms : l'isthme cavo-tricuspide appartient au circuit, ce qui confirme un flutter typique isthme-dépendant. L'ablation de l'isthme, avec contrôle du bloc bidirectionnel, est le traitement de référence.",
+    "aRetenir": "PPI − TCL < 20-30 ms = site dans le circuit ; pour le flutter typique, l'isthme cavo-tricuspide.",
+    "sources": [
+      {
+        "titre": "Brugada J, Katritsis DG et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Josephson ME. Josephson's Clinical Cardiac Electrophysiology: Techniques and Interpretations, 6e éd. Wolters Kluwer, 2021",
+        "url": null
+      }
+    ],
+    "reponseAttendue": null,
+    "revise": "2026-09"
+  },
+  {
+    "id": "simu-009",
+    "theme": "electrophysio",
+    "sousTheme": "Lecture de tracés d'EEP (simulateur)",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Tachycardie atriale régulière à 223 ms chez une patiente déjà traitée par isolation des veines pulmonaires. Entraînement à 203 ms : PPI − TCL = 80 ms depuis l'isthme cavo-tricuspide, 0 ms depuis le SC distal (tracé : entraînement depuis l'isthme). Quel est le mécanisme le plus probable ?",
+    "simu": {
+      "scenario": "flutter-mitral",
+      "graine": 7,
+      "etapes": [
+        {
+          "train": {
+            "site": "cs9",
+            "s1": 600,
+            "n": 8,
+            "extras": [
+              280
+            ]
+          }
+        },
+        {
+          "attendre": 4000
+        },
+        {
+          "salve": {
+            "site": "cti",
+            "cl": 203,
+            "n": 12
+          }
+        },
+        {
+          "attendre": 3100
+        }
+      ],
+      "fin": 15018,
+      "vitesse": 50,
+      "montage": "flutter",
+      "legende": ""
+    },
+    "options": [
+      "Flutter typique dépendant de l'isthme cavo-tricuspide",
+      "Tachycardie atriale focale de l'oreillette droite",
+      "Macroréentrée péri-mitrale (flutter gauche)",
+      "Réentrée intranodale avec conduction atriale lente"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : un flutter isthme-dépendant donnerait un PPI − TCL court depuis l'isthme ; ici 80 ms.",
+      "Faux : une activité focale ne s'entraîne pas avec un PPI ≈ TCL à distance du foyer, comme ici au SC distal.",
+      "Juste : le SC (anneau mitral) est dans le circuit, l'isthme cavo-tricuspide ne l'est pas : réentrée autour de l'anneau mitral.",
+      "Faux : l'activité atriale couvre tout le cycle, avec des sites dans le circuit loin du nœud AV : c'est une macroréentrée atriale."
+    ],
+    "explication": "Après ablation de fibrillation atriale, les tachycardies atriales régulières sont souvent des macroréentrées gauches. L'entraînement localise le circuit : PPI − TCL court (< 20-30 ms) sur un site = site dans le circuit. Ici le SC distal (anneau mitral latéral) est dans le circuit (0 ms), l'isthme cavo-tricuspide ne l'est pas (80 ms) : flutter péri-mitral. Le traitement est une ligne de l'isthme mitral avec contrôle du bloc, plus délicate que l'isthme cavo-tricuspide.",
+    "aRetenir": "Entraîner à plusieurs sites : SC dans le circuit et isthme cavo-tricuspide hors circuit → flutter péri-mitral.",
+    "sources": [
+      {
+        "titre": "Brugada J, Katritsis DG et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Josephson ME. Josephson's Clinical Cardiac Electrophysiology: Techniques and Interpretations, 6e éd. Wolters Kluwer, 2021",
+        "url": null
+      }
+    ],
+    "reponseAttendue": null,
+    "revise": "2026-09"
+  },
+  {
+    "id": "simu-010",
+    "theme": "electrophysio",
+    "sousTheme": "Lecture de tracés d'EEP (simulateur)",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Tachycardie avec un cycle atrial de 327 ms et un cycle ventriculaire de 653 ms. Sur le His, chaque A est suivi d'un H, mais un H sur deux n'est pas suivi de V (tracé). Que peut-on affirmer ?",
+    "simu": {
+      "scenario": "trin-21",
+      "graine": 7,
+      "etapes": [
+        {
+          "train": {
+            "site": "hra",
+            "s1": 600,
+            "n": 8,
+            "extras": [
+              330
+            ]
+          }
+        },
+        {
+          "attendre": 4000
+        }
+      ],
+      "fin": 11385,
+      "vitesse": 50,
+      "montage": "standard",
+      "legende": ""
+    },
+    "options": [
+      "Réentrée orthodromique avec un bloc AV fonctionnel 2:1",
+      "Tachycardie atriale avec bloc nodal 2:1",
+      "Flutter atrial conduit en 2:1 au nœud AV",
+      "Circuit qui ne passe pas par les ventricules"
+    ],
+    "reponses": [
+      3
+    ],
+    "commentaires": [
+      "Faux : une TRAV ne peut pas survivre à un bloc AV, puisque le ventricule fait partie de son circuit.",
+      "Faux : dans une tachycardie atriale avec bloc nodal, les A non conduits ne sont pas suivis de H ; ici le bloc est sous le His.",
+      "Faux : le flutter donne une activité atriale continue et un bloc au-dessus du His ; ici chaque A a son H, A et H quasi simultanés.",
+      "Juste : le bloc sous le His prouve que les ventricules sont en dehors du circuit, ce qui exclut une TRAV ; c'est ici une TRIN."
+    ],
+    "explication": "Le bloc 2:1 est situé sous le His : chaque A est suivi d'un H, mais un H sur deux ne conduit pas aux ventricules (période réfractaire du tissu de conduction plus longue que le cycle). La tachycardie continue malgré ce bloc : le ventricule n'appartient donc pas au circuit, ce qui exclut une réentrée orthodromique. Associé à des A et H quasi simultanés, cela signe une TRIN. Ce bloc fonctionnel disparaît souvent spontanément ou sous isoprénaline.",
+    "aRetenir": "Une tachycardie qui persiste avec un bloc AV (ou sous le His) exclut une TRAV.",
+    "sources": [
+      {
+        "titre": "Josephson ME. Josephson's Clinical Cardiac Electrophysiology: Techniques and Interpretations, 6e éd. Wolters Kluwer, 2021",
+        "url": null
+      },
+      {
+        "titre": "Brugada J, Katritsis DG et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      }
+    ],
+    "reponseAttendue": null,
+    "revise": "2026-09"
+  },
+  {
+    "id": "simu-011",
+    "theme": "electrophysio",
+    "sousTheme": "Lecture de tracés d'EEP (simulateur)",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Tachycardie orthodromique : avec un QRS de type retard gauche (tracé), le VA mesure 178 ms et le cycle 361 ms ; quand le QRS redevient fin, le VA revient à 133 ms et le cycle à 337 ms. Quelle est la conclusion ?",
+    "simu": {
+      "scenario": "coumel",
+      "graine": 7,
+      "etapes": [
+        {
+          "train": {
+            "site": "hra",
+            "extras": [
+              370
+            ]
+          }
+        },
+        {
+          "attendre": 4000
+        }
+      ],
+      "fin": 11425,
+      "vitesse": 50,
+      "montage": "standard",
+      "legende": ""
+    },
+    "options": [
+      "Voie accessoire droite, du côté opposé au bloc",
+      "Voie accessoire gauche, du même côté que le bloc",
+      "Réentrée intranodale avec aberration de conduction",
+      "Tachycardie ventriculaire fasciculaire"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : un bloc de branche controlatéral à la voie ne modifie pas le VA.",
+      "Juste : le bloc de branche gauche allonge le VA (+45 ms) et le cycle : la voie accessoire est du côté gauche et participe au circuit (signe de Coumel).",
+      "Faux : dans une TRIN, le ventricule est hors du circuit : un bloc de branche ne change ni le VA ni le cycle.",
+      "Faux : la tachycardie a un aspect de TRAV (A après chaque V, VA fixe) et passe par le nœud AV."
+    ],
+    "explication": "En bloc de branche gauche fonctionnel, l'influx descend par la branche droite puis traverse le septum avant d'atteindre la paroi latérale du VG, où s'insère la voie accessoire. Le VA s'allonge (ici de 45 ms, ≥ 35 ms en pratique) et le cycle de la tachycardie aussi : c'est le signe de Coumel. Il prouve que la voie accessoire, homolatérale au bloc, fait partie du circuit. Un bloc de branche controlatéral ne modifie rien.",
+    "aRetenir": "Signe de Coumel : allongement du VA (≥ 35 ms) et du cycle en bloc de branche → voie accessoire homolatérale au bloc, participant au circuit.",
+    "sources": [
+      {
+        "titre": "Coumel P, Attuel P. Reciprocating tachycardia in overt and latent preexcitation. Influence of functional bundle branch block on the rate of the tachycardia. Eur J Cardiol 1974;1:423-36",
+        "url": null
+      },
+      {
+        "titre": "Josephson ME. Josephson's Clinical Cardiac Electrophysiology: Techniques and Interpretations, 6e éd. Wolters Kluwer, 2021",
+        "url": null
+      }
+    ],
+    "reponseAttendue": null,
+    "revise": "2026-09"
+  },
+  {
+    "id": "simu-012",
+    "theme": "electrophysio",
+    "sousTheme": "Lecture de tracés d'EEP (simulateur)",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 6,
+    "question": "Tachycardie à QRS larges induite par deux extrastimulus ventriculaires chez un patient aux antécédents d'infarctus. Quel élément du tracé signe l'origine ventriculaire ?",
+    "simu": {
+      "scenario": "tv",
+      "graine": 7,
+      "etapes": [
+        {
+          "train": {
+            "site": "rva",
+            "s1": 600,
+            "n": 8,
+            "extras": [
+              330,
+              330
+            ]
+          }
+        },
+        {
+          "attendre": 4000
+        }
+      ],
+      "fin": 11715,
+      "vitesse": 25,
+      "montage": "standard",
+      "legende": ""
+    },
+    "options": [
+      "Le QRS large de type retard droit",
+      "La régularité du cycle ventriculaire",
+      "Des V plus nombreux que les A, dissociés",
+      "Un His précédant chaque V avec un HV normal"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : une TSV avec bloc de branche ou préexcitation peut donner le même QRS large.",
+      "Faux : la plupart des TSV sont aussi régulières.",
+      "Juste : 9 V pour 4 A sur 3 s : les A sont dissociés ou conduits de façon rétrograde 2:1, les ventricules ne dépendent pas des oreillettes.",
+      "Faux : un His précédant chaque V avec un HV normal plaiderait pour une origine supraventriculaire ; ici le His n'annonce pas les V."
+    ],
+    "explication": "Devant une tachycardie à QRS larges, la dissociation ventriculo-atriale (plus de V que d'A) signe l'origine ventriculaire. Sur les électrogrammes endocavitaires, on voit aussi que le His ne précède pas chaque V avec un HV normal. La morphologie du QRS et la régularité ne permettent pas de trancher. Chez un patient avec cicatrice d'infarctus, la TV monomorphe est le plus souvent une réentrée autour ou à travers la cicatrice, accessible à l'ablation guidée par la cartographie et l'entraînement.",
+    "aRetenir": "Plus de V que d'A (dissociation VA) = tachycardie ventriculaire ; le QRS large seul ne suffit pas.",
+    "sources": [
+      {
+        "titre": "Zeppenfeld K et al. 2022 ESC Guidelines for the management of patients with ventricular arrhythmias and the prevention of sudden cardiac death. Eur Heart J 2022;43:3997-4126",
+        "url": "https://doi.org/10.1093/eurheartj/ehac262"
+      },
+      {
+        "titre": "Stevenson WG et al. Identification of reentry circuit sites during catheter mapping and radiofrequency ablation of ventricular tachycardia late after myocardial infarction. Circulation 1993;88:1647-70",
+        "url": "https://doi.org/10.1161/01.CIR.88.4.1647"
+      }
+    ],
+    "reponseAttendue": null,
+    "revise": "2026-09"
+  },
+  {
+    "id": "simu-013",
+    "theme": "electrophysio",
+    "sousTheme": "Lecture de tracés d'EEP (simulateur)",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Stimulation atriale à cycle fixe de 310 ms (OD haute). L'AH passe de 85 à 186 ms en quelques battements, puis une activation atriale n'est pas suivie de H (tracé). Quelle est l'interprétation ?",
+    "simu": {
+      "scenario": "normal",
+      "graine": 7,
+      "etapes": [
+        {
+          "salve": {
+            "site": "hra",
+            "cl": 310,
+            "n": 12
+          }
+        },
+        {
+          "attendre": 800
+        }
+      ],
+      "fin": 7060,
+      "vitesse": 50,
+      "montage": "standard",
+      "legende": ""
+    },
+    "options": [
+      "Bloc AV du deuxième degré infra-hisien",
+      "Point de Wenckebach nodal physiologique",
+      "Période réfractaire effective de l'oreillette",
+      "Bloc AV de haut degré, indication de stimulation"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : le bloc se fait entre A et H (au-dessus du His), après allongement progressif de l'AH ; un bloc infra-hisien bloquerait après un H.",
+      "Juste : allongement progressif de l'AH puis A non suivi de H à 310 ms : périodicité de Wenckebach nodale, normale à ce cycle.",
+      "Faux : l'oreillette est capturée à chaque stimulus ; c'est la conduction nodale qui bloque.",
+      "Faux : un Wenckebach nodal en stimulation atriale rapide est physiologique et n'indique pas de stimulateur."
+    ],
+    "explication": "La stimulation atriale incrémentale explore la capacité de conduction du nœud AV. Le point de Wenckebach est le cycle le plus long auquel apparaît une périodicité de Wenckebach : allongement progressif de l'AH puis blocage d'une onde A au-dessus du His. Chez l'adulte, il se situe habituellement entre 300 et 500 ms ; il raccourcit sous isoprénaline ou atropine. Un bloc apparaissant sous le His (après un H) serait en revanche pathologique.",
+    "aRetenir": "Wenckebach nodal en stimulation atriale rapide = physiologique ; un bloc sous le His ne l'est pas.",
+    "sources": [
+      {
+        "titre": "Josephson ME. Josephson's Clinical Cardiac Electrophysiology: Techniques and Interpretations, 6e éd. Wolters Kluwer, 2021",
+        "url": null
+      }
+    ],
+    "reponseAttendue": null,
+    "revise": "2026-09"
+  },
+  {
+    "id": "simu-014",
+    "theme": "electrophysio",
+    "sousTheme": "Lecture de tracés d'EEP (simulateur)",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 4,
+    "question": "Cycle sinusal de base 731 ms. Après 30 s de stimulation atriale à 400 ms, la première activation sinusale survient 1139 ms après le dernier stimulus (tracé). Quelle est la conclusion ?",
+    "simu": {
+      "scenario": "normal",
+      "graine": 7,
+      "etapes": [
+        {
+          "attendre": 4000
+        },
+        {
+          "salve": {
+            "site": "hra",
+            "cl": 400,
+            "n": 75
+          }
+        },
+        {
+          "attendre": 3500
+        }
+      ],
+      "fin": 39050,
+      "vitesse": 25,
+      "montage": "standard",
+      "legende": ""
+    },
+    "options": [
+      "Dysfonction sinusale : TRS corrigé allongé",
+      "Récupération sinusale normale",
+      "Mesure ininterprétable faute de pause sinusale",
+      "Dysfonction sinusale : TRS supérieur à 1500 ms"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : le TRS corrigé vaut 1139 − 731 = 408 ms, sous le seuil de 525 ms.",
+      "Juste : TRS 1139 ms (< 1500 ms) et TRS corrigé 408 ms (< 525 ms) : récupération sinusale normale.",
+      "Faux : la mesure se fait du dernier stimulus à la première activation sinusale spontanée, qui est ici bien visible.",
+      "Faux : le TRS vaut 1139 ms, en dessous de 1500 ms."
+    ],
+    "explication": "Le temps de récupération sinusale (TRS) se mesure après une stimulation atriale rapide (30 à 60 s), du dernier stimulus à la première activation sinusale spontanée. On le corrige en soustrayant le cycle sinusal de base (TRSc). Valeurs habituelles : TRS < 1500 ms et TRSc < 525 ms. Un TRS allongé ou des pauses secondaires orientent vers une dysfonction sinusale ; la sensibilité du test reste modeste, et la décision de stimulation repose avant tout sur la corrélation symptômes-bradycardie.",
+    "aRetenir": "TRS < 1500 ms et TRS corrigé < 525 ms = récupération sinusale normale.",
+    "sources": [
+      {
+        "titre": "Josephson ME. Josephson's Clinical Cardiac Electrophysiology: Techniques and Interpretations, 6e éd. Wolters Kluwer, 2021",
+        "url": null
+      }
+    ],
+    "reponseAttendue": null,
+    "revise": "2026-09"
+  },
+  {
+    "id": "simu-015",
+    "theme": "electrophysio",
+    "sousTheme": "Lecture de tracés d'EEP (simulateur)",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Garçon de 14 ans, cardiomyopathie dilatée. Tachycardie incessante à 404 ms, RP long, activation atriale la plus précoce à l'ostium du SC (tracé). Une ESV His-réfractaire avance l'A suivant de 43 ms. Quel est le diagnostic ?",
+    "simu": {
+      "scenario": "pjrt",
+      "graine": 7,
+      "etapes": [
+        {
+          "attendre": 8000
+        }
+      ],
+      "fin": 10800,
+      "vitesse": 50,
+      "montage": "standard",
+      "legende": ""
+    },
+    "options": [
+      "Réentrée intranodale atypique (rapide-lente)",
+      "Tachycardie atriale focale basse, près du SC",
+      "Tachycardie réciprocante permanente (PJRT)",
+      "Réentrée intranodale typique (lente-rapide)"
+    ],
+    "reponses": [
+      2
+    ],
+    "commentaires": [
+      "Faux : la TRIN atypique a le même aspect, mais une ESV His-réfractaire ne peut pas atteindre son circuit, intranodal.",
+      "Faux : une ESV His-réfractaire ne peut atteindre un foyer atrial que par une voie accessoire ; son effet ici prouve une voie participante.",
+      "Juste : tachycardie incessante à RP long, voie postéro-septale lente et décrémentielle : l'ESV His-réfractaire avance l'A suivant de 43 ms, preuve de la participation de la voie.",
+      "Faux : la TRIN typique a un RP très court, A et V quasi simultanés."
+    ],
+    "explication": "La tachycardie jonctionnelle réciprocante permanente (maladie de Coumel) est une réentrée orthodromique utilisant une voie accessoire postéro-septale à conduction rétrograde lente et décrémentielle. Elle est incessante, à RP long, avec des P négatives en inférieur et une activation la plus précoce à l'ostium du SC. Le diagnostic différentiel est la TRIN atypique et la TA basse. L'ESV His-réfractaire tranche : si elle retarde ou avance l'atrium, ou arrête la tachycardie sans l'atteindre, la voie accessoire participe au circuit. Son caractère incessant expose à la cardiomyopathie rythmique, réversible après ablation.",
+    "aRetenir": "Tachycardie incessante à RP long, sortie à l'ostium du SC, modifiée par une ESV His-réfractaire : PJRT (voie décrémentielle postéro-septale).",
+    "sources": [
+      {
+        "titre": "Brugada J, Katritsis DG et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Josephson ME. Josephson's Clinical Cardiac Electrophysiology: Techniques and Interpretations, 6e éd. Wolters Kluwer, 2021",
+        "url": null
+      }
+    ],
+    "reponseAttendue": null,
+    "revise": "2026-09"
+  },
+  {
+    "id": "simu-016",
+    "theme": "electrophysio",
+    "sousTheme": "Lecture de tracés d'EEP (simulateur)",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 8,
+    "question": "Femme de 22 ans. Un extrastimulus atrial induit une tachycardie régulière à QRS larges de type retard gauche, cycle 332 ms. Le VD apical est activé en premier, le His juste après le début du QRS, et chaque V est suivi d'un A (tracé). Quel est le diagnostic le plus probable ?",
+    "simu": {
+      "scenario": "mahaim",
+      "graine": 7,
+      "etapes": [
+        {
+          "train": {
+            "site": "hra",
+            "s1": 600,
+            "n": 8,
+            "extras": [
+              270
+            ]
+          }
+        },
+        {
+          "attendre": 4000
+        }
+      ],
+      "fin": 11325,
+      "vitesse": 50,
+      "montage": "standard",
+      "legende": ""
+    },
+    "options": [
+      "Antidromique sur voie atrio-fasciculaire",
+      "Tachycardie ventriculaire fasciculaire gauche",
+      "TRIN typique avec bloc de branche gauche",
+      "Antidromique sur voie latérale gauche manifeste"
+    ],
+    "reponses": [
+      0
+    ],
+    "commentaires": [
+      "Juste : descente par une voie atrio-fasciculaire (anneau tricuspide latéral vers la branche droite), remontée par la branche droite, le His et le nœud AV.",
+      "Faux : une TV fasciculaire a un aspect de retard droit et n'est pas induite ni entretenue par l'oreillette avec un A après chaque V.",
+      "Faux : en bloc de branche gauche, le His précède le V avec un HV normal ; ici le V débute avant le His.",
+      "Faux : une voie latérale gauche préexciterait la paroi latérale du VG, avec un aspect de retard droit en V1."
+    ],
+    "explication": "Les fibres de Mahaim sont le plus souvent des voies atrio-fasciculaires : elles naissent de l'anneau tricuspide latéral et s'insèrent dans la branche droite près de l'apex. Elles conduisent seulement dans le sens antérograde, de façon décrémentielle. La tachycardie typique est antidromique : QRS large de type retard gauche, ventricule droit apical activé en premier, His activé de façon rétrograde juste après le début du QRS. En rythme sinusal, la préexcitation est minime ou absente. L'ablation se fait au site du potentiel de Mahaim sur l'anneau tricuspide.",
+    "aRetenir": "Tachycardie à QRS larges de type retard gauche, VD apical en premier, His rétrograde après le V : voie atrio-fasciculaire (Mahaim).",
+    "sources": [
+      {
+        "titre": "Brugada J, Katritsis DG et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      },
+      {
+        "titre": "Josephson ME. Josephson's Clinical Cardiac Electrophysiology: Techniques and Interpretations, 6e éd. Wolters Kluwer, 2021",
+        "url": null
+      }
+    ],
+    "reponseAttendue": null,
+    "revise": "2026-09"
+  },
+  {
+    "id": "simu-017",
+    "theme": "electrophysio",
+    "sousTheme": "Lecture de tracés d'EEP (simulateur)",
+    "marque": null,
+    "type": "qcu",
+    "difficulte": 7,
+    "question": "Voie accessoire latérale gauche manifeste. Une salve atriale rapide déclenche une fibrillation atriale préexcitée (tracé, 25 mm/s). Le plus court intervalle RR entre deux QRS préexcités mesure 361 ms. Comment interpréter cette valeur ?",
+    "simu": {
+      "scenario": "wpw",
+      "graine": 7,
+      "etapes": [
+        {
+          "attendre": 2000
+        },
+        {
+          "salve": {
+            "site": "hra",
+            "cl": 200,
+            "n": 12
+          }
+        },
+        {
+          "attendre": 6000
+        }
+      ],
+      "fin": 13055,
+      "vitesse": 25,
+      "montage": "standard",
+      "legende": ""
+    },
+    "options": [
+      "Voie à haut risque de mort subite (RR ≤ 250 ms)",
+      "Voie à moindre risque ; l'ablation reste à discuter",
+      "Mesure non valide en fibrillation atriale",
+      "Voie à conduction exclusivement rétrograde"
+    ],
+    "reponses": [
+      1
+    ],
+    "commentaires": [
+      "Faux : le plus court RR préexcité mesure 361 ms, au-dessus du seuil de 250 ms.",
+      "Juste : 361 ms (> 250 ms) est un critère de voie à moindre risque ; l'ablation reste raisonnable chez un patient symptomatique ou selon le contexte.",
+      "Faux : le plus court RR préexcité en FA est justement la mesure de référence du risque.",
+      "Faux : la voie conduit dans le sens antérograde, puisque les QRS sont préexcités."
+    ],
+    "explication": "Chez un patient porteur d'une voie accessoire manifeste, la fibrillation atriale peut être conduite très rapidement aux ventricules par la voie, jusqu'à la fibrillation ventriculaire. Le plus court intervalle RR entre deux QRS préexcités (SPERRI) en FA spontanée ou induite évalue ce risque : ≤ 250 ms signe une voie à haut risque. Le tracé montre des QRS larges, préexcités, irréguliers, parfois fusionnés avec des QRS fins. Selon les recommandations ESC 2019, l'ablation est recommandée chez les patients à haut risque et raisonnable chez la plupart des patients symptomatiques.",
+    "aRetenir": "FA préexcitée : RR préexcité le plus court ≤ 250 ms = voie à haut risque.",
+    "sources": [
+      {
+        "titre": "Brugada J, Katritsis DG et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
+        "url": "https://doi.org/10.1093/eurheartj/ehz467"
+      }
+    ],
+    "reponseAttendue": null,
+    "revise": "2026-09"
+  }
+]

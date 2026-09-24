@@ -185,6 +185,14 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
         if (!dessinerEGM(c, { preset: p }, 'test')) ko.push('egm:' + p);
         d.remove();
       }
+      const { rejouer } = await import('./js/simu/rejeu.js');
+      const { dessinerSimu } = await import('./js/simu/trace.js');
+      for (const f of idx.fichiers) for (const q of await (await fetch('data/questions/' + f)).json()) if (q.simu) {
+        const d = document.createElement('div'); const c = document.createElement('canvas'); c.style.width = '600px'; d.append(c); document.body.append(d);
+        const { coeur } = rejouer(q.simu);
+        if (!dessinerSimu(c, coeur, { tFin: q.simu.fin, vitesse: q.simu.vitesse, mode: 'defilement' })) ko.push(q.id);
+        d.remove();
+      }
       for (const f of idx.fichiers) for (const q of await (await fetch('data/questions/' + f)).json()) if (q.ecg || q.egm) {
         const d = document.createElement('div'); const c = document.createElement('canvas'); d.append(c); document.body.append(d);
         if (!(q.ecg ? dessinerECG(c, q.ecg, q.id) : dessinerEGM(c, q.egm, q.id))) ko.push(q.id);

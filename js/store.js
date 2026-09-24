@@ -84,7 +84,7 @@ export function noterReponse(q, score, { differe = false } = {}) {
   e.dernierOk = juste;
   p.q[q.id] = e;
 
-  if (juste) { p.points += q.difficulte; if (q.ecg || q.ecg12 || q.egm) p.compteurs.ecgJustes++; }
+  if (juste) { p.points += q.difficulte; if (q.ecg || q.ecg12 || q.egm || q.simu) p.compteurs.ecgJustes++; }
 
   const j = aujourdhui();
   if (p.serie.jour !== j) {

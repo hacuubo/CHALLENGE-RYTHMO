@@ -32,6 +32,8 @@ jobs:
           node tests/simulateur.mjs
           GRAINE=13 VARIATION=0.05 node tests/simulateur.mjs
           GRAINE=21 VARIATION=0.05 node tests/simulateur.mjs
+      - name: Questions de tracés du simulateur à jour avec le moteur
+        run: node scripts/gen-questions-simu.mjs --verifier
       - name: Vérifier que index.json et la version du cache sont à jour
         run: |
           node scripts/build-index.mjs

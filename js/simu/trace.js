@@ -143,8 +143,10 @@ export function composantesSurface(journal, t0, t1, stims) {
     const droit = Math.max(0, Math.min(1, (tr - tv - 20) / 25)) * (1 - pre) * (1 - gauche);
     const norm = Math.max(0, 1 - pre - gauche - droit);
     const paceApex = stims.some(x => x.s === 'rva' && Math.abs(x.t - b.debut) < 8);
-    const poids = { normal: norm, bbd: droit, lateraleG: pre, [paceApex ? 'apex' : 'bbg']: gauche };
-    const W = 85 + 1.3 * Math.max(0, b.fin - b.debut - 45), o = b.debut;
+    const paraHis = stims.find(x => x.s === 'parahis' && Math.abs(x.t - b.debut) < 8);
+    // para-hisien : capture du His = QRS fin (activation par le tissu de conduction) ; myocarde seul = QRS large de type retard gauche
+    const poids = paraHis ? (paraHis.his ? { normal: 1 } : { bbg: 1 }) : { normal: norm, bbd: droit, lateraleG: pre, [paceApex ? 'apex' : 'bbg']: gauche };
+    const W = paraHis ? (paraHis.his ? 100 : 145) : 85 + 1.3 * Math.max(0, b.fin - b.debut - 45), o = b.debut;
     for (const [m, w] of Object.entries(poids)) if (w > 0.01) for (const d of DERIV) for (const [u, s, a] of QRS[m][d] || []) comp[d].push({ c: o + u * W, s: s * W, a: a * w });
     const rr = i ? o - qrs[i - 1].debut : 800;
     const tT = o + Math.max(200, 390 * Math.sqrt(Math.min(1200, rr) / 1000)) - 40, large = Math.min(1, pre + gauche + droit);

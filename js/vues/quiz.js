@@ -42,7 +42,7 @@ export function vueQuiz(app, aller) {
         <span class="badge" title="Difficulté ${q.difficulte}/10">${diffBarres(q.difficulte)} ${q.difficulte}/10</span>
       </div>
       <div class="enonce">${esc(q.question)}</div>
-      ${q.ecg || q.ecg12 || q.egm ? '<div class="trace" id="trace"></div>' : ''}
+      ${q.ecg || q.ecg12 || q.egm || q.simu ? '<div class="trace" id="trace"></div>' : ''}
       <div id="zone"></div>
       <div id="retour"></div>
     </article>
@@ -53,7 +53,7 @@ export function vueQuiz(app, aller) {
     if (s.reponses.some(Boolean) && !confirm('Terminer la série maintenant ?')) return;
     terminer(); aller(s.reponses.some(Boolean) ? 'resultats' : 'accueil');
   };
-  if (q.ecg || q.ecg12 || q.egm) afficherTrace(app.querySelector('#trace'), q);
+  if (q.ecg || q.ecg12 || q.egm || q.simu) afficherTrace(app.querySelector('#trace'), q);
   if (s.examen) demarrerChrono(app, aller);
 
   const suite = () => suivant(app, aller);
@@ -63,6 +63,21 @@ export function vueQuiz(app, aller) {
 }
 
 export function afficherTrace(div, q) {
+  if (q.simu) {
+    div.innerHTML = '<p class="note">Préparation du tracé…</p>';
+    Promise.all([import('../simu/rejeu.js'), import('../simu/trace.js')]).then(([{ rejouer }, { dessinerSimu, MONTAGES }]) => {
+      if (!div.isConnected) return;
+      const { coeur } = rejouer(q.simu);
+      const voies = MONTAGES[q.simu.montage || 'standard'].voies;
+      monterTrace(div, (c, o) => {
+        const boite = c.closest('.ecg-cadre, .plein, .plein-corps') || div;
+        c.style.width = `${Math.max(320, (boite.clientWidth || 700) - 4)}px`;
+        const geo = dessinerSimu(c, coeur, { tFin: q.simu.fin, vitesse: q.simu.vitesse || 50, mode: 'defilement', voies, etiquettes: false, bruit: true });
+        return { pxmm: geo.pxms * 40, x0: geo.marge };
+      }, { titre: 'Tracé d\'exploration électrophysiologique', legende: `Simulateur d'EEP · ${String(q.simu.vitesse || 50).replace('.', ',')} mm/s${q.simu.legende ? ' — ' + esc(q.simu.legende) : ''}` });
+    });
+    return;
+  }
   if (q.egm) {
     monterTrace(div, (c, o) => dessinerEGM(c, q.egm, q.id, o), {
       titre: 'EGM de boîtier avec canal de marqueurs', legende: `EGM · 25 mm/s · canal de marqueurs (intervalles en ms)${q.egm.legende ? ' — ' + esc(q.egm.legende) : ''}`,
