@@ -21,6 +21,7 @@ const CANAUX = {
   A: { nom: 'EGM A (bipolaire)', gain: 6 },
   V: { nom: 'EGM VD (bipolaire)', gain: 7 },
   FF: { nom: 'EGM de choc (boîtier–coil)', gain: 8 },
+  FFpm: { nom: 'EGM champ lointain (boîtier)', gain: 8 },
   SC: { nom: 'ECG sous-cutané (Holter implantable)', gain: 9 },
 };
 
@@ -290,15 +291,31 @@ const presets = {
     }
     return ['A', 'V', 'FF'];
   },
-  // Sous-détection atriale : P visibles non marquées, stimulation atriale compétitive
+  // Sous-détection atriale : P de faible amplitude non détectées → la fréquence de base n'est pas remise à zéro,
+  // stimulation atriale compétitive (fréquence de base 60/min, rythme sinusal 78/min, BAV : V toujours stimulé)
   'sous-detection-a'(S) {
-    const rs = cycle(78);
-    let i = 0;
-    for (let t = 200; t < S.duree; t += rs, i++) {
-      const petite = i % 3 !== 0;
-      S.P(t, { amp: petite ? 0.25 : 0.9 });
-      if (!petite) { S.mk(t, 'AS', 'A'); S.VP(t + 160); S.mk(t + 160, 'VP', 'V'); }
-      else if (i % 3 === 2) { S.AP(t + 330); S.mk(t + 330, 'AP', 'A'); S.VP(t + 330 + 180); S.mk(t + 510, 'VP', 'V'); }
+    const rs = cycle(78), base = 1000, av = 170, avAP = 180;
+    const sinus = [];
+    for (let t = 150, i = 0; t < S.duree + 1000; t += rs, i++) sinus.push({ t, vue: i % 3 === 0 });
+    let dernierA = -600, dernierV = -1000, k = 0;
+    while (k < sinus.length) {
+      const p = sinus[k];
+      const echeance = dernierA + base;
+      if (echeance < p.t && echeance < S.duree) {
+        // la fréquence de base arrive à échéance avant la prochaine P détectée : stimulation atriale
+        const refractaire = sinus.some(q => q.t < echeance && echeance - q.t < 250); // oreillette encore réfractaire
+        if (refractaire) S.spike('A', echeance); else S.AP(echeance);
+        S.mk(echeance, 'AP', 'A'); dernierA = echeance;
+        if (echeance + avAP < S.duree) { S.VP(echeance + avAP); S.mk(echeance + avAP, 'VP', 'V'); dernierV = echeance + avAP; }
+        continue;
+      }
+      if (p.t >= S.duree) break;
+      S.P(p.t, { amp: p.vue ? 0.9 : 0.22 });
+      if (p.vue && p.t - dernierV > 250) {
+        S.mk(p.t, 'AS', 'A'); dernierA = p.t;
+        if (p.t + av < S.duree) { S.VP(p.t + av); S.mk(p.t + av, 'VP', 'V'); dernierV = p.t + av; }
+      }
+      k++;
     }
     return ['A', 'V', 'FF'];
   },
@@ -362,6 +379,8 @@ const presets = {
 };
 
 export const PRESETS_EGM = Object.keys(presets);
+// scénarios propres au défibrillateur (3e canal = EGM de choc) ; les autres peuvent préciser `appareil: 'dai'`
+const PRESETS_DAI = ['tv-atp', 'fv-choc', 'fa-conduite-zone-tv', 'tsv-1-1', 'bruit-sonde', 'surdetection-t'];
 
 // ---------------------------------------------------------------------------------------
 // Rendu
@@ -371,7 +390,10 @@ export function dessinerEGM(canvas, def, seed = 'egm', opts = {}) {
   if (!fn) return null;
   const duree = def.duree || 8000;
   const S = new Scene(rng(seed + def.preset), duree);
-  const canaux = fn(S, def) || ['A', 'V', 'FF'];
+  let canaux = fn(S, def) || ['A', 'V', 'FF'];
+  // 3e canal : « EGM de choc » pour un défibrillateur, « champ lointain » pour un stimulateur
+  const dai = def.appareil ? def.appareil === 'dai' : PRESETS_DAI.includes(def.preset);
+  if (!dai) canaux = canaux.map(k => (k === 'FF' ? 'FFpm' : k));
 
   const hCanal = 20, hMarq = 23, marge = 4, mmL = duree / MS_PAR_MM + 2 * marge;
   const mmH = canaux.length * hCanal + hMarq + 4;
@@ -398,7 +420,8 @@ export function dessinerEGM(canvas, def, seed = 'egm', opts = {}) {
   const police = n => `${n}px system-ui, sans-serif`;
 
   canaux.forEach((k, i) => {
-    const info = CANAUX[k], donnees = S.c[k === 'SC' ? 'FF' : k];
+    const src = k === 'SC' || k === 'FFpm' ? 'FF' : k;
+    const info = CANAUX[k], donnees = S.c[src];
     const base = (i * hCanal + hCanal * 0.6) * pxmm;
     ctx.fillStyle = '#6b7b88'; ctx.font = police(Math.max(10, 2.6 * pxmm));
     ctx.fillText(info.nom, x0, (i * hCanal + 3.2) * pxmm);
@@ -408,7 +431,7 @@ export function dessinerEGM(canvas, def, seed = 'egm', opts = {}) {
     ctx.beginPath();
     const pas = MS_PAR_MM / pxmm / 2;
     for (let t = 0; t <= duree; t += pas) {
-      const v = S.valeur(k === 'SC' ? 'FF' : k, t);
+      const v = S.valeur(src, t);
       t === 0 ? ctx.moveTo(xt(t), y(v)) : ctx.lineTo(xt(t), y(v));
     }
     ctx.stroke();

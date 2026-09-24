@@ -120,8 +120,8 @@ officiels des fabricants ; ouvrages de référence reconnus. Pas de blog, forum 
 
 ## Tracés EGM de boîtier (`egm`)
 
-`"egm": { "preset": "tv-atp", "legende": "…" }` — l'application dessine 8 s d'EGM à 25 mm/s : EGM A bipolaire,
-EGM VD bipolaire, EGM de choc (champ lointain, allure d'ECG), puis le **canal de marqueurs** (marqueurs atriaux
+`"egm": { "preset": "tv-atp", "appareil": "dai", "legende": "…" }` — l'application dessine 8 s d'EGM à 25 mm/s : EGM A bipolaire,
+EGM VD bipolaire, EGM de choc (DAI) ou « EGM champ lointain » (stimulateur), puis le **canal de marqueurs** (marqueurs atriaux
 au-dessus de la ligne avec l'intervalle A-A, ventriculaires au-dessous avec l'intervalle V-V, en ms ; étiquettes
 d'événement en bleu : MS, SV, ATP, Chg, CD, SVT, Pause, FA). Les Holter implantables n'ont qu'un canal « ECG sous-cutané ».
 Aperçu : `tests/egm-galerie.html`. Marqueurs : AS/AP (A détecté/stimulé), AR (A détecté en période réfractaire),
@@ -146,11 +146,15 @@ TP (impulsions d'ATP), MS (mode switch), SV (stimulation ventriculaire de sécur
 | `perte-capture-v` | — | VP réguliers, 3 impulsions sans réponse évoquée (EGM VD et EGM de choc) sur fond de BAV complet |
 | `ttre` | — | ESV → P rétrograde détectée (AS) → VP à la fréquence maximale de suivi (500 ms), boucle entretenue |
 | `crosstalk-vsp` | — | AP ; parfois un signal détecté sur le canal V juste après AP (VS) → VP à AV court (≈110 ms), marqueur SV |
-| `sous-detection-a` | — | P de faible amplitude non détectées (pas de marqueur) → AP compétitifs |
+| `sous-detection-a` | — | P de faible amplitude non détectées (pas de marqueur), fréquence de base non remise à zéro → AP compétitifs, parfois sans capture ; V toujours stimulé |
 | `wenckebach-electronique` | — | sinus ≈ 135 bpm > fréquence max de suivi 120 bpm : VP limités à 500 ms, allongement AS-VP puis P non suivie (AR) |
 | `crt-perte-biv` | — | stimulation BV, une ESV (VS) un cycle sur trois → perte de stimulation biventriculaire |
 | `ilr-fausse-pause` | — | Holter implantable : QRS de faible amplitude non détectés → « Pause » alors que les QRS sont visibles |
 | `ilr-vraie-pause` | — | Holter implantable : P visibles non suivies de QRS ≈ 4,9 s (BAV paroxystique) |
 | `ilr-fausse-fa` | — | Holter implantable : irrégularité par ESA fréquentes, P visibles, classé « FA » à tort |
+
+`appareil` (`dai` ou `pm`) fixe le libellé du 3e canal ; par défaut `dai` pour tv-atp, fv-choc, fa-conduite-zone-tv, tsv-1-1,
+bruit-sonde et surdetection-t, `pm` pour les autres.
+`sous-detection-a` : sinus 78/min, une P sur trois détectée, AP compétitifs à la fréquence de base (1000 ms), V toujours stimulé.
 
 Comme pour l'ECG, l'énoncé ne décrit pas le tracé : c'est à l'utilisateur de le lire.
