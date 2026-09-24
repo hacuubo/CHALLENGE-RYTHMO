@@ -117,3 +117,40 @@ officiels des fabricants ; ouvrages de référence reconnus. Pas de blog, forum 
 }
 ```
 `signaux` : 12 tableaux d'entiers (µV), 10 s à `fs` Hz (2500 points), ligne de base corrigée.
+
+## Tracés EGM de boîtier (`egm`)
+
+`"egm": { "preset": "tv-atp", "legende": "…" }` — l'application dessine 8 s d'EGM à 25 mm/s : EGM A bipolaire,
+EGM VD bipolaire, EGM de choc (champ lointain, allure d'ECG), puis le **canal de marqueurs** (marqueurs atriaux
+au-dessus de la ligne avec l'intervalle A-A, ventriculaires au-dessous avec l'intervalle V-V, en ms ; étiquettes
+d'événement en bleu : MS, SV, ATP, Chg, CD, SVT, Pause, FA). Les Holter implantables n'ont qu'un canal « ECG sous-cutané ».
+Aperçu : `tests/egm-galerie.html`. Marqueurs : AS/AP (A détecté/stimulé), AR (A détecté en période réfractaire),
+VS/VP (V détecté/stimulé), BV (stimulation biventriculaire), TS/TD (détection/diagnostic zone TV), FS (zone FV),
+TP (impulsions d'ATP), MS (mode switch), SV (stimulation ventriculaire de sécurité), Chg (charge), CD (choc délivré).
+
+| preset | paramètres | ce que montre le tracé |
+|---|---|---|
+| `ddd-as-vp` | `fc`, `av` | P détectées, V stimulé après le délai AV (suivi atrial) |
+| `ddd-as-vs` | `fc`, `pr` | P détectées, conduction AV spontanée (VS) |
+| `ddd-ap-vp` | `fc`, `av` | stimulation séquentielle A puis V |
+| `fa-mode-switch` | — | rythme sinusal suivi, puis FA (activité A rapide, AS/AR), VS irréguliers, marqueur MS |
+| `flutter-blanking` | `cycle` (ms, défaut 250) | flutter 2:1 : une onde F sur deux tombe dans le blanking post-ventriculaire → A-A affiché ≈ 2 × cycle, pas de mode switch |
+| `far-field-r` | `fc` | onde R lointaine détectée sur le canal A (AR juste après chaque VS) → double comptage atrial |
+| `tv-atp` | `cycle` (défaut 330) | TV monomorphe V > A (A sinusal 800 ms dissocié), TS puis TD, ATP (8 impulsions à 88 %), retour en rythme sinusal |
+| `fv-choc` | — | FV (FS, cycles ≈ 200-240 ms), Chg, choc (CD), puis stimulation VVI |
+| `fa-conduite-zone-tv` | — | FA (activité A rapide), V irrégulier ≈ 300-440 ms classé TS : fausse détection de TV |
+| `tsv-1-1` | — | tachycardie 1:1 à accélération progressive (A = V, 150 ms A-V), marqueur SVT (thérapie retenue) |
+| `bruit-sonde` | — | salves de signaux non physiologiques sur l'EGM VD seul (FS à intervalles très courts), EGM de choc normal |
+| `surdetection-t` | — | onde T ample sur l'EGM VD détectée (TS 300 ms après chaque VS) → double comptage ventriculaire, EGM de choc sinusal |
+| `myopotentiels` | — | patient stimulé (VP), bruit de myopotentiels détecté (VS) → inhibition et pause ; P sinusales visibles (BAV) |
+| `perte-capture-v` | — | VP réguliers, 3 impulsions sans réponse évoquée (EGM VD et EGM de choc) sur fond de BAV complet |
+| `ttre` | — | ESV → P rétrograde détectée (AS) → VP à la fréquence maximale de suivi (500 ms), boucle entretenue |
+| `crosstalk-vsp` | — | AP ; parfois un signal détecté sur le canal V juste après AP (VS) → VP à AV court (≈110 ms), marqueur SV |
+| `sous-detection-a` | — | P de faible amplitude non détectées (pas de marqueur) → AP compétitifs |
+| `wenckebach-electronique` | — | sinus ≈ 135 bpm > fréquence max de suivi 120 bpm : VP limités à 500 ms, allongement AS-VP puis P non suivie (AR) |
+| `crt-perte-biv` | — | stimulation BV, une ESV (VS) un cycle sur trois → perte de stimulation biventriculaire |
+| `ilr-fausse-pause` | — | Holter implantable : QRS de faible amplitude non détectés → « Pause » alors que les QRS sont visibles |
+| `ilr-vraie-pause` | — | Holter implantable : P visibles non suivies de QRS ≈ 4,9 s (BAV paroxystique) |
+| `ilr-fausse-fa` | — | Holter implantable : irrégularité par ESA fréquentes, P visibles, classé « FA » à tort |
+
+Comme pour l'ECG, l'énoncé ne décrit pas le tracé : c'est à l'utilisateur de le lire.

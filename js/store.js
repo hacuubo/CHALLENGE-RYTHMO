@@ -62,7 +62,7 @@ export function noterReponse(q, score, { differe = false } = {}) {
   t.r = majElo(t.r, rq, score, t.n); t.n++;
   p.elo.themes[q.theme] = t;
 
-  if (juste) { p.points += q.difficulte; if (q.ecg || q.ecg12) p.compteurs.ecgJustes++; }
+  if (juste) { p.points += q.difficulte; if (q.ecg || q.ecg12 || q.egm) p.compteurs.ecgJustes++; }
 
   const j = aujourdhui();
   if (p.serie.jour !== j) {

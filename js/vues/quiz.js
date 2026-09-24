@@ -7,6 +7,7 @@ import { esc, paragraphes, pct, lettre, diffBarres, moisAnnee, duree } from '../
 import { dessinerECG } from '../ecg.js';
 import { chargerECG12, dessinerECG12 } from '../ecg12.js';
 import { monterTrace } from '../traces.js';
+import { dessinerEGM } from '../egm.js';
 
 export const DEPOT = 'hacuubo/CHALLENGE-RYTHMO';
 let chrono = null;
@@ -39,7 +40,7 @@ export function vueQuiz(app, aller) {
         <span class="badge" title="Difficulté ${q.difficulte}/10">${diffBarres(q.difficulte)} ${q.difficulte}/10</span>
       </div>
       <div class="enonce">${esc(q.question)}</div>
-      ${q.ecg || q.ecg12 ? '<div class="trace" id="trace"></div>' : ''}
+      ${q.ecg || q.ecg12 || q.egm ? '<div class="trace" id="trace"></div>' : ''}
       <div id="zone"></div>
       <div id="retour"></div>
     </article>
@@ -50,7 +51,7 @@ export function vueQuiz(app, aller) {
     if (s.reponses.some(Boolean) && !confirm('Terminer la série maintenant ?')) return;
     terminer(); aller(s.reponses.some(Boolean) ? 'resultats' : 'accueil');
   };
-  if (q.ecg || q.ecg12) afficherTrace(app.querySelector('#trace'), q);
+  if (q.ecg || q.ecg12 || q.egm) afficherTrace(app.querySelector('#trace'), q);
   if (s.examen) demarrerChrono(app, aller);
 
   const suite = () => suivant(app, aller);
@@ -59,7 +60,13 @@ export function vueQuiz(app, aller) {
   if (montrerCorrection) afficherRetour(app, q, rep, suite);
 }
 
-function afficherTrace(div, q) {
+export function afficherTrace(div, q) {
+  if (q.egm) {
+    monterTrace(div, (c, o) => dessinerEGM(c, q.egm, q.id, o), {
+      titre: 'EGM de boîtier avec canal de marqueurs', legende: `EGM · 25 mm/s · canal de marqueurs (intervalles en ms)${q.egm.legende ? ' — ' + esc(q.egm.legende) : ''}`,
+    });
+    return;
+  }
   if (q.ecg) {
     monterTrace(div, (c, o) => dessinerECG(c, q.ecg, q.id, o), {
       titre: 'Tracé ECG, dérivation DII', legende: `DII · 25 mm/s · 10 mm/mV${q.ecg.legende ? ' — ' + esc(q.ecg.legende) : ''}`,
