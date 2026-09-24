@@ -11,6 +11,7 @@ function base() {
       sa: { erp: 250, cl: 720 },      // nœud sinusal
       hra: { erp: 220 }, ras: { erp: 220 },
       cs9: { erp: 220 }, cs7: { erp: 220 }, cs5: { erp: 220 }, cs3: { erp: 220 }, cs1: { erp: 220 },
+      lath: { erp: 220 }, latb: { erp: 220 }, cti: { erp: 220 },   // paroi latérale de l'OD et isthme cavo-tricuspide
       his: { erp: 250, cl: 1400 },    // échappement jonctionnel
       vsep: { erp: 230 }, rva: { erp: 230 }, lvl: { erp: 230 },
     },
@@ -22,6 +23,11 @@ function base() {
       { a: 'cs7', b: 'cs5', ab: t(12), ba: t(12) },
       { a: 'cs5', b: 'cs3', ab: t(12), ba: t(12) },
       { a: 'cs3', b: 'cs1', ab: t(12), ba: t(12) },
+      // anneau tricuspide : paroi latérale descendante puis isthme vers le septum (conduction rapide : pas de réentrée)
+      { a: 'hra', b: 'lath', ab: t(30), ba: t(30) },
+      { a: 'lath', b: 'latb', ab: t(30), ba: t(30) },
+      { id: 'isthme-lat', a: 'latb', b: 'cti', ab: t(20), ba: t(20) },
+      { id: 'isthme', a: 'cti', b: 'ras', ab: t(20), ba: t(20) },
       { id: 'nav', a: 'ras', b: 'his', nodale: true, ab: nod(80, 110, 110, 270), ba: nod(60, 70, 100, 230) },
       { a: 'his', b: 'vsep', ab: t(40, 200), ba: t(45, 200) },
       { a: 'vsep', b: 'rva', ab: t(25), ba: t(25) },
@@ -81,6 +87,23 @@ export const SCENARIOS = {
     cible: 'vacc',
     explication: `Voie accessoire latérale gauche bidirectionnelle : préexcitation en rythme sinusal (onde delta, HV court ou négatif), majorée par la stimulation du SC distal, proche de la voie. Quand un extrastimulus atrial bloque dans la voie accessoire (période réfractaire plus longue que celle du nœud AV), le QRS s'affine et une tachycardie orthodromique peut démarrer : activation atriale excentrique, SC distal en premier. Ablation de la voie accessoire.`,
   },
+  flutter: {
+    nom: 'Flutter atrial typique (antihoraire, isthme-dépendant)',
+    court: 'Flutter atrial typique isthme-dépendant',
+    def: () => {
+      const d = base();
+      const remplacer = (id, v) => { d.voies = d.voies.map(x => (x.id === id || (!x.id && x.a === v.a && x.b === v.b) ? { ...x, ...v } : x)); };
+      remplacer('', { a: 'hra', b: 'lath', ab: t(40), ba: t(40) });
+      remplacer('', { a: 'lath', b: 'latb', ab: t(40), ba: t(40) });
+      // isthme lent, avec une période réfractaire plus longue dans le sens septal → latéral : bloc unidirectionnel possible
+      remplacer('isthme-lat', { ab: { d: 55, erp: 170 }, ba: { d: 55, erp: 280 } });
+      remplacer('isthme', { ab: { d: 75, erp: 170 }, ba: { d: 75, erp: 280 } });
+      remplacer('nav', { ab: nod(80, 110, 110, 300) }); // nœud AV : conduction 2:1 du flutter
+      return d;
+    },
+    cible: 'isthme',
+    explication: `Macroréentrée autour de l'anneau tricuspide, dans le sens antihoraire (vu de la pointe) : montée par le septum (A précoce au His et à l'ostium du SC), descente par la paroi latérale de l'OD (OD latérale haute puis basse), retour par l'isthme cavo-tricuspide, zone de conduction lente. Cycle atrial ≈ 240 ms, conduction AV 2:1 (≈ 125/min) ; ondes F en dents de scie, négatives en DII, positives en V1. Induction par stimulation de l'ostium du SC (extrastimulus court ou salve), qui bloque dans l'isthme dans le sens septal → latéral. Entraînement depuis l'isthme : PPI − TCL < 20-30 ms (site dans le circuit) ; depuis le SC distal : PPI − TCL long (hors circuit). L'adénosine majore le bloc AV sans arrêter le flutter. Ablation de l'isthme cavo-tricuspide, avec pour objectif un bloc bidirectionnel : en stimulant l'ostium du SC, la paroi latérale est alors activée de haut en bas, tardivement.`,
+  },
   ta: {
     nom: 'Tachycardie atriale focale',
     court: 'Tachycardie atriale focale',
@@ -96,13 +119,14 @@ export const SCENARIOS = {
 };
 
 // Scénarios proposés comme « cas mystère » et réponses possibles (l'ordre des réponses est fixe).
-export const MYSTERES = ['normal', 'double', 'trin', 'trin-atyp', 'trav', 'wpw', 'ta'];
+export const MYSTERES = ['normal', 'double', 'trin', 'trin-atyp', 'trav', 'wpw', 'ta', 'flutter'];
 
 // Sites de stimulation et d'ablation disponibles.
 export const SITES_STIM = [
   { id: 'hra', nom: 'OD haute' },
   { id: 'cs9', nom: 'SC proximal (9-10)' },
   { id: 'cs1', nom: 'SC distal (1-2)' },
+  { id: 'cti', nom: 'Isthme cavo-tricuspide' },
   { id: 'rva', nom: 'VD apex' },
 ];
 export const SITES_DETECTION = [{ id: '', nom: 'Aucune' }, { id: 'hra', nom: 'OD haute' }, { id: 'his', nom: 'His' }, { id: 'rva', nom: 'VD apex' }];
@@ -110,5 +134,6 @@ export const CIBLES_ABLATION = [
   { id: 'lente', nom: 'Partie basse du triangle de Koch, entre l\'ostium du SC et l\'anneau tricuspide (voie lente)' },
   { id: 'rapide', nom: 'Région antéro-septale, près du His (voie rapide)' },
   { id: 'vacc', nom: 'Anneau mitral latéral' },
+  { id: 'isthme', nom: 'Isthme cavo-tricuspide (ligne de l\'anneau tricuspide à la veine cave inférieure)' },
   { id: 'foyer', nom: 'Oreillette gauche, en regard du SC 3-4' },
 ];

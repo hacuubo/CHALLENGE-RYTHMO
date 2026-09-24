@@ -15,6 +15,9 @@ export const CANAUX = [
   { id: 'II', nom: 'DII', surface: true, h: 1.35 },
   { id: 'V1', nom: 'V1', surface: true, h: 1.35 },
   { id: 'hra', nom: 'OD haute', court: 'ODh', coul: 'od', src: [['hra', 1, 'local'], ['vsep', 0.14, 'loin', 15]] },
+  { id: 'lath', nom: 'OD lat. haute', court: 'ODlh', coul: 'od', src: [['lath', 1, 'local'], ['vsep', 0.1, 'loin', 20]] },
+  { id: 'latb', nom: 'OD lat. basse', court: 'ODlb', coul: 'od', src: [['latb', 1, 'local'], ['rva', 0.12, 'loin', 5]] },
+  { id: 'cti', nom: 'Isthme CT', court: 'ICT', coul: 'od', src: [['cti', 1, 'local'], ['rva', 0.2, 'loin', 0]] },
   { id: 'his', nom: 'His', coul: 'his', src: [['ras', 0.75, 'local'], ['his', 0.5, 'his'], ['vsep', 0.95, 'large', 5]] },
   { id: 'cs9', nom: 'SC 9-10', court: 'SC 9', coul: 'sc', src: [['cs9', 1, 'local'], ['vsep', 0.35, 'loin', 10]] },
   { id: 'cs7', nom: 'SC 7-8', court: 'SC 7', coul: 'sc', src: [['cs7', 1, 'local'], ['vsep', 0.35, 'loin', 15]] },
@@ -23,8 +26,8 @@ export const CANAUX = [
   { id: 'cs1', nom: 'SC 1-2', court: 'SC 1', coul: 'sc', src: [['cs1', 1, 'local'], ['lvl', 0.5, 'loin', 0]] },
   { id: 'rva', nom: 'VD apex', court: 'VD', coul: 'vd', src: [['rva', 1.1, 'large'], ['ras', 0.08, 'loin', 10]] },
 ];
-const SITE_CANAL = { hra: 'hra', cs9: 'cs9', cs1: 'cs1', rva: 'rva' };
-const ATRIUM = ['sa', 'hra', 'ras', 'cs9', 'cs7', 'cs5', 'cs3', 'cs1'];
+const SITE_CANAL = { hra: 'hra', cti: 'cti', cs9: 'cs9', cs1: 'cs1', rva: 'rva' };
+const ATRIUM = ['sa', 'hra', 'lath', 'latb', 'cti', 'ras', 'cs9', 'cs7', 'cs5', 'cs3', 'cs1'];
 const VENTRICULES = ['vsep', 'rva', 'lvl'];
 
 // Regroupe des activations en battements (écart > seuil depuis le début du battement).
@@ -42,14 +45,22 @@ function grouper(journal, sites, t0, t1, seuil) {
 function composantesSurface(journal, t0, t1) {
   const comp = { II: [], V1: [] };
   const add = (d, c, s, a) => comp[d].push({ c, s, a });
-  for (const p of grouper(journal, ATRIUM, t0 - 300, t1, 110)) {
+  const ondesP = grouper(journal, ATRIUM, t0 - 300, t1, 110);
+  ondesP.forEach((p, i) => {
     const dur = p.fin - p.debut, c = p.debut + dur / 2 + 20, s = (dur + 70) / 4;
+    const cycle = i ? p.debut - ondesP[i - 1].debut : 1000;
+    if (cycle < 300 && ['ras', 'cs9', 'cti'].includes(p.premier)) {
+      // flutter typique : ondes F en dents de scie, négatives en DII (descente lente, remontée rapide), positives en V1
+      add('II', p.debut + cycle * 0.35, cycle * 0.22, -0.2); add('II', p.debut + cycle * 0.75, cycle * 0.1, 0.07);
+      add('V1', p.debut + cycle * 0.4, cycle * 0.2, 0.15);
+      return;
+    }
     const haut = ['sa', 'hra'].includes(p.premier), gauche = ['cs1', 'cs3', 'cs5'].includes(p.premier);
     // P : positive en DII si origine haute, négative si origine basse (septale ou anneau mitral inféro-latéral)
     add('II', c, s, haut ? 0.16 : p.premier === 'cs1' ? 0.04 : gauche ? -0.08 : -0.15);
     add('V1', c - s * 0.4, s * 0.6, gauche ? 0.14 : 0.08);
     add('V1', c + s * 0.5, s * 0.6, gauche ? 0.06 : haut ? -0.05 : -0.1);
-  }
+  });
   const qrs = grouper(journal, VENTRICULES, t0 - 700, t1, 130);
   qrs.forEach((b, i) => {
     const tv = b.t.vsep ?? b.fin, tr = b.t.rva ?? b.fin, tl = b.t.lvl ?? b.fin;
@@ -84,7 +95,7 @@ function couleurs(el) {
 // Dessine la fenêtre [tFin - fenetre, tFin]. Options : etiquettes (A/H/V sur le His), curseurs [tA, tB], stims.
 export function dessinerSimu(canvas, coeur, { tFin, fenetre = 4000, etiquettes = false, curseurs = null } = {}) {
   const dpr = window.devicePixelRatio || 1;
-  const L = canvas.clientWidth, etroit = L < 500, marge = etroit ? 40 : 70;
+  const L = canvas.clientWidth, etroit = L < 500, marge = etroit ? 40 : 96;
   const unite = etroit ? 34 : 40;
   const H = Math.round(CANAUX.reduce((s, c) => s + (c.h || 1) * unite, 0) + 22);
   if (canvas.width !== Math.round(L * dpr) || canvas.height !== Math.round(H * dpr)) {
