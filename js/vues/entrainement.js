@@ -3,6 +3,7 @@ import * as stock from '../store.js';
 import { DOMAINES, base } from '../donnees.js';
 import { resumeSauve } from '../session.js';
 import { esc, melanger } from '../util.js';
+import { ICONES } from '../icones.js';
 
 export function vueEntrainement(app, ctx) {
   const { demarrer, reprendre } = ctx;
@@ -18,11 +19,11 @@ export function vueEntrainement(app, ctx) {
     ${nouvelles.length ? `<div class="carte bandeau"><div><b>${nouvelles.length} nouvelle(s) question(s)</b> depuis votre dernière visite.</div>
       <div class="actions serre"><button class="btn" id="plus-tard">Plus tard</button><button class="btn btn-primaire" id="go-nouv">Les découvrir</button></div></div>` : ''}
     <div class="grille-domaines">
-      ${DOMAINES.map(d => `<button class="domaine" data-domaine="${d.id}"><span class="ico">${d.ico}</span><strong>${esc(d.nom)}</strong><small>${compte(d)} questions · ${esc(d.desc)}</small></button>`).join('')}
+      ${DOMAINES.map(d => `<button class="domaine" data-domaine="${d.id}"><span class="ico">${ICONES[d.id]}</span><strong>${esc(d.nom)}</strong><small>${compte(d)} questions · ${esc(d.desc)}</small></button>`).join('')}
     </div>
     <div class="menu-principal menu-secondaire">
-      <button class="tuile" data-nav="config"><span class="tuile-ico" aria-hidden="true">⚙</span><span class="tuile-texte"><strong>Personnaliser</strong><small>Niveau, thèmes, marques, tracés, mode examen</small></span><span class="tuile-fleche" aria-hidden="true">›</span></button>
-      ${aRevoir ? `<button class="tuile" id="go-rev"><span class="tuile-ico" aria-hidden="true">↺</span><span class="tuile-texte"><strong>Revoir mes erreurs</strong><small>${aRevoir} question(s) à revoir (répétition espacée)</small></span><span class="tuile-fleche" aria-hidden="true">›</span></button>` : ''}
+      <button class="tuile" data-nav="config"><span class="tuile-ico">${ICONES.reglages}</span><span class="tuile-texte"><strong>Personnaliser</strong><small>Niveau, thèmes, marques, tracés, mode examen</small></span><span class="tuile-fleche" aria-hidden="true">›</span></button>
+      ${aRevoir ? `<button class="tuile" id="go-rev"><span class="tuile-ico">${ICONES.revoir}</span><span class="tuile-texte"><strong>Revoir mes erreurs</strong><small>${aRevoir} question(s) à revoir (répétition espacée)</small></span><span class="tuile-fleche" aria-hidden="true">›</span></button>` : ''}
     </div>`;
 
   const $ = s => app.querySelector(s);

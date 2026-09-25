@@ -64,6 +64,7 @@ export function jouerCompetitif(q, score) {
   const attendu = 1 / (1 + 10 ** ((rq - avant) / 400));
   const delta = Math.round(coefficientK(c) * (score - attendu));
   c.elo = Math.max(100, avant + delta); c.n++; c.pic = Math.max(c.pic, c.elo);
+  c.recents = [...(c.recents || []).filter(id => id !== q.id), q.id].slice(-150);
   const j = aujourdhui();
   const jour = c.jours[j] || { n: 0, gagnees: 0 };
   jour.n++; if (score === 1) jour.gagnees++; jour.elo = c.elo;
