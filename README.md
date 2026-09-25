@@ -25,12 +25,24 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
 - **Simulateur d'électrophysiologie** : une baie d'EEP en temps réel.
   - Baie : vitesse en mm/s (12,5 à 400), balayage avec barre d'effacement par défaut (défilement en option), D1, D2, aVF, V1, V6,
     OD haute, Halo, His proximal et distal, sinus coronaire décapolaire, VD apex, sonde d'ablation (bipolaire et unipolaire),
-    montages, gain par voie, bruit. L'écran en temps réel ne se fige jamais ; à côté, un **écran de rappel** affiche chaque
-    manœuvre ou enregistrement : relecture, vitesse propre, jusqu'à trois compas avec report. Chaque événement du journal
-    peut être rappelé. Sur téléphone, l'écran de rappel se consulte en paysage (invitation à tourner l'appareil).
-  - Stimulateur : site, sortie en mA, trains S1 à S4, décrément automatique, rampe, salve, couplage à la détection,
-    stimulation para-hisienne ; isoprénaline, atropine, adénosine, choc ; sonde d'ablation déplaçable (cartographie) et
-    radiofréquence ; journal des événements.
+    **pression artérielle**, montages (dont un montage réduit pour téléphone), gain par voie, bruit, filtre secteur 50 Hz et
+    passe-haut des électrogrammes (parasite et dérive respiratoire quand ils sont coupés), saturation après un choc.
+    L'écran en temps réel ne se fige jamais ; à côté, un **écran de rappel** affiche chaque manœuvre ou enregistrement :
+    relecture, vitesse propre (pincer pour zoomer), trois compas **aimantés** aux activations avec report, comparaison avec
+    un rappel de référence. Chaque événement du journal peut être rappelé, avec ses intervalles. Sur téléphone en paysage,
+    un écran à la fois (glisser pour passer du temps réel au rappel, vignette du temps réel) ; en portrait, invitation au paysage.
+  - **Console de stimulation** toujours visible (en bas, à droite en paysage ou sur grand écran) : Stimuler, S2 − 10, Salve,
+    Stop, Enregistrer ; pastilles de site ; onglets Programme, Protocoles, Salve, Sonde / RF, Médicaments, Journal ; réglages
+    par boutons ± (appui long). Stimulateur : trains S1 à S4, sortie et largeur d'impulsion, seuil propre à chaque site
+    (loi intensité-durée, capture intermittente près du seuil), couplage à la détection, rampe, salve.
+  - **Protocoles automatiques** : extrastimulus atrial ou ventriculaire décrémental (PR atriale, nodale, ventriculaire,
+    rétrograde, saut d'AH, induction), rampe jusqu'au Wenckebach antérograde ou rétrograde, temps de récupération sinusale,
+    seuil de capture, stimulation para-hisienne interprétée, ESV His-réfractaire, entraînement à arrêt automatique.
+  - **Sonde d'ablation** placée sur une **carte schématique** (activation locale colorée pendant la tachycardie) ; contact
+    du cathéter (extrasystoles mécaniques, bloc transitoire d'une voie accessoire) ; générateur de **radiofréquence**
+    (puissance, température, impédance, lésion progressive selon l'appui) ou cryothérapie ; rythme jonctionnel sur la voie
+    lente et alerte en cas de perte de la conduction VA ; allongement de l'AH puis bloc AV près du His.
+  - Isoprénaline, atropine, adénosine, choc ; alerte d'hypotension ; **compte rendu d'EEP** généré (copiable).
   - Physiologie : conduction décrémentielle avec Wenckebach nodal, freinage sinusal (TRS), branches droite et gauche
     (aberration, saut V-H, signe de Coumel), réfractarité dépendante du cycle, variabilité.
   - 17 scénarios : conduction normale, double voie nodale, TRIN typique, atypique et avec 2:1 infra-hisien, TRAV sur voie
