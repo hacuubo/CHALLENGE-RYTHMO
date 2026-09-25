@@ -33,13 +33,18 @@ const VENTRICULAIRES = new Set(['rva', 'parahis', 'tv2', 'lvl', 'vps', 'vbd']);
 
 export function vueSimulateur(app) {
   arreterSimulateur();
-  const r = { site: 'hra', sortie: 5, detection: '', s1: 600, n: 8, s2: 0, s3: 0, s4: 0, figerApres: true, decrement: false,
-    rampeDebut: 400, rampeFin: 250, rampePas: 10, vitesse: 100, mode: 'balayage', montage: 'standard', bruit: true, etiquettes: true, ...lire() };
+  const sauve = lire();
+  if (sauve.v !== 2) { delete sauve.mode; delete sauve.figerApres; } // le balayage devient l'affichage standard
+  const r = { v: 2, site: 'hra', sortie: 5, detection: '', s1: 600, n: 8, s2: 0, s3: 0, s4: 0, rappelApres: true, decrement: false,
+    rampeDebut: 400, rampeFin: 250, rampePas: 10, vitesse: 100, vitesseRappel: 100, mode: 'balayage', montage: 'standard', bruit: true, etiquettes: true, ...sauve };
   if (!VITESSES.includes(r.vitesse)) r.vitesse = 100;
+  if (!VITESSES.includes(r.vitesseRappel)) r.vitesseRappel = 100;
   if (!MONTAGES[r.montage]) r.montage = 'standard';
   if (!SITES_STIM.some(s => s.id === r.site)) r.site = 'hra';
-  const st = { scenario: 'normal', mystere: false, coeur: null, t: 0, fige: false, recul: 0, curseurs: [], nouveauCompas: false, report: false, gains: {},
-    salve: null, figerA: null, position: 'od-haute', actions: [], faites: new Set(), analyses: [], positionsTachy: new Set(), tachyAvant: false, dernierMaj: 0 };
+  // rappel : entrée du journal affichée sur l'écran de rappel (instantané du tracé), avec sa relecture et ses compas
+  const st = { scenario: 'normal', mystere: false, coeur: null, t: 0, gains: {}, salve: null, position: 'od-haute', actions: [], faites: new Set(), analyses: [],
+    positionsTachy: new Set(), tachyAvant: false, dernierMaj: 0, numero: 0,
+    rappel: null, recul: 0, curseurs: [], nouveauCompas: false, report: false, demande: null, sale: true };
 
   const opt = (liste, v) => liste.map(o => `<option value="${o.id}" ${o.id === v ? 'selected' : ''}>${esc(o.nom)}</option>`).join('');
   const champ = (id, lib, v, pas = 10, max = 2000) => `<label class="simu-champ"><span>${lib}</span><input type="number" id="${id}" value="${v}" min="0" max="${max}" step="${pas}" inputmode="decimal"></label>`;
@@ -58,36 +63,58 @@ export function vueSimulateur(app) {
     <section class="simu-baie">
       <div class="simu-barre">
         <label class="simu-mini">Vitesse <select id="vitesse">${VITESSES.map(v => `<option value="${v}" ${v === r.vitesse ? 'selected' : ''}>${String(v).replace('.', ',')} mm/s</option>`).join('')}</select></label>
-        <label class="simu-mini">Affichage <select id="mode"><option value="balayage" ${r.mode === 'balayage' ? 'selected' : ''}>Balayage</option><option value="defilement" ${r.mode === 'defilement' ? 'selected' : ''}>Défilement</option></select></label>
+        <label class="simu-mini">Affichage <select id="mode"><option value="balayage" ${r.mode === 'balayage' ? 'selected' : ''}>Balayage (standard)</option><option value="defilement" ${r.mode === 'defilement' ? 'selected' : ''}>Défilement</option></select></label>
         <label class="simu-mini">Montage <select id="montage">${Object.entries(MONTAGES).map(([id, m]) => `<option value="${id}" ${id === r.montage ? 'selected' : ''}>${esc(m.nom)}</option>`).join('')}</select></label>
         <label class="simu-mini"><input type="checkbox" id="bruit" ${r.bruit ? 'checked' : ''}> Bruit</label>
         <label class="simu-mini"><input type="checkbox" id="etiquettes" ${r.etiquettes ? 'checked' : ''}> A-H-V</label>
-        <div class="simu-mesures" id="mesures" aria-live="off"></div>
       </div>
-      <div class="simu-ecran">
-        <canvas id="ecran" role="img" aria-label="Baie d'électrophysiologie : dérivations de surface et électrogrammes endocavitaires"></canvas>
-        <div class="simu-etat" id="etat"></div>
+      <div class="simu-ecrans">
+        <div class="simu-panneau">
+          <div class="simu-titre-ecran"><b>Temps réel</b><div class="simu-mesures" id="mesures" aria-live="off"></div></div>
+          <div class="simu-ecran">
+            <canvas id="ecran" role="img" aria-label="Baie d'électrophysiologie en temps réel : dérivations de surface et électrogrammes endocavitaires"></canvas>
+            <div class="simu-etat" id="etat"></div>
+          </div>
+        </div>
+        <div class="simu-panneau simu-rappel" id="rappel">
+          <div class="simu-titre-ecran"><b>Écran de rappel</b> <span id="rappel-titre" class="note"></span></div>
+          <div class="simu-barre">
+            <button class="btn btn-mini" id="evt-prec" aria-label="Événement précédent du journal">◀ Évt</button>
+            <button class="btn btn-mini" id="evt-suiv" aria-label="Événement suivant du journal">Évt ▶</button>
+            <label class="simu-mini">Vitesse <select id="vitesse-rappel">${VITESSES.map(v => `<option value="${v}" ${v === r.vitesseRappel ? 'selected' : ''}>${String(v).replace('.', ',')} mm/s</option>`).join('')}</select></label>
+            <div class="simu-mesures" id="mesures-rappel" aria-live="off"></div>
+          </div>
+          <div class="simu-ecran">
+            <canvas id="ecran-rappel" role="img" aria-label="Écran de rappel : tracé de l'événement sélectionné dans le journal, mesurable au compas"></canvas>
+            <p class="simu-rappel-vide" id="rappel-vide">Aucun événement rappelé. Faites une manœuvre ou « Enregistrer », ou touchez un événement du journal.</p>
+          </div>
+          <div class="simu-revue">
+            <button class="btn btn-mini" id="arriere" aria-label="Page précédente">◀</button>
+            <input type="range" id="recul" min="0" max="0" step="50" value="0" aria-label="Se déplacer dans l'enregistrement rappelé">
+            <button class="btn btn-mini" id="avant" aria-label="Page suivante">▶</button>
+            <span id="recul-val" class="note"></span>
+            <button class="btn btn-mini" id="compas-plus">+ compas</button>
+            <button class="btn btn-mini" id="compas-report">Report</button>
+            <button class="btn btn-mini" id="compas-effacer">Effacer</button>
+          </div>
+        </div>
       </div>
-      <div class="simu-revue" id="revue" hidden>
-        <button class="btn" id="arriere" aria-label="Page précédente">◀</button>
-        <input type="range" id="recul" min="0" max="40000" step="100" value="0" aria-label="Revenir en arrière">
-        <button class="btn" id="avant" aria-label="Page suivante">▶</button>
-        <span id="recul-val" class="note"></span>
-        <button class="btn" id="compas-plus">+ compas</button>
-        <button class="btn" id="compas-report">Report</button>
-        <button class="btn" id="compas-effacer">Effacer</button>
+      <div class="simu-paysage" id="paysage">
+        <span aria-hidden="true" class="simu-paysage-ico">⟳</span>
+        <span><b>Tournez votre téléphone en paysage</b> pour voir l'écran de rappel à côté du tracé en temps réel (mesures au compas, rappel des événements du journal).<span id="paysage-nouveau"></span></span>
+        <button class="btn btn-mini" id="btn-paysage">Passer en paysage</button>
       </div>
       <div class="actions serre gauche simu-outils">
         <button class="btn btn-primaire" id="stimuler">Stimuler</button>
         <button class="btn" id="s2moins" title="Raccourcir S2 de 10 ms puis stimuler">S2 − 10</button>
         <button class="btn" id="salve">Salve à S1</button>
-        <button class="btn" id="figer">Figer</button>
+        <button class="btn" id="enregistrer" title="Envoyer les 10 dernières secondes sur l'écran de rappel">Enregistrer</button>
         <button class="btn" id="adenosine">Adénosine</button>
         <button class="btn" id="iso" aria-pressed="false">Isoprénaline</button>
         <button class="btn" id="atropine">Atropine</button>
         <button class="btn" id="choc">Choc</button>
       </div>
-      <p class="note simu-aide-compas">Touchez le tracé pour le figer (relecture), puis faites glisser pour mesurer. Touchez le nom d'une voie pour changer son gain.</p>
+      <p class="note simu-aide-compas">Le tracé en temps réel ne s'arrête jamais. Chaque manœuvre et chaque enregistrement s'affichent sur l'écran de rappel : faites-y glisser le doigt pour mesurer. Touchez un événement du journal pour le rappeler. Touchez le nom d'une voie pour changer son gain.</p>
       <div class="simu-message" id="message" role="status"></div>
     </section>
 
@@ -101,7 +128,7 @@ export function vueSimulateur(app) {
         <div class="simu-ligne">
           ${champ('s1', 'S1 (ms)', r.s1)}${champ('n', 'Nb S1', r.n, 1, 30)}${champ('s2', 'S2', r.s2)}${champ('s3', 'S3', r.s3)}${champ('s4', 'S4', r.s4)}
         </div>
-        <label class="simu-case"><input type="checkbox" id="figer-apres" ${r.figerApres ? 'checked' : ''}> Figer le tracé après le train</label>
+        <label class="simu-case"><input type="checkbox" id="rappel-apres" ${r.rappelApres ? 'checked' : ''}> Afficher chaque manœuvre sur l'écran de rappel</label>
         <label class="simu-case"><input type="checkbox" id="decrement" ${r.decrement ? 'checked' : ''}> Décrément automatique : S2 − 10 ms après chaque train</label>
         <div class="simu-ligne">
           ${champ('rampe-debut', 'Rampe : de', r.rampeDebut)}${champ('rampe-fin', 'à', r.rampeFin)}${champ('rampe-pas', 'pas', r.rampePas, 5, 50)}
@@ -118,7 +145,9 @@ export function vueSimulateur(app) {
           <button class="btn" id="reinit">Recommencer le cas</button>
         </div>
       </fieldset>
-      <fieldset class="simu-journal-bloc"><legend>Journal</legend><ol class="simu-journal" id="journal"></ol></fieldset>
+      <fieldset class="simu-journal-bloc"><legend>Journal</legend>
+        <p class="note">Touchez un événement pour l'afficher sur l'écran de rappel.</p>
+        <ol class="simu-journal" id="journal"></ol></fieldset>
     </section>
 
     <section class="carte" id="diagnostic" hidden>
@@ -135,7 +164,7 @@ export function vueSimulateur(app) {
     <details class="carte simu-guide">
       <summary><b>Mode d'emploi et manœuvres clés</b></summary>
       <ul>
-        <li><b>Baie</b> : vitesse en mm/s comme sur une baie (25 mm/s pour une vue d'ensemble, 100 à 200 mm/s pour mesurer). Balayage : le tracé s'écrit de gauche à droite et efface l'ancien derrière une barre ; défilement : le tracé glisse vers la gauche. Figez pour relire (jusqu'à 40 s en arrière) et poser jusqu'à trois compas ; « Report » reporte le dernier intervalle.</li>
+        <li><b>Baie</b> : vitesse en mm/s comme sur une baie (25 mm/s pour une vue d'ensemble, 100 à 200 mm/s pour mesurer). L'écran en temps réel est en balayage par défaut (le tracé s'écrit de gauche à droite et efface l'ancien derrière une barre ; le défilement reste disponible) et ne se fige jamais. À côté, l'<b>écran de rappel</b> affiche automatiquement chaque manœuvre (train, rampe, salve, adénosine, choc) ou un enregistrement (bouton « Enregistrer » : 10 dernières secondes) ; chaque événement du journal peut y être rappelé. Sur l'écran de rappel, parcourez l'enregistrement, changez la vitesse et posez jusqu'à trois compas ; « Report » reporte le dernier intervalle. Sur téléphone, passez en paysage pour voir les deux écrans côte à côte.</li>
         <li><b>Montages</b> : standard (D1, D2, V1, OD haute, His proximal et distal, SC décapolaire, VD), flutter (Halo autour de l'anneau tricuspide), ablation (électrogrammes bipolaire distal et unipolaire de la sonde), complet.</li>
         <li><b>Extrastimulus</b> : train de S1 (ex. 8 × 600 ms) puis S2, S3, S4 (0 = désactivé). Diminuez S2 par pas de 10 ms (bouton « S2 − 10 » ou décrément automatique). Saut de l'AH ≥ 50 ms pour 10 ms de raccourcissement du couplage = double voie nodale. Période réfractaire effective : du tissu stimulé quand S2 ne capture plus ; du nœud AV quand S2 capture mais n'est plus suivi d'un H. Un retard droit sur S2 court = aberration fonctionnelle.</li>
         <li><b>Rampe et salve</b> : rampe atriale jusqu'au point de Wenckebach (allongement progressif de l'AH puis bloc) ; salve continue au cycle S1 ; après une salve de 30 s, mesurez le temps de récupération sinusale (TRS &lt; 1500 ms, TRS corrigé &lt; 525 ms).</li>
@@ -151,36 +180,77 @@ export function vueSimulateur(app) {
     </details>`;
 
   const $ = s => app.querySelector(s);
-  const canvas = $('#ecran');
+  const canvas = $('#ecran'), canvasR = $('#ecran-rappel');
 
-  // ---------- journal et manœuvres ----------
+  // ---------- journal et écran de rappel ----------
+  // Chaque entrée du journal couvre une fenêtre de tracé [debut, capture] ; à l'instant « capture », le tracé de cette
+  // fenêtre est copié (instantané) et peut être rappelé à tout moment sur l'écran de rappel. auto : affichage dès la capture.
   const hms = t => `${(t / 1000).toFixed(1)} s`;
+  const FENETRES_MOTEUR = [ // événements émis par le moteur : [début, capture] relatifs à l'événement (ms), affichage automatique
+    [/^Adénosine/, -2000, 9000, true], [/^Choc/, -3000, 4000, true], [/^Radiofréquence/, -3000, 5000, false]];
+  function entree(t, texte, { debut = t - 6000, capture = t + 4000, auto = false } = {}) {
+    const e = { id: ++st.numero, t, texte, debut, capture, auto, instantane: null };
+    st.actions.push(e);
+    return e;
+  }
   function majJournal() {
-    for (const e of st.coeur.evenements) if (!e.vu) { e.vu = true; st.actions.push({ t: e.t, texte: e.texte }); }
+    for (const e of st.coeur.evenements) if (!e.vu) {
+      e.vu = true;
+      const f = FENETRES_MOTEUR.find(([re]) => re.test(e.texte));
+      entree(e.t, e.texte, f ? { debut: e.t + f[1], capture: e.t + f[2], auto: f[3] && r.rappelApres } : {});
+    }
     st.actions.sort((a, b) => a.t - b.t);
     if (st.actions.length > 60) st.actions = st.actions.slice(-60);
-    $('#journal').innerHTML = st.actions.slice(-12).reverse().map(a => `<li><span class="note">${hms(a.t)}</span> ${esc(a.texte)}</li>`).join('');
+    if (st.rappel && !st.actions.includes(st.rappel)) st.actions.unshift(st.rappel);
+    rendreJournal();
   }
-  function noter(type, texte) {
+  function rendreJournal() {
+    $('#journal').innerHTML = st.actions.slice().reverse().map(a => `<li><button class="simu-evt${a === st.rappel ? ' choisi' : ''}" data-evt="${a.id}" ${a === st.rappel ? 'aria-current="true"' : ''}>
+      <span class="note">${hms(a.t)}</span> ${esc(a.texte)}${a.instantane ? '' : ' <span class="note" title="Enregistrement en cours">⏳</span>'}</button></li>`).join('');
+  }
+  function noter(type, texte, fenetre) {
     if (type) st.faites.add(type);
-    if (texte) st.actions.push({ t: st.t, texte });
+    const e = texte ? entree(st.t, texte, fenetre) : null;
     majJournal();
+    return e;
+  }
+  const ablationVue = () => { const pos = POSITIONS.find(p => p.id === st.position); return pos ? { a: pos.a, v: pos.v } : null; };
+  function capturer(e) {
+    const c = st.coeur, t0 = Math.max(e.debut, e.capture - 60000, 0);
+    e.instantane = { t: e.capture, debut: t0, journal: c.journal.filter(x => x.t >= t0 - 1000 && x.t <= e.capture + 5),
+      stims: c.stims.filter(x => x.t >= t0 - 3000 && x.t <= e.capture), ablation: ablationVue() };
+  }
+  function rappeler(e) {
+    if (!e) return;
+    if (!e.instantane) { st.demande = e; message('Enregistrement en cours : il s\'affichera sur l\'écran de rappel dans un instant.'); return; }
+    st.rappel = e; st.recul = 0; st.curseurs = []; st.nouveauCompas = false; st.demande = null; st.sale = true;
+    $('#rappel-titre').textContent = `${hms(e.t)} · ${e.texte}`;
+    $('#rappel-vide').hidden = true;
+    $('#paysage-nouveau').textContent = ` Dernier rappel : ${e.texte}.`;
+    majRecul(); rendreJournal();
+  }
+  function rappelVoisin(sens) {
+    const prets = st.actions.filter(a => a.instantane);
+    const i = prets.indexOf(st.rappel);
+    rappeler(prets[i < 0 ? prets.length - 1 : Math.max(0, Math.min(prets.length - 1, i + sens))]);
   }
 
   function nouveauCoeur() {
     const sc = SCENARIOS[st.scenario];
     st.coeur = new Coeur(sc.def(), { variation: st.mystere ? Math.min(0.05, sc.variation ?? 1) : 0 });
     st.coeur.avancer(2500);
-    Object.assign(st, { t: 2500, fige: false, recul: 0, curseurs: [], salve: null, figerA: null, actions: [], faites: new Set(), analyses: [], positionsTachy: new Set(), tachyAvant: false });
-    $('#figer').textContent = 'Figer'; $('#salve').textContent = 'Salve à S1';
+    Object.assign(st, { t: 2500, salve: null, actions: [], faites: new Set(), analyses: [], positionsTachy: new Set(), tachyAvant: false,
+      rappel: null, recul: 0, curseurs: [], nouveauCompas: false, demande: null, sale: true });
+    $('#salve').textContent = 'Salve à S1';
     $('#iso').setAttribute('aria-pressed', 'false'); $('#iso').classList.remove('actif');
-    $('#revue').hidden = true; $('#recul').value = 0;
+    $('#rappel-titre').textContent = ''; $('#rappel-vide').hidden = false; $('#paysage-nouveau').textContent = '';
+    majRecul();
     $('#diagnostic').hidden = !st.mystere; $('#verdict').innerHTML = ''; $('#reponse').value = '';
     $('#contexte').innerHTML = sc.contexte ? `<b>Contexte :</b> ${esc(sc.contexte)}` : '';
     $('#explication-scenario').innerHTML = st.mystere
       ? '<h2>Cas mystère</h2><p class="note">Le mécanisme est caché et les paramètres varient légèrement d\'un cas à l\'autre. Faites les manœuvres utiles, traitez si besoin, puis concluez.</p>'
       : `<h2>${esc(sc.nom)}</h2><p>${esc(sc.explication)}</p>`;
-    noter(null, st.mystere ? 'Nouveau cas mystère' : `Scénario : ${sc.nom}`);
+    noter(null, st.mystere ? 'Nouveau cas mystère' : `Scénario : ${sc.nom}`, { debut: 0, capture: 6500 });
   }
   function choisir(v) {
     st.mystere = v === 'mystere';
@@ -191,17 +261,15 @@ export function vueSimulateur(app) {
   const reglages = () => {
     const n = (id, min = 0) => Math.max(min, +$(id).value || 0);
     Object.assign(r, { site: $('#site').value, sortie: n('#sortie'), detection: $('#detection').value, s1: Math.max(200, n('#s1')), n: Math.min(30, Math.round(n('#n'))),
-      s2: Math.round(n('#s2')), s3: Math.round(n('#s3')), s4: Math.round(n('#s4')), figerApres: $('#figer-apres').checked, decrement: $('#decrement').checked,
+      s2: Math.round(n('#s2')), s3: Math.round(n('#s3')), s4: Math.round(n('#s4')), rappelApres: $('#rappel-apres').checked, decrement: $('#decrement').checked,
       rampeDebut: n('#rampe-debut', 150), rampeFin: n('#rampe-fin', 150), rampePas: n('#rampe-pas', 1),
-      vitesse: +$('#vitesse').value, mode: $('#mode').value, montage: $('#montage').value, bruit: $('#bruit').checked, etiquettes: $('#etiquettes').checked });
+      vitesse: +$('#vitesse').value, vitesseRappel: +$('#vitesse-rappel').value, mode: $('#mode').value, montage: $('#montage').value, bruit: $('#bruit').checked, etiquettes: $('#etiquettes').checked });
     ecrire(r);
     return r;
   };
   const siteReel = () => (r.site === 'abl' ? POSITIONS.find(p => p.id === st.position).stim : r.site);
   const nomSite = () => `${SITES_STIM.find(s => s.id === r.site).nom}${r.site === 'abl' ? ` (${POSITIONS.find(p => p.id === st.position).nom})` : ''}`;
 
-  function reprendre() { st.fige = false; st.recul = 0; $('#figer').textContent = 'Figer'; $('#revue').hidden = true; $('#recul').value = 0; $('#recul-val').textContent = ''; }
-  function figer() { st.fige = true; st.figerA = null; $('#figer').textContent = 'Reprendre'; $('#revue').hidden = false; }
   function message(m) { $('#message').textContent = m; setTimeout(() => { if ($('#message')?.textContent === m) $('#message').textContent = ''; }, 4000); }
 
   // classement de la manœuvre lancée, pour le journal et la notation
@@ -215,7 +283,7 @@ export function vueSimulateur(app) {
     return v ? 'stimV' : null;
   }
 
-  function programmer(tDebut, site) {
+  function programmer(tDebut, site, e) {
     const c = st.coeur, p = r;
     let t = tDebut;
     const liste = [];
@@ -224,19 +292,19 @@ export function vueSimulateur(app) {
     if (!p.n && extras.length) t -= extras[0];
     for (const e of extras) { t += e; liste.push(t); }
     liste.forEach(x => c.stimuler(site, x, p.sortie));
-    if (p.figerApres && liste.length) st.figerA = liste.at(-1) + 1600;
+    if (e && liste.length) Object.assign(e, { debut: liste[0] - 1500, capture: liste.at(-1) + 2000, instantane: null });
     return liste;
   }
 
   function stimuler() {
     reglages();
-    if (st.fige) reprendre();
     if (!r.n && !r.s2) { message('Réglez au moins un S1 ou un S2.'); return; }
     const c = st.coeur, site = siteReel();
     const type = classer(site, { detection: r.detection, n: r.n, s2: r.s2 });
     const tcl = tachycardie(c).cycleV;
+    let e = null;
     const lancer = t0 => {
-      const liste = programmer(t0, site);
+      const liste = programmer(t0, site, e);
       if (type === 'esvHis' && liste.length) {
         const te = liste.at(-1);
         setTimeout(() => {
@@ -245,7 +313,8 @@ export function vueSimulateur(app) {
         }, 3500);
       }
     };
-    noter(type, `${nomSite()} : ${r.n ? `${r.n} × S1 ${r.s1}` : ''}${[r.s2, r.s3, r.s4].filter(Boolean).map((x, i) => ` S${i + 2} ${x}`).join('')} ms, ${r.sortie} mA${r.detection ? `, couplé au ${SITES_DETECTION.find(d => d.id === r.detection).nom}` : ''}`);
+    e = noter(type, `${nomSite()} : ${r.n ? `${r.n} × S1 ${r.s1}` : ''}${[r.s2, r.s3, r.s4].filter(Boolean).map((x, i) => ` S${i + 2} ${x}`).join('')} ms, ${r.sortie} mA${r.detection ? `, couplé au ${SITES_DETECTION.find(d => d.id === r.detection).nom}` : ''}`,
+      { capture: st.t + 12000, auto: r.rappelApres });
     if (r.detection) {
       const depuis = c.t;
       const ecoute = (s, t) => {
@@ -263,8 +332,8 @@ export function vueSimulateur(app) {
     const c = st.coeur;
     c.annulerStims(c.t);
     const der = c.stims.filter(x => x.s === s.site).at(-1)?.t;
+    noter(null, `Arrêt de la salve (${s.nom} à ${s.cl} ms)`, { debut: Math.max(s.debut - 2000, st.t - 30000), capture: st.t + 3500, auto: r.rappelApres });
     st.salve = null; $('#salve').textContent = 'Salve à S1';
-    noter(null, 'Arrêt de la salve');
     if (s.tachy && der != null) {
       setTimeout(() => {
         const a = analyserEntrainement(c, { der, site: s.site, tcl: s.tcl, ventriculaire: VENTRICULAIRES.has(s.site) });
@@ -280,29 +349,28 @@ export function vueSimulateur(app) {
   $('#salve').onclick = () => {
     reglages();
     if (st.salve) { arreterSalve(); return; }
-    if (st.fige) reprendre();
     const site = siteReel(), t = tachycardie(st.coeur);
-    st.salve = { site, cl: r.s1, prochain: st.coeur.t + 100, sortie: r.sortie, tachy: t.active, tcl: VENTRICULAIRES.has(site) ? t.cycleV : (t.cycleA ?? t.cycleV), nom: nomSite() };
+    st.salve = { site, cl: r.s1, prochain: st.coeur.t + 100, debut: st.coeur.t + 100, sortie: r.sortie, tachy: t.active, tcl: VENTRICULAIRES.has(site) ? t.cycleV : (t.cycleA ?? t.cycleV), nom: nomSite() };
     noter(classer(site, { salve: true }), `Salve : ${st.salve.nom} à ${r.s1} ms, ${r.sortie} mA`);
     $('#salve').textContent = 'Arrêter la salve';
   };
   $('#rampe').onclick = () => {
-    reglages(); if (st.fige) reprendre();
-    const site = siteReel(), c = st.coeur;
-    let t = c.t + 150, n = 0;
+    reglages();
+    const site = siteReel(), c = st.coeur, t0 = c.t + 150;
+    let t = t0, n = 0;
     for (let cl = r.rampeDebut; cl >= r.rampeFin && n < 200; cl -= r.rampePas) for (let k = 0; k < 4; k++, n++) { c.stimuler(site, t, r.sortie); t += cl; }
-    if (r.figerApres) st.figerA = t + 1200;
-    noter(VENTRICULAIRES.has(site) ? 'stimV' : 'extraA', `Rampe ${r.rampeDebut} → ${r.rampeFin} ms (pas ${r.rampePas} ms, 4 stimulus par palier)`);
+    noter(VENTRICULAIRES.has(site) ? 'stimV' : 'extraA', `Rampe ${r.rampeDebut} → ${r.rampeFin} ms (pas ${r.rampePas} ms, 4 stimulus par palier)`,
+      { debut: t0 - 1500, capture: t + 1500, auto: r.rappelApres });
   };
-  $('#figer').onclick = () => (st.fige ? reprendre() : figer());
-  $('#adenosine').onclick = () => { st.coeur.injecterAdenosine(); noter('adenosine'); if (st.fige) reprendre(); };
+  $('#enregistrer').onclick = () => { reglages(); noter(null, 'Enregistrement', { debut: st.t - 10000, capture: st.t, auto: true }); };
+  $('#adenosine').onclick = () => { st.coeur.injecterAdenosine(); noter('adenosine'); };
   $('#iso').onclick = () => {
     const on = st.coeur.basculerMedicament('iso');
     $('#iso').setAttribute('aria-pressed', String(on)); $('#iso').classList.toggle('actif', on);
-    noter(on ? 'iso' : null); if (st.fige) reprendre();
+    noter(on ? 'iso' : null);
   };
-  $('#atropine').onclick = () => { st.coeur.basculerMedicament('atropine'); noter(null); if (st.fige) reprendre(); };
-  $('#choc').onclick = () => { st.coeur.choc(); noter(null); if (st.fige) reprendre(); };
+  $('#atropine').onclick = () => { st.coeur.basculerMedicament('atropine'); noter(null); };
+  $('#choc').onclick = () => { st.coeur.choc(); noter(null); };
   $('#reinit').onclick = () => nouveauCoeur();
   $('#position').onchange = e => {
     st.position = e.target.value;
@@ -314,17 +382,40 @@ export function vueSimulateur(app) {
     const touchees = st.coeur.ablater(pos.cibles);
     noter(null, `Radiofréquence : ${pos.nom}`);
     message(touchees.includes('nav') || touchees.includes('rapide') ? 'Attention : allongement de l\'AH… vérifiez la conduction AV.' : 'Tir de radiofréquence délivré. Vérifiez l\'effet et la non-inductibilité.');
-    if (st.fige) reprendre();
   };
-  for (const id of ['#site', '#sortie', '#detection', '#s1', '#n', '#s2', '#s3', '#s4', '#figer-apres', '#decrement', '#rampe-debut', '#rampe-fin', '#rampe-pas', '#vitesse', '#mode', '#montage', '#bruit', '#etiquettes']) $(id).addEventListener('change', reglages);
-  const majRecul = () => { $('#recul').value = st.recul; $('#recul-val').textContent = st.recul ? `−${(st.recul / 1000).toFixed(1)} s` : ''; };
-  $('#recul').oninput = e => { st.recul = +e.target.value; majRecul(); };
-  const page = sens => { const f = fenetreMs(canvas.clientWidth, r.vitesse) * 0.8; st.recul = Math.max(0, Math.min(40000, st.recul - sens * f)); majRecul(); };
+  for (const id of ['#site', '#sortie', '#detection', '#s1', '#n', '#s2', '#s3', '#s4', '#rappel-apres', '#decrement', '#rampe-debut', '#rampe-fin', '#rampe-pas', '#vitesse', '#mode', '#montage', '#bruit', '#etiquettes']) $(id).addEventListener('change', reglages);
+  for (const id of ['#vitesse', '#mode', '#montage', '#bruit', '#etiquettes']) $(id).addEventListener('change', () => { st.sale = true; });
+
+  // ---------- navigation dans l'enregistrement rappelé ----------
+  // recul : distance (ms) entre la fin de l'instantané et la fin de la fenêtre affichée
+  const reculMax = () => { const i = st.rappel?.instantane; return i ? Math.max(0, Math.round(i.t - i.debut - fenetreMs(canvasR.clientWidth || 300, r.vitesseRappel))) : 0; };
+  function majRecul() {
+    const max = reculMax();
+    st.recul = Math.max(0, Math.min(max, st.recul));
+    $('#recul').max = max; $('#recul').value = max - st.recul; // curseur de gauche (début) à droite (fin)
+    $('#recul').disabled = !max;
+    $('#recul-val').textContent = st.recul ? `−${(st.recul / 1000).toFixed(1)} s` : '';
+    st.sale = true;
+  }
+  $('#recul').oninput = e => { st.recul = reculMax() - +e.target.value; majRecul(); };
+  const page = sens => { st.recul -= sens * fenetreMs(canvasR.clientWidth || 300, r.vitesseRappel) * 0.8; majRecul(); };
   $('#arriere').onclick = () => page(-1);
   $('#avant').onclick = () => page(1);
-  $('#compas-plus').onclick = () => { st.nouveauCompas = true; message('Faites glisser sur le tracé pour poser le nouveau compas.'); };
-  $('#compas-report').onclick = () => { st.report = !st.report; $('#compas-report').classList.toggle('actif', st.report); };
-  $('#compas-effacer').onclick = () => { st.curseurs = []; };
+  $('#vitesse-rappel').addEventListener('change', () => { reglages(); majRecul(); });
+  $('#evt-prec').onclick = () => rappelVoisin(-1);
+  $('#evt-suiv').onclick = () => rappelVoisin(1);
+  $('#journal').onclick = e => { const b = e.target.closest('[data-evt]'); if (b) rappeler(st.actions.find(a => a.id === +b.dataset.evt)); };
+  $('#compas-plus').onclick = () => { st.nouveauCompas = true; message('Faites glisser sur l\'écran de rappel pour poser le nouveau compas.'); };
+  $('#compas-report').onclick = () => { st.report = !st.report; st.sale = true; $('#compas-report').classList.toggle('actif', st.report); };
+  $('#compas-effacer').onclick = () => { st.curseurs = []; st.sale = true; };
+
+  // ---------- téléphone : inciter au format paysage ----------
+  $('#btn-paysage').onclick = async () => {
+    try {
+      if (!document.fullscreenElement) await document.documentElement.requestFullscreen?.({ navigationUI: 'hide' });
+      await screen.orientation.lock('landscape');
+    } catch { message('Tournez votre téléphone (et désactivez le verrouillage de la rotation) pour passer en paysage.'); }
+  };
 
   // ---------- notation d'un cas mystère ----------
   $('#valider').onclick = () => {
@@ -349,24 +440,28 @@ export function vueSimulateur(app) {
     $('#autre').onclick = () => choisir('mystere');
   };
 
-  // ---------- compas et gains (pointeur sur le tracé) ----------
-  let geo = null, glisse = false;
-  const temps = e => { const b = canvas.getBoundingClientRect(); return geo?.t0 != null ? geo.t0 + (e.clientX - b.left - geo.marge) / geo.pxms : null; };
-  canvas.addEventListener('pointerdown', e => {
-    const b = canvas.getBoundingClientRect();
-    if (e.clientX - b.left < marges(canvas.clientWidth)) { // nom d'une voie : gain ×1 → ×2 → ×4 → ×0,5
-      const y = e.clientY - b.top, rangee = (geo?.rangees || []).find(x => y >= x.y0 && y < x.y1);
-      if (rangee) { const cycle = [1, 2, 4, 0.5], g0 = st.gains[rangee.id] || 1; st.gains[rangee.id] = cycle[(cycle.indexOf(g0) + 1) % cycle.length]; }
-      return;
-    }
-    if (!st.fige) { figer(); return; }
+  // ---------- gains (nom d'une voie, sur les deux écrans) et compas (écran de rappel) ----------
+  // Toucher le tracé en temps réel ne l'arrête pas : les mesures se font sur l'écran de rappel.
+  let geo = null, geoR = null, glisse = false;
+  const gain = (cv, g, e) => {
+    const b = cv.getBoundingClientRect();
+    if (e.clientX - b.left >= marges(cv.clientWidth)) return false;
+    const y = e.clientY - b.top, rangee = (g?.rangees || []).find(x => y >= x.y0 && y < x.y1);
+    if (rangee) { const cycle = [1, 2, 4, 0.5], g0 = st.gains[rangee.id] || 1; st.gains[rangee.id] = cycle[(cycle.indexOf(g0) + 1) % cycle.length]; st.sale = true; }
+    return true;
+  };
+  canvas.addEventListener('pointerdown', e => gain(canvas, geo, e));
+  const temps = e => { const b = canvasR.getBoundingClientRect(); return geoR?.t0 != null ? geoR.t0 + (e.clientX - b.left - geoR.marge) / geoR.pxms : null; };
+  canvasR.addEventListener('pointerdown', e => {
+    if (gain(canvasR, geoR, e) || !st.rappel) return;
     const t = temps(e); if (t == null) return;
     if (st.nouveauCompas || !st.curseurs.length) { st.curseurs.push([t, null]); if (st.curseurs.length > 3) st.curseurs.shift(); st.nouveauCompas = false; }
     else st.curseurs[st.curseurs.length - 1] = [t, null];
-    glisse = true; canvas.setPointerCapture(e.pointerId);
+    glisse = true; st.sale = true; canvasR.setPointerCapture(e.pointerId);
   });
-  canvas.addEventListener('pointermove', e => { if (glisse && st.curseurs.length) st.curseurs.at(-1)[1] = temps(e); });
-  canvas.addEventListener('pointerup', () => { glisse = false; });
+  canvasR.addEventListener('pointermove', e => { if (glisse && st.curseurs.length) { st.curseurs.at(-1)[1] = temps(e); st.sale = true; } });
+  canvasR.addEventListener('pointerup', () => { glisse = false; });
+  if (typeof ResizeObserver === 'function') new ResizeObserver(() => { if (canvasR.isConnected) majRecul(); }).observe(canvasR);
 
   // ---------- boucle d'animation ----------
   let dernier = performance.now();
@@ -375,25 +470,40 @@ export function vueSimulateur(app) {
     if (!canvas.isConnected) { arreterSimulateur(); return; }
     const dt = Math.min(100, maintenant - dernier); dernier = maintenant;
     const c = st.coeur;
-    if (!st.fige) {
-      const cible = st.t + dt;
-      if (st.salve) while (st.salve.prochain < cible + 400) { c.stimuler(st.salve.site, st.salve.prochain, st.salve.sortie); st.salve.prochain += st.salve.cl; }
-      c.avancer(cible); st.t = cible;
-      if (st.figerA && st.t >= st.figerA) figer();
+    const cible = st.t + dt;
+    if (st.salve) while (st.salve.prochain < cible + 400) { c.stimuler(st.salve.site, st.salve.prochain, st.salve.sortie); st.salve.prochain += st.salve.cl; }
+    c.avancer(cible); st.t = cible;
+    let capture = false;
+    for (const e of st.actions) if (!e.instantane && st.t >= e.capture) {
+      capturer(e); capture = true;
+      if (e.auto || e === st.demande) rappeler(e);
     }
-    const pos = POSITIONS.find(p => p.id === st.position);
-    geo = dessinerSimu(canvas, c, { tFin: st.t - st.recul, vitesse: r.vitesse, mode: st.fige ? 'defilement' : r.mode, voies: MONTAGES[r.montage].voies, gains: st.gains,
-      etiquettes: r.etiquettes, curseurs: st.fige ? st.curseurs : [], report: st.report, bruit: r.bruit, ablation: pos ? { a: pos.a, v: pos.v } : null });
+    if (capture) rendreJournal();
+    geo = dessinerSimu(canvas, c, { tFin: st.t, vitesse: r.vitesse, mode: r.mode, voies: MONTAGES[r.montage].voies, gains: st.gains,
+      etiquettes: r.etiquettes, bruit: r.bruit, ablation: ablationVue() });
+    const inst = st.rappel?.instantane;
+    if (st.sale && canvasR.offsetParent && !inst) { // écran de rappel vide : quadrillage seul
+      st.sale = false;
+      geoR = dessinerSimu(canvasR, { journal: [], stims: [] }, { tFin: 0, vitesse: r.vitesseRappel, mode: 'defilement', voies: MONTAGES[r.montage].voies, gains: st.gains, bruit: false });
+      $('#mesures-rappel').innerHTML = '';
+    } else if (st.sale && canvasR.offsetParent) {
+      st.sale = false;
+      const tFin = inst.t - st.recul;
+      geoR = dessinerSimu(canvasR, inst, { tFin, vitesse: r.vitesseRappel, mode: 'defilement', voies: MONTAGES[r.montage].voies, gains: st.gains,
+        etiquettes: r.etiquettes, curseurs: st.curseurs, report: st.report, bruit: r.bruit, ablation: inst.ablation });
+      const m = mesures(inst, tFin), f = v => (v == null ? '—' : Math.round(v));
+      $('#mesures-rappel').innerHTML = `<span>A-A <b>${f(m.cycleA)}</b></span><span>V-V <b>${f(m.cycleV)}</b></span><span>AH <b>${f(m.AH)}</b></span><span>HV <b>${f(m.HV)}</b></span><span>VA <b>${f(m.VA)}</b></span>`;
+    }
     if (maintenant - st.dernierMaj > 250) {
       st.dernierMaj = maintenant;
-      const m = mesures(c, st.t - st.recul), tach = tachycardie(c, st.t);
+      const m = mesures(c, st.t), tach = tachycardie(c, st.t);
       if (tach.active && !st.tachyAvant) noter('induction', `Tachycardie (A ${Math.round(tach.cycleA ?? 0)} / V ${Math.round(tach.cycleV ?? 0)} ms)`);
       st.tachyAvant = tach.active;
       if (c.evenements.some(e => !e.vu)) majJournal();
       const f = v => (v == null ? '—' : Math.round(v));
       zoneMesures.innerHTML = `<span>A-A <b>${f(m.cycleA)}</b></span><span>V-V <b>${f(m.cycleV)}</b></span><span>AH <b>${f(m.AH)}</b></span><span>HV <b>${f(m.HV)}</b></span><span>VA <b>${f(m.VA)}</b></span>`;
       const ad = c.adenosine && st.t < c.adenosine.fin + 500, iso = c.niveau('iso', st.t);
-      etat.textContent = [st.fige ? '⏸ Relecture' : '', st.salve ? `Salve ${st.salve.cl} ms` : '', ad ? 'Adénosine' : '', iso > 0.05 ? `Isoprénaline ${Math.round(iso * 100)} %` : '', c.fa ? 'FA' : '',
+      etat.textContent = [st.salve ? `Salve ${st.salve.cl} ms` : '', ad ? 'Adénosine' : '', iso > 0.05 ? `Isoprénaline ${Math.round(iso * 100)} %` : '', c.fa ? 'FA' : '',
         tach.active ? `Tachycardie (${tach.cycleA != null && tach.cycleV != null && Math.abs(tach.cycleA - tach.cycleV) > 20 ? `A ${Math.round(tach.cycleA)} / V ${Math.round(tach.cycleV)}` : `cycle ${Math.round(tach.cycleV ?? tach.cycleA)}`} ms)` : ''].filter(Boolean).join(' · ');
     }
     boucle = requestAnimationFrame(image);

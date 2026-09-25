@@ -21,9 +21,11 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
 - **Écran titre** puis **accueil épuré sur fond bleu** : Entraînement, Compétitif (avec l'ELO en cours), Simulateur, Fiches,
   Progression ; chaque entrée ouvre son écran de choix (domaines d'entraînement, scénarios du simulateur…).
 - **Simulateur d'électrophysiologie** : une baie d'EEP en temps réel.
-  - Baie : vitesse de défilement en mm/s (12,5 à 400), balayage avec barre d'effacement ou défilement, D1, D2, aVF, V1, V6,
+  - Baie : vitesse en mm/s (12,5 à 400), balayage avec barre d'effacement par défaut (défilement en option), D1, D2, aVF, V1, V6,
     OD haute, Halo, His proximal et distal, sinus coronaire décapolaire, VD apex, sonde d'ablation (bipolaire et unipolaire),
-    montages, gain par voie, bruit, relecture sur 40 s, jusqu'à trois compas avec report.
+    montages, gain par voie, bruit. L'écran en temps réel ne se fige jamais ; à côté, un **écran de rappel** affiche chaque
+    manœuvre ou enregistrement : relecture, vitesse propre, jusqu'à trois compas avec report. Chaque événement du journal
+    peut être rappelé. Sur téléphone, l'écran de rappel se consulte en paysage (invitation à tourner l'appareil).
   - Stimulateur : site, sortie en mA, trains S1 à S4, décrément automatique, rampe, salve, couplage à la détection,
     stimulation para-hisienne ; isoprénaline, atropine, adénosine, choc ; sonde d'ablation déplaçable (cartographie) et
     radiofréquence ; journal des événements.
