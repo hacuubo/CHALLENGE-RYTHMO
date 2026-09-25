@@ -62,8 +62,10 @@ export const DOMAINES = [
 export function questionCompetitive(dejaPosees) {
   const p = stock.progres();
   const elo = stock.classement().elo;
-  const exclus = new Set(dejaPosees);
-  const pool = base.questions.filter(q => q.type !== 'ouverte' && !exclus.has(q.id));
+  // on évite les questions de la session et les 150 dernières questions classées ; si tout a été vu, on repart de toute la base
+  const exclus = new Set([...dejaPosees, ...(p.classement.recents || [])]);
+  let pool = base.questions.filter(q => q.type !== 'ouverte' && !exclus.has(q.id));
+  if (!pool.length) pool = base.questions.filter(q => q.type !== 'ouverte' && !dejaPosees.slice(-20).includes(q.id));
   if (!pool.length) return null;
   const cible = elo + 50;
   const score = q => {

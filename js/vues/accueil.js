@@ -2,6 +2,7 @@
 import * as stock from '../store.js';
 import { resumeSauve } from '../session.js';
 import { esc } from '../util.js';
+import { ICONES } from '../icones.js';
 
 export function vueAccueil(app, { reprendre }) {
   const c = stock.classement();
@@ -13,15 +14,15 @@ export function vueAccueil(app, { reprendre }) {
       <span class="tuile-fleche" aria-hidden="true">›</span></button>`;
 
   app.innerHTML = `
-    <h1 class="titre-accueil">Challenge Rythmo</h1>
+    <h1 class="titre-accueil"><span class="titre-logo" aria-hidden="true">${ICONES.ecg}</span>Challenge Rythmo</h1>
     ${enCours ? `<button class="reprise" id="reprendre">▶ Reprendre : ${esc(enCours.titre)} (${enCours.faites}/${enCours.total})</button>` : ''}
     <nav class="menu-principal centre" aria-label="Choisir une activité">
-      ${tuile('entrainement', '🎯', 'Entraînement', 'Stimulation, DAI, télécardio · ECG · Électrophysiologie')}
-      ${tuile('competitif', '♛', 'Compétitif', 'Questions en continu, classement ELO',
+      ${tuile('entrainement', ICONES.entrainement, 'Entraînement', 'Stimulation, DAI, télécardio · ECG · Électrophysiologie')}
+      ${tuile('competitif', ICONES.competitif, 'Compétitif', 'Questions en continu, classement ELO',
         `<span class="tuile-elo"><b>${c.elo}</b> ELO · ${esc(c.titre.nom)}${c.partiesDuJour ? ` · <span class="delta ${c.duJour >= 0 ? 'plus' : 'moins'}">${signe(c.duJour)}</span>` : ''}</span>`)}
-      ${tuile('simu-menu', '🫀', 'Simulateur', 'Baie d\'électrophysiologie, cas mystères')}
-      ${tuile('fiches', '📚', 'Fiches', 'Toutes les questions corrigées, avec recherche')}
-      ${tuile('progression', '📈', 'Progression', 'ELO jour après jour, badges, points faibles')}
+      ${tuile('simu-menu', ICONES.simulateur, 'Simulateur', 'Baie d\'électrophysiologie, cas mystères')}
+      ${tuile('fiches', ICONES.fiches, 'Fiches', 'Toutes les questions corrigées, avec recherche')}
+      ${tuile('progression', ICONES.progression, 'Progression', 'ELO jour après jour, badges, points faibles')}
     </nav>
     <p class="pied-accueil"><button class="lien" data-nav="apropos">Sources et informations</button></p>`;
 

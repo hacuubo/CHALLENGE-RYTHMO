@@ -33,12 +33,12 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
   page.on('pageerror', e => erreurs.push(`[${appareil}] ${etape} : ${e.message}`));
   page.on('console', m => { if (m.type() === 'error') erreurs.push(`[${appareil}] ${etape} : console ${m.text()}`); });
   const capture = async n => { if (captures) await page.screenshot({ path: path.join(captures, `${appareil}-${n}.png`), fullPage: true }); };
-  // navigation : barre d'onglets si visible (elle est masquée sur l'accueil épuré), sinon logo ou tuile de l'accueil
+  // navigation : barre d'onglets du bas si visible (elle est masquée sur l'accueil épuré), sinon bouton de l'écran
   const nav = async v => {
-    const barre = page.locator(`${largeur < 760 ? '.onglets-bas' : '.onglets'} [data-nav=${v}]`);
+    const barre = page.locator(`.onglets-bas [data-nav=${v}]`);
     if (await barre.isVisible()) return barre.click();
-    if (v === 'accueil') return page.click('.logo');
-    return page.click(`#app [data-nav=${v}]`);
+    if (v === 'accueil' && await page.$('.menu-principal.centre')) return; // déjà sur l'accueil
+    return page.click(`#app [data-nav=${v}] >> nth=0`);
   };
   const repondre = async () => {
     if (await page.$('#txt')) { await page.fill('#txt', 'test'); await page.click('#voir'); await page.click('[data-e="2"]'); return; }
@@ -64,9 +64,14 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
       if (i === 0) await capture('correction');
       await page.click(i < 5 ? '#suivant' : '#arreter');
     }
-    await page.waitForSelector('.elo-bilan');
-    await capture('resultats');
+    // pause : retour à l'écran Compétitif, sans écran de résultats ni série à reprendre ; on peut rejouer aussitôt
+    await page.waitForSelector('#jouer');
+    await page.click('#jouer');
+    await page.waitForSelector('#zone');
+    await page.click('#quit');
+    await page.waitForSelector('#jouer');
     await nav('accueil');
+    if (await page.$('#reprendre')) throw new Error('le mode compétitif ne doit pas laisser de série à reprendre');
     const apres = +(await page.textContent('.tuile[data-nav=competitif] .tuile-elo b'));
     if (!Number.isFinite(apres) || apres === avant) throw new Error(`ELO inchangé (${avant} → ${apres})`);
     await nav('competitif');

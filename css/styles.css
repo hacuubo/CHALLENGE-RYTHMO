@@ -71,10 +71,10 @@ h3 { font-size: 1.05rem; }
 .onglets-bas button { display: flex; flex-direction: column; align-items: center; font-size: .75rem; padding: 8px 4px; border-radius: 0; }
 .onglets-bas button span { font-size: 1.2rem; line-height: 1.2; }
 .onglets-bas button.actif { color: var(--primaire); }
+/* sans bandeau en haut : la barre d'onglets du bas sert aussi sur ordinateur, en barre flottante centrée */
 @media (min-width: 760px) {
-  .onglets { display: flex; }
-  .onglets-bas { display: none; }
-  body { padding-bottom: 24px; }
+  .onglets-bas { left: 50%; right: auto; transform: translateX(-50%); width: min(560px, 100%); bottom: 12px; border: 1px solid rgba(255, 255, 255, .15); border-radius: 16px; overflow: hidden; }
+  body { padding-bottom: 96px; }
 }
 
 main { max-width: 860px; margin: 0 auto; padding: 20px 16px 32px; outline: none; }
@@ -449,3 +449,18 @@ body.sur-accueil { padding-bottom: 24px; }
 .liste-simu { display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
 .choix-simu { text-align: left; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, .2); background: rgba(255, 255, 255, .07); color: #fff; font: inherit; cursor: pointer; }
 .choix-simu:hover { background: rgba(255, 255, 255, .14); }
+
+.titre-accueil { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 18px; }
+.titre-logo .icone { width: 34px; height: 34px; color: #ff8193; stroke-width: 2.2; }
+.tuile-ico .icone { width: 26px; height: 26px; }
+.tuile-ico { color: #fff; }
+.domaine .ico .icone { width: 28px; height: 28px; color: var(--primaire-2); }
+main { padding-top: max(20px, env(safe-area-inset-top)); }
+
+.onglets-bas button svg { width: 22px; height: 22px; margin-bottom: 2px; }
+/* en-tête du quiz posé sur le fond bleu */
+.quiz-tete .quitter, .quiz-tete .note, .quiz-tete .elo-valeur, .quiz-tete .chrono { color: #fff; }
+.quiz-tete .note { color: rgba(255, 255, 255, .8); }
+.quiz-tete .progress { background: rgba(255, 255, 255, .2); }
+.quiz-tete .progress i { background: #fff; }
+#app > .note.centre, .raccourcis { color: rgba(255, 255, 255, .75); }

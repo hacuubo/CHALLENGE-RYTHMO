@@ -37,8 +37,9 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
   - 17 questions « tracé d'EEP » générées par le moteur, rejouées à l'identique dans le quiz.
   Les réentrées et les réponses aux manœuvres émergent du modèle. Concept inspiré de svtsim (S. Iravanian), code original.
 - **Mode compétitif** : classement **ELO des échecs** (départ 600 pour tout débutant, formule FIDE, K = 40 puis 20, 10 au-delà de 2400).
-  Chaque question a une cote tirée de sa difficulté (niveau 1 = 800 … niveau 10 = 2600) ; les questions s'enchaînent
-  sans fin, choisies juste au-dessus de votre classement. Titres de « Débutant » à « Grand maître ».
+  Chaque question a une cote tirée de sa difficulté (niveau 1 = 800 … niveau 10 = 2600). Flux sans limite de questions :
+  on joue quand on veut, pause à tout moment, l'ELO est enregistré après chaque réponse. Adaptatif dans les deux sens :
+  questions plus dures quand l'ELO monte, plus simples quand il baisse. Titres de « Débutant » à « Grand maître ».
 - **Autres modes** : **mode examen** chronométré (correction à la fin), entraînement ciblé (thèmes, marques, types,
   sous-thèmes, niveau, tracés uniquement), révisions de ses erreurs (répétition espacée), nouveautés,
   **fiches** consultables avec recherche.

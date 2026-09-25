@@ -13,11 +13,11 @@ export function creer(questions, titre, opts = {}) {
   };
   if (s.examen) s.finPrevue = s.debut + questions.length * SECONDES_PAR_QUESTION_EXAMEN * 1000;
   etat.session = s;
-  stock.sauverSession(s);
+  if (!s.competitif) stock.sauverSession(s); // le flux compétitif n'est pas une série à reprendre : l'ELO est enregistré à chaque réponse
   return s;
 }
 
-export function sauver() { stock.sauverSession(etat.session); }
+export function sauver() { if (!etat.session?.competitif) stock.sauverSession(etat.session); }
 
 export function terminer() {
   const s = etat.session;
@@ -45,5 +45,6 @@ export function reprendre() {
 export function resumeSauve() {
   const b = stock.sessionSauvee();
   if (!b) return null;
+  if (b.competitif) { stock.oublierSession(); return null; } // ancienne version : les parties compétitives étaient sauvegardées
   return { titre: b.titre, faites: b.reponses.filter(Boolean).length, total: b.questions.length };
 }

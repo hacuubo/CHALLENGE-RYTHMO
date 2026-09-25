@@ -3,7 +3,7 @@
 import * as stock from '../store.js';
 import { THEMES, TYPES, questionCompetitive } from '../donnees.js';
 import { etat, sauver, terminer } from '../session.js';
-import { esc, paragraphes, pct, lettre, diffBarres, moisAnnee, duree } from '../util.js';
+import { esc, paragraphes, pct, lettre, diffBarres, moisAnnee, duree, toast } from '../util.js';
 import { dessinerECG } from '../ecg.js';
 import { chargerECG12, dessinerECG12 } from '../ecg12.js';
 import { monterTrace } from '../traces.js';
@@ -28,7 +28,7 @@ export function vueQuiz(app, aller) {
   app.innerHTML = `
     <div class="quiz-tete">
       <button class="quitter" id="quit" aria-label="Quitter la série">✕</button>
-      ${c ? `<div class="elo-tete"><span class="elo-valeur" id="elo-live">${c.elo}</span><span class="note">ELO · ${esc(c.titre.nom)} · question ${s.i + 1}</span></div>` : `
+      ${c ? `<div class="elo-tete"><span class="elo-valeur" id="elo-live">${c.elo}</span><span class="note">ELO · ${esc(c.titre.nom)}${c.partiesDuJour ? ` · aujourd'hui <span class="delta ${c.duJour >= 0 ? 'plus' : 'moins'}">${c.duJour >= 0 ? '+' : ''}${c.duJour}</span>` : ''}</span></div>` : `
       <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${s.i + 1}"><i style="width:${pct(s.i + (rep ? 1 : 0), total)}%"></i></div>
       <span class="note">${s.i + 1}/${total}</span>`}
       ${s.examen ? '<span class="chrono" id="chrono" aria-live="off"></span>' : ''}
@@ -50,6 +50,7 @@ export function vueQuiz(app, aller) {
     <p class="note centre raccourcis">Clavier : ${q.type === 'vf' ? 'V / F' : q.type === 'ouverte' ? '' : '1–' + (q.options?.length || 4) + ' ou A–' + lettre((q.options?.length || 4) - 1)} · Entrée pour valider / continuer</p>`;
 
   app.querySelector('#quit').onclick = () => {
+    if (s.competitif) { pauseCompetitif(aller); return; }
     if (s.reponses.some(Boolean) && !confirm('Terminer la série maintenant ?')) return;
     terminer(); aller(s.reponses.some(Boolean) ? 'resultats' : 'accueil');
   };
@@ -111,13 +112,22 @@ function demarrerChrono(app, aller) {
   chrono = setInterval(maj, 1000);
 }
 
+// Pause du flux compétitif : l'ELO est déjà enregistré après chaque réponse ; on reprendra quand on voudra.
+function pauseCompetitif(aller) {
+  terminer();
+  const badges = etat.nouveauxBadges || []; etat.nouveauxBadges = [];
+  toast(badges.length ? `Pause. Nouveau badge : ${badges.map(b => b.nom).join(', ')}` : 'Pause : votre ELO est enregistré. Reprenez quand vous voulez.', 3000);
+  if (aller) aller('competitif'); else location.hash = 'competitif';
+}
+
 function suivant(app, aller) {
   const s = etat.session;
   if (s.competitif) {
-    // partie sans fin : une nouvelle question à chaque fois, selon le classement actuel
+    // flux sans fin : une nouvelle question à chaque fois, selon le classement actuel (plus dure si l'ELO monte, plus simple s'il baisse)
     const q = questionCompetitive(s.questions.map(x => x.id));
-    if (!q) { terminer(); aller('resultats'); return; }
+    if (!q) { pauseCompetitif(aller); return; }
     s.questions.push(q);
+    if (s.questions.length > 60) { s.questions.splice(0, 20); s.reponses.splice(0, 20); s.i -= 20; } // on ne garde que l'historique récent
   } else if (s.i + 1 >= s.questions.length) { clearInterval(chrono); terminer(); aller('resultats'); return; }
   s.i++;
   sauver();
@@ -263,9 +273,9 @@ function afficherRetour(app, q, rep, suite) {
       <div class="verdict">${verdict}</div>
       ${blocCorrection(q, rep)}
     </div>
-    <div class="actions">${s.competitif ? '<button class="btn" id="arreter">Arrêter la partie</button>' : ''}<button class="btn btn-primaire btn-bloc" id="suivant">${dernier ? 'Voir mes résultats' : 'Question suivante →'}</button></div>`;
+    <div class="actions">${s.competitif ? '<button class="btn" id="arreter">Pause</button>' : ''}<button class="btn btn-primaire btn-bloc" id="suivant">${dernier ? 'Voir mes résultats' : 'Question suivante →'}</button></div>`;
   const arr = r.querySelector('#arreter');
-  if (arr) arr.onclick = () => { terminer(); location.hash = 'resultats'; };
+  if (arr) arr.onclick = () => pauseCompetitif();
   const b = r.querySelector('#suivant');
   b.onclick = suite;
   b.focus({ preventScroll: true });
