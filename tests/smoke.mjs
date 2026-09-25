@@ -33,11 +33,18 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
   page.on('pageerror', e => erreurs.push(`[${appareil}] ${etape} : ${e.message}`));
   page.on('console', m => { if (m.type() === 'error') erreurs.push(`[${appareil}] ${etape} : console ${m.text()}`); });
   const capture = async n => { if (captures) await page.screenshot({ path: path.join(captures, `${appareil}-${n}.png`), fullPage: true }); };
-  // navigation : barre d'onglets du bas si visible (elle est masquée sur l'accueil épuré), sinon bouton de l'écran
+  // navigation sans barre du bas : bouton de l'écran, sinon retour à l'accueil puis case de l'accueil
   const nav = async v => {
-    const barre = page.locator(`.onglets-bas [data-nav=${v}]`);
-    if (await barre.isVisible()) return barre.click();
-    if (v === 'accueil' && await page.$('.menu-principal.centre')) return; // déjà sur l'accueil
+    if (await page.$('.onglets-bas')) throw new Error('barre de navigation du bas présente');
+    const surAccueil = async () => !!await page.$('.menu-principal.centre');
+    if (v === 'accueil' && await surAccueil()) return; // déjà sur l'accueil
+    if (await page.$(`#app [data-nav=${v}]`)) return page.click(`#app [data-nav=${v}] >> nth=0`);
+    if (await page.evaluate(() => location.hash === '#quiz') && await page.$('#quit')) { // quitter la série en cours
+      await page.click('#quit');
+      await page.waitForSelector('#quit', { state: 'detached' });
+    }
+    if (!await surAccueil()) await page.click('#app [data-nav=accueil] >> nth=0');
+    await page.waitForSelector('.menu-principal.centre');
     return page.click(`#app [data-nav=${v}] >> nth=0`);
   };
   const repondre = async () => {
@@ -88,6 +95,7 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.waitForSelector('#suivant');
     page.once('dialog', d => d.accept());
     await page.click('#quit');
+    await page.waitForSelector('.score-rond'); // série commencée : écran de résultats
   });
 
   await verifier(`${appareil} : examen interrompu puis repris`, async () => {
@@ -133,6 +141,7 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.click('.plein [data-fermer]');
     page.once('dialog', d => d.accept());
     await page.click('#quit');
+    await page.waitForSelector('#quit', { state: 'detached' });
   });
 
   await verifier(`${appareil} : ECG 12 dérivations (rendu)`, async () => {
@@ -165,7 +174,6 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await capture('progression');
     await nav('apropos');
     await page.waitForSelector('.sources-liste');
-    if (await page.locator('.onglets-bas').isVisible()) throw new Error('barre du bas visible sur Sources');
     await capture('sources');
     await page.click('.retour-fleche');
     await page.waitForSelector('.menu-principal.centre');
@@ -177,10 +185,25 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.click('.tuile[data-nav=simulateur]');
     await page.waitForSelector('#ecran'); // l'accueil mène directement à la baie
     await page.selectOption('#scenario', 'trin');
-    await page.uncheck('#figer-apres');
     await page.fill('#s2', '320'); await page.dispatchEvent('#s2', 'change');
     await page.click('#stimuler');
     await page.waitForFunction(() => /Tachycardie/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 15000 });
+    // la manœuvre s'affiche sur l'écran de rappel ; toucher le tracé en temps réel ne l'arrête pas
+    await page.waitForFunction(() => /S2 320/.test(document.querySelector('#rappel-titre')?.textContent || ''), null, { timeout: 10000 });
+    const t0 = await page.evaluate(() => document.querySelector('#etat').textContent);
+    await page.click('#ecran', { position: { x: 200, y: 100 } });
+    if (/Relecture/.test(await page.evaluate(() => document.querySelector('#etat').textContent)) || !t0) throw new Error('le tracé en temps réel s\'est figé');
+    await page.click('#enregistrer');
+    await page.waitForFunction(() => document.querySelector('#rappel-titre')?.textContent.includes('Enregistrement'), null, { timeout: 5000 });
+    await page.click('#journal [data-evt]:last-child');
+    if (largeur < 700) { if (!await page.isVisible('#paysage')) throw new Error('invitation au paysage absente'); }
+    else {
+      if (!await page.isVisible('#ecran-rappel')) throw new Error('écran de rappel invisible');
+      const b = await page.locator('#ecran-rappel').boundingBox();
+      await page.mouse.move(b.x + b.width * 0.5, b.y + 60); await page.mouse.down(); await page.mouse.move(b.x + b.width * 0.7, b.y + 60); await page.mouse.up();
+      await page.waitForTimeout(100);
+      if (!await page.evaluate(() => /A-A/.test(document.querySelector('#mesures-rappel').textContent))) throw new Error('mesures du rappel absentes');
+    }
     await capture('simulateur');
     await page.click('#adenosine');
     await page.waitForFunction(() => !/Tachycardie/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 15000 });
@@ -188,8 +211,6 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.selectOption('#reponse', 'trav');
     await page.click('#valider');
     await page.waitForSelector('#verdict .retour');
-    await page.click('#ecran', { position: { x: 200, y: 100 } });
-    await page.waitForFunction(() => /Relecture/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 3000 });
   });
 
   await verifier(`${appareil} : tous les tracés synthétiques (ECG et EGM) se dessinent`, async () => {
