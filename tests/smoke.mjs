@@ -148,7 +148,7 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     if (!ok) throw new Error('rendu 12 dérivations impossible');
   });
 
-  await verifier(`${appareil} : entraînement ciblé, fiches, progression, sources`, async () => {
+  await verifier(`${appareil} : entraînement ciblé, progression, sources`, async () => {
     await nav('accueil');
     await page.click('.tuile[data-nav=entrainement]');
     await page.click('.tuile[data-nav=config]');
@@ -158,26 +158,24 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await capture('config');
     await page.click('#go');
     await page.waitForSelector('#zone');
-    await nav('fiches');
     page.once('dialog', d => d.accept());
-    await page.waitForSelector('#recherche');
-    await page.fill('#recherche', 'Wenckebach');
-    await page.waitForTimeout(400);
-    await page.click('details.fiche >> nth=0');
-    await capture('fiches');
     await nav('progression');
     await page.waitForSelector('.grille-badges');
     await page.waitForSelector('#courbe svg');
     await capture('progression');
     await nav('apropos');
     await page.waitForSelector('.sources-liste');
+    if (await page.locator('.onglets-bas').isVisible()) throw new Error('barre du bas visible sur Sources');
+    await capture('sources');
+    await page.click('.retour-fleche');
+    await page.waitForSelector('.menu-principal.centre');
+    if (await page.$('.tuile[data-nav=fiches]')) throw new Error('les fiches sont encore sur l\'accueil');
   });
 
   await verifier(`${appareil} : simulateur d'électrophysiologie`, async () => {
     await nav('accueil');
-    await page.click('.tuile[data-nav=simu-menu]');
-    await page.click('[data-simu=normal]');
-    await page.waitForSelector('#ecran');
+    await page.click('.tuile[data-nav=simulateur]');
+    await page.waitForSelector('#ecran'); // l'accueil mène directement à la baie
     await page.selectOption('#scenario', 'trin');
     await page.fill('#s2', '320'); await page.dispatchEvent('#s2', 'change');
     await page.click('#stimuler');
