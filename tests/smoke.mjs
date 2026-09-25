@@ -39,7 +39,10 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     const surAccueil = async () => !!await page.$('.menu-principal.centre');
     if (v === 'accueil' && await surAccueil()) return; // déjà sur l'accueil
     if (await page.$(`#app [data-nav=${v}]`)) return page.click(`#app [data-nav=${v}] >> nth=0`);
-    if (await page.$('#quit')) { await page.click('#quit'); await page.waitForSelector('#app [data-nav=accueil], .menu-principal.centre'); } // quitter la série
+    if (await page.evaluate(() => location.hash === '#quiz') && await page.$('#quit')) { // quitter la série en cours
+      await page.click('#quit');
+      await page.waitForSelector('#quit', { state: 'detached' });
+    }
     if (!await surAccueil()) await page.click('#app [data-nav=accueil] >> nth=0');
     await page.waitForSelector('.menu-principal.centre');
     return page.click(`#app [data-nav=${v}] >> nth=0`);
@@ -92,6 +95,7 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.waitForSelector('#suivant');
     page.once('dialog', d => d.accept());
     await page.click('#quit');
+    await page.waitForSelector('.score-rond'); // série commencée : écran de résultats
   });
 
   await verifier(`${appareil} : examen interrompu puis repris`, async () => {
@@ -137,6 +141,7 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.click('.plein [data-fermer]');
     page.once('dialog', d => d.accept());
     await page.click('#quit');
+    await page.waitForSelector('#quit', { state: 'detached' });
   });
 
   await verifier(`${appareil} : ECG 12 dérivations (rendu)`, async () => {
