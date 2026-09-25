@@ -322,7 +322,7 @@ details.avance > summary { cursor: pointer; font-weight: 700; margin-bottom: 12p
 /* ---------- Simulateur d'électrophysiologie ---------- */
 :root {
   --simu-fond: #0b1118; --simu-grille: #17222d; --simu-grille-2: #26384a; --simu-texte: #9fb2c1; --simu-surface: #e8eef3;
-  --simu-od: #ff7aa8; --simu-halo: #ff9d5c; --simu-his: #ffd24a; --simu-sc: #4fd08b; --simu-vd: #b99bff; --simu-abl: #6fe3ff; --simu-stim: #ff5d5d; --simu-curseur: #5ec8ff;
+  --simu-od: #ff7aa8; --simu-halo: #ff9d5c; --simu-his: #ffd24a; --simu-sc: #4fd08b; --simu-vd: #b99bff; --simu-abl: #6fe3ff; --simu-stim: #ff5d5d; --simu-curseur: #5ec8ff; --simu-pa: #ff6b6b;
 }
 .simu-tete { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: end; justify-content: space-between; }
 .simu-champ { display: flex; flex-direction: column; gap: 4px; font-size: .85rem; color: var(--texte-2); min-width: 0; }
@@ -378,7 +378,7 @@ details.avance > summary { cursor: pointer; font-weight: 700; margin-bottom: 12p
 /* baie : écran en temps réel et écran de rappel côte à côte (grand écran, téléphone en paysage) */
 .simu-ecrans { display: grid; gap: 8px; }
 .simu-panneau { min-width: 0; }
-.simu-titre-ecran { display: flex; gap: 8px; align-items: baseline; font-size: .8rem; color: var(--simu-texte); margin: 4px 2px 0; min-width: 0; }
+.simu-titre-ecran { display: flex; flex-wrap: wrap; gap: 2px 8px; align-items: baseline; font-size: .8rem; color: var(--simu-texte); margin: 4px 2px 0; min-width: 0; }
 .simu-titre-ecran b { color: #e8eef3; white-space: nowrap; }
 .simu-titre-ecran .simu-mesures { margin-left: auto; color: var(--simu-texte); font-size: .82rem; }
 .simu-titre-ecran .simu-mesures b { font-size: .9rem; }
@@ -493,4 +493,136 @@ main { padding-top: max(20px, env(safe-area-inset-top)); }
 #app > .note.centre, .raccourcis { color: rgba(255, 255, 255, .75); }
 /* le simulateur prend toute la largeur pour loger les deux écrans de la baie */
 main:has(.simu-baie) { max-width: 1680px; }
-main:has(.simu-baie) > :not(.simu-baie) { max-width: 860px; margin-left: auto; margin-right: auto; }
+main:has(.simu-baie) > :not(.simu-poste) { max-width: 860px; margin-left: auto; margin-right: auto; }
+
+/* ---------- console de stimulation : toujours à portée du pouce ---------- */
+.simu-poste { display: block; }
+.simu-console { position: sticky; bottom: 0; z-index: 6; margin: 8px 0 12px; padding: 8px 8px calc(8px + env(safe-area-inset-bottom));
+  background: #0f1a24; color: #e8eef3; border: 1px solid #22384b; border-radius: 14px; box-shadow: 0 -6px 20px rgba(0, 0, 0, .35); }
+.simu-console .note { color: var(--simu-texte); }
+.simu-console .btn { background: #16212c; color: #e8eef3; border-color: #2c3e50; }
+.simu-console .btn-primaire { background: var(--primaire-2); border-color: var(--primaire-2); color: #fff; }
+.simu-console .btn-danger { background: #5a1620; border-color: #a33a48; color: #fff; }
+.simu-actions { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: 6px; }
+.simu-actions .btn { padding: 10px 4px; font-weight: 700; min-height: 44px; }
+.simu-go { font-size: 1.05rem; }
+.simu-console .btn-stop { background: #7a1d2a; border-color: #c44858; color: #fff; }
+.simu-console .btn.actif { box-shadow: inset 0 0 0 2px var(--simu-his); }
+.simu-puces { display: flex; gap: 6px; overflow-x: auto; padding: 8px 0 2px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.simu-puces::-webkit-scrollbar { display: none; }
+.simu-puces button { flex: none; border: 1px solid #2c3e50; background: #16212c; color: #cfdbe5; border-radius: 999px; padding: 7px 12px; font-size: .85rem; font-weight: 600; min-height: 36px; }
+.simu-puces button[aria-checked="true"] { background: var(--simu-curseur); border-color: var(--simu-curseur); color: #06131d; }
+.simu-resume { margin: 4px 2px 6px; font-size: .78rem; color: var(--simu-texte); font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.simu-onglets { display: flex; flex-wrap: wrap; gap: 0 2px; border-bottom: 1px solid #22384b; }
+.simu-onglets::-webkit-scrollbar { display: none; }
+.simu-onglets [role=tab] { flex: none; border: 0; background: none; color: var(--simu-texte); padding: 8px 10px; font-size: .85rem; font-weight: 600; border-bottom: 2px solid transparent; }
+.simu-onglets [role=tab][aria-selected="true"] { color: #fff; border-bottom-color: var(--simu-curseur); }
+.simu-replier { margin-left: auto; flex: none; border: 0; background: none; color: var(--simu-texte); font-size: 1.1rem; padding: 4px 10px; }
+.simu-pans { max-height: min(42vh, 380px); overflow-y: auto; padding: 8px 2px 2px; overscroll-behavior: contain; }
+.simu-console.repliee .simu-pans { display: none; }
+.simu-pan[hidden] { display: none; }
+.simu-grille-pas { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 8px; margin-bottom: 8px; }
+.simu-pas { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.simu-pas-lib { font-size: .76rem; color: var(--simu-texte); }
+.simu-pas-ctl { display: grid; grid-template-columns: 40px 1fr 40px; align-items: stretch; border: 1px solid #2c3e50; border-radius: 10px; overflow: hidden; background: #16212c; }
+.btn-pas { border: 0; background: #1d2b38; color: #fff; font-size: 1.25rem; line-height: 1; min-height: 40px; touch-action: manipulation; user-select: none; -webkit-user-select: none; }
+.btn-pas:active { background: #2c4257; }
+.simu-pas-ctl input { width: 100%; min-width: 0; border: 0; background: transparent; color: #fff; text-align: center; font: inherit; font-weight: 700; font-variant-numeric: tabular-nums; -moz-appearance: textfield; appearance: textfield; }
+.simu-pas-ctl input::-webkit-inner-spin-button, .simu-pas-ctl input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.simu-ligne-puces { margin: 4px 0 6px; }
+.simu-console .simu-case { color: #cfdbe5; margin: 6px 0; }
+.simu-protos { display: grid; gap: 6px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+.simu-proto { text-align: left; border: 1px solid #2c3e50; background: #16212c; color: #e8eef3; border-radius: 10px; padding: 9px 10px; font: inherit; }
+.simu-proto:hover, .simu-proto:focus-visible { border-color: var(--simu-curseur); }
+.simu-proto b { display: block; font-size: .9rem; }
+.simu-proto small { display: block; color: var(--simu-texte); font-size: .76rem; margin-top: 2px; }
+.simu-proto-etat { margin: 8px 2px 0; font-size: .85rem; color: var(--simu-his); min-height: 1.2em; }
+.simu-medics { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 6px; }
+.simu-medics .btn { min-height: 44px; }
+.simu-console .simu-journal { max-height: none; }
+.simu-console .simu-journal li { border-bottom-color: #22384b; }
+.simu-console .simu-evt:hover, .simu-console .simu-evt.choisi { background: #1a2a39; }
+.simu-evt-mes { display: block; color: var(--simu-texte); font-size: .74rem; font-variant-numeric: tabular-nums; }
+.simu-console .simu-champ span { color: var(--simu-texte); }
+.simu-console .simu-champ select { background: #16212c; color: #e8eef3; border-color: #2c3e50; }
+/* sonde : carte, générateur */
+.simu-carte-bloc { display: grid; gap: 4px; margin-bottom: 8px; }
+.simu-carte { width: 100%; max-width: 420px; height: auto; background: #0b1118; border-radius: 10px; }
+.simu-carte .anneau { fill: none; stroke: #2c4257; stroke-width: 7; }
+.simu-carte .sc { fill: none; stroke: #2a5a44; stroke-width: 6; stroke-linecap: round; }
+.simu-carte .lib-anneau { fill: #3f5a70; font-size: 9px; text-anchor: middle; }
+.simu-carte .pt { cursor: pointer; }
+.simu-carte .pt circle { fill: #26384a; stroke: #6d8aa2; stroke-width: 1.5; transition: fill .3s; }
+.simu-carte .pt text { fill: #9fb2c1; font-size: 8.5px; text-anchor: middle; pointer-events: none; }
+.simu-carte .pt text.lat { fill: #06131d; font-weight: 700; font-size: 7.5px; }
+.simu-carte .pt.ici circle { stroke: #fff; stroke-width: 3; }
+.simu-carte .pt:focus-visible circle { stroke: var(--simu-curseur); stroke-width: 3; }
+.simu-carte-legende { margin: 0; font-size: .76rem; }
+.simu-rf { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 4px 0 8px; }
+.simu-rf-btn { min-height: 48px; min-width: 150px; font-weight: 700; }
+.simu-rf-btn[aria-pressed="true"] { background: #c0392b !important; animation: simu-rf 1s ease-in-out infinite; }
+@keyframes simu-rf { 50% { box-shadow: 0 0 0 4px rgba(255, 93, 93, .35); } }
+@media (prefers-reduced-motion: reduce) { .simu-rf-btn[aria-pressed="true"] { animation: none; } }
+.simu-rf-etat { font-variant-numeric: tabular-nums; font-size: .85rem; color: #ffd24a; }
+/* baie : réglages repliables, constantes, référence de comparaison */
+.simu-filtres { font-size: .82rem; color: var(--simu-texte); }
+.simu-filtres summary { cursor: pointer; }
+.simu-filtres > div { display: flex; flex-wrap: wrap; gap: 4px 12px; padding: 4px 0; }
+.simu-vitaux { font-size: .8rem; color: var(--simu-texte); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.simu-vitaux b { color: var(--simu-pa); margin-right: 6px; }
+.simu-vitaux b.alerte { color: #fff; background: #b3261e; padding: 0 4px; border-radius: 4px; }
+.simu-reference { border-top: 1px dashed #2c3e50; margin-top: 4px; }
+.simu-reference[hidden] { display: none; }
+.simu-reference .simu-titre-ecran .btn { margin-left: auto; }
+.simu-bascule, .simu-ecran canvas.simu-mini-direct { display: none; }
+.simu-pastille { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--simu-stim); vertical-align: middle; }
+.simu-pastille[hidden] { display: none; }
+/* compte rendu */
+.simu-cr-table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.simu-cr-table th { text-align: left; vertical-align: top; padding: 6px 10px 6px 0; width: 32%; color: var(--texte-2); font-weight: 600; }
+.simu-cr-table td { padding: 6px 0; border-bottom: 1px solid var(--bord); }
+.simu-cr-table tr:last-child td { border-bottom: 0; font-weight: 700; }
+@media (max-width: 480px) { .simu-cr-table th { width: 38%; } .simu-actions .btn { font-size: .85rem; } }
+/* téléphone en portrait : barre de la baie sur une ligne, console plus basse pour laisser voir le tracé */
+@media (max-width: 699px) and (orientation: portrait) {
+  .simu-baie > .simu-barre { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .simu-baie > .simu-barre::-webkit-scrollbar { display: none; }
+  .simu-baie > .simu-barre > * { flex: none; }
+  .simu-pans { max-height: 30vh; }
+  .simu-actions .btn { min-height: 42px; padding: 8px 2px; font-size: .88rem; }
+  .simu-onglets [role=tab] { padding: 7px 8px; font-size: .82rem; }
+  .simu-console { padding: 6px 6px calc(6px + env(safe-area-inset-bottom)); }
+}
+/* console à droite (ordinateur large, téléphone en paysage) : Stimuler sur toute la largeur, pastilles sur plusieurs lignes */
+@media (min-width: 1280px), (orientation: landscape) and (max-height: 520px) {
+  .simu-actions { grid-template-columns: repeat(4, 1fr) !important; }
+  .simu-actions .simu-go { grid-column: 1 / -1; }
+}
+@media (min-width: 1280px) { .simu-puces#site { flex-wrap: wrap; overflow: visible; } }
+/* ordinateur large : console à droite de la baie */
+@media (min-width: 1280px) {
+  .simu-poste { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 12px; align-items: start; }
+  .simu-poste .simu-baie { margin: 0; }
+  .simu-console { position: sticky; top: 12px; bottom: auto; margin: 0; }
+  .simu-pans { max-height: calc(100vh - 260px); }
+}
+/* téléphone en paysage : baie plein écran à gauche (un écran à la fois, glisser pour changer), console à droite */
+@media (orientation: landscape) and (max-height: 520px) {
+  .simu-h1, .simu-tete .simu-contexte { display: none; }
+  .simu-poste { display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, 36%); gap: 6px; align-items: start; }
+  .simu-poste .simu-baie { margin: 0; }
+  .simu-console { position: sticky; top: 0; bottom: auto; margin: 0; max-height: 100dvh; overflow-y: auto; border-radius: 10px; padding: 6px; }
+  .simu-pans { max-height: none; }
+  .simu-baie > .simu-barre { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; font-size: .76rem; }
+  .simu-baie > .simu-barre > * { flex: none; }
+  .simu-actions .btn { min-height: 38px; padding: 6px 2px; font-size: .85rem; }
+  .simu-bascule { display: flex; gap: 4px; margin: 4px 0; }
+  .simu-bascule button { flex: 1; border: 1px solid #2c3e50; background: #16212c; color: var(--simu-texte); border-radius: 8px; padding: 4px; font-size: .82rem; font-weight: 600; }
+  .simu-bascule button[aria-selected="true"] { color: #06131d; background: var(--simu-curseur); border-color: var(--simu-curseur); }
+  .simu-ecrans { grid-template-columns: 1fr !important; }
+  .simu-rappel { border: 0 !important; padding: 0 !important; }
+  .simu-baie[data-vue="direct"] .simu-rappel, .simu-baie[data-vue="rappel"] .simu-direct { display: none; }
+  .simu-baie[data-vue="rappel"] .simu-ecran canvas.simu-mini-direct { display: block; position: absolute; top: 4px; right: 4px; width: 170px; border: 1px solid #2c3e50; border-radius: 6px; opacity: .92; cursor: pointer; }
+  .simu-titre-ecran .simu-mesures { font-size: .75rem; gap: 2px 8px; }
+  .simu-revue { gap: 4px; }
+}

@@ -42,6 +42,10 @@ export const SITES_VENTRICULAIRES = ['vsep', 'vbd', 'vps', 'rva', 'lvl', 'tv1', 
 
 // Seuils de capture (mA) ; le site para-hisien capture le His seulement à haute énergie.
 export const SEUILS = { defaut: 0.8, his: 10 };
+// Seuils par site pour une impulsion de 2 ms (tissu sain ≈ 0,5-1,5 mA ; isthme, SC distal et cicatrice plus élevés).
+export const SEUILS_SITES = { hra: 0.6, latb: 1.0, cti: 1.4, cs9: 0.9, cs1: 1.3, rva: 0.5, lvl: 1.1, tv2: 2.4, vbd: 0.8 };
+// Loi intensité-durée (Lapicque, chronaxie ≈ 0,4 ms), normalisée sur une impulsion de 2 ms.
+export const seuilCapture = (site, largeur = 2) => (SEUILS_SITES[site] ?? SEUILS.defaut) * (1 + 0.4 / largeur) / 1.2;
 
 export class Coeur {
   // def : { sites: {id: {erp, cl?, declenchable?}}, voies: [{id?, a, b, ab, ba, nodale?}] }
@@ -55,6 +59,7 @@ export class Coeur {
     this.stims = [];        // stimulations délivrées : {t, s, capture}
     this.adenosine = null;  // {debut, fin} : bloc des voies nodales
     this.evenements = [];   // messages horodatés pour l'interface (déclenchement, ablation…)
+    this.chocs = [];        // instants des chocs (saturation des amplificateurs)
     this.ecouteurs = [];    // fonctions (site, t) appelées à chaque activation (détection du stimulateur)
     this.alea = alea;
     this.sites = {};
@@ -127,6 +132,7 @@ export class Coeur {
     for (const { v, p, vers } of this.adj[id]) {
       const c = v[p];
       if (!c || v.coupee || v.id === origine) continue; // pas de retour immédiat dans la voie d'arrivée
+      if (v.bloqueJusqua > t) continue;                   // bloc mécanique transitoire (« bump » du cathéter)
       if (v.nodale && this.adenosine && t >= this.adenosine.debut && t < this.adenosine.fin) continue;
       const cerp = v.nodale ? c.erp * ef.nodErp : c.erp;
       // récupération : pour une voie décrémentielle, comptée depuis la sortie de l'influx précédent
@@ -144,7 +150,33 @@ export class Coeur {
     return true;
   }
 
-  stimuler(site, t, sortie = 5) { this.tas.pousser({ t, type: 'stim', s: site, sortie }); }
+  stimuler(site, t, sortie = 5, largeur = 2) { this.tas.pousser({ t, type: 'stim', s: site, sortie, largeur }); }
+  // Capture d'un site : certaine au-dessus du seuil, intermittente dans une marge de ± 8 % autour du seuil.
+  capte(site, sortie, largeur = 2) {
+    const s = seuilCapture(site, largeur);
+    if (sortie >= s * 1.08) return true;
+    if (sortie < s * 0.92) return false;
+    return this.alea() < (sortie - s * 0.92) / (s * 0.16);
+  }
+  // Extrasystole mécanique (contact du cathéter) : activation du site sans stimulation électrique.
+  ectopie(site, t = this.t) { if (this.sites[site]) this.tas.pousser({ t, type: 'arr', s: site, v: 'meca', r: `meca:${Math.round(t)}` }); }
+  // Bloc mécanique transitoire d'une voie (traumatisme par le cathéter), sans message : c'est un piège à reconnaître.
+  bloquer(id, duree, t = this.t) { const v = this.voies.find(x => x.id === id && !x.coupee); if (v) v.bloqueJusqua = t + duree; return !!v; }
+  // Rythme jonctionnel accéléré (chauffage de la région du nœud AV) : cycle imposé à l'échappement hisien, ou retour à la normale.
+  jonction(cl, t = this.t) {
+    const s = this.sites.his; if (!s || s.supprime) return;
+    s.clBase ??= s.cl;
+    s.cl = cl || s.clBase;
+    if (cl) { s.gen++; this.tas.pousser({ t: t + Math.max(80, cl - (t - s.der)), type: 'auto', s: 'his', gen: s.gen }); }
+  }
+  // Lésion thermique progressive des voies nodales rapides : allongement des délais antérograde et rétrograde (ms).
+  leserNoeud(ms, { retro = true, antero = true } = {}) {
+    for (const v of this.voies) if (v.nodale && v.id !== 'lente' && !v.coupee) {
+      if (antero && v.ab && !v.ab.bloc) v.ab.d += ms;
+      if (retro && v.ba && !v.ba.bloc) v.ba.d += ms;
+      if ((v.ab?.d ?? 0) > 400) { v.coupee = true; this.evenements.push({ t: this.t, texte: 'Bloc AV complet' }); }
+    }
+  }
   annulerStims(apres = this.t) { this.tas.filtrer(e => !(e.type === 'stim' && e.t > apres)); }
 
   // Fibrillation atriale : activations désordonnées et indépendantes des différents sites atriaux (cycles 140-220 ms).
@@ -193,7 +225,7 @@ export class Coeur {
           // stimulation para-hisienne : myocarde septal basal du VD, plus le His si la sortie dépasse son seuil
           if (sortie >= SEUILS.his && this.sites.his) capture = this.activer('his', e.t, 'stim', r) || capture;
           if (sortie >= SEUILS.defaut) capture = this.activer('vbd', e.t, 'stim', r) || capture;
-        } else if (sortie >= SEUILS.defaut) capture = this.activer(e.s, e.t, 'stim', r);
+        } else if (this.capte(e.s, sortie, e.largeur)) capture = this.activer(e.s, e.t, 'stim', r);
         this.stims.push({ t: e.t, s: e.s, capture, sortie, his: e.s === 'parahis' && sortie >= SEUILS.his });
         this.suivreTrainAtrial(e.s, e.t, capture);
       } else if (e.type === 'fa') this.ondeFA(e);
@@ -233,6 +265,7 @@ export class Coeur {
     }
     for (const v of this.voies) v.der = t;
     this.trainAtrial.n = 0;
+    this.chocs.push(t);
     this.evenements.push({ t, texte: 'Choc électrique externe' });
   }
 

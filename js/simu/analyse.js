@@ -80,3 +80,70 @@ export function analyserESV(coeur, te, tcl) {
   const avance = tcl - Math.min(...ecartsA), retard = Math.max(...ecartsA) - tcl;
   return Math.round(avance > 5 || avance >= retard ? avance : -retard);
 }
+
+// Réponse à un stimulus délivré à l'instant ts : capture, activations qu'il a produites (même événement racine)
+// sur l'atrium (His A, OD haute), le His et les ventricules ; intervalles AH, HV et stimulus-A.
+export function reponseStim(coeur, ts) {
+  const st = coeur.stims.find(s => Math.abs(s.t - ts) < 0.5);
+  const r = `stim:${ts}`, de = site => coeur.journal.find(x => x.r === r && x.s === site)?.t ?? null;
+  const A = de('ras'), H = de('his'), Ahra = de('hra');
+  const V = coeur.journal.filter(x => x.r === r && ['vsep', 'vbd', 'vps', 'rva', 'lvl'].includes(x.s)).map(x => x.t);
+  const atr = coeur.journal.filter(x => x.r === r && ['hra', 'ras', 'cs9', 'cs7', 'cs5', 'cs3', 'cs1'].includes(x.s)).map(x => x.t);
+  return { capture: !!st?.capture, his: !!st?.his, A, Ahra, H, V: V.length ? Math.min(...V) : null,
+    AH: A != null && H != null && H > A ? Math.round(H - A) : null, HV: H != null && V.length ? Math.round(Math.min(...V) - H) : null,
+    SA: atr.length ? Math.round(Math.min(...atr) - ts) : null };
+}
+
+// Temps de récupération sinusale après une salve terminée à tDer : premier battement sinusal sur l'OD haute.
+export function recuperationSinusale(coeur, tDer) {
+  const sa = coeur.journal.find(x => x.s === 'sa' && x.o === 'auto' && x.t > tDer);
+  if (!sa) return null;
+  const hra = coeur.journal.find(x => x.s === 'hra' && x.r === sa.r);
+  return Math.round((hra?.t ?? sa.t) - tDer);
+}
+
+// Pression artérielle (mmHg) par un modèle de Windkessel : chaque battement éjecte un volume qui dépend du remplissage
+// (RR précédent) et de la contraction atriale (onde A 80 à 260 ms avant le QRS). Échantillons toutes les 4 ms sur [t0, t1].
+export function pressionArterielle(journal, t0, t1) {
+  const pas = 4, tau = 850, debut = t0 - 6000;
+  const V = battementsV(journal, debut - 2000, t1), A = activations(journal, 'hra', debut - 2000, t1);
+  const ejections = V.map((v, i) => {
+    const rr = i ? v - V[i - 1] : 800;
+    const remplissage = Math.max(0.2, Math.min(1, (rr - 150) / 450));
+    const kick = A.some(a => v - a > 80 && v - a < 260) ? 1.18 : 0.85;
+    return { t: v + 60, d: Math.min(300, 0.38 * rr + 60), vol: remplissage * kick };
+  });
+  let P = 80, k = 0;
+  const out = [];
+  for (let t = debut; t <= t1; t += pas) {
+    while (k < ejections.length && ejections[k].t + ejections[k].d < t) k++;
+    let q = 0;
+    for (let j = Math.max(0, k - 1); j < ejections.length && ejections[j].t <= t; j++) {
+      const e = ejections[j], u = (t - e.t) / e.d;
+      if (u >= 0 && u <= 1) q += e.vol * Math.sin(Math.PI * u) * (Math.PI / 2) / e.d;
+    }
+    P += pas * (-(P - 8) / tau + 63 * q);
+    if (t >= t0) out.push([t, P]);
+  }
+  return out;
+}
+// Systolique, diastolique et moyenne sur les dernières secondes.
+export function constantes(journal, t, duree = 4000) {
+  const p = pressionArterielle(journal, t - duree, t);
+  if (!p.length) return null;
+  const v = p.map(x => x[1]);
+  const sys = Math.max(...v), dia = Math.min(...v), moy = v.reduce((a, b) => a + b, 0) / v.length;
+  return { sys: Math.round(sys), dia: Math.round(dia), moy: Math.round(moy) };
+}
+
+// Temps d'activation local d'un site pendant une tachycardie, relatif à une référence (ms), ramené dans une fenêtre
+// d'un cycle [-0,7 × TCL, +0,3 × TCL[ ; médiane des derniers battements.
+export function tempsLocal(journal, site, reference, t, tcl) {
+  const loc = activations(journal, site, t - 3000, t), ref = activations(journal, reference, t - 3000 - tcl, t);
+  if (!loc.length || !ref.length || !tcl) return null;
+  const d = loc.map(x => {
+    const r = ref.filter(y => y <= x + 0.3 * tcl).at(-1);
+    return r == null ? null : x - r;
+  }).filter(x => x != null).map(x => { let y = x; while (y >= 0.3 * tcl) y -= tcl; while (y < -0.7 * tcl) y += tcl; return y; });
+  return d.length ? Math.round(mediane(d)) : null;
+}

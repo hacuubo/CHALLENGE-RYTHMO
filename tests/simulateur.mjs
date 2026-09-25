@@ -2,7 +2,8 @@
 // Vérifie, pour chaque scénario, le rythme de base, l'induction, les manœuvres diagnostiques et l'ablation.
 import { Coeur } from '../js/simu/moteur.js';
 import { SCENARIOS } from '../js/simu/scenarios.js';
-import { tachycardie, mesures, battementsV, activations, sitePlusPrecoce } from '../js/simu/analyse.js';
+import { tachycardie, mesures, battementsV, activations, sitePlusPrecoce, reponseStim, recuperationSinusale, constantes } from '../js/simu/analyse.js';
+import { seuilCapture } from '../js/simu/moteur.js';
 
 const GRAINE = +(process.env.GRAINE || 7), VARIATION = +(process.env.VARIATION || 0);
 let graine = 1;
@@ -393,6 +394,56 @@ function esvHR(c) {
   const c = nouveau('normal'); c.ablater('rapide'); attendre(c, 8000);
   const m = mesures(c);
   verifier(m.cycleV > 1100, `bloc AV complet après ablation antéro-septale (cycle V ${m.cycleV})`);
+}
+
+// stimulateur : seuil propre au site, loi intensité-durée, capture intermittente autour du seuil
+{
+  console.log('Stimulateur, constantes et gestes');
+  const c = nouveau('normal');
+  verifier(seuilCapture('cti') > seuilCapture('hra') && seuilCapture('hra', 0.5) > seuilCapture('hra', 2), 'seuils par site et loi intensité-durée');
+  attendre(c, 800); const t0 = c.derniere('hra') + 550, s0 = seuilCapture('hra'); // couplage fixe au dernier battement sinusal
+  c.stimuler('hra', t0, s0 * 1.2); c.stimuler('hra', t0 + 600, s0 * 0.8); attendre(c, t0 + 1500 - c.t);
+  verifier(reponseStim(c, t0).capture && !reponseStim(c, t0 + 600).capture, 'capture au-dessus du seuil, perte de capture en dessous');
+  const r = reponseStim(c, t0);
+  verifier(r.AH > 60 && r.AH < 130 && r.HV === 40, `réponse au stimulus : AH ${r.AH} ms, HV ${r.HV} ms`);
+}
+// temps de récupération sinusale après 30 s de stimulation atriale
+{
+  const c = nouveau('normal'); let t = c.t + 100;
+  for (let i = 0; i < 50; i++) { c.stimuler('hra', t); t += 600; }
+  attendre(c, t - c.t + 4000);
+  const trs = recuperationSinusale(c, t - 600);
+  verifier(trs > 700 && trs < 1500, `TRS normal (${trs} ms)`);
+}
+// pression artérielle : normale en rythme sinusal, effondrée en TRIN rapide
+{
+  const c = nouveau('trin'); attendre(c, 5000);
+  const avant = constantes(c.journal, c.t);
+  induire(c, 'hra', 1); attendre(c, 6000);
+  const apres = constantes(c.journal, c.t);
+  console.log(`    PA ${avant.sys}/${avant.dia} en sinusal, ${apres.sys}/${apres.dia} en tachycardie`);
+  verifier(avant.sys > 100 && avant.sys < 140 && avant.dia > 60 && apres.moy < avant.moy - 15, 'PA normale puis chute en tachycardie rapide');
+}
+// gestes : extrasystole mécanique, bloc transitoire d'une voie accessoire, rythme jonctionnel, lésion nodale progressive
+{
+  const c = nouveau('wpw'); const t0 = c.t + 200;
+  c.ectopie('rva', t0); attendre(c, 400);
+  verifier(activations(c.journal, 'rva', t0 - 1, t0 + 1).length === 1, 'extrasystole mécanique au contact du cathéter');
+  const preexcite = () => battementsV(c.journal, c.t - 3000, c.t).filter(v => { const l = activations(c.journal, 'lvl', v - 5, v + 150)[0], s = activations(c.journal, 'vsep', v - 5, v + 150)[0]; return l != null && s != null && s - l > 15; }).length;
+  attendre(c, 3000); const p0 = preexcite();
+  const id = c.voies.find(v => v.id.startsWith('vacc')).id;
+  c.bloquer(id, 6000); attendre(c, 4000); const p1 = preexcite();
+  attendre(c, 6000); const p2 = preexcite();
+  verifier(p0 > 0 && p1 === 0 && p2 > 0, `« bump » : préexcitation ${p0} → ${p1} → ${p2} QRS (disparaît puis revient)`);
+  const n = nouveau('normal');
+  n.jonction(500); attendre(n, 4000);
+  const J = n.journal.filter(x => x.s === 'his' && x.o === 'auto' && x.t > n.t - 3000).length;
+  n.jonction(null); attendre(n, 3000);
+  verifier(J >= 4, `rythme jonctionnel accéléré (${J} battements en 3 s)`);
+  const ah0 = mesures(n).AH; n.leserNoeud(60); attendre(n, 3000);
+  verifier(ah0 != null && mesures(n).AH >= ah0 + 50, `lésion nodale : AH ${ah0} → ${mesures(n).AH} ms`);
+  n.leserNoeud(400); attendre(n, 5000);
+  verifier(n.voies.find(v => v.id === 'nav').coupee && mesures(n).cycleV > 1100, 'lésion nodale poussée : bloc AV complet');
 }
 
 console.log(erreurs.length ? `\n${erreurs.length} échec(s)` : '\nSimulateur conforme.');

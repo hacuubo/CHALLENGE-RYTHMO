@@ -195,6 +195,7 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     if (/Relecture/.test(await page.evaluate(() => document.querySelector('#etat').textContent)) || !t0) throw new Error('le tracé en temps réel s\'est figé');
     await page.click('#enregistrer');
     await page.waitForFunction(() => document.querySelector('#rappel-titre')?.textContent.includes('Enregistrement'), null, { timeout: 5000 });
+    await page.click('#tab-journal');
     await page.click('#journal [data-evt]:last-child');
     if (largeur < 700) { if (!await page.isVisible('#paysage')) throw new Error('invitation au paysage absente'); }
     else {
@@ -205,8 +206,36 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
       if (!await page.evaluate(() => /A-A/.test(document.querySelector('#mesures-rappel').textContent))) throw new Error('mesures du rappel absentes');
     }
     await capture('simulateur');
+    await page.click('#tab-medic');
     await page.click('#adenosine');
     await page.waitForFunction(() => !/Tachycardie/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 15000 });
+    // protocole automatique : stimulation para-hisienne, conclusion nodale dans le scénario de conduction normale
+    await page.selectOption('#scenario', 'normal');
+    await page.click('#tab-proto');
+    await page.click('[data-proto=parahis]');
+    await page.waitForFunction(() => /conduction rétrograde nodale/.test(document.querySelector('#proto-etat')?.textContent || ''), null, { timeout: 20000 });
+    // sonde placée sur la carte, tir de radiofréquence avec température affichée, puis arrêt
+    await page.click('#tab-abl');
+    await page.click('.pt[data-pos=koch]');
+    await page.click('#ablater');
+    await page.waitForFunction(() => /°C/.test(document.querySelector('#rf-etat')?.textContent || ''), null, { timeout: 5000 });
+    await page.click('#stop');
+    if (await page.getAttribute('#ablater', 'aria-pressed') !== 'false') throw new Error('le tir ne s\'arrête pas');
+    await page.click('#tab-journal');
+    await page.click('#cr-generer');
+    await page.waitForSelector('#compte-rendu .simu-cr-table');
+    await capture('simulateur-console');
+    if (largeur < 700) { // téléphone en paysage : un écran à la fois, bascule vers le rappel
+      await page.setViewportSize({ width: 844, height: 390 });
+      await page.waitForTimeout(300);
+      if (!await page.isVisible('.simu-bascule')) throw new Error('bascule temps réel / rappel absente en paysage');
+      await page.click('.simu-bascule [data-vue=rappel]');
+      await page.waitForTimeout(200);
+      if (await page.isVisible('#ecran') || !await page.isVisible('#ecran-rappel')) throw new Error('bascule vers l\'écran de rappel inopérante');
+      await capture('simulateur-paysage');
+      await page.click('.simu-bascule [data-vue=direct]');
+      await page.setViewportSize({ width: largeur, height: hauteur });
+    }
     await page.selectOption('#scenario', 'mystere');
     await page.selectOption('#reponse', 'trav');
     await page.click('#valider');
