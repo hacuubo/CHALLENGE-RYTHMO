@@ -33,11 +33,18 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
   page.on('pageerror', e => erreurs.push(`[${appareil}] ${etape} : ${e.message}`));
   page.on('console', m => { if (m.type() === 'error') erreurs.push(`[${appareil}] ${etape} : console ${m.text()}`); });
   const capture = async n => { if (captures) await page.screenshot({ path: path.join(captures, `${appareil}-${n}.png`), fullPage: true }); };
-  // navigation : barre d'onglets du bas si visible (elle est masquée sur l'accueil épuré), sinon bouton de l'écran
+  // navigation sans barre du bas : bouton de l'écran, sinon retour à l'accueil puis case de l'accueil
   const nav = async v => {
-    const barre = page.locator(`.onglets-bas [data-nav=${v}]`);
-    if (await barre.isVisible()) return barre.click();
-    if (v === 'accueil' && await page.$('.menu-principal.centre')) return; // déjà sur l'accueil
+    if (await page.$('.onglets-bas')) throw new Error('barre de navigation du bas présente');
+    const surAccueil = async () => !!await page.$('.menu-principal.centre');
+    if (v === 'accueil' && await surAccueil()) return; // déjà sur l'accueil
+    if (await page.$(`#app [data-nav=${v}]`)) return page.click(`#app [data-nav=${v}] >> nth=0`);
+    if (await page.evaluate(() => location.hash === '#quiz') && await page.$('#quit')) { // quitter la série en cours
+      await page.click('#quit');
+      await page.waitForSelector('#quit', { state: 'detached' });
+    }
+    if (!await surAccueil()) await page.click('#app [data-nav=accueil] >> nth=0');
+    await page.waitForSelector('.menu-principal.centre');
     return page.click(`#app [data-nav=${v}] >> nth=0`);
   };
   const repondre = async () => {
@@ -88,6 +95,7 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.waitForSelector('#suivant');
     page.once('dialog', d => d.accept());
     await page.click('#quit');
+    await page.waitForSelector('.score-rond'); // série commencée : écran de résultats
   });
 
   await verifier(`${appareil} : examen interrompu puis repris`, async () => {
@@ -133,6 +141,7 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.click('.plein [data-fermer]');
     page.once('dialog', d => d.accept());
     await page.click('#quit');
+    await page.waitForSelector('#quit', { state: 'detached' });
   });
 
   await verifier(`${appareil} : ECG 12 dérivations (rendu)`, async () => {
@@ -165,7 +174,6 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await capture('progression');
     await nav('apropos');
     await page.waitForSelector('.sources-liste');
-    if (await page.locator('.onglets-bas').isVisible()) throw new Error('barre du bas visible sur Sources');
     await capture('sources');
     await page.click('.retour-fleche');
     await page.waitForSelector('.menu-principal.centre');

@@ -61,11 +61,9 @@ function rendre(vue) {
   if (vue === 'resultats' && !s) vue = 'accueil';
   if (vue !== 'quiz') arreterQuiz();
   if (vue !== 'simulateur') arreterSimulateur();
-  document.querySelectorAll('[data-nav]').forEach(b => b.classList.toggle('actif', b.dataset.nav === vue || (vue === 'quiz' && b.dataset.nav === (s?.competitif ? 'competitif' : 'accueil')) || (['config', 'entrainement', 'simu-menu', 'simulateur'].includes(vue) && b.dataset.nav === 'accueil')));
   document.body.classList.toggle('sur-accueil', vue === 'accueil');
-  document.body.classList.toggle('sans-onglets', vue === 'apropos'); // Sources : simple flèche de retour, sans barre du bas
   vues[vue]();
-  // retour vers l'écran parent (accueil épuré → écrans de choix → activité)
+  // pas de barre de navigation : chaque écran a son retour vers l'écran parent (accueil épuré → écrans de choix → activité)
   const parent = { entrainement: ['accueil', 'Accueil'], 'simu-menu': ['accueil', 'Accueil'], competitif: ['accueil', 'Accueil'],
     progression: ['accueil', 'Accueil'], config: ['entrainement', 'Entraînement'], simulateur: ['accueil', 'Accueil'] }[vue];
   if (parent) app.insertAdjacentHTML('afterbegin', `<button class="retour-accueil" data-nav="${parent[0]}">‹ ${parent[1]}</button>`);

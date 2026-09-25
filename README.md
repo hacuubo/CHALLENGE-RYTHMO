@@ -20,7 +20,8 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
 - **Difficulté de 1 à 10** sur chaque question ; filtre libre (« entre 1 et 3 », « au-dessus de 3 », « 7 à 10 »…).
 - **Écran titre** puis **accueil épuré sur fond bleu** : Entraînement, Compétitif (avec l'ELO en cours), Simulateur,
   Progression ; l'entraînement ouvre son écran de choix, le simulateur mène directement à la baie (scénario choisi dans la baie).
-  La page « Sources et informations » n'a pas de barre du bas, seulement une flèche de retour vers l'accueil.
+  Pas de barre de navigation en bas : une fois une case de l'accueil choisie, chaque écran a son propre retour
+  (« ‹ Accueil », flèche de retour sur « Sources et informations », ✕ pour quitter une série).
 - **Simulateur d'électrophysiologie** : une baie d'EEP en temps réel.
   - Baie : vitesse en mm/s (12,5 à 400), balayage avec barre d'effacement par défaut (défilement en option), D1, D2, aVF, V1, V6,
     OD haute, Halo, His proximal et distal, sinus coronaire décapolaire, VD apex, sonde d'ablation (bipolaire et unipolaire),
