@@ -97,14 +97,6 @@ main { max-width: 860px; margin: 0 auto; padding: 20px 16px 32px; outline: none;
 .btn-bloc { width: 100%; }
 .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
 
-.tuile {
-  text-align: left; border: 1px solid var(--bord); background: var(--surface); border-radius: var(--rayon); padding: 16px;
-  box-shadow: var(--ombre); display: flex; flex-direction: column; gap: 4px; min-height: 110px;
-}
-.tuile:hover { border-color: var(--primaire-2); }
-.tuile .ico { font-size: 1.6rem; line-height: 1; }
-.tuile strong { font-size: 1.02rem; }
-.tuile small { color: var(--texte-2); }
 
 .hero { background: linear-gradient(135deg, #0f3d5c, #1d6fa5); color: #fff; border: 0; }
 .hero h1 { color: #fff; }
@@ -257,8 +249,6 @@ body.sans-defilement { overflow: hidden; }
 .petit-rond { border-color: var(--primaire-2); color: var(--primaire); width: 60px; height: 60px; }
 .bandeau { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
 .actions.serre { margin-top: 0; }
-.tuile-vedette { border: 2px solid var(--primaire-2); }
-.tuile:disabled { opacity: .55; cursor: default; }
 .titre-section { margin-top: 22px; }
 .grille-badges { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
 .badge-carte, .badge-gagne { border: 1px solid var(--bord); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; gap: 2px; text-align: center; opacity: .45; filter: grayscale(1); }
@@ -402,3 +392,60 @@ details.avance > summary { cursor: pointer; font-weight: 700; margin-bottom: 12p
 .simu-check .fait { color: var(--ok); }
 .simu-check .manque { color: var(--ko); }
 @media (min-width: 900px) { .simu-commandes { grid-template-columns: 1.3fr 1fr; } .simu-commandes .simu-journal-bloc { grid-column: 1 / -1; } }
+
+/* ---------- Thème bleu, écran titre et accueil épuré ---------- */
+:root { --fond-bleu: linear-gradient(165deg, #082c47 0%, #0f4c78 50%, #1a6fae 100%); --sur-bleu: #ffffff; --sur-bleu-2: rgba(255, 255, 255, .78); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --fond-bleu: linear-gradient(165deg, #04121f 0%, #082a45 55%, #0e3f66 100%); --fond-bleu-bas: #0e3f66; } }
+:root[data-theme="dark"] { --fond-bleu: linear-gradient(165deg, #04121f 0%, #082a45 55%, #0e3f66 100%); --fond-bleu-bas: #0e3f66; }
+html { background: #0b3a5d; }
+body { background: var(--fond-bleu) top / 100% 100vh no-repeat, var(--fond-bleu-bas, #1a6fae); min-height: 100vh; }
+.barre { background: rgba(4, 22, 38, .35); border-bottom-color: rgba(255, 255, 255, .12); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.logo { color: #fff; }
+.logo svg { color: #ff8193; }
+.onglets button { color: var(--sur-bleu-2); }
+.onglets button.actif { background: rgba(255, 255, 255, .16); color: #fff; }
+.onglets-bas { background: rgba(4, 22, 38, .88); border-top-color: rgba(255, 255, 255, .12); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.onglets-bas button { color: var(--sur-bleu-2); }
+.onglets-bas button.actif { color: #fff; }
+body.sur-accueil .onglets-bas { display: none; }
+body.sur-accueil { padding-bottom: 24px; }
+/* textes posés directement sur le fond bleu */
+#app > h1, #app > h2, #app > p, #app > .note, .groupe-simu h2, .bloc-accueil h2 { color: var(--sur-bleu); }
+#app > p.note, #app > .note { color: var(--sur-bleu-2); }
+.chargement { color: var(--sur-bleu); }
+
+.ecran-titre { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  background: var(--fond-bleu), #0b3a5d; color: #fff; text-align: center; padding: 24px; transition: opacity .55s ease, transform .55s ease; }
+.ecran-titre svg { width: min(38vw, 180px); height: auto; color: #ff8193; }
+.ecran-titre path { stroke-dasharray: 160; stroke-dashoffset: 160; animation: trace-titre 1.1s ease-out forwards; }
+.ecran-titre-nom { margin: 8px 0 0; font-size: clamp(2rem, 8vw, 3.2rem); font-weight: 800; letter-spacing: .02em; opacity: 0; animation: apparition .6s .45s ease-out forwards; }
+.ecran-titre-sous { margin: 0; color: rgba(255, 255, 255, .75); font-size: clamp(.9rem, 3.5vw, 1.1rem); opacity: 0; animation: apparition .6s .75s ease-out forwards; }
+.ecran-titre.sortie { opacity: 0; transform: scale(1.04); pointer-events: none; }
+@keyframes trace-titre { to { stroke-dashoffset: 0; } }
+@keyframes apparition { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .ecran-titre path, .ecran-titre-nom, .ecran-titre-sous { animation: none; stroke-dashoffset: 0; opacity: 1; } .ecran-titre { transition-duration: .05s; } }
+
+.titre-accueil { text-align: center; font-size: 1.5rem; margin: 8px 0 22px; letter-spacing: .01em; }
+.menu-principal { display: grid; gap: 12px; }
+.menu-principal.centre { max-width: 560px; margin: 0 auto; }
+.menu-secondaire { margin-top: 16px; max-width: none; }
+.tuile { display: flex; align-items: center; gap: 16px; width: 100%; text-align: left; padding: 18px 18px; border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, .22); background: rgba(255, 255, 255, .09); color: #fff; font: inherit; cursor: pointer;
+  transition: background .15s, transform .15s, border-color .15s; }
+.tuile:hover, .tuile:focus-visible { background: rgba(255, 255, 255, .16); border-color: rgba(255, 255, 255, .45); }
+.tuile:active { transform: scale(.99); }
+.tuile-ico { font-size: 1.7rem; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 12px; background: rgba(255, 255, 255, .12); flex: none; }
+.tuile-texte { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.tuile-texte strong { font-size: 1.15rem; }
+.tuile-texte small { color: rgba(255, 255, 255, .75); font-size: .88rem; }
+.tuile-elo { margin-top: 4px; font-size: .95rem; color: #fff; }
+.tuile-elo b { font-size: 1.35rem; }
+.tuile-fleche { font-size: 1.8rem; color: rgba(255, 255, 255, .6); line-height: 1; }
+.reprise { display: block; width: 100%; max-width: 560px; margin: 0 auto 14px; padding: 10px 14px; border-radius: 12px; border: 0; background: #fff; color: var(--primaire, #0f3d5c); font-weight: 700; text-align: left; }
+.pied-accueil { text-align: center; margin-top: 26px; }
+.pied-accueil .lien, #app > p .lien { color: rgba(255, 255, 255, .8); }
+.retour-accueil { display: block; border: 0; background: none; color: rgba(255, 255, 255, .85); font-weight: 600; padding: 4px 0; margin-bottom: 6px; }
+.groupe-simu { margin-top: 22px; }
+.liste-simu { display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.choix-simu { text-align: left; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, .2); background: rgba(255, 255, 255, .07); color: #fff; font: inherit; cursor: pointer; }
+.choix-simu:hover { background: rgba(255, 255, 255, .14); }

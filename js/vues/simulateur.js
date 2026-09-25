@@ -6,6 +6,8 @@ import { mesures, tachycardie, analyserEntrainement, analyserESV } from '../simu
 import { esc, melanger } from '../util.js';
 
 let boucle = null;
+let choixInitial = null; // scénario choisi sur l'écran de choix (ou 'mystere')
+export function preparerSimulateur(choix) { choixInitial = choix; }
 export function arreterSimulateur() { if (boucle) cancelAnimationFrame(boucle); boucle = null; }
 
 const REGLAGES = 'rythmo.simu';
@@ -396,6 +398,7 @@ export function vueSimulateur(app) {
     }
     boucle = requestAnimationFrame(image);
   }
-  nouveauCoeur();
+  const initial = choixInitial; choixInitial = null;
+  if (initial) { $('#scenario').value = initial; choisir(initial); } else nouveauCoeur();
   boucle = requestAnimationFrame(image);
 }

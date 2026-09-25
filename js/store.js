@@ -1,6 +1,6 @@
 // Persistance locale (localStorage) : progression, niveau estimé, réglages, série en cours.
 // - Répétition espacée simple par boîtes de Leitner (1 à 5).
-// - Classement ELO du mode compétitif, sur l'échelle des échecs (départ 1200, K = 40 / 20 / 10).
+// - Classement ELO du mode compétitif, sur l'échelle des échecs (départ 600, K = 40 / 20 / 10).
 
 const CLE_PROGRES = 'rythmo.progres.v1';
 const CLE_CONFIG = 'rythmo.config.v2';
@@ -15,7 +15,7 @@ const ecrire = (cle, val) => { try { localStorage.setItem(cle, JSON.stringify(va
 
 const vide = () => ({
   q: {}, sessions: [], serie: { jour: null, compte: 0, record: 0 },
-  classement: { elo: 1200, n: 0, pic: 1200, jours: {} }, points: 0, badges: {}, compteurs: { ecgJustes: 0, meilleurCombo: 0 },
+  classement: { elo: 600, n: 0, pic: 600, jours: {} }, points: 0, badges: {}, compteurs: { ecgJustes: 0, meilleurCombo: 0 },
 });
 let cache = null;
 
@@ -24,6 +24,8 @@ export function progres() {
     const brut = lire(CLE_PROGRES, {});
     const v = vide();
     cache = { ...v, ...brut, serie: { ...v.serie, ...brut.serie }, classement: { ...v.classement, ...brut.classement }, compteurs: { ...v.compteurs, ...brut.compteurs } };
+    // départ abaissé à 600 : un joueur qui n'a encore joué aucune partie classée repart de 600
+    if (!cache.classement.n) Object.assign(cache.classement, { elo: 600, pic: 600 });
   }
   return cache;
 }
@@ -33,7 +35,7 @@ const aujourdhui = () => new Date().toLocaleDateString('sv'); // AAAA-MM-JJ loca
 // ----- Classement ELO (mode compétitif) -----
 // Chaque question a une cote fixe tirée de sa difficulté : 1 → 800 (débutant) … 10 → 2600 (grand maître).
 // Répondre revient à jouer une partie contre la question : gain = 1, réponse fausse = 0.
-export const ELO_DEPART = 1200;
+export const ELO_DEPART = 600;
 export const eloQuestion = difficulte => 800 + (difficulte - 1) * 200;
 export const niveauDepuisElo = r => Math.max(1, Math.min(10, Math.round((r - 800) / 200) + 1));
 export const TITRES = [

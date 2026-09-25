@@ -12,6 +12,8 @@ import { vueFiches } from './vues/fiches.js';
 import { vueAPropos } from './vues/apropos.js';
 import { vueCompetitif } from './vues/competitif.js';
 import { vueSimulateur, arreterSimulateur } from './vues/simulateur.js';
+import { vueEntrainement } from './vues/entrainement.js';
+import { vueSimuMenu } from './vues/simu-menu.js';
 
 const app = document.getElementById('app');
 
@@ -46,6 +48,8 @@ const vues = {
   apropos: () => vueAPropos(app),
   competitif: () => vueCompetitif(app, ctx),
   simulateur: () => vueSimulateur(app),
+  entrainement: () => vueEntrainement(app, ctx),
+  'simu-menu': () => vueSimuMenu(app, ctx),
 };
 
 function aller(vue) {
@@ -59,8 +63,13 @@ function rendre(vue) {
   if (vue === 'resultats' && !s) vue = 'accueil';
   if (vue !== 'quiz') arreterQuiz();
   if (vue !== 'simulateur') arreterSimulateur();
-  document.querySelectorAll('[data-nav]').forEach(b => b.classList.toggle('actif', b.dataset.nav === vue || (vue === 'quiz' && b.dataset.nav === (s?.competitif ? 'competitif' : 'accueil')) || (vue === 'config' && b.dataset.nav === 'accueil')));
+  document.querySelectorAll('[data-nav]').forEach(b => b.classList.toggle('actif', b.dataset.nav === vue || (vue === 'quiz' && b.dataset.nav === (s?.competitif ? 'competitif' : 'accueil')) || (['config', 'entrainement', 'simu-menu', 'simulateur'].includes(vue) && b.dataset.nav === 'accueil')));
+  document.body.classList.toggle('sur-accueil', vue === 'accueil');
   vues[vue]();
+  // retour vers l'écran parent (accueil épuré → écrans de choix → activité)
+  const parent = { entrainement: ['accueil', 'Accueil'], 'simu-menu': ['accueil', 'Accueil'], competitif: ['accueil', 'Accueil'], fiches: ['accueil', 'Accueil'],
+    progression: ['accueil', 'Accueil'], apropos: ['accueil', 'Accueil'], config: ['entrainement', 'Entraînement'], simulateur: ['simu-menu', 'Simulateur'] }[vue];
+  if (parent) app.insertAdjacentHTML('afterbegin', `<button class="retour-accueil" data-nav="${parent[0]}">‹ ${parent[1]}</button>`);
   app.focus({ preventScroll: true });
   window.scrollTo(0, 0);
 }
@@ -92,6 +101,17 @@ document.addEventListener('visibilitychange', () => {
 });
 
 // ---------- démarrage ----------
+// Écran titre : la marque s'affiche pendant le chargement puis s'efface pour laisser place à l'accueil.
+const debutTitre = performance.now();
+function effacerTitre() {
+  const titre = document.getElementById('ecran-titre');
+  if (!titre) return;
+  const bref = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  setTimeout(() => {
+    titre.classList.add('sortie');
+    setTimeout(() => titre.remove(), bref ? 50 : 600);
+  }, Math.max(0, (bref ? 400 : 1700) - (performance.now() - debutTitre)));
+}
 appliquerApparence();
 try {
   await charger();
@@ -104,6 +124,7 @@ try {
   console.error(e);
   app.innerHTML = '<div class="carte"><h2>Impossible de charger les questions</h2><p>Vérifiez votre connexion puis rechargez la page.</p></div>';
 }
+effacerTitre();
 if ('serviceWorker' in navigator) {
   const dejaControle = !!navigator.serviceWorker.controller; // pas d'annonce lors de la toute première installation
   navigator.serviceWorker.register('sw.js').then(reg => {

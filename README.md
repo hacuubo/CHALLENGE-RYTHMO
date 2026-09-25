@@ -18,8 +18,8 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
   - Électrophysiologie : mécanismes, EEP, manœuvres de stimulation des TSV, ablation, antiarythmiques.
 - **Types de questions** : QCU, QCM, vrai/faux, questions ouvertes (avec auto-évaluation).
 - **Difficulté de 1 à 10** sur chaque question ; filtre libre (« entre 1 et 3 », « au-dessus de 3 », « 7 à 10 »…).
-- **Écran d'accueil** : Entraînement (Stimulation/DAI/télécardio, ECG, Électrophysiologie, Tout venant), Compétitif
-  (avec l'ELO en cours), Simulateur d'électrophysiologie, Fiches, Progression, Sources.
+- **Écran titre** puis **accueil épuré sur fond bleu** : Entraînement, Compétitif (avec l'ELO en cours), Simulateur, Fiches,
+  Progression ; chaque entrée ouvre son écran de choix (domaines d'entraînement, scénarios du simulateur…).
 - **Simulateur d'électrophysiologie** : une baie d'EEP en temps réel.
   - Baie : vitesse de défilement en mm/s (12,5 à 400), balayage avec barre d'effacement ou défilement, D1, D2, aVF, V1, V6,
     OD haute, Halo, His proximal et distal, sinus coronaire décapolaire, VD apex, sonde d'ablation (bipolaire et unipolaire),
@@ -36,7 +36,7 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
     avec les mesures de vos manœuvres (réponse à l'entraînement, PPI − TCL, effet de l'ESV His-réfractaire).
   - 17 questions « tracé d'EEP » générées par le moteur, rejouées à l'identique dans le quiz.
   Les réentrées et les réponses aux manœuvres émergent du modèle. Concept inspiré de svtsim (S. Iravanian), code original.
-- **Mode compétitif** : classement **ELO des échecs** (départ 1200, formule FIDE, K = 40 puis 20, 10 au-delà de 2400).
+- **Mode compétitif** : classement **ELO des échecs** (départ 600 pour tout débutant, formule FIDE, K = 40 puis 20, 10 au-delà de 2400).
   Chaque question a une cote tirée de sa difficulté (niveau 1 = 800 … niveau 10 = 2600) ; les questions s'enchaînent
   sans fin, choisies juste au-dessus de votre classement. Titres de « Débutant » à « Grand maître ».
 - **Autres modes** : **mode examen** chronométré (correction à la fin), entraînement ciblé (thèmes, marques, types,
