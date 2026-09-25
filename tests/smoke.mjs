@@ -190,6 +190,12 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.waitForFunction(() => /Tachycardie/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 15000 });
     // la manœuvre s'affiche sur l'écran de rappel ; toucher le tracé en temps réel ne l'arrête pas
     await page.waitForFunction(() => /S2 320/.test(document.querySelector('#rappel-titre')?.textContent || ''), null, { timeout: 10000 });
+    if (!/−/.test(await page.textContent('#recul-val'))) throw new Error('le rappel n\'est pas centré sur l\'extrastimulus');
+    // voies : en enlever une et en ajouter une autre passe en montage personnalisé
+    await page.click('#voies-bloc summary');
+    await page.click('[data-voie=V1]'); await page.click('[data-voie=abld]');
+    if (await page.inputValue('#montage') !== 'perso' || await page.getAttribute('[data-voie=V1]', 'aria-pressed') !== 'false') throw new Error('choix des voies inopérant');
+    await page.click('#voies-bloc summary');
     const t0 = await page.evaluate(() => document.querySelector('#etat').textContent);
     await page.click('#ecran', { position: { x: 200, y: 100 } });
     if (/Relecture/.test(await page.evaluate(() => document.querySelector('#etat').textContent)) || !t0) throw new Error('le tracé en temps réel s\'est figé');
