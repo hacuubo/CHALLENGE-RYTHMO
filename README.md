@@ -65,6 +65,17 @@ Le workflow `.github/workflows/pages.yml` valide la base de questions à chaque 
 à chaque push sur `main`. À activer une fois dans **Settings → Pages → Source : GitHub Actions**.
 Sur mobile, ouvrir l'adresse du site puis « Ajouter à l'écran d'accueil » pour l'installer.
 
+### Référencement (SEO et moteurs génératifs)
+
+- `index.html` : titre et description, URL canonique, Open Graph (image `icons/og.png`, régénérée par
+  `node scripts/gen-og.mjs`), données structurées schema.org (`WebApplication`, `LearningResource`), et un contenu
+  statique lisible sans JavaScript, remplacé par l'application au chargement.
+- `presentation.html` (page statique complète : thèmes, simulateur, méthode, recommandations, sources, FAQ en
+  `FAQPage`), `sitemap.xml` et `llms.txt` (résumé pour les assistants IA) sont **générés** depuis la base par
+  `scripts/build-seo.mjs`, appelé par `node scripts/build-index.mjs` ; la CI vérifie qu'ils sont à jour.
+- Déclarer `sitemap.xml` dans Google Search Console et Bing Webmaster Tools (un `robots.txt` n'est lu qu'à la
+  racine du domaine, pas dans le sous-dossier d'un site GitHub Pages de projet).
+
 ## Base de questions
 
 - Fichiers : `data/questions/*.json`, format décrit dans [`docs/FORMAT_QUESTIONS.md`](docs/FORMAT_QUESTIONS.md).

@@ -1,15 +1,18 @@
 // Régénère data/questions/index.json (liste des fichiers, total, version) et la version du cache
-// hors ligne dans sw.js : node scripts/build-index.mjs
+// hors ligne dans sw.js, puis les fichiers de référencement (build-seo.mjs) : node scripts/build-index.mjs
 // Le résultat est déterministe : la date de version ne change que si le contenu (code ou questions) change.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import crypto from 'node:crypto';
+import { patcherIndex, generer as genererSeo } from './build-seo.mjs';
 
 const racine = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dir = path.join(racine, 'data', 'questions');
 const fichiers = fs.readdirSync(dir).filter(f => f.endsWith('.json') && f !== 'index.json').sort();
 const total = fichiers.reduce((n, f) => n + JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')).length, 0);
+
+patcherIndex(total); // contenu statique d'index.html, avant le calcul de l'empreinte
 
 const code = ['index.html', 'css/styles.css',
   ...fs.readdirSync(path.join(racine, 'js')).filter(f => f.endsWith('.js')).sort().map(f => 'js/' + f),
@@ -28,4 +31,5 @@ fs.writeFileSync(cheminIndex, JSON.stringify(index, null, 2) + '\n');
 // La version du cache suit l'empreinte : un nouveau déploiement invalide proprement l'ancien cache.
 const sw = path.join(racine, 'sw.js');
 fs.writeFileSync(sw, fs.readFileSync(sw, 'utf8').replace(/const VERSION = '[^']*';/, `const VERSION = 'rythmo-${empreinte}';`));
+genererSeo(); // presentation.html, sitemap.xml, llms.txt
 console.log(`index.json : ${fichiers.length} fichiers, ${total} questions, empreinte ${empreinte}`);
