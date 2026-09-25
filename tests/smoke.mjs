@@ -33,7 +33,13 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
   page.on('pageerror', e => erreurs.push(`[${appareil}] ${etape} : ${e.message}`));
   page.on('console', m => { if (m.type() === 'error') erreurs.push(`[${appareil}] ${etape} : console ${m.text()}`); });
   const capture = async n => { if (captures) await page.screenshot({ path: path.join(captures, `${appareil}-${n}.png`), fullPage: true }); };
-  const nav = v => page.click(`${largeur < 760 ? '.onglets-bas' : '.onglets'} [data-nav=${v}]`);
+  // navigation : barre d'onglets si visible (elle est masquée sur l'accueil épuré), sinon logo ou tuile de l'accueil
+  const nav = async v => {
+    const barre = page.locator(`${largeur < 760 ? '.onglets-bas' : '.onglets'} [data-nav=${v}]`);
+    if (await barre.isVisible()) return barre.click();
+    if (v === 'accueil') return page.click('.logo');
+    return page.click(`#app [data-nav=${v}]`);
+  };
   const repondre = async () => {
     if (await page.$('#txt')) { await page.fill('#txt', 'test'); await page.click('#voir'); await page.click('[data-e="2"]'); return; }
     await page.click('.option >> nth=0');
@@ -41,12 +47,15 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
   };
 
   await page.goto(url);
-  await page.waitForSelector('#go-comp');
+  await page.waitForSelector('.menu-principal');
+  await page.waitForSelector('#ecran-titre', { state: 'detached' });
   await capture('accueil');
 
   await verifier(`${appareil} : partie compétitive (ELO)`, async () => {
-    const avant = +(await page.textContent('#go-comp .elo-grand'));
-    await page.click('#go-comp');
+    const avant = +(await page.textContent('.tuile[data-nav=competitif] .tuile-elo b'));
+    if (avant !== 600) throw new Error(`ELO de départ ${avant} au lieu de 600`);
+    await page.click('.tuile[data-nav=competitif]');
+    await page.click('#jouer');
     for (let i = 0; i < 6; i++) {
       await page.waitForSelector('#zone');
       await repondre();
@@ -58,7 +67,7 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.waitForSelector('.elo-bilan');
     await capture('resultats');
     await nav('accueil');
-    const apres = +(await page.textContent('#go-comp .elo-grand'));
+    const apres = +(await page.textContent('.tuile[data-nav=competitif] .tuile-elo b'));
     if (!Number.isFinite(apres) || apres === avant) throw new Error(`ELO inchangé (${avant} → ${apres})`);
     await nav('competitif');
     await page.waitForSelector('#courbe svg');
@@ -67,6 +76,7 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
 
   await verifier(`${appareil} : entraînement par domaine`, async () => {
     await nav('accueil');
+    await page.click('.tuile[data-nav=entrainement]');
     await page.click('[data-domaine=stim]');
     await page.waitForSelector('#zone');
     await repondre();
@@ -77,7 +87,8 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
 
   await verifier(`${appareil} : examen interrompu puis repris`, async () => {
     await nav('accueil');
-    await page.click('.lien[data-nav=config]');
+    await page.click('.tuile[data-nav=entrainement]');
+    await page.click('.tuile[data-nav=config]');
     await page.waitForSelector('#cpt');
     await page.click('label.puce:has(input[name=mode][value=examen])');
     await page.click('#go');
@@ -86,6 +97,7 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.waitForSelector('#zone');
     if (await page.$('#retour .retour')) throw new Error('la correction ne doit pas s\'afficher en examen');
     await page.reload();
+    await page.waitForSelector('#ecran-titre', { state: 'detached' });
     await page.waitForSelector('#reprendre');
     await page.click('#reprendre');
     await page.waitForSelector('#chrono');
@@ -96,7 +108,8 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
 
   await verifier(`${appareil} : lecture d'ECG, compas et plein écran`, async () => {
     await nav('accueil');
-    await page.click('.lien[data-nav=config]');
+    await page.click('.tuile[data-nav=entrainement]');
+    await page.click('.tuile[data-nav=config]');
     await page.waitForSelector('#cpt');
     await page.click('label.puce:has(input[name=mode][value=entrainement])');
     await page.check('input[name=ecgSeul]');
@@ -132,7 +145,8 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
 
   await verifier(`${appareil} : entraînement ciblé, fiches, progression, sources`, async () => {
     await nav('accueil');
-    await page.click('.lien[data-nav=config]');
+    await page.click('.tuile[data-nav=entrainement]');
+    await page.click('.tuile[data-nav=config]');
     await page.waitForSelector('#cpt');
     await page.uncheck('input[name=ecgSeul]');
     await page.check('input[name=niveau][value=av]');
@@ -156,7 +170,8 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
 
   await verifier(`${appareil} : simulateur d'électrophysiologie`, async () => {
     await nav('accueil');
-    await page.click('.carte-simu');
+    await page.click('.tuile[data-nav=simu-menu]');
+    await page.click('[data-simu=normal]');
     await page.waitForSelector('#ecran');
     await page.selectOption('#scenario', 'trin');
     await page.uncheck('#figer-apres');

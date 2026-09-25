@@ -1,11 +1,12 @@
 // Service worker : application utilisable hors ligne.
 // Coquille de l'application : cache d'abord. Base de questions : réseau d'abord (mises à jour), cache en secours.
-const VERSION = 'rythmo-ec295965da'; // mis à jour par scripts/build-index.mjs
+const VERSION = 'rythmo-c623651a30'; // mis à jour par scripts/build-index.mjs
 const COQUILLE = ['./', 'index.html', 'css/styles.css', 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png',
   'js/app.js', 'js/store.js', 'js/util.js', 'js/donnees.js', 'js/session.js', 'js/ecg.js', 'js/ecg12.js', 'js/traces.js', 'js/egm.js',
   'js/vues/accueil.js', 'js/vues/config.js', 'js/vues/quiz.js', 'js/vues/resultats.js', 'js/vues/progression.js',
   'js/vues/fiches.js', 'js/vues/apropos.js', 'js/vues/competitif.js', 'js/courbe.js',
-  'js/vues/simulateur.js', 'js/simu/moteur.js', 'js/simu/scenarios.js', 'js/simu/trace.js', 'js/simu/analyse.js', 'js/simu/rejeu.js'];
+  'js/vues/simulateur.js', 'js/simu/moteur.js', 'js/simu/scenarios.js', 'js/simu/trace.js', 'js/simu/analyse.js', 'js/simu/rejeu.js',
+  'js/vues/entrainement.js', 'js/vues/simu-menu.js'];
 
 self.addEventListener('install', e => {
   e.waitUntil((async () => {

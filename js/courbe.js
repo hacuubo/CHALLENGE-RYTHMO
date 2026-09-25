@@ -4,7 +4,7 @@ import { esc } from './util.js';
 
 const fmtJour = j => new Date(j + 'T12:00:00').toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
 
-export function courbeElo(conteneur, points, { depart = 1200 } = {}) {
+export function courbeElo(conteneur, points, { depart = 600 } = {}) {
   if (!points.length) {
     conteneur.innerHTML = '<p class="vide">Jouez une partie compétitive pour voir votre courbe.</p>';
     return;

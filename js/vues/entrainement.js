@@ -1,0 +1,42 @@
+// Écran de choix de l'entraînement : par domaine, personnalisé, révisions, nouveautés.
+import * as stock from '../store.js';
+import { DOMAINES, base } from '../donnees.js';
+import { resumeSauve } from '../session.js';
+import { esc, melanger } from '../util.js';
+
+export function vueEntrainement(app, ctx) {
+  const { demarrer, reprendre } = ctx;
+  const enCours = resumeSauve();
+  const nouvelles = stock.nouveautes(base.questions);
+  const aRevoir = stock.aReviser(base.questions).length;
+  const compte = d => base.questions.filter(q => d.themes.includes(q.theme)).length;
+
+  app.innerHTML = `
+    <h1>Entraînement</h1>
+    ${enCours ? `<div class="carte bandeau"><div><b>Série en cours :</b> ${esc(enCours.titre)} (${enCours.faites}/${enCours.total})</div>
+      <div class="actions serre"><button class="btn" id="abandon">Abandonner</button><button class="btn btn-primaire" id="reprendre">Reprendre</button></div></div>` : ''}
+    ${nouvelles.length ? `<div class="carte bandeau"><div><b>${nouvelles.length} nouvelle(s) question(s)</b> depuis votre dernière visite.</div>
+      <div class="actions serre"><button class="btn" id="plus-tard">Plus tard</button><button class="btn btn-primaire" id="go-nouv">Les découvrir</button></div></div>` : ''}
+    <div class="grille-domaines">
+      ${DOMAINES.map(d => `<button class="domaine" data-domaine="${d.id}"><span class="ico">${d.ico}</span><strong>${esc(d.nom)}</strong><small>${compte(d)} questions · ${esc(d.desc)}</small></button>`).join('')}
+    </div>
+    <div class="menu-principal menu-secondaire">
+      <button class="tuile" data-nav="config"><span class="tuile-ico" aria-hidden="true">⚙</span><span class="tuile-texte"><strong>Personnaliser</strong><small>Niveau, thèmes, marques, tracés, mode examen</small></span><span class="tuile-fleche" aria-hidden="true">›</span></button>
+      ${aRevoir ? `<button class="tuile" id="go-rev"><span class="tuile-ico" aria-hidden="true">↺</span><span class="tuile-texte"><strong>Revoir mes erreurs</strong><small>${aRevoir} question(s) à revoir (répétition espacée)</small></span><span class="tuile-fleche" aria-hidden="true">›</span></button>` : ''}
+    </div>`;
+
+  const $ = s => app.querySelector(s);
+  app.querySelectorAll('[data-domaine]').forEach(b => b.onclick = () => {
+    const d = DOMAINES.find(x => x.id === b.dataset.domaine);
+    demarrer(melanger(base.questions.filter(q => d.themes.includes(q.theme))).slice(0, 10), `Entraînement · ${d.nom}`);
+  });
+  if (aRevoir) $('#go-rev').onclick = () => demarrer(stock.aReviser(base.questions).slice(0, 15), 'Révisions');
+  if (enCours) {
+    $('#reprendre').onclick = reprendre;
+    $('#abandon').onclick = () => { if (confirm('Abandonner la série en cours ?')) { stock.oublierSession(); vueEntrainement(app, ctx); } };
+  }
+  if (nouvelles.length) {
+    $('#go-nouv').onclick = () => { stock.marquerConnues(base.questions); demarrer(melanger(nouvelles).slice(0, 20), 'Nouveautés'); };
+    $('#plus-tard').onclick = () => { stock.marquerConnues(base.questions); vueEntrainement(app, ctx); };
+  }
+}
