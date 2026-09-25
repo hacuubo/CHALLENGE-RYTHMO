@@ -244,6 +244,22 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
   await page.close();
 }
 
+// Référencement : balises essentielles, données structurées valides, contenu lisible sans JavaScript.
+await verifier('référencement (SEO / GEO)', async () => {
+  const ctx = await navigateur.newContext({ javaScriptEnabled: false });
+  const page = await ctx.newPage();
+  for (const [chemin, texte] of [['', 'questions corrigées'], ['presentation.html', 'Questions fréquentes']]) {
+    await page.goto(url + chemin, { waitUntil: 'domcontentloaded' });
+    for (const sel of ['title', 'meta[name=description]', 'link[rel=canonical]', 'meta[property="og:image"]', 'script[type="application/ld+json"]']) {
+      if (!(await page.$(sel))) throw new Error(`${chemin || 'index.html'} : ${sel} manquant`);
+    }
+    for (const j of await page.$$eval('script[type="application/ld+json"]', s => s.map(e => e.textContent))) JSON.parse(j);
+    if (!(await page.textContent('body')).includes(texte)) throw new Error(`${chemin || 'index.html'} : contenu statique absent`);
+    if (!(await page.isVisible('h1'))) throw new Error(`${chemin || 'index.html'} : titre masqué sans JavaScript`);
+  }
+  await ctx.close();
+});
+
 await navigateur.close();
 serveur.close();
 if (erreurs.length) { console.error('\nErreurs :\n' + erreurs.join('\n')); process.exit(1); }

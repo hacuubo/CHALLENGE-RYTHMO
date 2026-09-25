@@ -3,15 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Challenge Rythmo</title>
-  <meta name="description" content="Quiz d'entraînement en rythmologie et stimulation cardiaque : ECG, programmation PM/DAI, télécardiologie, électrophysiologie.">
+  <title>Challenge Rythmo · Quiz de rythmologie : ECG, pacemaker, DAI</title>
+  <meta name="description" content="Quiz gratuit de rythmologie, sans compte : ECG, pacemaker, DAI, CRT, télécardiologie et électrophysiologie. Corrections sourcées, mode ELO, simulateur d'EEP.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://hacuubo.github.io/CHALLENGE-RYTHMO/">
+  <meta name="application-name" content="Challenge Rythmo">
   <meta name="theme-color" content="#0b3a5d">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Challenge Rythmo">
+  <meta property="og:title" content="Challenge Rythmo · Quiz de rythmologie et simulateur d'électrophysiologie">
+  <meta property="og:description" content="Quiz gratuit de rythmologie, sans compte : ECG, pacemaker, DAI, CRT, télécardiologie et électrophysiologie. Corrections sourcées, mode ELO, simulateur d'EEP.">
+  <meta property="og:url" content="https://hacuubo.github.io/CHALLENGE-RYTHMO/">
+  <meta property="og:image" content="https://hacuubo.github.io/CHALLENGE-RYTHMO/icons/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Challenge Rythmo, quiz de rythmologie">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" type="text/markdown" title="Résumé pour les assistants IA" href="llms.txt">
+  <link rel="sitemap" type="application/xml" href="sitemap.xml">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://hacuubo.github.io/CHALLENGE-RYTHMO/#site","url":"https://hacuubo.github.io/CHALLENGE-RYTHMO/","name":"Challenge Rythmo","inLanguage":"fr","description":"Quiz gratuit de rythmologie, sans compte : ECG, pacemaker, DAI, CRT, télécardiologie et électrophysiologie. Corrections sourcées, mode ELO, simulateur d'EEP."},{"@type":["WebApplication","LearningResource"],"@id":"https://hacuubo.github.io/CHALLENGE-RYTHMO/#app","url":"https://hacuubo.github.io/CHALLENGE-RYTHMO/","name":"Challenge Rythmo","alternateName":"Rythmo","description":"Quiz gratuit de rythmologie, sans compte : ECG, pacemaker, DAI, CRT, télécardiologie et électrophysiologie. Corrections sourcées, mode ELO, simulateur d'EEP.","inLanguage":"fr","applicationCategory":"EducationalApplication","applicationSubCategory":"Formation médicale en rythmologie","operatingSystem":"Tous (navigateur web, application installable PWA)","browserRequirements":"JavaScript activé","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"learningResourceType":["Quiz","Simulation"],"educationalLevel":"Formation médicale initiale et continue","audience":{"@type":"Audience","audienceType":"Cardiologues, internes de cardiologie, infirmiers et techniciens de rythmologie, équipes de télésurveillance"},"teaches":["Lecture de l'ECG","Programmation des stimulateurs cardiaques","Programmation des défibrillateurs automatiques implantables","Resynchronisation cardiaque (CRT)","Télésurveillance des prothèses cardiaques","Électrophysiologie et ablation"],"about":[{"@type":"Thing","name":"Rythmologie"},{"@type":"Thing","name":"Stimulateur cardiaque"},{"@type":"Thing","name":"Défibrillateur automatique implantable"},{"@type":"Thing","name":"Électrocardiogramme"},{"@type":"Thing","name":"Électrophysiologie cardiaque"}],"featureList":["Questions corrigées avec sources (ESC, EHRA, HRS, ACC/AHA)","Mode compétitif adaptatif avec classement ELO","Simulateur de baie d'électrophysiologie en temps réel","Vrais ECG 12 dérivations (PTB-XL)","Fonctionne hors ligne, sans compte"],"image":"https://hacuubo.github.io/CHALLENGE-RYTHMO/icons/og.png","screenshot":"https://hacuubo.github.io/CHALLENGE-RYTHMO/icons/og.png","subjectOf":{"@type":"WebPage","url":"https://hacuubo.github.io/CHALLENGE-RYTHMO/presentation.html"}}]}</script>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Rythmo">
   <link rel="stylesheet" href="css/styles.css">
+  <noscript><style>.ecran-titre { display: none; }</style></noscript>
 </head>
 <body>
   <div id="ecran-titre" class="ecran-titre" aria-hidden="true">
@@ -20,7 +38,20 @@
     <p class="ecran-titre-sous">Rythmologie · stimulation · électrophysiologie</p>
   </div>
   <main id="app" tabindex="-1">
-    <p class="chargement">Chargement de la base de questions…</p>
+    <!-- Contenu lisible sans JavaScript (moteurs de recherche, assistants IA) : remplacé par l'application au chargement, sous l'écran titre. -->
+    <div class="statique">
+      <h1>Challenge Rythmo</h1>
+      <p>Quiz gratuit de <strong>rythmologie</strong> en français, sans compte : <!--total-->1 170<!--/total--> questions corrigées et sourcées sur l'<strong>ECG</strong>, la programmation des <strong>stimulateurs cardiaques (pacemakers)</strong> et des <strong>défibrillateurs implantables (DAI)</strong>, la <strong>CRT</strong>, la <strong>télécardiologie</strong> et l'<strong>électrophysiologie</strong>.</p>
+      <ul>
+        <li>Entraînement par domaine, de débutant à expert, avec correction détaillée et sources (ESC, EHRA, HRS, ACC/AHA).</li>
+        <li>Mode compétitif adaptatif avec classement ELO.</li>
+        <li>Simulateur de baie d'électrophysiologie (EEP) en temps réel et cas mystères.</li>
+        <li>Fonctionne hors ligne ; aucune donnée transmise.</li>
+      </ul>
+      <p><a href="presentation.html">Présentation détaillée, thèmes, sources et questions fréquentes</a></p>
+      <p class="chargement">Chargement de la base de questions…</p>
+      <noscript><p>JavaScript doit être activé pour utiliser les quiz et le simulateur.</p></noscript>
+    </div>
   </main>
   <script type="module" src="js/app.js"></script>
 </body>

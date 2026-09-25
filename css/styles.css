@@ -438,6 +438,9 @@ body { background: var(--fond-bleu) top / 100% 100vh no-repeat, var(--fond-bleu-
 #app > h1, #app > h2, #app > p, #app > .note, .groupe-simu h2, .bloc-accueil h2 { color: var(--sur-bleu); }
 #app > p.note, #app > .note { color: var(--sur-bleu-2); }
 .chargement { color: var(--sur-bleu); }
+.statique { max-width: 640px; margin: 0 auto; padding-top: 24px; color: var(--sur-bleu); }
+.statique a { color: #fff; }
+.statique .chargement { margin-top: 24px; }
 
 .ecran-titre { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
   background: var(--fond-bleu), #0b3a5d; color: #fff; text-align: center; padding: 24px; transition: opacity .55s ease, transform .55s ease; }
