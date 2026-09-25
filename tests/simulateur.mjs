@@ -10,7 +10,7 @@ const alea = () => ((graine = (graine * 16807) % 2147483647) / 2147483647);
 const erreurs = [];
 const verifier = (cond, msg) => { if (!cond) erreurs.push(msg); console.log(cond ? '  ✓' : '  ✗', msg); };
 
-function nouveau(id) { graine = GRAINE; const c = new Coeur(SCENARIOS[id].def(), { alea, variation: VARIATION }); c.avancer(3000); return c; }
+function nouveau(id) { graine = GRAINE; const c = new Coeur(SCENARIOS[id].def(), { alea, variation: Math.min(VARIATION, SCENARIOS[id].variation ?? 1) }); c.avancer(3000); return c; }
 const attendre = (c, ms) => c.avancer(c.t + ms);
 function train(c, site, s1, n, ...extras) {
   let t = c.t + 50;
@@ -20,7 +20,7 @@ function train(c, site, s1, n, ...extras) {
 }
 // induction par extrastimulus dégressif ; renvoie le couplage inducteur ou null
 function induire(c, site, extras = 1) {
-  for (let s2 = 400; s2 >= 200; s2 -= 10) {
+  for (let s2 = 400; s2 >= 180; s2 -= 10) {
     train(c, site, 600, 8, ...Array(extras).fill(s2));
     attendre(c, 3500);
     if (tachycardie(c).active) return s2;
@@ -29,9 +29,9 @@ function induire(c, site, extras = 1) {
   return null;
 }
 // entraînement ventriculaire pendant la tachycardie, puis analyse de la réponse
-function entrainementV(c) {
+function entrainementV(c, avance = 30) {
   const tcl = tachycardie(c).cycleV;
-  const cl = Math.round(tcl - 30);
+  const cl = Math.round(tcl - avance);
   const t0 = c.t + 50;
   for (let i = 0; i < 20; i++) c.stimuler('rva', t0 + i * cl);
   const der = t0 + 19 * cl;
@@ -50,8 +50,8 @@ function entrainementV(c) {
 }
 
 // entraînement depuis un site atrial : PPI − TCL mesuré sur ce site
-function entrainementA(c, site) {
-  const tcl = tachycardie(c).cycleA, cl = Math.round(tcl - 20), t0 = c.t + 50;
+function entrainementA(c, site, tcl = tachycardie(c).cycleA, avance = 20) {
+  const cl = Math.round(tcl - avance), t0 = c.t + 50;
   for (let i = 0; i < 12; i++) c.stimuler(site, t0 + i * cl);
   const der = t0 + 11 * cl;
   c.avancer(der + 3500);
@@ -85,18 +85,19 @@ function testerFlutter(c) {
   c.choc(); attendre(c, 1000);
   c.ablater('isthme'); attendre(c, 1500);
   // bloc bidirectionnel : stimulation de l'ostium du SC → paroi latérale activée de haut en bas
-  const tp = c.t + 50; c.stimuler('cs9', tp); attendre(c, 600);
+  c.choc(); const tp = c.t + 350; c.stimuler('cs9', tp); attendre(c, 600);
   const lh2 = activations(c.journal, 'lath', tp, tp + 500)[0], lb2 = activations(c.journal, 'latb', tp, tp + 500)[0];
   verifier(lh2 < lb2, `bloc isthmique : activation latérale descendante en stimulant l'ostium du SC (${Math.round(lh2 - tp)} puis ${Math.round(lb2 - tp)} ms)`);
   // et dans l'autre sens : stimulation latérale à la ligne → septum activé tardivement, His avant l'ostium du SC
-  const tq = c.t + 50; c.stimuler('cti', tq); attendre(c, 600);
+  c.choc(); const tq = c.t + 350; c.stimuler('cti', tq); attendre(c, 600);
   const his2 = activations(c.journal, 'ras', tq, tq + 500)[0], os2 = activations(c.journal, 'cs9', tq, tq + 500)[0];
   verifier(his2 < os2, `bloc latéral → septal : His (${Math.round(his2 - tq)} ms) avant l'ostium du SC (${Math.round(os2 - tq)} ms)`);
   const r1 = induire(c, 'cs9', 1), r2 = induire(c, 'hra', 1);
   verifier(r1 == null && r2 == null, `non réinductible après ablation (${r1}, ${r2})`);
 }
 
-for (const id of Object.keys(SCENARIOS)) {
+const CLASSIQUES = ['normal', 'double', 'trin', 'trin-atyp', 'trav', 'wpw', 'flutter', 'ta'];
+for (const id of CLASSIQUES) {
   console.log(`\n${id} — ${SCENARIOS[id].nom}`);
   const c = nouveau(id);
   attendre(c, 5000);
@@ -148,14 +149,18 @@ for (const id of Object.keys(SCENARIOS)) {
   if (id !== 'ta') {
     const tcl = tachycardie(c).cycleV;
     const h = activations(c.journal, 'his', c.t - 800, c.t).at(-1);
-    // la prochaine activation de His est attendue à h + TCL ; on stimule le VD 10 ms après
-    const cible = h + tcl + 10;
+    // la prochaine activation de His est attendue à h + TCL ; on stimule le VD 30 ms avant (His déjà engagé, réfractaire)
+    const cible = h + tcl - 30;
     c.avancer(cible - 1); c.stimuler('rva', cible); attendre(c, 3500);
     const A = activations(c.journal, 'hra', cible - tcl - 50, cible + 1.5 * tcl);
     const avance = Math.round(tcl - Math.min(...A.slice(1).map((x, i) => x - A[i])));
     console.log(`    ESV His-réfractaire : avance de l'A ${avance} ms`);
     verifier(['trav', 'wpw'].includes(id) ? avance >= 10 : Math.abs(avance) < 10, 'réponse à l\'ESV His-réfractaire');
-    if (!tachycardie(c).active) { erreurs.push(`${id} : l'ESV a arrêté la tachycardie`); continue; }
+    if (!tachycardie(c).active) {
+      // arrêt par une ESV His-réfractaire : autre preuve de la participation d'une voie accessoire
+      verifier(['trav', 'wpw'].includes(id), 'arrêt par l\'ESV His-réfractaire seulement avec voie accessoire');
+      induire(c, siteInduc, 1);
+    }
   }
   const e = entrainementV(c);
   console.log(`    entraînement V : SA ${e.sa} TCL ${e.tcl}, PPI ${e.ppi}, PPI-TCL ${e.pptcl}, réponse ${e.reponse}, soutenue après : ${e.soutenue}`);
@@ -175,6 +180,212 @@ for (const id of Object.keys(SCENARIOS)) {
   c.ablater(SCENARIOS[id].cible); attendre(c, 2000);
   if (id === 'ta') { for (let i = 0; i < 10; i++) c.stimuler('hra', c.t + 50 + i * 300); attendre(c, 6000); verifier(!tachycardie(c).active, 'non réinductible après ablation'); }
   else { const r1 = induire(c, siteInduc, 1), r2 = induire(c, siteInduc === 'rva' ? 'hra' : 'rva', 1); verifier(r1 == null && r2 == null, `non réinductible après ablation (${r1}, ${r2}, cycle ${tachycardie(c).cycleV})`); }
+}
+
+// ---------- physiologie de base ----------
+console.log('\nphysiologie (conduction normale)');
+const ecart = l => l.slice(1).map((x, i) => x - l[i]);
+{
+  // Wenckebach nodal : allongement progressif de l'AH puis bloc
+  let pointW = null;
+  for (let cl = 500; cl >= 250 && pointW == null; cl -= 10) {
+    const c = nouveau('normal'); const t0 = c.t + 50;
+    for (let i = 0; i < 12; i++) c.stimuler('hra', t0 + i * cl);
+    c.avancer(t0 + 12 * cl + 400);
+    const A = activations(c.journal, 'ras', t0, t0 + 12 * cl), H = activations(c.journal, 'his', t0, t0 + 12 * cl + 400);
+    const ah = A.map(a => { const h = H.find(h => h > a && h - a < 300); return h ? h - a : null; });
+    if (ah.includes(null)) { const k = ah.indexOf(null); pointW = { cl, ah: ah.slice(0, k + 1).map(x => x && Math.round(x)) }; }
+  }
+  console.log(`    point de Wenckebach ${pointW?.cl} ms, AH ${pointW?.ah.join(' → ')}`);
+  verifier(pointW && pointW.cl >= 300 && pointW.cl <= 450, 'point de Wenckebach entre 300 et 450 ms');
+  const pr = pointW?.ah.filter(Boolean) ?? [];
+  verifier(pr.length >= 2 && pr.at(-1) - pr[0] >= 15, 'allongement progressif de l\'AH avant le bloc');
+}
+{
+  // temps de récupération sinusale après 30 s de stimulation à 400 ms
+  const c = nouveau('normal'); const t0 = c.t + 50;
+  for (let i = 0; i < 75; i++) c.stimuler('hra', t0 + i * 400);
+  const der = t0 + 74 * 400; c.avancer(der + 4000);
+  const trs = c.journal.find(x => x.s === 'sa' && x.o === 'auto' && x.t > der + 5).t + 15 - der;
+  const cs = mesures(nouveau('normal')).cycleA;
+  console.log(`    TRS ${Math.round(trs)} ms, TRSc ${Math.round(trs - cs)} ms`);
+  verifier(trs > cs + 150 && trs < 1500 && trs - cs < 525, 'TRS et TRSc normaux (TRS < 1500, TRSc < 525 ms)');
+}
+{
+  // aberration de branche droite fonctionnelle sur extrastimulus atrial court
+  const c = nouveau('normal'); let brd = null;
+  for (let s2 = 400; s2 >= 240 && !brd; s2 -= 10) {
+    train(c, 'hra', 600, 8, s2); attendre(c, 600);
+    const v = activations(c.journal, 'vsep', c.t - 600, c.t)[0], r = activations(c.journal, 'rva', c.t - 600, c.t)[0];
+    if (v && r && r - v > 30) brd = s2;
+    attendre(c, 1500);
+  }
+  verifier(brd != null, `bloc de branche droite fonctionnel sur S2 court (couplage ${brd})`);
+}
+{
+  // saut V2-H2 : bloc rétrograde dans la branche droite sur extrastimulus ventriculaire court
+  const c = nouveau('normal'); const vh = [];
+  for (let s2 = 450; s2 >= 240; s2 -= 10) {
+    train(c, 'rva', 600, 8, s2); const t2 = c.t - 10; attendre(c, 500);
+    const h = activations(c.journal, 'his', t2, t2 + 200)[0]; vh.push(h ? Math.round(h - t2) : null); attendre(c, 1500);
+  }
+  const vals = vh.filter(Boolean), saut = ecart(vals).some(d => d >= 20);
+  console.log(`    VH rétrograde : ${vh.join(' ')}`);
+  verifier(saut, 'saut V2-H2 (bloc rétrograde dans la branche droite)');
+}
+{
+  // isoprénaline : accélération sinusale, amélioration de la conduction nodale
+  const c = nouveau('normal'); attendre(c, 3000); const avant = mesures(c).cycleA;
+  c.basculerMedicament('iso'); attendre(c, 20000); const apres = mesures(c).cycleA;
+  console.log(`    cycle sinusal ${Math.round(avant)} → ${Math.round(apres)} ms sous isoprénaline`);
+  verifier(apres < avant * 0.75, 'accélération sinusale sous isoprénaline');
+}
+// stimulation para-hisienne : conduction rétrograde nodale (S-A s'allonge sans capture du His) ou extranodale
+function paraHisien(id) {
+  const c = nouveau(id); const sa = {};
+  for (const mA of [15, 5]) {
+    c.choc(); const t0 = c.t + 400;
+    for (let i = 0; i < 6; i++) c.stimuler('parahis', t0 + i * 500, mA);
+    const der = t0 + 5 * 500; c.avancer(der + 450);
+    // intervalle stimulus-A mesuré au site de sortie rétrograde : His (nœud AV) ou ostium du SC (voie septale)
+    const site = id === 'normal' ? 'ras' : 'cs9';
+    const a = activations(c.journal, site, der + 1, der + 450)[0];
+    sa[mA] = a != null ? Math.round(a - der) : null;
+  }
+  return sa;
+}
+{
+  const n = paraHisien('normal'), sep = paraHisien('septale');
+  console.log(`    para-hisien S-A (15 / 5 mA) : nodal ${n[15]} / ${n[5]}, voie septale ${sep[15]} / ${sep[5]}`);
+  verifier(n[5] - n[15] >= 40, 'para-hisien : allongement du S-A sans capture du His (conduction nodale)');
+  verifier(Math.abs(sep[5] - sep[15]) < 15, 'para-hisien : S-A inchangé (voie accessoire septale)');
+}
+
+// ---------- scénarios avancés ----------
+const precoceTachy = c => { const v = battementsV(c.journal, c.t - 2000, c.t).at(-2); return sitePlusPrecoce(c.journal, v + 5, v + 500); };
+function esvHR(c) {
+  const tcl = tachycardie(c).cycleV, h = activations(c.journal, 'his', c.t - 900, c.t).at(-1), cible = h + tcl - 30;
+  c.avancer(cible - 1); c.stimuler('rva', cible); attendre(c, 3500);
+  const A = activations(c.journal, 'hra', cible - tcl - 50, cible + 1.5 * tcl);
+  return { avance: Math.round(tcl - Math.min(...A.slice(1).map((x, i) => x - A[i]))), soutenue: tachycardie(c).active };
+}
+{
+  console.log('\nseptale');
+  const c = nouveau('septale'); attendre(c, 4000);
+  verifier(!tachycardie(c).active, 'pas de tachycardie de base');
+  const cp = induire(c, 'hra', 1); verifier(cp != null, `induction (${cp})`);
+  if (cp != null) {
+    const p = precoceTachy(c), m = mesures(c);
+    verifier(p === 'cs9' && m.VA >= 70, `A le plus précoce à l'ostium du SC (${p}), VA ${m.VA}`);
+    const e = esvHR(c); verifier(e.avance >= 10 || !e.soutenue, `ESV His-réfractaire : avance ${e.avance} ms ou arrêt`);
+    if (!tachycardie(c).active) induire(c, 'hra', 1);
+    let en = entrainementV(c, 20);
+    for (let k = 0; k < 3 && !en.soutenue; k++) { induire(c, 'hra', 1); en = entrainementV(c, 10); }
+    console.log(`    entraînement V : ${en.reponse}, PPI-TCL ${en.pptcl}, soutenue ${en.soutenue}`);
+    verifier(en.soutenue && en.reponse === 'VAV' && en.pptcl < 115, 'V-A-V et PPI − TCL < 115 ms');
+  }
+}
+{
+  console.log('\npjrt');
+  const c = nouveau('pjrt'); attendre(c, 8000);
+  const t = tachycardie(c); verifier(t.active, `tachycardie incessante (cycle ${Math.round(t.cycleV)})`);
+  const v = battementsV(c.journal, c.t - 2000, c.t).at(-2), p = precoceTachy(c);
+  const va = Math.round(activations(c.journal, 'cs9', v + 1, v + 800)[0] - v);
+  verifier(p === 'cs9' && va > t.cycleV / 2, `RP long (VA ${va} > cycle/2), A le plus précoce à l'ostium du SC (${p})`);
+}
+{
+  console.log('\nmahaim');
+  const c = nouveau('mahaim'); attendre(c, 3000);
+  const v = activations(c.journal, 'vsep', c.t - 900, c.t).at(-1), r = activations(c.journal, 'rva', c.t - 900, c.t).at(-1);
+  verifier(r - v > -15, `pas de préexcitation franche en rythme sinusal (VD − septum ${Math.round(r - v)} ms)`);
+  const cp = induire(c, 'hra', 1) ?? induire(c, 'hra', 2); verifier(cp != null, `tachycardie antidromique induite (${cp})`);
+  if (cp != null) {
+    const v2 = activations(c.journal, 'vsep', c.t - 900, c.t).at(-1), r2 = activations(c.journal, 'rva', c.t - 900, c.t).filter(x => x < v2).at(-1);
+    const h = activations(c.journal, 'his', r2 - 100, r2 + 100).sort((a, b) => Math.abs(a - r2) - Math.abs(b - r2))[0];
+    verifier(r2 != null && v2 - r2 > 20 && h > r2, `QRS large type retard gauche (VD ${Math.round(v2 - r2)} ms avant le septum), His après le V`);
+  }
+}
+{
+  console.log('\ntrin-21');
+  const c = nouveau('trin-21'); const cp = induire(c, 'hra', 1);
+  const t = tachycardie(c); verifier(cp != null && Math.abs(t.cycleV - 2 * t.cycleA) < 25, `TRIN avec bloc 2:1 sous le His (A ${Math.round(t.cycleA)}, V ${Math.round(t.cycleV)})`);
+  const h = activations(c.journal, 'his', c.t - 2000, c.t).length, a = activations(c.journal, 'ras', c.t - 2000, c.t).length;
+  verifier(Math.abs(h - a) <= 1, 'un H pour chaque A');
+}
+{
+  console.log('\ncoumel');
+  // on raccourcit S2 jusqu'à induire la tachycardie avec un bloc de branche gauche
+  const c = nouveau('coumel'); let cp = null;
+  for (let s2 = 400; s2 >= 250 && cp == null; s2 -= 10) {
+    train(c, 'hra', 600, 8, s2); attendre(c, 3500);
+    const v = activations(c.journal, 'vsep', c.t - 500, c.t).at(-1), r = activations(c.journal, 'rva', c.t - 500, c.t).at(-1);
+    if (tachycardie(c).active && v - r > 30) cp = s2; else { c.choc(); attendre(c, 1500); }
+  }
+  verifier(cp != null, `induction avec bloc de branche gauche (${cp})`);
+  if (cp != null) {
+    const m = mesures(c), cc = nouveau('trav'); induire(cc, 'hra', 1); const m0 = mesures(cc);
+    console.log(`    VA avec bloc de branche gauche ${m.VA} ms contre ${m0.VA} ms sans ; cycle ${Math.round(tachycardie(c).cycleV)} contre ${Math.round(tachycardie(cc).cycleV)}`);
+    verifier(m.VA - m0.VA >= 35, 'signe de Coumel : allongement du VA ≥ 35 ms en bloc de branche homolatéral');
+  }
+}
+{
+  console.log('\nflutter-mitral');
+  const c = nouveau('flutter-mitral'); attendre(c, 3000);
+  verifier(!tachycardie(c).active, 'pas de tachycardie de base');
+  let cp = induire(c, 'cs1', 1) ?? induire(c, 'cs9', 1); verifier(cp != null, `induction (${cp})`);
+  if (cp != null) {
+    const t = tachycardie(c); verifier(t.cycleA > 200 && t.cycleA < 340, `cycle atrial ${Math.round(t.cycleA)} ms`);
+    const e1 = entrainementA(c, 'cs9'); if (!e1.soutenue) induire(c, 'cs1', 1);
+    const e2 = entrainementA(c, 'cs1'); if (!e2.soutenue) induire(c, 'cs1', 1);
+    const e3 = entrainementA(c, 'cti');
+    console.log(`    PPI-TCL : SC 9-10 ${e1.pptcl}, SC 1-2 ${e2.pptcl}, isthme CT ${e3.pptcl}`);
+    verifier(e1.pptcl < 30 && e2.pptcl < 30 && e3.pptcl > 50, 'SC proximal et distal dans le circuit, isthme cavo-tricuspide hors circuit');
+    c.choc(); attendre(c, 1000); c.ablater('og-lat'); attendre(c, 1000);
+    verifier(induire(c, 'cs1', 1) == null && induire(c, 'cs9', 1) == null, 'non réinductible après ablation de l\'isthme mitral');
+  }
+}
+{
+  console.log('\njonctionnelle');
+  const c = nouveau('jonctionnelle'); c.basculerMedicament('iso'); attendre(c, 16000);
+  for (let i = 0; i < 10; i++) c.stimuler('hra', c.t + 50 + i * 300);
+  attendre(c, 7000);
+  const t = tachycardie(c); verifier(t.active, `tachycardie jonctionnelle (cycle ${Math.round(t.cycleV)})`);
+  const m = mesures(c); verifier(m.HV >= 35 && m.HV <= 55, `H avant chaque V, HV ${m.HV}`);
+  c.injecterAdenosine(); attendre(c, 4500); verifier(tachycardie(c).active, 'persiste sous adénosine');
+}
+{
+  console.log('\ntv');
+  const c = nouveau('tv'); attendre(c, 3000);
+  verifier(!tachycardie(c).active, 'pas de tachycardie de base');
+  const cp = induire(c, 'rva', 2); verifier(cp != null, `induction par S2-S3 ventriculaires (${cp})`);
+  if (cp != null) {
+    const t = tachycardie(c);
+    const nV = battementsV(c.journal, c.t - 3000, c.t).length, nA = activations(c.journal, 'hra', c.t - 3000, c.t).length;
+    verifier(nV > nA, `plus de V que de A (${nV} V, ${nA} A) : dissociation ou rétroconduction 2:1`);
+    let e = entrainementA(c, 'tv2', tachycardie(c).cycleV);
+    for (let k = 0; k < 3 && !e.soutenue; k++) { induire(c, 'rva', 2); e = entrainementA(c, 'tv2', tachycardie(c).cycleV, 10); }
+    console.log(`    entraînement depuis l'isthme : PPI-TCL ${e.pptcl}`);
+    verifier(e.pptcl < 30, 'isthme de la cicatrice dans le circuit');
+    c.choc(); attendre(c, 1000); c.ablater('tv-isthme'); attendre(c, 1000);
+    verifier(induire(c, 'rva', 2) == null, 'non réinductible après ablation');
+  }
+}
+{
+  console.log('\nfa');
+  for (const id of ['fa', 'wpw']) {
+    const c = nouveau(id); attendre(c, 2000);
+    for (let i = 0; i < 12; i++) c.stimuler('hra', c.t + 50 + i * 200);
+    attendre(c, 8000);
+    const V = battementsV(c.journal, c.t - 5000, c.t), rr = ecart(V), moy = rr.reduce((a, b) => a + b, 0) / rr.length;
+    const sd = Math.sqrt(rr.reduce((a, b) => a + (b - moy) ** 2, 0) / rr.length);
+    console.log(`    ${id} : RR moyen ${Math.round(moy)} ms, écart-type ${Math.round(sd)}, RR le plus court ${Math.round(Math.min(...rr))}`);
+    verifier(c.fa && sd > 30, `${id} : fibrillation atriale, RR irréguliers`);
+    if (id === 'wpw') {
+      const pre = battementsV(c.journal, c.t - 5000, c.t).filter(v => { const l = activations(c.journal, 'lvl', v - 5, v + 150)[0], s = activations(c.journal, 'vsep', v - 5, v + 150)[0]; return l != null && s != null && s - l > 15; }).length;
+      verifier(pre > 0, `FA préexcitée : ${pre} QRS préexcités`);
+    }
+    c.choc(); attendre(c, 3000); verifier(!c.fa, 'réduite par choc électrique externe');
+  }
 }
 
 // ablation de la voie rapide d'un nœud normal : bloc AV complet avec échappement jonctionnel

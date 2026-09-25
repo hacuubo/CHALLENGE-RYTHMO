@@ -175,3 +175,16 @@ interference-emi, choc-inefficace et crt-fa-conduite, `pm` pour les autres.
 `sous-detection-a` : sinus 78/min, une P sur trois détectée, AP compétitifs à la fréquence de base (1000 ms), V toujours stimulé.
 
 Comme pour l'ECG, l'énoncé ne décrit pas le tracé : c'est à l'utilisateur de le lire.
+
+## Tracés du simulateur d'électrophysiologie (`simu`)
+
+Généré par `node scripts/gen-questions-simu.mjs` (ne pas éditer à la main) : le quiz rejoue le protocole avec le moteur
+du simulateur et affiche la fenêtre demandée.
+
+```json
+"simu": { "scenario": "trin", "graine": 7, "etapes": [{ "train": { "site": "hra", "extras": [330] } }, { "attendre": 4000 }],
+          "fin": 10375, "vitesse": 100, "montage": "standard", "legende": "" }
+```
+
+Étapes : `attendre` (ms), `train` (site, s1, n, extras, mA), `salve` (site, cl, n, mA), `stim` (site, mA, delai), `adenosine`,
+`iso`, `choc`, `ablation`, `marque`. Scénarios : ceux de `js/simu/scenarios.js`.

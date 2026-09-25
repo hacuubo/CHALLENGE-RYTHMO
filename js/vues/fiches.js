@@ -39,8 +39,8 @@ export function vueFiches(app, { demarrer }) {
     liste.innerHTML = `<p class="note">${qs.length} fiche(s)${t ? ' (tous thèmes)' : ''}</p>` + qs.slice(0, limite).map(q => {
       const entete = q.sousTheme !== groupe ? `<h2 class="titre-groupe">${esc(q.sousTheme)} <button class="btn petit-btn" data-sous="${esc(q.sousTheme)}">S'entraîner</button></h2>` : '';
       groupe = q.sousTheme;
-      return `${entete}<details class="fiche" data-id="${q.id}"><summary><span class="badge">${q.difficulte}/10</span> ${q.ecg || q.ecg12 || q.egm ? '🩺 ' : ''}${esc(q.question)}</summary>
-        <div class="fiche-corps">${q.ecg || q.ecg12 || q.egm ? '<div class="trace"></div>' : ''}
+      return `${entete}<details class="fiche" data-id="${q.id}"><summary><span class="badge">${q.difficulte}/10</span> ${q.ecg || q.ecg12 || q.egm || q.simu ? '🩺 ' : ''}${esc(q.question)}</summary>
+        <div class="fiche-corps">${q.ecg || q.ecg12 || q.egm || q.simu ? '<div class="trace"></div>' : ''}
         ${q.type === 'ouverte' ? `<div class="modele"><b>${esc(q.reponseAttendue)}</b></div>` : `<ul class="fiche-options">${q.options.map((o, i) => `<li class="${q.reponses.includes(i) ? 'juste' : ''}">${q.reponses.includes(i) ? '✅' : '▫️'} ${esc(o)}${q.commentaires ? `<br><small>${esc(q.commentaires[i])}</small>` : ''}</li>`).join('')}</ul>`}
         ${blocCorrection(q, { juste: true })}</div></details>`;
     }).join('') + (qs.length > limite ? '<div class="actions"><button class="btn btn-bloc" id="plus">Afficher plus</button></div>' : '');

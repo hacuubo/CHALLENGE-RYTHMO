@@ -171,7 +171,7 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.click('#valider');
     await page.waitForSelector('#verdict .retour');
     await page.click('#ecran', { position: { x: 200, y: 100 } });
-    await page.waitForFunction(() => /Figé/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 3000 });
+    await page.waitForFunction(() => /Relecture/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 3000 });
   });
 
   await verifier(`${appareil} : tous les tracés synthétiques (ECG et EGM) se dessinent`, async () => {
@@ -183,6 +183,14 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
       for (const p of PRESETS_EGM) {
         const d = document.createElement('div'); const c = document.createElement('canvas'); d.append(c); document.body.append(d);
         if (!dessinerEGM(c, { preset: p }, 'test')) ko.push('egm:' + p);
+        d.remove();
+      }
+      const { rejouer } = await import('./js/simu/rejeu.js');
+      const { dessinerSimu } = await import('./js/simu/trace.js');
+      for (const f of idx.fichiers) for (const q of await (await fetch('data/questions/' + f)).json()) if (q.simu) {
+        const d = document.createElement('div'); const c = document.createElement('canvas'); c.style.width = '600px'; d.append(c); document.body.append(d);
+        const { coeur } = rejouer(q.simu);
+        if (!dessinerSimu(c, coeur, { tFin: q.simu.fin, vitesse: q.simu.vitesse, mode: 'defilement' })) ko.push(q.id);
         d.remove();
       }
       for (const f of idx.fichiers) for (const q of await (await fetch('data/questions/' + f)).json()) if (q.ecg || q.egm) {

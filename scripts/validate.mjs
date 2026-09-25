@@ -10,6 +10,9 @@ const PRESETS = ['sinus', 'bav1', 'bav2-m1', 'bav2-m2', 'bav2-21', 'bav3', 'paus
   'flutter', 'tsv', 'wpw', 'tv', 'torsades', 'fv', 'aai', 'vvi', 'ddd', 'vdd', 'crt', 'perte-capture-v',
   'perte-capture-a', 'sous-detection', 'sur-detection', 'ttre', 'fusion', 'asystolie'];
 
+// scénarios du simulateur (source unique : js/simu/scenarios.js)
+const { SCENARIOS } = await import('../js/simu/scenarios.js');
+const SCENARIOS_SIMU = Object.keys(SCENARIOS);
 // presets EGM lus dans js/egm.js (source unique)
 const PRESETS_EGM = [...fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'js', 'egm.js'), 'utf8')
   .matchAll(/^  '?([a-z0-9-]+)'?\(S/gm)].map(m => m[1]);
@@ -59,7 +62,8 @@ for (const f of files) {
     }
     if (q.ecg && !PRESETS.includes(q.ecg.preset)) err(f, id, 'preset ECG inconnu : ' + q.ecg.preset);
     if (q.egm && !PRESETS_EGM.includes(q.egm.preset)) err(f, id, 'preset EGM inconnu : ' + q.egm.preset);
-    if ([q.ecg, q.ecg12, q.egm].filter(Boolean).length > 1) err(f, id, 'un seul tracé par question');
+    if ([q.ecg, q.ecg12, q.egm, q.simu].filter(Boolean).length > 1) err(f, id, 'un seul tracé par question');
+    if (q.simu && (!SCENARIOS_SIMU.includes(q.simu.scenario) || !Array.isArray(q.simu.etapes) || !Number.isFinite(q.simu.fin))) err(f, id, 'tracé du simulateur invalide');
     if (q.ecg12) {
       const fe = path.join(dir, '..', 'ecg', `${q.ecg12.fichier}.json`);
       if (!fs.existsSync(fe)) err(f, id, 'fichier ECG 12 dérivations introuvable : ' + q.ecg12.fichier);
