@@ -185,11 +185,21 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.click('.tuile[data-nav=simulateur]');
     await page.waitForSelector('#ecran'); // l'accueil mène directement à la baie
     await page.selectOption('#scenario', 'trin');
+    if (await page.isVisible('#s2')) throw new Error('S2 visible sans « + extrastimulus »');
+    await page.check('#extras');
     await page.fill('#s2', '320'); await page.dispatchEvent('#s2', 'change');
     await page.click('#stimuler');
+    // pendant le train, Stimuler devient Stop
+    if (await page.textContent('#stimuler') !== 'Stop') throw new Error('le bouton Stimuler ne devient pas Stop');
     await page.waitForFunction(() => /Tachycardie/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 15000 });
     // la manœuvre s'affiche sur l'écran de rappel ; toucher le tracé en temps réel ne l'arrête pas
     await page.waitForFunction(() => /S2 320/.test(document.querySelector('#rappel-titre')?.textContent || ''), null, { timeout: 10000 });
+    if (!/−/.test(await page.textContent('#recul-val'))) throw new Error('le rappel n\'est pas centré sur l\'extrastimulus');
+    // voies : en enlever une et en ajouter une autre passe en montage personnalisé
+    await page.click('#voies-bloc summary');
+    await page.click('[data-voie=V1]'); await page.click('[data-voie=abld]');
+    if (await page.inputValue('#montage') !== 'perso' || await page.getAttribute('[data-voie=V1]', 'aria-pressed') !== 'false') throw new Error('choix des voies inopérant');
+    await page.click('#voies-bloc summary');
     const t0 = await page.evaluate(() => document.querySelector('#etat').textContent);
     await page.click('#ecran', { position: { x: 200, y: 100 } });
     if (/Relecture/.test(await page.evaluate(() => document.querySelector('#etat').textContent)) || !t0) throw new Error('le tracé en temps réel s\'est figé');
@@ -219,7 +229,7 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.click('.pt[data-pos=koch]');
     await page.click('#ablater');
     await page.waitForFunction(() => /°C/.test(document.querySelector('#rf-etat')?.textContent || ''), null, { timeout: 5000 });
-    await page.click('#stop');
+    await page.click('#ablater');
     if (await page.getAttribute('#ablater', 'aria-pressed') !== 'false') throw new Error('le tir ne s\'arrête pas');
     await page.click('#tab-journal');
     await page.click('#cr-generer');

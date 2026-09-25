@@ -503,10 +503,12 @@ main:has(.simu-baie) > :not(.simu-poste) { max-width: 860px; margin-left: auto; 
 .simu-console .btn { background: #16212c; color: #e8eef3; border-color: #2c3e50; }
 .simu-console .btn-primaire { background: var(--primaire-2); border-color: var(--primaire-2); color: #fff; }
 .simu-console .btn-danger { background: #5a1620; border-color: #a33a48; color: #fff; }
-.simu-actions { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: 6px; }
+.simu-actions { display: grid; grid-template-columns: 3fr 1fr; gap: 6px; }
 .simu-actions .btn { padding: 10px 4px; font-weight: 700; min-height: 44px; }
 .simu-go { font-size: 1.05rem; }
-.simu-console .btn-stop { background: #7a1d2a; border-color: #c44858; color: #fff; }
+.simu-console .btn-stop { background: #b3261e; border-color: #e0605a; color: #fff; }
+.simu-extras { font-weight: 600; }
+#extras-bloc[hidden] { display: none; }
 .simu-console .btn.actif { box-shadow: inset 0 0 0 2px var(--simu-his); }
 .simu-puces { display: flex; gap: 6px; overflow-x: auto; padding: 8px 0 2px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .simu-puces::-webkit-scrollbar { display: none; }
@@ -594,10 +596,6 @@ main:has(.simu-baie) > :not(.simu-poste) { max-width: 860px; margin-left: auto; 
   .simu-console { padding: 6px 6px calc(6px + env(safe-area-inset-bottom)); }
 }
 /* console à droite (ordinateur large, téléphone en paysage) : Stimuler sur toute la largeur, pastilles sur plusieurs lignes */
-@media (min-width: 1280px), (orientation: landscape) and (max-height: 520px) {
-  .simu-actions { grid-template-columns: repeat(4, 1fr) !important; }
-  .simu-actions .simu-go { grid-column: 1 / -1; }
-}
 @media (min-width: 1280px) { .simu-puces#site { flex-wrap: wrap; overflow: visible; } }
 /* ordinateur large : console à droite de la baie */
 @media (min-width: 1280px) {
@@ -626,3 +624,11 @@ main:has(.simu-baie) > :not(.simu-poste) { max-width: 860px; margin-left: auto; 
   .simu-titre-ecran .simu-mesures { font-size: .75rem; gap: 2px 8px; }
   .simu-revue { gap: 4px; }
 }
+/* choix des voies affichées */
+.simu-voies { font-size: .8rem; color: var(--simu-texte); margin: 2px 0; }
+.simu-voies summary { cursor: pointer; padding: 2px 0; }
+.simu-voies-grille { display: flex; flex-wrap: wrap; gap: 6px 14px; padding: 6px 0; }
+.simu-voies-groupe { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.simu-voies-groupe > span { font-size: .72rem; text-transform: uppercase; letter-spacing: .04em; margin-right: 2px; }
+.simu-voies-groupe button { border: 1px solid #2c3e50; background: #16212c; color: #8fa3b3; border-radius: 999px; padding: 5px 10px; font-size: .8rem; font-weight: 600; min-height: 32px; text-decoration: line-through; }
+.simu-voies-groupe button[aria-pressed="true"] { background: #23384a; color: #fff; border-color: var(--simu-curseur); text-decoration: none; }

@@ -3,7 +3,7 @@
 // cas mystères notés et compte rendu d'exploration.
 import { Coeur, SITES_ATRIAUX, seuilCapture } from '../simu/moteur.js';
 import { SCENARIOS, MYSTERES, SITES_STIM, SITES_DETECTION, POSITIONS } from '../simu/scenarios.js';
-import { dessinerSimu, MONTAGES, VITESSES, fenetreMs, marges, evenementsCanal } from '../simu/trace.js';
+import { dessinerSimu, MONTAGES, VITESSES, CANAUX, fenetreMs, marges, evenementsCanal } from '../simu/trace.js';
 import { mesures, tachycardie, analyserEntrainement, analyserESV, reponseStim, recuperationSinusale, constantes, tempsLocal,
   activations, battementsV, sitePlusPrecoce } from '../simu/analyse.js';
 import { esc, melanger } from '../util.js';
@@ -42,6 +42,9 @@ const CARTE = { 'od-haute': [54, 24], 'od-lat': [34, 104], isthme: [92, 168], ko
 const COURTS_POS = { 'od-haute': 'ODh', 'od-lat': 'AT lat', isthme: 'ICT', koch: 'Koch', ostium: 'Ost SC', his: 'His', 'cryo-his': 'Cryo', 'mitral-lat': 'AM lat',
   'og-lat': 'OG inf', 'vd-apex': 'VD', 'vg-cicatrice': 'Cicat.' };
 const MEDIA_COMPACT = '(orientation: landscape) and (max-height: 520px)';
+// voies regroupées par cathéter pour le choix des dérivations affichées
+const GROUPES_VOIES = [['Surface', ['I', 'II', 'aVF', 'V1', 'V6']], ['OD', ['hra']], ['Halo', ['h78', 'h56', 'h34', 'h12']], ['His', ['hisp', 'hisd']],
+  ['Sinus coronaire', ['cs9', 'cs7', 'cs5', 'cs3', 'cs1']], ['VD', ['rva']], ['Sonde', ['abld', 'ablu']], ['Constantes', ['pa']]];
 
 export function vueSimulateur(app) {
   arreterSimulateur();
@@ -49,12 +52,15 @@ export function vueSimulateur(app) {
   if (sauve.v !== 2) { delete sauve.mode; delete sauve.figerApres; } // le balayage devient l'affichage standard
   // téléphone : montage réduit par défaut pour que le tracé tienne à l'écran avec la console
   const telephone = matchMedia('(max-width: 699px), (max-height: 520px)').matches;
-  const r = { v: 2, site: 'hra', sortie: 5, largeur: 2, detection: '', s1: 600, n: 8, s2: 0, s3: 0, s4: 0, rappelApres: true, decrement: false,
+  const r = { v: 2, site: 'hra', sortie: 5, largeur: 2, detection: '', s1: 600, n: 8, s2: 400, s3: 0, s4: 0, extras: false, rappelApres: true, decrement: false,
     salveCl: 400, rampeDebut: 500, rampeFin: 250, rampePas: 10, vitesse: 100, vitesseRappel: 100, mode: 'balayage', montage: telephone ? 'compact' : 'standard',
     bruit: true, etiquettes: true, filtre50: true, passeHaut: true, aimant: true, puissance: 30, dureeRF: 60, onglet: 'prog', ...sauve };
   if (!VITESSES.includes(r.vitesse)) r.vitesse = 100;
   if (!VITESSES.includes(r.vitesseRappel)) r.vitesseRappel = 100;
-  if (!MONTAGES[r.montage]) r.montage = 'standard';
+  if (!MONTAGES[r.montage] && r.montage !== 'perso') r.montage = 'standard';
+  // voies affichées : celles du montage, modifiables une à une (montage « Personnalisé »)
+  if (Array.isArray(r.voies)) r.voies = r.voies.filter(id => CANAUX.some(c => c.id === id));
+  if (!r.voies?.length) r.voies = [...(MONTAGES[r.montage] ?? MONTAGES.standard).voies];
   if (!SITES_STIM.some(s => s.id === r.site)) r.site = 'hra';
   if (!SITES_DETECTION.some(s => s.id === r.detection)) r.detection = '';
   // rappel : entrée du journal affichée sur l'écran de rappel (instantané du tracé), avec sa relecture et ses compas
@@ -92,12 +98,18 @@ export function vueSimulateur(app) {
       <div class="simu-barre">
         <label class="simu-mini">Vitesse ${vitesses('vitesse', r.vitesse)}</label>
         <label class="simu-mini">Affichage <select id="mode"><option value="balayage" ${r.mode === 'balayage' ? 'selected' : ''}>Balayage (standard)</option><option value="defilement" ${r.mode === 'defilement' ? 'selected' : ''}>Défilement</option></select></label>
-        <label class="simu-mini">Montage <select id="montage">${Object.entries(MONTAGES).map(([id, m]) => `<option value="${id}" ${id === r.montage ? 'selected' : ''}>${esc(m.nom)}</option>`).join('')}</select></label>
+        <label class="simu-mini">Montage <select id="montage">${Object.entries(MONTAGES).map(([id, m]) => `<option value="${id}" ${id === r.montage ? 'selected' : ''}>${esc(m.nom)}</option>`).join('')}
+          <option value="perso" ${r.montage === 'perso' ? 'selected' : ''}>Personnalisé</option></select></label>
         <details class="simu-filtres"><summary>Réglages</summary><div>
           ${case_('bruit', 'Bruit', r.bruit)}${case_('etiquettes', 'A-H-V', r.etiquettes)}
           ${case_('filtre50', 'Filtre secteur 50 Hz', r.filtre50)}${case_('passe-haut', 'Passe-haut 30 Hz (EGM)', r.passeHaut)}
         </div></details>
       </div>
+      <details class="simu-voies" id="voies-bloc"><summary>Voies affichées (<span id="voies-nb"></span>) : toucher pour ajouter ou enlever</summary>
+        <div class="simu-voies-grille">${GROUPES_VOIES.map(([g, ids]) => `<div class="simu-voies-groupe"><span>${g}</span>${ids.map(id => {
+          const c = CANAUX.find(x => x.id === id);
+          return `<button type="button" data-voie="${id}" aria-pressed="${r.voies.includes(id)}" title="${esc(c.nom)}">${esc(c.nom)}</button>`; }).join('')}</div>`).join('')}</div>
+      </details>
       <div class="simu-bascule" role="tablist" aria-label="Écran affiché">
         <button type="button" role="tab" data-vue="direct" aria-selected="true">Temps réel</button>
         <button type="button" role="tab" data-vue="rappel" aria-selected="false">Rappel <span id="bascule-nouveau" class="simu-pastille" hidden></span></button>
@@ -150,10 +162,7 @@ export function vueSimulateur(app) {
 
     <section class="simu-console" id="console" aria-label="Console de stimulation">
       <div class="simu-actions">
-        <button class="btn btn-primaire simu-go" id="stimuler">Stimuler</button>
-        <button class="btn" id="s2moins" title="Raccourcir S2 de 10 ms puis stimuler">S2 − 10</button>
-        <button class="btn" id="salve" title="Salve continue au cycle réglé dans « Salve / rampe »">Salve</button>
-        <button class="btn btn-stop" id="stop" title="Arrêter toute stimulation, protocole ou tir en cours">Stop</button>
+        <button class="btn btn-primaire simu-go" id="stimuler" title="Stimuler ; pendant une stimulation, une salve ou un protocole : Stop">Stimuler</button>
         <button class="btn" id="enregistrer" title="Envoyer les 10 dernières secondes sur l'écran de rappel">Enreg.</button>
       </div>
       ${puces('site', SITES_STIM, r.site, COURTS, 'Site de stimulation')}
@@ -164,11 +173,15 @@ export function vueSimulateur(app) {
       </div>
       <div class="simu-pans">
         ${panneau('prog', `
-          <div class="simu-grille-pas">${pas('s1', 'S1 (ms)', r.s1, 10, 200, 2000)}${pas('n', 'Nb S1', r.n, 1, 0, 30)}${pas('s2', 'S2', r.s2, 10, 0, 1000)}${pas('s3', 'S3', r.s3, 10, 0, 1000)}${pas('s4', 'S4', r.s4, 10, 0, 1000)}
+          <div class="simu-grille-pas">${pas('s1', 'S1 (ms)', r.s1, 10, 200, 2000)}${pas('n', 'Nb S1', r.n, 1, 0, 30)}
           ${pas('sortie', 'Sortie (mA)', r.sortie, 0.5, 0.1, 20)}${pas('largeur', 'Impulsion (ms)', r.largeur, 0.5, 0.5, 2)}</div>
+          <label class="simu-case simu-extras"><input type="checkbox" id="extras" ${r.extras ? 'checked' : ''}> + extrastimulus (S2, S3, S4)</label>
+          <div id="extras-bloc" ${r.extras ? '' : 'hidden'}>
+            <div class="simu-grille-pas">${pas('s2', 'S2 (ms)', r.s2, 10, 0, 1000)}${pas('s3', 'S3', r.s3, 10, 0, 1000)}${pas('s4', 'S4', r.s4, 10, 0, 1000)}</div>
+            <label class="simu-case"><input type="checkbox" id="decrement" ${r.decrement ? 'checked' : ''}> Décrément automatique : S2 − 10 ms après chaque train</label>
+          </div>
           <div class="simu-ligne-puces"><span class="simu-pas-lib">Couplé à la détection</span>${puces('detection', SITES_DETECTION, r.detection, COURTS_DETECTION, 'Couplage à la détection')}</div>
-          <label class="simu-case"><input type="checkbox" id="rappel-apres" ${r.rappelApres ? 'checked' : ''}> Afficher chaque manœuvre sur l'écran de rappel</label>
-          <label class="simu-case"><input type="checkbox" id="decrement" ${r.decrement ? 'checked' : ''}> Décrément automatique : S2 − 10 ms après chaque train</label>`)}
+          <label class="simu-case"><input type="checkbox" id="rappel-apres" ${r.rappelApres ? 'checked' : ''}> Afficher chaque manœuvre sur l'écran de rappel</label>`)}
         ${panneau('proto', `
           <div class="simu-protos">
             <button class="simu-proto" data-proto="decA"><b>Extrastimulus atrial décrémental</b><small>OD haute, S2 − 10 ms à chaque train jusqu'à la période réfractaire : PR nodale, saut d'AH, induction</small></button>
@@ -185,7 +198,8 @@ export function vueSimulateur(app) {
           <p class="simu-proto-etat" id="proto-etat" role="status"></p>`)}
         ${panneau('salve', `
           <div class="simu-grille-pas">${pas('salve-cl', 'Salve : cycle (ms)', r.salveCl, 10, 150, 2000)}</div>
-          <p class="note">« Salve » (en haut de la console) stimule en continu à ce cycle jusqu'au deuxième appui ou à « Stop ».</p>
+          <button class="btn" id="salve">Démarrer la salve</button>
+          <p class="note">La salve stimule en continu à ce cycle jusqu'à « Arrêter la salve » ou « Stop ».</p>
           <div class="simu-grille-pas">${pas('rampe-debut', 'Rampe : de', r.rampeDebut, 10, 150, 2000)}${pas('rampe-fin', 'à', r.rampeFin, 10, 150, 2000)}${pas('rampe-pas', 'pas', r.rampePas, 5, 5, 50)}</div>
           <button class="btn" id="rampe">Lancer la rampe</button>`)}
         ${panneau('abl', `
@@ -205,7 +219,7 @@ export function vueSimulateur(app) {
             <button class="btn btn-danger simu-rf-btn" id="ablater" aria-pressed="false">Radiofréquence</button>
             <output class="simu-rf-etat" id="rf-etat">Générateur prêt</output>
           </div>
-          <p class="note">Électrogrammes de la sonde (ABL d, ABL uni) avec le montage « Ablation » ; stimulez depuis la sonde avec le site « Sonde abl. ». Surveillez le rythme jonctionnel et sa conduction VA pendant un tir près du nœud AV.</p>
+          <p class="note">Électrogrammes de la sonde (ABL d, ABL uni) avec le montage « Ablation » ou en les ajoutant dans « Voies affichées » ; stimulez depuis la sonde avec le site « Sonde abl. ». Surveillez le rythme jonctionnel et sa conduction VA pendant un tir près du nœud AV.</p>
           <button class="btn" id="carte-effacer">Effacer la carte</button> <button class="btn" id="reinit">Recommencer le cas</button>`)}
         ${panneau('medic', `
           <div class="simu-medics">
@@ -237,10 +251,10 @@ export function vueSimulateur(app) {
     <details class="carte simu-guide">
       <summary><b>Mode d'emploi et manœuvres clés</b></summary>
       <ul>
-        <li><b>Console</b> : toujours en bas de l'écran (à droite en paysage sur téléphone). Stimuler, S2 − 10, Salve, Stop et Enregistrer restent visibles ; les pastilles choisissent le site ; les onglets donnent les réglages (± : appui long pour aller vite). Touchez l'onglet ouvert pour replier la console.</li>
-        <li><b>Baie</b> : vitesse en mm/s (25 mm/s pour une vue d'ensemble, 100 à 200 mm/s pour mesurer). L'écran en temps réel est en balayage (défilement en option) et ne se fige jamais. L'<b>écran de rappel</b> affiche chaque manœuvre ou enregistrement ; tout événement du journal peut y être rappelé. Faites glisser pour poser un compas (aimanté aux activations), pincez pour changer de vitesse, « Comparer » garde un rappel en référence (avant / après adénosine, avant / après ablation). Sur téléphone en paysage, un seul écran à la fois : glissez horizontalement pour passer du temps réel au rappel.</li>
+        <li><b>Console</b> : toujours en bas de l'écran (à droite en paysage sur téléphone). Stimuler (qui devient Stop pendant une stimulation, une salve ou un protocole) et Enregistrer restent visibles ; « + extrastimulus » affiche S2, S3 et S4 ; la salve se lance depuis l'onglet Salve ; les pastilles choisissent le site ; les onglets donnent les réglages (± : appui long pour aller vite). Touchez l'onglet ouvert pour replier la console.</li>
+        <li><b>Baie</b> : vitesse en mm/s (25 mm/s pour une vue d'ensemble, 100 à 200 mm/s pour mesurer). L'écran en temps réel est en balayage (défilement en option) et ne se fige jamais. Choisissez un montage, puis ajoutez ou enlevez chaque voie dans « Voies affichées ». L'<b>écran de rappel</b> affiche chaque manœuvre ou enregistrement, centré sur l'extrastimulus (ou le stimulus bloqué, le dernier stimulus d'une salve) ; tout événement du journal peut y être rappelé. Faites glisser pour poser un compas (aimanté aux activations), pincez pour changer de vitesse, « Comparer » garde un rappel en référence (avant / après adénosine, avant / après ablation). Sur téléphone en paysage, un seul écran à la fois : glissez horizontalement pour passer du temps réel au rappel.</li>
         <li><b>Protocoles</b> : extrastimulus décrémental automatique (PR, saut d'AH, induction), rampe jusqu'au Wenckebach antérograde ou rétrograde, temps de récupération sinusale, seuil de capture, para-hisien, ESV His-réfractaire et entraînement avec arrêt automatique. Les résultats vont dans le journal et le compte rendu.</li>
-        <li><b>Extrastimulus</b> : train de S1 (ex. 8 × 600 ms) puis S2, S3, S4 (0 = désactivé). Saut de l'AH ≥ 50 ms pour 10 ms de raccourcissement du couplage = double voie nodale. Période réfractaire effective : du tissu stimulé quand S2 ne capture plus ; du nœud AV quand S2 capture sans être suivi d'un H.</li>
+        <li><b>Extrastimulus</b> : train de S1 (ex. 8 × 600 ms) puis, en cochant « + extrastimulus », S2, S3, S4 (0 = désactivé) ; diminuez S2 par pas de 10 ms (boutons ± ou décrément automatique). Saut de l'AH ≥ 50 ms pour 10 ms de raccourcissement du couplage = double voie nodale. Période réfractaire effective : du tissu stimulé quand S2 ne capture plus ; du nœud AV quand S2 capture sans être suivi d'un H.</li>
         <li><b>Stimulateur</b> : chaque site a son seuil (isthme, SC distal et cicatrice plus élevés) ; près du seuil, la capture devient intermittente ; une impulsion plus courte exige plus d'intensité (loi intensité-durée). Un stimulus sans capture est marqué « · ».</li>
         <li><b>Isoprénaline</b> : accélère le sinus, améliore la conduction nodale et facilite l'induction. <b>Adénosine</b> : bloc AV transitoire (1,5 s après le clic dans le simulateur).</li>
         <li><b>ESV His-réfractaire</b> : si l'atrium suivant est avancé avec la même séquence, il existe une voie accessoire ; elle participe au circuit si l'ESV retarde l'atrium ou arrête la tachycardie sans l'atteindre.</li>
@@ -263,7 +277,8 @@ export function vueSimulateur(app) {
   const hms = t => `${(t / 1000).toFixed(1)} s`;
   // événements émis par le moteur : [début, capture, instant à montrer] relatifs à l'événement (ms), affichage automatique
   const FENETRES_MOTEUR = [[/^Adénosine/, -2000, 9000, 1500, true], [/^Choc/, -3000, 4000, 0, true], [/^Radiofréquence/, -4000, 3000, 0, false], [/^Bloc AV/, -5000, 3000, 0, true]];
-  // focus : instant placé au premier tiers de l'écran de rappel à l'ouverture (sinon, fin de l'enregistrement)
+  // focus : instant placé au centre de l'écran de rappel à l'ouverture (extrastimulus, stimulus bloqué, dernier stimulus d'une salve…) ;
+  // sans focus, l'écran montre la fin de l'enregistrement
   function entree(t, texte, { debut = t - 6000, capture = t + 4000, auto = false, focus = null } = {}) {
     const e = { id: ++st.numero, t, texte, debut, capture, auto, focus, instantane: null };
     st.actions.push(e);
@@ -304,7 +319,7 @@ export function vueSimulateur(app) {
     if (!e) return;
     if (!e.instantane) { st.demande = e; message('Enregistrement en cours : il s\'affichera sur l\'écran de rappel dans un instant.'); return; }
     st.rappel = e; st.curseurs = [];
-    st.recul = e.focus != null ? Math.max(0, e.instantane.t - e.focus - 0.66 * fenetreMs(canvasR.clientWidth || 300, r.vitesseRappel)) : 0; st.nouveauCompas = false; st.demande = null; st.sale = true;
+    st.recul = e.focus != null ? Math.max(0, e.instantane.t - e.focus - 0.5 * fenetreMs(canvasR.clientWidth || 300, r.vitesseRappel)) : 0; st.nouveauCompas = false; st.demande = null; st.sale = true;
     $('#rappel-titre').textContent = `${hms(e.t)} · ${e.texte}`;
     $('#rappel-vide').hidden = true;
     $('#paysage-nouveau').textContent = ` Dernier rappel : ${e.texte}.`;
@@ -327,7 +342,7 @@ export function vueSimulateur(app) {
     st.coeur.avancer(2500);
     Object.assign(st, { t: 2500, salve: null, actions: [], faites: new Set(), analyses: [], positionsTachy: new Set(), tachyAvant: false,
       rappel: null, recul: 0, curseurs: [], nouveauCompas: false, demande: null, sale: true, reference: null, proto: null, rf: null, carte: {}, cr: nouveauCR(), hypo: 0, bump: null });
-    $('#salve').textContent = 'Salve'; $('#salve').classList.remove('actif');
+    $('#salve').textContent = 'Démarrer la salve'; $('#salve').classList.remove('actif');
     for (const id of ['#iso', '#atropine']) { $(id).setAttribute('aria-pressed', 'false'); $(id).classList.remove('actif'); }
     $('#rappel-titre').textContent = ''; $('#rappel-vide').hidden = false; $('#paysage-nouveau').textContent = ''; $('#reference').hidden = true;
     $('#proto-etat').textContent = ''; $('#compte-rendu').hidden = true; $('#rf-etat').textContent = 'Générateur prêt';
@@ -348,10 +363,10 @@ export function vueSimulateur(app) {
   const reglages = () => {
     const n = (id, min = 0) => Math.max(min, +$(id).value || 0);
     Object.assign(r, { sortie: n('#sortie', 0.1), largeur: Math.min(2, n('#largeur', 0.5)), s1: Math.max(200, n('#s1')), n: Math.min(30, Math.round(n('#n'))),
-      s2: Math.round(n('#s2')), s3: Math.round(n('#s3')), s4: Math.round(n('#s4')), rappelApres: $('#rappel-apres').checked, decrement: $('#decrement').checked,
+      s2: Math.round(n('#s2')), s3: Math.round(n('#s3')), s4: Math.round(n('#s4')), extras: $('#extras').checked, rappelApres: $('#rappel-apres').checked, decrement: $('#decrement').checked,
       salveCl: n('#salve-cl', 150), rampeDebut: n('#rampe-debut', 150), rampeFin: n('#rampe-fin', 150), rampePas: n('#rampe-pas', 1),
       puissance: Math.min(50, n('#puissance', 5)), dureeRF: Math.min(120, n('#duree-rf', 10)),
-      vitesse: +$('#vitesse').value, vitesseRappel: +$('#vitesse-rappel').value, mode: $('#mode').value, montage: $('#montage').value,
+      vitesse: +$('#vitesse').value, vitesseRappel: +$('#vitesse-rappel').value, mode: $('#mode').value,
       bruit: $('#bruit').checked, etiquettes: $('#etiquettes').checked, filtre50: $('#filtre50').checked, passeHaut: $('#passe-haut').checked });
     ecrire(r);
     majResume();
@@ -360,8 +375,10 @@ export function vueSimulateur(app) {
   const siteReel = () => (r.site === 'abl' ? positionActuelle().stim : r.site);
   const nomSite = () => `${SITES_STIM.find(s => s.id === r.site).nom}${r.site === 'abl' ? ` (${positionActuelle().nom})` : ''}`;
   const virgule = x => String(x).replace('.', ',');
+  // réglages effectivement délivrés : S2, S3, S4 ignorés tant que « + extrastimulus » n'est pas coché
+  const programme = () => ({ ...r, ...(r.extras ? {} : { s2: 0, s3: 0, s4: 0 }) });
   function majResume() {
-    const extras = [r.s2, r.s3, r.s4].filter(Boolean);
+    const q = programme(), extras = [q.s2, q.s3, q.s4].filter(Boolean);
     $('#resume').textContent = `${r.n ? `${r.n} × ${r.s1}` : 'sans train'}${extras.map((x, i) => ` · S${i + 2} ${x}`).join('')} ms · ${virgule(r.sortie)} mA / ${virgule(r.largeur)} ms`
       + `${r.detection ? ` · couplé ${COURTS_DETECTION[r.detection]}` : ''} · salve ${r.salveCl} ms`;
   }
@@ -392,15 +409,17 @@ export function vueSimulateur(app) {
     if (!p.n && extras.length) t -= extras[0];
     for (const x of extras) { t += x; liste.push(t); }
     liste.forEach(x => c.stimuler(site, x, p.sortie, p.largeur));
-    if (e && liste.length) Object.assign(e, { debut: liste[0] - 1500, capture: liste.at(-1) + 2000, instantane: null });
+    // rappel centré sur le premier extrastimulus (S2), ou sur le dernier stimulus d'un train simple
+    if (e && liste.length) Object.assign(e, { debut: liste[0] - 1500, capture: liste.at(-1) + 2000, focus: extras.length ? liste[p.n] : liste.at(-1), instantane: null });
     return liste;
   }
 
   function stimuler() {
     reglages();
-    if (!r.n && !r.s2) { message('Réglez au moins un S1 ou un S2.'); return; }
+    const p = programme(); // réglages figés au moment de l'appui (train couplé différé)
+    if (!p.n && !p.s2) { message(r.extras ? 'Réglez au moins un S1 ou un S2.' : 'Réglez au moins un S1, ou cochez « + extrastimulus ».'); return; }
     vibrer();
-    const c = st.coeur, site = siteReel(), p = { ...r }; // réglages figés au moment de l'appui (train couplé différé)
+    const c = st.coeur, site = siteReel();
     const type = classer(site, { detection: p.detection, n: p.n, s2: p.s2 });
     const tcl = tachycardie(c).cycleV;
     let e = null;
@@ -414,7 +433,7 @@ export function vueSimulateur(app) {
         }, 3500);
       }
     };
-    e = noter(type, `${nomSite()} : ${r.n ? `${r.n} × S1 ${r.s1}` : ''}${[r.s2, r.s3, r.s4].filter(Boolean).map((x, i) => ` S${i + 2} ${x}`).join('')} ms, ${virgule(r.sortie)} mA${r.detection ? `, couplé au ${SITES_DETECTION.find(d => d.id === r.detection).nom}` : ''}`,
+    e = noter(type, `${nomSite()} : ${p.n ? `${p.n} × S1 ${p.s1}` : ''}${[p.s2, p.s3, p.s4].filter(Boolean).map((x, i) => ` S${i + 2} ${x}`).join('')} ms, ${virgule(p.sortie)} mA${p.detection ? `, couplé au ${SITES_DETECTION.find(d => d.id === p.detection).nom}` : ''}`,
       { capture: st.t + 12000, auto: r.rappelApres });
     if (p.detection) {
       const depuis = c.t;
@@ -425,7 +444,8 @@ export function vueSimulateur(app) {
       };
       c.ecouteurs.push(ecoute);
     } else lancer(c.t + 150);
-    if (r.decrement && r.s2) { $('#s2').value = Math.max(150, r.s2 - 10); reglages(); }
+    if (p.decrement && p.s2) { $('#s2').value = Math.max(150, p.s2 - 10); reglages(); }
+    majBoutonStim();
   }
 
   // résultat d'une manœuvre : journal, débriefing du cas et compte rendu
@@ -436,15 +456,15 @@ export function vueSimulateur(app) {
     st.salve = { site, cl, prochain: st.coeur.t + 100, debut: st.coeur.t + 100, sortie: r.sortie, largeur: r.largeur, tachy: t.active,
       tcl: VENTRICULAIRES.has(site) ? t.cycleV : (t.cycleA ?? t.cycleV), nom };
     noter(type ?? classer(site, { salve: true }), `Salve : ${nom} à ${cl} ms, ${virgule(r.sortie)} mA`);
-    $('#salve').textContent = 'Arrêter'; $('#salve').classList.add('actif');
+    $('#salve').textContent = 'Arrêter la salve'; $('#salve').classList.add('actif');
   }
   function arreterSalve() {
     const s = st.salve; if (!s) return;
     const c = st.coeur;
     c.annulerStims(c.t);
     const der = c.stims.filter(x => x.s === s.site).at(-1)?.t;
-    noter(null, `Arrêt de la salve (${s.nom} à ${s.cl} ms)`, { debut: Math.max(s.debut - 2000, st.t - 30000), capture: st.t + 3500, auto: r.rappelApres });
-    st.salve = null; $('#salve').textContent = 'Salve'; $('#salve').classList.remove('actif');
+    noter(null, `Arrêt de la salve (${s.nom} à ${s.cl} ms)`, { debut: Math.max(s.debut - 2000, st.t - 30000), capture: st.t + 3500, focus: der, auto: r.rappelApres });
+    st.salve = null; $('#salve').textContent = 'Démarrer la salve'; $('#salve').classList.remove('actif');
     if (s.tachy && der != null) {
       setTimeout(() => {
         const a = analyserEntrainement(c, { der, site: s.site, tcl: s.tcl, ventriculaire: VENTRICULAIRES.has(s.site) });
@@ -480,7 +500,7 @@ export function vueSimulateur(app) {
       const ts = t0 + (n - 1) * s1 + s2;
       c.stimuler(site, ts, sortie, r.largeur);
       fixer('#s2', s2); reglages();
-      entree(t0, `${atrial ? 'OD haute' : 'VD apex'} : ${n} × S1 ${s1} S2 ${s2} ms`, { debut: t0 - 1500, capture: ts + 2000, auto: r.rappelApres });
+      entree(t0, `${atrial ? 'OD haute' : 'VD apex'} : ${n} × S1 ${s1} S2 ${s2} ms`, { debut: t0 - 1500, capture: ts + 2000, focus: ts, auto: r.rappelApres });
       majJournal();
       attente = { ts, s2, fin: ts + 2400 };
     };
@@ -522,7 +542,7 @@ export function vueSimulateur(app) {
     let i = 0, conduits = 0;
     const fin = (texte, tFin) => {
       c.annulerStims(st.t);
-      Object.assign(e, { capture: Math.max(st.t, Math.min(e.capture, tFin + 2500)), instantane: null });
+      Object.assign(e, { capture: Math.max(st.t, Math.min(e.capture, tFin + 2500)), focus: tFin, instantane: null });
       if (atrial) st.cr.wenck = texte; else st.cr.wenckRetro = texte;
       resultat(`${nom} : ${texte}`);
       return false;
@@ -554,7 +574,7 @@ export function vueSimulateur(app) {
       if (trs == null && tc < der + 6000) return true;
       const texte = trs == null ? 'pas de reprise sinusale en 6 s (dysfonction sinusale sévère)' : `TRS ${trs} ms (N < 1500), TRS corrigé ${trs - base} ms (N < 525)`;
       st.cr.trs = texte;
-      entree(der, 'Fin de salve : récupération sinusale', { debut: der - 3000, capture: der + (trs ?? 6000) + 1500, auto: r.rappelApres });
+      entree(der, 'Fin de salve : récupération sinusale', { debut: der - 3000, capture: der + (trs ?? 6000) + 1500, focus: der + (trs ?? 0) / 2, auto: r.rappelApres });
       resultat(`Récupération sinusale : ${texte}`);
       return false;
     } };
@@ -593,7 +613,7 @@ export function vueSimulateur(app) {
     const cl = arrondi10(Math.min(600, cycleSinusal() - 100)), liste = [];
     let t = c.t + 150;
     for (let k = 0; k < 12; k++) { const mA = Math.floor(k / 2) % 2 ? 5 : 15; c.stimuler('parahis', t, mA, r.largeur); liste.push(t); t += cl; }
-    noter('parahis', `Protocole : stimulation para-hisienne à ${cl} ms, 15 et 5 mA alternés`, { debut: liste[0] - 1000, capture: t + 800, auto: r.rappelApres });
+    noter('parahis', `Protocole : stimulation para-hisienne à ${cl} ms, 15 et 5 mA alternés`, { debut: liste[0] - 1000, capture: t + 800, focus: liste[5] + cl / 2, auto: r.rappelApres });
     return { nom: 'Para-hisien', etape(tc) {
       if (tc < t + 600) return true;
       // intervalle stimulus-A mesuré sur l'atrium du His et sur l'ostium du SC (sortie d'une voie septale postérieure)
@@ -618,13 +638,15 @@ export function vueSimulateur(app) {
   function protoESV() {
     const c = st.coeur, t0 = tachycardie(c);
     if (!t0.active) { message('Pas de tachycardie en cours : induisez-la d\'abord.'); return null; }
-    const avant = { site: r.site, detection: r.detection, n: r.n, s2: r.s2, s3: r.s3, s4: r.s4 };
+    const avant = { site: r.site, detection: r.detection, n: r.n, s2: r.s2, s3: r.s3, s4: r.s4, extras: r.extras };
+    $('#extras').checked = true;
     choisirSite('rva'); choisirPuce('detection', 'his');
     fixer('#n', 0); fixer('#s2', arrondi10(t0.cycleV - 30)); fixer('#s3', 0); fixer('#s4', 0);
     stimuler();
     // la console retrouve ses réglages : l'ESV programmée garde les siens
     choisirPuce('detection', avant.detection); choisirSite(avant.site);
     for (const k of ['n', 's2', 's3', 's4']) fixer(`#${k}`, avant[k]);
+    $('#extras').checked = avant.extras;
     reglages();
     $('#proto-etat').textContent = `▶ ESV His-réfractaire à ${arrondi10(t0.cycleV - 30)} ms (TCL ${Math.round(t0.cycleV)} ms) : résultat dans 3 s`;
     return null;
@@ -661,16 +683,17 @@ export function vueSimulateur(app) {
     vibrer();
     const p = PROTOCOLES[id]();
     if (p) { st.proto = p; if (!$('#proto-etat').textContent) $('#proto-etat').textContent = `▶ ${p.nom} en cours…`; }
+    majBoutonStim();
   }
-  function toutArreter({ silencieux = false } = {}) {
+  function toutArreter({ silencieux = false, rf = true } = {}) {
     const c = st.coeur;
-    const actif = st.proto || st.salve || st.rf || c.tas.a.some(e => e.type === 'stim' && e.t > c.t);
+    const actif = st.proto || st.salve || (rf && st.rf) || c.tas.a.some(e => e.type === 'stim' && e.t > c.t);
     st.proto = null;
     $('#proto-etat').textContent = '';
     if (st.salve) arreterSalve();
     c.annulerStims(c.t);
     c.ecouteurs = [];
-    arreterRF();
+    if (rf) arreterRF();
     if (!silencieux && actif) { noter(null, 'Stop : stimulation interrompue'); $('#proto-etat').textContent = 'Arrêté.'; }
   }
 
@@ -804,15 +827,23 @@ export function vueSimulateur(app) {
 
   // ---------- événements de la console ----------
   $('#scenario').onchange = e => choisir(e.target.value);
-  $('#stimuler').onclick = stimuler;
-  $('#s2moins').onclick = () => { const s2 = +$('#s2').value || 0; $('#s2').value = s2 ? Math.max(150, s2 - 10) : 400; stimuler(); };
+  // Stimuler devient Stop tant qu'une stimulation, une salve ou un protocole est en cours
+  const stimEnCours = () => { const c = st.coeur; return !!(st.proto || st.salve || c.ecouteurs.length || c.tas.a.some(e => e.type === 'stim' && e.t > c.t)); };
+  function majBoutonStim() {
+    const b = $('#stimuler'), actif = stimEnCours();
+    if (b.classList.contains('btn-stop') === actif) return;
+    b.textContent = actif ? 'Stop' : 'Stimuler';
+    b.classList.toggle('btn-stop', actif); b.classList.toggle('btn-primaire', !actif);
+    b.setAttribute('aria-label', actif ? 'Arrêter la stimulation en cours' : 'Stimuler');
+  }
+  $('#stimuler').onclick = () => { if (stimEnCours()) toutArreter({ rf: false }); else stimuler(); majBoutonStim(); };
+  $('#extras').addEventListener('change', e => { $('#extras-bloc').hidden = !e.target.checked; reglages(); });
   $('#salve').onclick = () => {
     reglages();
     if (st.salve) { st.proto = null; arreterSalve(); return; }
     vibrer();
     demarrerSalve(siteReel(), r.salveCl);
   };
-  $('#stop').onclick = () => toutArreter();
   $('#rampe').onclick = () => {
     reglages();
     const site = siteReel(), c = st.coeur, t0 = c.t + 150;
@@ -870,8 +901,30 @@ export function vueSimulateur(app) {
   for (const ev of ['pointerup', 'pointerleave', 'pointercancel']) console_.addEventListener(ev, finRepete);
   console_.addEventListener('keydown', e => { const b = e.target.closest('.btn-pas'); if (b && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); pasSuivant(b); } });
   for (const id of ['#sortie', '#largeur', '#s1', '#n', '#s2', '#s3', '#s4', '#rappel-apres', '#decrement', '#salve-cl', '#rampe-debut', '#rampe-fin', '#rampe-pas', '#puissance', '#duree-rf',
-    '#vitesse', '#mode', '#montage', '#bruit', '#etiquettes', '#filtre50', '#passe-haut']) $(id).addEventListener('change', reglages);
-  for (const id of ['#vitesse', '#mode', '#montage', '#bruit', '#etiquettes', '#filtre50', '#passe-haut']) $(id).addEventListener('change', () => { st.sale = true; });
+    '#vitesse', '#mode', '#bruit', '#etiquettes', '#filtre50', '#passe-haut']) $(id).addEventListener('change', reglages);
+  // montage : jeu de voies prédéfini ; chaque voie peut ensuite être ajoutée ou enlevée (montage personnalisé)
+  function majVoies() {
+    for (const b of app.querySelectorAll('[data-voie]')) b.setAttribute('aria-pressed', String(r.voies.includes(b.dataset.voie)));
+    $('#voies-nb').textContent = r.voies.length;
+    $('#montage').value = r.montage;
+    ecrire(r); st.sale = true;
+  }
+  $('#montage').addEventListener('change', e => {
+    if (e.target.value === 'perso') { r.montage = 'perso'; majVoies(); return; }
+    r.montage = e.target.value; r.voies = [...MONTAGES[r.montage].voies]; majVoies();
+  });
+  $('#voies-bloc').addEventListener('click', e => {
+    const b = e.target.closest('[data-voie]'); if (!b) return;
+    const id = b.dataset.voie, avec = !r.voies.includes(id);
+    if (!avec && r.voies.length <= 1) { message('Gardez au moins une voie.'); return; }
+    const choisies = avec ? [...r.voies, id] : r.voies.filter(x => x !== id);
+    r.voies = CANAUX.map(c => c.id).filter(x => choisies.includes(x)); // ordre habituel de la baie
+    const pareil = Object.entries(MONTAGES).find(([, m]) => m.voies.length === r.voies.length && m.voies.every(x => r.voies.includes(x)));
+    r.montage = pareil ? pareil[0] : 'perso';
+    majVoies();
+  });
+  majVoies();
+  for (const id of ['#vitesse', '#mode', '#bruit', '#etiquettes', '#filtre50', '#passe-haut']) $(id).addEventListener('change', () => { st.sale = true; });
 
   // ---------- navigation dans l'enregistrement rappelé ----------
   // recul : distance (ms) entre la fin de l'instantané et la fin de la fenêtre affichée
@@ -982,7 +1035,7 @@ export function vueSimulateur(app) {
   // ---------- boucle d'animation ----------
   let dernier = performance.now(), dernierePos = 0;
   const etat = $('#etat'), zoneMesures = $('#mesures'), zoneVitaux = $('#constantes');
-  const optionsTrace = () => ({ voies: MONTAGES[r.montage].voies, gains: st.gains, etiquettes: r.etiquettes, bruit: r.bruit, filtre50: r.filtre50, passeHaut: r.passeHaut,
+  const optionsTrace = () => ({ voies: r.voies, gains: st.gains, etiquettes: r.etiquettes, bruit: r.bruit, filtre50: r.filtre50, passeHaut: r.passeHaut,
     hauteurMax: compact() ? Math.max(200, innerHeight - 96) : innerWidth < 700 ? Math.round(innerHeight * 0.48) : 0 });
   const htmlMesures = m => `<span>A-A <b>${f0(m.cycleA)}</b></span><span>V-V <b>${f0(m.cycleV)}</b></span><span>AH <b>${f0(m.AH)}</b></span><span>HV <b>${f0(m.HV)}</b></span><span>VA <b>${f0(m.VA)}</b></span>`;
   const NOMS_PRECOCE = { hra: 'OD haute', ras: 'His', cs9: 'SC proximal', cs7: 'SC 7-8', cs5: 'SC 5-6', cs3: 'SC 3-4', cs1: 'SC distal' };
@@ -994,6 +1047,7 @@ export function vueSimulateur(app) {
     if (st.salve) while (st.salve.prochain < cible + 400) { c.stimuler(st.salve.site, st.salve.prochain, st.salve.sortie, st.salve.largeur); st.salve.prochain += st.salve.cl; }
     c.avancer(cible); st.t = cible;
     if (st.proto && !st.proto.etape(st.t)) st.proto = null;
+    majBoutonStim();
     if (st.rf) etapeRF(dt);
     let capture = false;
     for (const e of st.actions) if (!e.instantane && st.t >= e.capture) {

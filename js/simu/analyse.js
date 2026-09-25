@@ -113,9 +113,11 @@ export function pressionArterielle(journal, t0, t1) {
     const kick = A.some(a => v - a > 80 && v - a < 260) ? 1.18 : 0.85;
     return { t: v + 60, d: Math.min(300, 0.38 * rr + 60), vol: remplissage * kick };
   });
+  // avant le premier battement enregistré (début de l'enregistrement), la pression reste à une valeur diastolique habituelle
   let P = 80, k = 0;
-  const out = [];
+  const out = [], premier = ejections[0]?.t ?? Infinity;
   for (let t = debut; t <= t1; t += pas) {
+    if (t < premier) { if (t >= t0) out.push([t, P]); continue; }
     while (k < ejections.length && ejections[k].t + ejections[k].d < t) k++;
     let q = 0;
     for (let j = Math.max(0, k - 1); j < ejections.length && ejections[j].t <= t; j++) {
