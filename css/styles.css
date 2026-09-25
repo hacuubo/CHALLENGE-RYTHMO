@@ -379,15 +379,54 @@ details.avance > summary { cursor: pointer; font-weight: 700; margin-bottom: 12p
 .simu-mini select { font: inherit; background: #16212c; color: #e8eef3; border: 1px solid #2c3e50; border-radius: 6px; padding: 3px 4px; }
 .simu-barre .simu-mesures { margin-left: auto; color: var(--simu-texte); font-size: .82rem; }
 .simu-barre .simu-mesures b { color: #e8eef3; }
-.simu-revue:not([hidden]) { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 6px 0; }
 .simu-revue input[type=range] { flex: 1 1 160px; }
 .simu-baie .btn { background: #16212c; color: #e8eef3; border-color: #2c3e50; }
 .simu-baie .btn-primaire { background: var(--primaire-2); border-color: var(--primaire-2); color: #fff; }
 .btn.actif { box-shadow: inset 0 0 0 2px var(--simu-his, #ffd24a); }
 .simu-contexte { margin: 0; flex: 1 1 100%; font-size: .95rem; }
 .simu-contexte:empty { display: none; }
-.simu-journal { margin: 0; padding-left: 0; list-style: none; font-size: .85rem; max-height: 220px; overflow: auto; }
+.simu-journal { margin: 0; padding-left: 0; list-style: none; font-size: .85rem; max-height: 260px; overflow: auto; }
 .simu-journal li { padding: 2px 0; border-bottom: 1px solid var(--bord); }
+/* baie : écran en temps réel et écran de rappel côte à côte (grand écran, téléphone en paysage) */
+.simu-ecrans { display: grid; gap: 8px; }
+.simu-panneau { min-width: 0; }
+.simu-titre-ecran { display: flex; gap: 8px; align-items: baseline; font-size: .8rem; color: var(--simu-texte); margin: 4px 2px 0; min-width: 0; }
+.simu-titre-ecran b { color: #e8eef3; white-space: nowrap; }
+.simu-titre-ecran .simu-mesures { margin-left: auto; color: var(--simu-texte); font-size: .82rem; }
+.simu-titre-ecran .simu-mesures b { font-size: .9rem; }
+.simu-titre-ecran .note { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.simu-rappel { border-top: 1px solid #2c3e50; padding-top: 4px; }
+.simu-rappel .simu-barre { margin-top: 4px; }
+.simu-rappel .simu-ecran canvas { cursor: crosshair; }
+.simu-panneau:first-child canvas { cursor: default; }
+.simu-rappel-vide { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; margin: 0; padding: 16px; text-align: center; font-size: .85rem; color: var(--simu-texte); pointer-events: none; }
+.simu-rappel-vide[hidden] { display: none; }
+.simu-revue { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 4px 0; }
+.btn.btn-mini { padding: 5px 9px; font-size: .82rem; min-height: 0; }
+.simu-paysage { display: none; }
+@media (min-width: 1100px), (orientation: landscape) and (min-width: 640px) {
+  .simu-ecrans { grid-template-columns: 1fr 1fr; }
+  .simu-rappel { border-top: 0; padding-top: 0; border-left: 1px solid #2c3e50; padding-left: 8px; }
+}
+/* téléphone en portrait : l'écran de rappel se consulte en paysage */
+@media (max-width: 699px) and (orientation: portrait) {
+  .simu-rappel { display: none; }
+  .simu-paysage { display: flex; gap: 10px; align-items: center; margin: 6px 0; padding: 8px 10px; border-radius: 8px; border: 1px dashed #2c3e50; color: var(--simu-texte); font-size: .85rem; }
+  .simu-paysage b { color: #e8eef3; }
+  .simu-paysage .btn { flex: none; }
+  .simu-paysage-ico { font-size: 1.6rem; color: var(--simu-his); animation: simu-tourner 2.4s ease-in-out infinite; }
+}
+@keyframes simu-tourner { 0%, 30% { transform: rotate(0); } 60%, 100% { transform: rotate(90deg); } }
+@media (prefers-reduced-motion: reduce) { .simu-paysage-ico { animation: none; } }
+/* téléphone en paysage : baie pleine largeur, commandes serrées */
+@media (orientation: landscape) and (max-height: 520px) {
+  .simu-baie { margin-left: -8px; margin-right: -8px; border-radius: 0; padding: 4px; }
+  .simu-baie .simu-barre { gap: 4px 8px; }
+}
+.simu-evt { display: block; width: 100%; text-align: left; font: inherit; color: inherit; background: none; border: 0; padding: 4px 6px; border-radius: 6px; cursor: pointer; }
+.simu-evt:hover { background: var(--info-fond); }
+.simu-evt.choisi { background: var(--info-fond); box-shadow: inset 3px 0 0 var(--primaire-2); font-weight: 600; }
+.simu-journal li { padding: 0; }
 .simu-check { list-style: none; padding-left: 0; }
 .simu-check .fait { color: var(--ok); }
 .simu-check .manque { color: var(--ko); }
@@ -469,3 +508,6 @@ main { padding-top: max(20px, env(safe-area-inset-top)); }
 .quiz-tete .progress { background: rgba(255, 255, 255, .2); }
 .quiz-tete .progress i { background: #fff; }
 #app > .note.centre, .raccourcis { color: rgba(255, 255, 255, .75); }
+/* le simulateur prend toute la largeur pour loger les deux écrans de la baie */
+main:has(.simu-baie) { max-width: 1680px; }
+main:has(.simu-baie) > :not(.simu-baie) { max-width: 860px; margin-left: auto; margin-right: auto; }
