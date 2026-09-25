@@ -18,8 +18,9 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
   - Électrophysiologie : mécanismes, EEP, manœuvres de stimulation des TSV, ablation, antiarythmiques.
 - **Types de questions** : QCU, QCM, vrai/faux, questions ouvertes (avec auto-évaluation).
 - **Difficulté de 1 à 10** sur chaque question ; filtre libre (« entre 1 et 3 », « au-dessus de 3 », « 7 à 10 »…).
-- **Écran titre** puis **accueil épuré sur fond bleu** : Entraînement, Compétitif (avec l'ELO en cours), Simulateur, Fiches,
-  Progression ; chaque entrée ouvre son écran de choix (domaines d'entraînement, scénarios du simulateur…).
+- **Écran titre** puis **accueil épuré sur fond bleu** : Entraînement, Compétitif (avec l'ELO en cours), Simulateur,
+  Progression ; l'entraînement ouvre son écran de choix, le simulateur mène directement à la baie (scénario choisi dans la baie).
+  La page « Sources et informations » n'a pas de barre du bas, seulement une flèche de retour vers l'accueil.
 - **Simulateur d'électrophysiologie** : une baie d'EEP en temps réel.
   - Baie : vitesse de défilement en mm/s (12,5 à 400), balayage avec barre d'effacement ou défilement, D1, D2, aVF, V1, V6,
     OD haute, Halo, His proximal et distal, sinus coronaire décapolaire, VD apex, sonde d'ablation (bipolaire et unipolaire),
@@ -41,8 +42,8 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
   on joue quand on veut, pause à tout moment, l'ELO est enregistré après chaque réponse. Adaptatif dans les deux sens :
   questions plus dures quand l'ELO monte, plus simples quand il baisse. Titres de « Débutant » à « Grand maître ».
 - **Autres modes** : **mode examen** chronométré (correction à la fin), entraînement ciblé (thèmes, marques, types,
-  sous-thèmes, niveau, tracés uniquement), révisions de ses erreurs (répétition espacée), nouveautés,
-  **fiches** consultables avec recherche.
+  sous-thèmes, niveau, tracés uniquement), révisions de ses erreurs (répétition espacée), nouveautés.
+  (Le module de fiches, `js/vues/fiches.js`, reste dans le dépôt mais n'est plus proposé dans l'application.)
 - **Correction didactique** : explication, commentaire pour **chaque proposition**, message « À retenir », sources cliquables,
   date de relecture et recommandations de référence, bouton **« Signaler une erreur »** (issue GitHub pré-remplie).
 - **Progression** : **courbe de l'ELO jour après jour** (avec tableau des valeurs), badges, réussite par thème et par niveau, jours consécutifs,

@@ -409,6 +409,11 @@ body { background: var(--fond-bleu) top / 100% 100vh no-repeat, var(--fond-bleu-
 .onglets-bas button.actif { color: #fff; }
 body.sur-accueil .onglets-bas { display: none; }
 body.sur-accueil { padding-bottom: 24px; }
+body.sans-onglets .onglets-bas { display: none; }
+body.sans-onglets { padding-bottom: 24px; }
+.retour-fleche { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; margin: 0 0 6px -6px; border: 0; border-radius: 50%; background: none; color: #fff; cursor: pointer; }
+.retour-fleche:hover, .retour-fleche:focus-visible { background: rgba(255, 255, 255, .14); }
+.retour-fleche svg { width: 24px; height: 24px; }
 /* textes posés directement sur le fond bleu */
 #app > h1, #app > h2, #app > p, #app > .note, .groupe-simu h2, .bloc-accueil h2 { color: var(--sur-bleu); }
 #app > p.note, #app > .note { color: var(--sur-bleu-2); }

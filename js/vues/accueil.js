@@ -1,4 +1,4 @@
-// Accueil épuré : les cinq entrées principales, l'une sous l'autre. Chacune ouvre son propre écran de choix.
+// Accueil épuré : les quatre entrées principales, l'une sous l'autre. Chacune ouvre son propre écran de choix.
 import * as stock from '../store.js';
 import { resumeSauve } from '../session.js';
 import { esc } from '../util.js';
@@ -20,8 +20,7 @@ export function vueAccueil(app, { reprendre }) {
       ${tuile('entrainement', ICONES.entrainement, 'Entraînement', 'Stimulation, DAI, télécardio · ECG · Électrophysiologie')}
       ${tuile('competitif', ICONES.competitif, 'Compétitif', 'Questions en continu, classement ELO',
         `<span class="tuile-elo"><b>${c.elo}</b> ELO · ${esc(c.titre.nom)}${c.partiesDuJour ? ` · <span class="delta ${c.duJour >= 0 ? 'plus' : 'moins'}">${signe(c.duJour)}</span>` : ''}</span>`)}
-      ${tuile('simu-menu', ICONES.simulateur, 'Simulateur', 'Baie d\'électrophysiologie, cas mystères')}
-      ${tuile('fiches', ICONES.fiches, 'Fiches', 'Toutes les questions corrigées, avec recherche')}
+      ${tuile('simulateur', ICONES.simulateur, 'Simulateur', 'Baie d\'électrophysiologie, cas mystères')}
       ${tuile('progression', ICONES.progression, 'Progression', 'ELO jour après jour, badges, points faibles')}
     </nav>
     <p class="pied-accueil"><button class="lien" data-nav="apropos">Sources et informations</button></p>`;
