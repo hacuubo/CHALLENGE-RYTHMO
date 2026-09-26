@@ -180,7 +180,7 @@
   "question": "What distinguishes Reactive ATP in Medtronic pacemakers from conventional atrial ATP?",
   "options": [
    "It avoids pacing the atrium in its vulnerable period after a PAC",
-   "It re-attempts atrial ATP when the rhythm organises or after a set delay",
+   "It re-attempts atrial ATP once the rhythm organises or after a delay",
    "It delivers low-energy atrial cardioversion if ATP fails",
    "It paces the atrium just above the sinus rate to prevent AF"
   ],
@@ -394,7 +394,7 @@
   "options": [
    "A floating atrial dipole that senses the P wave without pacing the atrium",
    "i2i communication with a second capsule implanted in the atrium",
-   "The accelerometer, which detects atrial contraction (A4 mechanical signal)",
+   "The accelerometer, sensing atrial contraction (A4 mechanical signal)",
    "Far-field P-wave sensing by the capsule's electrodes"
   ],
   "commentaires": [
@@ -463,7 +463,7 @@
   "options": [
    "It confirms atrial capture every cycle by analysing the evoked P wave",
    "It confirms atrial capture by AV conduction or sinus rhythm reset",
-   "It measures atrial threshold periodically (8 or 24 h), with no beat-to-beat check",
+   "It measures atrial threshold periodically (8 or 24 h), not beat to beat",
    "It works only with unipolar pacing, as the bipolar signal is insufficient"
   ],
   "commentaires": [
@@ -513,7 +513,7 @@
   "question": "How does the Abbott SyncAV algorithm set the AV delay in CRT?",
   "options": [
    "It periodically extends it to allow intrinsic conduction to emerge",
-   "It sets it to the measured intrinsic AV interval minus a programmable delta",
+   "It sets it to the measured intrinsic AV minus a programmable delta",
    "It optimises it weekly on the basis of endocardial acceleration",
    "It calculates it once from the intervals measured on the EGMs"
   ],
@@ -565,7 +565,7 @@
   "question": "What is the principle of the Abbott AF Suppression algorithm?",
   "options": [
    "Re-attempting atrial ATP when the atrial rhythm organises during an episode",
-   "Increasing the atrial pacing rate on each sensed intrinsic P wave, then decreasing it",
+   "Pacing the atrium faster on each sensed intrinsic P wave, then slowing",
    "Avoiding pacing the atrium in its vulnerable period after a PAC",
    "Shortening the escape interval after a PAC to abolish the compensatory pause"
   ],
@@ -651,7 +651,7 @@
  "prog-ma-043": {
   "question": "In an Abbott dual-chamber ICD, the Rate Branch algorithm compares the atrial (A) and ventricular (V) rates in the VT zone. What happens if V > A?",
   "options": [
-   "Rhythm classified as ventricular: therapy delivered with no other discriminator",
+   "Classified as ventricular: therapy delivered, no other discriminator",
    "Rhythm classified as SVT: therapy withheld until the SVT limit is crossed",
    "Analysis of cycle stability and morphology before a decision is made",
    "Analysis of onset and morphology before a decision is made"
