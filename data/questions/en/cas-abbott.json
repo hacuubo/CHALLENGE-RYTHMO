@@ -185,7 +185,7 @@
   "aRetenir": "PROVIDE (St. Jude): three zones, prolonged detection and ATP = fewer shocks and lower mortality."
  },
  "cas-abt-013": {
-  "question": "A patient with an Abbott dual-chamber ICD with SecureSense switched on undergoes surgery without prior suspension of therapies. Monopolar electrocautery used on the chest triggers a shock. Why did SecureSense not withhold therapy?",
+  "question": "A patient with an Abbott dual-chamber ICD with SecureSense switched on undergoes surgery without prior suspension of therapies. Monopolar diathermy used on the chest triggers a shock. Why did SecureSense not withhold therapy?",
   "options": [
    "SecureSense works only in the VT zone, never in the VF zone",
    "The noise is also seen on the discrimination channel: counter reset",
@@ -198,8 +198,8 @@
    "Incorrect: the algorithm compares short cycles on the two channels; it does not use impedance.",
    "Incorrect: there is no such rate limit; noise oversensing is, in fact, very fast."
   ],
-  "explication": "SecureSense counts short cycles seen on the bipolar sensing channel and resets this counter as soon as two short cycles appear on the discrimination channel (RV coil – can). Lead noise, being local, is seen only on the bipolar channel: therapy is withheld. External interference such as electrocautery creates large, rapid signals on all channels (atrial, bipolar and discrimination): the counter is repeatedly reset and the device treats it as genuine VF. SecureSense therefore does not protect against electromagnetic interference. During surgery, therapies must be suspended (by magnet, preferred because it is immediately reversible, or by programming), the patient monitored with an external defibrillator available, bipolar diathermy preferred and the return pad placed well away from the generator.",
-  "aRetenir": "SecureSense withholds therapy only if the noise is absent from the discrimination channel; it does not protect against electrocautery."
+  "explication": "SecureSense counts short cycles seen on the bipolar sensing channel and resets this counter as soon as two short cycles appear on the discrimination channel (RV coil – can). Lead noise, being local, is seen only on the bipolar channel: therapy is withheld. External interference such as diathermy creates large, rapid signals on all channels (atrial, bipolar and discrimination): the counter is repeatedly reset and the device treats it as genuine VF. SecureSense therefore does not protect against electromagnetic interference. During surgery, therapies must be suspended (by magnet, preferred because it is immediately reversible, or by programming), the patient monitored with an external defibrillator available, bipolar diathermy preferred and the return pad placed well away from the generator.",
+  "aRetenir": "SecureSense withholds therapy only if the noise is absent from the discrimination channel; it does not protect against diathermy."
  },
  "cas-abt-014": {
   "question": "An Abbott ICD records \"non-sustained V oversensing\" episodes flagged by SecureSense, with no therapy delivered. Which of these situations can cause them? (select all that apply)",

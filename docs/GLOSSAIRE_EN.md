@@ -101,3 +101,36 @@ French is wrong, translate it faithfully and report the issue separately.
 | recommandations | guidelines |
 | niveau de preuve, classe | level of evidence, class |
 | À retenir | Key point |
+| (plusieurs réponses) | (select all that apply) |
+| Réflexe :, Réflexe à avoir : | Good habit: |
+| Réflexe de lecture : | Good reading habit: |
+| programmer, reprogrammer (verbe) | program, reprogram (*programme* reserved for the noun: MRI programme, ETAPES programme) |
+| bistouri électrique / monopolaire / bipolaire | diathermy / monopolar diathermy / bipolar diathermy |
+| secours (impulsion, choc, sonde de secours) | backup (backup pulse, backup shock, backup lead) |
+| vérification (de la capture) cycle à cycle | beat-to-beat (capture) verification |
+| salve, rampe | burst, ramp |
+| TRNS / TRS, TRNSc / TRSc | SNRT, CSNRT (sinus node recovery time, corrected) |
+| écran de relecture | review screen |
+| polygraphe, baie d'électrophysiologie | EP recording system |
+| compas (mesure au compas) | callipers (measurable with callipers) |
+| 15, SAMU | emergency services (15 in France) at first mention; SAMU = French emergency medical service |
+
+## Conventions settled at the final review (2026-09)
+
+- **Multiple-answer questions**: the French tag *(plusieurs réponses)* is always rendered **"(select all that apply)"**,
+  at the end of the stem. Do not use *(multiple answers)* or *(more than one answer)*.
+- **"Good habit:"** introduces the practical take-home sentence that the French opens with *Réflexe :* or *Réflexe à avoir :*.
+  Avoid the calques *Reflex:*, *Practical reflex:* and the variant *Rule of thumb:*; elsewhere, *premier réflexe* is
+  "the first step".
+- **program / programme**: the device verb is *program* (program, reprogram, programmed, programming); the noun keeps the
+  British *programme* (MRI programme, ATP programme, ETAPES programme). Start options with "Program …", never "Programme …".
+- **diathermy** is the single term for *bistouri électrique* (not *electrocautery* or *electrosurgery*):
+  "monopolar diathermy", "diathermy interference".
+- **backup** is written as one word (backup pulse, backup shock, backup lead, backup pacing); *back up* only as a verb of
+  direction ("conducts back up the fast pathway").
+- **beat-to-beat** for the compound adjective (beat-to-beat capture verification, beat-to-beat variation); the adverbial
+  forms *beat by beat* and *from beat to beat* are acceptable.
+- **SNRT / CSNRT** (not *cSNRT*); **burst** and **ramp** for *salve* and *rampe*; **callipers** (British spelling);
+  **review screen** for the simulator's *écran de relecture*; **EP recording system** for the *polygraphe*.
+- French regulatory content (15/SAMU, ETAPES, HDS, driving-licence decree, Claeys-Leonetti law) stays in the text but is
+  framed explicitly as French ("In France…", "15 in France").

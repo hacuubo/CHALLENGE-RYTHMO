@@ -134,7 +134,7 @@ try {
   stock.initialiserConnues(base.questions);
   // une série interrompue (fermeture, rechargement) se reprend depuis l'accueil
   const h = location.hash.slice(1);
-  if (h === 'quiz' || h === 'resultats') history.replaceState(null, '', '#accueil');
+  if (h === 'quiz' || h === 'resultats') history.replaceState(null, '', location.pathname + location.search + '#accueil'); // chemin explicite : la version /en/ a une balise <base>
   rendre(h === 'quiz' || h === 'resultats' ? 'accueil' : h || 'accueil');
 } catch (e) {
   console.error(e);
