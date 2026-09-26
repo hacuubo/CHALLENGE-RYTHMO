@@ -296,8 +296,16 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
         cv.dispatchEvent(ev('pointerdown'));
         await new Promise(f => setTimeout(f, jusqua ? 100 : duree));
         let ok = true;
-        if (jusqua) { const t0 = performance.now(); while (!(ok = pret[jusqua]()) && performance.now() - t0 < 8000) await new Promise(f => setTimeout(f, 50)); }
+        const suivi = []; // déroulé de l'appui (bague visible ou non, titre du rappel), pour le diagnostic en cas d'échec
+        if (jusqua) {
+          const t0 = performance.now();
+          while (!(ok = pret[jusqua]()) && performance.now() - t0 < 8000) {
+            await new Promise(f => setTimeout(f, 250));
+            suivi.push(`${Math.round(performance.now() - t0)}:${document.querySelector('#appui').hidden ? 'h' : 'v'}:${document.querySelector('#rappel-titre').textContent.slice(0, 18)}`);
+          }
+        }
         cv.dispatchEvent(ev('pointerup'));
+        window.__suiviAppui = suivi.join(' | ');
         return ok;
       }, [x, duree, jusqua]);
       // le compas ne se pose que sur un tracé enregistré : on attend la fin des enregistrements en cours (tir RF juste arrêté),
@@ -306,7 +314,7 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
       await toucher(0.5, { duree: 300 });
       if (/Début posé/.test(await page.textContent('#message'))) throw new Error('un appui bref pose un compas');
       const etatRappel = () => page.evaluate(() => JSON.stringify({ titre: document.querySelector('#rappel-titre').textContent.slice(0, 60), vide: document.querySelector('#rappel-vide').hidden,
-        message: document.querySelector('#message').textContent, largeur: document.querySelector('#ecran-rappel').clientWidth, vue: document.querySelector('.simu-baie').dataset.vue }));
+        message: document.querySelector('#message').textContent, suivi: window.__suiviAppui, largeur: document.querySelector('#ecran-rappel').clientWidth, vue: document.querySelector('.simu-baie').dataset.vue }));
       if (!await toucher(0.5, { jusqua: 'debut' })) throw new Error(`l'appui long ne pose pas le début du compas ${await etatRappel()}`);
       if (!await toucher(0.7, { jusqua: 'fin' })) throw new Error('l\'appui maintenu ne pose pas la fin du compas');
       await page.click('.simu-bascule [data-vue=direct]');
