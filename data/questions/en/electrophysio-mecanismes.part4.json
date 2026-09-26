@@ -1,0 +1,187 @@
+{
+ "ep-meca-037": {
+  "question": "Baseline sinus cycle length 1000 ms. After atrial pacing at 120 bpm for 30 s, the longest interval between the last stimulus and the first sinus P wave is 1650 ms. What do you conclude?",
+  "options": [
+   "CSNRT = 165%, normal",
+   "CSNRT = 650 ms, abnormal",
+   "CSNRT = 650 ms, normal",
+   "CSNRT = 1650 ms, abnormal"
+  ],
+  "commentaires": [
+   "Incorrect: 165% is the SNRT/baseline cycle length ratio, which does not replace the CSNRT.",
+   "Correct: 1650 − 1000 = 650 ms, above the 525 ms threshold.",
+   "Incorrect: the calculation is right, but 650 ms exceeds the 525 ms threshold: the result is abnormal.",
+   "Incorrect: 1650 ms is the uncorrected SNRT; it must be corrected for the baseline cycle length."
+  ],
+  "explication": "The measured SNRT is 1650 ms and the baseline cycle length 1000 ms: CSNRT = 1650 − 1000 = 650 ms. This exceeds the 525 ms threshold regarded as abnormal (ESC 2018). In a patient with syncope and sinus bradycardia, this increases the likelihood that the syncope is of sinus node origin. The SNRT/baseline cycle length ratio (165%) is sometimes used, but it does not replace the CSNRT. The measurement should be repeated at several pacing rates, taking the longest value and looking for secondary pauses.",
+  "aRetenir": "CSNRT = SNRT − baseline cycle length; here 650 ms, and therefore abnormal (≥ 525 ms)."
+ },
+ "ep-meca-038": {
+  "question": "True or false: a normal CSNRT at EP study rules out sinus node dysfunction.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: the statement is false; the sensitivity of the SNRT is poor, and many patients with sinus node disease have a normal CSNRT.",
+   "Correct: specificity is good but sensitivity is low; the diagnosis rests primarily on symptom–ECG correlation."
+  ],
+  "explication": "This is false. SNRT measurement has good specificity but poor sensitivity: many patients with documented sick sinus syndrome have a normal CSNRT. Sinoatrial entrance block may protect the sinus node from pacing, and autonomic tone strongly influences the result. This is why the diagnosis of sinus node dysfunction rests primarily on symptom–ECG correlation (Holter, implantable loop recorder). An EP study is only considered for syncope with sinus bradycardia in selected cases (class IIb, ESC 2018).",
+  "aRetenir": "A normal CSNRT does not rule out sinus node dysfunction: the sensitivity of the EP study is low."
+ },
+ "ep-meca-039": {
+  "question": "How is the effective refractory period (ERP) of a tissue defined during programmed stimulation?",
+  "options": [
+   "The longest S1-S2 coupling interval that prolongs conduction",
+   "The shortest cycle length conducted 1:1 during continuous pacing",
+   "The longest S1-S2 coupling interval that fails to capture the tissue",
+   "The shortest interval obtained downstream, whatever the S1-S2"
+  ],
+  "commentaires": [
+   "Incorrect: the onset of conduction slowing defines the relative refractory period.",
+   "Incorrect: the shortest cycle length conducted 1:1 during continuous pacing defines the Wenckebach cycle length.",
+   "Correct: the ERP is the longest S2 coupling interval that fails to capture the tissue (or, for the AV node, fails to propagate through it).",
+   "Incorrect: the shortest interval obtained downstream defines the functional refractory period."
+  ],
+  "explication": "The ERP of a tissue is the longest extrastimulus coupling interval that fails to capture that tissue (atrial or ventricular ERP) or fails to propagate through it (for the AV node: the longest A1-A2 not followed by an H). It is measured by progressively shortening the S2 coupling interval in 10 ms steps after an 8-beat S1 drive train. It should not be confused with the relative refractory period (the longest coupling interval that slows conduction), the functional refractory period (the shortest interval obtained downstream) or the Wenckebach cycle length (the shortest cycle length conducted 1:1 during continuous pacing). The ERP depends on the basic cycle length and must always be reported with it.",
+  "aRetenir": "ERP = the longest S2 coupling interval that fails to capture or to propagate."
+ },
+ "ep-meca-040": {
+  "question": "How does the effective refractory period of the AV node change when the basic pacing cycle length (S1) is shortened?",
+  "options": [
+   "It shortens, like that of ventricular myocardium",
+   "It tends to lengthen",
+   "It remains stable, as it depends only on voltage",
+   "It shortens, like that of accessory pathways"
+  ],
+  "commentaires": [
+   "Incorrect: this is the behaviour of fast-response tissues, whose action potential shortens as rate increases.",
+   "Correct: AV nodal refractoriness is mainly time-dependent (post-repolarisation); its ERP lengthens as the cycle length shortens.",
+   "Incorrect: nodal refractoriness is, on the contrary, time-dependent and varies with the basic cycle length.",
+   "Incorrect: accessory pathways behave like working myocardium; the AV node does the opposite."
+  ],
+  "explication": "In fast-response tissues (atrium, ventricle, His-Purkinje system, typical accessory pathways), the ERP shortens as the basic cycle length decreases, because the action potential duration shortens. The AV node behaves in the opposite way: its refractoriness is mainly time-dependent (post-repolarisation refractoriness), and its ERP tends to lengthen as rate increases. This property strengthens its role as a filter during atrial tachycardias. It also explains why a dual AV nodal jump may only be unmasked at certain basic cycle lengths. The pitfall is to extend the behaviour of working myocardium to the AV node.",
+  "aRetenir": "The AV nodal ERP lengthens as the basic cycle length shortens, the opposite of myocardium."
+ },
+ "ep-meca-041": {
+  "question": "What stimulus strength is usually used for programmed stimulation during an EP study?",
+  "options": [
+   "Exactly the diastolic threshold",
+   "Twice the diastolic threshold",
+   "Ten times the diastolic threshold",
+   "The stimulator's maximum output"
+  ],
+  "commentaires": [
+   "Incorrect: at exactly threshold, loss of capture could be confused with refractoriness.",
+   "Correct: twice the diastolic threshold, with a 1 to 2 ms pulse width, ensures reliable capture without distorting refractory periods.",
+   "Incorrect: a high output artificially shortens the measured ERP and reduces the specificity of induction.",
+   "Incorrect: maximum output increases the induction of non-specific responses (polymorphic VT, VF)."
+  ],
+  "explication": "By convention, programmed stimulation is delivered at twice the diastolic threshold, with a pulse width of about 1 to 2 ms. This ensures reliable capture without artificially altering refractory periods. At exactly threshold, loss of capture could be confused with refractoriness. At high output (ten times threshold, or maximum output), the measured ERP shortens (the stimulus captures earlier during recovery) and the specificity of arrhythmia induction falls, particularly for ventricular arrhythmias. The threshold should be checked at every change of site.",
+  "aRetenir": "Programmed stimulation at twice the diastolic threshold."
+ },
+ "ep-meca-042": {
+  "question": "How is the functional refractory period (FRP) of the AV node defined?",
+  "options": [
+   "The shortest H1-H2 obtained, whatever the A1-A2 coupling interval",
+   "The longest A1-A2 coupling interval that is not conducted to the His",
+   "The longest A1-A2 at which the AH interval begins to lengthen",
+   "The A-A cycle length at the Wenckebach point during continuous pacing"
+  ],
+  "commentaires": [
+   "Correct: the FRP measures the output capacity of the AV node: it is the shortest H1-H2 obtained in response to increasingly premature A2s.",
+   "Incorrect: the longest A1-A2 not conducted to the His defines the AV nodal ERP, not its FRP.",
+   "Incorrect: the onset of AH prolongation corresponds to the relative refractory period.",
+   "Incorrect: the Wenckebach point is measured during continuous pacing; it is not a refractory period."
+  ],
+  "explication": "The functional refractory period measures the output capacity of a tissue: it is the shortest interval obtained downstream (H1-H2 for the AV node) in response to increasingly premature extrastimuli. Because of decremental conduction, shortening A1-A2 prolongs A2-H2, so that H1-H2 eventually reaches a minimum: this is the FRP. The longest A1-A2 not conducted to the His defines the AV nodal ERP, and the longest A1-A2 at which the AH begins to lengthen corresponds to the relative refractory period. The Wenckebach point, measured during continuous pacing, is a different concept. The AV nodal FRP determines the maximum ventricular rate during atrial tachyarrhythmias.",
+  "aRetenir": "AV nodal FRP = the shortest H1-H2 obtained, however premature the A2."
+ },
+ "ep-meca-043": {
+  "question": "Describe the protocol for measuring the sinus node recovery time (SNRT) during an EP study.",
+  "reponseAttendue": "Pace the high RA (near the sinus node) for 30 to 60 s at several decreasing cycle lengths (e.g. 600, 500, 400 ms), at twice threshold; measure the interval from the last stimulus to the first sinus atrial activation; take the longest value; calculate the CSNRT (SNRT − baseline cycle length, abnormal if ≥ 525 ms); look for secondary pauses.",
+  "explication": "The catheter is positioned in the high RA, near the SVC–RA junction, and the pacing rate must be well above the spontaneous sinus rate in order to suppress sinus node automaticity. The measurement is repeated at several rates, as the maximum value is not always obtained at the fastest rate (sinoatrial entrance block may protect the node). The longest SNRT is measured and corrected for the baseline cycle length, and the following cycles are examined for secondary pauses, which are also abnormal. Interpretation takes autonomic tone into account; pharmacological autonomic blockade allows the intrinsic heart rate to be estimated. Finally, the limited sensitivity of this measurement should be borne in mind.",
+  "aRetenir": "SNRT: prolonged high atrial pacing (30 to 60 s) at several cycle lengths, taking the longest value, corrected for the baseline cycle length."
+ },
+ "ep-meca-044": {
+  "question": "During programmed atrial stimulation, what is meant by a \"jump\" suggestive of dual AV nodal physiology?",
+  "options": [
+   "A progressive 5 ms AH prolongation with each 10 ms decrement",
+   "An abrupt AH prolongation ≥ 20 ms for a 10 ms shorter coupling interval",
+   "An abrupt HV prolongation ≥ 50 ms for a 10 ms shorter coupling interval",
+   "An abrupt AH prolongation ≥ 50 ms for a 10 ms shorter coupling interval"
+  ],
+  "commentaires": [
+   "Incorrect: progressive, moderate AH prolongation is normal decremental AV nodal conduction.",
+   "Incorrect: Denes' classic criterion is a jump of at least 50 ms; 20 ms is not enough.",
+   "Incorrect: the jump concerns the AH (a nodal phenomenon); the HV reflects the His-Purkinje system.",
+   "Correct: when A1-A2 falls below the fast pathway ERP, conduction switches to the slow pathway: A2-H2 increases by at least 50 ms."
+  ],
+  "explication": "Dual AV nodal physiology combines a fast pathway with a long refractory period and a slow pathway with a short refractory period. When the A1-A2 coupling interval falls below the fast pathway ERP, conduction abruptly switches to the slow pathway: A2-H2 increases by at least 50 ms for a 10 ms decrement in coupling interval (Denes' classic criterion); a smaller increase is not enough. This jump is often accompanied by an atrial echo beat or induction of AVNRT. Progressive, moderate AH prolongation is normal decremental conduction. The HV, which reflects the His-Purkinje system, is unrelated to this nodal phenomenon.",
+  "aRetenir": "An abrupt AH prolongation of at least 50 ms for a 10 ms decrement in coupling interval (a jump) indicates dual AV nodal physiology."
+ },
+ "ep-meca-045": {
+  "question": "Which features are typical of common (slow–fast) AVNRT? (multiple answers)",
+  "options": [
+   "Anterograde conduction over the slow pathway and retrograde over the fast pathway",
+   "VA interval over 70 ms, with a retrograde P wave well separated from the QRS",
+   "Earliest retrograde atrial activation in the His region (anterior septum)",
+   "Long RP, longer than the PR"
+  ],
+  "commentaires": [
+   "Correct: in the common form, the impulse travels down the slow pathway and back up the fast pathway.",
+   "Incorrect: the atria and ventricles are activated almost simultaneously; the VA is very short and the retrograde P wave is hidden within the QRS or appears as a pseudo-r' in V1.",
+   "Correct: retrograde conduction over the fast pathway produces earliest atrial activation in the His region.",
+   "Incorrect: a long RP is characteristic of atypical fast–slow forms, PJRT and atrial tachycardias."
+  ],
+  "explication": "In the common form, the impulse travels down the slow pathway and back up the fast pathway. The atria and ventricles are activated almost simultaneously: the retrograde P wave is hidden within the QRS or distorts its terminal portion (pseudo-r' in V1, pseudo-S in the inferior leads). The VA interval measured from QRS onset to the earliest atrial activation is very short, usually less than 70 ms: a long VA with a P wave well separated from the QRS is not typical. The earliest retrograde activation occurs via the fast pathway, in the His region. A long RP, by contrast, is characteristic of atypical (fast–slow) forms, PJRT and atrial tachycardias.",
+  "aRetenir": "Common AVNRT = down the slow pathway, up the fast pathway, very short VA, earliest A at the His."
+ },
+ "ep-meca-046": {
+  "question": "True or false: if a regular narrow-QRS tachycardia continues despite the onset of 2:1 AV block, AVNRT is excluded.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: the statement is false; AV block during tachycardia excludes accessory pathway-mediated reciprocating tachycardia, not AVNRT.",
+   "Correct: the AVNRT circuit is confined to the nodal region; functional 2:1 block below the circuit can occur without interrupting it."
+  ],
+  "explication": "This is false: persistence of the tachycardia despite AV block (2:1) excludes orthodromic AVRT via an accessory pathway, whose circuit necessarily includes the ventricle, but not AVNRT. In AVNRT, the circuit is confined to the nodal and perinodal region, and neither the ventricles nor (essentially) the atria are required. 2:1 block, usually functional and located infra-Hisian or in the lower common pathway, may occur, particularly at onset. The main differential diagnosis is then atrial tachycardia, which is distinguished by other manoeuvres.",
+  "aRetenir": "AV block during tachycardia excludes accessory pathway-mediated reciprocating tachycardia, not AVNRT."
+ },
+ "ep-meca-047": {
+  "question": "During a long-RP narrow-QRS tachycardia, the earliest retrograde atrial activation is recorded at the coronary sinus ostium. There is dual AV nodal physiology and VA conduction is decremental. What is the most likely diagnosis?",
+  "options": [
+   "Common slow–fast AVNRT",
+   "Typical atrial flutter",
+   "Orthodromic AVRT via a left lateral pathway",
+   "Atypical fast–slow AVNRT"
+  ],
+  "commentaires": [
+   "Incorrect: common AVNRT has a very short RP and earliest atrial activation in the His region.",
+   "Incorrect: typical flutter produces continuous sawtooth atrial activity, with no involvement of dual AV nodal physiology or decremental VA conduction.",
+   "Incorrect: a left lateral pathway produces eccentric activation, earliest in the distal coronary sinus, and is not decremental.",
+   "Correct: anterograde conduction over the fast pathway and slow retrograde conduction over the slow pathway, which exits near the CS ostium: long RP and earliest A in the posteroseptal region."
+  ],
+  "explication": "In atypical fast–slow AVNRT, anterograde conduction is over the fast pathway and retrograde conduction over the slow pathway, whose atrial exit lies near the coronary sinus ostium. Retrograde conduction time is long, hence a long RP and earliest atrial activation in the posteroseptal region. Retrograde conduction is decremental, which distinguishes it from a typical accessory pathway. A left lateral pathway would produce eccentric activation, earliest in the distal coronary sinus. The main differential diagnoses are PJRT (a decremental posteroseptal accessory pathway) and septal atrial tachycardia, which entrainment manoeuvres help to distinguish.",
+  "aRetenir": "Long RP + earliest A at the coronary sinus ostium + decremental conduction = consider fast–slow AVNRT."
+ },
+ "ep-meca-048": {
+  "question": "During a narrow-QRS tachycardia, the VA interval (QRS onset → earliest atrial activation) measures 40 ms. What can be concluded?",
+  "options": [
+   "Orthodromic AVRT is very unlikely",
+   "It must be an atrial tachycardia",
+   "It is AVRT via a septal pathway",
+   "This interval has no diagnostic value"
+  ],
+  "commentaires": [
+   "Correct: ventricle, then accessory pathway, then atrium requires at least 70 ms; a VA of 40 ms points to common AVNRT.",
+   "Incorrect: atrial tachycardia is possible by coincidence, but unlikely; it is certainly not the only possibility.",
+   "Incorrect: even a septal pathway requires a VA of at least about 70 ms.",
+   "Incorrect: a VA < 70 ms is highly valuable for excluding accessory pathway-mediated tachycardia."
+  ],
+  "explication": "In orthodromic AVRT, the impulse must activate the ventricle and then travel back up the accessory pathway before reaching the atrium: this takes at least about 70 ms from QRS onset to atrial activation. A VA < 70 ms therefore virtually excludes accessory pathway-mediated tachycardia and points to common AVNRT, in which the atria and ventricles are activated in parallel. Atrial tachycardia with a long PR, whose A happens to fall just after the QRS, remains theoretically possible but unlikely, and is assessed using other criteria. A VA ≥ 70 ms, however, cannot settle the diagnosis on its own.",
+  "aRetenir": "A VA < 70 ms during narrow-QRS tachycardia virtually excludes accessory pathway-mediated tachycardia."
+ }
+}

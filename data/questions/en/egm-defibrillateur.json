@@ -1,0 +1,772 @@
+{
+ "egm-dai-001": {
+  "question": "A 67-year-old man with ischaemic heart disease (LVEF 30%) has a dual-chamber ICD implanted for secondary prevention after a monomorphic VT at 170 bpm. VT zone programmed at 375 ms (160 bpm) with ATP then shocks; VF zone at 250 ms (240 bpm). Remote monitoring sends a \"therapy delivered\" alert; contacted by phone, the patient felt nothing. How do you interpret this episode?",
+  "options": [
+   "Sinus tachycardia with 1:1 conduction, inappropriately treated with ATP",
+   "1:1 AVNRT, terminated by the ATP delivered",
+   "Monomorphic VT dissociated from the atria, terminated by ATP",
+   "Rapid AF conducted into the VT zone, ATP ineffective"
+  ],
+  "commentaires": [
+   "Incorrect: in sinus tachycardia, every V is preceded by an A at the same rate; here there are far more Vs than As.",
+   "Incorrect: AVNRT gives a 1:1 relationship (or A ≥ V); here the atria beat at 75 bpm while the ventricles beat at 180 bpm.",
+   "Correct: regular V cycle length of 330 ms, independent sinus atrial activity at 800 ms (V > A), then return to sinus rhythm immediately after the 8 pulses.",
+   "Incorrect: the atrial EGM shows regular sinus P waves at 800 ms, not rapid disorganised activity."
+  ],
+  "explication": "The first step in reading an ICD episode is to count As and Vs and look at their relationship. Here, the atrial channel shows sinus P waves at 800 ms (75 bpm) unrelated to the regular ventricular activity at 330 ms (≈ 180 bpm): there are more Vs than As, which indicates VT in the vast majority of cases. The ICD detects in the VT zone (TS then TD), delivers an 8-pulse ATP sequence, and sinus rhythm resumes immediately: the therapy is appropriate and effective. The pitfall is to conclude that therapy was inappropriate because the patient felt nothing: ATP is painless, which is precisely its advantage. Rule of thumb: count As and Vs, then check what happens immediately after the therapy.",
+  "aRetenir": "More Vs than As and return to sinus rhythm immediately after ATP: VT treated appropriately and effectively.",
+  "legende": "Stored episode — dual-chamber ICD"
+ },
+ "egm-dai-002": {
+  "question": "A 67-year-old man with ischaemic heart disease (LVEF 30%) has a dual-chamber ICD implanted for secondary prevention after a monomorphic VT at 170 bpm. VT zone programmed at 375 ms (160 bpm) with ATP then shocks; VF zone at 250 ms (240 bpm). Reviewing this episode, which feature most reliably establishes the diagnosis of VT?",
+  "options": [
+   "Ventricular activity faster than atrial activity",
+   "A ventricular rate well above 170 bpm",
+   "The perfect regularity of the ventricular cycles at 330 ms",
+   "Termination of the tachycardia by the ATP delivered"
+  ],
+  "commentaires": [
+   "Correct: V > A (dissociation) indicates VT in the vast majority of cases; the exceptions (junctional tachycardia with retrograde block) are rare.",
+   "Incorrect: rate alone does not distinguish VT from SVT; sinus tachycardia or AF can reach these rates.",
+   "Incorrect: an SVT (2:1 flutter, re-entry) is also perfectly regular; regularity mainly rules out AF.",
+   "Incorrect: ATP can also terminate a re-entrant SVT or flutter; its success does not prove a ventricular origin."
+  ],
+  "explication": "The most robust criterion for classifying an episode on a dual-chamber ICD is the A/V relationship. When Vs outnumber As, as here (V at 330 ms, sinus A at 800 ms), the diagnosis of VT is almost certain. Rate and regularity do not discriminate: sinus tachycardia, 2:1 flutter or re-entry are equally fast and regular. Termination by ATP is a weak argument, because ATP also terminates re-entrant SVTs. Rule of thumb: always start with the A/V relationship before assessing morphology or the response to therapy.",
+  "aRetenir": "On a dual-chamber EGM, V > A = VT until proven otherwise; the response to ATP proves nothing.",
+  "legende": "Stored episode — dual-chamber ICD"
+ },
+ "egm-dai-003": {
+  "question": "A 67-year-old man with ischaemic heart disease (LVEF 30%) has a dual-chamber ICD implanted for secondary prevention after a monomorphic VT at 170 bpm. VT zone programmed at 375 ms (160 bpm) with ATP then shocks; VF zone at 250 ms (240 bpm). The resident asks you what type of ATP was delivered during this episode. What do you tell them?",
+  "options": [
+   "A ramp of 8 pulses whose cycle length shortens by 10 ms with each pulse",
+   "Rapid atrial pacing at 88% of the cycle length, to capture the atrium",
+   "A train of 8 pulses set at 88% of the 800 ms sinus atrial cycle length",
+   "A fixed-cycle burst of 8 pulses at about 88% of the VT cycle length"
+  ],
+  "commentaires": [
+   "Incorrect: in a ramp, the intervals shorten from pulse to pulse; here, successive pulses remain 290 ms apart.",
+   "Incorrect: ATP is delivered on the ventricular channel (TP below the line), not to the atrium.",
+   "Incorrect: ATP is calculated from the ventricular tachycardia cycle length, not the atrial cycle length.",
+   "Correct: after the first pulse, the TP markers follow one another every 290 ms, i.e. 88% of the 330 ms cycle length: this is a burst."
+  ],
+  "explication": "The TP markers show 8 ventricular pulses delivered at a fixed cycle length of 290 ms, i.e. 88% of the VT cycle length (330 ms): this is burst ATP, the scheme validated by PainFREE Rx II and offered by default by most manufacturers. A ramp is recognised by intervals that shorten within the sequence. Ventricular ATP is always calculated from the VT cycle length, never from the atrial cycle length. Rule of thumb: read the intervals between therapy markers to identify the scheme delivered before changing it.",
+  "aRetenir": "Identical TP intervals = burst; shortening intervals = ramp.",
+  "legende": "Stored episode — dual-chamber ICD"
+ },
+ "egm-dai-004": {
+  "question": "A 67-year-old man with ischaemic heart disease (LVEF 30%) has a dual-chamber ICD implanted for secondary prevention after a monomorphic VT at 170 bpm. VT zone programmed at 375 ms (160 bpm) with ATP then shocks; VF zone at 250 ms (240 bpm). Contacted by phone, the patient feels well. This is the first episode since implantation. Which actions are appropriate?",
+  "options": [
+   "Replace ATP with an immediate shock, as ATP may accelerate the VT",
+   "Send him to the emergency department for a precautionary external shock",
+   "Check the beta-blocker dose and arrange an early clinic review",
+   "Raise the VT zone to 200 bpm to avoid further therapies",
+   "Look for a trigger: potassium, ischaemia, decompensation, adherence"
+  ],
+  "commentaires": [
+   "Incorrect: ATP painlessly terminates most monomorphic VTs; the risk of acceleration is low and covered by the subsequent shock.",
+   "Incorrect: the VT has terminated and the patient is in sinus rhythm; an external shock makes no sense.",
+   "Correct: optimising background therapy and an early review are the logical next steps after an effectively treated VT.",
+   "Incorrect: a zone at 200 bpm would leave his clinical VT (≈ 180 bpm) untreated.",
+   "Correct: any treated VT should prompt a search for a correctable precipitating factor."
+  ],
+  "explication": "A VT terminated by ATP in an asymptomatic patient does not warrant emergency care, but it must not be dismissed: a precipitating factor should be sought (hypokalaemia, ischaemia, worsening heart failure, beta-blocker discontinuation) and treatment reviewed. The pitfalls are overreacting (emergency department, external shock) or reprogramming in the wrong direction: raising the zone above the clinical VT rate would make it invisible, and removing ATP would expose the patient to avoidable shocks. In secondary prevention, the slowest zone stays below the documented VT rate. Rule of thumb: VT terminated by ATP = look for the cause and optimise treatment, without touching what works.",
+  "aRetenir": "VT terminated by ATP in a patient who is well: look for the cause, optimise treatment, do not switch off ATP.",
+  "legende": "Stored episode — dual-chamber ICD"
+ },
+ "egm-dai-005": {
+  "question": "A 67-year-old man with ischaemic heart disease (LVEF 30%) has a dual-chamber ICD implanted for secondary prevention after a monomorphic VT at 170 bpm. VT zone programmed at 375 ms (160 bpm) with ATP then shocks; VF zone at 250 ms (240 bpm). True or false: in this episode, the success of ATP alone establishes that this was VT and not SVT.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: ATP can also terminate supraventricular re-entry or flutter; it is not a diagnostic criterion.",
+   "Correct: it is the V > A dissociation seen before ATP that makes the diagnosis, not the response to therapy."
+  ],
+  "explication": "The decisive argument on this tracing is the A/V relationship: the ventricles beat at 330 ms while the atria remain in sinus rhythm at 800 ms. Termination by ATP confirms that the therapy was effective, not the mechanism: AVNRT, accessory pathway re-entry or flutter can also be terminated by rapid ventricular pacing. The reverse pitfall also applies: failed ATP does not rule out VT. Rule of thumb: make the diagnosis on the EGMs before the therapy (A/V relationship, morphology, onset), then judge efficacy afterwards.",
+  "aRetenir": "The diagnosis is made on the EGMs before therapy; the response to ATP does not classify the rhythm.",
+  "legende": "Stored episode — dual-chamber ICD"
+ },
+ "egm-dai-006": {
+  "question": "A 67-year-old man with ischaemic heart disease (LVEF 30%) has a dual-chamber ICD implanted for secondary prevention after a monomorphic VT at 170 bpm. VT zone programmed at 375 ms (160 bpm) with ATP then shocks; VF zone at 250 ms (240 bpm). This patient has had four identical episodes in one month, all terminated by the first ATP sequence despite an adequate beta-blocker dose. A colleague suggests setting the VT zone to \"monitor only\" to spare him these therapies. What is the best approach?",
+  "options": [
+   "Set the VT zone to monitor only, as the VF zone is enough to protect him",
+   "Keep ATP and consider an antiarrhythmic drug or VT ablation",
+   "Replace ATP with an immediate shock, which is safer if VT recurs",
+   "Lower the VT zone to 130 bpm to treat VTs earlier"
+  ],
+  "commentaires": [
+   "Incorrect: a VT at 180 bpm is below the VF zone (240 bpm); with monitoring only, it would no longer be treated at all.",
+   "Correct: recurrent monomorphic VT in an ICD patient should prompt consideration of antiarrhythmic escalation or ablation, while keeping the effective therapy.",
+   "Incorrect: an immediate shock exposes the patient to avoidable painful shocks when ATP terminates these VTs every time.",
+   "Incorrect: such a low zone captures exercise-induced sinus tachycardia and AF, causing inappropriate therapies."
+  ],
+  "explication": "Recurrent monomorphic VT, even when successfully terminated by ATP, reflects an active substrate: the 2022 ESC guidelines recommend considering VT ablation (or antiarrhythmic escalation, particularly amiodarone) in ICD patients with recurrences. Setting the VT zone to monitor only would leave a VT at 180 bpm untreated, since it lies below the VF zone: this is a classic and dangerous \"de-escalation\" pitfall. Replacing ATP with a shock or lowering the zone would increase shocks, whether appropriate or not. Rule of thumb: when ATP works, keep it, and treat the substrate.",
+  "aRetenir": "Recurrent VT terminated by ATP: keep ATP and treat the substrate (antiarrhythmic drug, ablation).",
+  "legende": "Stored episode — dual-chamber ICD"
+ },
+ "egm-dai-007": {
+  "question": "A 59-year-old woman with dilated cardiomyopathy (LVEF 25%) has a dual-chamber ICD for primary prevention. Her husband found her on the floor; she regained consciousness within a few seconds and complains of having \"been kicked in the chest\". In the emergency department, you interrogate the ICD. How do you interpret this episode?",
+  "options": [
+   "Lead noise detected in the VF zone, inappropriate shock",
+   "VF detected in the VF zone, charge then effective shock",
+   "Fast monomorphic VT terminated by ATP during charging",
+   "Rapid AF conducted into the VF zone, inappropriate shock"
+  ],
+  "commentaires": [
+   "Incorrect: lead noise appears only on the RV EGM; here the shock EGM also shows the VF.",
+   "Correct: rapid, disorganised ventricular activity (cycle lengths ≈ 200–240 ms) on both the RV EGM and the shock EGM, charging, shock, then pacing.",
+   "Incorrect: the activity is polymorphic and irregular, and no ATP marker appears; it was terminated by a shock.",
+   "Incorrect: the ventricular activity itself is disorganised on both ventricular channels; these are not conducted QRS complexes."
+  ],
+  "explication": "The episode shows an abrupt transition from sinus rhythm to rapid, polymorphic, disorganised ventricular activity, visible on both the RV EGM and the shock EGM: this is VF, detected in the VF zone (FS markers). The ICD charges its capacitors (Chg) while the VF persists, then delivers a shock (CD) that terminates it. The shock is therefore appropriate and effective, and the syncope is explained by the VF itself. The pitfall is to conclude too quickly that very rapid signals are lead noise: noise remains confined to the RV EGM, whereas VF is seen on all ventricular channels. Rule of thumb: always compare the RV EGM with the shock EGM.",
+  "aRetenir": "Disorganised activity on the RV EGM AND the shock EGM = true VF; confined to the RV EGM = noise.",
+  "legende": "Stored episode — dual-chamber ICD"
+ },
+ "egm-dai-008": {
+  "question": "A 59-year-old woman with dilated cardiomyopathy (LVEF 25%) has a dual-chamber ICD for primary prevention. Her husband found her on the floor; she regained consciousness within a few seconds and complains of having \"been kicked in the chest\". The ward nurse asks you what the last events marked VP, at the end of the recording, correspond to. What do you tell her?",
+  "options": [
+   "Asynchronous safety pacing imposed after every shock delivered",
+   "Consolidation ATP delivered automatically after termination",
+   "Pacing of a residual slow VT not recognised by the ICD",
+   "Post-shock backup pacing, pending return of an intrinsic rhythm"
+  ],
+  "commentaires": [
+   "Incorrect: the VPs are about 1000 ms apart (60 bpm) and there is no sign of asynchronous pacing; this is bradycardia pacing.",
+   "Incorrect: ATP is fast (cycle length close to that of the VT); pulses at 60 bpm are bradycardia pacing.",
+   "Incorrect: each VP is followed by a paced complex, with no underlying tachycardia; there is no residual VT.",
+   "Correct: after a shock, the intrinsic rhythm may be depressed; the ICD provides backup pacing, often at increased output, according to the post-shock programming."
+  ],
+  "explication": "After a shock, the sinus node and conduction may be transiently stunned. ICDs provide post-shock bradycardia pacing, programmable in rate, amplitude and duration, often at increased output to ensure capture of shocked myocardium. The VPs at 1000 ms (60 bpm) correspond to this normal function. The pitfall is to interpret them as an additional antitachycardia therapy or as a sensing problem. Rule of thumb: after a shock, check for the return of an intrinsic rhythm and for capture during post-shock pacing.",
+  "aRetenir": "Slow VPs immediately after a shock = post-shock pacing, normal device function.",
+  "legende": "Stored episode — dual-chamber ICD"
+ },
+ "egm-dai-009": {
+  "question": "A 59-year-old woman with dilated cardiomyopathy (LVEF 25%) has a dual-chamber ICD for primary prevention. Her husband found her on the floor; she regained consciousness within a few seconds and complains of having \"been kicked in the chest\". She is now conscious, in sinus rhythm, and asks to go home. What is the most appropriate management?",
+  "options": [
+   "Admit her to look for an acute cause (ischaemia, electrolytes, HF)",
+   "Discharge her: the shock was effective, follow-up in three months",
+   "Switch off shocks to spare her further trauma",
+   "Start a class IC antiarrhythmic drug and discharge her"
+  ],
+  "commentaires": [
+   "Correct: VF with syncope requires a search for an acute cause (acute coronary syndrome, electrolyte disturbance, decompensation) and a review of treatment.",
+   "Incorrect: an effective shock does not remove the need to find out why the VF occurred.",
+   "Incorrect: this is precisely the therapy that has just saved her life; switching it off would be a serious error.",
+   "Incorrect: class IC antiarrhythmic drugs are contraindicated in heart disease with LV dysfunction."
+  ],
+  "explication": "An appropriate shock for VF with loss of consciousness is not \"just a shock\": it is a cardiac arrest from which the patient was rescued by the ICD. She should be admitted to look for an acute cause (ischaemia, potassium disturbance, heart failure decompensation, drug-related factor), treatment should be optimised, and driving restrictions required by regulations should be discussed. Sending the patient home because \"the ICD did its job\" is the pitfall of underreaction. Class IC antiarrhythmic drugs are contraindicated in structural heart disease. Rule of thumb: shock with syncope, chest pain or multiple shocks = hospital admission.",
+  "aRetenir": "Appropriate shock with syncope = admission and search for a cause, even if everything is back to normal.",
+  "legende": "Stored episode — dual-chamber ICD"
+ },
+ "egm-dai-010": {
+  "question": "A 59-year-old woman with dilated cardiomyopathy (LVEF 25%) has a dual-chamber ICD for primary prevention. Her husband found her on the floor; she regained consciousness within a few seconds and complains of having \"been kicked in the chest\". True or false: an appropriate and effective shock, as in this episode, has no prognostic value of its own: it simply shows that the ICD works.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: shocks, both appropriate and inappropriate, are associated with increased mortality in heart failure patients (SCD-HeFT).",
+   "Correct: an appropriate shock is a marker of the severity of the heart disease and should prompt a reassessment of overall management."
+  ],
+  "explication": "In the SCD-HeFT analysis (Poole, 2008), patients who received an appropriate shock had markedly higher mortality than those without shocks, and inappropriate shocks were also associated with increased mortality. An appropriate shock is therefore a marker of disease progression (and possibly an aggravating factor), not simply a \"successful test\" of the ICD. This is one of the reasons why modern programming aims to avoid unnecessary shocks (ATP, prolonged detection duration). Rule of thumb: after a shock, reassess heart failure, ischaemia and background therapy.",
+  "aRetenir": "A shock, even an appropriate one, is a warning sign that requires reassessment of the heart disease.",
+  "legende": "Stored episode — dual-chamber ICD"
+ },
+ "egm-dai-011": {
+  "question": "A 71-year-old man with dilated cardiomyopathy has a dual-chamber ICD implanted in 2014 for primary prevention. The programming has never been reviewed: VT zone at 133 bpm (450 ms) with ATP then shocks, discriminators off. Remote monitoring reports an episode in the VT zone. How do you interpret this episode?",
+  "options": [
+   "Polymorphic VT with retrograde conduction to the atrium",
+   "Atrial flutter with 2:1 conduction, correctly classified in the VT zone",
+   "AF with a rapid, irregular ventricular response, misclassified as VT",
+   "Monomorphic VT coexisting with AF (dual tachycardia)"
+  ],
+  "commentaires": [
+   "Incorrect: the ventricular EGMs keep a narrow, constant morphology from one cycle to the next, and the atrium is faster than the ventricle.",
+   "Incorrect: 2:1 flutter gives regular Vs; here the V cycle lengths vary from 300 to 440 ms.",
+   "Correct: rapid, disorganised atrial activity, irregular Vs between 300 and 440 ms, identical morphology on the initial VS events and the TS events: conducted AF.",
+   "Incorrect: in dual tachycardia, the VT is regular and has a different morphology; here the Vs are irregular and unchanged."
+  ],
+  "explication": "The atrial EGM shows rapid, disorganised activity (A-A intervals from 140 to 215 ms): this is AF. The ventricles follow irregularly (300 to 440 ms), with an identical morphology on the first VS events and on the cycles classified as TS. The ICD classifies these cycles in the VT zone only because the zone is programmed very low (133 bpm) and the discriminators are off: this is false VT detection, a classic cause of inappropriate therapy. The pitfall is to read \"VT\" on the counter without looking at the EGMs. Rule of thumb: A faster than V + irregular Vs + unchanged morphology = conducted AF.",
+  "aRetenir": "A > V, irregular Vs and unchanged morphology: AF conducted into the VT zone, not VT.",
+  "legende": "Stored episode — dual-chamber ICD"
+ },
+ "egm-dai-012": {
+  "question": "A 71-year-old man with dilated cardiomyopathy has a dual-chamber ICD implanted in 2014 for primary prevention. The programming has never been reviewed: VT zone at 133 bpm (450 ms) with ATP then shocks, discriminators off. Remote monitoring reports an episode in the VT zone. Which features of this tracing identify inappropriate detection of AF?",
+  "options": [
+   "Onset with a PVC followed by abrupt acceleration",
+   "Marked irregularity of the ventricular cycles",
+   "Atrial activity faster than ventricular activity",
+   "Dissociation with more Vs than As",
+   "Ventricular EGMs of the same morphology on the VS and TS events"
+  ],
+  "commentaires": [
+   "Incorrect: the episode does not start with a PVC; AF is present from the start of the recording.",
+   "Correct: the V cycle lengths vary from 300 to 440 ms, an irregularity typical of AF.",
+   "Correct: A > V is the profile of a conducted atrial tachyarrhythmia, here AF.",
+   "Incorrect: it is the opposite; V > A would point towards VT.",
+   "Correct: the first VS events and the TS events have the same morphology on the RV EGM and the shock EGM, favouring supraventricular conduction (to be confirmed by comparison with the template recorded in sinus rhythm)."
+  ],
+  "explication": "Three classic features, readable without any algorithm, point to conducted AF: the A/V relationship (A faster than V), irregular ventricular cycles and a ventricular morphology that does not change from beat to beat (and, for the discriminator, matches the sinus rhythm template). These are precisely the criteria used by the discriminators (A/V relationship, stability, morphology). Conversely, an abrupt onset with a PVC and V > A dissociation would favour VT. Rule of thumb: for any \"VT\" episode, check these three criteria before calling the therapy appropriate.",
+  "aRetenir": "A/V relationship, regularity and morphology: the three keys to unmasking AF classified as VT.",
+  "legende": "Stored episode — dual-chamber ICD"
+ },
+ "egm-dai-013": {
+  "question": "A 71-year-old man with dilated cardiomyopathy has a dual-chamber ICD implanted in 2014 for primary prevention. The programming has never been reviewed: VT zone at 133 bpm (450 ms) with ATP then shocks, discriminators off. Remote monitoring reports an episode in the VT zone. Which of these discriminators, had it been on, would have been the most directly suited to rejecting this type of episode?",
+  "options": [
+   "The sudden onset criterion",
+   "The \"V rate greater than A rate\" criterion",
+   "The SVT time-out",
+   "Ventricular cycle stability"
+  ],
+  "commentaires": [
+   "Incorrect: AF often starts abruptly; the onset criterion is mainly used to recognise sinus tachycardia, which accelerates gradually.",
+   "Incorrect: V > A points to VT; here A > V, and this criterion alone does not withhold therapy: it must be combined with stability or morphology.",
+   "Incorrect: the time-out delivers therapy after a set duration even if the rhythm is classified as SVT; it rejects nothing.",
+   "Correct: conducted AF produces irregular V cycles; the stability criterion recognises it, although its performance falls at very fast rates, where AF becomes more regular."
+  ],
+  "explication": "Each discriminator targets a particular SVT. Stability (regularity of V cycles) is the classic criterion for AF, which conducts irregularly; morphology is the other useful criterion, in single- and dual-chamber devices alike. The gradual onset criterion is designed for sinus tachycardia; it is of little use in AF, which often starts abruptly. The \"V > A\" relationship serves to confirm VT and is not sufficient to reject AF. Note that at very fast rates AF becomes more regular and stability loses performance. Rule of thumb: know the target of each discriminator and check on the stored EGMs that those programmed cover the patient's SVTs.",
+  "aRetenir": "Stability (and morphology) against AF; gradual onset against sinus tachycardia.",
+  "legende": "Stored episode — dual-chamber ICD"
+ },
+ "egm-dai-014": {
+  "question": "A 71-year-old man with dilated cardiomyopathy has a dual-chamber ICD implanted in 2014 for primary prevention. The programming has never been reviewed: VT zone at 133 bpm (450 ms) with ATP then shocks, discriminators off. Remote monitoring reports an episode in the VT zone. The patient has not yet received a shock. What measures do you take?",
+  "options": [
+   "Switch on SVT–VT discriminators for rates up to 230 bpm",
+   "Prolong the detection duration (6 to 12 s or about 30 intervals)",
+   "Control the AF rate and assess the indication for anticoagulation",
+   "Raise the slowest zone to around 185–200 bpm (primary prevention)",
+   "Switch off all therapies until the clinic appointment"
+  ],
+  "commentaires": [
+   "Correct: the consensus recommends discriminators active up to 230 bpm.",
+   "Correct: a prolonged detection duration reduces unnecessary therapies without increasing mortality (MADIT-RIT, ADVANCE III).",
+   "Correct: AF must be managed in its own right (rate, thromboembolic risk according to ESC 2024).",
+   "Correct: in primary prevention, the consensus recommends a slowest zone between 185 and 200 bpm.",
+   "Incorrect: switching off therapies leaves a high-risk patient unprotected; reprogramme, do not disarm."
+  ],
+  "explication": "This programming predates the current consensus documents. In primary prevention, the 2015 consensus (confirmed in 2019) recommends a slowest zone between 185 and 200 bpm, a prolonged detection duration (6 to 12 s or 30 intervals) and SVT–VT discriminators active up to 230 bpm; these settings reduce inappropriate therapies and, in MADIT-RIT, mortality. The AF itself must be treated: rate control (beta-blocker), anticoagulation decision based on the CHA2DS2-VA score, and consideration of a rhythm control strategy. Switching off therapies would be a dangerous overreaction. Rule of thumb: an inappropriate episode is an opportunity to bring all programming up to current standards.",
+  "aRetenir": "AF in the VT zone: treat the AF and bring programming in line with the consensus (high zone, long duration, discriminators).",
+  "legende": "Stored episode — dual-chamber ICD"
+ },
+ "egm-dai-015": {
+  "question": "A 71-year-old man with dilated cardiomyopathy has a dual-chamber ICD implanted in 2014 for primary prevention. The programming has never been reviewed: VT zone at 133 bpm (450 ms) with ATP then shocks, discriminators off. Remote monitoring reports an episode in the VT zone. Last night, he received three shocks during this type of episode. He arrives in the emergency department conscious, AF persists at 150–190 bpm, and no programmer will be available for an hour. What is the first step?",
+  "options": [
+   "Immediate external cardioversion with no other prior measure",
+   "IV amiodarone alone, leaving the ICD therapies active",
+   "Magnet over the device, on a monitor, defibrillator ready",
+   "Leave the ICD active; the shocks will eventually terminate the AF"
+  ],
+  "commentaires": [
+   "Incorrect: cardioversion does not stop inappropriate shocks if AF recurs, and it requires assessment of thromboembolic risk.",
+   "Incorrect: amiodarone takes several hours to act; meanwhile, inappropriate shocks continue.",
+   "Correct: the magnet suspends tachycardia detection for as long as it remains in place; ECG monitoring and an external defibrillator ensure safety.",
+   "Incorrect: the shocks have not terminated the AF, and each inappropriate shock is painful and potentially proarrhythmic."
+  ],
+  "explication": "When a conscious patient receives repeated inappropriate shocks, the priority is to stop the shocks. On most ICDs, a magnet placed over the device suspends detection and antitachycardia therapies for as long as it remains in place, without altering pacing; the patient must then be on a cardiac monitor with an external defibrillator to hand. The AF is then treated (rate control, anticoagulation, cardioversion if appropriate after assessment) and the ICD reprogrammed as soon as possible. The pitfall is to wait for the programmer or to treat the AF while leaving the ICD to keep shocking. Rule of thumb: repeated shocks in a conscious patient = magnet first, under monitoring.",
+  "aRetenir": "Repeated inappropriate shocks in a conscious patient: magnet over the device under ECG monitoring, then treat the cause.",
+  "legende": "Stored episode — dual-chamber ICD"
+ },
+ "egm-dai-016": {
+  "question": "A 52-year-old man with hypertrophic cardiomyopathy has a dual-chamber ICD for secondary prevention after a documented VT at 165 bpm. VT zone at 400 ms (150 bpm), discriminators on. He reports palpitations when climbing stairs. The ICD delivered no therapy. How do you interpret this episode?",
+  "options": [
+   "Slow VT with 1:1 retrograde conduction, wrongly left untreated",
+   "Exercise-induced sinus tachycardia, therapy rightly withheld",
+   "Atrial flutter with 1:1 conduction, therapy wrongly withheld",
+   "Junctional tachycardia withheld by the stability criterion"
+  ],
+  "commentaires": [
+   "Incorrect: in VT with retrograde conduction, V precedes A; here A always precedes V, with gradual acceleration.",
+   "Correct: gradual acceleration from 520 to 360 ms, each V preceded by an A with a constant A-V interval of 150 ms: sinus tachycardia, correctly classified as SVT.",
+   "Incorrect: 1:1 flutter starts abruptly at a fixed cycle length; here the rate increases gradually, as during exercise.",
+   "Incorrect: junctional tachycardia is not accompanied by atrial activation preceding each V by 150 ms, nor by exercise-related acceleration."
+  ],
+  "explication": "The tracing shows gradual acceleration (cycle lengths from 520 to 360 ms), a 1:1 relationship with the atrium activated before the ventricle and a constant A-V interval of 150 ms: this is exercise-induced sinus tachycardia. Once in the VT zone (cycle lengths ≤ 400 ms), the ICD classifies it as SVT (SVT marker) and withholds therapy: the device is functioning normally. The pitfall is to believe that VT went untreated or to try to \"fix\" the ICD. Rule of thumb: for a 1:1 episode, look at the onset (gradual or sudden) and at which chamber is activated first.",
+  "aRetenir": "1:1 tachycardia with gradual acceleration, A before V: sinus tachycardia, therapy rightly withheld.",
+  "legende": "Stored episode — dual-chamber ICD"
+ },
+ "egm-dai-017": {
+  "question": "A 52-year-old man with hypertrophic cardiomyopathy has a dual-chamber ICD for secondary prevention after a documented VT at 165 bpm. VT zone at 400 ms (150 bpm), discriminators on. He reports palpitations when climbing stairs. Which combination of features in this episode allowed the ICD to withhold therapy?",
+  "options": [
+   "Gradual onset, 1:1 with A before V at a constant A-V",
+   "Irregular ventricular cycles and a faster atrial rate",
+   "A rate above the VF zone and wide ventricular EGMs",
+   "AV dissociation and sudden onset with a PVC"
+  ],
+  "commentaires": [
+   "Correct: gradual onset and a 1:1 association with a stable A-V interval are the criteria for sinus tachycardia.",
+   "Incorrect: irregular cycles and A > V are the criteria for AF; here the cycles are regular and A = V.",
+   "Incorrect: the rate (≈ 167 bpm) is in the VT zone, and the ventricular morphology does not change.",
+   "Incorrect: dissociation and sudden onset would instead point to VT."
+  ],
+  "explication": "The discriminators of a dual-chamber ICD combine the A/V relationship, the mode of onset, stability and morphology. Here, the tachycardia sets in gradually (onset criterion negative), the association is 1:1 with the atrium activated 150 ms before each ventricular event, and the morphology does not change: the algorithm concludes SVT. Irregularity and A > V would characterise AF; dissociation and sudden onset, VT. Rule of thumb: to validate an ICD decision, identify on the EGM the criteria it used.",
+  "aRetenir": "Gradual onset + 1:1 with stable A-V: the signature of sinus tachycardia for the discriminators.",
+  "legende": "Stored episode — dual-chamber ICD"
+ },
+ "egm-dai-018": {
+  "question": "A 52-year-old man with hypertrophic cardiomyopathy has a dual-chamber ICD for secondary prevention after a documented VT at 165 bpm. VT zone at 400 ms (150 bpm), discriminators on. He reports palpitations when climbing stairs. True or false: for this episode, the appropriate course of action is to change neither the zone nor the discriminators, but rather to review the beta-blocker therapy and exercise tolerance.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: the ICD correctly withheld therapy; the zone is consistent with the clinical VT at 165 bpm, and it is the sinus tachycardia that needs to be limited.",
+   "Incorrect: switching off the discriminators or raising the zone above 165 bpm would expose the patient to inappropriate shocks or untreated VT."
+  ],
+  "explication": "A VT zone at 150 bpm is appropriate for this secondary prevention patient (about 10 to 15 bpm below his clinical VT at 165 bpm), and the discriminators worked. Switching off the discriminators would expose him to inappropriate shocks during the next sinus tachycardia; raising the zone above 165 bpm would make his VT go unrecognised. The right action is clinical: beta-blocker dose (also beneficial in HCM), exercise advice, and possibly an exercise test to check ICD behaviour. Rule of thumb: when the ICD got it right, correct the cause of the tachycardia, not the programming.",
+  "aRetenir": "Sinus tachycardia correctly withheld: leave the programming alone and act on the sinus rate.",
+  "legende": "Stored episode — dual-chamber ICD"
+ },
+ "egm-dai-019": {
+  "question": "A 44-year-old woman has a dual-chamber ICD for primary prevention (cardiomyopathy). VT zone at 320 ms (188 bpm), VF zone at 250 ms (240 bpm). Remote monitoring reports repeated non-sustained episodes. She is asymptomatic. How do you interpret this recording?",
+  "options": [
+   "T-wave oversensing with ventricular double counting",
+   "Ventricular bigeminy with a fixed 300 ms coupling interval",
+   "Far-field R-wave oversensing on the atrial channel",
+   "Non-sustained VT at 200 bpm terminating spontaneously"
+  ],
+  "commentaires": [
+   "Correct: each VS is followed 300 ms later by a TS that coincides with the large T wave on the RV EGM; the shock EGM shows only one QRS per cycle.",
+   "Incorrect: the shock EGM shows no PVCs, only sinus QRS complexes followed by their T waves.",
+   "Incorrect: the problem is on the ventricular channel; the atrial channel shows only sinus P waves at 769 ms.",
+   "Incorrect: there is no tachycardia; sinus rhythm at 78 bpm is stable throughout."
+  ],
+  "explication": "The rhythm is sinus at 78 bpm (A-A 769 ms), with one QRS per P wave on the shock EGM. Yet the ventricular channel counts two events per cycle: the QRS (VS) and then, 300 ms later, the large T wave on the RV EGM (TS). The V-V intervals alternate 469 / 300 ms, a typical signature of double counting. The risk is inappropriate detection of VT or VF, especially during exercise. Rule of thumb: when short and long intervals alternate, align the marker with the shock EGM and look for what the ICD has counted.",
+  "aRetenir": "Alternating short-long V-V intervals in sinus rhythm = double counting (T wave) until proven otherwise.",
+  "legende": "Transmitted recording — dual-chamber ICD"
+ },
+ "egm-dai-020": {
+  "question": "A 44-year-old woman has a dual-chamber ICD for primary prevention (cardiomyopathy). VT zone at 320 ms (188 bpm), VF zone at 250 ms (240 bpm). Remote monitoring reports repeated non-sustained episodes. She is asymptomatic. Which feature of the tracing distinguishes double counting from genuine PVCs?",
+  "options": [
+   "The TS marker, which proves a genuine ventricular event",
+   "The shock EGM shows only one QRS per cycle, with no PVCs",
+   "The 769 ms A-A interval, which rules out any tachycardia",
+   "The low R-wave amplitude on the RV lead EGM"
+  ],
+  "commentaires": [
+   "Incorrect: the marker shows what the ICD counted, not what actually happened; it is precisely the marker that is in question.",
+   "Correct: the shock EGM, a far-field recording resembling an ECG, shows a single QRS per cycle: the second event counted is the T wave.",
+   "Incorrect: regular sinus rhythm is compatible with ventricular bigeminy; it does not settle the question.",
+   "Incorrect: a small R wave favours T-wave oversensing, but does not prove the absence of PVCs."
+  ],
+  "explication": "To know whether a counted event is real, you need a second source of information besides the lead in question. The shock EGM (can–coil) records in the far field and resembles an ECG: here it shows a single QRS per cycle, followed by its T wave. The second ventricular marker therefore corresponds to no depolarisation: it is the large T wave on the RV EGM that is being sensed. The marker, for its part, reflects the ICD's interpretation and cannot validate its own error. Rule of thumb: always compare the sensing EGM with the shock EGM.",
+  "aRetenir": "The shock EGM is the arbiter: one QRS per cycle = the second event counted is an artefact or a T wave.",
+  "legende": "Transmitted recording — dual-chamber ICD"
+ },
+ "egm-dai-021": {
+  "question": "A 44-year-old woman has a dual-chamber ICD for primary prevention (cardiomyopathy). VT zone at 320 ms (188 bpm), VF zone at 250 ms (240 bpm). Remote monitoring reports repeated non-sustained episodes. She is asymptomatic. Which corrective measures are appropriate?",
+  "options": [
+   "Switch on or adjust the T-wave rejection algorithm, depending on the manufacturer",
+   "Reduce sensitivity, while checking that VF is still reliably detected",
+   "Increase sensitivity to better detect the low-amplitude QRS",
+   "Look for a potassium disturbance or another metabolic cause",
+   "Lower the VT zone to recognise genuine episodes earlier"
+  ],
+  "commentaires": [
+   "Correct: most manufacturers offer T-wave rejection or adjustment of the starting threshold and decay of sensitivity.",
+   "Correct: reducing sensitivity can eliminate T-wave sensing, provided VF detection is not compromised.",
+   "Incorrect: making the ICD more sensitive would worsen T-wave sensing.",
+   "Correct: hyperkalaemia can make the T wave tall and peaked and promote its oversensing.",
+   "Incorrect: lowering the VT zone would further increase the risk of classifying double counting as tachycardia."
+  ],
+  "explication": "Correcting T-wave oversensing follows a sequence: first rule out a reversible cause (hyperkalaemia, metabolic disturbance, QT-prolonging drug), then act on sensing. The options are each manufacturer's T-wave rejection algorithm, adjusting the starting threshold and decay slope of sensitivity, reducing the maximum sensitivity (while making sure VF is still detected), or even a different sensing vector if the lead allows. If the R wave is too small to find a safe setting, lead revision should be considered. Increasing sensitivity or lowering the VT zone would make the problem worse. Rule of thumb: correct the cause, then the sensing, without ever sacrificing VF detection.",
+  "aRetenir": "T-wave oversensing: metabolic cause, T-wave rejection, cautious reduction in sensitivity, without losing VF detection.",
+  "legende": "Transmitted recording — dual-chamber ICD"
+ },
+ "egm-dai-022": {
+  "question": "A 44-year-old woman has a dual-chamber ICD for primary prevention (cardiomyopathy). VT zone at 320 ms (188 bpm), VF zone at 250 ms (240 bpm). Remote monitoring reports repeated non-sustained episodes. She is asymptomatic. The R-wave amplitude measured on the RV lead has fallen from 9 to 3 mV over two years. Why does this fall promote this phenomenon?",
+  "options": [
+   "A small R wave lengthens the ICD's ventricular refractory period",
+   "A small R wave raises impedance and therefore T-wave amplitude",
+   "Auto-adjusting sensitivity starts from a fraction of the previous R wave",
+   "The ICD switches to maximum fixed sensitivity once R falls below 5 mV"
+  ],
+  "commentaires": [
+   "Incorrect: refractory periods are programmed and do not depend on R-wave amplitude.",
+   "Incorrect: lead impedance has no direct relationship with the amplitude of the sensed T wave.",
+   "Correct: the sensing threshold after each QRS is calculated from the R-wave amplitude; if R is small, the threshold is low and the T wave crosses it.",
+   "Incorrect: there is no such generic switch; sensitivity remains auto-adjusting according to the manufacturer's rules."
+  ],
+  "explication": "ICDs use auto-adjusting sensitivity: after each sensed event, the threshold starts from a fraction of the R-wave amplitude, then decays down to the programmed maximum sensitivity. If the R wave is large, the threshold stays high during repolarisation and the T wave is not seen. If the R wave decreases (lead maturation, fibrosis, lead displacement), the starting threshold falls and the relatively large T wave may cross it. A progressive fall in R-wave amplitude is therefore a warning sign to monitor, which may lead to lead revision. Rule of thumb: when faced with T-wave oversensing, always look at the R-wave trend.",
+  "aRetenir": "Falling R wave = lower auto-adjusting threshold = T wave sensed; monitor the R-wave trend.",
+  "legende": "Transmitted recording — dual-chamber ICD"
+ },
+ "egm-dai-023": {
+  "question": "A 63-year-old man has a dual-chamber ICD implanted 9 years ago. Third remote monitoring alert in one week: \"non-sustained VF episode\". He has not felt any shock. How do you interpret this episode?",
+  "options": [
+   "Non-sustained VF, terminating spontaneously before charging",
+   "Pectoral myopotentials sensed on the shock vector",
+   "T-wave oversensing with ventricular double counting",
+   "Non-physiological signals on the RV lead, suggesting a fracture"
+  ],
+  "commentaires": [
+   "Incorrect: VF would be visible on the shock EGM and would interrupt sinus rhythm; here, the QRS complexes continue normally.",
+   "Incorrect: myopotentials are seen mainly on vectors including the can; here the shock EGM is perfectly clean.",
+   "Incorrect: the signals bear no relation to the T wave and are much faster than double counting.",
+   "Correct: bursts of very rapid, irregular signals on the RV EGM alone, normal shock EGM, sinus rhythm preserved: lead noise."
+  ],
+  "explication": "The bursts of chaotic signals with intervals of 80 to 160 ms appear only on the bipolar RV EGM, whereas the shock EGM shows regular sinus rhythm and the atrial channel remains in sinus rhythm: this is non-physiological noise. In a patient implanted 9 years ago, the first hypothesis is a conductor or insulation break in the RV lead; a connection problem is possible, mainly early after implantation. Repeated \"non-sustained VF\" alerts are a classic mode of presentation. The pitfall is to classify these episodes as genuine non-sustained arrhythmias. Rule of thumb: a signal seen on only one channel is not cardiac.",
+  "aRetenir": "Very rapid signals on the RV EGM alone with a normal shock EGM: lead noise, think fracture.",
+  "legende": "Transmitted episode — dual-chamber ICD"
+ },
+ "egm-dai-024": {
+  "question": "A 63-year-old man has a dual-chamber ICD implanted 9 years ago. Third remote monitoring alert in one week: \"non-sustained VF episode\". He has not felt any shock. Which feature of the tracing most strongly favours lead noise rather than VF?",
+  "options": [
+   "The bursts stop spontaneously within a few seconds",
+   "The signal rate is well above 250 bpm",
+   "The signals are absent from the shock EGM, which stays sinus",
+   "There is no associated rapid atrial activity"
+  ],
+  "commentaires": [
+   "Incorrect: VF can also be non-sustained and stop spontaneously.",
+   "Incorrect: VF can be very fast; what matters is rather the non-physiological nature of the signals (intervals < 160 ms).",
+   "Correct: VF is seen on all ventricular vectors; a signal confined to the RV EGM with intact sinus QRS complexes on the shock EGM is an artefact.",
+   "Incorrect: the absence of AF does not help distinguish VF from lead noise."
+  ],
+  "explication": "The decisive criterion is the comparison of channels: VF is electrical activity of the myocardium, visible on the RV lead EGM as well as on the shock EGM. Noise generated by the lead remains confined to the faulty dipole, while the other channels show intact sinus rhythm. Very short intervals (less than 150–160 ms, below myocardial refractoriness) reinforce the diagnosis. Duration and spontaneous termination do not discriminate. Rule of thumb: look for continuity of sinus rhythm on the shock EGM during the bursts.",
+  "aRetenir": "Intact sinus rhythm on the shock EGM during the bursts = noise, not VF.",
+  "legende": "Transmitted episode — dual-chamber ICD"
+ },
+ "egm-dai-025": {
+  "question": "A 63-year-old man has a dual-chamber ICD implanted 9 years ago. Third remote monitoring alert in one week: \"non-sustained VF episode\". He has not felt any shock. RV pacing impedance is 520 Ω, stable on the trend graph. What is your management?",
+  "options": [
+   "Normal impedance: this is interference, simple follow-up",
+   "Reduce RV sensitivity and review the patient in six months",
+   "Prolong the detection duration and conclude it is an isolated artefact",
+   "Normal impedance does not rule out a fracture: prompt revision"
+  ],
+  "commentaires": [
+   "Incorrect: external interference usually affects several channels; recurrent noise confined to the RV lead indicates a lead fault.",
+   "Incorrect: reducing sensitivity masks the problem without correcting it, and a fracture may progress to loss of pacing or sensing.",
+   "Incorrect: this is at best a temporary measure; the lead remains faulty and the risk of inappropriate shocks persists.",
+   "Correct: impedance may remain normal early in a fracture or with an intermittent break; the noise alone is enough to make the diagnosis."
+  ],
+  "explication": "Non-physiological noise is often the first sign of a fracture, before any impedance abnormality. Normal, stable impedance therefore does not rule out the diagnosis. Provocative manoeuvres (arm movements, pressure on the pocket) during real-time EGM recording, the chest X-ray and short-interval counters help, but the management is prompt lead revision (new lead, with or without extraction). Settling for reprogramming (sensitivity, detection duration) exposes the patient to inappropriate shocks and loss of function. Rule of thumb: confirmed lead noise = revision, even with normal measurements.",
+  "aRetenir": "Lead noise with normal impedance: do not be reassured; arrange prompt revision.",
+  "legende": "Transmitted episode — dual-chamber ICD"
+ },
+ "egm-dai-026": {
+  "question": "A 63-year-old man has a dual-chamber ICD implanted 9 years ago. Third remote monitoring alert in one week: \"non-sustained VF episode\". He has not felt any shock. Lead revision is scheduled in 48 hours. What is the safest measure in the meantime?",
+  "options": [
+   "Send him home, as the lead integrity alert is enough to protect him",
+   "Admit him on a cardiac monitor with detection adjusted or suspended",
+   "Programme VOO pacing to prevent any inhibition by noise",
+   "Send him home with RV sensitivity set to the least sensitive value"
+  ],
+  "commentaires": [
+   "Incorrect: a lead integrity alert aids diagnosis and may extend detection, but does not remove the risk of inappropriate shocks.",
+   "Correct: under ECG monitoring with an external defibrillator, the risk of inappropriate shocks can be limited without leaving the patient unprotected.",
+   "Incorrect: this patient has an intrinsic rhythm; asynchronous pacing would compete with it and does not address the risk of shocks.",
+   "Incorrect: greatly reduced sensitivity may miss genuine VF, without guaranteeing that the noise disappears."
+  ],
+  "explication": "An ICD lead fracture carries two dangers: repeated inappropriate shocks (often very distressing) and, in the pacing-dependent patient, inhibition of pacing. Pending revision, the safest solution is to keep the patient under ECG monitoring with an external defibrillator to hand, and to reprogramme detection (extended or suspended depending on the context). Sending the patient home with simple reprogramming amounts to gambling that the noise will not trigger a shock. Rule of thumb: lead noise = a semi-urgent situation; reprogramming alone is not enough.",
+  "aRetenir": "ICD lead fracture: in-hospital monitoring and prompt revision, not just reprogramming.",
+  "legende": "Transmitted episode — dual-chamber ICD"
+ },
+ "egm-dai-027": {
+  "question": "A 69-year-old man has a CRT-D for ischaemic cardiomyopathy (LVEF 28%, LBBB), NYHA class II–III. At follow-up, the counter shows 68% biventricular pacing. What is the cause of the loss of resynchronisation visible on this tracing?",
+  "options": [
+   "Frequent PVCs inhibiting BiV pacing every third cycle",
+   "Intrinsic AV conduction faster than the programmed AV delay",
+   "Loss of LV capture with persistent RV-only pacing",
+   "Atrial tracking limited by the maximum tracking rate"
+  ],
+  "commentaires": [
+   "Correct: every third cycle, a wide, different complex is sensed (VS) before BiV pacing: ventricular trigeminy.",
+   "Incorrect: the sensed complexes have a different morphology from conducted QRS complexes; they are unrelated to the AV delay.",
+   "Incorrect: the paced cycles (BiV) have a constant morphology; it is the VS cycles that miss pacing.",
+   "Incorrect: the sinus rate is 75 bpm (800 ms), well below any maximum tracking rate."
+  ],
+  "explication": "On this tracing, sinus rhythm is regular at 75 bpm and tracked with BiV pacing, except every third cycle: a ventricular complex of different morphology, wide on the shock EGM, is sensed (VS) before the scheduled pacing, which is inhibited. These are PVCs in a trigeminal pattern, which on their own account for a BiV pacing percentage close to 67%. The pitfall is to attribute the drop to an excessively long AV delay and shorten it to no effect. Rule of thumb: when the BiV percentage is low, identify the cause (PVCs, AF, AV conduction, maximum tracking rate) before changing settings.",
+  "aRetenir": "Low BiV percentage: identify the cause (PVCs, AF, AV conduction) before changing the programming.",
+  "legende": "In-clinic recording — CRT-D"
+ },
+ "egm-dai-028": {
+  "question": "A 69-year-old man has a CRT-D for ischaemic cardiomyopathy (LVEF 28%, LBBB), NYHA class II–III. At follow-up, the counter shows 68% biventricular pacing. What biventricular pacing percentage should be targeted in this patient?",
+  "options": [
+   "At least 90%",
+   "At least 85%",
+   "At least 75%",
+   "At least 98%"
+  ],
+  "commentaires": [
+   "Incorrect: 90% seems high but is still associated with less benefit than ≥ 98%.",
+   "Incorrect: at 85%, a substantial proportion of cycles are not resynchronised.",
+   "Incorrect: 75% is clearly insufficient, close to this patient's situation.",
+   "Correct: clinical benefit and survival are greatest above 98% BiV pacing (Hayes, 2011)."
+  ],
+  "explication": "In the large remote monitoring cohort analysed by Hayes et al., the greatest reduction in mortality was seen with a BiV pacing percentage above 98%, with a continuous gradient: every percentage point lost counts. A figure of 90% seems reassuring but is not. The 2021 ESC guidelines stress the need for BiV pacing as close as possible to 100%. Rule of thumb: regard any BiV percentage below 98% as a problem that needs explaining.",
+  "aRetenir": "Biventricular pacing target: at least 98%, ideally close to 100%.",
+  "legende": "In-clinic recording — CRT-D"
+ },
+ "egm-dai-029": {
+  "question": "A 69-year-old man has a CRT-D for ischaemic cardiomyopathy (LVEF 28%, LBBB), NYHA class II–III. At follow-up, the counter shows 68% biventricular pacing. Which actions are appropriate to restore resynchronisation?",
+  "options": [
+   "Lengthen the AV delay to promote intrinsic conduction",
+   "Consider PVC ablation if the PVCs are frequent and monomorphic",
+   "Rely on triggered pacing on VS events to correct the problem",
+   "Accept 68%, since the patient remains in NYHA class II–III",
+   "Quantify the PVC burden (Holter) and correct any potassium disturbance"
+  ],
+  "commentaires": [
+   "Incorrect: lengthening the AV delay would promote intrinsic conduction and further reduce BiV pacing.",
+   "Correct: ablation of frequent PVCs that limit BiV pacing is a recognised option in CRT patients.",
+   "Incorrect: triggered pacing on VS falls within a PVC already under way; it improves the counter, not resynchronisation.",
+   "Incorrect: a figure of 68% deprives the patient of much of the benefit of CRT.",
+   "Correct: quantifying the burden and correcting precipitating factors is the first step."
+  ],
+  "explication": "Frequent PVCs are a major cause of loss of BiV pacing. The approach is to quantify their burden (Holter, device counters), correct precipitating factors (potassium, magnesium, ischaemia, decompensation), optimise medical therapy (beta-blocker, amiodarone if needed), and consider ablation if the PVCs are frequent and monomorphic. Pacing triggered by a sensed event (\"trigger\") raises the BiV counter without genuinely resynchronising, since the pulse falls within a complex that has already started: this is a classic pitfall. Rule of thumb: judge resynchronisation on the actual quality of the cycles, not on the counter alone.",
+  "aRetenir": "PVCs limiting CRT: quantify, correct, treat (drugs, ablation); triggered pacing does not resynchronise.",
+  "legende": "In-clinic recording — CRT-D"
+ },
+ "egm-dai-030": {
+  "question": "On a Sunday afternoon, a patient with an ICD phones the department: he felt a shock an hour ago, with no loss of consciousness, and he feels well. What do you advise?",
+  "options": [
+   "Send a remote transmission and get a prompt review; no emergency",
+   "Call the emergency services immediately, even if he feels perfectly well",
+   "Do nothing: a single shock warrants neither a check nor a transmission",
+   "Go to the emergency department to have the ICD switched off as a precaution"
+  ],
+  "commentaires": [
+   "Correct: a single, well-tolerated shock warrants a transmission and a prompt electrophysiology opinion, without calling the emergency services.",
+   "Incorrect: calling the emergency services is reserved for multiple shocks or a shock accompanied by symptoms (syncope, chest pain, breathlessness).",
+   "Incorrect: every shock must be analysed to establish whether it was appropriate and whether action is needed.",
+   "Incorrect: switching off the ICD would leave the patient unprotected; nothing justifies it here."
+  ],
+  "explication": "The standard advice given to ICD patients distinguishes two situations. A single shock without associated symptoms, in a patient who feels well: not a life-threatening emergency, but a transmission (or contact with the device clinic) and a prompt review to analyse the episode. Several shocks in quick succession, or a shock accompanied by syncope, chest pain or breathlessness: call the emergency services. The two pitfalls are overreaction (unnecessary emergency visits) and underreaction (ignoring a shock that may have been inappropriate). Rule of thumb: single shock and patient well = transmission and prompt review.",
+  "aRetenir": "Single, well-tolerated shock: transmission and prompt review; multiple shocks or symptoms: emergency services."
+ },
+ "egm-dai-031": {
+  "question": "When educating a patient who has just received an ICD, in which situations do you tell him to call the emergency services?",
+  "options": [
+   "Two or more shocks within a few hours",
+   "A shock followed by chest pain or breathlessness",
+   "A shock preceded or followed by loss of consciousness",
+   "A beep from the device with no shock or symptoms",
+   "A single, well-tolerated shock with no symptoms at all"
+  ],
+  "commentaires": [
+   "Correct: repeated shocks raise concern about electrical storm or a series of inappropriate shocks.",
+   "Correct: associated symptoms raise concern about an acute cause (ischaemia, decompensation).",
+   "Correct: syncope indicates a poorly tolerated arrhythmia.",
+   "Incorrect: a beep signals a technical alert; the patient should contact the device clinic, not the emergency services.",
+   "Incorrect: a single, well-tolerated shock calls for a transmission and a prompt review, not the emergency services."
+  ],
+  "explication": "Patient education must be simple and repeated. Call the emergency services: multiple shocks (electrical storm or a series of inappropriate shocks) and a shock accompanied by symptoms (syncope, chest pain, breathlessness, persistent malaise). Single, well-tolerated shock: contact the device clinic and send a transmission. Audible or vibratory alert from the device: contact the device clinic, as it often signals a technical problem (lead, battery) that must be analysed promptly. Rule of thumb: give the patient written instructions distinguishing these three situations.",
+  "aRetenir": "Multiple shocks or a shock with symptoms = emergency services; single well-tolerated shock or audible alert = contact the device clinic."
+ },
+ "egm-dai-032": {
+  "question": "A patient with an ICD is admitted with \"electrical storm\". Which definition corresponds to this term?",
+  "options": [
+   "At least two shocks, appropriate or not, within the same week",
+   "At least three shocks within 24 hours, whether appropriate or not",
+   "At least three episodes of sustained VT or VF within 24 hours",
+   "At least five episodes of non-sustained VT within 24 hours"
+  ],
+  "commentaires": [
+   "Incorrect: two shocks in one week do not meet the definition, and inappropriate shocks are not part of it.",
+   "Incorrect: inappropriate shocks (AF, lead noise) do not constitute electrical storm; this is a common pitfall.",
+   "Correct: electrical storm is defined as at least three separate episodes of sustained ventricular arrhythmia within 24 h, at least 5 minutes apart and requiring intervention (ATP or shock).",
+   "Incorrect: non-sustained episodes are not part of the definition."
+  ],
+  "explication": "Electrical storm is defined as at least three separate episodes of sustained VT or VF within 24 hours, at least 5 minutes apart and requiring intervention, which in an ICD patient means appropriate therapy (ATP or shock). The definition is based on genuine ventricular arrhythmias: a series of inappropriate shocks due to AF or lead fracture is not a storm, and its management is completely different (magnet, reprogramming, lead revision). Rule of thumb: before speaking of a storm, interrogate the ICD to confirm that the therapies were appropriate.",
+  "aRetenir": "Electrical storm = ≥ 3 episodes of sustained VT/VF within 24 h; first confirm that the therapies were appropriate."
+ },
+ "egm-dai-033": {
+  "question": "An ICD patient with ischaemic heart disease is admitted after five shocks in 12 hours; between shocks, the monitor shows runs of monomorphic VT. Which measures are appropriate?",
+  "options": [
+   "Discuss early VT ablation with an expert centre",
+   "Start an intravenous class IC antiarrhythmic drug",
+   "Switch off therapies to spare the patient further shocks",
+   "Interrogate the ICD to confirm that the therapies are appropriate",
+   "Correct potassium and magnesium, look for acute ischaemia",
+   "Sedation, beta-blocker and intravenous amiodarone"
+  ],
+  "commentaires": [
+   "Correct: the 2022 ESC guidelines recommend ablation for electrical storm due to monomorphic VT; it should be considered early, without waiting for prolonged failure of medical therapy.",
+   "Incorrect: class IC antiarrhythmic drugs are contraindicated in ischaemic heart disease.",
+   "Incorrect: appropriate shocks are life-saving; ATP can be optimised, but the ICD must not be disarmed.",
+   "Correct: this is the first step, because inappropriate shocks are managed in a completely different way.",
+   "Correct: correctable precipitating factors must be sought systematically.",
+   "Correct: sedation and adrenergic blockade, combined with amiodarone, are the cornerstone of electrical storm management."
+  ],
+  "explication": "Management of electrical storm combines: confirmation that the therapies were appropriate (ICD interrogation), correction of precipitating factors (ischaemia, potassium disturbance, decompensation), sedation and adrenergic blockade (non-selective beta-blockers such as propranolol are often used), intravenous amiodarone, and VT ablation, recommended by the 2022 ESC guidelines for storm due to monomorphic VT and to be discussed early with an expert centre. ICD programming can be adjusted (additional ATP) but not switched off. Class IC antiarrhythmic drugs are contraindicated. Rule of thumb: storm = intensive care, sedation, beta-blocker, amiodarone, and early referral to an ablation centre.",
+  "aRetenir": "Electrical storm: confirm, correct, sedate, beta-block, amiodarone, and consider ablation early."
+ },
+ "egm-dai-034": {
+  "question": "An anaesthetist asks you what a magnet does when placed over a contemporary transvenous ICD. What do you tell them?",
+  "options": [
+   "It switches pacing to an asynchronous mode, as with a pacemaker",
+   "It suspends therapies while it is in place, without changing pacing",
+   "It permanently disables therapies until the next reprogramming",
+   "It triggers a test charge followed by an internal ICD test shock"
+  ],
+  "commentaires": [
+   "Incorrect: this is how a pacemaker behaves; on an ICD, the magnet does not make pacing asynchronous.",
+   "Correct: on most ICDs, the magnet inhibits detection and antitachycardia therapies for as long as it remains in place, without altering pacing.",
+   "Incorrect: on contemporary ICDs, the effect ceases as soon as the magnet is removed; the exact response depends on the manufacturer.",
+   "Incorrect: the magnet triggers neither a charge nor a shock."
+  ],
+  "explication": "On the vast majority of contemporary ICDs, the magnet suspends tachyarrhythmia detection, and therefore therapies, only for as long as it is held over the device; it does not alter bradycardia pacing, which is not made asynchronous. This is a key difference from a pacemaker. Some manufacturers allow the magnet response to be programmed, hence the importance of knowing the patient's device. Rule of thumb: magnet on an ICD = therapies suspended, pacing unchanged; in a pacing-dependent patient exposed to electrosurgery, this is not enough.",
+  "aRetenir": "Magnet on an ICD: suspends therapies while in place, does not make pacing asynchronous."
+ },
+ "egm-dai-035": {
+  "question": "A pacing-dependent patient with an ICD is scheduled for thoracic surgery with monopolar electrosurgery. What preparation is appropriate?",
+  "options": [
+   "Place a magnet over the device for the entire procedure",
+   "Reprogramme: therapies off, asynchronous pacing, on a monitor",
+   "No precautions if electrosurgery is used in short bursts",
+   "Suspend therapies only, leaving pacing in DDD mode"
+  ],
+  "commentaires": [
+   "Incorrect: the magnet suspends therapies but does not make pacing asynchronous; electrosurgery may inhibit pacing in a dependent patient.",
+   "Correct: in a dependent patient, both shocks and pacing inhibition must be avoided; only reprogramming achieves both.",
+   "Incorrect: in surgery above the umbilicus with monopolar electrosurgery, the risk of interference is high in this patient.",
+   "Incorrect: in an inhibited mode, electrosurgical interference may suppress pacing and cause asystole."
+  ],
+  "explication": "Monopolar electrosurgery used above the umbilicus may be sensed by the ICD, with two risks: an inappropriate shock and inhibition of pacing. In a non-dependent patient, a magnet is often enough to prevent shocks. In a dependent patient, the magnet does not protect against inhibition, because it does not make pacing asynchronous on an ICD: the device must be reprogrammed (therapies suspended, asynchronous mode at a suitable rate), with ECG monitoring and external defibrillation pads in place, then restored to the original settings after the procedure. Rule of thumb: ICD + dependence + surgery above the umbilicus = reprogramming, not a magnet alone.",
+  "aRetenir": "Dependent patient with an ICD and electrosurgery above the umbilicus: reprogramme (therapies off + asynchronous); a magnet is not enough."
+ },
+ "egm-dai-036": {
+  "question": "True or false: for inguinal hernia repair using monopolar electrosurgery in an ICD patient who is not pacing-dependent, prior reprogramming is generally not necessary, provided a magnet and appropriate monitoring are available.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: below the umbilicus, the risk of interference is low; a magnet, ECG monitoring and an external defibrillator are sufficient.",
+   "Incorrect: routine reprogramming is not necessary for surgery below the umbilicus in a non-dependent patient."
+  ],
+  "explication": "Consensus documents on perioperative management (HRS/ASA 2011, EHRA 2022) stratify risk according to the surgical site, the type of electrosurgery and pacing dependence. In surgery below the umbilicus, the risk of the ICD sensing electrosurgical interference is low: reprogramming is generally not necessary, but a magnet should be available, together with monitoring and an external defibrillator. Routinely switching off ICDs increases the risk of forgetting to reactivate them. Rule of thumb: tailor preparation to the surgical site and pacing dependence rather than applying a one-size-fits-all recipe.",
+  "aRetenir": "Surgery below the umbilicus, non-dependent patient: no routine reprogramming; magnet and monitoring available."
+ },
+ "egm-dai-037": {
+  "question": "An ICD's therapies were switched off by reprogramming before surgery. The procedure is over. Which step is essential before removing the monitor and the external defibrillation pads?",
+  "options": [
+   "Wait for the 3-month follow-up appointment",
+   "Reactivate therapies via remote monitoring",
+   "Reactivate therapies and check the ICD",
+   "Apply a magnet to reactivate therapies"
+  ],
+  "commentaires": [
+   "Incorrect: leaving an ICD switched off exposes the patient to untreated sudden cardiac death.",
+   "Incorrect: remote monitoring cannot be used to reprogramme the ICD; a programmer is needed.",
+   "Correct: the patient must remain monitored with an external defibrillator until therapies have been reactivated and checked.",
+   "Incorrect: a magnet suspends therapies; it does not reactivate therapies switched off by reprogramming."
+  ],
+  "explication": "Failure to reactivate is a serious and well-documented error: the patient leaves with an ICD that no longer protects him. Consensus documents insist that the patient remain on ECG monitoring, with an external defibrillator to hand, until the ICD has been reactivated and checked with a programmer. Remote monitoring cannot be used to change programming, and a magnet only suspends therapies temporarily. Rule of thumb: no discharge from the monitored area without written confirmation that therapies have been reactivated.",
+  "aRetenir": "ICD switched off for surgery: do not remove monitoring until reactivation of therapies has been confirmed."
+ },
+ "egm-dai-038": {
+  "question": "An 88-year-old woman with an ICD, receiving palliative care for metastatic cancer, asks for \"the shocks\" to be stopped. She has an intrinsic ventricular rhythm. What is the appropriate approach?",
+  "options": [
+   "Refuse: switching off an ICD is legally equivalent to euthanasia",
+   "Explant the device, the only reliable way to eliminate shocks",
+   "Also switch off pacing, which always accompanies stopping shocks",
+   "Switch off shocks, keep pacing, document the decision"
+  ],
+  "commentaires": [
+   "Incorrect: withdrawing a treatment the patient no longer wants is ethically and legally distinct from euthanasia.",
+   "Incorrect: simple reprogramming is sufficient; explant surgery makes no sense here.",
+   "Incorrect: stopping shocks and stopping pacing are two separate decisions; pacing contributes to comfort.",
+   "Correct: this is a legitimate request to limit treatment; pacing can be maintained and the decision is documented in the medical record."
+  ],
+  "explication": "The 2010 HRS and EHRA consensus statements on end-of-life care recognise the right of the patient (or their representative) to request deactivation of ICD therapies: this is treatment withdrawal, distinct from euthanasia or assisted suicide, and, in France, a right provided for by the 2016 Claeys-Leonetti law (refusal of unreasonable obstinacy in treatment). The decision is shared, explained and documented in the record, and deactivation is performed by reprogramming. Bradycardia pacing can be maintained: it does not prolong the dying process and contributes to comfort; stopping it is a separate decision. Rule of thumb: raise the discussion about shocks as soon as the care plan becomes palliative.",
+  "aRetenir": "End of life: switching off shocks is the patient's right, done by reprogramming, while keeping pacing."
+ },
+ "egm-dai-039": {
+  "question": "True or false: in a patient at the end of life, switching off ICD shocks leads to death in the short term.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: deactivation removes protection against a possible arrhythmia; it does not cause death.",
+   "Correct: the patient dies of their disease; deactivation merely avoids painful and futile shocks at the end of life."
+  ],
+  "explication": "Switching off shocks causes no arrhythmia and does not hasten death: the patient will die of the underlying disease, without repeated painful shocks during the dying phase. This misconception, shared by patients, families and healthcare professionals, often delays the discussion. Bradycardia pacing, if maintained, has no effect on the length of the dying phase. Rule of thumb: explain clearly that stopping shocks does not \"kill\", to allow a calm decision.",
+  "aRetenir": "Switching off shocks at the end of life does not cause death: it avoids futile shocks."
+ },
+ "egm-dai-040": {
+  "question": "The community palliative care team calls on a Friday evening: a dying patient at home with an ICD has received several shocks. No programmer can be brought before Monday. What do you advise?",
+  "options": [
+   "Tape a magnet over the device",
+   "Transfer the patient to the emergency department for reprogramming",
+   "Give amiodarone to space out the shocks",
+   "Wait until Monday, as the shocks often stop on their own"
+  ],
+  "commentaires": [
+   "Correct: a magnet held over the device suspends therapies; this is the pragmatic solution when no programmer is available.",
+   "Incorrect: transferring a dying patient goes against the care plan when a simple solution exists.",
+   "Incorrect: amiodarone will not stop the shocks quickly and has no place here.",
+   "Incorrect: leaving the patient to suffer shocks at the end of life is unacceptable."
+  ],
+  "explication": "End-of-life consensus documents recommend planning deactivation in advance, but in an emergency without a programmer, a magnet held over the device (for example taped in place) suspends therapies on most ICDs. This is the simplest way to spare the dying patient further shocks. Transfer to the emergency department goes against the care plan, and drugs do not stop shocks in the short term. Rule of thumb: every team caring for an ICD patient at the end of life should know where to find a magnet.",
+  "aRetenir": "End of life without a programmer: a magnet taped over the device suspends shocks."
+ },
+ "egm-dai-041": {
+  "question": "You are programming a new ICD for primary prevention (LVEF 30%, no documented ventricular arrhythmia). Which programming of the slowest zone complies with the consensus?",
+  "options": [
+   "Detection at ~185–200 bpm, prolonged duration (6–12 s or ~30 intervals)",
+   "Detection at around 150 bpm, short duration (12 intervals) to treat early",
+   "Detection at around 170 bpm, shock without ATP in all zones",
+   "A VF zone at 250 bpm only, with no VT zone or discriminators"
+  ],
+  "commentaires": [
+   "Correct: this is the recommendation of the 2015 consensus, updated in 2019, based on MADIT-RIT and ADVANCE III.",
+   "Incorrect: a low zone and a short duration multiply unnecessary and inappropriate therapies.",
+   "Incorrect: ATP is recommended in all zones for patients with structural heart disease.",
+   "Incorrect: a single zone set so high would leave fast VTs untreated."
+  ],
+  "explication": "In primary prevention, the 2015 HRS/EHRA/APHRS/SOLAECE consensus (updated in 2019) recommends a slowest zone between 185 and 200 bpm, a prolonged detection duration (6 to 12 seconds or 30 intervals), ATP in all zones for patients with structural heart disease, and discriminators active up to 230 bpm. These settings, validated by MADIT-RIT and ADVANCE III, reduce inappropriate and unnecessary therapies without increasing syncope. The pitfall is to keep outdated programming with low zones and short durations. Rule of thumb: check at every follow-up that the programming complies with the consensus.",
+  "aRetenir": "Primary prevention: zone ≥ 185–200 bpm, prolonged detection, ATP in all zones, discriminators up to 230 bpm."
+ },
+ "egm-dai-042": {
+  "question": "True or false: in the MADIT-RIT trial, programming therapy from 200 bpm upwards (high-rate therapy) reduced inappropriate therapies, but also all-cause mortality.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: the high-rate arm reduced inappropriate therapies and all-cause mortality (HR 0.45) compared with conventional programming.",
+   "Incorrect: the reduction in mortality was indeed observed in the high-rate arm, which underpinned current programming recommendations."
+  ],
+  "explication": "MADIT-RIT (2012) compared, in primary prevention, conventional programming (therapy from 170 bpm after 2.5 s) with therapy restricted to rates ≥ 200 bpm and with delayed therapy (60 s between 170 and 199 bpm, 12 s between 200 and 249 bpm). Both strategies markedly reduced inappropriate therapies. All-cause mortality was significantly reduced in the high-rate arm (HR 0.45); in the delayed therapy arm, the reduction did not reach significance (HR 0.56, p = 0.06). Together with ADVANCE III, these results underpin the 2015 consensus. Rule of thumb: \"cautious\" programming with a low zone and rapid detection is not safer; it is more harmful.",
+  "aRetenir": "MADIT-RIT: therapy restricted to rates ≥ 200 bpm = fewer inappropriate therapies and fewer deaths."
+ },
+ "egm-dai-043": {
+  "question": "In an ICD patient with ischaemic heart disease, a regular monomorphic VT at 225 bpm falls in the VF zone. What does the consensus recommend for this zone?",
+  "options": [
+   "An immediate shock, as ATP is prohibited above 200 bpm",
+   "A monitor-only zone, with no therapy programmed",
+   "A low-energy shock, followed by external cardioversion",
+   "ATP during charging, then a shock if ATP has failed"
+  ],
+  "commentaires": [
+   "Incorrect: PainFREE Rx II demonstrated the efficacy and safety of ATP for fast VTs.",
+   "Incorrect: a VT at 225 bpm must be treated; a zone with no therapy would be dangerous.",
+   "Incorrect: external cardioversion is not a programmed strategy; the ICD delivers full-energy shocks.",
+   "Correct: the consensus recommends ATP for tachycardias up to about 230 bpm, including in the VF zone during charging."
+  ],
+  "explication": "PainFREE Rx II showed that burst ATP terminates most fast VTs (188–250 bpm) without increasing syncope or acceleration. The 2015 consensus therefore recommends programming ATP for tachycardias up to about 230 bpm in all zones for patients with structural heart disease, including the VF zone, during or before charging, so as not to delay the shock if ATP fails. The pitfall is to believe that everything in the VF zone must be shocked straight away. Rule of thumb: check that ATP during charging is programmed in the VF zone.",
+  "aRetenir": "Fast regular VT up to ~230 bpm, even in the VF zone: ATP during charging, then a shock if it fails."
+ },
+ "egm-dai-044": {
+  "question": "An ICD patient received a well-tolerated shock yesterday. The transmission shows a shock delivered during rapid AF conducted at 200 bpm. What are your immediate and longer-term measures?",
+  "reponseAttendue": "Inappropriate shock due to AF: control the rate (beta-blocker), decide on anticoagulation based on CHA2DS2-VA, reprogramme the ICD (detection zone and duration in line with the consensus, discriminators active up to 230 bpm), review the patient promptly, and consider a rhythm control strategy (cardioversion, ablation).",
+  "explication": "A shock during AF is inappropriate: it must be recognised on the EGMs (A > V, irregular Vs, unchanged morphology). Management has two components. The AF component: rate control, anticoagulation decision according to ESC 2024, and consideration of a rhythm control strategy, particularly in heart failure patients. The ICD component: bring the programming up to standard (zone ≥ 185–200 bpm in primary prevention, prolonged detection, discriminators on), because an inappropriate shock is painful, impairs quality of life and is associated with increased mortality. The pitfall is to address only one of the two components. Rule of thumb: inappropriate shock due to AF = treat the AF AND correct the programming.",
+  "aRetenir": "Inappropriate shock due to AF: treat the AF (rate, anticoagulation) and correct the programming."
+ },
+ "egm-dai-045": {
+  "question": "An ICD patient phones, worried: he is certain he received a shock last night while asleep. The full transmission shows no episode, no charge and no therapy. What do you conclude and what do you do?",
+  "reponseAttendue": "Phantom shock: no therapy was delivered (every shock is stored). Reassure the patient by explaining the data, check system integrity without reprogramming, and screen for ICD-related anxiety (psychological support, cognitive behavioural therapy if needed).",
+  "explication": "Every shock delivered by an ICD is stored, with its EGMs and counters. If the full transmission shows no charge and no therapy, this is a \"phantom shock\", common in anxious patients or those who have previously received shocks. Management consists of reassuring the patient by showing them the data, checking system integrity (measurements, alerts), and screening for ICD-related anxiety or depression, which warrant specific support. There is no reason to reprogramme. Rule of thumb: a shock that was felt but not stored did not happen, but the patient's distress is real.",
+  "aRetenir": "Shock felt but no therapy stored: phantom shock; reassure and screen for anxiety."
+ },
+ "egm-dai-046": {
+  "question": "In the emergency department, an ICD patient is receiving repeated shocks while fully conscious; the monitor shows sinus rhythm at 80 bpm. What do you do first, and why?",
+  "reponseAttendue": "Immediately place a magnet over the device to suspend therapies (inappropriate shocks: conscious patient in sinus rhythm), under ECG monitoring with an external defibrillator ready; then interrogate the ICD, look for lead noise or fracture (or oversensing) and arrange revision.",
+  "explication": "Shocks in a conscious patient in sinus rhythm on the monitor are by definition inappropriate: no VF or fast VT leaves a patient conscious with sinus rhythm at 80 bpm. The most common cause of repeated shocks in this setting is lead noise (fracture) or oversensing. The priority is to stop the shocks: a magnet placed over the device suspends detection on most ICDs, under ECG monitoring with an external defibrillator ready. Only then come interrogation, EGM analysis and lead revision. Rule of thumb: shocks + conscious patient + sinus rhythm = magnet first.",
+  "aRetenir": "Shocks in a conscious patient in sinus rhythm: magnet immediately, then look for lead noise."
+ }
+}

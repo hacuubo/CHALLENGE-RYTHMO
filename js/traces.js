@@ -1,13 +1,15 @@
 // Visionneuse de tracé : affichage, compas de mesure et plein écran.
 // `dessiner(canvas, opts)` dessine le tracé et renvoie { pxmm, x0 } (25 mm/s, 10 mm/mV).
 
+import { t } from './i18n.js';
+
 const MS_PAR_MM = 40;
 
-export function monterTrace(conteneur, dessiner, { titre = 'Tracé', legende = '' } = {}) {
+export function monterTrace(conteneur, dessiner, { titre = t('Tracé', 'Tracing'), legende = '' } = {}) {
   conteneur.innerHTML = `
     <div class="trace-outils">
-      <button type="button" class="outil" data-compas aria-pressed="false" title="Mesurer un intervalle">📏 Compas</button>
-      <button type="button" class="outil" data-plein title="Afficher en plein écran">⤢ Plein écran</button>
+      <button type="button" class="outil" data-compas aria-pressed="false" title="${t('Mesurer un intervalle', 'Measure an interval')}">📏 ${t('Compas', 'Calipers')}</button>
+      <button type="button" class="outil" data-plein title="${t('Afficher en plein écran', 'Show full screen')}">⤢ ${t('Plein écran', 'Full screen')}</button>
     </div>
     <div class="ecg-cadre"><div class="trace-pile"><canvas role="img" aria-label="${titre}"></canvas><canvas class="calque" aria-hidden="true"></canvas></div></div>
     <div class="ecg-legende">${legende}</div>
@@ -47,12 +49,12 @@ function activerCompas(calque, geo, sortie) {
     const { pxmm } = geo();
     const ms = Math.abs(fin.x - debut.x) / pxmm * MS_PAR_MM;
     const mv = (debut.y - fin.y) / pxmm / 10;
-    const texte = `${Math.round(ms)} ms${ms > 150 ? ` · ${Math.round(60000 / ms)} bpm` : ''} · ${mv >= 0 ? '+' : ''}${mv.toFixed(2).replace('.', ',')} mV`;
+    const texte = `${Math.round(ms)} ms${ms > 150 ? ` · ${Math.round(60000 / ms)} bpm` : ''} · ${mv >= 0 ? '+' : ''}${t(mv.toFixed(2).replace('.', ','), mv.toFixed(2))} mV`;
     ctx.font = '600 13px system-ui, sans-serif';
     const lx = Math.min(Math.max(debut.x, fin.x) + 6, calque.clientWidth - ctx.measureText(texte).width - 6);
     ctx.fillStyle = 'rgba(255,255,255,.9)'; ctx.fillRect(lx - 3, debut.y - 18, ctx.measureText(texte).width + 6, 18);
     ctx.fillStyle = '#0f3d5c'; ctx.fillText(texte, lx, debut.y - 5);
-    sortie.textContent = `Mesure : ${texte}`;
+    sortie.textContent = `${t('Mesure :', 'Measurement:')} ${texte}`;
   };
   calque.addEventListener('pointerdown', e => {
     if (!actif) return;
@@ -64,7 +66,7 @@ function activerCompas(calque, geo, sortie) {
     basculer() {
       actif = !actif;
       calque.classList.toggle('actif', actif);
-      if (!actif) { debut = fin = null; effacer(); sortie.textContent = ''; } else sortie.textContent = 'Faites glisser sur le tracé pour mesurer (temps, fréquence, amplitude).';
+      if (!actif) { debut = fin = null; effacer(); sortie.textContent = ''; } else sortie.textContent = t('Faites glisser sur le tracé pour mesurer (temps, fréquence, amplitude).', 'Drag across the tracing to measure (time, rate, amplitude).');
       return actif;
     },
   };
@@ -76,12 +78,12 @@ function pleinEcran(dessiner, titre, legende) {
   d.setAttribute('role', 'dialog'); d.setAttribute('aria-modal', 'true'); d.setAttribute('aria-label', titre);
   d.innerHTML = `
     <div class="plein-tete">
-      <button type="button" class="outil" data-compas aria-pressed="false">📏 Compas</button>
+      <button type="button" class="outil" data-compas aria-pressed="false">📏 ${t('Compas', 'Calipers')}</button>
       <span class="compas-mesure" aria-live="polite">${legende}</span>
-      <button type="button" class="outil" data-fermer aria-label="Fermer">✕ Fermer</button>
+      <button type="button" class="outil" data-fermer aria-label="${t('Fermer', 'Close')}">✕ ${t('Fermer', 'Close')}</button>
     </div>
     <div class="plein-corps"><div class="trace-pile"><canvas></canvas><canvas class="calque"></canvas></div>
-      <p class="note plein-astuce">Astuce : tournez le téléphone à l'horizontale pour une lecture plus confortable.</p></div>`;
+      <p class="note plein-astuce">${t('Astuce : tournez le téléphone à l\'horizontale pour une lecture plus confortable.', 'Tip: turn your phone sideways for easier reading.')}</p></div>`;
   document.body.appendChild(d);
   document.body.classList.add('sans-defilement');
   const [fond, calque] = d.querySelectorAll('canvas');

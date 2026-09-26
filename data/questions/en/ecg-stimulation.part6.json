@@ -1,0 +1,183 @@
+{
+  "ecg-stim-064": {
+    "question": "A CRT non-responder: the device reports 99% biventricular pacing. Intrinsic PR 160 ms, programmed sensed AV delay 150 ms. Here is an extract from his Holter recording. What is the interpretation?",
+    "options": [
+      "Reliable figure: non-response is due to the cardiomyopathy",
+      "Fusion and pseudofusion: shorten the AV delay",
+      "Loss of RV capture with isolated LV pacing",
+      "Crosstalk inhibiting ventricular pacing"
+    ],
+    "commentaires": [
+      "Incorrect: the counters include every spike delivered, even ineffective ones; the Holter shows that the true percentage is overestimated.",
+      "Correct: spikes fall within intrinsic QRS complexes; they are counted as BiV pacing whereas effective resynchronisation is much lower.",
+      "Incorrect: LV-only pacing would give paced QRS complexes of constant morphology, not unchanged intrinsic QRS complexes.",
+      "Incorrect: crosstalk inhibits ventricular pacing; here the V spikes are delivered."
+    ],
+    "explication": "The Holter shows spikes falling within intrinsic QRS complexes of unchanged morphology (pseudofusion) and QRS complexes of intermediate morphology (fusion). The device counters record every spike delivered as a biventricular paced beat, even if it falls within a QRS already under way or only partly contributes to activation. Here, the AV delay of 150 ms is too close to the intrinsic PR of 160 ms: intrinsic conduction activates the ventricle before or at the time of the spike. Effective resynchronisation is therefore much lower than the 99% reported. Correction consists of shortening the AV delay (while taking care of LV filling) and checking the result with a 12-lead ECG and Holter monitoring.",
+    "aRetenir": "With CRT, pseudofusion is counted as BiV pacing: check effective resynchronisation on ECG/Holter."
+  },
+  "ecg-stim-065": {
+    "question": "In a CRT patient, a biventricular paced QRS that is wider than the pre-implant intrinsic QRS always indicates loss of LV capture.",
+    "options": ["True", "False"],
+    "commentaires": [
+      "Incorrect: BiV QRS duration depends on the LV site, latencies and substrate; it may remain wide despite effective LV capture.",
+      "Correct: loss of LV capture is judged on morphology compared with the reference ECG and on an LV threshold test."
+    ],
+    "explication": "The duration of the biventricular paced QRS depends on the LV pacing site, local latencies, the programmed VV delay and the myocardial substrate. It may remain wide, or even exceed the intrinsic QRS, without loss of LV capture. QRS narrowing is an imperfect marker of response. To confirm loss of LV capture, the morphology (V1, lead I, axis) is compared with the reference ECG and an LV threshold test is performed. It is therefore essential to have reference 12-lead ECGs with BiV, RV-only and LV-only pacing.",
+    "aRetenir": "Loss of LV capture is judged on morphology compared with the reference ECG, not on QRS duration alone."
+  },
+  "ecg-stim-066": {
+    "question": "How do you check LV capture on a 12-lead ECG in a CRT patient, and which appearance suggests it has been lost?",
+    "reponseAttendue": "Compare with the reference ECG and with the RV-only / LV-only morphologies. BiV pacing (RV apex + lateral LV) usually produces a dominant R wave in V1, a negative QRS (Q/QS) in lead I and a right axis. Loss of LV capture shows as reversion to the RV apical pacing pattern: QS in V1, R in lead I, marked left axis deviation. Confirm with an LV threshold test.",
+    "explication": "Pacing the LV lateral wall activates the heart from left to right and from base to apex, producing a dominant R wave in V1 and a negative lead I. RV apical pacing alone, in contrast, produces an LBBB-like pattern with an R wave in lead I and marked left axis deviation. In some patients, V1 remains negative during BiV pacing (V1 placed too high, anterior or septal LV lead, LV latency), hence the importance of having a reference ECG recorded at implantation. A threshold test with LV-only pacing, observing the change in morphology, remains the most reliable method.",
+    "aRetenir": "Loss of LV capture with CRT: reversion to the RV apical pattern (QS in V1, R in lead I) compared with the reference ECG."
+  },
+  "ecg-stim-067": {
+    "question": "On a Holter recording in a patient with an ICD, a fast ventricular tachycardia is seen, then a large saturation artefact lasting a few hundred milliseconds, followed by the return of sinus rhythm. What did the device deliver?",
+    "options": [
+      "Antitachycardia pacing (ATP)",
+      "Ventricular safety pacing",
+      "Post-extrasystolic pacing",
+      "An internal shock"
+    ],
+    "commentaires": [
+      "Incorrect: ATP appears as a burst of rapid ventricular spikes, each followed by a paced QRS.",
+      "Incorrect: safety pacing is a dual-chamber pacemaker phenomenon, unrelated to the treatment of VT.",
+      "Incorrect: a single spike after a premature beat does not produce a saturation artefact lasting several hundred ms.",
+      "Correct: a shock appears as a large artefact saturating the amplifier, followed by termination of the arrhythmia."
+    ],
+    "explication": "An ICD shock appears on a Holter recording as a high-amplitude artefact that saturates the amplifier, followed by a gradual return of the baseline. Termination of the VT and resumption of sinus or paced rhythm indicate that it was effective. ATP, in contrast, appears as a burst of rapid, regular ventricular spikes, each followed by a paced QRS. Safety pacing is a dual-chamber pacemaker phenomenon, unrelated to the treatment of tachycardias.",
+    "aRetenir": "Shock on a Holter = large saturation artefact followed by termination of the arrhythmia."
+  },
+  "ecg-stim-068": {
+    "question": "On a Holter recording in a patient with an ICD, monomorphic VT at 180 bpm is terminated by a burst of 8 regular ventricular paced beats, slightly faster than the VT, followed by a return to sinus rhythm. What is this?",
+    "options": [
+      "A low-energy internal shock",
+      "Successful burst ATP",
+      "Asynchronous pacing with a magnet",
+      "Pacemaker-mediated tachycardia"
+    ],
+    "commentaires": [
+      "Incorrect: a shock would produce a single high-amplitude artefact, not a burst of 8 paced beats.",
+      "Correct: a burst of paced beats at a constant cycle length, slightly faster than the VT, penetrates the circuit and terminates it.",
+      "Incorrect: magnet pacing is continuous at a fixed rate; it does not stop after 8 cycles.",
+      "Incorrect: PMT is a tachycardia sustained by the pacemaker, not a therapy terminating VT."
+    ],
+    "explication": "ATP consists of pacing the ventricle at a rate slightly faster than the VT (e.g. at around 88% of the VT cycle length) in order to penetrate the re-entrant circuit and terminate it. Burst mode delivers paced beats at a constant interval, ramp mode at decreasing intervals. ATP is painless and terminates most monomorphic VTs, thereby avoiding many shocks. Programming consensus documents recommend programming it for VT, including fast VT, in the absence of a contraindication. PMT is not relevant in this context, and magnet pacing does not stop after 8 cycles.",
+    "aRetenir": "Burst of rapid V paced beats terminating VT = ATP.",
+    "legende": "VT preceding therapy"
+  },
+  "ecg-stim-069": {
+    "question": "Antitachycardia pacing (ATP) can accelerate VT, or even convert it into VF.",
+    "options": ["True", "False"],
+    "commentaires": [
+      "Correct: ATP can alter the circuit, accelerate the VT or cause it to degenerate into VF; a shock then takes over.",
+      "Incorrect: this risk, uncommon but well recognised, is why an ICD always combines ATP and shocks."
+    ],
+    "explication": "Acceleration of VT by ATP is a recognised but uncommon risk: pacing can alter the circuit, accelerate the tachycardia or cause degeneration into VF. It is then treated by the shock programmed in the corresponding zone, which is why an ICD always combines ATP and shocks. Programming trials have shown that the benefit of ATP (fewer shocks) far outweighs this risk. On a Holter recording, one must be able to recognise accelerated VT or VF following a burst of ATP, followed by a shock.",
+    "aRetenir": "ATP can accelerate VT: a shock then takes over."
+  },
+  "ecg-stim-070": {
+    "question": "A patient with an ICD receives a shock. Here is the Holter tracing immediately preceding it. What is the interpretation and the most appropriate management?",
+    "options": [
+      "Appropriate shock for VT; increase the beta-blocker",
+      "Appropriate shock for VF; no change needed",
+      "Inappropriate shock for AF: control AF, reprogram",
+      "Inappropriate shock due to T wave; adjust sensitivity"
+    ],
+    "commentaires": [
+      "Incorrect: VT would have wide QRS complexes and a regular rhythm; here the QRS complexes are narrow and irregular.",
+      "Incorrect: VF would produce chaotic activity with no distinguishable QRS complexes, not well-formed narrow QRS complexes.",
+      "Correct: narrow-QRS tachycardia, irregularly irregular, with no P waves: rapid AF; control the AF and review zones and discriminators.",
+      "Incorrect: T-wave oversensing double counts a regular rhythm; here the rhythm is irregularly irregular."
+    ],
+    "explication": "The tracing shows a narrow-QRS tachycardia, irregularly irregular, with no visible P waves: this is rapid AF. The ICD classified it in a therapy zone, either because the rate exceeded the discriminator limit or because the discriminators failed: the shock is inappropriate. Management combines control of the AF and optimisation of programming: a higher therapy zone, a longer detection duration and discriminators active up to high rates, as recommended by consensus documents. VT or VF would show wide or chaotic QRS complexes. T-wave oversensing would produce double counting of a regular rhythm.",
+    "aRetenir": "Rapid, irregular narrow QRS complexes before a shock = inappropriate shock for AF: control the AF and reprogram.",
+    "legende": "Tracing before the shock"
+  },
+  "ecg-stim-071": {
+    "question": "According to the 2015 HRS/EHRA/APHRS/SOLAECE expert consensus on ICD programming, in primary prevention, between which values should the lower limit of the slowest therapy zone be programmed?",
+    "options": ["150 and 160 bpm", "165 and 175 bpm", "185 and 200 bpm", "220 and 240 bpm"],
+    "commentaires": [
+      "Incorrect: such a low zone exposes the patient to shocks for supraventricular tachycardias and for slow, self-terminating VT.",
+      "Incorrect: still too low; trials have validated higher zones with no excess mortality.",
+      "Correct: the 2015 consensus recommends 185 to 200 bpm for the slowest zone in primary prevention, with prolonged detection.",
+      "Incorrect: such a high limit would risk leaving fast VT untreated."
+    ],
+    "explication": "MADIT-RIT, ADVANCE III, PROVIDE and other trials showed that a high therapy zone and prolonged detection durations reduce inappropriate and unnecessary therapies without increasing mortality, and may even reduce it. The 2015 consensus therefore recommends, in primary prevention, a lower limit for the slowest zone of between 185 and 200 bpm, with a detection duration of at least 6 to 12 seconds or 30 intervals. Lower values expose the patient to shocks for supraventricular tachycardias or slow, self-terminating VT. A limit of 220–240 bpm would risk leaving fast VT untreated.",
+    "aRetenir": "Primary prevention: slowest zone between 185 and 200 bpm with prolonged detection."
+  },
+  "ecg-stim-072": {
+    "question": "A patient with an ICD receives a shock while in sinus rhythm at 95 bpm. The EGMs show two ventricular sensing markers per cycle, one on the QRS and the other about 300 ms later. What is the most likely mechanism?",
+    "options": [
+      "T-wave oversensing (double counting)",
+      "Far-field P-wave sensing",
+      "Lead fracture with chaotic noise",
+      "Electromagnetic interference from an external device"
+    ],
+    "commentaires": [
+      "Correct: a second marker at a fixed distance from the QRS, on every cycle, corresponds to repolarisation: the measured rate doubles.",
+      "Incorrect: far-field P waves would follow the atrial rhythm and precede the QRS, not occur 300 ms after it.",
+      "Incorrect: fracture noise is irregular, of very high frequency, with no fixed relationship to the QRS.",
+      "Incorrect: external interference produces a continuous or chaotic signal, not one synchronised to every QRS."
+    ],
+    "explication": "A second marker occurring at a fixed distance from the QRS, on every cycle, corresponds to repolarisation: this is T-wave oversensing. The ICD doubles the measured rate (95 → 190 bpm) and may deliver inappropriate therapy. It is favoured by low-amplitude R waves, large T waves, hyperkalaemia or long QT. Correction relies on reprogramming (sensitivity, T-wave rejection algorithms, filter) or even lead repositioning. A lead fracture would produce non-physiological, irregular, very high-frequency signals, and far-field P waves would bear a relationship to atrial activity.",
+    "aRetenir": "Double marker at a fixed distance from the QRS = T-wave oversensing."
+  },
+  "ecg-stim-073": {
+    "question": "How does a pacemaker output pulse appear on an ECG?",
+    "options": [
+      "A large U wave after the QRS",
+      "A delta wave at the start of the QRS",
+      "An epsilon wave after the QRS",
+      "A very brief vertical spike"
+    ],
+    "commentaires": [
+      "Incorrect: the U wave is a late repolarisation wave, unrelated to pacing.",
+      "Incorrect: the delta wave is characteristic of pre-excitation (accessory pathway).",
+      "Incorrect: the epsilon wave is a sign of arrhythmogenic right ventricular cardiomyopathy.",
+      "Correct: the very brief pulse (≈ 0.4 ms) gives a thin vertical line: large in unipolar, sometimes tiny in bipolar."
+    ],
+    "explication": "The pacemaker's very brief electrical pulse (typically 0.4 ms) appears on the ECG as a thin vertical line: the spike. Its amplitude depends on the pacing configuration: large in unipolar, sometimes very small or barely visible in bipolar. A spike followed by a P wave indicates atrial capture, and a spike followed by a wide QRS indicates ventricular capture. The delta wave is characteristic of pre-excitation and the epsilon wave of arrhythmogenic right ventricular cardiomyopathy. On digital ECGs, filters may attenuate or distort bipolar spikes.",
+    "aRetenir": "The pacemaker output appears as a spike, small in bipolar and large in unipolar configuration."
+  },
+  "ecg-stim-074": {
+    "question": "VVI pacemaker programmed at 60 bpm. In this patient in AF, an intrinsic QRS occurs. In the absence of a further intrinsic QRS, after how long does the pacemaker deliver the next spike?",
+    "options": ["600 ms", "800 ms", "1000 ms", "1200 ms"],
+    "commentaires": [
+      "Incorrect: 600 ms corresponds to a rate of 100 bpm.",
+      "Incorrect: 800 ms corresponds to 75 bpm, not to the programmed lower rate.",
+      "Correct: every sensed QRS resets the escape interval: 60,000/60 = 1000 ms.",
+      "Incorrect: 1200 ms would correspond to hysteresis programmed at 50 bpm."
+    ],
+    "explication": "In VVI, every sensed QRS resets the escape interval, which equals the lower rate interval: 60,000/60 = 1000 ms. If no QRS is sensed during this interval, the pacemaker delivers a spike. Intrinsic QRS complexes faster than 60 bpm therefore inhibit pacing. An interval of 1200 ms would correspond to hysteresis programmed at 50 bpm. Checking this intrinsic QRS–spike interval on the ECG confirms correct sensing.",
+    "aRetenir": "In VVI, escape interval = 60,000 / lower rate (1000 ms at 60 bpm)."
+  },
+  "ecg-stim-075": {
+    "question": "A ventricular spike not followed by a QRS and falling immediately after an intrinsic QRS (within its refractory period) defines loss of capture.",
+    "options": ["True", "False"],
+    "commentaires": [
+      "Incorrect: a spike in the refractory period cannot capture whatever the output: this is functional non-capture.",
+      "Correct: loss of capture can only be judged outside the refractory period; here the key question is why the spike was delivered (undersensing, magnet)."
+    ],
+    "explication": "A spike delivered during the myocardial refractory period cannot depolarise the myocardium, whatever the output: this is functional non-capture. The real issue in this case is why the spike was delivered at that moment, often because of undersensing of the intrinsic QRS or asynchronous pacing (magnet). Loss of capture refers only to a spike delivered outside the refractory period and not followed by depolarisation. This distinction guides management: adjust the sensitivity rather than the amplitude.",
+    "aRetenir": "Spike in the refractory period not followed by a QRS = functional non-capture, not loss of capture."
+  },
+  "ecg-stim-076": {
+    "question": "In this pacemaker patient whose battery and leads are normal, what mechanism explains the abnormality seen on this tracing?",
+    "options": [
+      "Loss of ventricular capture",
+      "Undersensing of activity",
+      "Oversensing inhibiting the device",
+      "Failure of the magnet response"
+    ],
+    "commentaires": [
+      "Incorrect: loss of capture leaves visible spikes not followed by depolarisation.",
+      "Incorrect: undersensing results in excess spikes, delivered despite intrinsic activity.",
+      "Correct: during the pause, no spike is delivered: the pacemaker has been inhibited by a signal it mistook for cardiac activity.",
+      "Incorrect: no magnet is involved here; the normal magnet response is asynchronous pacing, not a pause."
+    ],
+    "explication": "A pacemaker is inhibited by any signal it interprets as cardiac activity. If it wrongly senses a signal (myopotential, T wave, interference), it does not deliver a spike: this creates a pause without a spike. Loss of capture leaves visible spikes not followed by depolarisation, and undersensing results in too many spikes. Programmed hysteresis can also lengthen an interval, but in a predictable and limited way. The first step in analysing a pacemaker ECG is therefore to identify spikes that are present, absent or inappropriate.",
+    "aRetenir": "Pause without a spike = inhibition, hence oversensing until proven otherwise."
+  }
+}

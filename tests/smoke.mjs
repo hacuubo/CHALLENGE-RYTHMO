@@ -30,6 +30,8 @@ async function verifier(nom, fn) {
 
 for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'bureau']]) {
   const page = await navigateur.newPage({ viewport: { width: largeur, height: hauteur } });
+  // parcours en français par défaut (le navigateur de test n'est pas francophone : pas d'invitation à passer en anglais)
+  await page.addInitScript(() => { if (!sessionStorage.getItem('langue-posee')) { localStorage.setItem('rythmo.langue', 'fr'); sessionStorage.setItem('langue-posee', '1'); } });
   page.on('pageerror', e => erreurs.push(`[${appareil}] ${etape} : ${e.message}`));
   page.on('console', m => { if (m.type() === 'error') erreurs.push(`[${appareil}] ${etape} : console ${m.text()}`); });
   const capture = async n => { if (captures) await page.screenshot({ path: path.join(captures, `${appareil}-${n}.png`), fullPage: true }); };
@@ -241,8 +243,60 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     });
     if (r.length) throw new Error('tracés en échec : ' + r.join(', '));
   });
+  await verifier(`${appareil} : version anglaise (accueil, question et correction), puis retour au français`, async () => {
+    await nav('accueil');
+    await page.waitForSelector('.choix-langue [data-langue=en][aria-pressed=false]');
+    await page.click('.choix-langue [data-langue=en]');
+    await page.waitForSelector('.choix-langue [data-langue=en][aria-pressed=true]');
+    if (await page.evaluate(() => document.documentElement.lang) !== 'en') throw new Error('<html lang> non mis à jour');
+    const accueil = await page.textContent('#app');
+    for (const m of ['Training', 'Competitive', 'Simulator', 'Progress', 'Sources and information']) if (!accueil.includes(m)) throw new Error(`accueil : « ${m} » absent`);
+    for (const m of ['Entraînement', 'Compétitif', 'Simulateur']) if (accueil.includes(m)) throw new Error(`accueil : « ${m} » encore en français`);
+    await page.click('.tuile[data-nav=entrainement]');
+    await page.waitForSelector('h1:text("Training")');
+    await page.click('[data-domaine=ecg]');
+    await page.waitForSelector('#zone');
+    await repondre();
+    await page.waitForSelector('#suivant');
+    const quiz = await page.textContent('#app');
+    if (/Question suivante|Voir mes résultats|Signaler une erreur|À retenir/.test(quiz)) throw new Error('correction encore en français');
+    if (!/Next question|See my results/.test(await page.textContent('#suivant'))) throw new Error('bouton suivant non traduit');
+    if (!/Report an error/.test(quiz)) throw new Error('lien de signalement non traduit');
+    if (await page.$('.retenir') && !/Key point/.test(await page.textContent('.retenir'))) throw new Error('« Key point » absent');
+    if (!/Error%20report/.test(await page.getAttribute('.signaler', 'href'))) throw new Error('signalement non prérempli en anglais');
+    await capture('anglais-correction');
+    page.once('dialog', d => d.accept());
+    await nav('accueil');
+    // le choix est mémorisé : il survit au rechargement
+    await page.reload();
+    await page.waitForSelector('#ecran-titre', { state: 'detached' });
+    await page.waitForSelector('.choix-langue [data-langue=en][aria-pressed=true]');
+    await page.click('.choix-langue [data-langue=fr]');
+    await page.waitForSelector('.choix-langue [data-langue=fr][aria-pressed=true]');
+    if (!(await page.textContent('#app')).includes('Entraînement')) throw new Error('retour au français incomplet');
+    if (await page.evaluate(() => localStorage.getItem('rythmo.langue')) !== 'fr') throw new Error('choix du français non mémorisé');
+  });
   await page.close();
 }
+
+// Visiteur non francophone sans choix mémorisé : invitation (en anglais) à passer à l'anglais, refermable.
+await verifier('invitation à la version anglaise', async () => {
+  const ctx = await navigateur.newContext({ locale: 'en-GB' });
+  const page = await ctx.newPage();
+  page.on('pageerror', e => erreurs.push(`invitation : ${e.message}`));
+  await page.goto(url);
+  await page.waitForSelector('.invitation-langue');
+  if (!(await page.textContent('#app')).includes('Entraînement')) throw new Error('la version par défaut doit rester en français');
+  await page.click('.invitation-langue [data-langue=en]');
+  await page.waitForSelector('.choix-langue [data-langue=en][aria-pressed=true]');
+  if (await page.$('.invitation-langue')) throw new Error('invitation encore affichée');
+  await page.evaluate(() => localStorage.removeItem('rythmo.langue'));
+  await page.reload();
+  await page.waitForSelector('.fermer-invitation');
+  await page.click('.fermer-invitation');
+  if (await page.$('.invitation-langue') || await page.evaluate(() => localStorage.getItem('rythmo.langue')) !== 'fr') throw new Error('invitation non refermée');
+  await ctx.close();
+});
 
 // Référencement : balises essentielles, données structurées valides, contenu lisible sans JavaScript.
 await verifier('référencement (SEO / GEO)', async () => {

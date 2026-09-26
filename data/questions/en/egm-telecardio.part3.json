@@ -1,0 +1,211 @@
+{
+ "egm-tele-028": {
+  "question": "Dual-chamber ICD, alert for episodes in the VT zone. On this EGM, the patient's true ventricular rate is about 155 bpm.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: 155 bpm is the apparent rate resulting from double counting.",
+   "Correct: the true rhythm is sinus at 769 ms, i.e. about 78 bpm."
+  ],
+  "explication": "The device counts two events per cycle, the QRS and the T wave, giving intervals that alternate between 300 and 469 ms and an apparent rate close to twice the true rate. The true rate is read from the atrial channel (A-A 769 ms) and from the shock EGM, where each cycle contains only one QRS: about 78 bpm. Practical reflex: check the rate on an independent channel (shock EGM, atrial channel) before accepting the rate calculated by the device.",
+  "aRetenir": "Double counting: the true rate is read from the shock EGM or the atrial channel, not from the measured intervals."
+ },
+ "egm-tele-029": {
+  "question": "CRT-D in a patient with heart failure (LVEF 25%, left bundle branch block). Remote monitoring alert: \"biventricular pacing percentage 67%\" (99% at the previous check). What is causing the loss of biventricular pacing on this EGM?",
+  "options": [
+   "Frequent premature ventricular contractions, one cycle in three",
+   "Onset of AF with rapid ventricular conduction",
+   "Programmed AV delay too long, pre-empted by intrinsic conduction",
+   "Loss of LV capture with RV-only pacing"
+  ],
+  "commentaires": [
+   "Correct: a premature VS (770 ms) with a different morphology on the shock EGM occurs every third cycle.",
+   "Incorrect: the atrial channel remains in regular sinus rhythm (AS at 800 ms).",
+   "Incorrect: intrinsic conduction would occur on every cycle, with a conducted QRS morphology.",
+   "Incorrect: loss of LV capture does not lower the BiV pacing counter, as the device continues to pace."
+  ],
+  "explication": "The atrial rhythm is regular sinus rhythm at 800 ms. On one cycle in three, a ventricular event occurs before the end of the AV delay (VS at 770 ms), with a wide, different morphology on the shock EGM: this is a premature ventricular contraction that inhibits biventricular pacing. Two beats out of three are paced, giving about 67% BiV pacing. Loss of LV capture would not change the counter, since the device continues to deliver its pulses. Practical reflex: when the BiV percentage falls, look on the EGM for what is inhibiting pacing (PVCs, AF, intrinsic conduction).",
+  "aRetenir": "Fall in BiV pacing %: identify on the EGM what is inhibiting it, here frequent PVCs."
+ },
+ "egm-tele-030": {
+  "question": "Same patient (CRT-D, 67% BiV pacing due to frequent PVCs). What management would you propose?",
+  "options": [
+   "Quantify the PVCs (Holter) and reduce them: drug therapy or ablation",
+   "Lengthen the AV delay to allow more intrinsic conduction",
+   "Accept this rate, as BiV pacing above 60% is sufficient",
+   "Disable LV pacing to preserve device longevity"
+  ],
+  "commentaires": [
+   "Correct: the aim is BiV pacing as close as possible to 100% (at least 98%).",
+   "Incorrect: lengthening the AV delay would further reduce biventricular pacing.",
+   "Incorrect: the benefit of resynchronisation falls markedly below 98%.",
+   "Incorrect: this would abolish resynchronisation in a patient with heart failure."
+  ],
+  "explication": "The benefit of resynchronisation depends on almost continuous biventricular pacing: the best outcomes are seen above 98% (Hayes 2011), and the 2021 ESC guidelines recommend aiming for pacing as close as possible to 100%. With a PVC every third cycle, the ectopic burden must be quantified (Holter), precipitating factors corrected (potassium, decompensation), treatment optimised (beta-blocker, amiodarone) and PVC ablation considered if they remain frequent. Functions that trigger pacing on a sensed ventricular event increase the counter but only imperfectly restore effective resynchronisation. Practical reflex: a BiV percentage below 98% is a clinical alert, not a figure to be accepted.",
+  "aRetenir": "CRT: aim for at least 98% BiV pacing; frequent PVCs must be quantified and treated."
+ },
+ "egm-tele-031": {
+  "question": "Implantable loop recorder inserted for unexplained syncope. Alert: \"4.2 s pause\" at 2 pm; the patient, when called back, had no symptoms at that time. How do you interpret this?",
+  "options": [
+   "4.2 s sinus pause that on its own warrants pacing",
+   "Paroxysmal AV block with non-conducted P waves",
+   "Motion artefact obscuring the subcutaneous ECG",
+   "False pause due to undersensing of low-amplitude QRS complexes"
+  ],
+  "commentaires": [
+   "Incorrect: small QRS complexes are visible during the \"pause\"; the rhythm continued.",
+   "Incorrect: each P wave is followed by a small QRS; conduction is preserved.",
+   "Incorrect: the tracing is clean and readable; this is not an artefact.",
+   "Correct: the QRS complexes become too small to be sensed, producing a spurious 4167 ms pause."
+  ],
+  "explication": "During the interval classified as \"Pause\" (4167 ms), the subcutaneous ECG shows P waves followed by low-amplitude QRS complexes, at the same rate as before (about 833 ms). The loop recorder failed to sense these QRS complexes, whose amplitude had dropped (change in posture, tissue contact), and calculated a long interval. False pauses due to undersensing are the leading cause of pause alerts from implantable loop recorders, and manufacturers have developed algorithms to reduce them. Practical reflex: before calling a pause, look for small QRS complexes within the interval in question.",
+  "aRetenir": "ILR pause alert: look for small QRS complexes within the pause before drawing a conclusion."
+ },
+ "egm-tele-032": {
+  "question": "In this ILR patient, these false pause alerts recur several times a week and clog the remote monitoring queue. What should be done?",
+  "options": [
+   "Disable pause detection to eliminate the false alerts",
+   "Adjust sensing (sensitivity, pause criteria) and monitor",
+   "Explant the loop recorder, which is no longer diagnostically useful",
+   "Implant a pacemaker as a precaution given the repeated alerts"
+  ],
+  "commentaires": [
+   "Incorrect: the ILR was inserted for syncope; disabling pause detection removes its purpose.",
+   "Correct: reprogramming sensitivity or pause criteria, depending on the manufacturer, reduces false alerts without losing diagnostic yield.",
+   "Incorrect: the device remains useful; its sensing needs correcting.",
+   "Incorrect: no true pause has been documented; a pacemaker would not be indicated."
+  ],
+  "explication": "Repeated false alerts create a workload burden and a real risk: \"alert fatigue\", which leads to the true event being missed. The 2023 HRS consensus recommends tailoring programming and alerts to the patient rather than putting up with them. Here, sensitivity or pause criteria should be adjusted (depending on the manufacturer), and algorithms for reducing false pauses possibly enabled, while keeping detection active since the indication is syncope. Implanting a pacemaker for a spurious pause would be a serious error. Practical reflex: correct sensing, but never disable it when it underpins the indication.",
+  "aRetenir": "Repeated false alerts: reprogramme sensing rather than disabling it, to avoid alert fatigue."
+ },
+ "egm-tele-033": {
+  "question": "Implantable loop recorder in a 74-year-old man being investigated for syncope, with right bundle branch block on the ECG. Automatic pause alert; he reports a dizzy spell with a fall that day. How do you interpret this?",
+  "options": [
+   "Vagally mediated sinus pause, with no atrial activity",
+   "Paroxysmal AV block with regular non-conducted P waves",
+   "False pause due to undersensing of low-amplitude QRS complexes",
+   "Stable 2:1 AV block with a ventricular rate of 35 bpm"
+  ],
+  "commentaires": [
+   "Incorrect: the P waves continue regularly throughout the pause.",
+   "Correct: regular P waves are followed by no QRS for 5.75 s, after which conduction resumes.",
+   "Incorrect: no QRS, even a small one, is visible during the pause.",
+   "Incorrect: several consecutive P waves are blocked; this is not a fixed 2:1 ratio."
+  ],
+  "explication": "After two conducted QRS complexes, the P waves continue regularly with no QRS for 5750 ms, then conduction resumes. The sinus rate does not slow during the episode, which points to intrinsic paroxysmal AV block (conduction system disease, consistent with the bundle branch block) rather than vagal AV block, in which the sinus rate also slows. A false pause would show small QRS complexes within the interval. Practical reflex: during a pause, look at what the P waves are doing: absent (sinus pause), regular and blocked (AV block), slowing at the same time as the block (vagal origin).",
+  "aRetenir": "Regular non-conducted P waves during the pause: paroxysmal AV block, especially with known conduction disease."
+ },
+ "egm-tele-034": {
+  "question": "Same patient (ILR, 5.75 s paroxysmal AV block correlated with a dizzy spell and fall). What should be done on the day of the alert?",
+  "options": [
+   "Contact the patient the same day and arrange a pacemaker",
+   "Wait for a second documented pause before any decision",
+   "Routine appointment next month to discuss a pacemaker",
+   "Start a beta-blocker to prevent further episodes"
+  ],
+  "commentaires": [
+   "Correct: intrinsic paroxysmal AV block is an indication for pacing (class I, ESC 2021).",
+   "Incorrect: symptom–rhythm correlation has already been established; waiting adds nothing.",
+   "Incorrect: symptomatic paroxysmal AV block carries a risk of traumatic or prolonged recurrence in the short term.",
+   "Incorrect: a beta-blocker would worsen AV conduction."
+  ],
+  "explication": "The implantable loop recorder has documented paroxysmal AV block lasting almost 6 s, concurrent with a dizzy spell and fall: the cause of the syncope has been established. The 2021 ESC guidelines recommend pacing for intrinsic paroxysmal second- or third-degree AV block (class I). The patient must be contacted the same day, advised not to drive, have any rate-slowing medication reviewed, and be scheduled for prompt implantation, with admission and monitoring as clinically appropriate. Practical reflex: a true pause correlated with symptoms is a same-day alert, not a result to be discussed at a clinic appointment.",
+  "aRetenir": "Paroxysmal AV block documented by an ILR and correlated with symptoms: pacing, without delay."
+ },
+ "egm-tele-035": {
+  "question": "Implantable loop recorder inserted after an ischaemic stroke considered cryptogenic. Alert: \"AF, 45-minute episode\". How do you interpret the subcutaneous ECG?",
+  "options": [
+   "Confirmed paroxysmal AF, warranting anticoagulation",
+   "Frequent premature atrial contractions misclassified as AF",
+   "Atrial flutter with variable conduction classified as AF",
+   "Bigeminal premature ventricular contractions classified as AF"
+  ],
+  "commentaires": [
+   "Incorrect: each QRS is preceded by a P wave; the irregularity follows a repetitive short–long pattern.",
+   "Correct: premature P waves, sometimes within the T wave, precede the early QRS complexes: frequent PACs.",
+   "Incorrect: there are no regular F waves; the baseline is isoelectric between complexes.",
+   "Incorrect: the early QRS complexes are narrow, identical to the others and preceded by a P wave."
+  ],
+  "explication": "The irregularity follows a repetitive short–long pattern (about 530 to 620 ms, then 1070 to 1130 ms) and every QRS, including the early ones, is preceded by a P wave, sometimes deforming the preceding T wave. These are frequent premature atrial contractions, which the AF detection algorithm, based on R-R interval irregularity, has misclassified as AF. True AF would be recognised by the absence of P waves and complete irregularity, with no repetitive pattern. After a stroke, the consequences of the error would be serious: unjustified anticoagulation or, conversely, loss of confidence in the tool. Practical reflex: look for P waves before validating AF on an implantable loop recorder.",
+  "aRetenir": "Short–long irregularity with a P wave before every QRS: frequent PACs, not AF."
+ },
+ "egm-tele-036": {
+  "question": "Implantable loop recorder, AF alert. Since ILR AF detection algorithms are validated, an episode classified as AF can be used as the basis for an anticoagulation decision without reviewing the subcutaneous ECG.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: false detections (PACs, sinus arrhythmia, noise) are common; review is essential.",
+   "Correct: every episode must be reviewed by a trained clinician before any therapeutic decision."
+  ],
+  "explication": "ILR AF detection algorithms rely on R-R interval irregularity: they are sensitive, but their positive predictive value is imperfect, particularly in the presence of premature atrial contractions or sinus arrhythmia. The 2023 HRS consensus emphasises that episodes must be verified on the tracings, and the 2024 ESC guidelines require reliable documentation of AF before the diagnosis is made. Practical reflex: review every episode (P waves, regularity, artefacts) before drawing any therapeutic conclusion.",
+  "aRetenir": "An ILR \"AF\" episode must always be reviewed before any anticoagulation decision."
+ },
+ "egm-tele-037": {
+  "question": "An ICD patient calls the remote monitoring centre: he has just received three shocks in twenty minutes. He is conscious, anxious and still on the phone. What advice do you give?",
+  "options": [
+   "Call the emergency services at once: electrical storm or inappropriate shocks",
+   "Send a manual transmission and wait for the next day's analysis",
+   "Reassure him: repeated shocks prove the ICD is working properly",
+   "Book a routine clinic appointment within the week for a device check"
+  ],
+  "commentaires": [
+   "Correct: multiple shocks in close succession = an emergency, whatever the cause.",
+   "Incorrect: a further series of shocks may occur at any moment; deferred analysis is dangerous.",
+   "Incorrect: repeated shocks indicate either a serious recurrent arrhythmia or inappropriate shocks.",
+   "Incorrect: this delay is incompatible with the seriousness of the situation."
+  ],
+  "explication": "Several shocks in close succession correspond either to an electrical storm (at least three episodes of sustained VT or VF within 24 h requiring intervention, ESC 2022) or to a series of inappropriate shocks (lead noise, rapid AF, oversensing). Either way, it is an emergency: the patient must call the emergency services and be managed in hospital with monitoring, where a magnet can suspend therapies if they are inappropriate. A manual transmission is still useful but does not replace the call. Practical reflex: multiple shocks or a shock with symptoms = emergency services; a single well-tolerated shock = contact the device clinic.",
+  "aRetenir": "Multiple shocks in close succession: call the emergency services immediately, whether the shocks are appropriate or not."
+ },
+ "egm-tele-038": {
+  "question": "Remote monitoring is not a substitute for the emergency services: the patient must know that after a poorly tolerated shock or repeated shocks, he or she should call the emergency services without waiting for the transmission to be analysed.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: transmissions are not read in real time, particularly at night and at weekends.",
+   "Incorrect: transmissions are not read in real time; remote monitoring never replaces the emergency services."
+  ],
+  "explication": "Transmissions are analysed during the centre's working hours, with a variable delay; they do not trigger an emergency response. The 2023 HRS consensus stresses informing the patient at enrolment: what remote monitoring does, what it does not do, and whom to call in case of symptoms. A patient who waits for a call back after repeated shocks loses precious time. Practical reflex: give simple written instructions at enrolment and repeat them at every contact.",
+  "aRetenir": "Remote monitoring is not an emergency service: repeated or poorly tolerated shocks = call the emergency services."
+ },
+ "egm-tele-039": {
+  "question": "At a device check, an ICD patient reports feeling a shock the previous night, on waking. Interrogation shows no detected episode, no charge and no shock delivered, and all measurements are normal. What is the management?",
+  "options": [
+   "Suspect an ICD memory failure and plan a device replacement",
+   "Conclude that an unrecorded inappropriate shock occurred and disable therapies",
+   "Consider a phantom shock, reassure and explain, without reprogramming",
+   "Lower the VF zone to record the next episode more reliably"
+  ],
+  "commentaires": [
+   "Incorrect: ICDs store every charge and every shock; the absence of an event is reliable.",
+   "Incorrect: a delivered shock is always recorded; disabling therapies would be dangerous.",
+   "Correct: a sensation of a shock without any shock delivered, common on waking and in anxious patients.",
+   "Incorrect: no arrhythmia is involved; changing the VF zone has no justification."
+  ],
+  "explication": "A phantom shock is the sensation of having received a shock when the ICD has delivered none, as confirmed by the absence of any charge or shock in memory. It is common, especially at night or on waking, and is associated with anxiety and a history of real shocks. Management consists of carefully checking the device memory, then explaining and reassuring, offering psychological support if needed. Practical reflex: a perceived shock must always be checked in the device memory, but an empty memory and normal measurements allow a phantom shock to be diagnosed.",
+  "aRetenir": "Perceived shock with no charge or shock in memory: phantom shock; explain and reassure."
+ },
+ "egm-tele-040": {
+  "question": "After an appropriate shock for VT, an ICD patient (car driving licence, private use) asks when he can drive again. According to the European (EHRA) consensus, what do you tell him?",
+  "options": [
+   "From the next day, if he feels perfectly well",
+   "Never: a shock permanently rules out driving",
+   "After one week, if there is no further episode",
+   "After a break of about three months"
+  ],
+  "commentaires": [
+   "Incorrect: the risk of recurrence with loss of consciousness is highest in the first few weeks.",
+   "Incorrect: the restriction is temporary for a group 1 licence.",
+   "Incorrect: this period is too short after an appropriate therapy.",
+   "Correct: the EHRA consensus recommends a three-month driving ban after an appropriate therapy (group 1)."
+  ],
+  "explication": "The risk of recurrent arrhythmia, possibly with syncope, is highest in the months following an appropriate therapy. The EHRA consensus (Vijgen 2009) recommends that group 1 drivers stop driving for three months after an appropriate therapy; after an inappropriate therapy, driving may resume once the cause has been corrected. In France, fitness to drive is governed by the decree of 28 March 2022: an ICD is permanently incompatible with heavy-vehicle (group 2) licences; for light-vehicle (group 1) licences, the incompatibility is temporary (after implantation and after a therapy) and is assessed by the approved medical examiner, in liaison with the cardiologist. Practical reflex: raise driving systematically after any therapy, and document it in the notes.",
+  "aRetenir": "After an appropriate shock, no driving (group 1) for about three months; always discuss this with the patient."
+ }
+}

@@ -1,12 +1,13 @@
 // Courbe d'évolution du classement ELO (une série, un point par jour joué), en SVG,
 // avec survol : ligne verticale et infobulle sur le point le plus proche.
 import { esc } from './util.js';
+import { t, locale } from './i18n.js';
 
-const fmtJour = j => new Date(j + 'T12:00:00').toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
+const fmtJour = j => new Date(j + 'T12:00:00').toLocaleDateString(locale(), { day: 'numeric', month: 'short' });
 
 export function courbeElo(conteneur, points, { depart = 600 } = {}) {
   if (!points.length) {
-    conteneur.innerHTML = '<p class="vide">Jouez une partie compétitive pour voir votre courbe.</p>';
+    conteneur.innerHTML = `<p class="vide">${t('Jouez une partie compétitive pour voir votre courbe.', 'Play a competitive game to see your rating curve.')}</p>`;
     return;
   }
   // un point de départ la veille du premier jour, pour montrer d'où l'on part
@@ -22,12 +23,12 @@ export function courbeElo(conteneur, points, { depart = 600 } = {}) {
   const pasY = (max - min) / 4;
   const graduations = Array.from({ length: 5 }, (_, k) => Math.round(min + k * pasY));
   const chemin = serie.map((p, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(p.elo).toFixed(1)}`).join('');
-  const etiquettesX = serie.map((p, i) => ({ i, t: p.jour ? fmtJour(p.jour) : 'Départ' }))
+  const etiquettesX = serie.map((p, i) => ({ i, t: p.jour ? fmtJour(p.jour) : t('Départ', 'Start') }))
     .filter((e, k, arr) => arr.length <= 6 || k === 0 || k === arr.length - 1 || k % Math.ceil(arr.length / 5) === 0);
 
   conteneur.innerHTML = `
     <div class="courbe">
-      <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Évolution du classement ELO, de ${serie[0].elo} à ${serie.at(-1).elo}">
+      <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${t(`Évolution du classement ELO, de ${serie[0].elo} à ${serie.at(-1).elo}`, `ELO rating history, from ${serie[0].elo} to ${serie.at(-1).elo}`)}">
         ${graduations.map(v => `<line class="grille-c" x1="${m.g}" x2="${W - m.d}" y1="${y(v)}" y2="${y(v)}"/><text class="axe" x="${m.g - 8}" y="${y(v) + 4}" text-anchor="end">${v}</text>`).join('')}
         ${etiquettesX.map(e => `<text class="axe" x="${x(e.i)}" y="${H - 8}" text-anchor="middle">${esc(e.t)}</text>`).join('')}
         <path class="ligne-c" d="${chemin}"/>
@@ -51,8 +52,8 @@ export function courbeElo(conteneur, points, { depart = 600 } = {}) {
     point.setAttribute('cx', x(i)); point.setAttribute('cy', y(p.elo)); point.setAttribute('visibility', 'visible');
     const d = prec ? p.elo - prec.elo : 0;
     bulle.innerHTML = p.jour
-      ? `<b>${fmtJour(p.jour)}</b><br>ELO ${Math.round(p.elo)} <span class="delta ${d >= 0 ? 'plus' : 'moins'}">${d >= 0 ? '+' : ''}${Math.round(d)}</span><br>${p.n} question(s), ${p.gagnees ?? 0} juste(s)`
-      : `<b>Départ</b><br>ELO ${p.elo}`;
+      ? `<b>${fmtJour(p.jour)}</b><br>ELO ${Math.round(p.elo)} <span class="delta ${d >= 0 ? 'plus' : 'moins'}">${d >= 0 ? '+' : ''}${Math.round(d)}</span><br>${t(`${p.n} question(s), ${p.gagnees ?? 0} juste(s)`, `${p.n} question(s), ${p.gagnees ?? 0} correct`)}`
+      : `<b>${t('Départ', 'Start')}</b><br>ELO ${p.elo}`;
     bulle.hidden = false;
     const gauche = (x(i) / W) * r.width;
     bulle.style.left = `${Math.min(Math.max(gauche - 70, 0), r.width - 150)}px`;

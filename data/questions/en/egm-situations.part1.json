@@ -1,0 +1,159 @@
+{
+ "egm-101": {
+  "question": "A 79-year-old woman has a Medtronic dual-chamber pacemaker implanted for sinus node dysfunction, programmed AAIR<=>DDDR (MVP), with known first-degree AV block. Routine transmission, no symptoms. How do you interpret this recording?",
+  "options": [
+   "Ventricular undersensing: a spontaneous QRS was missed",
+   "Normal MVP function (non-conducted P wave tolerated)",
+   "Intermittent loss of ventricular capture; check the threshold",
+   "Permanent switch to DDDR after complete AV block was detected"
+  ],
+  "commentaires": [
+   "Incorrect: no QRS appears on the RV EGM or the far-field EGM after the 4th P wave, so there is nothing to sense.",
+   "Correct: the non-conducted P wave is followed by no ventricular event; the device delivers a backup pace 80 ms after the next AS, hence the V-V pause of about 1550 ms.",
+   "Incorrect: the only ventricular spike (VP) is followed by a broad evoked response on both ventricular channels.",
+   "Incorrect: AS-VS conduction resumes from the next cycle with a long PR interval; a single blocked P wave is not enough to make MVP switch."
+  ],
+  "explication": "In \"monitored\" AAI(R), MVP allows intrinsic conduction even when it is slow (here PR ≈ 240 ms). When a P wave is followed by no ventricular event, the device does not pace in the same cycle: it delivers a ventricular backup pace 80 ms after the next atrial event. The marker channel thus shows AS without VS, then AS–VP at 80 ms and a V-V interval of ≈ 1550 ms. This is the expected behaviour, not a malfunction. Switching to DDD(R) only occurs if loss of conduction recurs (2 of the last 4 A-A intervals).",
+  "aRetenir": "MVP: an isolated blocked P wave is tolerated, and the ventricular backup pace comes 80 ms after the next P wave; the resulting pause is normal."
+ },
+ "egm-102": {
+  "question": "A 68-year-old man has a Medtronic dual-chamber ICD (secondary prevention, ischaemic cardiomyopathy) programmed to MVP. He has had two episodes of polymorphic VT, each starting just after a sequence similar to the one on this EGM. Which statements are correct?",
+  "options": [
+   "The blocked P wave creates a short–long–short sequence that can promote pause-dependent VT",
+   "Programming DDD(R) mode with an appropriate AV delay is a reasonable option in this patient",
+   "The observed pause is abnormal and requires replacement of the ventricular lead",
+   "A second blocked P wave within the next 4 A-A intervals would switch the device to DDD(R)",
+   "MVP paces the ventricle in the same cycle as the blocked P wave, which prevents any pause"
+  ],
+  "commentaires": [
+   "Correct: a short cycle (PVC or preceding cycle), a pause due to the blocked P wave, then the next beat: this is the proarrhythmic pattern described in ICD recipients.",
+   "Correct: in a patient with pause-dependent VT, eliminating pauses (DDD(R), possibly with a higher lower rate) takes priority over minimising RV pacing.",
+   "Incorrect: the pause results from the algorithm; the lead is working normally.",
+   "Correct: loss of conduction in 2 of the last 4 A-A intervals triggers the switch to DDD(R), followed by periodic conduction checks.",
+   "Incorrect: the backup pace is only delivered after the next atrial event, which is precisely what creates the pause."
+  ],
+  "explication": "MVP accepts a non-conducted P wave and only paces the ventricle in the next cycle (80 ms after the AS), which produces a pause. In some ICD recipients, the resulting short–long–short sequence has been associated with pause-dependent VT. When such a relationship is documented, DDD(R) mode (with a long AV delay or a conduction search algorithm) is preferred over MVP. The device switches to DDD(R) on its own if loss of conduction affects 2 of the last 4 A-A intervals, but then returns to AAI(R) after a successful conduction check.",
+  "aRetenir": "VT triggered after a blocked P wave in MVP: think short–long–short and prefer DDD(R) mode."
+ },
+ "egm-103": {
+  "question": "An 83-year-old man with complete AV block has a dual-chamber pacemaker with beat-to-beat ventricular capture verification (AutoCapture type); output amplitude is set just above the measured threshold. The GP, who receives the remote monitoring report, is worried about \"loss of capture\" in this pacemaker-dependent patient. Based on this EGM, how do you reply?",
+  "options": [
+   "Risk of asystole: the ventricular lead must be revised",
+   "Expected behaviour: each loss of capture is backed up",
+   "Capture verification should be disabled and output fixed at 5 V",
+   "This is crosstalk corrected by safety pacing"
+  ],
+  "commentaires": [
+   "Incorrect: each VP without an evoked response is followed about 100 ms later by a backup pulse that captures; no pause occurs.",
+   "Correct: the algorithm recognised the absence of an evoked response and delivered a high-output backup pulse, which captures; isolated events are expected with an output close to threshold.",
+   "Incorrect: this would reduce longevity with no benefit; safety is ensured by the backup pulse, and the threshold is automatically remeasured if losses recur.",
+   "Incorrect: safety pacing follows sensing in the crosstalk window after an AP; here the P wave is sensed (AS) and it is the absence of an evoked response to the first VP that triggers the second pulse."
+  ],
+  "explication": "Beat-to-beat capture verification algorithms analyse the evoked response after each ventricular pulse. If none is detected, they deliver a high-output backup pulse within ~100 ms: on the EGM, the first spike is followed by no depolarisation, the second one is, and the dependent patient has no pause. This is what allows the output to be set close to threshold, to the benefit of longevity. Repeated loss of capture triggers a new threshold measurement and an amplitude adjustment. Isolated backup pulses are therefore expected and reassuring; if they become frequent, the threshold and lead should be checked, and fusion, which would distort evoked response analysis, looked for.",
+  "aRetenir": "Isolated backup pulses with beat-to-beat capture verification: expected behaviour that protects the dependent patient; only a concern if they become frequent."
+ },
+ "egm-104": {
+  "question": "Dual-chamber ICD recipient (ischaemic cardiomyopathy, LVEF 30%). VT zone 150–188 bpm with ATP, VF zone > 188 bpm (cycle length < 320 ms) with ATP during charging then shocks. Remote monitoring alert. Which reading is correct?",
+  "options": [
+   "VT at 360 ms terminated by ATP, then return to sinus rhythm",
+   "Poorly discriminated sinus tachycardia, wrongly classified as VT by the device",
+   "VT at 360 ms accelerated by ATP into fast VT ≈ 235 ms, in the VF zone, with charging",
+   "RV lead noise triggering false VF detection"
+  ],
+  "commentaires": [
+   "Incorrect: after the TP burst, the tachycardia persists with shorter cycles; there is no return to sinus rhythm.",
+   "Incorrect: the ventricle is beating at 360 ms, dissociated from the atrium, which remains at 800 ms (V > A): this is VT.",
+   "Correct: cycles go from 360 ms to ≈ 230–250 ms with a new morphology; they fall in the VF zone (FS) and the device charges.",
+   "Incorrect: the rapid signals are organised depolarisations, also visible on the shock EGM; this is not non-physiological noise confined to the RV EGM."
+  ],
+  "explication": "The initial VT is monomorphic at 360 ms, with V > A dissociation (sinus atrial rhythm at 800 ms). The ATP burst at 88% (≈ 317 ms) does not terminate it: it converts it into a faster tachycardia (≈ 235 ms) with a different morphology, classified in the VF zone (FS) and followed by charging. Acceleration by ATP is rare but well recognised, which is why a shock must always be programmed after any ATP therapy. After such an episode, a trigger should be sought, and ATP adjustment and long-term treatment (antiarrhythmic drug, ablation) discussed.",
+  "aRetenir": "Cycles that shorten and change morphology after ATP: VT acceleration, taken over by the VF zone and a shock."
+ },
+ "egm-105": {
+  "question": "A 72-year-old man has a dual-chamber ICD with the VT detection zone programmed at 150 bpm (400 ms). He presents with 2 days of dyspnoea and palpitations; the device has recorded no treated episode. You start a real-time EGM. What is the interpretation?",
+  "options": [
+   "Sinus tachycardia at 120 bpm, 1:1 conduction",
+   "VT at 120 bpm, below the VT zone cut-off",
+   "Undetected atrial flutter with 2:1 conduction",
+   "Harmless slow idioventricular rhythm"
+  ],
+  "commentaires": [
+   "Incorrect: the P waves remain at 800 ms while the ventricle beats at 500 ms (V > A); there is no 1:1 relationship.",
+   "Correct: the ventricle beats regularly at 500 ms (120 bpm), faster than the atrium and with a different morphology on the shock EGM; at 500 ms, it stays above the 400 ms cut-off and is not detected.",
+   "Incorrect: atrial activity is slow and regular (800 ms), with no rapid flutter waves.",
+   "Incorrect: 120 bpm is well above the rate of an idioventricular rhythm, and the patient is symptomatic."
+  ],
+  "explication": "The marker channel shows only VS: the device sees every beat but, at 500 ms, none falls in the VT zone (< 400 ms), so there is no detection or therapy. The EGMs show a ventricle faster than the atrium (V > A, dissociation) with a change in morphology compared with the first two conducted beats: this is slow VT, common on antiarrhythmic drugs or in advanced heart disease. Management combines treatment of the episode (manual ATP, cardioversion) and, if the slow VT recurs, a detection zone programmed about 10 bpm below its rate, with discriminators enabled.",
+  "aRetenir": "Regular VS markers and V > A in a symptomatic ICD recipient: think slow VT below the detection zone."
+ },
+ "egm-106": {
+  "question": "Dual-chamber ICD, VT zone from 150 bpm (400 ms) with discriminators enabled. Episode stored as \"SVT — therapy withheld\". What reasoning led the device to withhold therapy?",
+  "options": [
+   "Atrial activity is twice as fast as ventricular activity (A > V)",
+   "The ventricular rate is irregular, suggesting AF",
+   "The onset was gradual, suggesting sinus tachycardia",
+   "The ventricular cycles are below the VT zone cut-off"
+  ],
+  "commentaires": [
+   "Correct: the atrium beats at 190 ms and the ventricle at 380 ms; an atrial rate higher than the ventricular rate points to a tachycardia of atrial origin.",
+   "Incorrect: the V-V intervals are perfectly regular at 380 ms.",
+   "Incorrect: the change from 833 to 380 ms is abrupt, not the gradual acceleration of sinus tachycardia.",
+   "Incorrect: 380 ms is shorter than 400 ms, so the cycles are correctly classified as TS in the VT zone."
+  ],
+  "explication": "After two sinus beats, the atrial EGM shows regular activity at 190 ms, every other wave of which is conducted (AS) while the other falls just after the QRS (AR). The ventricle, with a morphology identical to sinus rhythm, beats at 380 ms, in the VT zone. The A/V discriminator finds A > V with a fixed (2:1) relationship: it withholds therapy and classifies the episode as SVT (atrial flutter or atrial tachycardia with 2:1 conduction). Further management is that of the atrial arrhythmia: anticoagulation according to the CHA2DS2-VA score, rate control and discussion of ablation.",
+  "aRetenir": "Regular A > V (2:1) with QRS identical to sinus rhythm: conducted atrial tachycardia, therapy rightly withheld."
+ },
+ "egm-107": {
+  "question": "Dual-chamber ICD in a patient with dilated cardiomyopathy. Episode recorded during palpitations. Which features of this tracing point to VT rather than supraventricular tachycardia?",
+  "options": [
+   "The first beat of the tachycardia is ventricular, and the atrium follows",
+   "The shock EGM morphology differs from that of the sinus beats",
+   "An A/V ratio of 1",
+   "The perfect regularity of the cycles",
+   "The abrupt onset of the tachycardia"
+  ],
+  "commentaires": [
+   "Correct: the tachycardia starts with a premature ventricular event (470 ms after the last VS), and each atrial event follows the ventricle by ≈ 170 ms.",
+   "Correct: on the shock (far-field) EGM, the tachycardia QRS is broad and different from the sinus QRS: this is the basis of morphology algorithms.",
+   "Incorrect: a 1:1 ratio is seen in SVT as well as in VT with retrograde conduction; it does not discriminate.",
+   "Incorrect: VT and SVT (AVNRT, reciprocating tachycardia) are both regular.",
+   "Correct: abrupt onset rules out sinus tachycardia, without on its own distinguishing VT from other SVTs."
+  ],
+  "explication": "1:1 tachycardias are the hardest to discriminate. Here several arguments converge: the mode of onset (first event ventricular, atrium \"lagging behind\" with a fixed V-A interval of ≈ 170 ms), the abrupt onset and, above all, the change in morphology on the shock EGM compared with sinus rhythm. The A/V ratio and regularity do not settle the question. Dual-chamber devices combine these criteria (morphology, onset, A-V timing); when in doubt, the default programming favours therapy.",
+  "aRetenir": "1:1 tachycardia: ventricular onset and a change in morphology point to VT; the 1:1 ratio and regularity do not discriminate."
+ },
+ "egm-108": {
+  "question": "A 76-year-old man with a dual-chamber ICD (single-coil RV lead) and chronic kidney disease on an ACE inhibitor and spironolactone is admitted with dehydration: potassium 7.4 mmol/l, QRS widened to 180 ms. He receives a shock on waking. Here is the EGM stored before detection. What is the mechanism?",
+  "options": [
+   "T-wave oversensing, 300 ms after each QRS",
+   "Ventricular fibrillation with short, irregular cycles",
+   "Double counting of the widened QRS",
+   "P-wave oversensing by a malpositioned RV lead"
+  ],
+  "commentaires": [
+   "Incorrect: the second marker occurs ≈ 150 ms after the VS, still within the broad QRS, not at the time of the T wave (~300 ms).",
+   "Incorrect: the shock EGM shows organised sinus rhythm at ≈ 830 ms; the intervals alternate 150/680 ms.",
+   "Correct: on the RV EGM, the widened QRS has a second deflection that extends beyond the end of the post-sense blanking period and is counted a second time (FS).",
+   "Incorrect: the P waves are visible on the atrial EGM, offset in time; the second V signal is attached to each QRS."
+  ],
+  "explication": "A very broad QRS (hyperkalaemia, class I antiarrhythmic drug, CRT with an RV–LV delay) can extend beyond the blanking period following ventricular sensing: its late component is then sensed as a new event. The marker channel shows alternating very short (≈ 150 ms) and long intervals, which doubles the counted rate and may lead to inappropriate therapy. It is distinguished from T-wave oversensing by its timing (within the QRS, not ~300 ms later). Treatment: correct the cause (here hyperkalaemia) and, if needed, lengthen the post-sense blanking period or reduce sensitivity where the device allows.",
+  "aRetenir": "Alternating ≈ 150 ms / long intervals with a broad QRS: QRS double counting, think hyperkalaemia."
+ },
+ "egm-109": {
+  "question": "An episode of \"untreated VF — non-sustained\" is transmitted from a dual-chamber ICD. The patient says he was using an angle grinder in his workshop at the time of the episode. What is your interpretation and management?",
+  "options": [
+   "RV lead fracture: planned surgical revision",
+   "Self-terminating VF: increase the beta-blocker",
+   "External interference: education about the source, no lead revision",
+   "Pectoral myopotential oversensing: reduce sensitivity"
+  ],
+  "commentaires": [
+   "Incorrect: lead noise affects only the channel of the faulty lead; here all three channels are contaminated simultaneously.",
+   "Incorrect: the signal is high-frequency and regular, unlike VF, and the sinus QRS complexes remain visible through it.",
+   "Correct: a fixed-frequency artefact, simultaneous on the A EGM, RV EGM and shock EGM, starting and stopping abruptly, indicates an external electromagnetic source.",
+   "Incorrect: myopotentials are irregular, related to arm effort, and predominate on vectors including the can (shock EGM, unipolar configurations), not on intracardiac bipoles."
+  ],
+  "explication": "Electromagnetic interference is recognised by a high-frequency signal of regular appearance, present simultaneously on all channels (including the atrial and ventricular bipoles, which share no conductor), with an abrupt onset and offset corresponding to the use of an appliance. The spontaneous QRS complexes remain visible through it. The device counted it as rapid activity (AS/AR, FS), hence the stored episode. No lead revision is warranted: identify the source (faulty tool, poor earthing, proximity), advise keeping a sufficient distance and check that the lead parameters are normal.",
+  "aRetenir": "Artefact simultaneous on all channels = external source; noise confined to one channel = lead."
+ }
+}
