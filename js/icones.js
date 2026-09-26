@@ -1,6 +1,9 @@
 // Icônes vectorielles au trait (24 × 24, couleur du texte), pour remplacer les émoticônes de l'interface.
 const svg = corps => `<svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${corps}</svg>`;
 
+// Logo « Shock & Pace » : spike de stimulation (orange) suivi du complexe qu'il déclenche.
+export const LOGO = '<svg class="logo-marque" viewBox="0 0 70 40" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 28H16L21 31L28 10L37 37L42 28H48C51 28 52 21 57 21C62 21 63 28 67 28" stroke="currentColor" stroke-width="3.4"/><path d="M16 28V3" stroke="#FF6A3D" stroke-width="3.4"/></svg>';
+
 export const ICONES = {
   // cible avec flèche : entraînement
   entrainement: svg('<circle cx="11" cy="13" r="8"/><circle cx="11" cy="13" r="4.5"/><circle cx="11" cy="13" r="1"/><path d="M11 13 20 4"/><path d="M16.5 3.5 20 4l.5 3.5"/>'),
