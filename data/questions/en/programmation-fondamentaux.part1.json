@@ -1,0 +1,142 @@
+{
+"prog-fond-001": {
+ "question": "In the NBG pacemaker code, what does the first letter denote?",
+ "options": ["The chamber(s) paced", "The chamber(s) sensed", "Rate response", "The response to sensing"],
+ "commentaires": [
+  "Correct: the NBG code reads \"paces – senses – responds\"; the first V of VVI indicates that the ventricle is paced.",
+  "Incorrect: that is the second letter; confusing pacing and sensing is the classic pitfall.",
+  "Incorrect: rate response (R) is coded in the fourth position.",
+  "Incorrect: the response to sensing (I, T, D) is coded in the third position."
+ ],
+ "explication": "The NBG (NASPE/BPEG) code reads from left to right: first letter = chamber(s) paced, second = chamber(s) sensed, third = response to sensing (I inhibited, T triggered, D dual), fourth = rate response (R), fifth = multisite pacing. Thus, in \"VVI\", the first V indicates that the ventricle is the chamber paced. The classic pitfall is to swap pacing and sensing: the sequence \"paces – senses – responds\" should be known by heart.",
+ "aRetenir": "NBG code: first letter = chamber paced, second = chamber sensed, third = response to sensing."
+},
+"prog-fond-002": {
+ "question": "A pacemaker programmed to VVI:",
+ "options": ["Paces the atrium, inhibited by ventricular sensing", "Paces the ventricle at a fixed rate, with no sensing", "Paces the ventricle after each sensed P wave, after a delay", "Paces and senses the ventricle, inhibited by an intrinsic QRS"],
+ "commentaires": [
+  "Incorrect: the first letter V designates the ventricle as the paced chamber, not the atrium.",
+  "Incorrect: fixed-rate pacing without sensing corresponds to VOO mode.",
+  "Incorrect: P-synchronous ventricular pacing corresponds to VDD/DDD modes.",
+  "Correct: V (ventricular pacing), V (ventricular sensing), I (inhibition by an intrinsic QRS)."
+ ],
+ "explication": "VVI means Ventricular pacing, Ventricular sensing, Inhibited response. If an intrinsic QRS occurs before the escape interval (lower rate) expires, the pacemaker withholds its output and resets the interval. Fixed-rate pacing without sensing is VOO, and P-synchronous ventricular pacing corresponds to VDD/DDD modes. VVI takes no account whatsoever of atrial activity.",
+ "aRetenir": "VVI = paces V, senses V, inhibited by an intrinsic QRS."
+},
+"prog-fond-003": {
+ "question": "What does the letter \"R\" in the fourth position of the NBG code (e.g. DDDR) stand for?",
+ "options": ["Sensor-driven rate response", "Triggered response", "Biventricular cardiac resynchronisation", "Fallback pacing (backup mode)"],
+ "commentaires": [
+  "Correct: since the 2002 revision, the fourth position codes only rate response (O or R).",
+  "Incorrect: a triggered response is coded T, in the third position.",
+  "Incorrect: multisite pacing, including resynchronisation, is coded in the fifth position.",
+  "Incorrect: no letter of the NBG code denotes the fallback mode."
+ ],
+ "explication": "In the 2002 revised NBG code, the fourth position refers only to rate response: \"R\" indicates that the pacing rate can rise above the lower rate under the control of a sensor (accelerometer, minute ventilation…). A triggered response is coded \"T\" in the third position. Multisite pacing (including biventricular resynchronisation) is coded in the fifth position. There is no code letter for the fallback mode.",
+ "aRetenir": "R in the fourth position = rate response."
+},
+"prog-fond-004": {
+ "question": "Which mode corresponds to asynchronous dual-chamber pacing with no sensing at all?",
+ "options": ["DDI", "VOO", "DVI", "DOO"],
+ "commentaires": [
+  "Incorrect: DDI senses in both chambers and is inhibited by sensed events.",
+  "Incorrect: VOO is asynchronous but paces the ventricle only.",
+  "Incorrect: DVI paces both chambers but includes ventricular sensing.",
+  "Correct: D in the first position (A and V pacing), O in the second and third positions (neither sensing nor response)."
+ ],
+ "explication": "The letter \"O\" in the second and third positions means no sensing and therefore no response: DOO paces the atrium then the ventricle at fixed intervals, regardless of intrinsic activity. It is typically the mode obtained with a magnet on many dual-chamber pacemakers, or the mode programmed for MRI or surgery in a pacemaker-dependent patient. VOO is the single-chamber ventricular asynchronous equivalent. DDI and DVI both include sensing.",
+ "aRetenir": "DOO = asynchronous A and V pacing, with no sensing."
+},
+"prog-fond-005": {
+ "question": "In the revised NBG code (2002), what does the fifth position denote?",
+ "options": ["Multisite pacing (O, A, V or D)", "Antitachycardia functions (ATP, shock)", "Programmability and telemetry", "The type of rate-response sensor"],
+ "commentaires": [
+  "Correct: in the 2002 code, the fifth position describes multisite pacing (e.g. DDDRV for CRT).",
+  "Incorrect: that was the fifth position of the 1987 code; defibrillation now has its own code (NBD).",
+  "Incorrect: programmability occupied the fourth position in the old 1987 version.",
+  "Incorrect: the sensor type is not coded anywhere; the fourth position only indicates whether rate response is present."
+ ],
+ "explication": "The 2002 NASPE/BPEG revision simplified the code: the fourth position is reserved for rate response (O or R) and the fifth describes multisite pacing (O none, A atrial, V ventricular, D dual). A rate-responsive biventricular resynchronisation system can thus be written DDDRV. In the old 1987 version, the fourth position coded programmability/communication and the fifth antitachycardia functions, hence the pitfall. Defibrillation functions have their own code (NBD code).",
+ "aRetenir": "2002 NBG code: fifth position = multisite pacing (e.g. DDDRV for CRT)."
+},
+"prog-fond-006": {
+ "question": "In DDD mode, a sensed P wave triggers ventricular pacing at the end of the AV delay if no intrinsic QRS is sensed during that delay.",
+ "options": ["True", "False"],
+ "commentaires": [
+  "Correct: in DDD, atrial sensing triggers V pacing after the AV delay unless an intrinsic QRS inhibits it: this is atrial tracking.",
+  "Incorrect: this is precisely the definition of atrial tracking in DDD, limited by the maximum tracking rate."
+ ],
+ "explication": "This is the principle of atrial tracking: in DDD, the third letter D means that atrial sensing triggers (T) ventricular pacing after the AV delay, whereas ventricular sensing inhibits (I) pacing. This mimics physiological AV conduction in a patient with AV block and preserved sinus node function. If a conducted QRS occurs before the AV delay expires, ventricular pacing is inhibited. Tracking is limited by the maximum tracking rate.",
+ "aRetenir": "DDD: sensed P → V paced after the AV delay, unless there is an intrinsic QRS."
+},
+"prog-fond-007": {
+ "question": "What is the fundamental difference between DDD and DDI modes?",
+ "options": ["DDI does not pace the atrium, only the ventricle", "Unlike DDD, DDI does not sense the atrium", "DDI is an asynchronous mode with no sensing", "In DDI, a sensed P does not trigger V pacing"],
+ "commentaires": [
+  "Incorrect: the first letter D indicates that DDI paces both atrium and ventricle.",
+  "Incorrect: the second letter D indicates that DDI senses in both chambers.",
+  "Incorrect: an asynchronous mode carries the letter O; DDI senses and is inhibited.",
+  "Correct: DDI has no atrial tracking; a sensed P merely inhibits atrial pacing."
+ ],
+ "explication": "In DDI, the atrium is sensed and paced, but atrial sensing only inhibits atrial pacing: it does not trigger ventricular pacing after an AV delay. The ventricle is then paced at the lower rate if no intrinsic QRS occurs. This is why DDI (or DDIR) is used as the fallback mode during mode switching: it avoids tracking AF or flutter at the upper rate. DDI is not asynchronous: it senses in both chambers.",
+ "aRetenir": "DDI = dual-chamber without atrial tracking: a sensed P does not trigger V pacing."
+},
+"prog-fond-008": {
+ "question": "Which of the following modes provide no atrial tracking (a sensed P wave never triggers ventricular pacing)?",
+ "options": ["DDD", "VDD", "DDI", "VVIR"],
+ "commentaires": [
+  "Incorrect: DDD is the archetypal tracking mode: a sensed P triggers V pacing after the AV delay.",
+  "Incorrect: VDD tracks the atrium via the floating atrial dipole.",
+  "Correct: DDI senses the atrium but responds only by inhibition, without triggered V pacing.",
+  "Correct: VVIR does not sense the atrium; rate response depends solely on the sensor."
+ ],
+ "explication": "Atrial tracking requires atrial sensing and a triggered ventricular response: this applies to DDD and VDD (single lead with a floating atrial dipole). DDI senses the atrium but responds only by inhibiting atrial pacing. VVIR does not sense the atrium at all: rate response varies the rate according to the sensor alone. These non-tracking modes are those used in permanent AF or as the mode-switch fallback.",
+ "aRetenir": "Tracking modes = DDD, VDD; non-tracking modes = DDI, VVI(R), AAI."
+},
+"prog-fond-009": {
+ "question": "An 82-year-old patient in permanent AF has symptomatic bradycardia with a slow ventricular response. According to the ESC 2021 guidelines, which mode is recommended?",
+ "options": ["VVIR", "DDD", "AAIR", "VDD"],
+ "commentaires": [
+  "Correct: in permanent AF an atrial lead is pointless; rate response compensates for chronotropic incompetence.",
+  "Incorrect: DDD would track the fibrillating atrium (hence the need for mode switching) with no benefit.",
+  "Incorrect: a fibrillating atrium cannot be paced effectively.",
+  "Incorrect: VDD would sense and track the AF; it has no role here."
+ ],
+ "explication": "In permanent AF, the atrium can be neither paced effectively nor tracked: an atrial lead is pointless. The ESC 2021 guidelines recommend rate-responsive ventricular pacing (VVIR) in these patients, rate response compensating for the lack of chronotropic response. DDD and VDD would track the fibrillating atrium (hence mode switching if they were implanted). AAIR makes no sense in AF.",
+ "aRetenir": "Permanent AF + bradycardia = VVIR."
+},
+"prog-fond-010": {
+ "question": "Symptomatic sinus node dysfunction with normal AV conduction. Which pacing strategy do the ESC 2021 guidelines recommend?",
+ "options": ["VVI at 40 bpm as simple backup", "Routine biventricular resynchronisation", "Atrial-only pacing (AAIR), no V lead", "Dual-chamber, minimising V pacing"],
+ "commentaires": [
+  "Incorrect: in sinus node dysfunction, VVI exposes the patient to pacemaker syndrome and more AF.",
+  "Incorrect: CRT is not indicated: LVEF is preserved and the expected ventricular pacing burden is low.",
+  "Incorrect: AAIR does not protect against subsequent AV block and led to more reinterventions than DDDR (DANPACE).",
+  "Correct: dual-chamber pacing is class I; as conduction is normal, the device is programmed to avoid unnecessary RV pacing."
+ ],
+ "explication": "In sinus node dysfunction, the ESC 2021 guidelines recommend dual-chamber pacing (class I), which reduces the risk of AF and stroke and avoids pacemaker syndrome compared with VVI. As AV conduction is preserved, the pacemaker should be programmed to limit unnecessary ventricular pacing (dedicated algorithms, AV delay extension), since chronic RV pacing is harmful. Atrial-only pacing (AAIR) carries the risk of subsequent AV block and was associated with more reinterventions and more paroxysmal AF than DDDR in the DANPACE trial. Resynchronisation is not indicated here: LVEF is preserved and the expected ventricular pacing burden is low.",
+ "aRetenir": "Sinus node dysfunction = dual-chamber pacing + minimisation of ventricular pacing."
+},
+"prog-fond-011": {
+ "question": "In a patient in sinus rhythm with AV block, dual-chamber pacing is preferred over VVI mainly because it reduces mortality.",
+ "options": ["True", "False"],
+ "commentaires": [
+  "Incorrect: MOST, UKPACE and CTOPP showed no mortality benefit from dual-chamber pacing.",
+  "Correct: the preference rests on quality of life and prevention of pacemaker syndrome, not on survival."
+ ],
+ "explication": "The large trials comparing \"physiological\" dual-chamber pacing with VVI (MOST, UKPACE, CTOPP) showed no mortality benefit. The value of dual-chamber pacing in AV block lies in avoiding pacemaker syndrome and improving quality of life by maintaining AV synchrony. The ESC 2021 guidelines therefore base this preference on these criteria, not on survival. VVI remains acceptable in some patients (elderly, sedentary, infrequent pacing expected).",
+ "aRetenir": "Dual-chamber vs VVI: benefit on quality of life and pacemaker syndrome, not on mortality."
+},
+"prog-fond-012": {
+ "question": "A 70-year-old patient has complete AV block, sinus rhythm, LVEF 35% and an expected near-100% ventricular pacing burden. According to the ESC 2021 guidelines, which pacing approach should be preferred?",
+ "options": ["Single-lead VDD, P-synchronous", "Conventional DDD with an RV apical lead", "VVIR with rate response", "CRT rather than RV-only pacing"],
+ "commentaires": [
+  "Incorrect: VDD paces the RV just as DDD does: the same risk of pacing-induced cardiomyopathy.",
+  "Incorrect: continuous RV apical pacing would worsen heart failure.",
+  "Incorrect: in sinus rhythm, VVIR sacrifices AV synchrony and also paces the RV.",
+  "Correct: LVEF < 40% and near-permanent V pacing: CRT (or conduction system pacing) avoids RV-pacing dyssynchrony."
+ ],
+ "explication": "In a patient with reduced LVEF requiring substantial ventricular pacing for high-grade AV block, the ESC 2021 guidelines recommend CRT rather than RV pacing alone (class I for LVEF < 40%), because the dyssynchrony induced by RV pacing worsens heart failure. The ESC 2026 heart failure guidelines maintain this preference as class IIa (level B1) for HFrEF, now defined as LVEF < 50%. Conduction system pacing (His bundle, left bundle branch) is an increasingly used alternative, supported by the 2023 HRS guideline and the 2025 ESC consensus statement, but the ESC 2026 HF guidelines do not assign it a class. DDD or single-lead VDD, which also pace the RV, would expose the patient to pacing-induced cardiomyopathy. VVIR makes no sense in sinus rhythm: it sacrifices AV synchrony and also paces the RV.",
+ "aRetenir": "AV block + reduced LVEF: CRT (or conduction system pacing) rather than RV pacing; class I in 2021, IIa in the ESC 2026 HF guidelines."
+}
+}

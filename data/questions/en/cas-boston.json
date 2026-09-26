@@ -1,0 +1,300 @@
+{
+ "cas-bsc-001": {
+  "question": "An 86-year-old man has a Boston Scientific dual-chamber pacemaker for sinus node dysfunction, with normal AV conduction (PR 180 ms), RYTHMIQ on and a lower rate limit of 60 bpm. The device memory holds numerous RYTHMIQ episodes. On their EGMs, every switch follows a late PVC occurring just after an atrial paced event, marked [VS] in brackets and followed by backup ventricular pacing at 45 bpm. What mechanism explains these switches?",
+  "options": [
+   "The PVC is taken for a blocked P wave, and the algorithm switches on the third consecutive blocked P wave",
+   "The PVC triggers safety pacing with a short AV delay, which RYTHMIQ counts as a slow cycle",
+   "The PVC falls in the noise window after atrial pacing: it is ignored, so VVI backup pacing is delivered",
+   "The PVC extends the PVARP, so the next sinus P wave is no longer sensed and atrial pacing stops"
+  ],
+  "commentaires": [
+   "Incorrect: RYTHMIQ does not analyse blocked P waves; it only counts slow ventricular cycles (3 out of 11).",
+   "Incorrect: Boston Scientific pacemakers have no safety window after the post-atrial-pace ventricular blanking, but a noise window; there is therefore no short-AV-delay safety pacing.",
+   "Correct: the event sensed in the noise window is shown in brackets but excluded from analysis; it does not inhibit VVI backup pacing (15 bpm below the lower rate limit), and these cycles count as slow.",
+   "Incorrect: in the AAI(R) phase, nothing of the sort explains the backup ventricular pacing; the problem is that the PVC is excluded from ventricular analysis."
+  ],
+  "explication": "In the AAI(R) phase of RYTHMIQ, after each atrial paced event the ventricular channel keeps a blanking period followed by a noise window, designed to prevent crosstalk from inhibiting backup pacing. Boston Scientific devices have no safety window at this point. A late PVC falling in the blanking period is not seen; one falling in the noise window is marked [VS] but does not enter the analysis of ventricular intervals. It therefore does not inhibit VVI backup pacing, delivered 15 bpm below the lower rate limit from the last valid ventricular event. These backup paced beats and the cycles that follow are counted as slow: 3 out of 11 are enough to switch to DDD(R). These switches therefore do not reflect a conduction disorder: reviewing the EGMs avoids wrongly diagnosing paroxysmal AV block.",
+  "aRetenir": "RYTHMIQ: a late PVC in the noise window after atrial pacing is ignored, does not inhibit VVI backup pacing and can trigger a switch to DDD(R) without any AV block."
+ },
+ "cas-bsc-003": {
+  "question": "An active 88-year-old man has a Boston Scientific dual-chamber pacemaker implanted for paroxysmal AV block, with RYTHMIQ and AV Search+. The AV block has become complete and permanent, and RYTHMIQ was switched off at the previous check. He reports feeling faint at peak exercise. During sinus tachycardia close to the maximum tracking rate (130 bpm), the EGMs intermittently show the AV delay lengthening for a few cycles, during which every other P wave is no longer tracked. What is the most logical correction?",
+  "options": [
+   "Also switch off AV Search+, whose periodic AV delay extensions lower the 2:1 block rate",
+   "Switch RYTHMIQ back on so that the device reverts to AAI(R) with VVI backup during exercise",
+   "Lengthen the PVARP to protect the patient against pacemaker-mediated tachycardia",
+   "Programme a longer fixed AV delay to encourage the return of intrinsic conduction"
+  ],
+  "commentaires": [
+   "Correct: AV Search+ is programmed on a separate screen from RYTHMIQ; if left on, it extends the AV delay (300 ms nominal) every 32 cycles, which lengthens the total atrial refractory period and makes every other P wave fall in the PVARP.",
+   "Incorrect: with permanent complete AV block, RYTHMIQ would only multiply pauses and switches; it was rightly switched off.",
+   "Incorrect: lengthening the PVARP would lower the 2:1 block rate even further and make the problem worse.",
+   "Incorrect: with complete AV block there is no intrinsic conduction to encourage; a long AV delay also lowers the 2:1 block rate."
+  ],
+  "explication": "On Boston Scientific devices, RYTHMIQ and AV Search+ are programmed separately. When AV block becomes complete and permanent, both must be switched off. If left on by itself, AV Search+ keeps searching for conduction: every 32 cycles (nominal), it extends the AV delay (300 ms nominal) for 8 cycles. During exercise, the 2:1 block rate depends on the sum of AV delay + PVARP: it drops abruptly during these searches, resulting in every other P wave not being tracked and a sudden fall in ventricular rate at peak exercise. AV delay extensions also promote PMT in patients with retrograde conduction. The only logical step is therefore to switch off AV Search+, then check that 1:1 tracking is maintained during exercise.",
+  "aRetenir": "AV block that has become complete in a patient on RYTHMIQ: switch off both RYTHMIQ and AV Search+ (two separate screens), otherwise the periodic searches lower the 2:1 block rate during exercise."
+ },
+ "cas-bsc-004": {
+  "question": "A 27-year-old woman with congenital complete AV block has a Boston Scientific dual-chamber pacemaker, maximum tracking rate 160 bpm. Interrogation shows numerous episodes labelled \"PMT\". On the EGMs: sinus P waves followed by VP at the maximum tracking rate, then one P wave falls in a PVARP extended to 500 ms and is not tracked, with no change at all in atrial rate. No retrograde conduction is found. What is the interpretation and management?",
+  "options": [
+   "True PMT due to intermittent VA conduction: lengthen the PVARP permanently",
+   "Sinus tachycardia at the MTR mistaken for PMT: switch off the PMT algorithm",
+   "Far-field R-wave oversensing on the atrial channel: lengthen atrial blanking",
+   "Unrecognised atrial tachycardia: lower the mode-switch trigger rate"
+  ],
+  "commentaires": [
+   "Incorrect: the atrial rate does not change after the untracked P wave, which rules out PMT; without retrograde conduction, PMT is impossible.",
+   "Correct: the algorithm has no confirmation step; a stable sinus tachycardia at the MTR meets its criteria. Without VA conduction it serves no purpose and blocks one P wave in every 16.",
+   "Incorrect: the sensed P waves are genuine sinus P waves; nothing suggests atrial double counting.",
+   "Incorrect: the atrial rate is consistent with exercise-induced sinus tachycardia, not an atrial arrhythmia."
+  ],
+  "explication": "The Boston Scientific PMT Termination algorithm diagnoses PMT after 16 consecutive AS-VP cycles at the maximum tracking rate with stable VP-AS intervals, then extends the PVARP to 500 ms for one cycle. It does not alter the AV delay to check for retrograde conduction, so it cannot distinguish PMT from a sinus tachycardia sustained at the maximum tracking rate. If the tachycardia continues at the same rate after the untracked P wave, it was sinus tachycardia. In a patient with congenital AV block and neither anterograde nor retrograde conduction, PMT is impossible: the algorithm is useless and blocks one P wave in every 16. It should be switched off, and one should check that the maximum tracking rate matches the exercise capacity of this young patient.",
+  "aRetenir": "On Boston Scientific devices, a stored \"PMT\" at the maximum tracking rate in a young patient with AV block and no retrograde conduction is almost always sinus tachycardia: review the EGM and switch off PMT Termination."
+ },
+ "cas-bsc-005": {
+  "question": "True or false: on a Boston Scientific pacemaker, the PMT Termination algorithm only recognises PMT if ventricular pacing occurs at the maximum tracking rate; a PMT running slower than this rate will not be detected.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: the diagnosis requires 16 consecutive AS-VP cycles marked at the maximum tracking rate, with stable VP-AS intervals.",
+   "Incorrect: a PMT slower than the maximum tracking rate (long VA conduction time, long AV delay) does not meet the criterion and is not terminated."
+  ],
+  "explication": "The Boston Scientific PMT Termination algorithm counts 16 consecutive AS-VP cycles at the maximum tracking rate. The VP-AS intervals must remain stable: if one differs by more than 32 ms from the first, the counter resets to zero. Once PMT is diagnosed, the PVARP is extended to 500 ms for one cycle to break the circuit. A PMT whose cycle length (AV delay + VA conduction time) is longer than the maximum tracking rate interval therefore escapes the algorithm. Prevention relies on a PVARP longer than the retrograde conduction time and on PVARP extension after a PVC, a common trigger.",
+  "aRetenir": "Boston Scientific PMT Termination only sees PMT at the maximum tracking rate (16 cycles, VA stable within ±32 ms); slower PMT is prevented by the PVARP."
+ },
+ "cas-bsc-006": {
+  "question": "A 63-year-old woman has a Boston Scientific dual-chamber pacemaker for sick sinus syndrome. The device memory shows short ATR episodes. On the EGMs, an atrial signal appears a few milliseconds after each sensed QRS (VS), alternating with the true P wave, giving atrial cycles alternating around 250 and 450 ms. A-Blank after V-Sense is programmed to \"Smart\". What change should be made first?",
+  "options": [
+   "Shorten the PVARP so that these signals are no longer counted by ATR",
+   "Increase the Entry Count to require more fast atrial cycles",
+   "Switch off ATR, as these episodes are probably just atrial ectopic beats",
+   "Replace the \"Smart\" setting with a longer fixed A-Blank after V-Sense"
+  ],
+  "commentaires": [
+   "Incorrect: events sensed in the PVARP are counted by the mode-switching algorithm; shortening the PVARP does nothing about double counting.",
+   "Incorrect: this is a workaround that also delays mode switching during true AF, without correcting the oversensing.",
+   "Incorrect: this is far-field R-wave oversensing; switching off mode switching would expose the patient to rapid tracking during a true atrial arrhythmia.",
+   "Correct: the \"Smart\" setting gives a very short blanking period with no noise window; a longer fixed value masks the far-field R wave."
+  ],
+  "explication": "Alternating short and long atrial cycles, with an atrial signal right against the sensed QRS, is the signature of far-field R-wave oversensing on the atrial channel. On Boston Scientific devices, A-Blank after V-Sense and A-Blank after V-Pace are set separately, each to a fixed value or to \"Smart\". The \"Smart\" setting shortens blanking considerably, with no noise window, and compensates with a transient reduction in atrial sensitivity. In some patients this is not enough: the far-field R wave falls in the PVARP, where events are counted by the mode-switching algorithm. The logical correction is a longer fixed blanking period, then, if needed, a less sensitive atrial setting, while keeping enough margin to detect AF. Conversely, an excessively long blanking period impairs detection of fast atrial arrhythmias (2:1 flutter).",
+  "aRetenir": "Mode switches due to far-field R-wave oversensing on Boston Scientific devices: think of \"Smart\" atrial blanking, too short in some patients, and switch to a longer fixed value."
+ },
+ "cas-bsc-007": {
+  "question": "A 71-year-old woman has a Boston Scientific dual-chamber pacemaker with ATR Trigger Rate 175 bpm and maximum tracking rate 150 bpm. She is admitted with palpitations and decompensated heart failure: regular atrial tachycardia at 165/min, every other atrial wave in the PVARP, fast ventricular pacing with Wenckebach sequences, and no mode switch. You switch on Atrial Flutter Response (AFR) at 160 bpm. How does this feature work?",
+  "options": [
+   "The device switches to DDI once 8 atrial cycles exceed 160 bpm, then the rate decreases",
+   "A P wave sensed in the PVARP opens a window; any P in it goes untracked and restarts it",
+   "The device delivers a burst of rapid atrial pacing to terminate the tachycardia",
+   "The maximum tracking rate is lowered to 160 bpm for as long as the arrhythmia persists"
+  ],
+  "commentaires": [
+   "Incorrect: this describes the ATR mode-switching algorithm (Entry Count, Duration), which plays no part here since the tachycardia is slower than 175 bpm.",
+   "Correct: an atrial event in the PVARP opens an AFR window (375 ms for 160 bpm); any event sensed in this window does not start an AV delay and restarts the window, so tracking stops immediately.",
+   "Incorrect: AFR is not an atrial antitachycardia therapy; it merely prevents tracking of fast atrial activity.",
+   "Incorrect: AFR does not change the maximum tracking rate."
+  ],
+  "explication": "Here, mode switching did not occur because the tachycardia (165/min) is slower than the ATR Trigger Rate (175 bpm), and tracking every other atrial wave sustains fast ventricular pacing. Boston Scientific Atrial Flutter Response acts on a beat-by-beat basis: an atrial event sensed in the PVARP opens a window whose duration corresponds to the programmed rate (60,000 / 160 ≈ 375 ms). Any atrial event sensed in this window (AS-Fl marker) does not start an AV delay and restarts the window. During a fast atrial arrhythmia, the waves all fall one after another in these windows: none is tracked, and the ventricle is paced at the lower rate or sensor-driven rate. AFR also prevents atrial pacing in the vulnerable period. In parallel, the ATR Trigger Rate should be readjusted and the arrhythmia treated (here, by ablation).",
+  "aRetenir": "Atrial Flutter Response (Boston Scientific) immediately stops tracking of fast atrial activity following a sensed event in the PVARP, where conventional mode switching may fail to act."
+ },
+ "cas-bsc-008": {
+  "question": "An 87-year-old woman with complete AV block has a Boston Scientific pacemaker in DDD mode, maximum tracking rate 130 bpm. She has palpitations during short bursts of atrial tachycardia: the EGMs show several seconds of ventricular pacing at the maximum tracking rate before ATR mode switching, followed by a gradual decrease in rate. Which settings shorten the time spent at the maximum tracking rate before the mode switch? (select all that apply)",
+  "options": [
+   "Decrease the Entry Count",
+   "Increase the Exit Count",
+   "Decrease the ATR Duration",
+   "Lengthen the Fallback Time"
+  ],
+  "commentaires": [
+   "Correct: fewer fast atrial cycles are needed to start the Duration; mode switching occurs sooner, at the cost of more frequent switches on short runs.",
+   "Incorrect: the Exit Count governs the return to the tracking mode, not entry into the fallback mode.",
+   "Correct: the ATR Duration is the number of ventricular cycles for which the arrhythmia must persist after the Entry Count is met; decreasing it (down to 0) brings the switch forward.",
+   "Incorrect: the Fallback Time sets how fast the rate decreases after the switch; lengthening it actually prolongs fast pacing."
+  ],
+  "explication": "Boston Scientific ATR mode switching proceeds in several steps. Each atrial cycle faster than the Trigger Rate increments the Entry Count, and each slower cycle decrements it. Once this count is reached, the ATR Duration (in ventricular cycles) begins; the switch to a non-tracking mode occurs at the end of the Duration, unless the Exit Count has run down in the meantime. Throughout these steps, every atrial event sensed outside the refractory period is tracked, up to the maximum tracking rate. Decreasing the Entry Count and the Duration shortens this phase, at the cost of more frequent switches on brief runs. The rate then decreases gradually according to the Fallback Time, which explains why the rate remains high for a few seconds after the switch. In an elderly, fairly inactive patient, the maximum tracking rate can also be lowered.",
+  "aRetenir": "Delayed ATR mode switching in complete AV block: decrease the Entry Count and the ATR Duration; the Fallback Time only governs the rate decrease after the switch."
+ },
+ "cas-bsc-009": {
+  "question": "True or false: on a Boston Scientific pacemaker, PaceSafe RAAT (automatic atrial threshold) verifies atrial capture on every cycle and delivers a backup atrial pulse if capture is lost.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: Boston Scientific devices have no beat-to-beat atrial capture verification.",
+   "Correct: RAAT measures the threshold periodically (using the atrial evoked response) and sets the amplitude with a safety margin (about twice the highest threshold from recent tests), without beat-to-beat checks."
+  ],
+  "explication": "PaceSafe RAAT measures the atrial threshold roughly every 21 hours. A specific feature of Boston Scientific devices is that loss of capture is judged directly from an atrial evoked response, recorded on a dedicated channel visible during the test, rather than indirectly from the return of intrinsic atrial activity. The amplitude is then set with a margin (around twice the highest threshold from recent tests): a sudden rise in threshold quickly increases the amplitude, whereas an isolated low value does not decrease it. However, there is no beat-by-beat atrial capture verification and no backup pulse. Beat-by-beat safety exists only for the right ventricle. If the test cannot be performed (\"Low ER\", fusion), revert to manual programming with a conventional safety margin.",
+  "aRetenir": "RAAT (Boston Scientific) = periodic atrial threshold test using the evoked response plus an amplitude safety margin, with no beat-to-beat capture verification."
+ },
+ "cas-bsc-010": {
+  "question": "A 66-year-old man has a Boston Scientific dual-chamber ICD with a VT-1 zone at 140 bpm for known slow VTs, and Rhythm ID discrimination. During exercise, a 1:1 tachycardia enters the VT-1 zone: the complexes correlate with the template (RID+) and therapies are withheld. Later in the episode, a PAC occurring at the time of QRS sensing is not seen by the atrial channel; the device then concludes \"V > A\" and delivers several ATP sequences. Why did morphology correlation not prevent therapy?",
+  "options": [
+   "Correlation is only analysed over the first three cycles of the episode",
+   "An undetected PAC automatically erases the sinus rhythm template",
+   "The V > A criterion, when true, overrides all the other discriminators",
+   "The VT-1 zone has no discrimination at all on these devices"
+  ],
+  "commentaires": [
+   "Incorrect: morphology analysis uses sliding 10-cycle windows throughout initial detection.",
+   "Incorrect: the template is not altered by a PAC; it is acquired outside episodes, automatically or with the programmer.",
+   "Correct: if the mean ventricular rate exceeds the mean atrial rate by at least 10 bpm, therapy is delivered regardless of morphology; the undetected PAC falsely lowered the measured atrial rate.",
+   "Incorrect: the VT-1 zone does benefit from discriminators; it is the VF zone that has none."
+  ],
+  "explication": "In dual-chamber devices, Rhythm ID first applies the V > A criterion: it compares the mean rate of the last 10 ventricular intervals with that of the last 10 atrial intervals. If the V rate exceeds the A rate by at least 10 bpm, therapy is delivered without regard to the other discriminators. Otherwise, vector correlation is examined, followed by stability and the AFib Rate Threshold. Here, a PAC falling in the post-ventricular atrial blanking period was not sensed: the compensatory pause that follows lengthens an atrial interval, the atrial rate is underestimated and the V > A criterion becomes falsely true. Two measures are needed: avoid overlap between the VT-1 zone and exercise-induced sinus tachycardia (zone, duration, beta-blocker), and review the combination of discriminators in this patient in whom morphology discriminates well.",
+  "aRetenir": "On Boston Scientific devices, a true \"V > A\" triggers therapy even if morphology correlates; an undetected P wave can make this criterion falsely true during sinus tachycardia."
+ },
+ "cas-bsc-011": {
+  "question": "A patient has a Boston Scientific single-chamber ICD with Rhythm ID discrimination and the RhythmMatch Threshold at 94%. During an episode of conducted AF in the VT zone, the correlation percentages fluctuate between 88 and 96%. The device first withholds therapy (RID+) then, a few seconds later, switches to RID- and delivers ATP. The template was checked recently. Which setting best reduces this risk?",
+  "options": [
+   "Lower the RhythmMatch Threshold, for example to around 85%",
+   "Raise the RhythmMatch Threshold to 96%",
+   "Reclassify the VT zone as a VF zone to avoid ATP",
+   "Shorten the detection duration of the VT zone"
+  ],
+  "commentaires": [
+   "Correct: with a lower threshold, more conducted AF complexes are judged correlated; the \"at least 3 correlated out of 10\" criterion remains met and therapy remains withheld.",
+   "Incorrect: a higher threshold makes fewer complexes correlate and promotes inappropriate therapy.",
+   "Incorrect: no discrimination applies in the VF zone; the risk of inappropriate shock would be greater.",
+   "Incorrect: a shorter duration brings the decision forward and does not correct morphology classification."
+  ],
+  "explication": "Rhythm ID compares each tachycardia complex with the sinus rhythm template and classifies it as correlated (C) or uncorrelated (U) according to the RhythmMatch Threshold, programmable from 70 to 96% (94% nominal). The decision is based on a sliding 10-cycle window: at least 3 correlated complexes indicate SVT (RID+), fewer than 3 indicate VT (RID-). Because analysis continues throughout the episode, correlations fluctuating around the threshold can switch the classification from RID+ to RID- and trigger inappropriate therapy. Lowering the threshold (to around 85%, for example) increases specificity, at the cost of a slight risk of classifying as SVT a VT whose morphology is close to sinus rhythm. The template must also be kept up to date (active acquisition in frequently paced patients).",
+  "aRetenir": "Rhythm ID: at least 3 correlated complexes out of 10 = SVT; if conducted AF fluctuates around the RhythmMatch Threshold (94% nominal), lowering it to around 85% limits inappropriate therapy."
+ },
+ "cas-bsc-012": {
+  "question": "Regarding QUICK CONVERT ATP on Boston Scientific ICDs (antitachycardia pacing in the VF zone), which statements are correct? (select all that apply)",
+  "options": [
+   "It is a single burst of 8 pulses, delivered before capacitor charging",
+   "It is only delivered if the mean ventricular rate is below 250 bpm",
+   "It is delivered during capacitor charging, without delaying the shock",
+   "Several bursts of increasing aggressiveness can be programmed in the VF zone",
+   "If it fails, charging starts if 2 of the 3 cycles following the burst remain fast"
+  ],
+  "commentaires": [
+   "Correct: a single, non-programmable burst of 8 pulses at 88% of the cycle length, delivered before any charging.",
+   "Correct: above 250 bpm, the device goes straight to shock (fast VF, oversensing or lead noise are more likely).",
+   "Incorrect: ATP during charging is an option from other manufacturers; on Boston Scientific devices, the burst precedes charging.",
+   "Incorrect: only one burst is possible in the VF zone; multiple sequences are programmed in the VT zones.",
+   "Correct: after the burst (the first cycle is ignored), 2 fast cycles out of 3 start charging; 2 slow cycles out of 3 mean the burst is considered successful."
+  ],
+  "explication": "Programming consensus documents recommend offering ATP for fast VTs up to 230 bpm, including in the VF zone, because many are monomorphic and terminate painlessly. On Boston Scientific devices, QUICK CONVERT delivers a single burst of 8 pulses at 88% of the tachycardia cycle length, before charging, and only if the mean rate is below 250 bpm. The rhythm is then reanalysed: the first cycle is ignored, then 2 slow cycles out of 3 indicate success, and 2 fast cycles out of 3 start charging. If it fails, the shock is delayed by only a few seconds. If the tachycardia terminates during charging, the charge is diverted.",
+  "aRetenir": "QUICK CONVERT (Boston Scientific): a single burst of 8 pulses in the VF zone, before charging, only below 250 bpm; charging follows if 2 cycles out of 3 remain fast."
+ },
+ "cas-bsc-013": {
+  "question": "True or false: on a Boston Scientific transvenous ICD with shocks programmed with reconfirmation (Committed Shock set to Off), if charging has been diverted once during an episode because the arrhythmia appeared to have terminated, the next shock in the same episode will be delivered without further reconfirmation.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: only one diversion is allowed per episode; after a diverted charge, the next shock is delivered as if Committed Shock were programmed On.",
+   "Incorrect: the device cannot divert two charges in a row within the same episode, so as not to leave a poorly sensed VF untreated."
+  ],
+  "explication": "With reconfirmation active, the device analyses the rhythm during and at the end of charging. The charge is diverted if the persistence criterion (6 fast cycles out of 10) is no longer met during charging, or if, after charge completion, 2 of the 3 analysed cycles are slow. A poorly sensed low-amplitude VF can thus be wrongly taken for spontaneous termination. To limit this risk, only one diversion is allowed per episode: if the arrhythmia is redetected, the next shock is delivered without reconfirmation, synchronised to an R wave after a 500 ms window (or asynchronously after 2 s without an R wave). This logic explains the very short charge times (capacitors already charged) and the committed shocks sometimes observed during induction testing.",
+  "aRetenir": "Boston Scientific ICD: only one diverted charge per episode; the next shock is delivered without reconfirmation."
+ },
+ "cas-bsc-014": {
+  "question": "A 31-year-old man, resuscitated from sudden cardiac arrest, undergoes automated screening before S-ICD implantation (electrode simulated in the left parasternal position). Primary vector: acceptable supine and sitting. Secondary vector: acceptable supine, failed sitting. Alternate vector: acceptable in both positions, but the QRS is negative supine and positive sitting. How do you interpret this screening?",
+  "options": [
+   "Not eligible: at least two valid vectors are needed in every position tested",
+   "Eligible with three vectors, as the sitting position is merely an optional test",
+   "Eligible with two vectors, since the tool accepted the alternate vector in both positions",
+   "Eligible on the primary vector only; the alternate, which changes axis, is unreliable"
+  ],
+  "commentaires": [
+   "Incorrect: the minimum criterion is one vector valid in every position; requiring two vectors is a preference of some centres, not the rule.",
+   "Incorrect: testing supine and sitting or standing is mandatory; the secondary vector fails in the sitting position.",
+   "Incorrect: a QRS that reverses with posture makes the vector unreliable, because the template is used for beat certification and discrimination.",
+   "Correct: the primary vector meets the minimum criterion; the secondary fails sitting and the alternate changes axis with posture."
+  ],
+  "explication": "S-ICD screening, whether manual (template tool) or automated (programmer), checks that at least one sensing vector maintains an acceptable QRS/T-wave ratio both supine and sitting or standing. The automated report restates this minimum criterion. The S-ICD relies heavily on morphology: the template is used to certify beats (identifying double counting or T-wave oversensing) and for discrimination in the conditional shock zone. A QRS that changes polarity with position therefore makes the vector unreliable, even if the tool accepts it; a simple change in amplitude matters less. Here, only the primary vector is robust: the patient is eligible, but with a single sensing option. An exercise test or testing in an alternative position (right parasternal) can help decide.",
+  "aRetenir": "S-ICD screening: at least one vector valid supine and standing; a vector whose QRS changes axis with posture should not be counted as reliable."
+ },
+ "cas-bsc-015": {
+  "question": "A 27-year-old patient has an EMBLEM S-ICD. Remote monitoring shows several episodes of non-sustained polymorphic ventricular tachycardia: each time, charging started, then the arrhythmia terminated and no shock was delivered. What is the effect of the SMART Charge algorithm?",
+  "options": [
+   "It turns the conditional shock zone into a shock zone, to treat any recurrences more quickly",
+   "It extends pre-charge confirmation by 3 intervals after each aborted episode, up to 5 times",
+   "It suspends therapy after 5 aborted charges, until the next interrogation",
+   "It reduces the energy of the first shock to shorten charge time during recurrences"
+  ],
+  "commentaires": [
+   "Incorrect: SMART Charge does not change the programmed zones.",
+   "Correct: each untreated episode extends the persistence period required before charging by 3 intervals, up to a maximum of 5 extensions; this extension can be reset with the programmer.",
+   "Incorrect: therapy remains active; the algorithm only delays charging.",
+   "Incorrect: the S-ICD always delivers an 80 J shock, not programmable outside induction testing."
+  ],
+  "explication": "Before charging, the S-ICD requires 18 of the last 24 certified intervals to be fast, then for this condition to persist (2 intervals nominal) and for the last intervals to remain fast. SMART Charge adapts this persistence to the patient: each episode that charged but was not treated extends it by 3 intervals, up to a maximum of 5 extensions, giving non-sustained arrhythmias more time to terminate before charging. The extension applies only to the first shock of an episode and cannot be switched off, but it can be reset with the programmer. Subsequent shocks and redetection (14 out of 24) are not affected. In practice, a substantial extension should prompt a check that the time to shock remains acceptable in the event of VF.",
+  "aRetenir": "SMART Charge (S-ICD): +3 persistence intervals before charging after each aborted episode, up to 5 times; affects only the first shock and can be reset with the programmer."
+ },
+ "cas-bsc-016": {
+  "question": "An S-ICD is implanted in an obese 61-year-old man. At defibrillation testing, VF is correctly detected, but the 65 J shock fails, then the 80 J shock (reversed polarity) also fails; an external shock is successful. The measured shock impedance is markedly high. What is the most likely explanation?",
+  "options": [
+   "Undersensing of VF related to the programmed sensing vector",
+   "A high defibrillation threshold due to the heart disease, unrelated to the implant",
+   "An electrode or generator placed too superficially, in subcutaneous fat",
+   "A capacitor charging fault, to be checked by capacitor reformation"
+  ],
+  "commentaires": [
+   "Incorrect: VF was correctly detected and the shocks were delivered; the problem is shock efficacy.",
+   "Incorrect: a high impedance points first to a correctable positioning problem, before concluding that the threshold is intrinsically high.",
+   "Correct: a layer of fat between the electrode (or generator) and the fascia increases impedance and diverts current away from the myocardium; the electrode is re-tunnelled and the generator placed deeper and more posteriorly.",
+   "Incorrect: the shocks were delivered at the intended energies; nothing suggests a charging fault."
+  ],
+  "explication": "The defibrillation threshold of the S-ICD is higher than that of a transvenous ICD, but the device delivers 80 J. At induction testing, success at 65 J is generally sought, giving a 15 J safety margin. After a failure, the first step is to look at the shock impedance and the position of the hardware on the chest X-ray. A high impedance suggests an electrode tunnelled too superficially or a generator placed in fat, both common in obese patients. The PRAETORIAN score, calculated from the chest X-ray, relates fat beneath the electrode and generator, as well as an anterior generator position, to the risk of defibrillation failure. Correction consists of re-tunnelling the electrode in contact with the fascia, placing the generator more posteriorly, possibly in an intermuscular position, and reversing polarity. In the rare event of repeated failure despite these corrections, a transvenous ICD is implanted.",
+  "aRetenir": "S-ICD defibrillation failure with high impedance: think of an electrode or generator in fat, and reposition (PRAETORIAN score)."
+ },
+ "cas-bsc-017": {
+  "question": "A 28-year-old woman has an S-ICD. On a follow-up exercise test, T-wave oversensing is seen at peak exercise on the programmed (secondary) vector, absent at rest. Which measures are appropriate? (select all that apply)",
+  "options": [
+   "Test the other vectors at rest and during exercise, then programme the one without oversensing",
+   "Lengthen the 18/24 detection counter to delay charging",
+   "Check that the SMART Pass filter is switched on",
+   "Programme ATP in the conditional shock zone"
+  ],
+  "commentaires": [
+   "Correct: vector selection is the main lever; it is validated at rest, standing and during exercise.",
+   "Incorrect: the 18/24 counter is not programmable.",
+   "Correct: this high-pass filter attenuates low-frequency signals such as the T wave; it has markedly reduced inappropriate shocks.",
+   "Incorrect: the S-ICD does not deliver ATP."
+  ],
+  "explication": "T-wave oversensing is the leading cause of inappropriate S-ICD shocks, especially during exercise, when the R wave decreases and the T wave increases. There are few reprogramming options: choice of sensing vector (with a new template acquisition), zone settings and the SMART Pass filter. SMART Pass is enabled if QRS amplitude is sufficient (at least 0.5 mV); the device disables it if it suspects undersensing. In the evaluation by Theuns et al., it markedly reduced inappropriate shocks. The 18/24 counter is fixed, and there is no ATP. An exercise test, even a simple one (repeated squats), is useful in young, active patients to validate the chosen vector.",
+  "aRetenir": "T-wave oversensing on an S-ICD: change vector (validated at rest and during exercise) and check SMART Pass; the 18/24 counter is not programmable."
+ },
+ "cas-bsc-019": {
+  "question": "A patient with LBBB has a Boston Scientific CRT-D, maximum tracking rate 120 bpm, with LV sensing enabled. During exercise-induced sinus tachycardia, the EGMs show PMT Termination intervening, then a long run of \"RVS-LVS\" cycles followed by RV-only pacing, with LV pacing inhibited (Inh-LVP). Which measures are appropriate? (select all that apply)",
+  "options": [
+   "Raise the maximum tracking rate according to the patient's exercise capacity",
+   "Shorten the LV Protection Period (LVPP) or switch off LV sensing",
+   "Lengthen the PVARP to prevent further PMT Termination interventions",
+   "Switch LV pacing to another lead configuration",
+   "Consider switching off PMT Termination in the absence of retrograde conduction"
+  ],
+  "commentaires": [
+   "Correct: an excessively low maximum tracking rate triggers PMT Termination during sinus tachycardia and loss of tracking.",
+   "Correct: after late LV sensing (LBBB), the LV Protection Period prevents LV pacing too close to it; during exercise, it inhibits LV pacing cycle after cycle.",
+   "Incorrect: lengthening the PVARP lowers the 2:1 block rate and promotes loss of atrial tracking.",
+   "Incorrect: the problem is inhibition by LV sensing, not a threshold or configuration issue.",
+   "Correct: the algorithm blocks one P wave in every 16 at the maximum tracking rate; in a patient without VA conduction, it can be switched off."
+  ],
+  "explication": "Boston Scientific CRT devices can sense on the LV lead, to avoid pacing in the vulnerable period of a left-sided PVC seen late by the RV lead. An LV Protection Period (LVPP) follows each LV sensed event and prevents LV pacing too close to it. During exercise, in a patient with LBBB, intrinsic activation reaches the LV late: after an intrinsically conducted cycle, the next cycle can only be paced in the RV, and the sequence perpetuates itself. The trigger here is PMT Termination blocking a P wave during sinus tachycardia at the maximum tracking rate, which is set too low. The maximum tracking rate should therefore be raised, the LV Protection Period shortened or LV sensing switched off, and switching off PMT Termination considered if no retrograde conduction is found. An exercise test then confirms biventricular pacing at peak exercise.",
+  "aRetenir": "Loss of CRT during exercise with \"Inh-LVP\": LV sensing and its protection period inhibit LV pacing; raise the maximum tracking rate and shorten the LVPP (or switch off LV sensing)."
+ },
+ "cas-bsc-021": {
+  "question": "A patient has a Boston Scientific CRT-D with a bipolar LV lead. LV threshold testing in VVI at 110 bpm, \"LV tip → RV coil\" configuration: the QRS morphology changes once at around 4.5 V, then LV capture is lost at 0.8 V. In the \"LV tip → can\" configuration, there is a single QRS morphology until loss of capture. What is the most likely explanation?",
+  "options": [
+   "Intermittent phrenic nerve stimulation altering the QRS morphology",
+   "Fusion with intrinsic conduction, favoured by the pacing rate",
+   "LV lead dislodgement, with the lead backing out into the proximal coronary sinus",
+   "Anodal RV capture at the coil, lost below 4.5 V"
+  ],
+  "commentaires": [
+   "Incorrect: phrenic nerve stimulation does not alter QRS morphology and would not depend on the anode selected in this way.",
+   "Incorrect: testing in VVI at 110 bpm is done precisely to avoid fusion; and fusion would not depend on the configuration.",
+   "Incorrect: dislodgement would give a single morphology in all configurations, with a high threshold.",
+   "Correct: at high output, the RV coil used as the anode also captures the RV; the dual morphology appears only in the configurations that use it."
+  ],
+  "explication": "When the QRS morphology changes during LV threshold testing in VVI at a high rate (where fusion is impossible), two explanations predominate. The first is anodal capture: the anode (here the RV coil) also captures the myocardium at high output, producing \"pseudo-biventricular\" pacing. The dual morphology is then seen only with configurations using the RV coil. The second is the presence of two LV leads joined by a Y-connector: the dual morphology is then seen in all configurations. The true LV threshold is the final loss of capture (0.8 V). Anodal capture often goes unnoticed on the ECG during biventricular pacing, and its benefit has not been demonstrated. A safe output above the true LV threshold is therefore programmed, without trying to preserve anodal capture.",
+  "aRetenir": "Dual morphology during LV threshold testing only with the RV coil as the anode = anodal RV capture; the true LV threshold is the final loss of capture."
+ }
+}

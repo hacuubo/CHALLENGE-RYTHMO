@@ -1,0 +1,169 @@
+{
+ "prog-bbm-011": {
+  "question": "In the Onset/Stability discrimination suite of a Boston Scientific ICD, which criterion mainly targets sinus tachycardia and which targets atrial fibrillation?",
+  "reponseAttendue": "Onset (suddenness of onset) is used to identify sinus tachycardia, which starts gradually; Stability (regularity of R-R intervals) is used to identify AF, which has an irregular ventricular response.",
+  "explication": "Sinus tachycardia starts gradually, whereas VT starts abruptly: the Onset criterion exploits this difference. Conducted AF produces irregular R-R intervals, whereas monomorphic VT is usually regular: this is the role of the Stability criterion, which can be combined with the atrial rate threshold (AFib Rate Threshold) in dual-chamber devices. Boston Scientific's implementation of the 2019 consensus update suggests, for CRT-Ds, Onset/Stability or Rhythm ID, with Sustained Rate Duration (SRD) programmed Off. Classic pitfall: a VT starting during exercise-induced sinus tachycardia may fail the Onset criterion and have its therapy withheld; conversely, an active SRD timer would eventually treat a prolonged SVT, hence the recommendation to leave it Off.",
+  "aRetenir": "Onset discriminates sinus tachycardia; Stability discriminates AF."
+ },
+ "prog-bbm-012": {
+  "question": "According to the manufacturer-specific implementation of the 2019 HRS/EHRA/APHRS/LAHRS consensus update on ICD programming, which \"prolonged delay\" programming (option 1) is suggested for a Boston Scientific ICD in primary prevention, with no history of VT?",
+  "options": [
+   "VF ≥ 231 bpm (30/40 intervals) and VT2 ≥ 188 bpm (30 intervals), VT1 monitor only",
+   "VF ≥ 250 bpm (5 s) and VT ≥ 185 bpm (12 s), optional VT-1 monitor zone",
+   "VF ≥ 200 bpm (1 s) and VT ≥ 170 bpm (2.5 s), with ATP in the VT zone",
+   "A single therapy zone at 200 bpm, with a duration of 2.5 s"
+  ],
+  "commentaires": [
+   "Incorrect: 231 bpm with 30/40 and 188 bpm with 30 intervals are the settings of the Biotronik implementation.",
+   "Correct: option 1: VF 250 bpm (8/10 + 5 s), VT 185 bpm (8/10 + 12 s), VT-1 as a monitor zone at the operator's discretion.",
+   "Incorrect: short detection (1 s) at a low rate is the conventional programming that the consensus aims to avoid.",
+   "Incorrect: high-rate therapy (200 bpm, 2.5 s) corresponds to option 2 in the appendix, not to the \"prolonged delay\" option."
+  ],
+  "explication": "The manufacturer appendix (Appendix B) of the 2019 update translates the principles of the 2015 consensus into Boston Scientific settings. Option 1 (prolonged delay): VF at 250 bpm with 8/10 intervals plus a 5 s duration, VT at 185 bpm with 8/10 plus a 12 s duration, VT-1 as a monitor zone at the operator's discretion. Option 2 (high-rate therapy): VF at 200 bpm with a 2.5 s duration. These options are based on MADIT-RIT, conducted with Boston Scientific ICDs: compared with conventional programming, both high-rate therapy (≥ 200 bpm) and delayed therapy reduced inappropriate therapies by about 75%, with a significant mortality reduction for high-rate therapy (HR 0.45) and a borderline significant one for prolonged delay (HR 0.56; p = 0.06). SVT discriminators only apply up to 230 bpm. Settings expressed as numbers of intervals (231 bpm with 30/40) belong to the Biotronik implementation, and rapid detection with a 1 s duration corresponds to the conventional programming that should be avoided.",
+  "aRetenir": "Boston Scientific, primary prevention: VT 185 bpm/12 s and VF 250 bpm/5 s, or high-rate therapy with VF 200 bpm/2.5 s."
+ },
+ "prog-bbm-013": {
+  "question": "Which of the following parameters are combined in the HeartLogic index (Boston Scientific CRT-D/ICD) to predict heart failure decompensation?",
+  "options": [
+   "Heart sounds (S1, S3)",
+   "AF burden and ventricular rate during AF",
+   "Thoracic impedance and night-time resting heart rate",
+   "Pulmonary artery pressure measured by an implanted sensor"
+  ],
+  "commentaires": [
+   "Correct: heart sounds S1 and S3, recorded by the accelerometer, are a cornerstone of the index.",
+   "Incorrect: AF burden and ventricular rate during AF are parameters of the Medtronic TriageHF score, not HeartLogic.",
+   "Correct: thoracic impedance and night-time heart rate are part of the index, together with respiration and activity.",
+   "Incorrect: pulmonary artery pressure requires a sensor implanted in the pulmonary artery, separate from HeartLogic."
+  ],
+  "explication": "HeartLogic calculates a daily composite index from sensors in the device: heart sounds recorded by the accelerometer (S1, S3), respiration (rate and the ratio of respiratory rate to tidal volume), thoracic impedance, night-time heart rate and activity. The alert is triggered when the index exceeds a configurable threshold. AF burden is part of the Medtronic TriageHF score, not HeartLogic. Pulmonary artery pressure is measured by a different device (a sensor implanted in the pulmonary artery). In practice, a HeartLogic alert should prompt a clinical assessment for congestion (weight, breathlessness, adherence, renal function) rather than a change in treatment based on the index alone.",
+  "aRetenir": "HeartLogic = heart sounds + respiration + thoracic impedance + night-time heart rate + activity."
+ },
+ "prog-bbm-014": {
+  "question": "What were the main validation results of the HeartLogic algorithm in the MultiSENSE study (sensitivity, unexplained alert rate, lead time)?",
+  "reponseAttendue": "In the validation cohort: 70% sensitivity for detecting a heart failure event, 1.47 unexplained alerts per patient-year, and a median lead time of about 34 days between alert and event.",
+  "explication": "MultiSENSE enrolled 900 patients with CRT-Ds, with a development cohort and an independent validation cohort. The two primary endpoints were a sensitivity above 40% and fewer than 2 unexplained alerts per patient-year; both were comfortably met (70% and 1.47/patient-year). The alert preceded the heart failure event by a median of 34 days, leaving time to intervene. A subsequent analysis showed that the event rate is about 10 times higher during an alert period than outside it. This was a diagnostic validation study, not a trial demonstrating clinical benefit.",
+  "aRetenir": "HeartLogic (MultiSENSE): 70% sensitivity, 1.47 unexplained alerts/patient-year, median lead time of 34 days."
+ },
+ "prog-bbm-015": {
+  "question": "What was the main result of the SMART-AV trial, which evaluated Boston Scientific's SmartDelay algorithm for AV delay optimisation in CRT?",
+  "options": [
+   "SmartDelay outperformed echo and a fixed delay on LV end-systolic volume",
+   "Echo-guided optimisation outperformed both SmartDelay and a fixed delay",
+   "SmartDelay was non-inferior to echo, with fewer HF hospitalisations",
+   "Neither SmartDelay nor echo outperformed a fixed 120 ms AV delay"
+  ],
+  "commentaires": [
+   "Incorrect: no difference was observed in LV end-systolic volume at 6 months.",
+   "Incorrect: echocardiography did not outperform SmartDelay or the fixed delay.",
+   "Incorrect: non-inferiority with fewer HF hospitalisations is the result of RESPOND-CRT (MicroPort SonR).",
+   "Correct: SmartDelay, echocardiography and a fixed 120 ms AV delay gave identical results."
+  ],
+  "explication": "SmartDelay calculates an AV delay from intervals measured on the intracardiac electrograms, without echocardiography. In SMART-AV (980 randomised patients), the primary endpoint was the change in LV end-systolic volume at 6 months. There was no difference between SmartDelay, echocardiography and a fixed 120 ms AV delay, nor in the secondary endpoints. The conclusion is that routine AV delay optimisation is not justified in all patients, although it may still have a role in non-responders. Not to be confused with RESPOND-CRT, in which MicroPort SonR optimisation was non-inferior to echocardiography. SmartDelay remains a quick and reproducible tool, suggested in the manufacturer-specific implementation of the ICD consensus.",
+  "aRetenir": "SMART-AV: for routine optimisation, neither SmartDelay nor echocardiography does better than a fixed 120 ms AV delay."
+ },
+ "prog-bbm-016": {
+  "question": "In the ALTITUDE study, patients with Boston Scientific ICDs/CRT-Ds followed on the LATITUDE remote monitoring network had better survival than those followed in clinic only, which formally proves that remote monitoring reduces mortality.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: ALTITUDE is an observational registry; the association with better survival does not prove causality.",
+   "Correct: remotely monitored patients may differ in unmeasured factors; only randomised trials establish causality."
+  ],
+  "explication": "ALTITUDE is a very large observational analysis (more than 185,000 patients): survival at 1 and 5 years was better in patients remotely monitored on LATITUDE than in those followed in clinic only. As a non-randomised registry, this association does not prove causality: remotely monitored patients may differ in unmeasured factors (adherence, social support, medical follow-up). The study also showed that receiving a shock was associated with increased mortality. Remote monitoring is now recommended for all ICD/CRT recipients, based on the totality of the evidence, including randomised data.",
+  "aRetenir": "ALTITUDE shows an association between LATITUDE and better survival, not causal proof (observational registry)."
+ },
+ "prog-bbm-017": {
+  "question": "Regarding the EMBLEM S-ICD subcutaneous ICD (Boston Scientific), which statements are correct?",
+  "options": [
+   "It delivers a non-programmable 80 J biphasic shock",
+   "It does not deliver antitachycardia pacing (ATP)",
+   "It provides no permanent bradycardia pacing; only optional post-shock pacing at 50 bpm for up to 30 s is available",
+   "It requires a transvenous right ventricular lead for sensing"
+  ],
+  "commentaires": [
+   "Correct: the S-ICD delivers a non-programmable 80 J biphasic shock.",
+   "Correct: the S-ICD does not deliver ATP; recurrent monomorphic VT amenable to ATP is a practical contraindication.",
+   "Correct: only optional post-shock pacing (50 bpm, up to 30 s) exists; there is no permanent bradycardia pacing.",
+   "Incorrect: the S-ICD is entirely extrathoracic, with no transvenous lead at all."
+  ],
+  "explication": "The S-ICD is entirely extrathoracic: a parasternal subcutaneous electrode connected to a generator in a lateral thoracic position, with no transvenous lead at all. Its only response to a detected ventricular tachyarrhythmia is a non-programmable 80 J biphasic shock. There is neither ATP nor permanent bradycardia pacing; optional post-shock pacing is delivered at 50 bpm for up to 30 s. Hence the practical contraindications: a need for bradycardia pacing, CRT, or recurrent monomorphic VT amenable to ATP.",
+  "aRetenir": "S-ICD: non-programmable 80 J shock, no ATP or permanent pacing, only 30 s of post-shock pacing."
+ },
+ "prog-bbm-018": {
+  "question": "In a Boston Scientific S-ICD, what is the difference between the Shock Zone and the Conditional Shock Zone?",
+  "options": [
+   "Shock Zone: 80 J shock; Conditional Zone: lower-energy shock",
+   "Conditional Zone: monitoring only, no shock; Shock Zone: therapy",
+   "Conditional Zone: ATP then shock; Shock Zone: immediate shock",
+   "Shock Zone: rate only; Conditional Zone: rate + morphology"
+  ],
+  "commentaires": [
+   "Incorrect: the S-ICD shock is always 80 J and non-programmable.",
+   "Incorrect: the Conditional Zone does deliver therapy, but only after discrimination; a monitor-only zone is an option of transvenous ICDs.",
+   "Incorrect: the S-ICD never delivers ATP, whatever the zone.",
+   "Correct: in the Shock Zone, rate alone decides; in the Conditional Zone, morphology and QRS width are added."
+  ],
+  "explication": "The S-ICD allows two rate zones. In the Shock Zone (170 to 250 bpm), rate is the only criterion. In the Conditional Shock Zone, which must be lower (170 to 240 bpm), the device compares complexes with the sinus rhythm template acquired at set-up and analyses QRS width and whether the rhythm is polymorphic, so as not to treat AF, sinus tachycardia or other SVTs. Rate is estimated from the running average of the last 4 R-R intervals, and charging only starts if 18 of the last 24 intervals are classified as \"treatable\", then confirmed by the persistence analysis. The manual advises programming one of the zones at 200 bpm or below to ensure VF detection. The S-ICD does not deliver ATP.",
+  "aRetenir": "S-ICD: Shock Zone = rate only; Conditional Zone = rate + morphology."
+ },
+ "prog-bbm-019": {
+  "question": "What is the role of the SMART Pass filter in the Boston Scientific S-ICD?",
+  "options": [
+   "Automatic selection of the best sensing vector among the three available",
+   "An additional high-pass filter against oversensing, especially of the T wave",
+   "A discrimination zone based on comparison with the sinus rhythm template",
+   "Post-shock pacing at 50 bpm for up to 30 seconds"
+  ],
+  "commentaires": [
+   "Incorrect: the sensing vector is selected during automatic set-up; SMART Pass is a filter applied to the signal.",
+   "Correct: SMART Pass attenuates low-frequency signals (T wave); it is enabled if the signal is at least 0.5 mV and disabled if undersensing is suspected.",
+   "Incorrect: comparison with the sinus template is the Conditional Shock Zone analysis, not SMART Pass.",
+   "Incorrect: post-shock pacing (50 bpm, up to 30 s) is a separate S-ICD option."
+  ],
+  "explication": "Most inappropriate S-ICD shocks result from cardiac oversensing, particularly QRS-T wave double counting. SMART Pass adds a high-pass filter that attenuates low-frequency signals while preserving an adequate sensing margin. It is enabled automatically during set-up if the subcutaneous ECG signal amplitude is at least 0.5 mV, and then disabled by the device if undersensing is suspected: set-up must then be repeated to re-enable it. In the prospective evaluation by Theuns et al., SMART Pass reduced the risk of a first inappropriate shock by 50% and the risk of all inappropriate shocks by 68%, without delaying appropriate shocks.",
+  "aRetenir": "SMART Pass = the S-ICD's high-pass anti-oversensing filter, which roughly halves inappropriate shocks."
+ },
+ "prog-bbm-020": {
+  "question": "During pre-implant ECG screening for an S-ICD (manual or automated screening tool), under what condition is the patient considered eligible?",
+  "reponseAttendue": "At least one surface lead (corresponding to an S-ICD sensing vector) must be acceptable in all tested postures: every QRS complex and T wave assessed must fit within the coloured template, with a stable morphology from one posture to another.",
+  "explication": "Screening reproduces the subcutaneous sensing vectors using surface electrodes placed according to the manufacturer's diagram. Each lead is assessed with the coloured template (manual tool 4744) or by the automated screening tool (AST): the QRS and T wave must stay within the profile chosen according to QRS amplitude. A lead is acceptable only if it passes in all tested postures (e.g. supine and standing), with a stable morphology. The patient is eligible if at least one lead is acceptable in all postures. Failure carries a risk of inaccurate sensing and inappropriate shocks due to T-wave oversensing.",
+  "aRetenir": "S-ICD: eligible if at least one vector is acceptable in all tested postures."
+ },
+ "prog-bbm-021": {
+  "question": "According to the manufacturer-specific implementation of the 2019 ICD programming consensus update, which zone settings are suggested for the S-ICD?",
+  "options": [
+   "Shock ≥ 230 bpm, conditional ≥ 200 bpm (or 10–20 bpm below the known VT)",
+   "Conditional ≥ 150 bpm to treat slow VTs as well, shock ≥ 200 bpm",
+   "Shock ≥ 200 bpm and conditional ≥ 180 bpm, without post-shock pacing",
+   "A single shock zone ≥ 170 bpm, conditional zone disabled so nothing is missed"
+  ],
+  "commentaires": [
+   "Correct: Shock Zone ≥ 230 bpm, Conditional Zone ≥ 200 bpm or 10 to 20 bpm below the known VT, and post-shock pacing to be considered.",
+   "Incorrect: S-ICD zones start at 170 bpm, and a 150 bpm zone would multiply inappropriate shocks.",
+   "Incorrect: these cut-offs are too low; the appendix in fact suggests considering post-shock pacing.",
+   "Incorrect: a single 170 bpm zone without discrimination would expose the patient to inappropriate shocks for sinus tachycardia or AF."
+  ],
+  "explication": "The Boston Scientific appendix of the 2019 update suggests, for the S-ICD, a Shock Zone of at least 230 bpm and a Conditional Zone of at least 200 bpm, or 10 to 20 bpm below the VT if its rate is known. It also advises considering post-shock pacing. Enabling the Conditional Zone with morphology discrimination reduces inappropriate shocks: in UNTOUCHED, with rate-only therapy above 250 bpm and discrimination between 200 and 250 bpm, 95.9% of patients had received no inappropriate shock at 18 months. A single 170 bpm zone without discrimination would expose the patient to numerous inappropriate shocks for sinus tachycardia or AF.",
+  "aRetenir": "S-ICD: Conditional Zone around 200 bpm with discrimination, high Shock Zone (≥ 230–250 bpm)."
+ },
+ "prog-bbm-022": {
+  "question": "What was the main result of the PRAETORIAN trial, which compared the S-ICD with the transvenous ICD in patients without a pacing indication?",
+  "options": [
+   "Twice as many device-related complications with the S-ICD",
+   "Fewer inappropriate shocks with the S-ICD thanks to the SMART Pass filter",
+   "Non-inferiority of the S-ICD for complications + inappropriate shocks",
+   "Superiority of the S-ICD for all-cause mortality, with 40% fewer deaths"
+  ],
+  "commentaires": [
+   "Incorrect: on the contrary, complications tended to be less frequent with the S-ICD.",
+   "Incorrect: inappropriate shocks were slightly more frequent with the S-ICD, with no significant difference.",
+   "Correct: 15.1% vs 15.7% at 48 months for the composite of complications + inappropriate shocks: non-inferiority established.",
+   "Incorrect: no difference in mortality was demonstrated."
+  ],
+  "explication": "PRAETORIAN randomised 849 patients with an ICD indication but no pacing indication. With a median follow-up of about 49 months, the composite endpoint (device-related complications and inappropriate shocks) occurred at a similar rate in both arms (15.1% vs 15.7% at 48 months), establishing non-inferiority of the S-ICD. Complications tended to be less frequent with the S-ICD and inappropriate shocks slightly more frequent, with no significant difference. No difference in mortality was demonstrated. These data support the S-ICD as an alternative to the transvenous ICD when there is no need for bradycardia pacing, ATP or CRT (ESC 2022).",
+  "aRetenir": "PRAETORIAN: S-ICD non-inferior to the transvenous ICD for complications + inappropriate shocks."
+ }
+}

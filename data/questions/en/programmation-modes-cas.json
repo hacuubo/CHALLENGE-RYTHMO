@@ -1,0 +1,232 @@
+{
+ "prog-mod-001": {
+  "question": "Dual-chamber pacemaker in DDD mode, lower rate 60 bpm, paced AV delay 200 ms, ventricular-based timing. In this patient with sinus node dysfunction, every atrial paced beat is conducted intrinsically with an AP-VS interval of 150 ms. At what rate is the atrium actually paced at rest?",
+  "options": [
+   "57 bpm",
+   "60 bpm",
+   "63 bpm",
+   "75 bpm"
+  ],
+  "commentaires": [
+   "Incorrect: this assumes a 1050 ms cycle, wrongly adding the AV delay difference; in fact the cycle shortens.",
+   "Incorrect: 60 bpm would only hold with atrial-based timing, in which the A-A interval is fixed.",
+   "Correct: an 800 ms VA interval (1000 − 200) starts from the VS at 150 ms, giving an A-A cycle of 950 ms, i.e. about 63 bpm.",
+   "Incorrect: 75 bpm corresponds to the VA interval alone (800 ms), ignoring the AP-VS interval."
+  ],
+  "explication": "With ventricular-based timing, the fixed interval is the atrial escape interval (VA interval = lower rate interval − paced AV delay = 1000 − 200 = 800 ms), which starts from any ventricular event, paced or sensed. If intrinsic conduction occurs before the AV delay times out (VS at 150 ms), the A-A cycle is 150 + 800 = 950 ms, i.e. about 63 bpm: the atrial pacing rate slightly exceeds the programmed lower rate. The faster AV conduction is relative to the programmed AV delay, the greater the discrepancy. With atrial-based timing, by contrast, the A-A interval is fixed (1000 ms) whenever the VS occurs. This subtlety explains \"abnormal\" rates differing by a few beats at a device check, with no malfunction whatsoever.",
+  "aRetenir": "Ventricular-based timing: A-A = VA interval + actual AV interval; AV conduction shorter than the programmed AV delay speeds up atrial pacing."
+ },
+ "prog-mod-002": {
+  "question": "Pacemaker in DDD mode, lower rate 60 bpm, sensed AV delay 120 ms, paced AV delay 150 ms. As the sinus rate slows, an AS-VP cycle is followed by an AP-VP cycle; the interval between the two ventricular spikes then measures 1030 ms, before returning to 1000 ms. What is the explanation?",
+  "options": [
+   "Rate hysteresis triggered by the sensed P wave",
+   "Atrial-based timing: the A-A interval remains fixed",
+   "Undersensing of the P wave preceding the atrial spike",
+   "A VA interval prolonged by ventricular-based timing"
+  ],
+  "commentaires": [
+   "Incorrect: hysteresis would prolong the escape interval by far more than 30 ms and persistently, not by an amount equal to the difference between the AV delays.",
+   "Correct: the A-A interval is fixed at 1000 ms from the sensed P wave; the V-V interval lengthens by the difference between the paced and sensed AV delays (150 − 120 = 30 ms).",
+   "Incorrect: an unsensed P wave would produce a competing atrial spike, not a fixed 30 ms prolongation of the ventricular cycle.",
+   "Incorrect: with ventricular-based timing, the VA interval (850 ms) starting from the VP plus the paced AV delay (150 ms) would give exactly 1000 ms."
+  ],
+  "explication": "With atrial-based timing, the device times the lower rate interval from one atrial event to the next: the sensed P wave starts a 1000 ms A-A cycle, so the next atrial spike falls 1000 ms after it. The ventricle was paced 120 ms after the sensed P wave and will be paced 150 ms after the atrial spike: the VP-VP interval is therefore 1000 + 30 = 1030 ms. With ventricular-based timing, the VA interval (1000 − 150 = 850 ms) starts from the VP and the V-V cycle remains 1000 ms. These few tens of milliseconds do not reflect any malfunction; knowing which timing system the device uses avoids mistaking them for an abnormality.",
+  "aRetenir": "Atrial-based timing: fixed A-A interval; on switching from AS-VP to AP-VP, the V-V interval lengthens by the difference between the paced and sensed AV delays."
+ },
+ "prog-mod-004": {
+  "question": "DDD pacemaker in a patient with complete AV block: maximum tracking rate 120 bpm (500 ms), sensed AV delay 150 ms, PVARP 260 ms, no dynamic shortening. The sinus rate stabilises at 125 bpm (480 ms). Which statements are correct? (multiple answers)",
+  "options": [
+   "The AS-VP interval lengthens by 20 ms with each cycle",
+   "The AS-VP interval can never exceed 240 ms",
+   "The ventricular rate briefly exceeds 120 bpm at the start of each sequence",
+   "The non-tracked P wave falls within the PVARP and is marked as a refractory event",
+   "Electronic 2:1 block will only appear above 170 bpm"
+  ],
+  "commentaires": [
+   "Correct: the VP cannot occur until 500 ms after the previous one, whereas the P waves arrive every 480 ms, hence a progressive delay of 20 ms per cycle.",
+   "Correct: a P wave is only tracked if it falls outside the PVARP; the AS-VP interval therefore cannot exceed the maximum tracking rate interval − PVARP = 500 − 260 = 240 ms.",
+   "Incorrect: no VP-VP interval is shorter than 500 ms; the pause following the blocked P wave actually lengthens the cycle.",
+   "Correct: the P wave then arrives less than 260 ms after the VP; it is sensed in the refractory period (AR-type marker) and does not start an AV delay.",
+   "Incorrect: TARP = 150 + 260 = 410 ms, so 2:1 block appears from about 146 bpm."
+  ],
+  "explication": "Between the maximum tracking rate (120 bpm) and the 2:1 block point (60000/410 ≈ 146 bpm), the pacemaker shows pacemaker Wenckebach behaviour. Each VP is delayed until the maximum tracking rate interval has elapsed: the AS-VP interval goes from 150 to 170, 190, 210 and then 230 ms. The next P wave falls 250 ms after the VP, and therefore within the 260 ms PVARP: it is not tracked, and the cycle restarts with a 150 ms AV delay. The result here is 6:5 conduction (five P waves out of six tracked) and a mean ventricular rate of about 104 bpm, never above 120 bpm. The limit \"maximum tracking rate interval − PVARP\" (240 ms) caps the AS-VP interval and allows the length of the sequences to be predicted.",
+  "aRetenir": "Pacemaker Wenckebach: the AS-VP interval lengthens by (maximum tracking rate interval − sinus cycle) with each cycle, never exceeding the maximum tracking rate interval − PVARP, until a P wave falls in the PVARP."
+ },
+ "prog-mod-006": {
+  "question": "Patient in DDD mode, paced AV delay 200 ms. On a Holter recording, a wide-QRS PVC begins almost simultaneously with an atrial spike. A ventricular spike is delivered 200 ms after the atrial spike, in the ST segment of the PVC, without capture. All other cycles are normal. What is the most likely explanation?",
+  "options": [
+   "The PVC fell within the post-atrial ventricular blanking period",
+   "Crosstalk: the atrial spike was sensed on the ventricular channel",
+   "Loss of ventricular capture due to a rise in threshold",
+   "Normal safety pacing after sensing in the dedicated window"
+  ],
+  "commentaires": [
+   "Correct: during the few tens of ms of blanking that follow the atrial spike, the ventricular channel is blind; the PVC is not seen and the VP is delivered at the end of the full AV delay.",
+   "Incorrect: crosstalk would cause inhibition of the VP or early safety pacing, not a VP at 200 ms.",
+   "Incorrect: the spike falls within the myocardial refractory period of the PVC; the lack of capture is functional.",
+   "Incorrect: safety pacing occurs at a shortened AV delay (about 100 to 120 ms), not at the end of the programmed AV delay."
+  ],
+  "explication": "After each atrial pacing pulse, the ventricular channel is blinded for a short blanking period (typically 20 to 50 ms) so that it does not sense the atrial artefact (crosstalk). A PVC whose deflection reaches the ventricular lead during this blanking period is not sensed: the AV delay runs on and the VP is delivered at 200 ms, while the myocardium is refractory, and therefore without capture. Had the PVC been sensed just after the blanking period, within the safety window, the device would have delivered safety pacing at a short AV delay. Lengthening the blanking period reduces crosstalk but increases the risk of missing PVCs; it is a trade-off. This phenomenon also explains some inappropriate switches of ventricular pacing minimisation algorithms that \"see\" a pause.",
+  "aRetenir": "A PVC coinciding with the atrial spike is invisible in the post-atrial blanking period, hence a non-capturing VP at the full AV delay; this is neither crosstalk nor loss of capture."
+ },
+ "prog-mod-007": {
+  "question": "A 69-year-old woman with sinus node dysfunction has a pacemaker programmed to AAI at 60 bpm with a short atrial refractory period (200 ms). On interrogation, the conducted QRS is sensed on the atrial channel 250 ms after each atrial spike. At what rate is the atrium paced?",
+  "options": [
+   "About 71 bpm",
+   "60 bpm",
+   "About 48 bpm",
+   "40 bpm"
+  ],
+  "commentaires": [
+   "Incorrect: the sensed R wave does not shorten the cycle; it lengthens it by resetting the escape interval.",
+   "Incorrect: 60 bpm would be obtained if the R wave fell within the atrial refractory period.",
+   "Correct: the R wave, outside the refractory period, resets the 1000 ms interval: A-A cycle of 250 + 1000 = 1250 ms, i.e. 48 bpm.",
+   "Incorrect: 40 bpm does not correspond to any calculation; the cycle is 1250 ms, not 1500 ms."
+  ],
+  "explication": "In AAI mode, any signal sensed on the atrial channel outside the refractory period is interpreted as a P wave and resets the escape interval. Here, the far-field R wave is seen 250 ms after the spike, beyond the 200 ms refractory period: the next spike only comes 1000 ms after it, giving a cycle of 1250 ms (48 bpm) instead of 60 bpm. The patient is therefore paced more slowly than intended, which may perpetuate bradycardia symptoms. The fix is to extend the atrial refractory period beyond the time at which the R wave is sensed and/or to make the atrial channel less sensitive (a higher mV value), while checking that true P waves are still reliably sensed. Single-chamber AAI is rarely chosen nowadays, but the same pitfall exists in AAI(R) mode programmed on a dual-chamber device.",
+  "aRetenir": "In AAI mode, a far-field R wave sensed outside the refractory period resets the escape interval and slows pacing: A-A = R-wave sensing delay + lower rate interval."
+ },
+ "prog-mod-008": {
+  "question": "A 71-year-old man with sinus node dysfunction and normal AV conduction is paced in AAI at 70 bpm with rate hysteresis at 50 bpm and no search hysteresis. His usual sinus rate is 60 bpm. After a 1.5 s sinus pause, pacing starts. What happens next?",
+  "options": [
+   "Return to sinus rhythm at 60 bpm on the very next cycle",
+   "Atrial pacing at 50 bpm, the hysteresis rate",
+   "Regular alternation of one paced and one sinus cycle",
+   "Pacing at 70 bpm as long as the sinus rate stays below 70 bpm"
+  ],
+  "commentaires": [
+   "Incorrect: each atrial spike depolarises the atrium and resets the sinus node, which never has time to emerge at 60 bpm.",
+   "Incorrect: the hysteresis rate is only a trigger threshold after a sensed event; once pacing, the device paces at the lower rate.",
+   "Incorrect: alternation would require the sinus beat to come before the spike, which is impossible with a sinus cycle (1000 ms) longer than the pacing interval (857 ms).",
+   "Correct: once pacing has started at 70 bpm, the 60 bpm sinus rhythm is permanently overdriven; only an acceleration above 70 bpm hands control back to the sinus node."
+  ],
+  "explication": "Hysteresis prolongs the escape interval after a sensed event (here 1200 ms) to allow the intrinsic rhythm to emerge, but pacing then takes place at the lower rate (857 ms). In this example, the 60 bpm sinus rhythm (1000 ms) is slower than 70 bpm: each atrial spike resets the sinus node and the patient remains paced indefinitely, which cancels out the expected benefit of hysteresis. This is why manufacturers offer \"search\" hysteresis: the device periodically lowers its rate to the hysteresis rate to unmask an intrinsic rhythm. Without this option, hysteresis is only effective if the spontaneous rhythm stays above the lower rate, with transient drops.",
+  "aRetenir": "Without search hysteresis, once pacing has started, an intrinsic rhythm slower than the lower rate remains overdriven."
+ },
+ "prog-mod-009": {
+  "question": "In DDDR mode, the maximum sensor rate is programmed independently of the maximum tracking rate: in a patient with chronotropic incompetence, sensor-driven pacing can therefore exceed the maximum tracking rate.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: the two upper limits are distinct; the maximum tracking rate limits tracking of sensed P waves, while the maximum sensor rate limits sensor-driven pacing.",
+   "Incorrect: nothing prevents the maximum sensor rate from being programmed above the maximum tracking rate, with AP-VP pacing beyond the latter."
+  ],
+  "explication": "In DDDR mode, the pacemaker follows the faster of two rates: the spontaneous atrial rate (tracked up to the maximum tracking rate) or the sensor-indicated rate (up to the maximum sensor rate). These two limits are programmed separately. In a patient with chronotropic incompetence, it is the sensor rate that drives sequential AP-VP pacing, and it can exceed the maximum tracking rate if it has been programmed higher. A lower maximum tracking rate is sometimes chosen to limit tracking of atrial arrhythmias, while allowing the sensor to drive the rate higher. The tolerability of the maximum sensor rate (angina, underlying heart disease) must then be checked.",
+  "aRetenir": "DDDR: the maximum tracking rate (P-wave tracking) and the maximum sensor rate (sensor) are two independent upper limits."
+ },
+ "prog-mod-010": {
+  "question": "An 80-year-old man has a single-lead VDD system (floating atrial dipole) for complete AV block. He now has episodes of paroxysmal AF. To which fallback mode should mode switching take the device during these episodes?",
+  "options": [
+   "DDI(R)",
+   "VDI(R)",
+   "VVT",
+   "VOO"
+  ],
+  "commentaires": [
+   "Incorrect: DDI requires atrial pacing, which is impossible with a floating atrial dipole.",
+   "Correct: VDI(R) retains atrial sensing (useful for monitoring the arrhythmia and exiting mode switch) without any P-wave tracking, with ventricular pacing at the lower or sensor rate.",
+   "Incorrect: VVT triggers a spike with every sensed QRS, which serves no purpose during AF.",
+   "Incorrect: an asynchronous mode would risk competitive pacing on conducted QRS complexes."
+  ],
+  "explication": "In VDD mode, each sensed P wave triggers ventricular pacing up to the maximum tracking rate: during AF, the ventricle would be paced rapidly and irregularly. Mode switching takes the device into a non-tracking mode. As atrial pacing is not possible, this will be VDI(R): the atrium is still sensed (to measure the arrhythmia and return to VDD when it ends) but no longer triggers anything, and the ventricle is paced as in VVI(R). Mode switching and PMT protection algorithms must therefore be programmed on these systems. However, the poorer quality of atrial sensing with a floating dipole may make mode switching less reliable.",
+  "aRetenir": "VDD: the fallback mode is VDI(R), since atrial pacing is not possible."
+ },
+ "prog-mod-011": {
+  "question": "In DVI mode, a sinus P wave cannot inhibit atrial pacing, since the atrium is not sensed.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: in DVI mode, only the ventricle is sensed; the atrial spike is delivered at the end of the VA interval unless a sensed QRS has reset it.",
+   "Incorrect: the second letter, V, means that sensing only applies to the ventricle; the P wave is ignored."
+  ],
+  "explication": "DVI paces the atrium and the ventricle but senses only the ventricle. The atrial spike is delivered at the end of the atrial escape interval, timed from the last ventricular event; only ventricular sensing can shift it. A sinus P wave occurring just before is not seen: the atrial spike may then fall on or just after the P wave, without capture, or in the atrial vulnerable period with a risk of inducing AF. This is why this historical mode has virtually no indication now that DDD and DDI are available. It is mainly still encountered as a special operating mode, for example when atrial sensing is unusable.",
+  "aRetenir": "DVI: atrial pacing without atrial sensing, so competitive atrial pacing is possible during sinus rhythm."
+ },
+ "prog-mod-012": {
+  "question": "During a device check, a pacemaker is temporarily programmed to VVT. Every spontaneous QRS, including PVCs, now has a spike inscribed within the complex. What are the recognised uses of this triggered mode? (multiple answers)",
+  "options": [
+   "Showing when each QRS, PVCs included, is sensed",
+   "Preventing pauses in a dependent patient exposed to oversensing",
+   "Saving battery compared with VVI mode",
+   "Testing ventricular capture with every spontaneous beat"
+  ],
+  "commentaires": [
+   "Correct: the triggered spike marks the moment of sensing; this confirms that every QRS, PVCs included, is seen and shows when.",
+   "Correct: a sensed spurious signal (myopotentials, interference) triggers a spike instead of inhibiting the device, which temporarily protects a dependent patient.",
+   "Incorrect: pacing with every sensed event uses more energy; this is why the mode has been abandoned for permanent programming.",
+   "Incorrect: the spike falls within the refractory period of the spontaneous QRS; it does not capture and tells us nothing about the threshold."
+  ],
+  "explication": "In VVT (or AAT) mode, an event sensed outside the refractory period immediately triggers a pacing pulse in the same chamber; in the absence of spontaneous activity, pacing occurs at the lower rate. The spike falls within the refractory period of the myocardium that has just depolarised: it is harmless and non-capturing, producing pseudofusion or fusion. This mode is used to test sensing (each QRS or PVC carries a spike whose position shows when the lead sees activation). It can also prevent inhibition in a dependent patient exposed to oversensing, provided the upper rate is limited or the refractory period lengthened to avoid runaway pacing. Its energy consumption explains why it is no longer used for permanent programming.",
+  "aRetenir": "Triggered modes (VVT/AAT): testing sensing and temporary protection against inhibition; energy-costly, not for long-term programming."
+ },
+ "prog-mod-013": {
+  "question": "In a patient with complete AV block and a dual-chamber pacemaker, in which situation is DDIR programming with a fairly high lower rate still acceptable?",
+  "options": [
+   "Normal sinus node function in an active 45-year-old",
+   "Sinus node dysfunction, constant atrial pacing, AF poorly handled by mode switching",
+   "Permanent AF with a slow ventricular response rate",
+   "Paroxysmal 2:1 AV block with a resting sinus rate of 85 bpm"
+  ],
+  "commentaires": [
+   "Incorrect: in DDI mode, sinus P waves faster than the lower rate are not tracked; the patient would lose AV synchrony and rate increase on exertion.",
+   "Correct: as the atrium is almost always paced, each atrial spike is followed by an AV delay; during AF, the rapid atrial activity is never tracked.",
+   "Incorrect: in permanent AF, atrial pacing is pointless; VVIR is indicated.",
+   "Incorrect: with a sinus rate of 85 bpm, DDI would pace the ventricle without synchronising it to the P waves, like VVI, as soon as block sets in."
+  ],
+  "explication": "In DDI mode, a sensed P wave inhibits atrial pacing but never starts an AV delay; only atrial pacing synchronises the ventricle. In complete AV block with normal sinus node function, DDI therefore behaves like VVI as soon as the sinus rate exceeds the lower rate: it is unsuitable. On the other hand, if sinus node dysfunction requires almost continuous atrial pacing (a fairly high lower rate, active rate response), AV synchrony is preserved by the AP-VP sequences, and the absence of tracking protects against rapid ventricular pacing during AF episodes. It is a fallback solution when mode switching performs poorly. In permanent AF, VVIR remains the recommended mode.",
+  "aRetenir": "DDI(R) in complete AV block: acceptable only if the atrium is paced continuously (sinus node dysfunction), particularly with paroxysmal AF poorly handled by mode switching."
+ },
+ "prog-mod-014": {
+  "question": "Patient with a single-lead VDD system. Placing a magnet over the device usually switches it to DOO.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: a VDD system cannot pace the atrium; the magnet mode cannot be dual-chamber.",
+   "Correct: with a magnet, a VDD system usually switches to VOO, asynchronous ventricular pacing at the magnet rate."
+  ],
+  "explication": "A magnet switches a pacemaker to an asynchronous mode corresponding to the chambers it can pace: AOO for AAI, VOO for VVI, DOO for DDD or DDI. As a VDD system cannot pace the atrium, its magnet mode is VOO. The magnet rate, and even the magnet response itself (programmable, sometimes able to be switched off), depend on the manufacturer and battery status: they should be checked in the manual or on the patient's device card. In a dependent patient undergoing surgery with monopolar diathermy, VOO protects against inhibition, but at the cost of competitive pacing if the intrinsic rhythm is faster than the magnet rate.",
+  "aRetenir": "Magnet mode = asynchronous mode of the chambers that can be paced: VDD → VOO."
+ },
+ "prog-mod-015": {
+  "question": "A 76-year-old man with complete AV block is paced in VDD at 60 bpm, PVARP 300 ms, with retrograde VA conduction measured at 220 ms. At night, his sinus rate falls to 55 bpm. What consequences would you expect? (multiple answers)",
+  "options": [
+   "VVI-type ventricular pacing at 60 bpm, without AV synchrony",
+   "Retrograde P waves falling within the PVARP, and therefore not tracked",
+   "A risk of pacemaker syndrome symptoms",
+   "Atrial pacing at 60 bpm that maintains AV synchrony",
+   "Pacemaker-mediated tachycardia at the maximum tracking rate"
+  ],
+  "commentaires": [
+   "Correct: with no P wave sensed before the lower rate interval times out, VDD paces the ventricle as VVI would.",
+   "Correct: the retrograde P wave arrives 220 ms after the VP, within the 300 ms PVARP; it is sensed in the refractory period and triggers nothing.",
+   "Correct: atrial contraction against closed AV valves, due to retrograde conduction, can cause symptoms of pacemaker syndrome.",
+   "Incorrect: atrial pacing is not possible in VDD mode.",
+   "Incorrect: the PVARP, being longer than the VA conduction time, precisely prevents tracking of retrograde P waves."
+  ],
+  "explication": "In VDD mode, the ventricle is only synchronised to sensed P waves; if the sinus rate falls below the lower rate, the device paces the ventricle at the lower rate, as in VVI. In a patient with retrograde conduction, each VP is followed by a retrograde P wave: here it falls within the PVARP (220 < 300 ms), which prevents PMT but causes atrial contraction against closed valves. The suggested remedy is to lower the lower rate (40 to 50 bpm), possibly with hysteresis, so that the sinus node can drive the rhythm. If sinus node dysfunction develops, a true dual-chamber mode with atrial pacing becomes necessary.",
+  "aRetenir": "VDD: below the lower rate, it operates as VVI with a risk of retrograde conduction; programme a low lower rate."
+ },
+ "prog-mod-016": {
+  "question": "A patient has a VVI pacemaker at 60 bpm, no hysteresis, with the lead at the RV apex. His spontaneous QRS shows a complete right bundle branch block pattern. The interval between two consecutive spikes is exactly 1000 ms, but from the onset of a spontaneous QRS to the next spike it measures 1080 ms. What is the explanation?",
+  "options": [
+   "Poorly documented rate hysteresis",
+   "Battery depletion with a fall in pacing rate",
+   "Late sensing of the QRS by the RV lead",
+   "Oversensing of the T wave of the spontaneous QRS"
+  ],
+  "commentaires": [
+   "Incorrect: the question states there is no hysteresis, which in any case would prolong the escape interval by several hundred ms.",
+   "Incorrect: battery depletion would also prolong the interval between two spikes, which here is exactly 1000 ms.",
+   "Correct: with right-sided conduction delay, the RV is activated late; the lead sees the QRS about 80 ms after its onset and the escape interval starts from that point.",
+   "Incorrect: T-wave oversensing would restart the escape interval 300 to 400 ms after QRS onset, not 80 ms."
+  ],
+  "explication": "The pacemaker does not see the onset of the QRS on the surface ECG, but the moment the activation wavefront passes beneath the sensing electrode. In right bundle branch block, the right ventricle is activated late: the RV lead senses the QRS several tens of ms after its onset. The escape interval (1000 ms) starts from that point, hence an apparently longer interval when measured from QRS onset. The interval between two spikes, on the other hand, is exact, which rules out rate drift. Before concluding that the escape rate is abnormal, one must therefore reason from the sensing point, which is visible on the marker channel.",
+  "aRetenir": "The escape interval starts when the lead senses the QRS, not at QRS onset: with right-sided conduction delay, it appears longer on the ECG."
+ }
+}

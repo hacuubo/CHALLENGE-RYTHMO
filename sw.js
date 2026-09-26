@@ -1,7 +1,7 @@
 // Service worker : application utilisable hors ligne.
 // Coquille de l'application : cache d'abord. Base de questions : réseau d'abord (mises à jour), cache en secours.
 const VERSION = 'rythmo-5cc4b19e30'; // mis à jour par scripts/build-index.mjs
-const COQUILLE = ['./', 'index.html', 'css/styles.css', 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png',
+const COQUILLE = ['./', 'index.html', 'en/', 'en/index.html', 'js/i18n.js', 'css/styles.css', 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-192.png', 'icons/icon-512.png',
   'js/app.js', 'js/store.js', 'js/util.js', 'js/donnees.js', 'js/session.js', 'js/ecg.js', 'js/ecg12.js', 'js/traces.js', 'js/egm.js',
   'js/vues/accueil.js', 'js/vues/config.js', 'js/vues/quiz.js', 'js/vues/resultats.js', 'js/vues/progression.js',
   'js/vues/apropos.js', 'js/vues/competitif.js', 'js/courbe.js',
@@ -15,6 +15,8 @@ self.addEventListener('install', e => {
     try {
       const idx = await (await fetch('data/questions/index.json', { cache: 'no-cache' })).json();
       await c.addAll(['data/questions/index.json', ...idx.fichiers.map(f => `data/questions/${f}`)]);
+      // version anglaise (surcouches de textes) : sans bloquer l'installation si un fichier manque
+      await Promise.all(['data/questions/en/libelles.json', ...idx.fichiers.map(f => `data/questions/en/${f}`)].map(u => c.add(u).catch(() => {})));
     } catch { /* hors ligne à l'installation : la base sera mise en cache au premier chargement */ }
     self.skipWaiting();
   })());

@@ -1,0 +1,281 @@
+{
+ "cas-mp-001": {
+  "question": "A 68-year-old man has a MicroPort dual-chamber pacemaker programmed to SafeR-R for sinus node dysfunction; lower rate 60 bpm, first-degree AV block criterion \"Rest + Exercise\", Long PR max 350 ms, Long PR min 250 ms. At rest the atrium is paced at the lower rate and the AR intervals measure 410 to 430 ms over some twenty consecutive cycles. What does the device do?",
+  "options": [
+   "It switches to DDD after 6 cycles, as AR exceeds Long PR max",
+   "It switches to DDD after 2 consecutive cycles beyond the limit",
+   "It stays in AAI: after atrial pacing, the limit is 450 ms",
+   "It stays in AAI: this criterion only applies above 100 bpm"
+  ],
+  "commentaires": [
+   "Incorrect: after a paced atrial event, the limit is not the programmed Long PR but that value plus 100 ms.",
+   "Incorrect: the first-degree AV block criterion requires 6 consecutive long intervals; 2 consecutive events correspond to the complete AV block criterion (blocked P waves).",
+   "Correct: after atrial pacing, the limit is Long PR + 100 ms, i.e. 450 ms at the lower rate; AR intervals of 410-430 ms trigger nothing.",
+   "Incorrect: when programmed to \"Rest + Exercise\", the criterion also applies at rest; only the \"Exercise only\" option restricts it to exercise."
+  ],
+  "explication": "In SafeR, the first-degree AV block criterion is met when 6 consecutive PR or AR intervals exceed the limit. The programmed value applies to sensed P waves; after a paced atrial event the device automatically adds 100 ms (not programmable), because atrial pacing prolongs the conduction time to the ventricle. With \"Rest + Exercise\", the limit varies between Long PR max (at the lower rate) and Long PR min (at the maximum rate). Here the limit is 350 + 100 = 450 ms: AR intervals of 410-430 ms are tolerated and the patient stays in AAI. Knowing this rule avoids suspecting an algorithm malfunction when a long AR interval is seen without a mode switch.",
+  "aRetenir": "SafeR, first-degree AV block: 6 consecutive long PR/AR intervals; after atrial pacing, the limit is the programmed Long PR + 100 ms."
+ },
+ "cas-mp-002": {
+  "question": "A 74-year-old woman has a MicroPort pacemaker programmed to SafeR for sinus node dysfunction, lower rate 60 bpm, maximum pause 2 s. The device memory shows numerous switches to DDD on the pause criterion: each time, a PVC occurs coincident with an atrial pacing pulse and is not sensed. AV conduction is normal and the patient is asymptomatic. Which setting do you suggest?",
+  "options": [
+   "Extend the pause to 4 s: the complete AV block criterion still protects",
+   "Switch permanently to DDD with a long AV delay for these PVCs",
+   "Disable the complete AV block criterion, which worsens these switches",
+   "Lengthen the ventricular blanking period that follows atrial pacing"
+  ],
+  "commentaires": [
+   "Correct: at 60 bpm, true complete AV block will be recognised (2 blocked P waves) well before 4 s; extending the pause abolishes most of these switches without compromising safety.",
+   "Incorrect: conduction is normal; permanent DDD would forfeit the benefit of SafeR for a few clinically inconsequential switches.",
+   "Incorrect: the complete AV block criterion (2 consecutive blocked atrial events) is not involved here; it is the one that protects against true AV block.",
+   "Incorrect: lengthening this blanking period would hide even more PVCs and QRS complexes, and would increase the number of switches."
+  ],
+  "explication": "In SafeR, the device operates in AAI (ADI) but must protect the ventricular channel from sensing the atrial pacing artefact: a short ventricular blanking period follows every atrial pacing pulse. A late PVC coinciding with atrial pacing falls within this blanking period: it is not seen, and the ensuing compensatory pause may reach the programmed value, causing an inappropriate switch to DDD. These switches are all the more frequent when the pause is programmed short (2 s). The pause is programmable to 2, 3 or 4 s: at 4 s, most of these switches disappear. Safety is maintained because, at a lower rate of 60 bpm, true complete AV block meets the criterion of 2 consecutive blocked atrial events well before a 4-second pause.",
+  "aRetenir": "SafeR switches on the pause criterion caused by PVCs: extend the pause to 4 s; the complete AV block criterion (2 blocked P waves) remains the safety net."
+ },
+ "cas-mp-003": {
+  "question": "A 66-year-old man has a MicroPort pacemaker programmed to SafeR for sinus node dysfunction, lower rate 50 bpm, rate response off. A few switches to DDD on the first-degree AV block criterion have been stored. On the EGMs, a junctional rhythm slightly faster than the atrial pacing rate places each QRS just before each atrial pacing pulse, producing spurious, very long AR intervals; no P wave is blocked. What is the most appropriate course of action?",
+  "options": [
+   "Revise the ventricular lead, which is undersensing the QRS",
+   "Program permanent DDD, as AV conduction is impaired",
+   "Disable the pause criterion, which triggers these switches",
+   "Increase the lower rate or activate rate response"
+  ],
+  "commentaires": [
+   "Incorrect: the QRS complexes are correctly sensed; it is their timing relative to atrial pacing that creates spurious long AR intervals.",
+   "Incorrect: there is no conduction disturbance; permanent DDD would pace the ventricle for no reason.",
+   "Incorrect: the switch occurs on the first-degree AV block criterion, not on the pause criterion.",
+   "Correct: faster atrial pacing overdrives the junctional rhythm; if the switches are rare and asymptomatic, they can also simply be accepted."
+  ],
+  "explication": "In a patient with sinus node dysfunction, an active junctional rhythm may compete with atrial pacing (isorhythmic dissociation). If the junctional rhythm is slightly faster, each QRS occurs just before the atrial pacing pulse: the device then measures a spurious, very long AR interval. After 6 consecutive cycles, the first-degree AV block criterion is met and SafeR switches to DDD, although conduction is normal. There is neither a blocked P wave nor a pause, so the other criteria are not involved. Increasing the lower rate or activating rate response allows the paced atrium to regain control and abolishes these switches. If rare and asymptomatic, they can also be accepted: at least they restore a physiological AV sequence.",
+  "aRetenir": "SafeR: an active junctional rhythm can mimic a long PR interval and trigger a switch on the first-degree AV block criterion; increasing the atrial pacing rate is often enough."
+ },
+ "cas-mp-004": {
+  "question": "In a patient with a MicroPort device programmed to SafeR and no AV conduction disturbance whatsoever, which abnormalities can cause stored switches to DDD? (select all that apply)",
+  "options": [
+   "Atrial undersensing, with the conducted QRS falling in the ventricular blanking period that follows atrial pacing",
+   "Intermittent ventricular undersensing affecting two consecutive cycles",
+   "Myopotential oversensing on the atrial channel in a patient with marked sinus node dysfunction",
+   "Intermittent loss of ventricular capture during AAI operation",
+   "A PAC sensed as premature, causing the device to enter atrial arrhythmia suspicion"
+  ],
+  "commentaires": [
+   "Correct: the undersensed P wave is followed by ineffective atrial pacing, and the QRS it conducted, hidden by the blanking period, causes the atrial event to be counted as blocked; if repeated, this meets the second-degree AV block criterion.",
+   "Correct: two consecutive unsensed QRS complexes are interpreted as two consecutive blocked atrial events, i.e. the complete AV block criterion.",
+   "Correct: myopotentials inhibit atrial pacing; in the absence of an intrinsic rhythm, the resulting ventricular pause meets the pause criterion.",
+   "Incorrect: in AAI the ventricle is not paced; loss of ventricular capture can only be seen after the switch to DDD.",
+   "Incorrect: during atrial arrhythmia suspicion, the three block criteria are suspended; only the pause criterion remains active."
+  ],
+  "explication": "SafeR only works properly with reliable atrial and ventricular sensing and effective atrial capture, since any fault is interpreted as block. Atrial undersensing causes the atrium to be paced during its refractory period; the QRS conducted from the unseen P wave falls in the post-atrial ventricular blanking period and the cycle is counted as blocked (second-degree AV block criterion, 3 out of 12). Ventricular undersensing on two consecutive cycles mimics complete AV block. Myopotentials oversensed on the atrial channel inhibit atrial pacing and, in a very bradycardic patient, create a ventricular pause. Conversely, during atrial arrhythmia suspicion, the block criteria are suspended precisely to avoid such switches. Analysing every stored switch episode is therefore a way of detecting intermittent lead problems.",
+  "aRetenir": "In SafeR, a sensing failure (A or V) or atrial oversensing shows up as switches to DDD: reviewing the switch EGMs is a way of detecting lead problems."
+ },
+ "cas-mp-006": {
+  "question": "Regarding ventricular Autothreshold in MicroPort pacemakers, which statements are correct? (select all that apply)",
+  "options": [
+   "The threshold is measured automatically every 6 hours, i.e. 4 times a day",
+   "Capture is recognised by distinguishing the evoked response from lead polarisation",
+   "Capture is verified on every beat, with a backup pulse if capture is lost",
+   "Set to \"Monitor\", it measures the threshold without changing the programmed amplitude",
+   "Set to \"Auto\", it sets the amplitude at 1.5 times the measured threshold"
+  ],
+  "commentaires": [
+   "Correct: measurements are scheduled every 6 hours, and the amplitude is adjusted for the following 6 hours.",
+   "Correct: the test compares the signal after an effective pulse (evoked response + polarisation) with that after an ineffective pulse (polarisation alone).",
+   "Incorrect: this is the principle of AutoCapture (Abbott); MicroPort Autothreshold has no beat-to-beat verification, hence a wider safety margin.",
+   "Correct: \"Monitor\" provides threshold trends without adjustment; \"Auto\" measures and adjusts; \"Off\" measures nothing.",
+   "Incorrect: the amplitude is set at twice the threshold (100% margin), without falling below a programmable minimum value."
+  ],
+  "explication": "There are two main approaches to automated threshold management: beat-to-beat capture verification, which allows an amplitude close to threshold with a backup pulse, and scheduled measurement without beat-to-beat verification, which requires a wider margin. MicroPort chose the latter with Autothreshold. Capture is recognised from the evoked response, distinguished from residual lead polarisation. Measurements take place every 6 hours (heart rate below 95 bpm); during the test, the AV delay or escape interval is shortened to avoid fusion, and a safety pulse follows every ineffective pulse. In \"Auto\", the amplitude is then set at twice the threshold, without falling below a programmable minimum; in \"Monitor\", only the measurements are stored. If fusion persists, the test is abandoned and the output is forced to a high value until the next measurement.",
+  "aRetenir": "MicroPort ventricular Autothreshold: evoked-response measurement every 6 h, amplitude at twice the threshold; no beat-to-beat verification."
+ },
+ "cas-mp-007": {
+  "question": "A 63-year-old man has a MicroPort dual-chamber pacemaker for complete AV block, with atrial sensing set to Autosensing \"Auto\". At rest the P waves measure more than 5 mV. He complains of sudden dyspnoea on exertion. The stored episode shows, above 120 bpm, P waves whose amplitude varies considerably with respiration, a few unsensed P waves and an abrupt fall in the paced ventricular rate. What is the explanation and the fix?",
+  "options": [
+   "Pacemaker Wenckebach: raise the maximum tracking rate",
+   "Atrial undersensing: switch to a fixed atrial sensitivity",
+   "Loss of V capture on exertion: increase ventricular amplitude",
+   "Far-field ventricular sensing: lengthen the atrial blanking"
+  ],
+  "commentaires": [
+   "Incorrect: pacemaker Wenckebach causes progressive AV delay prolongation at the maximum tracking rate, not unsensed P waves.",
+   "Correct: Autosensing has set a low sensitivity based on the large resting P waves; the smaller P waves during exercise fall below the sensing threshold.",
+   "Incorrect: loss of capture would show V spikes not followed by a QRS; here, unsensed P waves fail to trigger an AV delay.",
+   "Incorrect: far-field sensing would produce excess atrial sensed events; here, some are missing."
+  ],
+  "explication": "Autosensing in MicroPort pacemakers averages signal amplitude over 8 cycles and sets the sensitivity at about one third (37.5%) of this average. This threshold remains fixed throughout the cycle, unlike the automatic sensitivity control of an ICD, which decays over the cycle. With large P waves, the device therefore becomes relatively insensitive; if the amplitude drops abruptly (exercise, deep breathing), P waves are no longer sensed and, in complete AV block, the ventricular rate collapses. When sensing returns, the next P wave may fall within the atrial acceleration window (calculated from a spuriously long cycle): the device suspects an atrial arrhythmia, tracks only every other P wave, or even falls back to DDI. In this patient, programming a fixed atrial sensitivity with an adequate margin abolished the symptoms.",
+  "aRetenir": "MicroPort Autosensing: threshold at about one third of the average amplitude of the last 8 signals; large resting P waves predispose to undersensing on exertion."
+ },
+ "cas-mp-008": {
+  "question": "Regarding the anti-PMT (pacemaker-mediated tachycardia) algorithm in MicroPort dual-chamber pacemakers, which statements are correct? (select all that apply)",
+  "options": [
+   "PMT is suspected over several consecutive cycles when the interval between V pacing and the following P wave is short and stable",
+   "To confirm, the device lengthens the AV delay for one cycle: if the next P wave shifts by the same amount, it is retrograde",
+   "It can be disabled in a patient with no ventriculoatrial conduction",
+   "It only recognises PMTs running at exactly the programmed maximum rate",
+   "The PMT is terminated by an extended atrial refractory period applied for one cycle"
+  ],
+  "commentaires": [
+   "Correct: a short, stable V-P interval over several cycles suggests sustained retrograde conduction.",
+   "Correct: a sinus P wave does not move when V pacing is shifted; a retrograde P wave follows the ventricle with the same V-P interval.",
+   "Incorrect: PMT detection and termination cannot be programmed off in atrial tracking modes.",
+   "Incorrect: the algorithm also recognises PMTs slower than the maximum rate, when AV delay + retrograde conduction exceed the minimum cycle length.",
+   "Correct: on the next cycle, an atrial refractory period of about 500 ms covers the retrograde P wave, which no longer triggers an AV delay."
+  ],
+  "explication": "PMT arises when AV dissociation (PVC, undersensed P wave, loss of atrial capture, excessively long AV delay) allows the AV node to recover: ventricular pacing is then conducted retrogradely to the atrium, and the device tracks this retrograde P wave. In MicroPort devices, the algorithm is always active in atrial tracking modes. It suspects PMT when the V-P interval is short and stable over several cycles, then confirms it by modulating the AV delay: a retrograde P wave shifts with the ventricle, a sinus P wave does not. It terminates the PMT with an atrial refractory period of about 500 ms for one cycle. It also recognises PMTs slower than the maximum rate. With the \"Reprog\" option, it additionally shortens the rest and exercise AV delays if more than 10 PMTs are detected per day, which is flagged by a message at interrogation. A non-zero PMT counter should prompt a search for the cause (atrial undersensing or loss of atrial capture, PVCs, long AV delay).",
+  "aRetenir": "MicroPort anti-PMT: stable V-P interval, confirmation by AV delay modulation, termination by a long atrial refractory period; cannot be programmed off."
+ },
+ "cas-mp-009": {
+  "question": "MicroPort pacemaker in SafeR (maximum rate 130 bpm) in a patient with sinus node dysfunction. A stored episode shows a moderate spontaneous ventricular acceleration, each QRS being followed by a P wave at a fixed RP interval; after 6 cycles, the device switches to DDD. P-V paced cycles at the maximum rate follow, which the device terminates after lengthening the AV delay once. What is the interpretation?",
+  "options": [
+   "Atrial tachycardia tracked at the maximum rate, then mode switch",
+   "True first-degree AV block on exertion, with appropriate V pacing",
+   "T-wave oversensing on the atrial channel after the switch",
+   "AIVR with retrograde conduction mimicking a long PR, then PMT"
+  ],
+  "commentaires": [
+   "Incorrect: the fixed RP interval shows that the P waves depend on the ventricles; an atrial tachycardia would not be shifted by AV delay modulation.",
+   "Incorrect: the \"P wave\" is retrograde and follows the QRS; the long PR measured is a device misinterpretation.",
+   "Incorrect: the T wave would not produce a fixed RP interval during the spontaneous phase, and confirmation by AV delay modulation indicates retrograde conduction.",
+   "Correct: the retrograde P wave is taken for a sinus P wave followed by a very long PR, hence the switch on the first-degree AV block criterion, followed by a PMT recognised and terminated by the anti-PMT algorithm."
+  ],
+  "explication": "Accelerated idioventricular rhythm (AIVR) with 1:1 retrograde conduction produces P waves that follow each QRS at a constant RP interval. In SafeR (ADI operation), the device interprets the retrograde P wave as sinus and measures a \"PR\" equal to the cycle length minus the RP interval, which is very long: after 6 cycles, the first-degree AV block criterion is met and the device switches to DDD. It then tracks these retrograde P waves: this is a PMT, capped here at the maximum rate by AV delay prolongation. The anti-PMT algorithm recognises it (stable V-P interval), confirms it by AV delay modulation, which shifts the retrograde P wave by the same amount, then terminates it with an atrial refractory period extended for one cycle. This rare case shows how mode switching can set up the conditions for PMT.",
+  "aRetenir": "In SafeR, AIVR with retrograde conduction can mimic a long PR, cause a switch to DDD and initiate a PMT, which the anti-PMT algorithm terminates."
+ },
+ "cas-mp-010": {
+  "question": "A 66-year-old woman has a MicroPort dual-chamber pacemaker for sick sinus syndrome, with no known history of sleep-disordered breathing. The sleep apnoea monitoring trend shows a respiratory disturbance index (RDI) persistently above 20/h, in parallel with a rise in AF burden. Which statements are correct? (select all that apply)",
+  "options": [
+   "This measurement relies on the minute ventilation sensor, which must be activated",
+   "An RDI above 20/h suggests severe sleep apnoea, to be confirmed by polysomnography",
+   "The measurement also works when only the accelerometer is programmed",
+   "The RDI is sufficient to make the diagnosis and prescribe CPAP straight away"
+  ],
+  "commentaires": [
+   "Correct: apnoeas and hypopnoeas are identified from variations in transthoracic impedance; rate response must at least be in learning mode with minute ventilation.",
+   "Correct: the threshold of 20 events/h was chosen to screen for severe sleep apnoea (DREAM study), but the diagnosis remains polysomnographic.",
+   "Incorrect: the accelerometer provides no information on breathing; without minute ventilation, no RDI is calculated.",
+   "Incorrect: the device RDI is a screening tool, not a diagnosis; polysomnography is required before treatment."
+  ],
+  "explication": "MicroPort pacemakers have two sensors: an accelerometer and a minute ventilation sensor, which measures transthoracic impedance. The dynamic component of this signal tracks respiratory movements: during a programmed night-time window, the device identifies respiratory pauses (10 to 60 s without a breath) and reductions in ventilation of at least 50%. From these it derives a respiratory disturbance index per hour (RDI). In the DREAM study, an RDI of at least 20/h accurately identified severe sleep apnoea on polysomnography. Sleep apnoea is common in pacemaker patients and promotes AF: its discovery should lead to polysomnography and then specialist management. Without minute ventilation activated, this monitoring is not available.",
+  "aRetenir": "MicroPort sleep apnoea monitoring: RDI calculated from minute ventilation; above 20/h, suspect severe sleep apnoea and confirm by polysomnography."
+ },
+ "cas-mp-011": {
+  "question": "You are programming rate response in a latest-generation MicroPort dual-chamber ICD in a patient with chronotropic incompetence. Which sensor does it rely on?",
+  "options": [
+   "The accelerometer alone, minute ventilation having been removed",
+   "Minute ventilation alone, being more physiological in HF",
+   "The accelerometer combined with minute ventilation, as in pacemakers",
+   "The SonR signal from the atrial lead, reflecting contractility"
+  ],
+  "commentaires": [
+   "Correct: in current MicroPort ICDs, minute ventilation is disabled; the accelerometer alone drives rate response.",
+   "Incorrect: minute ventilation is no longer available in the manufacturer's ICDs.",
+   "Incorrect: the combination of both sensors is specific to MicroPort pacemakers, not ICDs.",
+   "Incorrect: the SonR signal is used to optimise AV and VV delays in CRT, not for rate response."
+  ],
+  "explication": "MicroPort pacemakers combine an accelerometer, which responds quickly at the onset of exercise, with a minute ventilation sensor, which takes over in mid and late exercise. This sensor delivers small pulses between two electrodes to measure transthoracic impedance. In an ICD, whose ventricular sensitivity is very high in order to detect VF, these pulses may be oversensed and taken for a ventricular arrhythmia, with a risk of inappropriate therapy. MicroPort has therefore removed minute ventilation from its ICDs: rate response relies on the accelerometer alone. This must be borne in mind for activities involving little trunk movement (cycling, carrying loads), which an accelerometer detects poorly.",
+  "aRetenir": "MicroPort ICDs: rate response by accelerometer alone; minute ventilation, prone to oversensing in an ICD, has been removed."
+ },
+ "cas-mp-012": {
+  "question": "In a MicroPort dual-chamber ICD, a tachycardia detected in the fast VT section of the VF zone is analysed by PARAD+: if it is classified as SVT, therapy is withheld.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: PARAD+ operates only in the slow VT and VT zones; in the VF zone, including its fast VT section, rate alone determines treatment.",
+   "Correct: there is no SVT–VT discrimination in the VF zone; stability is used there only to choose between ATP before charging and an immediate shock."
+  ],
+  "explication": "In MicroPort ICDs, the highest zone (VF) can be divided into a fast VT section and a VF section. No SVT–VT discrimination is applied there: a fast tachycardia in this zone is always treated. In the fast VT section, the stability criterion (rhythm stable to within 30 ms, last 4 cycles in the section) is used only to decide whether ATP is delivered before charging; an unstable tachycardia receives an immediate shock. PARAD+ (stability, PR association, acceleration, long cycles) only operates in the slow VT and VT zones. This is why the lower boundary of the VF zone should be set above the rates that a conducted SVT can reach in the patient, as recommended by the programming consensus.",
+  "aRetenir": "MicroPort ICDs: no discrimination in the VF zone (fast VT included); stability only determines whether ATP is given before charging."
+ },
+ "cas-mp-013": {
+  "question": "An 87-year-old man has a MicroPort CRT-D with a slow VT monitor zone from 130 bpm. An episode classified as \"VT\" lasted 1 min 30 s. On the EGM, the tachycardia starts with an atrial event; the PR interval rapidly lengthens, then no more P waves are marked during the tachycardia, which is regular at about 140 bpm and terminates with a blocked PAC. Why did PARAD+ classify this SVT as VT?",
+  "options": [
+   "The P waves fall in post-ventricular blanking: spurious dissociation",
+   "Initial acceleration of atrial origin always points to VT",
+   "QRS morphology differs from the sinus rhythm template",
+   "The long-cycle criterion recognised AF, classified as VT"
+  ],
+  "commentaires": [
+   "Correct: the unseen P waves lead to the conclusion of a stable rhythm without P-R association, which the decision tree classifies as VT.",
+   "Incorrect: acceleration of atrial origin points to SVT; moreover, the first cycles outside the zone prevented this criterion from being validated.",
+   "Incorrect: PARAD+ includes no morphology analysis; that is precisely one of its limitations.",
+   "Incorrect: the search for long cycles is used to recognise AF during a stable, dissociated rhythm in order to delay therapy, not to classify as VT."
+  ],
+  "explication": "PARAD+ first classifies according to RR stability, then according to P-R association. A stable rhythm without association is classified as VT. Here the PR interval lengthens until the P waves of the supraventricular tachycardia fall just after the preceding QRS, within the post-ventricular atrial blanking period: the atrial channel no longer sees them and the device assumes dissociation. The first cycles, outside the zone, also distorted the reference cycle, so that the acceleration of atrial origin was not recognised. With no morphology criterion, nothing corrects the error; as the zone was monitor-only, no therapy was delivered, but programmed ATP or a shock would have been inappropriate. Reviewing the EGM (onset with a P wave, termination with a blocked P wave) corrects the diagnosis.",
+  "aRetenir": "PARAD+: P waves hidden in the post-ventricular blanking period create spurious dissociation, and an SVT may be classified as VT."
+ },
+ "cas-mp-014": {
+  "question": "MicroPort dual-chamber ICD: VT zone 160-220 bpm (bursts, then ramps, then shocks); VF zone above 220 bpm with a fast VT section up to 240 bpm (one burst before charging if the VT is stable). A stable VT at 230 bpm receives the fast VT burst, unsuccessfully; it slows to 200 bpm and is redetected in the VT zone. What therapy does the device deliver next?",
+  "options": [
+   "The first ATP burst programmed in the VT zone",
+   "No therapy as long as the VT remains in the VT zone",
+   "The first shock programmed in the VT zone",
+   "A maximum-energy shock from the VF zone"
+  ],
+  "commentaires": [
+   "Incorrect: VT zone ATP is of level 1, lower than the fast VT ATP already delivered (level 2); it is no longer available in this episode.",
+   "Incorrect: a change of zone allows the next line of therapy in the new zone to be engaged.",
+   "Correct: the escalation rule requires a therapy at least as aggressive as the previous one; the next available therapy in the VT zone is the first shock.",
+   "Incorrect: the tachycardia is redetected in the VT zone; that zone's therapies apply."
+  ],
+  "explication": "In MicroPort ICDs, therapies within a single episode follow a strict escalation: each programme engaged must be of an aggressiveness level at least equal to the previous one. ATP in the slow VT and VT zones is level 1, ATP in the fast VT section is level 2, followed by shocks of increasing energy. Here, the fast VT burst (level 2) has already been delivered; when the VT is redetected in the VT zone, that zone's bursts and ramps (level 1) are no longer accessible and the device charges for the first VT zone shock. This behaviour, which is surprising when reviewing the episode, is not a malfunction. It should be taken into account when programming fast VT ATP and the VT zone shock energies.",
+  "aRetenir": "MicroPort ICDs: no stepping back in escalation within an episode; after fast VT ATP, a VT redetected in the VT zone goes straight to a shock."
+ },
+ "cas-mp-015": {
+  "question": "In a MicroPort ICD, when all the programmed therapies of a zone have been delivered without terminating a VT that remains in that zone, the device restarts the programme from the first therapy.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: once the zone's therapies are exhausted, the ICD delivers no further treatment until the episode ends or the tachycardia changes zone.",
+   "Correct: therapies are only restarted on a change of zone (with at least equal aggressiveness) or in a new episode, after a return to slow rhythm (6 slow or paced cycles out of 8)."
+  ],
+  "explication": "The ICD considers that the episode continues until it has regained a majority of slow rhythm, i.e. at least 6 slow or paced cycles out of 8. A VT that is terminated for a few cycles and then recurs, or one sustained by ventricular bigeminy that prevents a return to slow rhythm, therefore remains within the same episode. If all the zone's therapies are exhausted, the device no longer intervenes; it only resumes if the tachycardia changes zone or in a subsequent episode. This is a classic pitfall of slow VTs treated with ATP alone: the patient may remain in VT for a long time, with a risk of heart failure decompensation. This scenario should prompt a review of the strategy: therapy programming, antiarrhythmic drugs, or even ablation.",
+  "aRetenir": "Zone therapies exhausted = ICD inactive until the episode ends (6 slow cycles out of 8) or the tachycardia changes zone."
+ },
+ "cas-mp-016": {
+  "question": "MicroPort ICD with \"Auto ATP Switch\" enabled; in the VT zone, ATP 1 = bursts, ATP 2 = ramps, then shocks. The penultimate VT episode was terminated by a ramp. In the last episode, all ATP failed and the VT was terminated by a shock. A new VT occurs in the same zone. What will the first therapy be?",
+  "options": [
+   "A burst, since all ATP failed in the last episode",
+   "A shock, since it terminated the last VT",
+   "A ramp, the last ATP programme to have succeeded",
+   "A burst, since the function is reset after a shock"
+  ],
+  "commentaires": [
+   "Incorrect: ATP failure does not change the order; only successful ATP does.",
+   "Incorrect: the function only concerns ATP; a successful shock never becomes the first therapy.",
+   "Correct: the function moves the last successful ATP programme of the VT and slow VT zones to first place, here the ramp.",
+   "Incorrect: a shock does not reset the function; it does not alter the ATP order at all."
+  ],
+  "explication": "The \"Auto ATP Switch\" function in MicroPort ICDs delivers first, in the next episode, the ATP programme (ATP 1 or ATP 2 of the VT and slow VT zones) that terminated the last VT successfully treated by ATP. Shocks are not included in this memory: an episode terminated by a shock does not change the order. Here, the last termination by ATP was achieved by a ramp: the new VT therefore first receives a ramp, then bursts. As ramps are an aggressive therapy, which quickly reaches the minimum coupling interval and may accelerate a VT, this function should be decided on a case-by-case basis. On review, ATP that does not start with the expected programme is often explained by this function.",
+  "aRetenir": "Auto ATP Switch (MicroPort): the last successful ATP moves to first place in the next episode; shocks are not taken into account."
+ },
+ "cas-mp-017": {
+  "question": "In a MicroPort CRT-D, a maximum tracking rate (e.g. 150 bpm) can be programmed above the lower boundary of a slow VT zone (e.g. 130 bpm).",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: this overlap is permitted; it ensures resynchronisation during exercise in a patient who also needs a slow zone.",
+   "Incorrect: MicroPort, like Biotronik, allows this overlap between bradycardia pacing and a tachycardia zone."
+  ],
+  "explication": "In an active CRT patient, the sinus rate during exercise may exceed a maximum tracking rate that is set too low. The device then enters pacemaker Wenckebach: the AV delay lengthens, intrinsic conduction resumes and resynchronisation is lost just when it is most needed. MicroPort ICDs (like Biotronik) allow the maximum rate to be programmed independently of the tachycardia zones, even above the boundary of a slow VT zone. The patient thus keeps biventricular pacing during exercise, while the discrimination and persistence criteria of the slow zone deal with true slow VTs. An excessively low maximum rate can be spotted on rate trends, on exercise-related SVT episodes or on a BiV pacing percentage that drops on exertion.",
+  "aRetenir": "MicroPort CRT-D: the maximum tracking rate may overlap the slow VT zone, to preserve resynchronisation during exercise."
+ },
+ "cas-mp-018": {
+  "question": "In a MicroPort ICD from the Platinium platform, a magnet suspends arrhythmia detection and therapies without triggering asynchronous pacing at the magnet rate.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: from Platinium onwards, the magnet inhibits detection and therapies, and bradycardia pacing is not replaced by an asynchronous mode.",
+   "Incorrect: this was the behaviour of earlier platforms, which paced at the magnet rate (96 bpm at beginning of life, 80 bpm at elective replacement)."
+  ],
+  "explication": "In MicroPort ICDs predating Platinium, the magnet suspended therapies and imposed pacing at the magnet rate, which depended on battery depletion (96 bpm at beginning of life, 80 bpm at elective replacement). From Platinium onwards, it only inhibits arrhythmia detection and therapies; pacing is not replaced by an asynchronous mode. After a recent charge (electrical storm, lead fault), inhibition persists briefly after magnet removal, to allow time to start interrogation. On magnet removal, detection resumes and therapies restart from the beginning of each zone. During surgery with monopolar electrocautery, the magnet therefore prevents an inappropriate shock, but does not protect a pacing-dependent patient from inhibition due to oversensing: the device must then be reprogrammed to an asynchronous mode.",
+  "aRetenir": "MicroPort Platinium ICDs: a magnet suspends detection and therapies without switching to asynchronous pacing; in a dependent patient, the device must be reprogrammed."
+ }
+}

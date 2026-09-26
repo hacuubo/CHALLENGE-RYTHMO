@@ -1,4 +1,5 @@
-// Mesure les biais docimologiques de la base : node scripts/audit-biais.mjs [fichiers...]
+// Mesure les biais docimologiques de la base : node scripts/audit-biais.mjs [--en] [fichiers...]
+// --en : mesure la version anglaise (surcouches data/questions/en/ appliquées à la base).
 // - QCU : part des questions où la bonne réponse est la plus longue, rapport de longueur,
 //   position de la bonne réponse ;
 // - QCM : répartition du nombre de bonnes réponses ;
@@ -10,7 +11,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const dir = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'data', 'questions');
-let files = process.argv.slice(2);
+const anglais = process.argv.includes('--en');
+let files = process.argv.slice(2).filter(a => a !== '--en');
 if (!files.length) files = fs.readdirSync(dir).filter(f => f.endsWith('.json') && f !== 'index.json').map(f => path.join(dir, f));
 const strict = process.env.STRICT === '1';
 let echec = false;
@@ -40,7 +42,13 @@ function mesurer(qs) {
 
 const tout = [];
 for (const f of files) {
-  const qs = JSON.parse(fs.readFileSync(f, 'utf8'));
+  let qs = JSON.parse(fs.readFileSync(f, 'utf8'));
+  if (anglais) {
+    const p = path.join(dir, 'en', path.basename(f));
+    if (!fs.existsSync(p)) { console.log(`- ${path.basename(f)} : pas encore de version anglaise`); continue; }
+    const s = JSON.parse(fs.readFileSync(p, 'utf8'));
+    qs = qs.map(q => (s[q.id]?.options ? { ...q, options: s[q.id].options } : q));
+  }
   tout.push(...qs);
   const m = mesurer(qs);
   const ok = m.plusLonguePct <= 35 && m.rapportMedian <= 1.3 && m.presqueToutPct <= 35 && (m.vf < 4 || (m.vraiPct >= 35 && m.vraiPct <= 65));

@@ -1,0 +1,219 @@
+{
+ "egm-pm-026": {
+  "question": "A 32-year-old man with congenital complete AV block and a DDD pacemaker, maximum tracking rate 120 bpm. He complains of sudden fatigue and a feeling of \"hitting a wall\" when sprinting at football. Exercise recording. What is the mechanism?",
+  "options": [
+   "Pacemaker Wenckebach: the sinus rate exceeds the maximum tracking rate",
+   "Pacemaker 2:1 block due to P waves falling in post-ventricular atrial blanking",
+   "Atrial undersensing of low-amplitude P waves appearing at peak exertion",
+   "Pacemaker-mediated tachycardia triggered by an exercise-induced PVC"
+  ],
+  "commentaires": [
+   "Correct: P waves at 444 ms (135 bpm), VP events limited to 500 ms (120 bpm), AS-VP interval lengthening until a P wave is not tracked (AR).",
+   "Incorrect: the untracked P wave is marked AR (seen in the PVARP), not hidden in the blanking period; and conduction is not 2:1.",
+   "Incorrect: every P wave has a marker (AS or AR); none is undersensed.",
+   "Incorrect: atrial activity is sinus and anterograde, with no initiating PVC and no retrograde P wave."
+  ],
+  "explication": "Sinus rhythm is at 444 ms (135 bpm), above the maximum tracking rate (120 bpm, 500 ms): the pacemaker cannot deliver a VP less than 500 ms after the previous one, so it lengthens the AS-VP interval on each cycle until a P wave falls in the PVARP (AR) and is not tracked; the next VP comes at 722 ms and the cycle starts again. This is the electronic equivalent of Mobitz I. In a young patient, this 120 bpm ceiling limits exercise performance. Good habit: when a patient with AV block reports exercise limitation, look at the maximum tracking rate.",
+  "aRetenir": "P waves faster than the maximum tracking rate → AS-VP lengthening, then an untracked P wave: pacemaker Wenckebach."
+ },
+ "egm-pm-027": {
+  "question": "Same 32-year-old athletic patient. Which programming is most appropriate?",
+  "options": [
+   "Lower the maximum tracking rate to avoid any rapid tracking on exertion",
+   "Extend the PVARP to eliminate the AR events occurring on exertion",
+   "Lower the mode-switch threshold to 130 bpm to switch to a non-tracking mode",
+   "Raise the maximum tracking rate (e.g. 160-170 bpm) and shorten the PVARP"
+  ],
+  "commentaires": [
+   "Incorrect: this would worsen exercise limitation in a patient with a normal sinus node.",
+   "Incorrect: a longer PVARP lowers the 2:1 block point and makes the rate drop worse.",
+   "Incorrect: mode switching on exercise sinus rhythm would abolish AV synchrony just when it is most useful.",
+   "Correct: the patient must be able to track his exercise sinus rate; the PVARP (and AV delay) must be short enough for the 2:1 block point to stay above the new upper limit."
+  ],
+  "explication": "In a young patient with AV block and a normal sinus node, the maximum tracking rate should match his exercise sinus rate (often 150-170 bpm depending on age and activity). For this limit to be achievable, the total atrial refractory period (AV delay + PVARP) must be short enough: the PVARP is shortened and rate-adaptive AV delay shortening on exertion is enabled. When shortening the PVARP, check that there is no long retrograde conduction time predisposing to PMT, and enable PMT protection. Good habit: maximum tracking rate, AV delay and PVARP are programmed together.",
+  "aRetenir": "In a young patient with AV block, match the maximum tracking rate to exercise and shorten the PVARP accordingly."
+ },
+ "egm-pm-028": {
+  "question": "On this exercise tracing from a DDD pacemaker, what does the AR marker mean?",
+  "options": [
+   "A P wave missed by the pacemaker because of atrial undersensing",
+   "A back-up atrial pacing pulse delivered after a blocked P wave",
+   "A P wave sensed in the atrial refractory period, counted but not tracked",
+   "A far-field R wave sensed on the atrial channel after the QRS"
+  ],
+  "commentaires": [
+   "Incorrect: an undersensed P wave would have no marker at all; AR proves, on the contrary, that it was seen.",
+   "Incorrect: atrial pacing would be marked AP, with a spike.",
+   "Correct: AR = atrial event seen during a refractory period (here the PVARP): it is taken into account by some algorithms but does not trigger a VP.",
+   "Incorrect: here the AR corresponds to a genuine sinus P wave, not coupled to the QRS."
+  ],
+  "explication": "The AR (\"atrial refractory\") marker indicates atrial activity sensed during an atrial refractory period, typically the PVARP. It is not followed by a VP, but it is counted for mode switching and atrial arrhythmia diagnostics. Here, the sinus P wave falls in the PVARP because the previous VP was delayed by the upper rate limit: it is the \"blocked\" P wave of pacemaker Wenckebach. Confusing AR with undersensing leads to atrial sensitivity being wrongly increased. Good habit: AR = seen and ignored for tracking; no marker = not seen.",
+  "aRetenir": "AR = P wave seen in a refractory period and not tracked; it is not undersensing."
+ },
+ "egm-pm-029": {
+  "question": "An 80-year-old woman with a DDD pacemaker for paroxysmal AV block, PVARP 220 ms, post-PVC PVARP extension off, maximum tracking rate 120 bpm. Sudden palpitations during the clinic visit. What is the diagnosis?",
+  "options": [
+   "Sinus tachycardia tracked at the maximum tracking rate",
+   "2:1 atrial flutter with every other F wave hidden",
+   "Pacemaker-mediated tachycardia initiated by a PVC",
+   "Pacemaker Wenckebach due to a high sinus rate"
+  ],
+  "commentaires": [
+   "Incorrect: the tachycardia starts abruptly after a PVC, with a P wave always occurring 240 ms after the VP: this is retrograde activation.",
+   "Incorrect: the A EGM shows only one activation per cycle, linked to the preceding VP.",
+   "Correct: a PVC (VS) is followed by a retrograde P wave sensed outside the PVARP (AS 240 ms later), tracked at the maximum tracking rate, and each VP restarts the loop.",
+   "Incorrect: the AS-VP relationship is fixed at 1:1, with no untracked P wave."
+  ],
+  "explication": "Typical sequence: the PVC (VS) is conducted retrogradely to the atrium; the retrograde P wave occurs 240 ms later, after the end of a 220 ms PVARP (not extended after the PVC): it is sensed (AS) and tracked. The VP is delivered as soon as the maximum tracking rate allows (500 ms, i.e. 120 bpm), is itself conducted retrogradely, and the loop is sustained: the pacemaker forms the anterograde limb of the circuit. The key sign: a fixed VP-AS interval (VA conduction time) and a tachycardia at the maximum tracking rate. Good habit: VP tachycardia at the maximum tracking rate with a constant VP-AS interval = PMT.",
+  "aRetenir": "PMT: PVC → retrograde P wave outside the PVARP → VP at the maximum tracking rate, constant VP-AS interval."
+ },
+ "egm-pm-030": {
+  "question": "Same patient. Which measures are appropriate to prevent recurrence? (select all that apply)",
+  "options": [
+   "Programme a PVARP longer than the retrograde conduction time (here ≈ 240 ms)",
+   "Enable post-PVC PVARP extension",
+   "Enable the manufacturer's PMT detection and termination algorithm",
+   "Increase the maximum tracking rate so the tachycardia is better tolerated",
+   "Increase atrial sensitivity to sense the retrograde P wave earlier"
+  ],
+  "commentaires": [
+   "Correct: a retrograde P wave falling in the PVARP is marked AR and no longer tracked; keep a margin above the VA time.",
+   "Correct: a PVC is the most common trigger; extending the PVARP after it prevents tracking of the retrograde P wave.",
+   "Correct: these algorithms recognise sustained tracking at the maximum tracking rate with a stable VP-AS interval and break the loop (extended PVARP or a VP withheld for one cycle).",
+   "Incorrect: this would make the PMT faster and less well tolerated.",
+   "Incorrect: the retrograde P wave is already being sensed; it is its tracking that must be prevented."
+  ],
+  "explication": "PMT prevention relies on stopping the retrograde P wave from being tracked: a PVARP longer than the VA conduction time (measurable with a retrograde conduction test on the programmer), post-PVC PVARP extension, and dedicated detection and termination algorithms. A long PVARP does, however, lower the 2:1 block point: in an active patient, favour the algorithms and post-PVC extension over a very long fixed PVARP. Good habit: measure the VA conduction time before shortening a PVARP.",
+  "aRetenir": "PMT: PVARP > VA time, post-PVC extension and a PMT algorithm; do not raise the maximum tracking rate."
+ },
+ "egm-pm-031": {
+  "question": "Same patient, tachycardia ongoing at the time of the tracing, programmer temporarily unavailable. Statement: applying a magnet over the generator usually terminates this tachycardia.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: with a magnet, most pacemakers switch to asynchronous pacing: atrial sensing is suspended and the loop is broken.",
+   "Incorrect: the magnet response of most pacemakers suspends sensing, which terminates the PMT."
+  ],
+  "explication": "PMT requires the retrograde P wave to be sensed by the atrial channel. With a magnet applied, most pacemakers switch to asynchronous mode (DOO/VOO) at the magnet rate: no sensing, therefore no tracking, and the loop stops. It is a simple diagnostic and therapeutic manoeuvre, provided the device's magnet response is known (programmable on some devices). The programming must then be corrected to prevent recurrence. Good habit: magnet = PMT terminated, then reprogramme.",
+  "aRetenir": "A magnet terminates PMT by suspending atrial sensing."
+ },
+ "egm-pm-032": {
+  "question": "A 77-year-old patient with a DDD pacemaker for paroxysmal AV block, mode switching on. Episode received via remote monitoring. How do you interpret it?",
+  "options": [
+   "Atrial undersensing: the AR markers indicate unseen P waves",
+   "Far-field R-wave sensing causing a false episode",
+   "Pacemaker-mediated tachycardia terminated by mode switching",
+   "Onset of AF correctly detected, with appropriate mode switching"
+  ],
+  "commentaires": [
+   "Incorrect: AR means \"seen in the refractory period\": these signals are indeed sensed and counted.",
+   "Incorrect: the atrial activity has no fixed coupling to the QRS; it is continuous and disorganised.",
+   "Incorrect: there is no initiating PVC, no retrograde P wave and no VP at the maximum tracking rate.",
+   "Correct: the A EGM becomes rapid and disorganised (cycles of 130 to 220 ms), marked AS/AR; the device mode switches (MS) and stops tracking; the irregular VS events reflect conducted AF."
+  ],
+  "explication": "The tracing starts with two AS-VP cycles at 833 ms, then the atrial EGM becomes fibrillatory: rapid, irregular activations, marked AS or AR depending on whether they fall outside or inside a refractory period. All of them are counted; the atrial rate exceeds the threshold and the device mode switches (MS) to a non-tracking mode. The QRS complexes become intrinsic (VS) and irregular: this is AV conduction of AF, above the lower rate. The pacemaker is therefore working correctly. Good habit: AR is not a sensing abnormality; it is often proof that sensing is working.",
+  "aRetenir": "AF with multiple AS/AR events, then MS and irregular VS = appropriate sensing and mode switching."
+ },
+ "egm-pm-033": {
+  "question": "Same patient: 77 years old, hypertensive and diabetic, no history of stroke, asymptomatic. Several similar episodes, including one lasting 26 hours, EGMs reviewed and confirmed. No high bleeding risk. Which management is consistent with the 2024 ESC guidelines?",
+  "options": [
+   "Discuss direct oral anticoagulation with the patient (shared decision-making)",
+   "Offer nothing: device-detected AF never justifies anticoagulation",
+   "Prescribe aspirin first line, as no ECG has documented the AF",
+   "Switch off mode switching to limit detection of these asymptomatic episodes"
+  ],
+  "commentaires": [
+   "Correct: device-detected subclinical AF in a patient at high thromboembolic risk without high bleeding risk may justify a DOAC (2024 ESC, ARTESIA).",
+   "Incorrect: the 2024 ESC guidelines allow anticoagulation to be considered in this high-risk situation.",
+   "Incorrect: antiplatelet drugs are not recommended for the prevention of AF-related stroke.",
+   "Incorrect: changing detection does not change the risk; it would simply remove information."
+  ],
+  "explication": "The episodes are validated on the EGM: this is genuine device-detected subclinical AF. In this patient with a high CHA2DS2-VA score (age, hypertension, diabetes) and no high bleeding risk, the 2024 ESC guidelines state that a direct oral anticoagulant may be considered, based in particular on ARTESIA, as part of shared decision-making; a long episode (several hours) strengthens the case. Clinical AF should also be sought (ECG, Holter): AF documented on an ECG falls under the usual recommendations. Aspirin has no role. Good habit: validate the EGM, assess the risk, then discuss anticoagulation.",
+  "aRetenir": "Validated subclinical AF + high risk: discuss a DOAC through shared decision-making, never aspirin."
+ },
+ "egm-pm-034": {
+  "question": "Follow-up visit for a dual-chamber pacemaker. Which workflow is the safest?",
+  "options": [
+   "Reset the counters, measure the thresholds, then review the stored episodes",
+   "Save data and episodes, check battery and impedances, then sensing and thresholds",
+   "Measure thresholds first, as they determine safety, then review the memory",
+   "Programme VVI 30 bpm straight away to assess the intrinsic rhythm, then review memory"
+  ],
+  "commentaires": [
+   "Incorrect: resetting before reading and saving permanently loses the diagnostics.",
+   "Correct: information is preserved first (alerts, episodes, counters), then the risk-free checks are done, then the active tests.",
+   "Incorrect: reviewing the memory first guides testing; some tests or reprogramming can erase or alter data.",
+   "Incorrect: an abrupt drop to 30 bpm can cause asystole in a pacing-dependent patient."
+  ],
+  "explication": "The first step of a device check is to interrogate and save the initial state: programmed parameters, alerts, episodes with EGMs, counters and histograms. Next come the risk-free elements (battery status, impedances, automatic measurements), then the active tests: intrinsic rhythm and sensed amplitudes (lowering the rate gradually), then pacing thresholds. Finish by checking and printing the final programmed settings, resetting the counters only after they have been saved. Good habit: read and save before touching anything.",
+  "aRetenir": "Always save the initial interrogation before any testing or counter reset."
+ },
+ "egm-pm-035": {
+  "question": "To measure the R wave in a patient implanted for complete AV block, you temporarily programme VVI 30 bpm: no intrinsic QRS appears and the patient turns pale. What is the right response?",
+  "options": [
+   "Wait a few more seconds for an escape rhythm to emerge",
+   "Lower the rate further to 20 bpm to unmask the intrinsic rhythm",
+   "Continue while reducing sensitivity to make QRS sensing easier",
+   "Stop the test immediately and record the absence of an escape rhythm"
+  ],
+  "commentaires": [
+   "Incorrect: every second of asystole exposes the patient to syncope or ventricular arrhythmia.",
+   "Incorrect: lowering the rate further prolongs asystole in a patient with no escape rhythm.",
+   "Incorrect: there is nothing to sense; sensitivity does not create an intrinsic rhythm.",
+   "Correct: the useful information has been obtained (pacing-dependent patient); prolonging asystole adds nothing."
+  ],
+  "explication": "In a potentially pacing-dependent patient, the search for an intrinsic rhythm is done by lowering the rate in steps, under ECG monitoring, watching for an escape rhythm and for tolerance; the absence of an escape rhythm at the first step is enough to draw a conclusion. Measuring the R wave is not essential if the patient has no intrinsic rhythm: previous values are used instead. Pacing dependence must be documented in the notes, as it determines management for MRI, surgery, generator change or lead extraction. Good habit: stop the test at the first warning sign; do not go \"looking\" for an escape rhythm.",
+  "aRetenir": "No escape rhythm during a test: restore pacing immediately and document pacing dependence."
+ },
+ "egm-pm-036": {
+  "question": "Statement: changing the programmed ventricular sensitivity from 2.5 mV to 1.0 mV makes the pacemaker less sensitive.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: a lower value in mV is a lower sensing threshold, and therefore a more sensitive channel.",
+   "Correct: lowering the value in mV makes the pacemaker more sensitive, and therefore more prone to oversensing."
+  ],
+  "explication": "The programmed sensitivity is the minimum amplitude a signal must reach to be sensed. At 1.0 mV, signals smaller than at 2.5 mV are seen: the channel is more sensitive (less risk of undersensing, more risk of oversensing myopotentials, T waves or far-field signals). The everyday phrase \"increase the sensitivity\" therefore means lowering the value in mV, a frequent source of error in verbal handovers. Good habit: always phrase the instruction as a value (\"change to 1.0 mV\") rather than \"more\" or \"less sensitive\".",
+  "aRetenir": "Lower sensitivity value (mV) = more sensitive pacemaker."
+ },
+ "egm-pm-037": {
+  "question": "Remote monitoring: RV pacing impedance has risen from 540 Ω to over 2500 Ω in one week; the threshold is no longer being measured by the automatic algorithm. The patient is in complete AV block. What is the likely cause and what should be done?",
+  "options": [
+   "Insulation breach: programme a lower sensitivity value and review in 3 months",
+   "Normal maturation of the lead-myocardium interface: routine check at 6 months",
+   "Conductor fracture or connection fault: prompt clinic review for assessment",
+   "Isolated measurement artefact: ignore it as long as the patient is asymptomatic"
+  ],
+  "commentaires": [
+   "Incorrect: an insulation breach makes impedance fall, not rise.",
+   "Incorrect: maturation does not increase impedance fivefold in a week.",
+   "Correct: an abrupt rise in impedance suggests a fracture or a set-screw problem, with a risk of loss of capture in a pacing-dependent patient.",
+   "Incorrect: in a pacing-dependent patient, waiting for symptoms may mean waiting for syncope."
+  ],
+  "explication": "More than the absolute value, it is the abrupt change in impedance compared with previous measurements that matters. A clear rise points to a conductor fracture or a connection fault; a fall points to an insulation breach. In a pacing-dependent patient, prompt review is needed: check capture, measure in the different polarity configurations (a bipolar lead can sometimes be reprogrammed onto an intact pathway), chest X-ray, then surgical revision if the fault is confirmed. The 2023 HRS consensus classes lead integrity alerts among those to be handled as a priority. Good habit: soaring impedance in a pacing-dependent patient = review the same day or the next.",
+  "aRetenir": "Abrupt high impedance = fracture or connection fault; in a pacing-dependent patient this is a relative emergency."
+ },
+ "egm-pm-038": {
+  "question": "Which of these findings at pacemaker follow-up should raise suspicion of a lead insulation breach? (select all that apply)",
+  "options": [
+   "Abrupt fall in pacing impedance (e.g. from 600 to 220 Ω)",
+   "Noise sensed on a bipolar sensing configuration during arm movement",
+   "Abrupt rise in impedance above 2000 Ω",
+   "Battery depletion faster than the predicted longevity",
+   "R wave and impedance identical to those at the previous check"
+  ],
+  "commentaires": [
+   "Correct: loss of insulation creates a current leak, which lowers the measured impedance.",
+   "Correct: an insulation defect between conductors can generate noise or let myopotentials through, even in bipolar configuration.",
+   "Incorrect: a rising impedance suggests a conductor fracture or a connection fault.",
+   "Correct: the current leak increases current drain and can shorten longevity.",
+   "Incorrect: stable measurements do not suggest a lead fault."
+  ],
+  "explication": "An insulation breach (internal, between conductors, or external) typically shows as a fall in pacing impedance, sometimes as oversensing of noise or myopotentials (including on a bipolar lead) and as increased current drain. A conductor fracture, conversely, gives high or unstable impedance, with loss of capture or intermittent noise. Reading impedance, EGM and trends over time together is more informative than any single value. Good habit: low impedance = insulation; high impedance = conductor or connection.",
+  "aRetenir": "Insulation breach: low impedance, noise, increased current drain; fracture: high impedance."
+ }
+}

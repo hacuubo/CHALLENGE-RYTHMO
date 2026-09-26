@@ -2,6 +2,8 @@
 // - Répétition espacée simple par boîtes de Leitner (1 à 5).
 // - Classement ELO du mode compétitif, sur l'échelle des échecs (départ 600, K = 40 / 20 / 10).
 
+import { t } from './i18n.js';
+
 const CLE_PROGRES = 'rythmo.progres.v1';
 const CLE_CONFIG = 'rythmo.config.v2';
 const CLE_CONNUES = 'rythmo.connues.v1';
@@ -38,15 +40,17 @@ const aujourdhui = () => new Date().toLocaleDateString('sv'); // AAAA-MM-JJ loca
 export const ELO_DEPART = 600;
 export const eloQuestion = difficulte => 800 + (difficulte - 1) * 200;
 export const niveauDepuisElo = r => Math.max(1, Math.min(10, Math.round((r - 800) / 200) + 1));
+// titres : libellé relu à chaque accès (suit la langue courante)
+const titreElo = (min, fr, en) => ({ min, get nom() { return t(fr, en); } });
 export const TITRES = [
-  { min: 0, nom: 'Débutant' }, { min: 1000, nom: 'Amateur' }, { min: 1400, nom: 'Joueur de club' },
-  { min: 1800, nom: 'Expert' }, { min: 2000, nom: 'Candidat maître' }, { min: 2200, nom: 'Maître' },
-  { min: 2400, nom: 'Maître international' }, { min: 2500, nom: 'Grand maître' },
+  titreElo(0, 'Débutant', 'Beginner'), titreElo(1000, 'Amateur', 'Amateur'), titreElo(1400, 'Joueur de club', 'Club player'),
+  titreElo(1800, 'Expert', 'Expert'), titreElo(2000, 'Candidat maître', 'Candidate Master'), titreElo(2200, 'Maître', 'Master'),
+  titreElo(2400, 'Maître international', 'International Master'), titreElo(2500, 'Grand maître', 'Grandmaster'),
 ];
 export function titre(elo) {
   let i = 0;
   while (i + 1 < TITRES.length && elo >= TITRES[i + 1].min) i++;
-  return { ...TITRES[i], suivant: TITRES[i + 1] || null };
+  return { min: TITRES[i].min, get nom() { return TITRES[i].nom; }, suivant: TITRES[i + 1] || null };
 }
 export function classement() {
   const c = progres().classement;
@@ -112,17 +116,19 @@ export function enregistrerSession(s) {
 }
 
 // ----- badges -----
+// nom et description relus à chaque accès (suivent la langue courante)
+const badge = (id, ico, nom, desc) => ({ id, ico, get nom() { return t(...nom); }, get desc() { return t(...desc); } });
 export const BADGES = [
-  { id: 'premiere', ico: '🎬', nom: 'Première série', desc: 'Terminer une série' },
-  { id: 'parfait', ico: '💯', nom: 'Sans faute', desc: '100 % sur une série d\'au moins 10 questions' },
-  { id: 'combo10', ico: '🔥', nom: 'En feu', desc: '10 bonnes réponses d\'affilée' },
-  { id: 'semaine', ico: '📆', nom: 'Assidu', desc: '7 jours d\'affilée' },
-  { id: 'cent', ico: '🎯', nom: 'Centurion', desc: '100 questions différentes vues' },
-  { id: 'cinqcents', ico: '🏅', nom: 'Marathonien', desc: '500 questions différentes vues' },
-  { id: 'ecg50', ico: '📈', nom: 'Œil d\'ECG', desc: '50 bonnes réponses sur des tracés' },
-  { id: 'examen', ico: '⏱️', nom: 'Examen réussi', desc: 'Au moins 80 % en mode examen (10 questions ou plus)' },
-  { id: 'club', ico: '♞', nom: 'Joueur de club', desc: 'Atteindre 1400 ELO en mode compétitif' },
-  { id: 'expert', ico: '♛', nom: 'Expert', desc: 'Atteindre 1800 ELO en mode compétitif' },
+  badge('premiere', '🎬', ['Première série', 'First quiz'], ['Terminer une série', 'Finish a quiz']),
+  badge('parfait', '💯', ['Sans faute', 'Flawless'], ['100 % sur une série d\'au moins 10 questions', '100% on a quiz of at least 10 questions']),
+  badge('combo10', '🔥', ['En feu', 'On fire'], ['10 bonnes réponses d\'affilée', '10 correct answers in a row']),
+  badge('semaine', '📆', ['Assidu', 'Dedicated'], ['7 jours d\'affilée', '7 days in a row']),
+  badge('cent', '🎯', ['Centurion', 'Centurion'], ['100 questions différentes vues', '100 different questions seen']),
+  badge('cinqcents', '🏅', ['Marathonien', 'Marathon runner'], ['500 questions différentes vues', '500 different questions seen']),
+  badge('ecg50', '📈', ['Œil d\'ECG', 'ECG eye'], ['50 bonnes réponses sur des tracés', '50 correct answers on tracings']),
+  badge('examen', '⏱️', ['Examen réussi', 'Exam passed'], ['Au moins 80 % en mode examen (10 questions ou plus)', 'At least 80% in exam mode (10 questions or more)']),
+  badge('club', '♞', ['Joueur de club', 'Club player'], ['Atteindre 1400 ELO en mode compétitif', 'Reach 1400 ELO in competitive mode']),
+  badge('expert', '♛', ['Expert', 'Expert'], ['Atteindre 1800 ELO en mode compétitif', 'Reach 1800 ELO in competitive mode']),
 ];
 function verifierBadges(s) {
   const p = progres(), b = p.badges, nouveaux = [];

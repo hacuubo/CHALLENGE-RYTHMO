@@ -1,6 +1,7 @@
 // Point d'entrée : chargement de la base, navigation par ancre (#vue), service worker.
 import * as stock from './store.js';
-import { base, charger, questionCompetitive } from './donnees.js';
+import { base, charger, rechargerBase, questionCompetitive } from './donnees.js';
+import { t, definirLangue, langue } from './i18n.js';
 import { etat, creer, reprendre as reprendreSession, sauver } from './session.js';
 import { toast } from './util.js';
 import { vueAccueil } from './vues/accueil.js';
@@ -26,17 +27,33 @@ function demarrer(questions, titre, opts = {}) {
     const q = questionCompetitive([]);
     questions = q ? [q] : [];
   }
-  if (!questions.length) { toast('Aucune question ne correspond à ces critères.'); return; }
+  if (!questions.length) { toast(t('Aucune question ne correspond à ces critères.', 'No questions match these criteria.')); return; }
   creer(questions, titre, opts);
   aller('quiz');
 }
 
 function reprendre() {
   if (reprendreSession()) aller('quiz');
-  else { toast('Cette série n\'est plus disponible.'); rendre('accueil'); }
+  else { toast(t('Cette série n\'est plus disponible.', 'This quiz is no longer available.')); rendre('accueil'); }
 }
 
-const ctx = { demarrer, reprendre, aller, appliquerApparence };
+// Changement de langue (accueil) : base rechargée dans la nouvelle langue, écran courant redessiné, sans recharger la page.
+async function changerLangue(l) {
+  if (l === langue) return;
+  const precedente = langue;
+  definirLangue(l);
+  try { await rechargerBase(); } catch (e) {
+    console.error(e);
+    definirLangue(precedente);
+    toast(t('Impossible de charger les questions. Vérifiez votre connexion.', 'Unable to load the questions. Please check your connection.'));
+  }
+  // série en mémoire : ses questions pointent désormais vers la base dans la bonne langue
+  const s = etat.session;
+  if (s) s.questions = s.questions.map(q => base.parId.get(q.id) || q);
+  rendre(location.hash.slice(1) || 'accueil');
+}
+
+const ctx = { demarrer, reprendre, aller, appliquerApparence, changerLangue };
 const vues = {
   accueil: () => vueAccueil(app, ctx),
   config: () => vueConfig(app, ctx),
@@ -64,10 +81,11 @@ function rendre(vue) {
   document.body.classList.toggle('sur-accueil', vue === 'accueil');
   vues[vue]();
   // pas de barre de navigation : chaque écran a son retour vers l'écran parent (accueil épuré → écrans de choix → activité)
-  const parent = { entrainement: ['accueil', 'Accueil'], 'simu-menu': ['accueil', 'Accueil'], competitif: ['accueil', 'Accueil'],
-    progression: ['accueil', 'Accueil'], config: ['entrainement', 'Entraînement'], simulateur: ['accueil', 'Accueil'] }[vue];
+  const accueil = ['accueil', t('Accueil', 'Home')];
+  const parent = { entrainement: accueil, 'simu-menu': accueil, competitif: accueil,
+    progression: accueil, config: ['entrainement', t('Entraînement', 'Training')], simulateur: accueil }[vue];
   if (parent) app.insertAdjacentHTML('afterbegin', `<button class="retour-accueil" data-nav="${parent[0]}">‹ ${parent[1]}</button>`);
-  if (vue === 'apropos') app.insertAdjacentHTML('afterbegin', `<button class="retour-fleche" data-nav="accueil" aria-label="Retour à l'accueil" title="Accueil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg></button>`);
+  if (vue === 'apropos') app.insertAdjacentHTML('afterbegin', `<button class="retour-fleche" data-nav="accueil" aria-label="${t('Retour à l\'accueil', 'Back to home')}" title="${t('Accueil', 'Home')}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg></button>`);
   app.focus({ preventScroll: true });
   window.scrollTo(0, 0);
 }
@@ -78,7 +96,7 @@ document.addEventListener('click', e => {
   e.preventDefault();
   const s = etat.session;
   if (s && !s.fini && location.hash === '#quiz' && s.reponses.some(Boolean)
-    && !confirm('Quitter la série ? Vous pourrez la reprendre depuis l\'accueil.')) return;
+    && !confirm(t('Quitter la série ? Vous pourrez la reprendre depuis l\'accueil.', 'Leave this quiz? You can resume it from the home screen.'))) return;
   aller(b.dataset.nav);
 });
 
@@ -120,7 +138,7 @@ try {
   rendre(h === 'quiz' || h === 'resultats' ? 'accueil' : h || 'accueil');
 } catch (e) {
   console.error(e);
-  app.innerHTML = '<div class="carte"><h2>Impossible de charger les questions</h2><p>Vérifiez votre connexion puis rechargez la page.</p></div>';
+  app.innerHTML = `<div class="carte"><h2>${t('Impossible de charger les questions', 'Unable to load the questions')}</h2><p>${t('Vérifiez votre connexion puis rechargez la page.', 'Check your connection, then reload the page.')}</p></div>`;
 }
 effacerTitre();
 if ('serviceWorker' in navigator) {
@@ -129,7 +147,7 @@ if ('serviceWorker' in navigator) {
     reg.addEventListener('updatefound', () => {
       const nw = reg.installing;
       nw?.addEventListener('statechange', () => {
-        if (nw.state === 'activated' && dejaControle) toast('Nouvelle version installée : elle sera utilisée au prochain lancement.', 4000);
+        if (nw.state === 'activated' && dejaControle) toast(t('Nouvelle version installée : elle sera utilisée au prochain lancement.', 'New version installed: it will be used next time you open the app.'), 4000);
       });
     });
   }).catch(() => {});

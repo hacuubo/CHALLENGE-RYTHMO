@@ -1,0 +1,160 @@
+{
+"prog-fond-027": {
+ "question": "The R wave measured on the RV lead is 8 mV. Which ventricular sensitivity setting is most appropriate?",
+ "options": ["0.5 mV", "2.5 mV", "8 mV", "10 mV"],
+ "commentaires": [
+  "Incorrect: an unnecessarily sensitive channel, prone to oversensing of T waves or myopotentials.",
+  "Correct: about one third of the measured amplitude: a sensing safety margin of about 3.",
+  "Incorrect: with no margin at all, the signal would be undersensed whenever its amplitude fluctuates.",
+  "Incorrect: a value above the R-wave amplitude guarantees undersensing."
+ ],
+ "explication": "Sensitivity must be set with a margin: classically a value no more than half, and ideally one third, of the measured signal amplitude (sensing safety margin of 2 to 3), to ensure sensing despite amplitude variations. With an 8 mV R wave, 2.5 mV gives a margin of about 3. At 8 or 10 mV, the signal would be intermittently undersensed. At 0.5 mV, the channel is unnecessarily sensitive and prone to oversensing of T waves or myopotentials.",
+ "aRetenir": "Programmed sensitivity ≈ 1/2 to 1/3 of the measured signal amplitude."
+},
+"prog-fond-028": {
+ "question": "Bipolar sensing is more prone to oversensing of pectoral myopotentials than unipolar sensing.",
+ "options": ["True", "False"],
+ "commentaires": [
+  "Incorrect: the reverse is true: in unipolar sensing, the pectoral can is part of the circuit and picks up myopotentials.",
+  "Correct: in bipolar sensing, both electrodes lie close together at the lead tip, which limits the antenna and oversensing."
+ ],
+ "explication": "The statement is the reverse of reality. In unipolar sensing, the sensing field extends between the lead tip and the can in the pectoral muscle, so myopotentials and external interference are more readily picked up. In bipolar sensing, the two electrodes lie close together at the lead tip, which limits the antenna. Reprogramming to bipolar, when the lead allows it, is often the solution to myopotential oversensing. The unipolar spike is also much larger on the ECG.",
+ "aRetenir": "Bipolar = less myopotential oversensing than unipolar."
+},
+"prog-fond-029": {
+ "question": "In DDD mode, what is \"crosstalk\" and how is it prevented?",
+ "options": ["T wave sensed on the atrial channel; PVARP extension", "Simultaneous pacing of both ventricles; VV delay adjustment", "Retrograde VA conduction to the atrium; programmed hysteresis", "A spike sensed on the V channel; blanking and safety pacing"],
+ "commentaires": [
+  "Incorrect: PVARP protects the atrial channel from ventricular signals; this is not the definition of crosstalk.",
+  "Incorrect: biventricular pacing is a CRT function, not crosstalk between channels.",
+  "Incorrect: retrograde VA conduction is the mechanism of PMT; hysteresis does not prevent it.",
+  "Correct: the V channel mistakes the A spike for a QRS and inhibits; post-atrial blanking and short-AV safety pacing prevent this."
+ ],
+ "explication": "Crosstalk is the sensing of the atrial pacing pulse by the ventricular channel: the pacemaker believes it has been inhibited by a QRS and withholds ventricular pacing, which can be catastrophic in complete AV block. It is prevented by a brief ventricular blanking period after each atrial pacing pulse, followed by a window during which any sensed signal triggers ventricular safety pacing at a short AV delay (about 100–120 ms). Safety pacing avoids inhibition without the risk of pacing on the T wave. PVARP applies to the atrial channel.",
+ "aRetenir": "Crosstalk = A spike seen by the V channel; prevention: post-atrial blanking + safety pacing."
+},
+"prog-fond-030": {
+ "question": "A patient with a DDD pacemaker has numerous mode-switch episodes although the ECG shows sinus rhythm. The EGMs show an atrial signal consistently coinciding with the QRS. What is the most appropriate measure?",
+ "options": ["Shorten the PVARP to improve P-wave sensing", "Extend the PVAB and/or reduce atrial sensitivity", "Raise the maximum tracking rate to 150 bpm", "Programme atrial sensing to unipolar configuration"],
+ "commentaires": [
+  "Incorrect: PVARP does not prevent the mode-switch algorithm from counting far-field signals; shortening it changes nothing.",
+  "Correct: an atrial signal locked to each QRS suggests far-field R-wave sensing; the PVAB blanks it, or reduced atrial sensitivity ignores it.",
+  "Incorrect: the maximum tracking rate does not affect atrial counting for mode switching.",
+  "Incorrect: unipolar sensing widens the sensing antenna and would worsen far-field sensing."
+ ],
+ "explication": "An atrial signal locked to each QRS suggests far-field R-wave sensing on the atrial lead: the device counts two atrial events per cycle and may inappropriately trigger mode switching. The fix is to extend the post-ventricular atrial blanking period to blank the far-field signal, or to reduce atrial sensitivity if the P wave is still reliably sensed. Switching to unipolar would make the problem worse. Shortening the PVARP or raising the upper rate has no effect on this phenomenon. Caution: an excessively long PVAB may blank part of the activity of atrial flutter.",
+ "aRetenir": "Inappropriate mode switching from far-field R waves: extend the PVAB or reduce atrial sensitivity."
+},
+"prog-fond-031": {
+ "question": "Which pacing impedance range is usually considered normal for a standard lead?",
+ "options": ["20 to 100 Ω", "200 to 1,200 Ω", "2,000 to 5,000 Ω", "5,000 to 10,000 Ω"],
+ "commentaires": [
+  "Incorrect: such a low impedance suggests an insulation breach.",
+  "Correct: normal impedances lie roughly between 200–300 and 1,000–1,200 Ω depending on the lead; the trend matters most.",
+  "Incorrect: apart from dedicated high-impedance leads, these values suggest a fracture or connection problem.",
+  "Incorrect: such a high impedance indicates an open circuit (fracture, connection)."
+ ],
+ "explication": "Normal pacing impedances lie roughly between 200–300 and 1,000–1,200 Ω depending on the lead (so-called high-impedance leads may exceed these values). The trend matters more than the absolute value: an abrupt change from previous measurements is suspicious. A very low value suggests an insulation breach, a very high value a conductor fracture or poor connection. Always refer to the lead manufacturer's data.",
+ "aRetenir": "Normal impedance ≈ 200–1,200 Ω; the trend matters most."
+},
+"prog-fond-032": {
+ "question": "The ventricular lead impedance suddenly rises from 600 to over 3,000 Ω. Which diagnosis should be considered first?",
+ "options": ["Insulation breach with current leak into the tissues", "Physiological post-implant rise", "Conductor fracture or poor connection", "Hyperkalaemia with a rise in threshold"],
+ "commentaires": [
+  "Incorrect: an insulation breach, on the contrary, causes impedance to fall.",
+  "Incorrect: lead maturation changes impedance only moderately; an abrupt jump from 600 to 3,000 Ω is never physiological.",
+  "Correct: soaring impedance indicates an open circuit: fracture (subclavian crush) or a loose set screw.",
+  "Incorrect: hyperkalaemia affects the threshold, not lead impedance."
+ ],
+ "explication": "A marked, abrupt rise in impedance indicates an open electrical circuit: conductor fracture (often in the costoclavicular space, between the clavicle and first rib, with a subclavian approach) or a loose set screw if the problem arises just after implantation. It is often accompanied by intermittent loss of capture and noise on the EGMs. An insulation breach, by contrast, lowers impedance. Hyperkalaemia affects the threshold, not lead impedance.",
+ "aRetenir": "Soaring impedance = conductor fracture or connection problem."
+},
+"prog-fond-033": {
+ "question": "The impedance of a bipolar lead falls from 650 to 180 Ω. Which hypothesis is most likely?",
+ "options": ["Lead insulation breach", "Conductor fracture", "Loose set screw", "Normal interface maturation"],
+ "commentaires": [
+  "Correct: a marked fall in impedance (< 200 Ω) indicates current leakage between conductors or into the tissues.",
+  "Incorrect: a fracture interrupts the circuit and raises impedance.",
+  "Incorrect: a poor connection gives a high impedance, not a low one.",
+  "Incorrect: normal maturation does not make impedance fall from 650 to 180 Ω."
+ ],
+ "explication": "A low impedance (typically < 200 Ω) or a marked fall suggests an insulation breach: current leaks between conductors or into the tissues. This increases current drain (battery depletion) and can cause loss of capture and oversensing. Fracture and connection problems, by contrast, give a high impedance. Compare with previous values, check the other configurations and, if the defect affects the inner insulation of a bipolar lead, programme to unipolar pending lead revision.",
+ "aRetenir": "Low impedance = insulation breach."
+},
+"prog-fond-034": {
+ "question": "A pacing impedance within normal limits at follow-up definitively rules out lead fracture.",
+ "options": ["True", "False"],
+ "commentaires": [
+  "Incorrect: a partial or intermittent fracture can coexist with a normal impedance at the time of measurement.",
+  "Correct: trends and EGMs must be analysed and provocative manoeuvres performed before ruling out a fracture."
+ ],
+ "explication": "A fracture may be partial or intermittent: the impedance measured at a given moment may be normal while episodes of noise, oversensing or loss of capture occur with certain movements. Analyse the stored impedance trends and recorded EGMs (non-physiological high-frequency artefacts), and perform provocative manoeuvres (arm movements, deep breathing) during recording. An X-ray may help but is often insensitive.",
+ "aRetenir": "A single normal impedance reading does not exclude an intermittent fracture."
+},
+"prog-fond-035": {
+ "question": "Which findings suggest a pacing lead fracture?",
+ "options": ["Non-physiological high-frequency artefacts on the EGMs", "Abrupt rise in impedance", "Threshold peak in the first weeks after implantation", "Impedance falling below 200 Ω"],
+ "commentaires": [
+  "Correct: micro-interruptions of the circuit create rapid, non-physiological, often saturating noise.",
+  "Correct: fracture interrupts the conductor: impedance rises, sometimes intermittently.",
+  "Incorrect: an early threshold peak is the usual course of the electrode–myocardium interface, not a sign of fracture.",
+  "Incorrect: a fall in impedance points rather to an insulation breach."
+ ],
+ "explication": "Conductor fracture creates micro-interruptions of the circuit: rapid non-physiological noise on the EGMs (often saturating), which can cause oversensing with inhibition, and intermittent loss of capture. Impedance rises, sometimes intermittently. A fall in impedance points rather to an insulation breach, although both defects may coexist in a damaged lead. The threshold peak in the first weeks is due to the inflammatory reaction at the electrode–tissue interface and does not suggest fracture. Provocative manoeuvres help reproduce the noise.",
+ "aRetenir": "Fracture = non-physiological noise on the EGMs, high impedance, intermittent loss of capture."
+},
+"prog-fond-036": {
+ "question": "Why does a high-impedance pacing lead improve device longevity?",
+ "reponseAttendue": "At the same voltage, a higher impedance reduces the current delivered (I = V/R), and hence the charge and energy consumed with each pulse.",
+ "explication": "The device delivers a constant-voltage pulse: the current is given by Ohm's law (I = V/R). If the impedance is twice as high, the current and energy delivered per pulse are halved for the same capture. High-impedance leads use a small-surface-area electrode, which concentrates current density and keeps the threshold low. The benefit is greatest in patients with a high pacing burden. This \"by design\" impedance should not be confused with an abnormal rise (fracture).",
+ "aRetenir": "High impedance = less current delivered = better longevity."
+},
+"prog-fond-037": {
+ "question": "A pacemaker's lower rate is programmed at 70 bpm. What is the corresponding lower rate interval?",
+ "options": ["700 ms", "857 ms", "1,000 ms", "1,170 ms"],
+ "commentaires": [
+  "Incorrect: a classic trap: reading \"700 ms\" for 70 bpm; 700 ms corresponds to about 86 bpm.",
+  "Correct: 60,000 / 70 ≈ 857 ms.",
+  "Incorrect: 1,000 ms corresponds to 60 bpm.",
+  "Incorrect: 1,170 ms corresponds to about 51 bpm."
+ ],
+ "explication": "The interval (in ms) is calculated as 60,000 / rate (in bpm): 60,000 / 70 ≈ 857 ms. At 60 bpm the interval is 1,000 ms, at 50 bpm 1,200 ms. This calculation is essential when analysing a tracing: a cycle longer than the lower rate interval without pacing should prompt a search for oversensing or hysteresis. The pitfall is to confuse rate and interval, or to \"read\" 700 ms for 70 bpm.",
+ "aRetenir": "Interval (ms) = 60,000 / rate (bpm)."
+},
+"prog-fond-038": {
+ "question": "A DDD pacemaker uses ventricular-based timing with a lower rate of 60 bpm and a paced AV delay of 200 ms. What is the atrial escape interval (VA interval)?",
+ "options": ["200 ms", "600 ms", "800 ms", "1,000 ms"],
+ "commentaires": [
+  "Incorrect: 200 ms is the AV delay, not the VA interval.",
+  "Incorrect: this result subtracts the AV delay twice from the lower rate interval.",
+  "Correct: VA interval = lower rate interval (1,000 ms) − AV delay (200 ms) = 800 ms.",
+  "Incorrect: 1,000 ms is the full lower rate interval, which includes the AV delay."
+ ],
+ "explication": "With ventricular-based timing, the lower rate interval (1,000 ms at 60 bpm) is divided into the VA interval (from the ventricular event to the next atrial pacing pulse) and the AV delay. The VA interval is therefore 1,000 − 200 = 800 ms. If no P wave is sensed during these 800 ms, the atrium is paced, followed by the ventricle 200 ms later in the absence of conduction. This reasoning explains the rate variations seen with intrinsic AV conduction.",
+ "aRetenir": "VA interval = lower rate interval − AV delay."
+},
+"prog-fond-039": {
+ "question": "A DDD pacemaker is programmed with a sensed AV delay of 150 ms and a PVARP of 250 ms. Above which atrial rate will 2:1 block occur?",
+ "options": ["120 bpm", "150 bpm", "167 bpm", "240 bpm"],
+ "commentaires": [
+  "Incorrect: a TARP of 400 ms corresponds to 150 bpm, not 120 bpm.",
+  "Correct: TARP = 150 + 250 = 400 ms; 60,000 / 400 = 150 bpm.",
+  "Incorrect: this calculation takes only part of the TARP into account (about 360 ms).",
+  "Incorrect: 240 bpm would correspond to the PVARP alone (250 ms); the AV delay must be added."
+ ],
+ "explication": "The total atrial refractory period (TARP) is the sum of the AV delay and the PVARP: 150 + 250 = 400 ms. Any P wave occurring at a shorter interval falls within the TARP and is not tracked: the 2:1 block point is therefore 60,000 / 400 = 150 bpm. This is a key parameter in young, active patients with AV block, whose ventricular rate may suddenly halve on exertion. Shortening the AV delay (dynamic AV delay) or the PVARP raises this point.",
+ "aRetenir": "2:1 block point = 60,000 / (AV delay + PVARP)."
+},
+"prog-fond-040": {
+ "question": "Why is the AV delay after atrial pacing usually programmed longer than the AV delay after atrial sensing?",
+ "options": ["To reduce battery drain during pacing", "To avoid crosstalk on the ventricular channel", "Because PVARP is longer after atrial pacing", "To offset interatrial conduction time"],
+ "commentaires": [
+  "Incorrect: the aim is haemodynamic (left-sided AV synchrony), not battery saving.",
+  "Incorrect: crosstalk is managed by blanking and safety pacing, not by the paced AV delay.",
+  "Incorrect: PVARP does not depend on the type of atrial event and does not justify this setting.",
+  "Correct: after an A spike, the LA activates later; a spontaneous P, by contrast, is sensed late: the paced AV delay is lengthened by 30 to 50 ms."
+ ],
+ "explication": "A spontaneous P wave is sensed only when the activation wavefront reaches the atrial lead, i.e. with some delay after P-wave onset. Conversely, after atrial pacing (often from the high right atrium), left atrial activation is delayed by interatrial conduction. To achieve comparable left-sided AV synchrony, the paced AV delay is therefore lengthened by about 30 to 50 ms relative to the sensed AV delay. This setting is unrelated to crosstalk or battery.",
+ "aRetenir": "Paced AV delay > sensed AV delay, to preserve equivalent left-sided AV synchrony."
+}
+}

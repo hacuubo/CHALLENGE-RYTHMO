@@ -3,6 +3,8 @@
 // calculés à partir du journal d'activations du moteur.
 // Vitesse de défilement en mm/s (comme sur papier) ; affichage en balayage avec barre d'effacement ou en défilement.
 
+import { t } from '../i18n.js';
+
 export const PX_PAR_MM = 96 / 25.4; // pixels CSS par millimètre
 export const VITESSES = [12.5, 25, 50, 100, 200, 400];
 
@@ -29,35 +31,35 @@ const FORMES = {
   uni: () => ({ f: τ => -g(τ, 8, 7) + 0.25 * g(τ, 25, 10), portee: [-25, 60] }),
 };
 
-// Voies d'enregistrement. src : [site, amplitude, forme, décalage ms].
+// Voies d'enregistrement (noms selon la langue : conventions internationales en anglais). src : [site, amplitude, forme, décalage ms].
 export const CANAUX = [
-  { id: 'I', nom: 'D1', surface: true },
-  { id: 'II', nom: 'D2', surface: true },
+  { id: 'I', get nom() { return t('D1', 'I'); }, surface: true },
+  { id: 'II', get nom() { return t('D2', 'II'); }, surface: true },
   { id: 'aVF', nom: 'aVF', surface: true },
   { id: 'V1', nom: 'V1', surface: true },
   { id: 'V6', nom: 'V6', surface: true },
-  { id: 'hra', nom: 'OD haute', court: 'ODh', coul: 'od', src: [['hra', 1, 'local'], ['vsep', 0.12, 'loin', 15]] },
+  { id: 'hra', get nom() { return t('OD haute', 'HRA'); }, get court() { return t('ODh', 'HRA'); }, coul: 'od', src: [['hra', 1, 'local'], ['vsep', 0.12, 'loin', 15]] },
   { id: 'h78', nom: 'Halo 7-8', court: 'H7', coul: 'halo', src: [['lath', 1, 'local'], ['vsep', 0.1, 'loin', 20]] },
   { id: 'h56', nom: 'Halo 5-6', court: 'H5', coul: 'halo', src: [['latm', 1, 'local'], ['rva', 0.1, 'loin', 10]] },
   { id: 'h34', nom: 'Halo 3-4', court: 'H3', coul: 'halo', src: [['latb', 1, 'local'], ['rva', 0.12, 'loin', 5]] },
   { id: 'h12', nom: 'Halo 1-2', court: 'H1', coul: 'halo', src: [['cti', 1, 'local'], ['rva', 0.25, 'loin', 0]] },
   { id: 'hisp', nom: 'His p', court: 'Hp', coul: 'his', src: [['ras', 1, 'local'], ['his', 0.22, 'his'], ['vsep', 0.35, 'loin', 5]] },
   { id: 'hisd', nom: 'His d', court: 'Hd', coul: 'his', src: [['ras', 0.45, 'local'], ['his', 0.55, 'his'], ['bbd', 0.18, 'his', 2], ['vsep', 0.95, 'large', 5]] },
-  { id: 'cs9', nom: 'SC 9-10', court: 'SC9', coul: 'sc', src: [['cs9', 1, 'local'], ['vps', 0.35, 'loin', 0]] },
-  { id: 'cs7', nom: 'SC 7-8', court: 'SC7', coul: 'sc', src: [['cs7', 1, 'local'], ['vps', 0.35, 'loin', 8]] },
-  { id: 'cs5', nom: 'SC 5-6', court: 'SC5', coul: 'sc', src: [['cs5', 1, 'local'], ['lvl', 0.4, 'loin', -12]] },
-  { id: 'cs3', nom: 'SC 3-4', court: 'SC3', coul: 'sc', src: [['cs3', 1, 'local'], ['lvl', 0.45, 'loin', -6]] },
-  { id: 'cs1', nom: 'SC 1-2', court: 'SC1', coul: 'sc', src: [['cs1', 1, 'local'], ['lvl', 0.5, 'loin', 0]] },
-  { id: 'rva', nom: 'VD apex', court: 'VD', coul: 'vd', src: [['rva', 1.1, 'large'], ['ras', 0.08, 'loin', 10]] },
+  { id: 'cs9', get nom() { return t('SC 9-10', 'CS 9-10'); }, get court() { return t('SC9', 'CS9'); }, coul: 'sc', src: [['cs9', 1, 'local'], ['vps', 0.35, 'loin', 0]] },
+  { id: 'cs7', get nom() { return t('SC 7-8', 'CS 7-8'); }, get court() { return t('SC7', 'CS7'); }, coul: 'sc', src: [['cs7', 1, 'local'], ['vps', 0.35, 'loin', 8]] },
+  { id: 'cs5', get nom() { return t('SC 5-6', 'CS 5-6'); }, get court() { return t('SC5', 'CS5'); }, coul: 'sc', src: [['cs5', 1, 'local'], ['lvl', 0.4, 'loin', -12]] },
+  { id: 'cs3', get nom() { return t('SC 3-4', 'CS 3-4'); }, get court() { return t('SC3', 'CS3'); }, coul: 'sc', src: [['cs3', 1, 'local'], ['lvl', 0.45, 'loin', -6]] },
+  { id: 'cs1', get nom() { return t('SC 1-2', 'CS 1-2'); }, get court() { return t('SC1', 'CS1'); }, coul: 'sc', src: [['cs1', 1, 'local'], ['lvl', 0.5, 'loin', 0]] },
+  { id: 'rva', get nom() { return t('VD apex', 'RVA'); }, get court() { return t('VD', 'RV'); }, coul: 'vd', src: [['rva', 1.1, 'large'], ['ras', 0.08, 'loin', 10]] },
   { id: 'abld', nom: 'ABL d', court: 'ABd', coul: 'abl', src: [] },  // renseignées selon la position de la sonde
   { id: 'ablu', nom: 'ABL uni', court: 'ABu', coul: 'abl', src: [] },
 ];
 
 export const MONTAGES = {
-  standard: { nom: 'Standard (TSV)', voies: ['I', 'II', 'V1', 'hra', 'hisp', 'hisd', 'cs9', 'cs7', 'cs5', 'cs3', 'cs1', 'rva'] },
+  standard: { get nom() { return t('Standard (TSV)', 'Standard (SVT)'); }, voies: ['I', 'II', 'V1', 'hra', 'hisp', 'hisd', 'cs9', 'cs7', 'cs5', 'cs3', 'cs1', 'rva'] },
   flutter: { nom: 'Flutter (Halo)', voies: ['I', 'II', 'aVF', 'V1', 'hra', 'h78', 'h56', 'h34', 'h12', 'hisd', 'cs9', 'cs5', 'cs1', 'rva'] },
   ablation: { nom: 'Ablation', voies: ['I', 'II', 'aVF', 'V1', 'V6', 'hisd', 'cs9', 'cs5', 'cs1', 'rva', 'abld', 'ablu'] },
-  complet: { nom: 'Complet', voies: CANAUX.map(c => c.id) },
+  complet: { get nom() { return t('Complet', 'Full'); }, voies: CANAUX.map(c => c.id) },
 };
 
 // Sites de stimulation → voie qui porte l'artéfact principal.

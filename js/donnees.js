@@ -1,32 +1,78 @@
-// Base de questions : chargement, filtres, construction des séries.
+// Base de questions : chargement (et surcouche anglaise), filtres, construction des séries.
+// Les libellés affichés sont relus à chaque accès (accesseurs) : ils suivent la langue courante.
 import * as stock from './store.js';
 import { melanger } from './util.js';
+import { t, enAnglais, langue } from './i18n.js';
 
 export const THEMES = {
-  ecg: { nom: 'ECG', ico: '📈', desc: 'Lecture de tracés, vrais ECG 12 dérivations, ECG stimulé' },
-  programmation: { nom: 'Programmation PM / DAI', ico: '⚙️', desc: 'Modes, algorithmes par marque, DAI, CRT' },
-  telecardio: { nom: 'Alertes télécardio', ico: '📡', desc: 'Télésurveillance, triage des alertes, conduite à tenir' },
-  electrophysio: { nom: 'Électrophysiologie', ico: '⚡', desc: 'Mécanismes, EEP, ablation, antiarythmiques' },
+  ecg: { get nom() { return 'ECG'; }, ico: '📈', get desc() { return t('Lecture de tracés, vrais ECG 12 dérivations, ECG stimulé', 'Tracing interpretation, real 12-lead ECGs, paced ECGs'); } },
+  programmation: { get nom() { return t('Programmation PM / DAI', 'Pacemaker / ICD programming'); }, ico: '⚙️', get desc() { return t('Modes, algorithmes par marque, DAI, CRT', 'Modes, manufacturer algorithms, ICD, CRT'); } },
+  telecardio: { get nom() { return t('Alertes télécardio', 'Remote monitoring alerts'); }, ico: '📡', get desc() { return t('Télésurveillance, triage des alertes, conduite à tenir', 'Remote monitoring, alert triage, management'); } },
+  electrophysio: { get nom() { return t('Électrophysiologie', 'Electrophysiology'); }, ico: '⚡', get desc() { return t('Mécanismes, EEP, ablation, antiarythmiques', 'Mechanisms, EP studies, ablation, antiarrhythmic drugs'); } },
 };
 export const MARQUES = ['Medtronic', 'Abbott', 'Boston Scientific', 'Biotronik', 'MicroPort'];
-export const TYPES = { qcu: 'QCU', qcm: 'QCM', vf: 'Vrai / Faux', ouverte: 'Question ouverte' };
+export const TYPES = {
+  get qcu() { return t('QCU', 'Single answer'); },
+  get qcm() { return t('QCM', 'Multiple answers'); },
+  get vf() { return t('Vrai / Faux', 'True / False'); },
+  get ouverte() { return t('Question ouverte', 'Open question'); },
+};
 export const NIVEAUX = [
-  { id: 'tous', nom: 'Tous niveaux', min: 1, max: 10 },
-  { id: 'deb', nom: 'Débutant (1–3)', min: 1, max: 3 },
-  { id: 'inter', nom: 'Intermédiaire (4–6)', min: 4, max: 6 },
-  { id: 'av', nom: 'Avancé (7–10)', min: 7, max: 10 },
-  { id: 'sup3', nom: 'Au-dessus de 3', min: 4, max: 10 },
+  { id: 'tous', get nom() { return t('Tous niveaux', 'All levels'); }, min: 1, max: 10 },
+  { id: 'deb', get nom() { return t('Débutant (1–3)', 'Beginner (1–3)'); }, min: 1, max: 3 },
+  { id: 'inter', get nom() { return t('Intermédiaire (4–6)', 'Intermediate (4–6)'); }, min: 4, max: 6 },
+  { id: 'av', get nom() { return t('Avancé (7–10)', 'Advanced (7–10)'); }, min: 7, max: 10 },
+  { id: 'sup3', get nom() { return t('Au-dessus de 3', 'Above 3'); }, min: 4, max: 10 },
 ];
 
-export const base = { version: '', date: '', questions: [], parId: new Map() };
+export const base = { version: '', date: '', langue: 'fr', questions: [], parId: new Map() };
 
+// Libellés anglais des sous-thèmes et recommandations (data/questions/en/libelles.json).
+// Les valeurs internes (q.sousTheme, q.reco, marque « Générique ») restent en français : on ne traduit qu'à l'affichage.
+let libelles = { sousThemes: {}, reco: {} };
+export const libSousTheme = s => (enAnglais() && libelles.sousThemes?.[s]) || s;
+export const libReco = r => (enAnglais() && libelles.reco?.[r]) || r;
+export const libMarque = m => (m === 'Générique' ? t('Générique', 'Generic') : m);
+
+// Surcouche anglaise : mêmes champs que scripts/i18n.mjs (appliquer), recopiés ici pour ne pas dépendre des scripts.
+const CHAMPS = ['question', 'options', 'commentaires', 'reponseAttendue', 'explication', 'aRetenir'];
+const TRACES = ['ecg', 'egm', 'simu'];
+function appliquer(q, s) {
+  if (!s) return q;
+  const r = { ...q };
+  for (const c of CHAMPS) if (s[c] != null) r[c] = s[c];
+  if (s.legende) for (const k of TRACES) if (q[k]?.legende) r[k] = { ...q[k], legende: s.legende };
+  return r;
+}
+
+// Fichiers JSON gardés en mémoire pour la durée de la visite : changer de langue ne recharge que ce qui manque.
+const memoire = new Map();
+const lireJson = (chemin, facultatif) => {
+  if (!memoire.has(chemin)) {
+    memoire.set(chemin, fetch(chemin, { cache: 'no-cache' }).then(r => {
+      if (!r.ok) throw new Error(`${chemin} : ${r.status}`);
+      return r.json();
+    }).catch(e => { memoire.delete(chemin); if (facultatif) return null; throw e; }));
+  }
+  return memoire.get(chemin);
+};
+
+// Charge la base dans la langue courante. En anglais, chaque fichier absent ou question non traduite reste en français.
 export async function charger() {
-  const idx = await (await fetch('data/questions/index.json', { cache: 'no-cache' })).json();
-  const listes = await Promise.all(idx.fichiers.map(f => fetch(`data/questions/${f}`, { cache: 'no-cache' }).then(r => r.json())));
-  base.version = idx.version; base.date = idx.date;
-  base.questions = listes.flat();
+  const en = enAnglais();
+  const idx = await lireJson('data/questions/index.json');
+  const [listes, surcouches, lib] = await Promise.all([
+    Promise.all(idx.fichiers.map(f => lireJson(`data/questions/${f}`))),
+    en ? Promise.all(idx.fichiers.map(f => lireJson(`data/questions/en/${f}`, true))) : [],
+    en ? lireJson('data/questions/en/libelles.json', true) : null,
+  ]);
+  libelles = { sousThemes: {}, reco: {}, ...(lib || {}) };
+  base.version = idx.version; base.date = idx.date; base.langue = langue;
+  base.questions = listes.flatMap((l, i) => (surcouches[i] ? l.map(q => appliquer(q, surcouches[i][q.id])) : l));
   base.parId = new Map(base.questions.map(q => [q.id, q]));
 }
+// Après un changement de langue : recharge la base si elle n'est pas déjà dans la langue courante.
+export const rechargerBase = () => (base.langue === langue && base.questions.length ? Promise.resolve() : charger());
 
 export const aTrace = q => !!(q.ecg || q.ecg12 || q.egm || q.simu);
 
@@ -50,10 +96,10 @@ export function construireSerie(liste, n, priorite) {
 
 // Domaines d'entraînement proposés à l'accueil.
 export const DOMAINES = [
-  { id: 'stim', nom: 'Stimulation, DAI, télécardio', ico: '⚙️', themes: ['programmation', 'telecardio'], desc: 'Programmation, EGM, alertes' },
-  { id: 'ecg', nom: 'ECG', ico: '📈', themes: ['ecg'], desc: 'Tracés, vrais ECG 12 dérivations' },
-  { id: 'ep', nom: 'Électrophysiologie', ico: '⚡', themes: ['electrophysio'], desc: 'Mécanismes, EEP, ablation' },
-  { id: 'tout', nom: 'Tout venant', ico: '🎲', themes: ['ecg', 'programmation', 'telecardio', 'electrophysio'], desc: 'Un peu de tout, au hasard' },
+  { id: 'stim', get nom() { return t('Stimulation, DAI, télécardio', 'Pacing, ICD, remote monitoring'); }, ico: '⚙️', themes: ['programmation', 'telecardio'], get desc() { return t('Programmation, EGM, alertes', 'Programming, EGMs, alerts'); } },
+  { id: 'ecg', nom: 'ECG', ico: '📈', themes: ['ecg'], get desc() { return t('Tracés, vrais ECG 12 dérivations', 'Tracings, real 12-lead ECGs'); } },
+  { id: 'ep', get nom() { return t('Électrophysiologie', 'Electrophysiology'); }, ico: '⚡', themes: ['electrophysio'], get desc() { return t('Mécanismes, EEP, ablation', 'Mechanisms, EP studies, ablation'); } },
+  { id: 'tout', get nom() { return t('Tout venant', 'Mixed'); }, ico: '🎲', themes: ['ecg', 'programmation', 'telecardio', 'electrophysio'], get desc() { return t('Un peu de tout, au hasard', 'A bit of everything, at random'); } },
 ];
 
 // Mode compétitif : question dont la cote est proche du classement du joueur (légèrement au-dessus),

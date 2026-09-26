@@ -1,0 +1,172 @@
+{
+  "ecg-stim-002": {
+    "question": "Explain each letter of the DDDR mode.",
+    "reponseAttendue": "D: pacing in both atrium and ventricle; D: sensing in both atrium and ventricle; D: dual response to sensing (inhibition and triggering: a sensed P wave inhibits atrial pacing and triggers ventricular pacing at the end of the AV delay); R: rate response (activity sensor).",
+    "explication": "DDD mode combines pacing and sensing in both chambers. The third letter, D, means that the device inhibits pacing in any chamber where an event is sensed, but that an atrial sensed event triggers a ventricular paced beat at the end of the AV delay if no intrinsic QRS is sensed: this is atrial tracking. The R in fourth position stands for rate response, which increases the pacing rate on exertion using a sensor (accelerometer, minute ventilation…). Rate response modulates the pacing rate independently of atrial tracking: it is capped by the maximum sensor rate, which is distinct from the maximum tracking rate (MTR).",
+    "aRetenir": "DDDR = dual-chamber pacing and sensing, inhibition + triggering, with rate response."
+  },
+  "ecg-stim-003": {
+    "question": "An 82-year-old patient in permanent AF was implanted for symptomatic AF with slow ventricular response. Based on this tracing, what is the most likely pacing mode?",
+    "options": ["VVI", "DDD", "AAI", "VDD"],
+    "commentaires": [
+      "Correct: a single spike per cycle, followed by a wide QRS, on a fibrillating baseline: single-chamber ventricular pacing, the mode of choice in permanent AF.",
+      "Incorrect: DDD requires an organised atrial rhythm to pace and track; there would be two spikes per cycle or tracked P waves, which is impossible in permanent AF.",
+      "Incorrect: in AAI, the spike is followed by a P wave and then a narrow conducted QRS; a fibrillating atrium cannot be captured.",
+      "Incorrect: VDD tracks sensed P waves; here no organised atrial activity is visible and the spike is not preceded by a P wave."
+    ],
+    "explication": "In permanent AF there is no organised atrial activity to pace or track, so the recommended mode is single-chamber ventricular pacing (VVI, ideally VVIR). The tracing shows a single spike per cycle, followed by a wide QRS, with no organised atrial activity. AAI is contraindicated because a fibrillating atrium cannot be captured and AV conduction is not protected. DDD and VDD require organised atrial activity that can be sensed and tracked; in AF they would in any case have to mode switch.",
+    "aRetenir": "In permanent AF, the mode of choice is VVI(R).",
+    "legende": "Lead II"
+  },
+  "ecg-stim-004": {
+    "question": "A patient with a pacemaker. Which pacing mode is operating on this tracing?",
+    "options": ["VVI", "AAI", "VDD", "DDD with AV sequential pacing"],
+    "commentaires": [
+      "Incorrect: in VVI, the spike would be followed directly by a wide QRS, with no paced P wave in between.",
+      "Correct: spike → P wave → narrow QRS after a normal PR interval: the atrium is paced and the ventricle is activated via intrinsic AV conduction.",
+      "Incorrect: VDD never paces the atrium; there would be an intrinsic P wave without a spike, followed by a ventricular spike.",
+      "Incorrect: with AV sequential pacing, a second spike would precede a wide QRS; here the QRS is narrow and conducted."
+    ],
+    "explication": "The spike is followed by a P wave (atrial capture), and ventricular depolarisation then occurs via the normal conduction system, hence a narrow QRS identical to the intrinsic QRS: this is atrial pacing with intrinsic AV conduction, typical of AAI mode. In VVI, the spike would be followed directly by a wide QRS. In DDD with ventricular pacing, a second spike would be seen before a wide QRS. In VDD, the atrium is never paced. Beware: DDD with an AV delay longer than the intrinsic PR interval can produce exactly the same appearance (atrial pacing, ventricular sensing).",
+    "aRetenir": "Spike → P wave → narrow conducted QRS: atrial pacing with intrinsic AV conduction (AAI, or DDD in AP-VS)."
+  },
+  "ecg-stim-005": {
+    "question": "Dual-chamber pacemaker. On this tracing, what does the interval between the first and the second pacing artefact of each cycle represent?",
+    "options": [
+      "The post-ventricular atrial refractory period (PVARP)",
+      "The atrial escape interval (VA interval)",
+      "The retrograde ventriculoatrial conduction time",
+      "The programmed AV delay after atrial pacing"
+    ],
+    "commentaires": [
+      "Incorrect: PVARP starts after the ventricular event and applies to the atrial channel; it cannot be seen directly on the ECG.",
+      "Incorrect: the VA interval runs from the ventricular spike to the next atrial spike, not from the A spike to the V spike.",
+      "Incorrect: retrograde conduction runs from the ventricle to the atrium, after the QRS; it plays no part between the two spikes.",
+      "Correct: the A spike – V spike interval is the paced AV delay (PAV), usually slightly longer than the sensed AV delay."
+    ],
+    "explication": "This is dual-chamber sequential pacing (AP-VP). The A spike – V spike interval is the programmed AV delay after atrial pacing (often called the PAV), generally slightly longer than the sensed AV delay (SAV) to compensate for intra-atrial conduction latency. PVARP starts after the ventricular event and cannot be seen directly on the ECG. The VA (atrial escape) interval runs from the V spike to the next A spike. Retrograde conduction plays no part here.",
+    "aRetenir": "In DDD, the A spike – V spike interval is the paced AV delay (PAV)."
+  },
+  "ecg-stim-006": {
+    "question": "A patient implanted for complete AV block, in sinus rhythm. What pacemaker behaviour is seen on this tracing?",
+    "options": [
+      "Asynchronous ventricular pacing (VOO), unrelated to the P waves",
+      "Sensed sinus P wave followed by synchronised ventricular pacing",
+      "Effective atrial pacing with loss of ventricular capture",
+      "DDI mode with dissociation between sinus P waves and paced QRS"
+    ],
+    "commentaires": [
+      "Incorrect: in VOO, the spikes would occur at a fixed interval unrelated to the P waves; here the P–spike interval is constant.",
+      "Correct: each sinus P wave, without a spike, is followed after a fixed delay by a V spike and a wide QRS: atrial tracking (AS-VP) in VDD/DDD.",
+      "Incorrect: no atrial spike is visible, and every ventricular spike is followed by a QRS: there is no loss of capture.",
+      "Incorrect: in DDI, sensed P waves do not trigger ventricular pacing; there would be dissociation, not a fixed P–spike interval."
+    ],
+    "explication": "The sinus P waves are sensed by the atrial channel (no atrial spike) and trigger ventricular pacing at the end of the sensed AV delay: this is P-synchronous (AS-VP) operation in VDD mode, or in DDD when the sinus rate exceeds the lower rate. This is the ideal behaviour in AV block with normal sinus node function. In VOO, the spikes would bear no relation to the P waves. In DDI, sensed P waves do not trigger ventricular pacing, so there would be AV dissociation. There is no sign of loss of capture here, since every V spike is followed by a QRS.",
+    "aRetenir": "Sensed P wave → V spike after a fixed delay = atrial tracking (AS-VP), typical of VDD/DDD."
+  },
+  "ecg-stim-007": {
+    "question": "In DDI mode, a sensed sinus P wave triggers ventricular pacing at the end of the AV delay.",
+    "options": ["True", "False"],
+    "commentaires": [
+      "Incorrect: in DDI, the response to sensing is inhibition only; a sensed P wave never triggers ventricular pacing.",
+      "Correct: it is DDD (and VDD) that tracks the atrium; DDI has no atrial tracking, which is why it is used as a mode-switch mode."
+    ],
+    "explication": "DDI mode paces and senses in both chambers, but its response to sensing is inhibition only: a sensed P wave inhibits atrial pacing but does not trigger ventricular pacing. There is therefore no atrial tracking; the ventricle is paced at the lower (or sensor) rate if no QRS is sensed. This is what makes it the typical fallback mode for mode switching during atrial arrhythmias. In a patient with complete AV block in sinus rhythm, DDI results in AV dissociation with loss of AV synchrony.",
+    "aRetenir": "DDI = no atrial tracking: a sensed P wave never results in synchronised ventricular pacing."
+  },
+  "ecg-stim-008": {
+    "question": "A patient with complete AV block and normal sinus node function (sinus rate 85 bpm) whose dual-chamber pacemaker was inadvertently left in DDI at 60 bpm. What would you expect on the ECG?",
+    "options": [
+      "Sinus P waves at 85 bpm dissociated from paced QRS at 60 bpm",
+      "Sinus P waves each followed by a V spike after the AV delay, at 85 bpm",
+      "Atrioventricular sequential pacing at 60 bpm",
+      "Pacemaker-mediated tachycardia at the upper tracking rate"
+    ],
+    "commentaires": [
+      "Correct: in DDI, P waves are not tracked; the ventricle is paced at the lower rate, independently of the non-conducted P waves (AV block).",
+      "Incorrect: this is how DDD or VDD behaves; DDI does not trigger ventricular pacing after a sensed P wave.",
+      "Incorrect: sinus P waves at 85 bpm inhibit atrial pacing; paced AV sequential beats only appear if the sinus rate falls below 60 bpm.",
+      "Incorrect: PMT requires a mode with atrial tracking (DDD, VDD); DDI does not allow it."
+    ],
+    "explication": "In DDI, sensed P waves inhibit atrial pacing but are not tracked. The ventricle is therefore paced at the lower rate (60 bpm), independently of the sinus P waves at 85 bpm, which are not conducted because of the complete AV block: the ECG shows AV dissociation, as in VVI. AV sequential pacing only occurs if the sinus rate falls below the lower rate, which is not the case here. PMT requires a mode with atrial tracking (DDD/VDD). DDI is therefore unsuitable as a permanent mode in a patient with AV block and normal sinus rhythm; it is a mode-switch fallback mode.",
+    "aRetenir": "DDI in a patient with complete AV block in sinus rhythm = AV dissociation: unsuitable as a permanent mode."
+  },
+  "ecg-stim-009": {
+    "question": "A patient implanted in AAIR for sick sinus syndrome. A Holter recording shows atrial spikes followed by P waves, some of which are not followed by any QRS, with no ventricular spike. What is the interpretation?",
+    "options": [
+      "Intermittent loss of atrial capture due to lead displacement",
+      "Ventricular oversensing inhibiting device pacing",
+      "Normal rate response behaviour at a high rate",
+      "Intrinsic AV block, not protected by atrial-only pacing"
+    ],
+    "commentaires": [
+      "Incorrect: every atrial spike is followed by a P wave: atrial capture is present.",
+      "Incorrect: in AAI there is no ventricular channel, so ventricular oversensing is impossible.",
+      "Incorrect: rate response speeds up pacing but does not block P waves; at most it can unmask nodal Wenckebach block.",
+      "Correct: the paced P wave proves atrial capture; the absence of a subsequent QRS reflects AV block, which AAI cannot compensate for."
+    ],
+    "explication": "The atrial spikes are followed by a P wave: atrial capture is present. The absence of a QRS after some P waves reflects AV block, which AAI mode cannot compensate for since it does not pace the ventricle. This is why the 2021 ESC guidelines favour dual-chamber pacing (with algorithms to minimise ventricular pacing) over AAI in sick sinus syndrome, given the risk of AV block developing during follow-up. Ventricular oversensing makes no sense in AAI (no V channel). Rate response does not cause blocked P waves, although a high paced atrial rate can unmask nodal Wenckebach block.",
+    "aRetenir": "In AAI, a captured but non-conducted P wave is AV block, not pacemaker malfunction."
+  },
+  "ecg-stim-010": {
+    "question": "In a patient in sinus rhythm with retrograde VA conduction, VVI pacing can cause pacemaker syndrome.",
+    "options": ["True", "False"],
+    "commentaires": [
+      "Correct: in VVI, the atrium contracts at the wrong time, against closed valves when VA conduction is present: this is pacemaker syndrome.",
+      "Incorrect: loss of AV synchrony, which is greatest with retrograde conduction, is precisely the mechanism of pacemaker syndrome."
+    ],
+    "explication": "In VVI, the atrium is neither sensed nor paced: in a patient in sinus rhythm, atrial contraction occurs at any point in the ventricular cycle. When retrograde VA conduction is preserved, the atrium contracts against closed AV valves, leading to raised venous pressures, a vasodepressor reflex and symptoms (fatigue, dyspnoea, neck pulsations, hypotension, presyncope): this is pacemaker syndrome. It is prevented by pacing that preserves AV synchrony (DDD/VDD). It can also occur without VA conduction, through loss of AV synchrony alone, but it is most marked when VA conduction is present.",
+    "aRetenir": "Pacemaker syndrome results from loss of AV synchrony, particularly in VVI with retrograde conduction."
+  },
+  "ecg-stim-011": {
+    "question": "A patient implanted with a single-lead VDD system (floating atrial dipole). Which of these functions can this system NOT perform?",
+    "options": [
+      "Pace the atrium during sinus bradycardia",
+      "Sense atrial activity via the floating dipole",
+      "Pace the ventricle, tracking each sensed P wave",
+      "Pace the ventricle at the lower rate"
+    ],
+    "commentaires": [
+      "Correct: the floating atrial dipole senses P waves but cannot reliably pace the atrium: hence V as the first letter of the code.",
+      "Incorrect: this is precisely the role of the floating atrial dipole: sensing P waves (D as the second letter).",
+      "Incorrect: tracking sensed P waves (triggering, D as the third letter) is the main function of VDD.",
+      "Incorrect: if the sinus rate falls below the lower rate, VDD paces the ventricle alone (VVI-type behaviour)."
+    ],
+    "explication": "VDD mode paces the ventricle only (V), senses both chambers (D) and responds with inhibition and triggering (D). The single-pass VDD lead has a floating atrial dipole that can sense P waves but cannot effectively pace the atrium. If the sinus rate falls below the lower rate, the device paces the ventricle alone (VVI behaviour), with loss of AV synchrony. This system is therefore only suitable for patients with AV block and normal sinus node function.",
+    "aRetenir": "VDD senses the atrium but does not pace it: normal sinus node function is required."
+  },
+  "ecg-stim-012": {
+    "question": "What is the usual QRS morphology during right ventricular apical pacing?",
+    "options": [
+      "Narrow QRS, identical to the patient's intrinsic QRS",
+      "LBBB-like pattern with marked left axis deviation",
+      "RBBB-like pattern with right axis deviation",
+      "LBBB-like pattern with an inferior axis"
+    ],
+    "commentaires": [
+      "Incorrect: a narrow QRS identical to the intrinsic one suggests conduction system capture or fusion, not RV apical pacing.",
+      "Correct: the RV is activated before the LV (LBBB-like pattern) and activation spreads from apex to base: negative QRS in the inferior leads.",
+      "Incorrect: a clear RBBB-like pattern during \"RV\" pacing should prompt a search for a lead in a left-sided position.",
+      "Incorrect: an inferior axis (positive QRS in II, III, aVF) points to high pacing: outflow tract or high septum."
+    ],
+    "explication": "Pacing from the RV apex activates the RV first and then the LV by cell-to-cell spread, giving a wide LBBB-like QRS (QS or rS in V1). Activation spreads from the apex (inferior region) towards the base, giving negative QRS complexes in the inferior leads and marked left axis deviation. An inferior axis (positive in II, III, aVF) instead points to RV outflow tract or high septal pacing. A clear RBBB-like pattern should prompt a search for a lead in a left-sided position. A narrow QRS identical to the intrinsic one suggests conduction system capture or fusion.",
+    "aRetenir": "RV apical pacing = LBBB-like QRS with marked left axis deviation."
+  },
+  "ecg-stim-013": {
+    "question": "In a patient with RV pacing, the ECG shows an LBBB-like paced QRS, positive in II, III and aVF and negative in I and aVL. Which lead position fits best?",
+    "options": [
+      "Lateral coronary sinus vein",
+      "Right ventricular apex",
+      "LV cavity via a patent foramen ovale",
+      "RV outflow tract / high septum"
+    ],
+    "commentaires": [
+      "Incorrect: lateral LV epicardial pacing would activate the LV first, with a dominant R wave in V1 (RBBB-like pattern).",
+      "Incorrect: apical pacing produces an LBBB-like pattern with marked left axis deviation, i.e. negative QRS in the inferior leads.",
+      "Incorrect: a lead in the LV would produce an RBBB-like pattern with a dominant R wave in V1.",
+      "Correct: high RV pacing activates the heart from top to bottom (inferior axis) while retaining an LBBB-like pattern."
+    ],
+    "explication": "Pacing from the high septum or the RV outflow tract produces a downward-directed activation, hence positive QRS complexes in the inferior leads (inferior or right axis), while retaining an LBBB-like pattern since the RV is activated first. RV apical pacing, in contrast, gives marked left axis deviation with negative QRS complexes in the inferior leads. A lead in a lateral coronary sinus vein or in the left ventricular cavity would activate the LV first, producing an RBBB-like pattern with a dominant R wave in V1. Distinguishing the free wall from the septum of the outflow tract, however, requires analysis of lead I and QRS duration, and imaging.",
+    "aRetenir": "LBBB-like paced QRS with an inferior axis = high pacing (RV outflow tract/high septum)."
+  }
+}
