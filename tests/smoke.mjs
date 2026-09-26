@@ -206,6 +206,11 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.click('#voies-bloc summary');
     await page.click('[data-voie=V1]'); await page.click('[data-voie=abld]');
     if (await page.inputValue('#montage') !== 'perso' || await page.getAttribute('[data-voie=V1]', 'aria-pressed') !== 'false') throw new Error('choix des voies inopérant');
+    // on ne stimule que depuis un cathéter affiché : OD lat (près de l'isthme) présente, isthme (Halo 1-2) absent
+    if (await page.getAttribute('[data-voie=odl]', 'aria-pressed') !== 'true' || !await page.isVisible('#site [data-v=latb]') || await page.isVisible('#site [data-v=cti]')) throw new Error('sites de stimulation non liés aux voies affichées');
+    await page.click('[data-voie=h12]');
+    if (!await page.isVisible('#site [data-v=cti]')) throw new Error('le site isthme n\'apparaît pas avec la voie Halo 1-2');
+    await page.click('[data-voie=h12]');
     await page.click('#voies-bloc summary');
     // la barre d'état est réécrite à chaque image : on attend qu'elle soit renseignée
     const t0 = await (await page.waitForFunction(() => document.querySelector('#etat')?.textContent.trim() || null, null, { timeout: 5000 })).jsonValue();
@@ -251,6 +256,21 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
       await page.waitForTimeout(200);
       if (await page.isVisible('#ecran') || !await page.isVisible('#ecran-rappel')) throw new Error('bascule vers l\'écran de rappel inopérante');
       await capture('simulateur-paysage');
+      // vignette du temps réel retirable ; compas au doigt : appui long (2 s) sur le début, appui maintenu (1 s) sur la fin
+      await page.click('#mini-direct');
+      if (await page.isVisible('#ecran-mini')) throw new Error('la vignette du temps réel ne se retire pas');
+      await page.click('#mini-direct');
+      const toucher = (x, duree) => page.evaluate(async ([x, duree]) => {
+        const cv = document.querySelector('#ecran-rappel'), b = cv.getBoundingClientRect();
+        const ev = type => new PointerEvent(type, { pointerId: 7, pointerType: 'touch', isPrimary: true, bubbles: true, clientX: b.left + b.width * x, clientY: b.top + 60 });
+        cv.dispatchEvent(ev('pointerdown')); await new Promise(f => setTimeout(f, duree)); cv.dispatchEvent(ev('pointerup'));
+      }, [x, duree]);
+      await toucher(0.5, 300);
+      if (/Début posé/.test(await page.textContent('#message'))) throw new Error('un appui bref pose un compas');
+      await toucher(0.5, 2200);
+      if (!/Début posé/.test(await page.textContent('#message'))) throw new Error('l\'appui long ne pose pas le début du compas');
+      await toucher(0.7, 1200);
+      if (!await page.isHidden('#appui')) throw new Error('la bague d\'appui reste affichée');
       await page.click('.simu-bascule [data-vue=direct]');
       await page.setViewportSize({ width: largeur, height: hauteur });
     }

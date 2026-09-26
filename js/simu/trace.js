@@ -1,5 +1,5 @@
 // Rendu de la baie d'électrophysiologie : dérivations de surface (D1, D2, aVF, V1, V6) et électrogrammes
-// endocavitaires (OD haute, Halo, His proximal et distal, sinus coronaire, VD apex, sonde d'ablation),
+// endocavitaires (OD haute, OD latérale, Halo, His proximal et distal, sinus coronaire, VD apex, sonde d'ablation),
 // calculés à partir du journal d'activations du moteur.
 // Vitesse de défilement en mm/s (comme sur papier) ; affichage en balayage avec barre d'effacement ou en défilement.
 // Voie de pression artérielle (modèle de Windkessel), filtres (secteur 50 Hz, passe-haut des électrogrammes),
@@ -42,6 +42,8 @@ export const CANAUX = [
   { id: 'V1', nom: 'V1', surface: true },
   { id: 'V6', nom: 'V6', surface: true },
   { id: 'hra', get nom() { return t('OD haute', 'HRA'); }, get court() { return t('ODh', 'HRA'); }, coul: 'od', src: [['hra', 1, 'local'], ['vsep', 0.12, 'loin', 15]] },
+  // OD latérale basse, au contact de l'entrée latérale de l'isthme cavo-tricuspide
+  { id: 'odl', get nom() { return t('OD lat', 'Lat RA'); }, get court() { return t('ODl', 'LRA'); }, coul: 'od', src: [['latb', 1, 'local'], ['cti', 0.3, 'loin', 5], ['rva', 0.12, 'loin', 5]] },
   { id: 'h78', nom: 'Halo 7-8', court: 'H7', coul: 'halo', src: [['lath', 1, 'local'], ['vsep', 0.1, 'loin', 20]] },
   { id: 'h56', nom: 'Halo 5-6', court: 'H5', coul: 'halo', src: [['latm', 1, 'local'], ['rva', 0.1, 'loin', 10]] },
   { id: 'h34', nom: 'Halo 3-4', court: 'H3', coul: 'halo', src: [['latb', 1, 'local'], ['rva', 0.12, 'loin', 5]] },
@@ -60,15 +62,20 @@ export const CANAUX = [
 ];
 
 export const MONTAGES = {
-  standard: { get nom() { return t('Standard (TSV)', 'Standard (SVT)'); }, voies: ['I', 'II', 'V1', 'hra', 'hisp', 'hisd', 'cs9', 'cs7', 'cs5', 'cs3', 'cs1', 'rva', 'pa'] },
+  standard: { get nom() { return t('Standard (TSV)', 'Standard (SVT)'); }, voies: ['I', 'II', 'V1', 'hra', 'odl', 'hisp', 'hisd', 'cs9', 'cs7', 'cs5', 'cs3', 'cs1', 'rva', 'pa'] },
   flutter: { nom: 'Flutter (Halo)', voies: ['I', 'II', 'aVF', 'V1', 'hra', 'h78', 'h56', 'h34', 'h12', 'hisd', 'cs9', 'cs5', 'cs1', 'rva', 'pa'] },
   ablation: { nom: 'Ablation', voies: ['I', 'II', 'aVF', 'V1', 'V6', 'hisd', 'cs9', 'cs5', 'cs1', 'rva', 'abld', 'ablu', 'pa'] },
-  compact: { get nom() { return t('Réduit (téléphone)', 'Compact (phone)'); }, voies: ['II', 'V1', 'hra', 'hisd', 'cs9', 'cs1', 'rva', 'abld'] },
+  compact: { get nom() { return t('Réduit (téléphone)', 'Compact (phone)'); }, voies: ['II', 'V1', 'hra', 'odl', 'hisd', 'cs9', 'cs1', 'rva', 'abld'] },
   complet: { get nom() { return t('Complet', 'Full'); }, voies: CANAUX.map(c => c.id) },
 };
 
-// Sites de stimulation → voie qui porte l'artéfact principal.
-const SITE_CANAL = { hra: 'hra', latb: 'h34', cti: 'h12', cs9: 'cs9', cs1: 'cs1', rva: 'rva', parahis: 'hisd', abl: 'abld' };
+// Sites de stimulation → dipôles qui les portent (par ordre de préférence) : on ne stimule que sur une voie affichée,
+// et l'artéfact principal s'inscrit sur le premier de ces dipôles présent à l'écran.
+export const VOIES_SITE = { hra: ['hra'], latb: ['odl', 'h34'], cti: ['h12'], cs9: ['cs9'], cs1: ['cs1'], parahis: ['hisd', 'hisp'], rva: ['rva'], abl: ['abld', 'ablu'] };
+// Latence entre le stimulus et l'électrogramme local capturé (ms) : le complexe suit le spike, il ne se confond pas avec lui.
+export const LATENCE_CAPTURE = { local: 14, large: 18, his: 8 };
+const VENTRICULES_LOC = new Set(['vsep', 'vbd', 'vps', 'rva', 'lvl', 'tv1', 'tv2', 'tv3']);
+const latence = (x, forme) => (x.o === 'stim' ? LATENCE_CAPTURE[forme] ?? (VENTRICULES_LOC.has(x.s) ? 18 : 14) : 0);
 const ATRIUM = ['sa', 'hra', 'lath', 'latm', 'latb', 'cti', 'ras', 'cs9', 'cs7', 'cs5', 'cs3', 'cs1', 'ogs', 'oga', 'foyer'];
 const VENTRICULES = ['vsep', 'vbd', 'vps', 'rva', 'lvl'];
 const DERIV = ['I', 'II', 'aVF', 'V1', 'V6'];
@@ -258,7 +265,8 @@ export function dessinerSimu(canvas, coeur, o = {}) {
       rangees.push({ id: canal.id, y0: y, y1: y + h }); y += h;
       return;
     }
-    const stimsIci = stims.filter(s => SITE_CANAL[s.s] === canal.id);
+    const voieStim = s => (VOIES_SITE[s.canal ?? s.s] || []).find(v => voies.includes(v));
+    const stimsIci = stims.filter(s => voieStim(s) === canal.id);
     ctx.fillStyle = C.texte; ctx.font = `600 ${etroit ? 10 : 12}px system-ui, sans-serif`; ctx.textAlign = 'left';
     ctx.fillText(etroit ? canal.court || canal.nom : canal.nom, 4, mid + 4);
     if (gv !== 1 && !etroit) { ctx.font = '10px system-ui, sans-serif'; ctx.fillText(`×${gv}`, 4, mid + 15); }
@@ -271,7 +279,11 @@ export function dessinerSimu(canvas, coeur, o = {}) {
       for (const [site, amp, forme, dec = 0] of src) {
         if (!site) continue;
         const { f, portee: [a, b] } = FORMES[forme](site);
-        for (const x of j) if (x.s === site && x.t + dec + b >= tMin && x.t + dec + a <= tMax) { const tc = x.t + dec; ev.push({ t: tc + a, fin: tc + b, f: τ => amp * f(τ - tc) }); }
+        for (const x of j) {
+          if (x.s !== site) continue;
+          const tc = x.t + dec + (forme === 'loin' ? 0 : latence(x, forme));
+          if (tc + b >= tMin && tc + a <= tMax) ev.push({ t: tc + a, fin: tc + b, f: τ => amp * f(τ - tc) });
+        }
       }
     }
     ev.sort((p, q) => p.t - q.t);
@@ -285,7 +297,7 @@ export function dessinerSimu(canvas, coeur, o = {}) {
         while (debut < ev.length && ev[debut].fin < t - 90) debut++;
         let v = 0;
         for (let q = debut; q < ev.length && ev[q].t <= t; q++) if (ev[q].fin >= t) v += ev[q].f(t);
-        for (const s of stimsIci) if (t > s.t && t - s.t < 80) v += 0.55 * Math.exp(-(t - s.t) / 14); // polarisation après le stimulus
+        for (const s of stimsIci) if (t > s.t && t - s.t < 60) v += 0.4 * Math.exp(-(t - s.t) / 7); // polarisation brève après le stimulus
         v *= gv;
         if (avecBruit) v += canal.surface ? 0.012 * bruit(t, k) + 0.04 * Math.sin(t / 1600 + k) : 0.02 * bruit(t, k) + 0.012 * Math.sin(t * 0.314 + k);
         if (!filtre50) v += 0.09 * Math.sin(2 * Math.PI * t / 20 + k);
@@ -300,7 +312,7 @@ export function dessinerSimu(canvas, coeur, o = {}) {
     ctx.lineWidth = 1.2;
     for (const s of stims) {
       const seg = segDe(s.t); if (!seg) continue;
-      const a = SITE_CANAL[s.s] === canal.id ? 1.3 : canal.surface ? 0.5 : 0.3;
+      const a = voieStim(s) === canal.id ? 1.3 : canal.surface ? 0.5 : 0.3;
       ctx.beginPath(); ctx.moveTo(X(s.t, seg), mid + a * gain * 0.3); ctx.lineTo(X(s.t, seg), mid - a * gain); ctx.stroke();
     }
     ctx.restore();
@@ -365,5 +377,5 @@ export function evenementsCanal(id, coeur, ablation = null) {
   if (canal.pression) return battementsV(j).map(t => t + 60);
   let src = canal.src;
   if (id === 'abld' || id === 'ablu') src = ablation ? [[ablation.a, 1, 'local'], [ablation.v, 1, 'large']] : [];
-  return [...r, ...src.filter(x => x[0]).flatMap(([site, , , dec = 0]) => j.filter(x => x.s === site).map(x => x.t + dec))];
+  return [...r, ...src.filter(x => x[0]).flatMap(([site, , forme, dec = 0]) => j.filter(x => x.s === site).map(x => x.t + dec + (forme === 'loin' ? 0 : latence(x, forme))))];
 }
