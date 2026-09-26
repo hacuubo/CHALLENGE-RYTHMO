@@ -258,10 +258,22 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.selectOption('#scenario', 'arrivee-flutter');
     await page.waitForFunction(() => /Tachycardie/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 3000 });
     if (await page.textContent('#cas-badge') !== 'Patient en tachycardie' || !await page.isVisible('#diagnostic')) throw new Error('cas « patient en tachycardie » mal présenté');
-    await page.selectOption('#scenario', 'mystere');
+    // salve : burst de 2 s lancé par Stimuler (onglet Salve), qui redevient Stimuler à la fin du burst
+    await page.click('#tab-salve');
+    await page.click('#salveType [data-v=burst]');
+    await page.fill('#salve-duree', '2'); await page.dispatchEvent('#salve-duree', 'change');
+    await page.click('#stimuler');
+    if (await page.textContent('#stimuler') !== 'Stop') throw new Error('le burst ne démarre pas depuis Stimuler');
+    await page.waitForFunction(() => document.querySelector('#stimuler').textContent === 'Stimuler', null, { timeout: 6000 });
+    await page.click('#tab-prog');
+    // quiz : cas tiré au sort, deux notes (diagnostic, démarche) et démarche idéale
+    await page.click('[data-mode=quiz]');
+    if (await page.isVisible('#choix-scenario') || !await page.isVisible('#quiz-nouveau')) throw new Error('mode quiz mal présenté');
     await page.selectOption('#reponse', 'trav');
     await page.click('#valider');
     await page.waitForSelector('#verdict .retour');
+    if (await page.locator('#verdict .simu-note').count() !== 2 || !await page.locator('#verdict .simu-ideal li').count()) throw new Error('notes ou démarche idéale absentes');
+    await page.click('[data-mode=libre]');
   });
 
   await verifier(`${appareil} : tous les tracés synthétiques (ECG et EGM) se dessinent`, async () => {
