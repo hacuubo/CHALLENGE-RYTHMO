@@ -189,6 +189,15 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.click('.tuile[data-nav=simulateur]');
     await page.waitForSelector('#ecran'); // l'accueil mène directement à la baie
     await page.selectOption('#scenario', 'trin');
+    // nombre de S1 infini : stimulation continue jusqu'à Stop, sans nombre de S1 ni extrastimulus
+    await page.check('#continu');
+    if (await page.isVisible('#n') || await page.isVisible('#extras')) throw new Error('Nb S1 ou extrastimulus visibles en stimulation continue');
+    await page.click('#stimuler');
+    await page.waitForTimeout(2500);
+    if (await page.textContent('#stimuler') !== 'Stop') throw new Error('la stimulation continue s\'arrête seule');
+    await page.click('#stimuler');
+    if (await page.textContent('#stimuler') === 'Stop') throw new Error('Stop n\'arrête pas la stimulation continue');
+    await page.uncheck('#continu');
     if (await page.isVisible('#s2')) throw new Error('S2 visible sans « + extrastimulus »');
     await page.check('#extras');
     await page.fill('#s2', '320'); await page.dispatchEvent('#s2', 'change');

@@ -57,7 +57,7 @@ export function vueSimulateur(app) {
   if (sauve.v !== 2) { delete sauve.mode; delete sauve.figerApres; } // le balayage devient l'affichage standard
   // téléphone : montage réduit par défaut pour que le tracé tienne à l'écran avec la console
   const telephone = matchMedia('(max-width: 699px), (max-height: 520px)').matches;
-  const r = { v: 2, site: 'hra', sortie: 5, largeur: 2, detection: '', s1: 600, n: 8, s2: 400, s3: 0, s4: 0, extras: false, rappelApres: true, decrement: false,
+  const r = { v: 2, site: 'hra', sortie: 5, largeur: 2, detection: '', s1: 600, n: 8, s2: 400, s3: 0, s4: 0, extras: false, continu: false, rappelApres: true, decrement: false,
     salveCl: 400, salveType: 'burst', salveDuree: 10, modeStim: 'prog', modeSimu: 'libre', rampeDebut: 500, rampeFin: 250, rampePas: 10, vitesse: 100, vitesseRappel: 100, mode: 'balayage', montage: telephone ? 'compact' : 'standard',
     bruit: true, etiquettes: true, filtre50: true, passeHaut: true, aimant: true, miniDirect: true, puissance: 30, dureeRF: 60, onglet: 'prog', ...sauve };
   if (!VITESSES.includes(r.vitesse)) r.vitesse = 100;
@@ -194,6 +194,7 @@ export function vueSimulateur(app) {
       </div>
       <div class="simu-pans">
         ${panneau('prog', `
+          <label class="simu-case simu-extras"><input type="checkbox" id="continu" ${r.continu ? 'checked' : ''}> ${t('Nb S1 infini : stimulation continue à S1 jusqu\'à Stop', 'Unlimited S1: continuous pacing at S1 until Stop')}</label>
           <div class="simu-grille-pas">${pas('s1', 'S1 (ms)', r.s1, 10, 200, 2000)}${pas('n', t('Nb S1', 'S1 count'), r.n, 1, 0, 30)}
           ${pas('sortie', t('Sortie (mA)', 'Output (mA)'), r.sortie, 0.5, 0.1, 20)}${pas('largeur', t('Impulsion (ms)', 'Pulse width (ms)'), r.largeur, 0.5, 0.5, 2)}</div>
           <label class="simu-case simu-extras"><input type="checkbox" id="extras" ${r.extras ? 'checked' : ''}> ${t('+ extrastimulus (S2, S3, S4)', '+ extrastimuli (S2, S3, S4)')}</label>
@@ -432,7 +433,7 @@ export function vueSimulateur(app) {
   const reglages = () => {
     const n = (id, min = 0) => Math.max(min, +$(id).value || 0);
     Object.assign(r, { sortie: n('#sortie', 0.1), largeur: Math.min(2, n('#largeur', 0.5)), s1: Math.max(200, n('#s1')), n: Math.min(30, Math.round(n('#n'))),
-      s2: Math.round(n('#s2')), s3: Math.round(n('#s3')), s4: Math.round(n('#s4')), extras: $('#extras').checked, rappelApres: $('#rappel-apres').checked, decrement: $('#decrement').checked,
+      s2: Math.round(n('#s2')), s3: Math.round(n('#s3')), s4: Math.round(n('#s4')), extras: $('#extras').checked, continu: $('#continu').checked, rappelApres: $('#rappel-apres').checked, decrement: $('#decrement').checked,
       salveCl: n('#salve-cl', 150), salveDuree: Math.min(60, Math.round(n('#salve-duree'))), rampeDebut: n('#rampe-debut', 150), rampeFin: n('#rampe-fin', 150), rampePas: n('#rampe-pas', 1),
       puissance: Math.min(50, n('#puissance', 5)), dureeRF: Math.min(120, n('#duree-rf', 10)),
       vitesse: +$('#vitesse').value, vitesseRappel: +$('#vitesse-rappel').value, mode: $('#mode').value,
@@ -464,6 +465,7 @@ export function vueSimulateur(app) {
     $('#resume').textContent = r.modeStim === 'salve'
       ? (r.salveType === 'rampe' ? t(`Stimuler → rampe ${r.rampeDebut} → ${r.rampeFin} ms (pas ${r.rampePas}) · ${sortie}`, `Pace → ramp ${r.rampeDebut} → ${r.rampeFin} ms (${r.rampePas} ms steps) · ${sortie}`)
         : t(`Stimuler → burst ${r.salveCl} ms ${r.salveDuree ? `pendant ${r.salveDuree} s` : 'continu'} · ${sortie}`, `Pace → burst ${r.salveCl} ms ${r.salveDuree ? `for ${r.salveDuree} s` : 'continuous'} · ${sortie}`))
+      : r.continu ? t(`Stimuler → S1 ${r.s1} ms en continu, jusqu'à Stop · ${sortie}`, `Pace → S1 ${r.s1} ms continuously, until Stop · ${sortie}`)
       : t('Stimuler → ', 'Pace → ') + `${r.n ? `${r.n} × ${r.s1}` : t('sans train', 'no drive train')}${extras.map((x, i) => ` · S${i + 2} ${x}`).join('')} ms · ${sortie}`
         + `${r.detection ? t(` · couplé ${COURTS_DETECTION()[r.detection]}`, ` · synced ${COURTS_DETECTION()[r.detection]}`) : ''}`;
   }
@@ -505,6 +507,7 @@ export function vueSimulateur(app) {
   function stimuler() {
     reglages();
     if (siteInterdit()) return;
+    if (r.continu) { vibrer(); demarrerSalve(siteReel(), r.s1, { continu: true }); return; } // nombre de S1 infini : jusqu'à Stop
     const p = programme(); // réglages figés au moment de l'appui (train couplé différé)
     if (!p.n && !p.s2) { message(r.extras ? t('Réglez au moins un S1 ou un S2.', 'Set at least one S1 or S2.') : t('Réglez au moins un S1, ou cochez « + extrastimulus ».', 'Set at least one S1, or tick "+ extrastimuli".')); return; }
     vibrer();
@@ -545,11 +548,12 @@ export function vueSimulateur(app) {
   }
 
   // salve à cycle fixe ; duree (ms) : arrêt automatique, sinon continue jusqu'à « Stop »
-  function demarrerSalve(site, cl, { nom = nomSite(), type, duree = 0 } = {}) {
+  function demarrerSalve(site, cl, { nom = nomSite(), type, duree = 0, continu = false } = {}) {
     const tach = tachycardie(st.coeur), debut = st.coeur.t + 100;
     st.salve = { site, cl, prochain: debut, debut, fin: duree ? debut + duree : null, sortie: r.sortie, largeur: r.largeur, tachy: tach.active,
       tcl: VENTRICULAIRES.has(site) ? tach.cycleV : (tach.cycleA ?? tach.cycleV), nom };
-    noter(type ?? classer(site, { salve: true }), t(`Salve : ${nom} à ${cl} ms${duree ? ` pendant ${duree / 1000} s` : ''}, ${virgule(r.sortie)} mA`, `Burst: ${nom} at ${cl} ms${duree ? ` for ${duree / 1000} s` : ''}, ${virgule(r.sortie)} mA`));
+    if (continu) noter(type ?? classer(site, { salve: true }), t(`Stimulation continue : ${nom} à ${cl} ms, ${virgule(r.sortie)} mA (jusqu'à Stop)`, `Continuous pacing: ${nom} at ${cl} ms, ${virgule(r.sortie)} mA (until Stop)`));
+    else noter(type ?? classer(site, { salve: true }), t(`Salve : ${nom} à ${cl} ms${duree ? ` pendant ${duree / 1000} s` : ''}, ${virgule(r.sortie)} mA`, `Burst: ${nom} at ${cl} ms${duree ? ` for ${duree / 1000} s` : ''}, ${virgule(r.sortie)} mA`));
     majBoutonStim();
   }
   function arreterSalve() {
@@ -751,15 +755,15 @@ export function vueSimulateur(app) {
   function protoESV() {
     const c = st.coeur, t0 = tachycardie(c);
     if (!t0.active) { message(t('Pas de tachycardie en cours : induisez-la d\'abord.', 'No ongoing tachycardia: induce it first.')); return null; }
-    const avant = { site: r.site, detection: r.detection, n: r.n, s2: r.s2, s3: r.s3, s4: r.s4, extras: r.extras };
-    $('#extras').checked = true;
+    const avant = { site: r.site, detection: r.detection, n: r.n, s2: r.s2, s3: r.s3, s4: r.s4, extras: r.extras, continu: r.continu };
+    $('#extras').checked = true; $('#continu').checked = false;
     choisirSite('rva'); choisirPuce('detection', 'his');
     fixer('#n', 0); fixer('#s2', arrondi10(t0.cycleV - 30)); fixer('#s3', 0); fixer('#s4', 0);
     stimuler();
     // la console retrouve ses réglages : l'ESV programmée garde les siens
     choisirPuce('detection', avant.detection); choisirSite(avant.site);
     for (const k of ['n', 's2', 's3', 's4']) fixer(`#${k}`, avant[k]);
-    $('#extras').checked = avant.extras;
+    $('#extras').checked = avant.extras; $('#continu').checked = avant.continu;
     reglages();
     $('#proto-etat').textContent = t(`▶ ESV His-réfractaire à ${arrondi10(t0.cycleV - 30)} ms (TCL ${Math.round(t0.cycleV)} ms) : résultat dans 3 s`, `▶ His-refractory PVC at ${arrondi10(t0.cycleV - 30)} ms (TCL ${Math.round(t0.cycleV)} ms): result in 3 s`);
     return null;
@@ -988,6 +992,13 @@ export function vueSimulateur(app) {
     $('#bloc-burst').hidden = r.salveType !== 'burst'; $('#bloc-rampe').hidden = r.salveType !== 'rampe'; majResume();
   });
   $('#extras').addEventListener('change', e => { $('#extras-bloc').hidden = !e.target.checked; reglages(); });
+  // nombre de S1 infini : ni nombre de S1 ni extrastimulus (la stimulation dure jusqu'à Stop)
+  const majContinu = () => {
+    $('#n').closest('.simu-pas').hidden = r.continu;
+    $('#extras').closest('label').hidden = r.continu; $('#extras-bloc').hidden = r.continu || !r.extras;
+  };
+  $('#continu').addEventListener('change', () => { reglages(); majContinu(); });
+  majContinu();
   $('#enregistrer').onclick = () => { reglages(); faire('mesure'); noter(null, t('Enregistrement', 'Recording'), { debut: st.t - 10000, capture: st.t, auto: true }); };
   $('#adenosine').onclick = () => { st.coeur.injecterAdenosine(); noter('adenosine'); };
   const basculer = (nom, type) => {

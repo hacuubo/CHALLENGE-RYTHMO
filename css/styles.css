@@ -542,6 +542,7 @@ main:has(.simu-baie) > :not(.simu-poste) { max-width: 860px; margin-left: auto; 
 .simu-pan[hidden] { display: none; }
 .simu-grille-pas { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 8px; margin-bottom: 8px; }
 .simu-pas { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.simu-pas[hidden], .simu-case[hidden] { display: none; }
 .simu-pas-lib { font-size: .76rem; color: var(--simu-texte); }
 .simu-pas-ctl { display: grid; grid-template-columns: 40px 1fr 40px; align-items: stretch; border: 1px solid #2c3e50; border-radius: 10px; overflow: hidden; background: #16212c; }
 .btn-pas { border: 0; background: #1d2b38; color: #fff; font-size: 1.25rem; line-height: 1; min-height: 40px; touch-action: manipulation; user-select: none; -webkit-user-select: none; }

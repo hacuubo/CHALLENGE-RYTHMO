@@ -35,7 +35,7 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
   - **Console de stimulation** toujours visible (en bas, à droite en paysage ou sur grand écran) : Stimuler, S2 − 10, Salve,
     Stop, Enregistrer ; pastilles de site ; onglets Programme, Protocoles, Salve, Sonde / RF, Médicaments, Journal ; réglages
     par boutons ± (appui long). Stimulateur : trains S1 à S4, sortie et largeur d'impulsion, seuil propre à chaque site
-    (loi intensité-durée, capture intermittente près du seuil), couplage à la détection, rampe, salve. On ne stimule que
+    (loi intensité-durée, capture intermittente près du seuil), couplage à la détection, rampe, salve, nombre de S1 infini (stimulation continue jusqu'à Stop). On ne stimule que
     depuis un cathéter dont une voie est affichée ; l'électrogramme capturé suit le spike de quelques millisecondes.
   - **Protocoles automatiques** : extrastimulus atrial ou ventriculaire décrémental (PR atriale, nodale, ventriculaire,
     rétrograde, saut d'AH, induction), rampe jusqu'au Wenckebach antérograde ou rétrograde, temps de récupération sinusale,
