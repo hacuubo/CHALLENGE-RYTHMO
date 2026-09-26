@@ -16,9 +16,12 @@ patcherIndex(total); // contenu statique d'index.html, avant le calcul de l'empr
 
 const code = ['index.html', 'css/styles.css',
   ...fs.readdirSync(path.join(racine, 'js')).filter(f => f.endsWith('.js')).sort().map(f => 'js/' + f),
-  ...fs.readdirSync(path.join(racine, 'js', 'vues')).sort().map(f => 'js/vues/' + f)];
+  ...fs.readdirSync(path.join(racine, 'js', 'vues')).sort().map(f => 'js/vues/' + f),
+  ...fs.readdirSync(path.join(racine, 'js', 'simu')).sort().map(f => 'js/simu/' + f)];
+// version anglaise : surcouches de textes et libellés (data/questions/en/)
+const anglais = fs.existsSync(path.join(dir, 'en')) ? fs.readdirSync(path.join(dir, 'en')).filter(f => f.endsWith('.json')).sort().map(f => 'en/' + f) : [];
 const h = crypto.createHash('sha1');
-for (const f of [...code, ...fichiers.map(f => 'data/questions/' + f)]) h.update(f).update(fs.readFileSync(path.join(racine, f)));
+for (const f of [...code, ...[...fichiers, ...anglais].map(f => 'data/questions/' + f)]) h.update(f).update(fs.readFileSync(path.join(racine, f)));
 const empreinte = h.digest('hex').slice(0, 10);
 
 const cheminIndex = path.join(dir, 'index.json');

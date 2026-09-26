@@ -1,0 +1,1297 @@
+{
+ "prog-fond-001": {
+  "question": "In the NBG pacemaker code, what does the first letter denote?",
+  "options": [
+   "The chamber(s) paced",
+   "The chamber(s) sensed",
+   "Rate response",
+   "The response to sensing"
+  ],
+  "commentaires": [
+   "Correct: the NBG code reads \"paces – senses – responds\"; the first V of VVI indicates that the ventricle is paced.",
+   "Incorrect: that is the second letter; confusing pacing and sensing is the classic pitfall.",
+   "Incorrect: rate response (R) is coded in the fourth position.",
+   "Incorrect: the response to sensing (I, T, D) is coded in the third position."
+  ],
+  "explication": "The NBG (NASPE/BPEG) code reads from left to right: first letter = chamber(s) paced, second = chamber(s) sensed, third = response to sensing (I inhibited, T triggered, D dual), fourth = rate response (R), fifth = multisite pacing. Thus, in \"VVI\", the first V indicates that the ventricle is the chamber paced. The classic pitfall is to swap pacing and sensing: the sequence \"paces – senses – responds\" should be known by heart.",
+  "aRetenir": "NBG code: first letter = chamber paced, second = chamber sensed, third = response to sensing."
+ },
+ "prog-fond-002": {
+  "question": "A pacemaker programmed to VVI:",
+  "options": [
+   "Paces the atrium, inhibited by ventricular sensing",
+   "Paces the ventricle at a fixed rate, with no sensing",
+   "Paces the ventricle after each sensed P wave, after a delay",
+   "Paces and senses the ventricle, inhibited by an intrinsic QRS"
+  ],
+  "commentaires": [
+   "Incorrect: the first letter V designates the ventricle as the paced chamber, not the atrium.",
+   "Incorrect: fixed-rate pacing without sensing corresponds to VOO mode.",
+   "Incorrect: P-synchronous ventricular pacing corresponds to VDD/DDD modes.",
+   "Correct: V (ventricular pacing), V (ventricular sensing), I (inhibition by an intrinsic QRS)."
+  ],
+  "explication": "VVI means Ventricular pacing, Ventricular sensing, Inhibited response. If an intrinsic QRS occurs before the escape interval (lower rate) expires, the pacemaker withholds its output and resets the interval. Fixed-rate pacing without sensing is VOO, and P-synchronous ventricular pacing corresponds to VDD/DDD modes. VVI takes no account whatsoever of atrial activity.",
+  "aRetenir": "VVI = paces V, senses V, inhibited by an intrinsic QRS."
+ },
+ "prog-fond-003": {
+  "question": "What does the letter \"R\" in the fourth position of the NBG code (e.g. DDDR) stand for?",
+  "options": [
+   "Sensor-driven rate response",
+   "Triggered response",
+   "Biventricular cardiac resynchronisation",
+   "Fallback pacing (backup mode)"
+  ],
+  "commentaires": [
+   "Correct: since the 2002 revision, the fourth position codes only rate response (O or R).",
+   "Incorrect: a triggered response is coded T, in the third position.",
+   "Incorrect: multisite pacing, including resynchronisation, is coded in the fifth position.",
+   "Incorrect: no letter of the NBG code denotes the fallback mode."
+  ],
+  "explication": "In the 2002 revised NBG code, the fourth position refers only to rate response: \"R\" indicates that the pacing rate can rise above the lower rate under the control of a sensor (accelerometer, minute ventilation…). A triggered response is coded \"T\" in the third position. Multisite pacing (including biventricular resynchronisation) is coded in the fifth position. There is no code letter for the fallback mode.",
+  "aRetenir": "R in the fourth position = rate response."
+ },
+ "prog-fond-004": {
+  "question": "Which mode corresponds to asynchronous dual-chamber pacing with no sensing at all?",
+  "options": [
+   "DDI",
+   "VOO",
+   "DVI",
+   "DOO"
+  ],
+  "commentaires": [
+   "Incorrect: DDI senses in both chambers and is inhibited by sensed events.",
+   "Incorrect: VOO is asynchronous but paces the ventricle only.",
+   "Incorrect: DVI paces both chambers but includes ventricular sensing.",
+   "Correct: D in the first position (A and V pacing), O in the second and third positions (neither sensing nor response)."
+  ],
+  "explication": "The letter \"O\" in the second and third positions means no sensing and therefore no response: DOO paces the atrium then the ventricle at fixed intervals, regardless of intrinsic activity. It is typically the mode obtained with a magnet on many dual-chamber pacemakers, or the mode programmed for MRI or surgery in a pacemaker-dependent patient. VOO is the single-chamber ventricular asynchronous equivalent. DDI and DVI both include sensing.",
+  "aRetenir": "DOO = asynchronous A and V pacing, with no sensing."
+ },
+ "prog-fond-005": {
+  "question": "In the revised NBG code (2002), what does the fifth position denote?",
+  "options": [
+   "Multisite pacing (O, A, V or D)",
+   "Antitachycardia functions (ATP, shock)",
+   "Programmability and telemetry",
+   "The type of rate-response sensor"
+  ],
+  "commentaires": [
+   "Correct: in the 2002 code, the fifth position describes multisite pacing (e.g. DDDRV for CRT).",
+   "Incorrect: that was the fifth position of the 1987 code; defibrillation now has its own code (NBD).",
+   "Incorrect: programmability occupied the fourth position in the old 1987 version.",
+   "Incorrect: the sensor type is not coded anywhere; the fourth position only indicates whether rate response is present."
+  ],
+  "explication": "The 2002 NASPE/BPEG revision simplified the code: the fourth position is reserved for rate response (O or R) and the fifth describes multisite pacing (O none, A atrial, V ventricular, D dual). A rate-responsive biventricular resynchronisation system can thus be written DDDRV. In the old 1987 version, the fourth position coded programmability/communication and the fifth antitachycardia functions, hence the pitfall. Defibrillation functions have their own code (NBD code).",
+  "aRetenir": "2002 NBG code: fifth position = multisite pacing (e.g. DDDRV for CRT)."
+ },
+ "prog-fond-006": {
+  "question": "In DDD mode, a sensed P wave triggers ventricular pacing at the end of the AV delay if no intrinsic QRS is sensed during that delay.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: in DDD, atrial sensing triggers V pacing after the AV delay unless an intrinsic QRS inhibits it: this is atrial tracking.",
+   "Incorrect: this is precisely the definition of atrial tracking in DDD, limited by the maximum tracking rate."
+  ],
+  "explication": "This is the principle of atrial tracking: in DDD, the third letter D means that atrial sensing triggers (T) ventricular pacing after the AV delay, whereas ventricular sensing inhibits (I) pacing. This mimics physiological AV conduction in a patient with AV block and preserved sinus node function. If a conducted QRS occurs before the AV delay expires, ventricular pacing is inhibited. Tracking is limited by the maximum tracking rate.",
+  "aRetenir": "DDD: sensed P → V paced after the AV delay, unless there is an intrinsic QRS."
+ },
+ "prog-fond-007": {
+  "question": "What is the fundamental difference between DDD and DDI modes?",
+  "options": [
+   "DDI does not pace the atrium, only the ventricle",
+   "Unlike DDD, DDI does not sense the atrium",
+   "DDI is an asynchronous mode with no sensing",
+   "In DDI, a sensed P does not trigger V pacing"
+  ],
+  "commentaires": [
+   "Incorrect: the first letter D indicates that DDI paces both atrium and ventricle.",
+   "Incorrect: the second letter D indicates that DDI senses in both chambers.",
+   "Incorrect: an asynchronous mode carries the letter O; DDI senses and is inhibited.",
+   "Correct: DDI has no atrial tracking; a sensed P merely inhibits atrial pacing."
+  ],
+  "explication": "In DDI, the atrium is sensed and paced, but atrial sensing only inhibits atrial pacing: it does not trigger ventricular pacing after an AV delay. The ventricle is then paced at the lower rate if no intrinsic QRS occurs. This is why DDI (or DDIR) is used as the fallback mode during mode switching: it avoids tracking AF or flutter at the upper rate. DDI is not asynchronous: it senses in both chambers.",
+  "aRetenir": "DDI = dual-chamber without atrial tracking: a sensed P does not trigger V pacing."
+ },
+ "prog-fond-008": {
+  "question": "Which of the following modes provide no atrial tracking (a sensed P wave never triggers ventricular pacing)?",
+  "options": [
+   "DDD",
+   "VDD",
+   "DDI",
+   "VVIR"
+  ],
+  "commentaires": [
+   "Incorrect: DDD is the archetypal tracking mode: a sensed P triggers V pacing after the AV delay.",
+   "Incorrect: VDD tracks the atrium via the floating atrial dipole.",
+   "Correct: DDI senses the atrium but responds only by inhibition, without triggered V pacing.",
+   "Correct: VVIR does not sense the atrium; rate response depends solely on the sensor."
+  ],
+  "explication": "Atrial tracking requires atrial sensing and a triggered ventricular response: this applies to DDD and VDD (single lead with a floating atrial dipole). DDI senses the atrium but responds only by inhibiting atrial pacing. VVIR does not sense the atrium at all: rate response varies the rate according to the sensor alone. These non-tracking modes are those used in permanent AF or as the mode-switch fallback.",
+  "aRetenir": "Tracking modes = DDD, VDD; non-tracking modes = DDI, VVI(R), AAI."
+ },
+ "prog-fond-009": {
+  "question": "An 82-year-old patient in permanent AF has symptomatic bradycardia with a slow ventricular response. According to the ESC 2021 guidelines, which mode is recommended?",
+  "options": [
+   "VVIR",
+   "DDD",
+   "AAIR",
+   "VDD"
+  ],
+  "commentaires": [
+   "Correct: in permanent AF an atrial lead is pointless; rate response compensates for chronotropic incompetence.",
+   "Incorrect: DDD would track the fibrillating atrium (hence the need for mode switching) with no benefit.",
+   "Incorrect: a fibrillating atrium cannot be paced effectively.",
+   "Incorrect: VDD would sense and track the AF; it has no role here."
+  ],
+  "explication": "In permanent AF, the atrium can be neither paced effectively nor tracked: an atrial lead is pointless. The ESC 2021 guidelines recommend rate-responsive ventricular pacing (VVIR) in these patients, rate response compensating for the lack of chronotropic response. DDD and VDD would track the fibrillating atrium (hence mode switching if they were implanted). AAIR makes no sense in AF.",
+  "aRetenir": "Permanent AF + bradycardia = VVIR."
+ },
+ "prog-fond-010": {
+  "question": "Symptomatic sinus node dysfunction with normal AV conduction. Which pacing strategy do the ESC 2021 guidelines recommend?",
+  "options": [
+   "VVI at 40 bpm as simple backup",
+   "Routine biventricular resynchronisation",
+   "Atrial-only pacing (AAIR), no V lead",
+   "Dual-chamber, minimising V pacing"
+  ],
+  "commentaires": [
+   "Incorrect: in sinus node dysfunction, VVI exposes the patient to pacemaker syndrome and more AF.",
+   "Incorrect: CRT is not indicated: LVEF is preserved and the expected ventricular pacing burden is low.",
+   "Incorrect: AAIR does not protect against subsequent AV block and led to more reinterventions than DDDR (DANPACE).",
+   "Correct: dual-chamber pacing is class I; as conduction is normal, the device is programmed to avoid unnecessary RV pacing."
+  ],
+  "explication": "In sinus node dysfunction, the ESC 2021 guidelines recommend dual-chamber pacing (class I), which reduces the risk of AF and stroke and avoids pacemaker syndrome compared with VVI. As AV conduction is preserved, the pacemaker should be programmed to limit unnecessary ventricular pacing (dedicated algorithms, AV delay extension), since chronic RV pacing is harmful. Atrial-only pacing (AAIR) carries the risk of subsequent AV block and was associated with more reinterventions and more paroxysmal AF than DDDR in the DANPACE trial. Resynchronisation is not indicated here: LVEF is preserved and the expected ventricular pacing burden is low.",
+  "aRetenir": "Sinus node dysfunction = dual-chamber pacing + minimisation of ventricular pacing."
+ },
+ "prog-fond-011": {
+  "question": "In a patient in sinus rhythm with AV block, dual-chamber pacing is preferred over VVI mainly because it reduces mortality.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: MOST, UKPACE and CTOPP showed no mortality benefit from dual-chamber pacing.",
+   "Correct: the preference rests on quality of life and prevention of pacemaker syndrome, not on survival."
+  ],
+  "explication": "The large trials comparing \"physiological\" dual-chamber pacing with VVI (MOST, UKPACE, CTOPP) showed no mortality benefit. The value of dual-chamber pacing in AV block lies in avoiding pacemaker syndrome and improving quality of life by maintaining AV synchrony. The ESC 2021 guidelines therefore base this preference on these criteria, not on survival. VVI remains acceptable in some patients (elderly, sedentary, infrequent pacing expected).",
+  "aRetenir": "Dual-chamber vs VVI: benefit on quality of life and pacemaker syndrome, not on mortality."
+ },
+ "prog-fond-012": {
+  "question": "A 70-year-old patient has complete AV block, sinus rhythm, LVEF 35% and an expected near-100% ventricular pacing burden. According to the ESC 2021 guidelines, which pacing approach should be preferred?",
+  "options": [
+   "Single-lead VDD, P-synchronous",
+   "Conventional DDD with an RV apical lead",
+   "VVIR with rate response",
+   "CRT rather than RV-only pacing"
+  ],
+  "commentaires": [
+   "Incorrect: VDD paces the RV just as DDD does: the same risk of pacing-induced cardiomyopathy.",
+   "Incorrect: continuous RV apical pacing would worsen heart failure.",
+   "Incorrect: in sinus rhythm, VVIR sacrifices AV synchrony and also paces the RV.",
+   "Correct: LVEF < 40% and near-permanent V pacing: CRT (or conduction system pacing) avoids RV-pacing dyssynchrony."
+  ],
+  "explication": "In a patient with reduced LVEF requiring substantial ventricular pacing for high-grade AV block, the ESC 2021 guidelines recommend CRT rather than RV pacing alone (class I for LVEF < 40%), because the dyssynchrony induced by RV pacing worsens heart failure. The ESC 2026 heart failure guidelines maintain this preference as class IIa (level B1) for HFrEF, now defined as LVEF < 50%. Conduction system pacing (His bundle, left bundle branch) is an increasingly used alternative, supported by the 2023 HRS guideline and the 2025 ESC consensus statement, but the ESC 2026 HF guidelines do not assign it a class. DDD or single-lead VDD, which also pace the RV, would expose the patient to pacing-induced cardiomyopathy. VVIR makes no sense in sinus rhythm: it sacrifices AV synchrony and also paces the RV.",
+  "aRetenir": "AV block + reduced LVEF: CRT (or conduction system pacing) rather than RV pacing; class I in 2021, IIa in the ESC 2026 HF guidelines."
+ },
+ "prog-fond-013": {
+  "question": "Regarding chronic right ventricular pacing, which statements are correct?",
+  "options": [
+   "In DAVID, in ICD recipients, DDDR at 70 bpm was associated with more deaths or heart failure hospitalisations than VVI at 40 bpm",
+   "In MOST, a cumulative ventricular pacing percentage > 40% in DDDR was associated with an increased risk of heart failure hospitalisation",
+   "RV pacing creates electromechanical dyssynchrony resembling left bundle branch block",
+   "RV pacing has no effect on the risk of AF"
+  ],
+  "commentaires": [
+   "Correct: in DAVID, DDDR at 70 bpm, by forcing RV pacing, did worse than backup VVI at 40 bpm.",
+   "Correct: in MOST, > 40% cumulative V pacing was associated with more heart failure hospitalisations.",
+   "Correct: activation starts in the RV and spreads cell to cell to the LV, as in left bundle branch block.",
+   "Incorrect: MOST showed an almost linear increase in AF risk with the percentage of V pacing."
+  ],
+  "explication": "DAVID showed that DDDR at 70 bpm, by forcing frequent RV pacing, did worse than VVI at 40 bpm (backup pacing) on the composite of death or HF hospitalisation. The secondary analysis of MOST found an association between cumulative ventricular pacing percentage (> 40%) and HF hospitalisations, as well as an almost linear increase in AF risk with the percentage of V pacing. The mechanism is delayed left ventricular activation, comparable to LBBB. The last statement is therefore false.",
+  "aRetenir": "Unnecessary RV pacing increases the risk of heart failure and AF: it must be minimised."
+ },
+ "prog-fond-014": {
+  "question": "What are the main limitations of a single-lead VDD pacemaker (\"floating\" atrial dipole)?",
+  "reponseAttendue": "No atrial pacing is possible (unsuitable in current or anticipated sinus node dysfunction); atrial sensing is sometimes inadequate (low-amplitude P waves, varying with position), with a risk of losing AV synchrony and reverting to VVI-type operation.",
+  "explication": "VDD allows ventricular pacing to be synchronised to the P wave with a single lead, which suits AV block with normal sinus node function. However, the atrial dipole does not touch the wall: it cannot pace the atrium, and the amplitude of sensed P waves may be low and fluctuate (posture, respiration). With atrial undersensing, the pacemaker paces at the lower rate without AV synchrony. Subsequent sinus node dysfunction makes it unsuitable. These limitations explain why DDD remains the standard in France.",
+  "aRetenir": "VDD: no atrial pacing, and atrial sensing is sometimes inadequate."
+ },
+ "prog-fond-015": {
+  "question": "What does the pacing threshold denote?",
+  "options": [
+   "Maximum amplitude the device can deliver at 0.4 ms",
+   "Minimum intracardiac signal amplitude that can be sensed",
+   "Smallest pulse that consistently captures the myocardium",
+   "Minimum rate below which the device starts pacing"
+  ],
+  "commentaires": [
+   "Incorrect: this is a device characteristic, unrelated to the myocardial threshold.",
+   "Incorrect: this is the concept of sensitivity (sensing, in mV), not to be confused with the capture threshold.",
+   "Correct: the amplitude (V) at a given pulse width (ms) that reproducibly depolarises non-refractory myocardium.",
+   "Incorrect: that is the lower rate; the threshold concerns pulse energy."
+  ],
+  "explication": "The capture threshold is the smallest pulse, expressed as an amplitude (V) at a given pulse width (ms), that reproducibly depolarises the myocardium. It is measured with a decremental test: the amplitude is reduced until capture is lost. It must not be confused with sensitivity (sensing of intrinsic signals, in mV) or with the lower rate. The programmed amplitude should include a safety margin above threshold.",
+  "aRetenir": "Threshold = smallest pulse that consistently captures the myocardium."
+ },
+ "prog-fond-016": {
+  "question": "On the strength–duration curve (Lapicque curve), how is chronaxie defined?",
+  "options": [
+   "Pulse width at which the threshold is twice the rheobase",
+   "Threshold amplitude at a very long (infinite) pulse width",
+   "Pulse width beyond which capture is no longer possible",
+   "Threshold amplitude measured at a pulse width of 0.4 ms"
+  ],
+  "commentaires": [
+   "Correct: this is the definition of chronaxie, close to the point of minimum capture energy (≈ 0.3–0.5 ms).",
+   "Incorrect: that is the definition of rheobase.",
+   "Incorrect: lengthening the pulse never abolishes capture; the threshold merely becomes almost constant.",
+   "Incorrect: this is a threshold measured at the nominal pulse width, not a definition of chronaxie."
+  ],
+  "explication": "The Lapicque curve relates threshold amplitude to pulse width: it is a hyperbola, very steep at short pulse widths and almost flat at long ones. Rheobase is the threshold amplitude at a very long (theoretically infinite) pulse width. Chronaxie is the pulse width at which the threshold equals twice the rheobase. It has a practical relevance: the energy required for capture is minimal at a pulse width close to chronaxie, which typically lies around 0.3–0.5 ms, hence nominal pulse widths of 0.4 ms.",
+  "aRetenir": "Chronaxie = pulse width at which the threshold is 2 × rheobase; the zone of minimum energy."
+ },
+ "prog-fond-017": {
+  "question": "The chronic ventricular threshold is 1.0 V at 0.4 ms. Which setting provides the classic safety margin without wasting energy?",
+  "options": [
+   "1.0 V at 0.4 ms",
+   "1.5 V at 0.4 ms",
+   "2.0 V at 0.4 ms",
+   "5.0 V at 0.4 ms"
+  ],
+  "commentaires": [
+   "Incorrect: programming at threshold risks loss of capture with physiological fluctuations.",
+   "Incorrect: 1.5 V provides only a 50% margin, which is insufficient by the classic rule.",
+   "Correct: doubling the amplitude at a constant pulse width gives the classic 100% safety margin.",
+   "Incorrect: five times threshold wastes battery (energy ∝ V²) with no benefit."
+  ],
+  "explication": "The classic rule is to program an amplitude at least twice the threshold (100% safety margin) at a constant pulse width, or to triple the pulse width if the threshold was measured at a short pulse width. Programming at or just above threshold risks loss of capture with physiological fluctuations (sleep, drugs, electrolyte disturbances). Conversely, a very high output wastes battery with no benefit, since energy varies with the square of the voltage. Automatic capture management algorithms can reduce this margin by verifying capture beat by beat.",
+  "aRetenir": "Safety margin: 2 × threshold in amplitude."
+ },
+ "prog-fond-018": {
+  "question": "At constant pulse width and impedance, the amplitude is increased from 2.5 V to 5.0 V. How does the energy delivered per pulse change?",
+  "options": [
+   "It does not change",
+   "It doubles",
+   "It is multiplied by 4",
+   "It is multiplied by 8"
+  ],
+  "commentaires": [
+   "Incorrect: at constant pulse width and impedance, energy depends directly on voltage.",
+   "Incorrect: this is the linear-reasoning trap; doubling the pulse width doubles the energy, doubling the voltage does not.",
+   "Correct: E = V² × t / R: doubling the voltage multiplies the energy by 2² = 4.",
+   "Incorrect: energy varies with the square of the voltage, not its cube."
+  ],
+  "explication": "The energy of a pulse is E = V² × t / R: it varies with the square of the voltage. Doubling the amplitude therefore quadruples the energy, whereas doubling the pulse width merely doubles it. This is why a high output programmed \"to be safe\" markedly shortens longevity. The pitfall is to reason linearly about amplitude.",
+  "aRetenir": "Energy ∝ V²: doubling the amplitude quadruples current drain."
+ },
+ "prog-fond-019": {
+  "question": "A 2.5 V pulse is delivered into a lead with an impedance of 500 Ω. What current is delivered?",
+  "options": [
+   "0.5 mA",
+   "5 mA",
+   "50 mA",
+   "200 mA"
+  ],
+  "commentaires": [
+   "Incorrect: out by a factor of 10: 2.5 / 500 = 0.005 A, i.e. 5 mA.",
+   "Correct: Ohm's law: I = V / R = 2.5 V / 500 Ω = 0.005 A = 5 mA.",
+   "Incorrect: a unit error by a factor of 10; this current would correspond to an impedance of 50 Ω.",
+   "Incorrect: 200 mA would imply an impedance of about 12 Ω, incompatible with a functioning lead."
+  ],
+  "explication": "Ohm's law gives I = V / R, i.e. 2.5 V / 500 Ω = 0.005 A = 5 mA. The higher the impedance, the lower the current (and hence the current drain) for the same voltage, which explains the appeal of high-impedance leads. Conversely, a fall in impedance (insulation breach) increases the current delivered. The classic mistakes are unit errors (mA vs A).",
+  "aRetenir": "Ohm's law: I = V / R."
+ },
+ "prog-fond-020": {
+  "question": "The pacing threshold of a newly implanted lead usually rises during the first few weeks, and this peak is attenuated by steroid-eluting electrodes.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: the inflammatory and then fibrotic reaction raises the threshold during the first few weeks; steroid elution attenuates this peak.",
+   "Incorrect: the early threshold peak is classic, and it is precisely what steroid-eluting electrodes reduce."
+  ],
+  "explication": "After implantation, the inflammatory and then fibrotic reaction at the electrode–tissue interface distances excitable myocardium from the electrode and raises the threshold, typically peaking in the first few weeks before settling at the chronic threshold. Corticosteroid-eluting electrodes markedly reduce this peak. It is one reason to keep a wider safety margin until the first follow-up. A marked early rise, however, should prompt a search for lead dislodgement.",
+  "aRetenir": "Threshold: early post-implant peak, attenuated by steroid elution."
+ },
+ "prog-fond-021": {
+  "question": "Why does the \"triple the pulse width\" rule provide a less reliable safety margin than \"double the amplitude\"?",
+  "options": [
+   "Pulse width has no influence on the threshold",
+   "A long pulse width increases the risk of oversensing",
+   "Tripling the pulse width multiplies the energy by 9",
+   "The strength–duration curve flattens at long pulse widths"
+  ],
+  "commentaires": [
+   "Incorrect: pulse width does influence the threshold, especially at short pulse widths (the steep part of the Lapicque curve).",
+   "Incorrect: pulse width has no direct effect on sensing.",
+   "Incorrect: energy rises linearly with pulse width: tripling it multiplies the energy by 3.",
+   "Correct: if the threshold is measured near or beyond chronaxie, tripling the pulse width barely lowers the amplitude threshold."
+  ],
+  "explication": "On the flat part of the strength–duration curve, lengthening the pulse barely lowers the amplitude threshold: a threshold measured at 0.4–0.5 ms may be only slightly higher than the threshold at 1.2–1.5 ms. The tripling rule is therefore valid only if the threshold is measured at a short pulse width, on the steep part of the curve. Energy rises only linearly with pulse width (× 3, not × 9). Pulse width has no direct effect on sensing.",
+  "aRetenir": "Tripling the pulse width is a reliable margin only on the steep part of the Lapicque curve."
+ },
+ "prog-fond-022": {
+  "question": "Which factors can raise the pacing threshold?",
+  "options": [
+   "Hyperkalaemia",
+   "Systemic corticosteroid therapy",
+   "Isoprenaline infusion",
+   "Lead microdislodgement"
+  ],
+  "commentaires": [
+   "Correct: hyperkalaemia raises the threshold and can cause loss of capture if the margin is small.",
+   "Incorrect: corticosteroids tend to lower the threshold; this is the principle of steroid-eluting electrodes.",
+   "Incorrect: catecholamines such as isoprenaline tend, if anything, to lower the threshold.",
+   "Correct: invisible on X-ray, microdislodgement raises the threshold, often with a fall in sensed amplitude."
+  ],
+  "explication": "Hyperkalaemia and class IC antiarrhythmic drugs (flecainide, propafenone) raise the threshold and can cause loss of capture, especially if the safety margin is small. Lead microdislodgement, invisible on X-ray, results in a rise in threshold, often associated with a fall in sensed amplitude. Conversely, catecholamines such as isoprenaline and corticosteroids tend to lower the threshold; indeed, this is the principle of steroid-eluting electrodes. When faced with loss of capture, always consider the potassium level and medication.",
+  "aRetenir": "Hyperkalaemia, class IC drugs and lead dislodgement raise the threshold; catecholamines and corticosteroids lower it."
+ },
+ "prog-fond-023": {
+  "question": "What does this tracing show in a patient paced in VVI mode, and what is the immediate management?",
+  "reponseAttendue": "Loss of ventricular capture: pacing spikes not followed by a QRS. Increase the amplitude and/or pulse width, then look for the cause (impedance, lead dislodgement on X-ray, potassium, antiarrhythmic drugs).",
+  "explication": "Every spike should be followed by a wide QRS: an isolated spike outside the refractory period indicates loss of capture. In a pacemaker-dependent patient the risk is asystole: the output (amplitude, pulse width) must be increased urgently and return of capture confirmed. The cause is then analysed: lead dislodgement or fracture (impedance, X-ray), threshold rise (post-implant, fibrosis), hyperkalaemia or antiarrhythmic drugs. Do not confuse this with a spike falling in the myocardial refractory period after an intrinsic QRS, which suggests undersensing instead.",
+  "aRetenir": "Spike not followed by a QRS outside the refractory period = loss of capture."
+ },
+ "prog-fond-024": {
+  "question": "The sensitivity of a sensing channel is programmed in mV. What happens if this value is decreased (e.g. from 2.5 to 0.5 mV)?",
+  "options": [
+   "The channel becomes more sensitive and sees smaller signals",
+   "The channel becomes less sensitive and ignores small signals",
+   "The ventricular capture safety margin increases",
+   "The lower rate decreases to favour intrinsic rhythm"
+  ],
+  "commentaires": [
+   "Correct: the mV value is the detection threshold; the lower it is, the weaker the signals that are sensed.",
+   "Incorrect: this is the terminology trap: lowering the mV value makes the channel more sensitive, not less.",
+   "Incorrect: sensitivity concerns sensing; the capture margin depends on amplitude and pulse width.",
+   "Incorrect: sensitivity has no effect on the programmed lower rate."
+  ],
+  "explication": "The programmed value is the threshold above which a signal is recognised: the lower it is, the more low-amplitude signals are sensed, so the more sensitive the channel. Lowering the value corrects undersensing but risks oversensing (T waves, myopotentials, signals from another chamber picked up as far-field). Raising the value makes the channel less sensitive. This is a classic terminology trap: \"increasing sensitivity\" means lowering the mV value.",
+  "aRetenir": "Lower mV value = more sensitive channel."
+ },
+ "prog-fond-025": {
+  "question": "Patient with a ventricular pacemaker. Which setting usually corrects the abnormality seen on this tracing?",
+  "options": [
+   "Increase the sensitivity value in mV (less sensitive channel)",
+   "Extend the PVARP to blank out early signals",
+   "Decrease the sensitivity value in mV (more sensitive channel)",
+   "Increase the pacing amplitude (capture margin)"
+  ],
+  "commentaires": [
+   "Incorrect: making the channel less sensitive would worsen the undersensing.",
+   "Incorrect: PVARP applies to the atrial channel after a ventricular event; it does not correct V undersensing.",
+   "Correct: spikes are delivered despite intrinsic QRS complexes: undersensing; lower the mV value while watching for oversensing.",
+   "Incorrect: increasing the output does not correct a sensing problem."
+  ],
+  "explication": "Spikes delivered just after an intrinsic complex indicate undersensing: the pacemaker \"does not see\" intrinsic activity. If the signal is simply of low amplitude, the channel is made more sensitive by lowering the mV value, checking that no oversensing occurs. Increasing the output does not correct a sensing problem, and PVARP does not apply to the ventricular channel. Lead dislodgement or a fall in signal amplitude (infarction, fibrosis) should also be sought.",
+  "aRetenir": "Undersensing: make the channel more sensitive (lower the mV value)."
+ },
+ "prog-fond-026": {
+  "question": "Patient paced in VVI mode. What is the leading hypothesis for the abnormality seen on this tracing?",
+  "options": [
+   "Undersensing of intrinsic ventricular rhythm",
+   "Oversensing with inhibition of pacing",
+   "Intermittent loss of ventricular capture",
+   "Incorrectly programmed rate hysteresis"
+  ],
+  "commentaires": [
+   "Incorrect: undersensing produces extra spikes, delivered despite intrinsic activity.",
+   "Correct: a pause without a spike, longer than the lower rate interval, means the device was inhibited by a signal (here myopotential noise).",
+   "Incorrect: loss of capture leaves visible spikes not followed by a QRS; here the pause contains no spike.",
+   "Incorrect: hysteresis only lengthens the interval after an intrinsic beat, within the programmed limit, not between two paced cycles."
+  ],
+  "explication": "A pause without a spike when the pacemaker should have paced means it was inhibited: it \"saw\" a signal that it interpreted as a QRS. Causes: myopotentials (particularly with unipolar sensing), T waves, far-field signals, lead fracture noise, external interference. Loss of capture produces spikes without QRS; undersensing produces extra spikes. Hysteresis only lengthens the escape interval after an intrinsic beat, within the limit of the programmed value: it cannot explain a long pause between two paced cycles. The diagnosis is confirmed on the EGMs and markers.",
+  "aRetenir": "Pause without a spike in a paced patient = oversensing until proven otherwise."
+ },
+ "prog-fond-027": {
+  "question": "The R wave measured on the RV lead is 8 mV. Which ventricular sensitivity setting is most appropriate?",
+  "options": [
+   "0.5 mV",
+   "2.5 mV",
+   "8 mV",
+   "10 mV"
+  ],
+  "commentaires": [
+   "Incorrect: an unnecessarily sensitive channel, prone to oversensing of T waves or myopotentials.",
+   "Correct: about one third of the measured amplitude: a sensing safety margin of about 3.",
+   "Incorrect: with no margin at all, the signal would be undersensed whenever its amplitude fluctuates.",
+   "Incorrect: a value above the R-wave amplitude guarantees undersensing."
+  ],
+  "explication": "Sensitivity must be set with a margin: classically a value no more than half, and ideally one third, of the measured signal amplitude (sensing safety margin of 2 to 3), to ensure sensing despite amplitude variations. With an 8 mV R wave, 2.5 mV gives a margin of about 3. At 8 or 10 mV, the signal would be intermittently undersensed. At 0.5 mV, the channel is unnecessarily sensitive and prone to oversensing of T waves or myopotentials.",
+  "aRetenir": "Programmed sensitivity ≈ 1/2 to 1/3 of the measured signal amplitude."
+ },
+ "prog-fond-028": {
+  "question": "Bipolar sensing is more prone to oversensing of pectoral myopotentials than unipolar sensing.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: the reverse is true: in unipolar sensing, the pectoral can is part of the circuit and picks up myopotentials.",
+   "Correct: in bipolar sensing, both electrodes lie close together at the lead tip, which limits the antenna and oversensing."
+  ],
+  "explication": "The statement is the reverse of reality. In unipolar sensing, the sensing field extends between the lead tip and the can in the pectoral muscle, so myopotentials and external interference are more readily picked up. In bipolar sensing, the two electrodes lie close together at the lead tip, which limits the antenna. Reprogramming to bipolar, when the lead allows it, is often the solution to myopotential oversensing. The unipolar spike is also much larger on the ECG.",
+  "aRetenir": "Bipolar = less myopotential oversensing than unipolar."
+ },
+ "prog-fond-029": {
+  "question": "In DDD mode, what is \"crosstalk\" and how is it prevented?",
+  "options": [
+   "T wave sensed on the atrial channel; PVARP extension",
+   "Simultaneous pacing of both ventricles; VV delay adjustment",
+   "Retrograde VA conduction to the atrium; programmed hysteresis",
+   "A spike sensed on the V channel; blanking and safety pacing"
+  ],
+  "commentaires": [
+   "Incorrect: PVARP protects the atrial channel from ventricular signals; this is not the definition of crosstalk.",
+   "Incorrect: biventricular pacing is a CRT function, not crosstalk between channels.",
+   "Incorrect: retrograde VA conduction is the mechanism of PMT; hysteresis does not prevent it.",
+   "Correct: the V channel mistakes the A spike for a QRS and inhibits; post-atrial blanking and short-AV safety pacing prevent this."
+  ],
+  "explication": "Crosstalk is the sensing of the atrial pacing pulse by the ventricular channel: the pacemaker believes it has been inhibited by a QRS and withholds ventricular pacing, which can be catastrophic in complete AV block. It is prevented by a brief ventricular blanking period after each atrial pacing pulse, followed by a window during which any sensed signal triggers ventricular safety pacing at a short AV delay (about 100–120 ms). Safety pacing avoids inhibition without the risk of pacing on the T wave. PVARP applies to the atrial channel.",
+  "aRetenir": "Crosstalk = A spike seen by the V channel; prevention: post-atrial blanking + safety pacing."
+ },
+ "prog-fond-030": {
+  "question": "A patient with a DDD pacemaker has numerous mode-switch episodes although the ECG shows sinus rhythm. The EGMs show an atrial signal consistently coinciding with the QRS. What is the most appropriate measure?",
+  "options": [
+   "Shorten the PVARP to improve P-wave sensing",
+   "Extend the PVAB and/or reduce atrial sensitivity",
+   "Raise the maximum tracking rate to 150 bpm",
+   "Program atrial sensing to unipolar configuration"
+  ],
+  "commentaires": [
+   "Incorrect: PVARP does not prevent the mode-switch algorithm from counting far-field signals; shortening it changes nothing.",
+   "Correct: an atrial signal locked to each QRS suggests far-field R-wave sensing; the PVAB blanks it, or reduced atrial sensitivity ignores it.",
+   "Incorrect: the maximum tracking rate does not affect atrial counting for mode switching.",
+   "Incorrect: unipolar sensing widens the sensing antenna and would worsen far-field sensing."
+  ],
+  "explication": "An atrial signal locked to each QRS suggests far-field R-wave sensing on the atrial lead: the device counts two atrial events per cycle and may inappropriately trigger mode switching. The fix is to extend the post-ventricular atrial blanking period to blank the far-field signal, or to reduce atrial sensitivity if the P wave is still reliably sensed. Switching to unipolar would make the problem worse. Shortening the PVARP or raising the upper rate has no effect on this phenomenon. Caution: an excessively long PVAB may blank part of the activity of atrial flutter.",
+  "aRetenir": "Inappropriate mode switching from far-field R waves: extend the PVAB or reduce atrial sensitivity."
+ },
+ "prog-fond-031": {
+  "question": "Which pacing impedance range is usually considered normal for a standard lead?",
+  "options": [
+   "20 to 100 Ω",
+   "200 to 1,200 Ω",
+   "2,000 to 5,000 Ω",
+   "5,000 to 10,000 Ω"
+  ],
+  "commentaires": [
+   "Incorrect: such a low impedance suggests an insulation breach.",
+   "Correct: normal impedances lie roughly between 200–300 and 1,000–1,200 Ω depending on the lead; the trend matters most.",
+   "Incorrect: apart from dedicated high-impedance leads, these values suggest a fracture or connection problem.",
+   "Incorrect: such a high impedance indicates an open circuit (fracture, connection)."
+  ],
+  "explication": "Normal pacing impedances lie roughly between 200–300 and 1,000–1,200 Ω depending on the lead (so-called high-impedance leads may exceed these values). The trend matters more than the absolute value: an abrupt change from previous measurements is suspicious. A very low value suggests an insulation breach, a very high value a conductor fracture or poor connection. Always refer to the lead manufacturer's data.",
+  "aRetenir": "Normal impedance ≈ 200–1,200 Ω; the trend matters most."
+ },
+ "prog-fond-032": {
+  "question": "The ventricular lead impedance suddenly rises from 600 to over 3,000 Ω. Which diagnosis should be considered first?",
+  "options": [
+   "Insulation breach with current leak into the tissues",
+   "Physiological post-implant rise",
+   "Conductor fracture or poor connection",
+   "Hyperkalaemia with a rise in threshold"
+  ],
+  "commentaires": [
+   "Incorrect: an insulation breach, on the contrary, causes impedance to fall.",
+   "Incorrect: lead maturation changes impedance only moderately; an abrupt jump from 600 to 3,000 Ω is never physiological.",
+   "Correct: soaring impedance indicates an open circuit: fracture (subclavian crush) or a loose set screw.",
+   "Incorrect: hyperkalaemia affects the threshold, not lead impedance."
+  ],
+  "explication": "A marked, abrupt rise in impedance indicates an open electrical circuit: conductor fracture (often in the costoclavicular space, between the clavicle and first rib, with a subclavian approach) or a loose set screw if the problem arises just after implantation. It is often accompanied by intermittent loss of capture and noise on the EGMs. An insulation breach, by contrast, lowers impedance. Hyperkalaemia affects the threshold, not lead impedance.",
+  "aRetenir": "Soaring impedance = conductor fracture or connection problem."
+ },
+ "prog-fond-033": {
+  "question": "The impedance of a bipolar lead falls from 650 to 180 Ω. Which hypothesis is most likely?",
+  "options": [
+   "Lead insulation breach",
+   "Conductor fracture",
+   "Loose set screw",
+   "Normal interface maturation"
+  ],
+  "commentaires": [
+   "Correct: a marked fall in impedance (< 200 Ω) indicates current leakage between conductors or into the tissues.",
+   "Incorrect: a fracture interrupts the circuit and raises impedance.",
+   "Incorrect: a poor connection gives a high impedance, not a low one.",
+   "Incorrect: normal maturation does not make impedance fall from 650 to 180 Ω."
+  ],
+  "explication": "A low impedance (typically < 200 Ω) or a marked fall suggests an insulation breach: current leaks between conductors or into the tissues. This increases current drain (battery depletion) and can cause loss of capture and oversensing. Fracture and connection problems, by contrast, give a high impedance. Compare with previous values, check the other configurations and, if the defect affects the inner insulation of a bipolar lead, program to unipolar pending lead revision.",
+  "aRetenir": "Low impedance = insulation breach."
+ },
+ "prog-fond-034": {
+  "question": "A pacing impedance within normal limits at follow-up definitively rules out lead fracture.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: a partial or intermittent fracture can coexist with a normal impedance at the time of measurement.",
+   "Correct: trends and EGMs must be analysed and provocative manoeuvres performed before ruling out a fracture."
+  ],
+  "explication": "A fracture may be partial or intermittent: the impedance measured at a given moment may be normal while episodes of noise, oversensing or loss of capture occur with certain movements. Analyse the stored impedance trends and recorded EGMs (non-physiological high-frequency artefacts), and perform provocative manoeuvres (arm movements, deep breathing) during recording. An X-ray may help but is often insensitive.",
+  "aRetenir": "A single normal impedance reading does not exclude an intermittent fracture."
+ },
+ "prog-fond-035": {
+  "question": "Which findings suggest a pacing lead fracture?",
+  "options": [
+   "Non-physiological high-frequency artefacts on the EGMs",
+   "Abrupt rise in impedance",
+   "Threshold peak in the first weeks after implantation",
+   "Impedance falling below 200 Ω"
+  ],
+  "commentaires": [
+   "Correct: micro-interruptions of the circuit create rapid, non-physiological, often saturating noise.",
+   "Correct: fracture interrupts the conductor: impedance rises, sometimes intermittently.",
+   "Incorrect: an early threshold peak is the usual course of the electrode–myocardium interface, not a sign of fracture.",
+   "Incorrect: a fall in impedance points rather to an insulation breach."
+  ],
+  "explication": "Conductor fracture creates micro-interruptions of the circuit: rapid non-physiological noise on the EGMs (often saturating), which can cause oversensing with inhibition, and intermittent loss of capture. Impedance rises, sometimes intermittently. A fall in impedance points rather to an insulation breach, although both defects may coexist in a damaged lead. The threshold peak in the first weeks is due to the inflammatory reaction at the electrode–tissue interface and does not suggest fracture. Provocative manoeuvres help reproduce the noise.",
+  "aRetenir": "Fracture = non-physiological noise on the EGMs, high impedance, intermittent loss of capture."
+ },
+ "prog-fond-036": {
+  "question": "Why does a high-impedance pacing lead improve device longevity?",
+  "reponseAttendue": "At the same voltage, a higher impedance reduces the current delivered (I = V/R), and hence the charge and energy consumed with each pulse.",
+  "explication": "The device delivers a constant-voltage pulse: the current is given by Ohm's law (I = V/R). If the impedance is twice as high, the current and energy delivered per pulse are halved for the same capture. High-impedance leads use a small-surface-area electrode, which concentrates current density and keeps the threshold low. The benefit is greatest in patients with a high pacing burden. This \"by design\" impedance should not be confused with an abnormal rise (fracture).",
+  "aRetenir": "High impedance = less current delivered = better longevity."
+ },
+ "prog-fond-037": {
+  "question": "A pacemaker's lower rate is programmed at 70 bpm. What is the corresponding lower rate interval?",
+  "options": [
+   "700 ms",
+   "857 ms",
+   "1,000 ms",
+   "1,170 ms"
+  ],
+  "commentaires": [
+   "Incorrect: a classic trap: reading \"700 ms\" for 70 bpm; 700 ms corresponds to about 86 bpm.",
+   "Correct: 60,000 / 70 ≈ 857 ms.",
+   "Incorrect: 1,000 ms corresponds to 60 bpm.",
+   "Incorrect: 1,170 ms corresponds to about 51 bpm."
+  ],
+  "explication": "The interval (in ms) is calculated as 60,000 / rate (in bpm): 60,000 / 70 ≈ 857 ms. At 60 bpm the interval is 1,000 ms, at 50 bpm 1,200 ms. This calculation is essential when analysing a tracing: a cycle longer than the lower rate interval without pacing should prompt a search for oversensing or hysteresis. The pitfall is to confuse rate and interval, or to \"read\" 700 ms for 70 bpm.",
+  "aRetenir": "Interval (ms) = 60,000 / rate (bpm)."
+ },
+ "prog-fond-038": {
+  "question": "A DDD pacemaker uses ventricular-based timing with a lower rate of 60 bpm and a paced AV delay of 200 ms. What is the atrial escape interval (VA interval)?",
+  "options": [
+   "200 ms",
+   "600 ms",
+   "800 ms",
+   "1,000 ms"
+  ],
+  "commentaires": [
+   "Incorrect: 200 ms is the AV delay, not the VA interval.",
+   "Incorrect: this result subtracts the AV delay twice from the lower rate interval.",
+   "Correct: VA interval = lower rate interval (1,000 ms) − AV delay (200 ms) = 800 ms.",
+   "Incorrect: 1,000 ms is the full lower rate interval, which includes the AV delay."
+  ],
+  "explication": "With ventricular-based timing, the lower rate interval (1,000 ms at 60 bpm) is divided into the VA interval (from the ventricular event to the next atrial pacing pulse) and the AV delay. The VA interval is therefore 1,000 − 200 = 800 ms. If no P wave is sensed during these 800 ms, the atrium is paced, followed by the ventricle 200 ms later in the absence of conduction. This reasoning explains the rate variations seen with intrinsic AV conduction.",
+  "aRetenir": "VA interval = lower rate interval − AV delay."
+ },
+ "prog-fond-039": {
+  "question": "A DDD pacemaker is programmed with a sensed AV delay of 150 ms and a PVARP of 250 ms. Above which atrial rate will 2:1 block occur?",
+  "options": [
+   "120 bpm",
+   "150 bpm",
+   "167 bpm",
+   "240 bpm"
+  ],
+  "commentaires": [
+   "Incorrect: a TARP of 400 ms corresponds to 150 bpm, not 120 bpm.",
+   "Correct: TARP = 150 + 250 = 400 ms; 60,000 / 400 = 150 bpm.",
+   "Incorrect: this calculation takes only part of the TARP into account (about 360 ms).",
+   "Incorrect: 240 bpm would correspond to the PVARP alone (250 ms); the AV delay must be added."
+  ],
+  "explication": "The total atrial refractory period (TARP) is the sum of the AV delay and the PVARP: 150 + 250 = 400 ms. Any P wave occurring at a shorter interval falls within the TARP and is not tracked: the 2:1 block point is therefore 60,000 / 400 = 150 bpm. This is a key parameter in young, active patients with AV block, whose ventricular rate may suddenly halve on exertion. Shortening the AV delay (dynamic AV delay) or the PVARP raises this point.",
+  "aRetenir": "2:1 block point = 60,000 / (AV delay + PVARP)."
+ },
+ "prog-fond-040": {
+  "question": "Why is the AV delay after atrial pacing usually programmed longer than the AV delay after atrial sensing?",
+  "options": [
+   "To reduce battery drain during pacing",
+   "To avoid crosstalk on the ventricular channel",
+   "Because PVARP is longer after atrial pacing",
+   "To offset interatrial conduction time"
+  ],
+  "commentaires": [
+   "Incorrect: the aim is haemodynamic (left-sided AV synchrony), not battery saving.",
+   "Incorrect: crosstalk is managed by blanking and safety pacing, not by the paced AV delay.",
+   "Incorrect: PVARP does not depend on the type of atrial event and does not justify this setting.",
+   "Correct: after an A spike, the LA activates later; a spontaneous P, by contrast, is sensed late: the paced AV delay is lengthened by 30 to 50 ms."
+  ],
+  "explication": "A spontaneous P wave is sensed only when the activation wavefront reaches the atrial lead, i.e. with some delay after P-wave onset. Conversely, after atrial pacing (often from the high right atrium), left atrial activation is delayed by interatrial conduction. To achieve comparable left-sided AV synchrony, the paced AV delay is therefore lengthened by about 30 to 50 ms relative to the sensed AV delay. This setting is unrelated to crosstalk or battery.",
+  "aRetenir": "Paced AV delay > sensed AV delay, to preserve equivalent left-sided AV synchrony."
+ },
+ "prog-fond-041": {
+  "question": "A signal occurring during a blanking period is completely ignored by the pacemaker, whereas a signal occurring in the unblanked part of a refractory period can be counted by certain algorithms (e.g. mode switching).",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: during blanking nothing is seen; during the rest of the refractory period the signal is seen and can be used by algorithms.",
+   "Incorrect: the distinction is real: this is why AF waves falling in the PVARP (outside the PVAB) count towards mode switching."
+  ],
+  "explication": "During blanking, the amplifier is \"blind\": no signal is seen. During the rest of the refractory period, the signal is sensed but does not reset the timing intervals; it can, however, be used by algorithms. Thus, AF waves falling in the PVARP (outside the PVAB) are taken into account for atrial tachycardia detection and mode switching. This distinction explains why atrial flutter can be undersensed if its waves fall in the blanking period.",
+  "aRetenir": "Blanking = signal invisible; refractory period = signal seen but with no effect on timing."
+ },
+ "prog-fond-042": {
+  "question": "DDD: maximum tracking rate 120 bpm, sensed AV delay 180 ms, PVARP 300 ms. Describe the behaviour as the sinus rate accelerates beyond 120 bpm.",
+  "reponseAttendue": "TARP = 480 ms, 2:1 block point = 125 bpm. Between 120 and 125 bpm: pseudo-Wenckebach behaviour (progressive lengthening of the AV delay, then a non-tracked P wave); above 125 bpm: abrupt 2:1 block (ventricular rate halved).",
+  "explication": "The maximum tracking rate interval is 500 ms and the TARP is 180 + 300 = 480 ms. Pseudo-Wenckebach behaviour is possible only if the upper rate interval is longer than the TARP: here the window extends only from 120 to 125 bpm (60,000/480). Beyond that, every other P wave falls in the PVARP: the ventricular rate drops abruptly to around 62 bpm, which may be poorly tolerated on exertion. To widen the Wenckebach window, shorten the PVARP or the AV delay (dynamic AV delay), or raise the upper rate if appropriate.",
+  "aRetenir": "Wenckebach between the maximum tracking rate and 60,000/TARP; beyond that, 2:1 block."
+ },
+ "prog-fond-043": {
+  "question": "In a patient with complete AV block paced in DDD mode, the sinus rate slightly exceeds the maximum tracking rate (but remains below the 2:1 block point). What pattern is seen?",
+  "options": [
+   "Abrupt 2:1 block, with the V rate halved",
+   "Immediate switch to DDI via mode switching",
+   "Progressive AS–VP lengthening, then a non-tracked P",
+   "Asynchronous VOO pacing at the upper rate"
+  ],
+  "commentaires": [
+   "Incorrect: 2:1 block appears only above 60,000/TARP, a point the sinus rate does not reach here.",
+   "Incorrect: mode switching responds to a pathological atrial tachycardia, not to sinus tachycardia.",
+   "Correct: the V spike is delayed until the end of the MTR interval, then a P wave falls in the PVARP: pseudo-Wenckebach.",
+   "Incorrect: the pacemaker continues to sense and track; it never goes asynchronous to limit its rate."
+  ],
+  "explication": "The pacemaker cannot pace the ventricle faster than the maximum tracking rate, so it delays ventricular pacing, which progressively lengthens the apparent AV delay. After a few cycles, a P wave falls in the PVARP and is not tracked, reproducing a Wenckebach-like pattern. 2:1 block appears only above 60,000/TARP. A switch to DDI is a matter for mode switching, which is triggered by atrial tachycardia and not by sinus tachycardia.",
+  "aRetenir": "Above the maximum tracking rate: pseudo-Wenckebach, then 2:1 block."
+ },
+ "prog-fond-044": {
+  "question": "A patient with a DDD pacemaker (maximum tracking rate 120 bpm) complains of palpitations, with no known atrial tachycardia. Which mechanism explains this tracing?",
+  "options": [
+   "T-wave oversensing on the ventricular channel",
+   "Retrograde P sensed outside the PVARP and tracked",
+   "Isolated loss of atrial capture, with no other abnormality",
+   "Inappropriate rate response at rest"
+  ],
+  "commentaires": [
+   "Incorrect: T-wave oversensing would inhibit ventricular pacing rather than accelerate it.",
+   "Correct: after the PVC, the retrograde P falls outside the PVARP, is followed by a V spike and conducted retrogradely again: this is PMT.",
+   "Incorrect: loss of atrial capture can initiate PMT but cannot on its own sustain a paced tachycardia.",
+   "Incorrect: rate response accelerates pacing gradually, without abrupt onset after a PVC or retrograde P waves."
+  ],
+  "explication": "After a PVC, the tracing shows a regular paced tachycardia in which each QRS is followed by a retrograde P wave: this is pacemaker-mediated tachycardia. PMT requires retrograde ventriculoatrial conduction: the retrograde P falls after the PVARP and is tracked with ventricular pacing, which is again conducted retrogradely. The loop runs at (or just below) the maximum tracking rate. It is terminated with a magnet (asynchronous mode) and prevented by extending the PVARP (particularly after a PVC) or with PMT detection algorithms. Rate response can accelerate pacing but does not create this loop mechanism.",
+  "aRetenir": "PMT = a loop via retrograde VA conduction tracked by the pacemaker; magnet and PVARP."
+ },
+ "prog-fond-045": {
+  "question": "Which events can initiate pacemaker-mediated tachycardia in a patient with retrograde VA conduction?",
+  "options": [
+   "Premature ventricular contraction",
+   "Loss of atrial capture",
+   "Atrial undersensing",
+   "Extended PVARP"
+  ],
+  "commentaires": [
+   "Correct: the PVC is the most common trigger: it dissociates A and V and unmasks retrograde conduction.",
+   "Correct: without atrial capture, the atrium remains excitable and can be activated retrogradely by the paced QRS.",
+   "Correct: atrial pacing following an unsensed P falls in the refractory period and does not capture: same effect as loss of capture.",
+   "Incorrect: extending the PVARP is, on the contrary, the means of prevention: the retrograde P falls in the refractory period."
+  ],
+  "explication": "Any event that dissociates atrium from ventricle and leaves the atrium non-refractory can unmask retrograde conduction: a PVC (the most common), loss of atrial capture, atrial undersensing (the subsequent atrial pacing pulse falls in the atrial refractory period and fails to capture), as well as PACs and atrial oversensing. The retrograde P is then sensed outside the PVARP and tracked. Extending the PVARP is, on the contrary, the means of prevention: this is why many pacemakers extend it automatically after a PVC.",
+  "aRetenir": "A PVC, loss of atrial capture or atrial undersensing can trigger PMT."
+ },
+ "prog-fond-046": {
+  "question": "What is the purpose of mode switching in DDD mode?",
+  "options": [
+   "To avoid tracking AF or rapid flutter",
+   "To raise the lower rate during exercise",
+   "To go asynchronous in case of interference",
+   "To reduce unnecessary atrial pacing at rest"
+  ],
+  "commentaires": [
+   "Correct: above an atrial rate threshold, the device switches to DDI(R) or VDI(R) so as not to pace the ventricle rapidly.",
+   "Incorrect: that is the role of rate response, not mode switching.",
+   "Incorrect: switching to asynchronous pacing during interference is a different function (noise mode).",
+   "Incorrect: mode switching is not intended to reduce atrial pacing."
+  ],
+  "explication": "Without mode switching, a DDD pacemaker would track AF or flutter by pacing the ventricle up to the maximum tracking rate, irregularly and with poor tolerance. When the device detects an atrial rate above a programmed threshold, it switches to a non-tracking mode (DDI(R) or VDI(R)) and returns to DDD at the end of the episode. Episodes are stored, which also makes mode switching a diagnostic tool for AF. Switching to asynchronous mode during interference is a different function (noise mode).",
+  "aRetenir": "Mode switching = switching to a non-tracking mode during atrial tachycardia."
+ },
+ "prog-fond-047": {
+  "question": "A patient with a DDD pacemaker has atrial flutter at 300 bpm with 2:1 conduction. The pacemaker does not mode-switch. What is the most likely explanation?",
+  "options": [
+   "Flutter is never sensed by an atrial lead",
+   "The maximum tracking rate is programmed too low",
+   "Rate response is switched off on this device",
+   "Every other F wave falls in the PVAB and is not counted"
+  ],
+  "commentaires": [
+   "Incorrect: flutter is usually well sensed; the problem here lies with blanking.",
+   "Incorrect: the MTR limits tracking but does not determine detection of the atrial arrhythmia.",
+   "Incorrect: rate response plays no part in triggering mode switching.",
+   "Correct: with 2:1 conduction, every other F wave coincides with the QRS: the atrial channel counts only about 150 bpm, below the mode-switch threshold."
+  ],
+  "explication": "With a flutter cycle length of 200 ms and a QRS every second F wave, every other F wave coincides with the ventricular event and falls in the post-ventricular atrial blanking period. The atrial channel then counts only half the waves, i.e. about 150 bpm, often below the atrial tachycardia detection rate: no mode switching occurs. Some algorithms look specifically for this pattern (temporarily altering timing intervals to unmask hidden waves). Shortening the PVAB, when far-field sensing allows, may also help.",
+  "aRetenir": "2:1 flutter: every other F wave may be hidden by blanking, preventing mode switching."
+ },
+ "prog-fond-048": {
+  "question": "A high number of stored mode-switch episodes is sufficient to diagnose AF and start anticoagulation, without reviewing the EGMs.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: far-field R waves, noise or myopotentials can distort the counters; EGMs must confirm AF before any anticoagulation.",
+   "Correct: the stored EGMs must be reviewed, then episode duration and thromboembolic risk taken into account."
+  ],
+  "explication": "Mode-switch counters can be distorted by far-field R-wave, noise or myopotential sensing on the atrial channel. Guidelines require review of the stored EGMs to confirm that these are genuine episodes of AF or atrial tachycardia (AHRE/subclinical AF) before any therapeutic decision. The decision to anticoagulate then depends on episode duration and the thromboembolic risk profile. Reviewing the tracings is therefore essential.",
+  "aRetenir": "Mode-switch episodes: always review the EGMs before concluding that AF is present."
+ },
+ "prog-fond-049": {
+  "question": "What is a known limitation of an accelerometer-based activity sensor?",
+  "options": [
+   "Weak response to exercise with little trunk movement",
+   "Very slow response, over several minutes, at exercise onset",
+   "Incompatibility with dual-chamber pacing",
+   "Systematic interference with device telemetry"
+  ],
+  "commentaires": [
+   "Correct: the accelerometer measures movement, which is poorly proportional to metabolic demand: cycling, isometric effort or emotion fool it.",
+   "Incorrect: the accelerometer responds quickly at exercise onset; it is minute ventilation that is slower.",
+   "Incorrect: accelerometer-based rate response is used in DDDR as well as VVIR.",
+   "Incorrect: the activity sensor does not interfere with telemetry."
+  ],
+  "explication": "The accelerometer detects body movement and vibration: its response is rapid at the onset of exercise, but poorly proportional to metabolic demand. Isometric exercise or exercise with little trunk movement (cycling) and non-mechanical stress produce little acceleration. Conversely, passive vibration (a vehicle on a cobbled road) may accelerate pacing unnecessarily. The minute ventilation sensor is more physiological but slower; some devices combine the two.",
+  "aRetenir": "Accelerometer: fast, but poorly proportional to metabolic demand."
+ },
+ "prog-fond-050": {
+  "question": "A minute ventilation sensor estimates ventilation by measuring transthoracic impedance. Which situation can cause inappropriate acceleration of pacing?",
+  "options": [
+   "Moderate exercise on an exercise bike",
+   "Mode switching during AF",
+   "A monitor measuring thoracic impedance",
+   "A lower rate programmed at 50 bpm"
+  ],
+  "commentaires": [
+   "Incorrect: exercise physiologically increases ventilation: the acceleration is then appropriate.",
+   "Incorrect: mode switching alters atrial tracking, not the transthoracic impedance measurement.",
+   "Correct: impedance-based respiratory monitoring (or diathermy, mechanical ventilation) can mimic hyperventilation.",
+   "Incorrect: the lower rate has no effect on the minute ventilation sensor."
+  ],
+  "explication": "The minute ventilation sensor injects small current pulses and measures the changes in transthoracic impedance caused by respiration. External signals of the same kind (impedance-based respiratory monitoring by some monitors, mechanical ventilation, diathermy) can be interpreted as hyperventilation and drive pacing up to the maximum sensor rate. This is why switching off this sensor is recommended in the perioperative period. Exercise on a bike, by contrast, physiologically increases ventilation.",
+  "aRetenir": "Minute ventilation sensor: switch it off during impedance monitoring or perioperatively."
+ },
+ "prog-fond-051": {
+  "question": "Lower rate 60 bpm with rate hysteresis at 50 bpm. What does the pacemaker do?",
+  "options": [
+   "It paces continuously at 50 bpm, day and night",
+   "It allows intrinsic rhythm down to 50 bpm, then paces at 60",
+   "It paces at 60 bpm as soon as the rhythm drops below 60",
+   "It alternates between 50 and 60 bpm depending on activity"
+  ],
+  "commentaires": [
+   "Incorrect: 50 bpm is the limit to which intrinsic rhythm is tolerated, not the pacing rate.",
+   "Correct: after an intrinsic beat, the escape interval is 1,200 ms; when it paces, it does so at the lower rate.",
+   "Incorrect: that is the behaviour without hysteresis.",
+   "Incorrect: alternation with activity suggests rate response or a rest rate, not hysteresis."
+  ],
+  "explication": "Hysteresis lengthens the escape interval after an intrinsic event: the pacemaker tolerates intrinsic rhythm down to 50 bpm. If it has to pace, it does so at the lower rate of 60 bpm until intrinsic rhythm returns (some devices perform periodic searches). The aim is to favour intrinsic rhythm and save battery. The pitfall: in this patient, a cycle of 1,000 to 1,200 ms without pacing is not oversensing.",
+  "aRetenir": "Hysteresis: intrinsic rhythm is allowed to fall lower before pacing at the lower rate."
+ },
+ "prog-fond-052": {
+  "question": "Rate response is indicated in a patient with symptomatic chronotropic incompetence.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: symptomatic chronotropic incompetence is the very indication for rate response (class IIa, ESC 2021).",
+   "Incorrect: here the sensor replaces the failing sinus node; this is the textbook indication for rate response."
+  ],
+  "explication": "Chronotropic incompetence, i.e. the inability to increase heart rate sufficiently on exertion, is the very indication for rate response: the sensor replaces the failing sinus node. The ESC 2021 guidelines propose rate response (class IIa) in patients with chronotropic incompetence who are clearly symptomatic on exertion; it is also recommended in permanent AF (VVIR). In a patient with normal sinus node function and AV block, P-wave tracking in DDD is sufficient to adapt the rate. Settings should be tailored to the patient's activity (walk test, histograms).",
+  "aRetenir": "Symptomatic chronotropic incompetence = turn on rate response."
+ },
+ "prog-fond-053": {
+  "question": "Which of the following strategies aim to reduce unnecessary ventricular pacing in a patient with preserved AV conduction?",
+  "options": [
+   "AV delay hysteresis / periodic search for intrinsic conduction",
+   "AAI(R)-type operation with conduction monitoring and switch to DDD(R) in case of AV block",
+   "Routine shortening of the AV delay to 100 ms",
+   "Lowering the maximum tracking rate"
+  ],
+  "commentaires": [
+   "Correct: periodic AV delay extension allows intrinsic conduction to emerge.",
+   "Correct: these modes pace the atrium while monitoring the ventricle, and switch back to DDD in case of AV block.",
+   "Incorrect: shortening the AV delay, on the contrary, increases ventricular pacing.",
+   "Incorrect: the maximum tracking rate plays no role in minimising V pacing."
+  ],
+  "explication": "There are two main families of algorithms: AV delay extension (hysteresis or automatic search for intrinsic conduction), and modes that operate with atrial-only pacing while monitoring the ventricle, switching back to DDD if AV conduction is lost. Shortening the AV delay, on the contrary, increases ventricular pacing. The maximum tracking rate plays no role in this context. These algorithms are recommended in sinus node dysfunction.",
+  "aRetenir": "Minimising V pacing: extend the AV delay or operate in AAI with a switch to DDD."
+ },
+ "prog-fond-054": {
+  "question": "In the SAVE PACe trial (sinus node dysfunction), what was the effect of minimising ventricular pacing compared with conventional DDD?",
+  "options": [
+   "No significant difference in AF",
+   "Total mortality halved",
+   "More syncope due to AV block",
+   "About 40% less persistent AF"
+  ],
+  "commentaires": [
+   "Incorrect: the reduction in persistent AF was significant.",
+   "Incorrect: no effect on mortality was demonstrated.",
+   "Incorrect: safety was satisfactory, with no excess of AV block-related events.",
+   "Correct: persistent AF 7.9% vs 12.7%, i.e. a relative reduction of about 40%."
+  ],
+  "explication": "SAVE PACe randomised patients with sinus node dysfunction and preserved AV conduction to conventional DDD(R) or DDD(R) with ventricular pacing minimisation algorithms. Ventricular pacing fell dramatically and persistent AF was reduced (7.9% vs 12.7%, a relative reduction of about 40%). No effect on mortality was demonstrated. Safety was satisfactory, with no excess of AV block-related events.",
+  "aRetenir": "SAVE PACe: minimising V pacing reduces persistent AF by about 40%."
+ },
+ "prog-fond-055": {
+  "question": "In a patient with very marked first-degree AV block (PR 350 ms), favouring intrinsic conduction at all costs is always the best strategy.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: a very long PR creates harmful AV dyssynchrony (E–A fusion, diastolic MR): allowing conduction at all costs is not physiological.",
+   "Correct: intrinsic conduction versus pacing must be weighed case by case, ideally with physiological pacing if the pacing burden becomes high."
+  ],
+  "explication": "A very long PR interval can cause harmful AV dyssynchrony: poorly timed atrial contraction (too early relative to ventricular systole), fusion of the E and A waves, diastolic mitral regurgitation and symptoms resembling pacemaker syndrome. In this setting, allowing conduction at all costs with extreme AV delays is not physiological. Intrinsic conduction versus pacing must be weighed case by case, ideally with physiological pacing (conduction system pacing) if the ventricular pacing burden becomes high. Minimisation of V pacing has been validated mainly in patients with normal conduction.",
+  "aRetenir": "A very long PR is not always preferable to pacing: AV dyssynchrony is harmful too."
+ },
+ "prog-fond-056": {
+  "question": "What does the ERI indicator displayed at pacemaker follow-up mean?",
+  "options": [
+   "Generator replacement required within the hour",
+   "Replacement to be scheduled (≈ 3 months' reserve)",
+   "Lead failure requiring prompt revision",
+   "Automatic switch of the pacemaker to MRI mode"
+  ],
+  "commentaires": [
+   "Incorrect: urgency applies rather to EOS (end of service), not ERI.",
+   "Correct: the pacemaker still works, but the reserve is limited: replacement is planned, not urgently but without delay.",
+   "Incorrect: ERI concerns the generator battery and says nothing about the state of the leads.",
+   "Incorrect: ERI has nothing to do with MRI mode."
+  ],
+  "explication": "ERI (elective replacement indicator) is reached when the battery voltage falls to a predefined level: the pacemaker still functions normally, but only a limited reserve remains, classically around three months. Replacement should therefore be planned, not urgently but without delay, particularly in a pacemaker-dependent patient. Beyond this point, EOS (end of service) is reached, where normal function is no longer guaranteed. ERI says nothing about the state of the leads.",
+  "aRetenir": "ERI = schedule generator replacement (reserve of around 3 months)."
+ },
+ "prog-fond-057": {
+  "question": "Which of these programming changes shortens pacemaker longevity the most in a patient who is paced continuously?",
+  "options": [
+   "Increasing pulse width from 0.4 to 0.5 ms",
+   "Changing sensitivity from 2.5 to 2.0 mV",
+   "Increasing amplitude from 2.5 to 5.0 V",
+   "Turning on rate hysteresis at 50 bpm"
+  ],
+  "commentaires": [
+   "Incorrect: energy increases linearly with pulse width: only +25%.",
+   "Incorrect: sensitivity has a negligible impact on current drain.",
+   "Correct: energy varies with the square of the voltage: doubling the amplitude quadruples pacing-related current drain.",
+   "Incorrect: hysteresis tends, if anything, to save battery by favouring intrinsic rhythm."
+  ],
+  "explication": "Energy per pulse is proportional to the square of the voltage: doubling the amplitude quadruples pacing-related current drain, which has a major effect in a continuously paced patient. Increasing pulse width from 0.4 to 0.5 ms raises energy by only 25%. Hysteresis tends, if anything, to save battery, and sensitivity has only a negligible impact. Hence the value of a safety margin that is just sufficient, and of automatic capture management algorithms.",
+  "aRetenir": "Pacing amplitude is the main driver of battery drain."
+ },
+ "prog-fond-058": {
+  "question": "On reaching ERI, some pacemakers simplify their operation (e.g. switching to a single-chamber mode or turning off rate response) to preserve the battery.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: to guarantee pacing until replacement, many devices simplify their operation at ERI.",
+   "Incorrect: these automatic changes (VVI, rate response turned off…) do exist and can cause symptoms."
+  ],
+  "explication": "To guarantee pacing until replacement, many devices automatically change their programming at ERI: switching to VVI or a simplified mode, turning off rate response or certain diagnostic functions, and sometimes lowering the rate. These changes vary between manufacturers and can cause symptoms (loss of AV synchrony). Reaching ERI is also flagged by remote monitoring and, on many devices, by a change in the magnet rate.",
+  "aRetenir": "At ERI, the device may change its mode of operation: plan the replacement ahead."
+ },
+ "prog-fond-059": {
+  "question": "What is the usual effect of applying a magnet to a pacemaker (not an ICD)?",
+  "options": [
+   "Asynchronous pacing at the magnet rate",
+   "Complete cessation of pacing under the magnet",
+   "Automatic switch to (protected) MRI mode",
+   "Increased sensing sensitivity"
+  ],
+  "commentaires": [
+   "Correct: the magnet suspends sensing: VOO or DOO at a manufacturer-specific rate, often linked to battery status.",
+   "Incorrect: the magnet does not stop pacing; it makes it asynchronous.",
+   "Incorrect: MRI mode is programmed; a magnet does not switch the device into it.",
+   "Incorrect: the magnet suspends sensing rather than making it more sensitive."
+  ],
+  "explication": "On most pacemakers, a magnet suspends sensing: the device paces asynchronously (VOO/DOO) at a manufacturer-defined magnet rate, which often varies with battery status. This protects a pacemaker-dependent patient from inhibition by interference and allows capture to be checked. The magnet does not stop pacing. On an ICD, a magnet suspends antitachycardia therapies without altering bradycardia pacing: the effect is therefore different.",
+  "aRetenir": "Magnet on a pacemaker = asynchronous pacing; on an ICD = therapies suspended."
+ },
+ "prog-fond-060": {
+  "question": "Which elements are routinely assessed at a standard pacemaker check?",
+  "options": [
+   "Battery status (voltage, estimated longevity)",
+   "Lead impedances",
+   "Pacing thresholds",
+   "Defibrillation testing (shock threshold)",
+   "LVEF measurement by the device"
+  ],
+  "commentaires": [
+   "Correct: the battery is checked at every follow-up (voltage, estimated longevity, ERI indicators).",
+   "Correct: impedances reflect lead integrity; their trend is essential.",
+   "Correct: the threshold allows the amplitude to be adjusted with an adequate safety margin.",
+   "Incorrect: a pacemaker does not deliver shocks; this test applies only to some ICDs and is no longer routine.",
+   "Incorrect: a conventional pacemaker does not measure LVEF; it is assessed by echocardiography."
+  ],
+  "explication": "Follow-up includes device interrogation (battery, counters, stored events, pacing percentages), lead checks (impedances, thresholds, sensed P- and R-wave amplitudes), analysis of stored EGMs and adjustment of programming to the patient's needs. A pacemaker does not deliver shocks: defibrillation testing does not apply. Nor does a conventional pacemaker measure LVEF: this is assessed by echocardiography, particularly in patients with a high ventricular pacing burden. Clinical examination (wound, symptoms) is also part of follow-up.",
+  "aRetenir": "Follow-up = battery, impedances, thresholds, sensing, stored data, and tailoring of programming."
+ },
+ "prog-fond-061": {
+  "question": "According to the 2015 HRS consensus statement on remote monitoring, what is the role of in-clinic follow-up for a remotely monitored patient?",
+  "options": [
+   "In-person visits are no longer needed at all",
+   "An in-person visit only when ERI is reached",
+   "A routine monthly in-person visit",
+   "At least one in-person evaluation per year"
+  ],
+  "commentaires": [
+   "Incorrect: remote monitoring does not entirely replace clinical evaluation.",
+   "Incorrect: waiting for ERI would leave years without clinical examination or review of programming.",
+   "Incorrect: monthly visits would be needlessly burdensome and would negate the benefit of remote monitoring.",
+   "Correct: the 2015 HRS consensus recommends, alongside remote monitoring, at least one in-person evaluation per year."
+  ],
+  "explication": "Remote monitoring reduces the number of clinic visits and allows early detection of problems (leads, arrhythmias, battery), but it does not entirely replace clinical evaluation. The 2015 HRS consensus statement recommends, alongside remote monitoring, at least one in-person evaluation per year. The 2023 HRS/EHRA/APHRS/LAHRS consensus statement details the practical organisation of remote follow-up. Monthly visits would be needlessly burdensome.",
+  "aRetenir": "Remote monitoring + at least one in-person visit per year."
+ },
+ "prog-fond-062": {
+  "question": "How is loss of ventricular capture recognised on the ECG during a decremental threshold test?",
+  "reponseAttendue": "The ventricular spike is no longer followed by a paced (wide) QRS: an isolated spike appears, followed by intrinsic rhythm or a pause. The threshold is the last amplitude that captured.",
+  "explication": "To measure the threshold, the heart is paced above the intrinsic rate and the amplitude is then reduced step by step. As long as capture is present, each spike is followed by a wide QRS of constant morphology. On loss of capture, the spike is no longer followed by a QRS: either an intrinsic escape rhythm or, in a dependent patient, a pause is seen, hence the value of a short test with automatic return to the initial settings. The threshold is the lowest amplitude that still captured. Fusion (intermediate morphology) must be distinguished from true loss of capture.",
+  "aRetenir": "Loss of capture = spike not followed by a paced QRS."
+ },
+ "prog-fond-063": {
+  "question": "A patient has a pacemaker whose generator is labelled \"MR-conditional\". According to the labelling, what determines whether MRI can be performed?",
+  "options": [
+   "The generator alone, whatever the leads",
+   "Only the time elapsed since implantation",
+   "The complete validated system and its conditions of use",
+   "The patient's age and degree of pacemaker dependence"
+  ],
+  "commentaires": [
+   "Incorrect: an MR-conditional generator connected to a non-validated lead, or an abandoned lead, falls outside the labelling.",
+   "Incorrect: time since implantation is one of the conditions but is not sufficient on its own.",
+   "Correct: generator and leads must form a validated combination, used under the manufacturer's conditions (field strength, zone, SAR, MRI mode).",
+   "Incorrect: dependence guides programming during the scan, not the labelling of the system."
+  ],
+  "explication": "MR-conditional labelling applies to a complete system: the generator and leads must form a combination validated by the manufacturer. An MR-conditional generator connected to an old non-validated lead, or the presence of an abandoned lead, falls outside the labelling. The conditions include field strength (1.5 T or 3 T), sometimes exclusion zones, SAR limits and programming to MRI mode. Time since implantation is one of the conditions but is not sufficient on its own.",
+  "aRetenir": "MR-conditional = a complete validated system, used under the manufacturer's conditions."
+ },
+ "prog-fond-064": {
+  "question": "A pacemaker-dependent patient needs an MRI scan. According to the 2017 HRS consensus statement, how should the device be programmed during the scan?",
+  "options": [
+   "Inhibited VVI mode at 40 bpm, advanced features off",
+   "Asynchronous mode (VOO/DOO) above the intrinsic rate",
+   "ODO mode, with no pacing, to avoid any interaction",
+   "Usual DDDR mode, with rate response left on"
+  ],
+  "commentaires": [
+   "Incorrect: an inhibited mode is vulnerable to inhibition by electromagnetic fields, hence asystole in a dependent patient.",
+   "Correct: MRI fields can inhibit a sensing mode; in a dependent patient, an asynchronous mode is programmed and the patient monitored.",
+   "Incorrect: suspending pacing would be fatal in a pacemaker-dependent patient.",
+   "Incorrect: rate response and advanced features must be switched off during the scan."
+  ],
+  "explication": "During MRI, electromagnetic fields can be wrongly sensed as cardiac activity and inhibit pacing: in a pacemaker-dependent patient, this carries a risk of asystole. An asynchronous mode is therefore programmed, at a rate high enough to avoid competition with the intrinsic rhythm, with rate response and other algorithms switched off. ODO mode would be fatal in a dependent patient. The patient must be monitored and the original programming restored after the scan.",
+  "aRetenir": "MRI in a pacemaker-dependent patient = asynchronous mode."
+ },
+ "prog-fond-065": {
+  "question": "A patient who is not pacemaker-dependent needs an MRI scan. Which programming does the 2017 HRS consensus statement propose?",
+  "options": [
+   "A non-pacing mode (ODO) or an inhibited mode",
+   "Mandatory asynchronous mode during the scan",
+   "No change, whatever the system",
+   "Usual mode with rate response on"
+  ],
+  "commentaires": [
+   "Correct: in a non-dependent patient, unnecessary asynchronous pacing and the theoretical risk of pacing in the vulnerable period are avoided.",
+   "Incorrect: asynchronous pacing is reserved for pacemaker-dependent patients.",
+   "Incorrect: even an MR-conditional system must be programmed to MRI mode.",
+   "Incorrect: rate response and advanced features are switched off during the scan."
+  ],
+  "explication": "In a patient who is not pacemaker-dependent, a non-pacing mode or an inhibited mode can be chosen, which avoids unnecessary asynchronous pacing and the theoretical risk of pacing in the vulnerable period. Asynchronous pacing remains the option for dependent patients. Rate response and advanced features are switched off. Even for an MR-conditional system, appropriate programming (MRI mode) is required.",
+  "aRetenir": "MRI in a non-dependent patient: non-pacing or inhibited mode."
+ },
+ "prog-fond-066": {
+  "question": "According to the ESC 2021 guidelines, MRI is absolutely contraindicated in any patient with a non-MR-conditional pacing system, whatever the circumstances.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: the ESC 2021 guidelines state that it should be considered (IIa) if no alternative imaging is possible, under a strict protocol.",
+   "Correct: in the absence of epicardial, abandoned or damaged leads or adaptors, MRI remains possible under a protocol."
+  ],
+  "explication": "The statement is false. Data from large registries (MagnaSafe, Nazarian 2017) have shown that 1.5 T MRI in patients with non-MR-conditional systems can be performed with few events, provided a strict protocol is followed (appropriate programming, monitoring, device checks before and after). The ESC 2021 guidelines therefore state that it should be considered (class IIa) if no alternative imaging is possible and in the absence of epicardial, abandoned or damaged leads or adaptors/extenders. The 2017 HRS consensus statement takes the same line. Shared decision-making taking the expected benefit into account is required.",
+  "aRetenir": "Non-MR-conditional system: MRI possible under a protocol in the absence of epicardial, abandoned or damaged leads."
+ },
+ "prog-fond-067": {
+  "question": "Regarding MRI in a patient with a cardiac implantable electronic device, which measures are recommended?",
+  "options": [
+   "ECG and pulse oximetry monitoring during the scan",
+   "Presence of staff trained in resuscitation and availability of an external defibrillator",
+   "Keeping antitachycardia therapies active in an ICD patient",
+   "Switching off all pacing in a pacemaker-dependent patient"
+  ],
+  "commentaires": [
+   "Correct: monitoring (ECG, oximetry) is recommended throughout the MRI scan.",
+   "Correct: staff capable of managing cardiac arrest and an external defibrillator (outside the magnet room) are required.",
+   "Incorrect: therapies are suspended during the scan, as MRI noise could be interpreted as VF.",
+   "Incorrect: in a dependent patient, suspending pacing would be dangerous: an asynchronous mode is chosen."
+  ],
+  "explication": "The 2017 HRS consensus statement recommends a device check before the scan, appropriate programming, monitoring (ECG, oximetry) during the MRI, the presence of staff capable of managing cardiac arrest with an external defibrillator available (outside the magnet room), and a check after the scan with restoration of the original programming. In ICD patients, therapies are suspended during the scan because noise could be interpreted as VF. Suspending pacing in a pacemaker-dependent patient would be dangerous: an asynchronous mode is chosen.",
+  "aRetenir": "MRI: appropriate programming, monitoring, trained staff, device checks before and after."
+ },
+ "prog-fond-068": {
+  "question": "What is the main risk of monopolar diathermy in a pacemaker-dependent patient?",
+  "options": [
+   "Accelerated battery depletion from excess drain",
+   "Permanent threshold rise at the electrode interface",
+   "Automatic switch of the device to protected MRI mode",
+   "Oversensing of diathermy with inhibition (asystole)"
+  ],
+  "commentaires": [
+   "Incorrect: diathermy does not drain the battery; the main risk is inhibition.",
+   "Incorrect: tissue injury at the electrode interface is possible but rare; it is not the main risk.",
+   "Incorrect: interference can cause an electrical reset, never a switch to MRI mode.",
+   "Correct: the diathermy current is mistaken for cardiac activity: the pacemaker is inhibited as long as diathermy is active."
+  ],
+  "explication": "Monopolar diathermy current generates a high-frequency signal that the pacemaker may interpret as intrinsic cardiac activity: it is inhibited, which, in a pacemaker-dependent patient, causes asystole for as long as diathermy is active. The other risks are rarer: reprogramming or electrical reset, tissue injury at the electrode interface. In an ICD patient, the main risk is an inappropriate shock. Hence asynchronous programming or a magnet in a dependent patient.",
+  "aRetenir": "Monopolar diathermy: risk of inhibition in dependent patients, of inappropriate shock in ICD patients."
+ },
+ "prog-fond-069": {
+  "question": "Which measures reduce the risk of diathermy interference in a patient with a pacemaker?",
+  "options": [
+   "Using bipolar diathermy whenever possible",
+   "Placing the return pad as close as possible to the generator to shorten the current path",
+   "Favouring prolonged applications to limit the number of activations",
+   "Placing the return pad on the shoulder on the same side as the generator"
+  ],
+  "commentaires": [
+   "Correct: with bipolar diathermy, the current stays confined between the two tips and interferes much less.",
+   "Incorrect: the path between the active electrode and the return pad must lead away from the generator and leads, not cross them.",
+   "Incorrect: on the contrary, brief applications (a few seconds) limit the duration of any inhibition.",
+   "Incorrect: a pad close to the generator would make the current pass through the system."
+  ],
+  "explication": "Bipolar diathermy confines the current to the area between the two tips and interferes much less. With monopolar diathermy, the return pad should be positioned so that the current path between the active electrode and the pad does not cross the generator or the leads: placing it close to the generator would, on the contrary, make the current pass through the system. Short applications of a few seconds limit the duration of any inhibition. A device check after the procedure is required if the pacemaker was reprogrammed or if interference was observed.",
+  "aRetenir": "Diathermy: bipolar, return pad away from the generator, brief applications."
+ },
+ "prog-fond-070": {
+  "question": "For surgery below the umbilicus using monopolar diathermy, routine reprogramming of the pacemaker is usually required.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: below the umbilicus, with a well-placed return pad, the risk is low: no routine reprogramming (EHRA 2022).",
+   "Correct: monitoring and an available magnet are usually sufficient; the strategy is mainly an issue for surgery above the umbilicus."
+  ],
+  "explication": "The risk of interference depends on the distance between the diathermy site and the implanted system. For surgery below the umbilicus, with a well-placed return pad (e.g. on the thigh), the risk is low and the 2022 EHRA consensus does not require routine reprogramming. Monitoring and an available magnet are nonetheless required. For surgery above the umbilicus in a pacemaker-dependent patient, the strategy (asynchronous mode or magnet) should be defined before the procedure.",
+  "aRetenir": "Surgery below the umbilicus: low risk, no routine reprogramming."
+ },
+ "prog-fond-071": {
+  "question": "External electrical cardioversion of AF in a patient with a pacemaker. Which precaution is recommended?",
+  "options": [
+   "Pads ≥ 8 cm from the generator, then a system check",
+   "Anterior paddle placed directly over the generator",
+   "Switch off pacing before delivering the shock",
+   "Use the defibrillator's maximum energy from the outset"
+  ],
+  "commentaires": [
+   "Correct: pads at least 8 cm from the generator, preferably anteroposterior, then check thresholds, sensing and programming.",
+   "Incorrect: the shock current could damage the generator or the electrode–myocardium interface.",
+   "Incorrect: switching off pacing would be dangerous in a pacemaker-dependent patient.",
+   "Incorrect: having a pacemaker does not warrant changing the shock energy."
+  ],
+  "explication": "External shock current can damage the generator or the electrode–myocardium interface (acute threshold rise, loss of capture) and cause a reset. Guidelines advise placing the pads at least 8 cm from the generator, preferably in an anteroposterior position, then checking device function (thresholds, sensing, programming) after cardioversion. Switching off pacing would be dangerous in a dependent patient. The energy does not need to be changed for this reason.",
+  "aRetenir": "Cardioversion: pads ≥ 8 cm from the generator, preferably anteroposterior, and a device check after the shock."
+ },
+ "prog-fond-072": {
+  "question": "Radiotherapy in a patient with a pacemaker. According to the 2017 HRS consensus statement, which parameter particularly increases the risk of malfunction (reset, memory errors)?",
+  "options": [
+   "Low-energy photons (< 10 MV), producing no neutrons",
+   "Prolonged supine positioning of the patient",
+   "High-energy beams (> 10 MV) producing neutrons",
+   "A high programmed lower rate during sessions"
+  ],
+  "commentaires": [
+   "Incorrect: these are precisely the beams to favour, since they produce no neutrons.",
+   "Incorrect: patient positioning plays no part in the risk of malfunction.",
+   "Correct: secondary neutrons from beams > 10 MV cause random errors (resets, memory corruption).",
+   "Incorrect: rate programming does not affect the susceptibility of the circuits to radiation."
+  ],
+  "explication": "Ionising radiation can damage the device circuitry in two ways: through the cumulative dose received by the generator, and through secondary neutrons produced by high-energy photon beams (> 10 MV), which cause random errors (resets, memory corruption). The 2017 HRS consensus statement recommends favouring non-neutron-producing beams, estimating the dose to the generator and adapting follow-up (checks during and after treatment). The generator must never be in the direct radiation field. Patient positioning and the lower rate play no part.",
+  "aRetenir": "Radiotherapy: generator dose and beams > 10 MV (neutrons) increase the risk."
+ },
+ "prog-fond-073": {
+  "question": "A pacemaker-dependent patient is undergoing thoracic surgery with monopolar diathermy above the umbilicus. What perioperative strategy would you propose?",
+  "reponseAttendue": "Preoperative device check; programming to an asynchronous mode (DOO/VOO) at a rate above the intrinsic rhythm (or a magnet if the generator is accessible); rate response switched off (especially minute ventilation); continuous monitoring with a defibrillator available; postoperative device check and reprogramming.",
+  "explication": "In a dependent patient, inhibition by diathermy can cause asystole: sensing must be suspended during the procedure. An asynchronous mode is programmed at an appropriate rate, or a magnet is used if the operative field allows and the magnet response of this particular device is known. Sensors that may be disturbed (minute ventilation) are switched off. The patient is monitored by means that do not rely solely on the disturbed ECG (pulse oximetry, arterial pressure). After the procedure, the device is checked and the original programming restored.",
+  "aRetenir": "Dependent patient + diathermy above the umbilicus = asynchronous mode, sensors off, monitoring, postoperative check."
+ },
+ "prog-fond-074": {
+  "question": "By which route is a ventricular leadless pacemaker usually implanted?",
+  "options": [
+   "Subclavian route, with a pectoral pocket",
+   "Femoral venous route, capsule fixed in the RV",
+   "Surgical epicardial route via mini-thoracotomy",
+   "Femoral arterial route, capsule in the LV"
+  ],
+  "commentaires": [
+   "Incorrect: this is the route for conventional pacemakers; a leadless device has neither pocket nor lead.",
+   "Correct: the capsule is delivered by catheter via the femoral vein and fixed to the RV wall (often septal).",
+   "Incorrect: the epicardial route applies to surgical leads connected to a conventional generator.",
+   "Incorrect: the available ventricular capsules are implanted in the RV via a venous route."
+  ],
+  "explication": "A leadless pacemaker is a capsule containing the battery and electronics, delivered by catheter via the femoral vein and fixed to the right ventricular wall (often septal) with tines or a helix. There is no pocket and no transvenous lead, which eliminates the corresponding complications. The first systems provide VVI(R) pacing. The subclavian and epicardial routes apply to conventional pacemakers.",
+  "aRetenir": "Leadless: capsule implanted in the right ventricle via the femoral route."
+ },
+ "prog-fond-075": {
+  "question": "According to the ESC 2021 guidelines, in which situation should a leadless pacemaker be considered as an alternative to a conventional pacemaker?",
+  "options": [
+   "Any young patient with isolated sinus node dysfunction",
+   "Any patient requiring cardiac resynchronisation",
+   "First-line in any AV block in sinus rhythm",
+   "No upper venous access or high infection risk"
+  ],
+  "commentaires": [
+   "Incorrect: leadless atrial pacing is recent and not widely used; long-term data in young patients remain limited.",
+   "Incorrect: the available leadless systems do not provide resynchronisation.",
+   "Incorrect: the ESC 2021 guidelines make it an alternative in selected situations, not a first-line therapy.",
+   "Correct: class IIa when upper-limb venous access is lacking or the risk of pocket infection is high (previous infection, dialysis)."
+  ],
+  "explication": "The ESC 2021 guidelines state that leadless pacing should be considered (class IIa) as an alternative to conventional transvenous pacing when there is no upper-limb venous access or when the risk of pocket infection is particularly high, e.g. after a previous device infection or in patients on haemodialysis. The available systems do not provide resynchronisation, and leadless systems capable of atrial pacing (dual-chamber with two capsules) are recent and not yet widely used, which limits their value in sinus node dysfunction. Long-term follow-up remains shorter than for conventional systems.",
+  "aRetenir": "Leadless: an alternative when there is no upper venous access or a high infection risk."
+ },
+ "prog-fond-076": {
+  "question": "Leadless pacemakers eliminate pocket- and lead-related complications but carry a specific risk of pericardial effusion or perforation at implantation.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: no pocket or lead complications, but a risk of effusion or tamponade (≈ 1.5% in the initial series).",
+   "Incorrect: both parts are correct: pocket/lead complications are eliminated, but there is a pericardial risk at implantation."
+  ],
+  "explication": "The pivotal leadless pacemaker studies showed no pocket complications (haematoma, infection, erosion) and no lead complications (fracture, lead dislodgement, subclavian vein thrombosis). However, manipulating a large-bore catheter in the right ventricle carries a risk of pericardial effusion or tamponade, of the order of 1.5% in these initial series, as well as femoral access-site complications and, more rarely, capsule dislodgement or embolisation. These risks must be explained to the patient, particularly in elderly and frail individuals.",
+  "aRetenir": "Leadless: no pocket/lead complications, but a risk of tamponade."
+ },
+ "prog-fond-077": {
+  "question": "How do some leadless pacemakers implanted in the right ventricle manage to provide atrially synchronised pacing (VDD-type operation)?",
+  "options": [
+   "A short atrial lead connected to the capsule",
+   "Detection of atrial systole by the accelerometer",
+   "A radio link with an implantable ECG monitor",
+   "Far-field sensing of the P wave on the V electrode"
+  ],
+  "commentaires": [
+   "Incorrect: these capsules have no atrial lead.",
+   "Correct: the accelerometer picks up the mechanical signal of atrial contraction and triggers V pacing after a delay.",
+   "Incorrect: no implantable monitor is used; communicating dual-chamber systems use two capsules.",
+   "Incorrect: the P wave is too small to be sensed reliably by a ventricular electrode."
+  ],
+  "explication": "The P wave is too small to be sensed reliably by a ventricular electrode. The validated approach uses the capsule's accelerometer to detect the mechanical signal of atrial contraction (active late-diastolic filling), then triggers ventricular pacing after a delay. The AV synchrony achieved is good at rest but may deteriorate at higher rates or when the mechanical signal is weak. There is no atrial lead; separately, dual-chamber systems with two communicating capsules exist.",
+  "aRetenir": "Leadless VDD: mechanical detection of atrial systole by the accelerometer."
+ },
+ "prog-fond-078": {
+  "question": "A patient paced in VVI mode for paroxysmal AV block, in sinus rhythm with retrograde VA conduction, complains of dizzy spells, a pounding sensation in the neck and hypotension during paced periods. Which diagnosis should be considered?",
+  "options": [
+   "Pacemaker-mediated tachycardia",
+   "Loss of ventricular capture",
+   "Pacemaker syndrome",
+   "Myopotential oversensing"
+  ],
+  "commentaires": [
+   "Incorrect: PMT requires a mode with atrial tracking; it does not occur in VVI.",
+   "Incorrect: loss of capture would cause pauses, not symptoms during paced periods.",
+   "Correct: loss of AV synchrony with VA conduction: atrial contraction against closed valves, cannon waves, hypotension.",
+   "Incorrect: oversensing inhibits pacing; here the symptoms occur while the patient is being paced."
+  ],
+  "explication": "Pacemaker syndrome results from loss of AV synchrony during ventricular pacing: the atrium contracts against closed AV valves, particularly with retrograde VA conduction, producing jugular cannon waves, reduced cardiac output and sometimes a vasodepressor reflex. Symptoms (dizzy spells, dyspnoea, neck pulsation, hypotension) occur during pacing. Treatment is to restore AV synchrony (DDD) or to lower the lower rate to limit pacing. PMT does not occur in VVI.",
+  "aRetenir": "Symptoms in VVI with retrograde VA conduction = pacemaker syndrome."
+ },
+ "prog-fond-079": {
+  "question": "What R-wave amplitude is usually sought when implanting a right ventricular lead?",
+  "options": [
+   "Greater than 0.5 mV",
+   "Greater than 2 mV",
+   "Greater than 5 mV",
+   "Greater than 50 mV"
+  ],
+  "commentaires": [
+   "Incorrect: such a small R wave would risk undersensing, especially with the post-implant fall in amplitude.",
+   "Incorrect: 1.5–2 mV is the target for the atrial P wave, not the ventricular R wave.",
+   "Correct: an R wave of at least 5 mV (often 10–20 mV) is sought for reliable sensing with a comfortable margin.",
+   "Incorrect: such an amplitude is not realistic for an intracardiac EGM."
+  ],
+  "explication": "At implantation, an R wave of at least 5 mV (often much more, 10–20 mV) is usually sought, and a P wave of at least 1.5–2 mV on the atrial lead: the two targets must not be confused. These values ensure reliable sensing with a comfortable safety margin. A small signal risks undersensing, particularly with the fall in amplitude seen in the weeks after implantation. Values such as 50 mV are not realistic for an intracardiac EGM.",
+  "aRetenir": "At implantation: R ≥ 5 mV, P ≥ 1.5–2 mV."
+ },
+ "prog-fond-080": {
+  "question": "A patient paced for sinus node dysfunction has normal AV conduction but shows 85% ventricular pacing at follow-up, with a programmed AV delay of 150 ms and an intrinsic PR of 200 ms. What is the most logical course of action?",
+  "options": [
+   "Extend the AV delay or enable minimisation",
+   "Leave as is: it has no clinical consequence",
+   "Shorten the AV delay to 100 ms to ensure capture",
+   "Raise the lower rate to reduce AF"
+  ],
+  "commentaires": [
+   "Correct: the AV delay (150 ms) pre-empts the intrinsic PR (200 ms): unnecessary V pacing to be eliminated, as recommended by the ESC 2021 guidelines.",
+   "Incorrect: unnecessary RV pacing increases the risk of AF and heart failure.",
+   "Incorrect: shortening the AV delay would further increase the percentage of ventricular pacing.",
+   "Incorrect: raising the lower rate would increase pacing without correcting the inappropriate AV delay."
+  ],
+  "explication": "As the programmed AV delay (150 ms) is shorter than intrinsic conduction (200 ms), the pacemaker consistently pre-empts the conducted QRS: this is unnecessary ventricular pacing, associated with an increased risk of AF and heart failure. The AV delay should be extended or a minimisation algorithm enabled, as recommended by the ESC 2021 guidelines in sinus node dysfunction. Shortening the AV delay or raising the lower rate would increase the pacing percentage. The fall in the percentage should then be confirmed at the next follow-up.",
+  "aRetenir": "AV delay shorter than the intrinsic PR = unnecessary V pacing to be corrected."
+ },
+ "prog-fond-081": {
+  "question": "An ICD patient is to undergo a procedure with monopolar diathermy. What is the effect of placing a magnet over the generator?",
+  "options": [
+   "Asynchronous VOO pacing at the magnet rate",
+   "Delivery of a test shock for verification",
+   "Complete shutdown of all device functions",
+   "Therapies suspended, pacing unchanged"
+  ],
+  "commentaires": [
+   "Incorrect: that is a pacemaker's response; a pacemaker-dependent ICD patient must be reprogrammed to an asynchronous mode.",
+   "Incorrect: a magnet never triggers a shock.",
+   "Incorrect: bradycardia pacing remains active under the magnet.",
+   "Correct: the magnet suspends tachyarrhythmia detection and therapy, but does not make pacing asynchronous."
+  ],
+  "explication": "On the vast majority of ICDs, a magnet suspends tachyarrhythmia detection and therapy while it is in place, which prevents inappropriate shocks caused by diathermy noise. However, it does not switch pacing to an asynchronous mode: a pacemaker-dependent patient remains exposed to inhibition by diathermy and requires reprogramming (asynchronous mode) with a programmer. This is a major difference from a pacemaker. An external defibrillator must remain available throughout the procedure.",
+  "aRetenir": "Magnet on an ICD = therapies suspended, no asynchronous pacing."
+ },
+ "prog-fond-082": {
+  "question": "What is the difference between ERI and EOS?",
+  "options": [
+   "None: the two are synonyms, depending on the manufacturer",
+   "EOS precedes ERI, which marks the end of pacing",
+   "ERI: limited reserve; EOS: function not guaranteed",
+   "ERI concerns the leads, EOS concerns the generator"
+  ],
+  "commentaires": [
+   "Incorrect: they are two successive stages of battery depletion.",
+   "Incorrect: the order is reversed: ERI precedes EOS.",
+   "Correct: at ERI, replacement is scheduled; at EOS, the manufacturer no longer guarantees function: urgent replacement.",
+   "Incorrect: both indicators concern the generator battery."
+  ],
+  "explication": "ERI marks the start of the elective replacement period: the pacemaker still works, sometimes with simplified functions. If replacement is not performed, the battery continues to deplete until EOS, when the manufacturer no longer guarantees correct function (loss of capture, malfunction). In a pacemaker-dependent patient, letting a device reach EOS is dangerous. Remote monitoring helps ensure ERI is not missed.",
+  "aRetenir": "ERI = schedule replacement; EOS = function not guaranteed, urgent replacement."
+ },
+ "prog-fond-083": {
+  "question": "What was the main lesson of the MagnaSafe study (1.5 T MRI under a protocol in patients with non-MR-conditional pacemakers and ICDs)?",
+  "options": [
+   "An excess of scan-related deaths, justifying a ban",
+   "No deaths or lead failures; events were rare",
+   "Frequent loss of capture, justifying a ban",
+   "A systematic rise in pacing thresholds"
+  ],
+  "commentaires": [
+   "Incorrect: no deaths were observed.",
+   "Correct: more than 1,500 MRI scans at 1.5 T under a protocol: no deaths, no lead failures and no loss of capture.",
+   "Incorrect: no loss of capture was reported.",
+   "Incorrect: no systematic threshold rise was observed; events were rare."
+  ],
+  "explication": "MagnaSafe included more than 1,500 non-thoracic MRI scans at 1.5 T in patients with non-MR-conditional pacemakers or ICDs, programmed according to a protocol (asynchronous or non-pacing mode, therapies switched off). There were no deaths, no lead failures and no loss of capture; events (a few partial electrical resets, self-terminating episodes of AF) were rare. Only one ICD, programmed outside the protocol, had to be replaced. These data, like those of Nazarian 2017, supported opening up MRI to these patients in the guidelines. They do not remove the need for a strict protocol.",
+  "aRetenir": "MagnaSafe: 1.5 T MRI under a protocol in patients with non-MR-conditional systems, with very few events."
+ }
+}

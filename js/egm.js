@@ -3,6 +3,8 @@
 // d'un Holter implantable, et canal de marqueurs avec intervalles, à 25 mm/s.
 // Les tracés sont schématiques : ils illustrent la logique de détection, pas un modèle précis de boîtier.
 
+import { t as tr } from './i18n.js'; // « t » désigne le temps dans ce fichier
+
 const MS_PAR_MM = 40;
 
 function rng(seedStr) {
@@ -17,13 +19,17 @@ function rng(seedStr) {
   };
 }
 
+// libellés des canaux relus à chaque dessin (suivent la langue courante)
 const CANAUX = {
-  A: { nom: 'EGM A (bipolaire)', gain: 6 },
-  V: { nom: 'EGM VD (bipolaire)', gain: 7 },
-  FF: { nom: 'EGM de choc (boîtier–coil)', gain: 8 },
-  FFpm: { nom: 'EGM champ lointain (boîtier)', gain: 8 },
-  SC: { nom: 'ECG sous-cutané (Holter implantable)', gain: 9 },
+  A: { get nom() { return tr('EGM A (bipolaire)', 'A EGM (bipolar)'); }, gain: 6 },
+  V: { get nom() { return tr('EGM VD (bipolaire)', 'RV EGM (bipolar)'); }, gain: 7 },
+  FF: { get nom() { return tr('EGM de choc (boîtier–coil)', 'Shock EGM (can–coil)'); }, gain: 8 },
+  FFpm: { get nom() { return tr('EGM champ lointain (boîtier)', 'Far-field EGM (can)'); }, gain: 8 },
+  SC: { get nom() { return tr('ECG sous-cutané (Holter implantable)', 'Subcutaneous ECG (loop recorder)'); }, gain: 9 },
 };
+// annotations en toutes lettres du canal de marqueurs dont l'abréviation diffère en anglais
+const ANNOTATIONS_EN = { FA: 'AF', SV: 'VSP', 'Back-up': 'Backup' };
+const annotation = lab => tr(lab, ANNOTATIONS_EN[lab] || lab);
 
 class Scene {
   constructor(rand, duree) {
@@ -651,9 +657,10 @@ export function dessinerEGM(canvas, def, seed = 'egm', opts = {}) {
     const X = Math.round(xt(m.t)) + 0.5;
     if (m.voie === 'X') {
       ctx.fillStyle = accent; ctx.font = `700 ${police(taille)}`;
-      const w = ctx.measureText(m.lab).width;
+      const lab = annotation(m.lab);
+      const w = ctx.measureText(lab).width;
       const gx = Math.max(X - w / 2, finTexte.X + 4);
-      ctx.fillText(m.lab, gx, (canaux.length * hCanal + hMarq - 1.2) * pxmm);
+      ctx.fillText(lab, gx, (canaux.length * hCanal + hMarq - 1.2) * pxmm);
       finTexte.X = gx + w;
       continue;
     }

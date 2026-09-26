@@ -169,7 +169,7 @@
     "options": [
       "Seuil mesuré et tracé en tendance, sans jamais modifier l'amplitude programmée",
       "Seuil mesuré périodiquement, amplitude à 2 fois le seuil, sans contrôle cycle à cycle",
-      "Seuil mesuré par la conduction AV ou la réinitialisation du rythme sinusal",
+      "Seuil mesuré par conduction AV ou par réinitialisation atriale (Atrial Chamber Reset)",
       "Seuil quotidien + 0,5 V, capture vérifiée à chaque battement, impulsion de secours"
     ],
     "reponses": [
@@ -178,7 +178,7 @@
     "commentaires": [
       "Faux : mesurer et tracer le seuil sans adapter l'amplitude est le mode ATM du Capture Control de Biotronik.",
       "Faux : une amplitude à 2 fois le seuil sans contrôle battement par battement correspond au RAAT atrial de Boston Scientific, pas au RVAC.",
-      "Faux : la conduction AV et la réinitialisation sinusale sont les méthodes atriales de Medtronic (Atrial Capture Management).",
+      "Faux : la conduction AV et la réinitialisation atriale (Atrial Chamber Reset) sont les deux méthodes de l'Atrial Capture Management de Medtronic.",
       "Juste : le RVAC règle l'amplitude à 0,5 V au-dessus du seuil quotidien, vérifie la capture à chaque battement et délivre une impulsion de secours."
     ],
     "reponseAttendue": null,

@@ -1,0 +1,907 @@
+{
+ "prog-ma-001": {
+  "question": "A patient has a Medtronic dual-chamber pacemaker programmed to MVP mode, with slow sinus rhythm at rest. Based on the tracing, in which mode is the device operating at this moment?",
+  "options": [
+   "AAI(R) with ventricular channel monitoring",
+   "DDI(R) after mode switching for atrial arrhythmia",
+   "Backup VVI(R) running below the lower rate",
+   "DDD(R) with an AV delay extended by hysteresis search"
+  ],
+  "commentaires": [
+   "Correct: an atrial spike followed by a narrow conducted QRS, with no ventricular spike: MVP is operating in AAI(R) while monitoring the ventricle.",
+   "Incorrect: DDI(R) is the fallback mode for mode switching on atrial arrhythmia; here the atrium is paced and conducts normally.",
+   "Incorrect: backup VVI at a reduced rate is the logic of RYTHMIQ (Boston Scientific); it is not the MVP fallback.",
+   "Incorrect: staying in DDD while extending the AV delay is the principle of AV hysteresis (Abbott VIP, Boston Scientific AV Search+), not of MVP."
+  ],
+  "explication": "The tracing shows an atrial spike followed by a P wave and then a narrow conducted QRS, with no ventricular spike. MVP is an atrial-based mode: as long as AV conduction is present, the device operates in AAI(R) while monitoring the ventricular channel (often referred to as AAI/R+). It only switches to DDD(R) when loss of AV conduction is confirmed. Staying in DDD with an extended AV delay is the logic of AV hysteresis (VIP in Abbott devices, AV Search+ in Boston Scientific devices). Backup VVI at a reduced rate is specific to RYTHMIQ (Boston Scientific), and DDI(R) only comes into play during mode switching for atrial arrhythmia. The aim of MVP is to reduce unnecessary right ventricular pacing, which is detrimental to LV function and associated with AF.",
+  "aRetenir": "MVP operates in AAI(R) with ventricular monitoring and only switches to DDD(R) in the event of AV block.",
+  "legende": "Lead II rhythm strip, 25 mm/s"
+ },
+ "prog-ma-002": {
+  "question": "What criterion causes a Medtronic pacemaker in MVP mode to switch from AAI(R)+ to DDD(R) operation?",
+  "options": [
+   "Three slow ventricular beats within an 11-cycle window",
+   "No conduction in 3 of the last 8 atrial cycles",
+   "No ventricular sensed event in 2 of the last 4 A-A intervals",
+   "Two consecutive non-conducted P waves (complete AV block criterion)"
+  ],
+  "commentaires": [
+   "Incorrect: 3 slow beats out of 11 is the switching criterion of RYTHMIQ (Boston Scientific).",
+   "Incorrect: resumption of pacing after 3 out of 8 cycles without conduction corresponds to the standard setting of Vp Suppression (Biotronik).",
+   "Correct: MVP switches to DDD(R) when 2 of the last 4 A-A intervals contain no ventricular sensed event (2:1 AV block or worse than 4:3).",
+   "Incorrect: \"2 consecutive blocked P waves\" is the complete AV block criterion of SafeR (MicroPort), not that of MVP."
+  ],
+  "explication": "MVP deliberately tolerates a single non-conducted P wave: this is what distinguishes it from AV hysteresis algorithms. The switch to DDD(R) occurs when the device finds no ventricular sensed event in 2 of the last 4 A-A intervals, corresponding to 2:1 AV block or an A:V ratio lower than 4:3. Each manufacturer has its own criteria, a frequent source of confusion in the device clinic: 2 consecutive blocked P waves for SafeR (MicroPort), 3 slow beats out of 11 for RYTHMIQ (Boston Scientific), cycles without conduction over an 8-cycle window for Vp Suppression (Biotronik). A programmable limit on the conducted A-V interval exists only as an option in the recent version (\"MVP 2.0\", devices marketed from 2017 onwards): the switch then also occurs if 2 of 4 A-V intervals exceed this limit.",
+  "aRetenir": "MVP: switches to DDD(R) if there is no ventricular sensed event in 2 of the last 4 A-A intervals."
+ },
+ "prog-ma-003": {
+  "question": "Medtronic pacemaker in MVP: a Holter recording shows a single P wave followed by neither a QRS nor a ventricular spike; the next P wave is then followed by ventricular pacing with a very short AV delay (about 80 ms). This is normal device behaviour.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: MVP tolerates a single non-conducted P wave, then delivers ventricular backup pacing with an 80 ms AV delay after the next atrial event: this is its normal behaviour.",
+   "Incorrect: concluding that there is undersensing, loss of capture or device failure is the classic pitfall; only repetition (2 cycles out of 4) causes a switch to DDD(R)."
+  ],
+  "explication": "This is normal MVP behaviour. After a non-conducted P wave, the device does not pace the ventricle in the same cycle, but delivers a backup ventricular pacing pulse with an AV delay of 80 ms after the next atrial event. This 80 ms delay was chosen as the shortest AV delay known to be asymptomatic. The classic pitfall is to conclude that there is undersensing, loss of capture or device malfunction. If, however, these cycles recur (2 out of 4), the device switches to DDD(R).",
+  "aRetenir": "In MVP, a single blocked P wave followed by ventricular backup pacing with an 80 ms AV delay is normal and must not be mistaken for a malfunction."
+ },
+ "prog-ma-004": {
+  "question": "After an MVP switch to DDD(R) for AV block, how does the Medtronic device test for the return of AV conduction?",
+  "options": [
+   "Periodic AV delay extension, for up to 8 cycles, to look for a QRS",
+   "Return to AAI after 25 hysteresis cycles with fewer than 2 of 10 V paced",
+   "Return to AAI after 12 intrinsic QRS or every 100 paced cycles",
+   "Withholding one V pulse at 1 min, then at doubling intervals up to 16 h"
+  ],
+  "commentaires": [
+   "Incorrect: periodic AV delay extension for up to 8 cycles is how AV Search+ (Boston Scientific) works.",
+   "Incorrect: this is the condition for RYTHMIQ to return to AAI(R), which relies on AV Search+ (Boston Scientific).",
+   "Incorrect: 12 intrinsic ventricular events or a test every 100 paced cycles are the SafeR (MicroPort) criteria for returning to AAI.",
+   "Correct: MVP occasionally withholds a ventricular pacing pulse to test conduction, at 1 min and then at doubling intervals, up to 16 h."
+  ],
+  "explication": "MVP performs periodic conduction checks by occasionally withholding a ventricular pacing pulse. The first check takes place 1 minute after the switch, then the interval doubles after each failure (2, 4, 8 minutes…) up to a maximum of 16 hours. If conduction has returned, the device reverts to AAI(R)+. Other manufacturers test conduction differently: SafeR (MicroPort) returns to AAI after 12 intrinsic QRS complexes or every 100 paced cycles, AV Search+ (Boston Scientific) periodically extends the AV delay, and RYTHMIQ relies on AV Search+ to return to AAI(R). In a patient with permanent complete AV block, MVP therefore remains in DDD(R) almost all the time, with only very infrequent conduction checks.",
+  "aRetenir": "MVP conduction checks: at 1 min, then at doubling intervals, up to 16 h."
+ },
+ "prog-ma-005": {
+  "question": "In the SAVE PACe trial (sinus node disease, preserved AV conduction), what was the effect of pacing designed to minimise ventricular pacing compared with conventional DDD?",
+  "options": [
+   "A significant reduction in all-cause mortality and HF hospitalisations",
+   "Less persistent AF (relative reduction of about 40%), unchanged mortality",
+   "Fewer HF hospitalisations, with no significant effect on persistent AF",
+   "Much less RV pacing, but no significant effect on persistent AF"
+  ],
+  "commentaires": [
+   "Incorrect: mortality did not differ (4.9% vs 5.4%), and HF hospitalisations were not the key finding of the trial.",
+   "Correct: persistent AF 7.9% vs 12.7% (HR 0.60), with no difference in mortality.",
+   "Incorrect: it was the other way round: the benefit concerned persistent AF.",
+   "Incorrect: RV pacing did fall sharply (99% to 9.1%), but with a significant benefit on persistent AF; a neutral primary endpoint was the result of ANSWER (SafeR)."
+  ],
+  "explication": "SAVE PACe (1065 patients) compared dual-chamber pacing designed to minimise ventricular pacing with conventional DDD. The median percentage of ventricular pacing fell from 99% to 9.1%. Persistent AF occurred in 7.9% vs 12.7% of patients (HR 0.60: relative reduction of 40%, absolute reduction of 4.8%). Mortality did not differ (4.9% vs 5.4%). The benefit therefore concerns AF, not survival. Not to be confused with ANSWER (SafeR), in which the marked reduction in RV pacing did not translate into a significant effect on the composite primary endpoint.",
+  "aRetenir": "SAVE PACe: reducing unnecessary RV pacing reduces persistent AF by 40%, with no effect on mortality."
+ },
+ "prog-ma-006": {
+  "question": "What are the recognised limitations of, or precautions with, MVP mode? (select all that apply)",
+  "options": [
+   "A very long PR interval tolerated over time can cause a \"pseudo-pacemaker syndrome\"",
+   "After a non-conducted P wave, a backup V pulse is delivered in the same cycle, 80 ms after that P wave",
+   "A blocked P wave creates a short-long-short sequence, which is proarrhythmic in some ICD patients",
+   "In permanent complete AV block, MVP keeps the device in AAI(R) most of the time"
+  ],
+  "commentaires": [
+   "Correct: MVP accepts even a very long PR interval; atrial contraction against a closed AV valve can cause symptoms resembling pacemaker syndrome.",
+   "Incorrect: the ventricular backup pulse with an 80 ms AV delay is delivered after the next atrial event, not in the cycle of the blocked P wave: this is what creates the pause.",
+   "Correct: the pause caused by the blocked P wave can create a short-long-short sequence and promote pause-dependent VT.",
+   "Incorrect: in permanent complete AV block, the device remains in DDD(R) and performs only infrequent conduction checks."
+  ],
+  "explication": "MVP favours intrinsic conduction, even with a very long PR interval: some patients then report symptoms resembling pacemaker syndrome (atrial contraction against a closed AV valve). After a blocked P wave, the ventricular backup pulse is delivered only after the next atrial event, with an 80 ms AV delay: the blocked P wave therefore creates a pause, and a short-long-short sequence may trigger pause-dependent VT. This is why the \"MVP 2.0\" upgrade added, as an option, a programmable A-R interval limit (switch to DDD(R) when the A-R interval, tracked over several cycles, persistently exceeds it) as well as refinements that reduce long V-V intervals. In permanent complete AV block, the device remains in DDD(R) and performs only infrequent conduction checks.",
+  "aRetenir": "MVP: beware of very long PR intervals and pauses (the V backup comes in the next cycle); in complete AV block, the device stays in DDD(R)."
+ },
+ "prog-ma-007": {
+  "question": "Medtronic automatic atrial threshold measurement (Atrial Capture Management) can use two methods to confirm capture. What are they, and on what principle is each based?",
+  "reponseAttendue": "1) Atrial Chamber Reset (ACR) method: the atrium is paced slightly faster than the sinus rate, and capture is confirmed by the absence of a sensed intrinsic P wave (the sinus cycle is \"reset\"). 2) AV Conduction (AVC) method: atrial capture is confirmed by the presence of a conducted ventricular response at the expected interval after the atrial pacing pulse. The choice depends on the underlying rhythm (stable sinus rhythm for ACR, reliable AV conduction for AVC).",
+  "explication": "Unlike in the ventricle, the evoked P wave is too small to be detected reliably as an evoked response; Medtronic therefore uses indirect methods. The ACR method paces the atrium at a rate above the sinus rate: if the pulse captures, the atrium is depolarised and no intrinsic P wave appears. If the pulse fails to capture, a sinus P wave is sensed. The AVC method relies on AV conduction: a capturing atrial pulse is followed by a conducted QRS at a consistent interval. These tests are performed periodically, not on every cycle, and the amplitude is adjusted with a safety margin. Pitfall: the AVC method cannot be used in AV block.",
+  "aRetenir": "Medtronic ACM confirms atrial capture by resetting the sinus rhythm (ACR) or by AV conduction (AVC), during periodic tests."
+ },
+ "prog-ma-008": {
+  "question": "What is the principle of the Rate Drop Response algorithm in Medtronic pacemakers?",
+  "options": [
+   "Lowering the lower rate during sleep hours programmed on the device clock",
+   "Regularising the ventricular response in conducted AF by increasing the pacing rate",
+   "Responding to an abrupt rate drop with transient high-rate pacing",
+   "Detecting the rise in contractility that precedes syncope and pacing faster before the drop"
+  ],
+  "commentaires": [
+   "Incorrect: the programmed night-time lowering of the lower rate is the Sleep function.",
+   "Incorrect: regularisation of conducted AF is the role of Conducted AF Response.",
+   "Correct: Rate Drop Response detects an abrupt drop (or a persistently low rate) and delivers high-rate intervention pacing.",
+   "Incorrect: anticipating syncope from contractility (intracardiac impedance) is the principle of Biotronik Closed Loop Stimulation."
+  ],
+  "explication": "Rate Drop Response was designed for cardioinhibitory reflex (vasovagal) syncope. It detects an abrupt rate drop (\"Drop Detection\") or a persistently low rate (\"Low Rate Detection\"). It responds with high-rate intervention pacing for a programmed duration. Night-time rate lowering is the role of the Sleep function, and regularisation in AF is the role of Conducted AF Response. Anticipating syncope by measuring contractility is the principle of Biotronik Closed Loop Stimulation (SPAIN trial), not of Rate Drop Response. The latter was evaluated in VPS and VPS II. According to the 2018 ESC guidelines, pacing should be considered only in selected forms of documented cardioinhibitory reflex syncope.",
+  "aRetenir": "Rate Drop Response responds to an abrupt rate drop with high-rate intervention pacing (cardioinhibitory syncope)."
+ },
+ "prog-ma-009": {
+  "question": "In the randomised double-blind VPS II trial (pacemaker implanted in all patients, DDD with rate drop response vs ODO), pacing significantly reduced recurrence of vasovagal syncope.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: it was VPS I, an open-label trial, that had shown a large benefit; under double-blind conditions, the reduction was not significant.",
+   "Correct: VPS II showed only a non-significant 30% relative reduction (one-sided p = 0.14), suggesting a placebo effect of implantation."
+  ],
+  "explication": "This is false. VPS I, an open-label trial, had shown a large benefit. However, VPS II, which was double-blind (all patients implanted, device active or not), showed only a non-significant 30% relative reduction in time to syncope recurrence (one-sided p = 0.14). This discrepancy suggests a substantial placebo effect of implantation in open-label trials. The authors concluded that pacing should not be offered as first-line therapy for recurrent vasovagal syncope. The 2018 ESC guidelines reserve it for selected patients: aged over 40, with severe syncope and documented asystole.",
+  "aRetenir": "VPS II (double-blind): no significant reduction in vasovagal syncope with rate drop response pacing."
+ },
+ "prog-ma-010": {
+  "question": "The Sleep function in Medtronic pacemakers lowers the lower rate when the accelerometer detects a prolonged period of rest.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: the Sleep function does not depend on measured activity; lowering the rate when the sensor detects rest corresponds to Abbott Rest Rate.",
+   "Correct: the Sleep function applies a lower rate between a programmed bedtime and wake time, based on the device clock."
+  ],
+  "explication": "This is false. The Sleep function applies a lower pacing rate (Sleep Rate) between a programmed bedtime and wake time, to reflect the physiological night-time fall in heart rate. It relies on the device clock, not on the patient's actual activity. Rate lowering triggered by the activity sensor is the logic of Abbott Rest Rate. Practical consequence: the Sleep function times need to be adjusted in night-shift workers or after a change of time zone. It avoids unnecessary night-time pacing, which may be poorly tolerated and drains the battery.",
+  "aRetenir": "The Medtronic Sleep function lowers the lower rate according to programmed times, not according to detected activity."
+ },
+ "prog-ma-011": {
+  "question": "Explain the principle of the Conducted AF Response algorithm in Medtronic devices (particularly in CRT) and its purpose.",
+  "reponseAttendue": "In conducted AF, the algorithm increases the ventricular pacing rate when conducted intrinsic ventricular events are sensed, then gradually decreases it. The ventricular response is thus regularised, with more paced cycles: in CRT, this increases the percentage of biventricular pacing during AF.",
+  "explication": "In AF, irregular AV conduction competes with pacing and reduces the percentage of biventricular pacing, whereas CRT requires near-continuous pacing. Conducted AF Response increases the pacing rate on each conducted ventricular sensed event, then brings it back down: the mean rate rises slightly and more cycles are paced. In the CRTee trial, this algorithm was the comparator for a more recent algorithm (EffectivCRT During AF), based on actual LV capture effectiveness. The latter further increased the percentage of effective CRT, at the cost of a +2.5 bpm increase in mean rate. Pitfall: no algorithm is a substitute for rate control or AV junction ablation when biventricular pacing remains insufficient.",
+  "aRetenir": "Conducted AF Response regularises conducted AF by transiently increasing the pacing rate, which increases the pacing percentage (biventricular in CRT)."
+ },
+ "prog-ma-012": {
+  "question": "Atrial Preference Pacing (APP, Medtronic) paces the atrium slightly above the sinus rate to prevent AF. What does the meta-analysis of randomised trials of this type of algorithm show?",
+  "options": [
+   "Fewer PACs, but no reduction in AF burden",
+   "Less permanent AF at 2 years, with no effect on PACs",
+   "Lower cardiovascular mortality in sinus node dysfunction",
+   "Significantly lower AF burden and less progression to permanent AF"
+  ],
+  "commentaires": [
+   "Correct: in the Munawar meta-analysis, these algorithms reduced PAC burden without reducing AF burden or the number of AF episodes.",
+   "Incorrect: it is the other way round; the reduction in permanent AF observed in MINERVA is attributed to reactive atrial ATP, not to preventive pacing.",
+   "Incorrect: no effect on mortality has been shown with preventive atrial pacing.",
+   "Incorrect: the meta-analysis shows neither a reduction in AF burden nor a slowing of progression to permanent AF."
+  ],
+  "explication": "Atrial Preference Pacing maintains atrial pacing slightly above the sinus rate, by increasing the rate after an intrinsic atrial sensed event and then gradually decreasing it. In the Munawar meta-analysis (21 randomised trials), APP algorithms reduced PAC burden but not AF burden or the number of AF episodes. Prevention algorithms alone did not prevent AF progression; in MINERVA, the slowing of progression to permanent AF is instead attributed to reactive atrial ATP. No effect on mortality or heart failure has been shown. In practice, these algorithms are not routinely activated to prevent AF.",
+  "aRetenir": "Preventive atrial pacing reduces PACs but not AF burden."
+ },
+ "prog-ma-013": {
+  "question": "What is the principle of the Medtronic Rate Stabilization function (atrial or ventricular), and which arrhythmia is it intended to prevent?",
+  "reponseAttendue": "After a premature beat (PAC or PVC), the algorithm shortens the next escape interval to avoid the compensatory pause, thereby abolishing the short-long-short sequence. It targets pause-triggered arrhythmias: AF for the atrial version, pause-dependent VT/VF for the ventricular version (ICD).",
+  "explication": "Many arrhythmias start after a short-long-short sequence: a premature beat (short), followed by a compensatory pause (long), then a premature beat that triggers the arrhythmia. Rate Stabilization adjusts the escape interval following the premature beat to avoid this pause. In a prospective crossover study of 309 ICD patients, ventricular rate stabilisation did not significantly reduce VT/VF recurrence. During the phase without stabilisation, only 8% of the episodes analysed (36 of 427) actually started after a pause. This algorithm is therefore reserved for patients whose stored EGMs show pause-dependent arrhythmias. Pitfall: it increases pacing, and therefore RV pacing in the ventricular version.",
+  "aRetenir": "Rate Stabilization abolishes the post-ectopic pause; its value is limited to arrhythmias proven to be pause-dependent."
+ },
+ "prog-ma-014": {
+  "question": "What distinguishes Reactive ATP in Medtronic pacemakers from conventional atrial ATP?",
+  "options": [
+   "It avoids pacing the atrium in its vulnerable period after a PAC",
+   "It re-attempts atrial ATP once the rhythm organises or after a delay",
+   "It delivers low-energy atrial cardioversion if ATP fails",
+   "It paces the atrium just above the sinus rate to prevent AF"
+  ],
+  "commentaires": [
+   "Incorrect: avoiding the atrial vulnerable period after a PAC is the role of PAC Response (Abbott).",
+   "Correct: Reactive ATP re-attempts ATP sequences during an episode when the cycle length increases or becomes more regular, or after a delay.",
+   "Incorrect: a pacemaker does not deliver shocks; internal atrial cardioversion was available only in older atrial defibrillators.",
+   "Incorrect: atrial pacing just above the sinus rate is the preventive principle of Atrial Preference Pacing, not a treatment."
+  ],
+  "explication": "Conventional atrial ATP is delivered at the onset of an atrial tachycardia episode and then abandoned if unsuccessful. Reactive ATP re-attempts therapy during the episode when the rhythm evolves towards a more organised form (longer, more regular cycle) or after a programmed delay. In MINERVA, high Reactive ATP efficacy was associated with less persistent or permanent AF. A pacemaker does not deliver shocks. Atrial Preference Pacing (prevention by overdrive) and Abbott PAC Response (avoiding the vulnerable period after a PAC) are separate preventive functions. Reactive ATP is most effective on organised atrial tachycardias and atrial flutter, much less so on AF.",
+  "aRetenir": "Reactive ATP re-attempts atrial ATP when the arrhythmia organises, to target atrial tachycardias and flutter."
+ },
+ "prog-ma-015": {
+  "question": "In the MINERVA trial (Medtronic pacemakers, history of atrial tachyarrhythmias), what result was observed?",
+  "options": [
+   "Conventional DDDR outperformed the other two arms on permanent AF",
+   "MVP alone significantly reduced the composite endpoint vs DDDR",
+   "No arm altered progression to permanent AF or the composite",
+   "DDDRP + MVP reduced the composite, mainly via permanent AF"
+  ],
+  "commentaires": [
+   "Incorrect: conventional DDDR was the control arm and did not perform better on any endpoint.",
+   "Incorrect: the MVP-alone arm was not significantly different from DDDR (HR 0.89).",
+   "Incorrect: the DDDRP + MVP arm reduced permanent AF (HR 0.39) and the composite endpoint.",
+   "Correct: 19.8% vs 26.5% (HR 0.74), a benefit driven mainly by the reduction in permanent AF."
+  ],
+  "explication": "MINERVA randomised 1166 patients to conventional DDDR, MVP alone or DDDRP + MVP (preventive algorithms and atrial ATP, including Reactive ATP). The 2-year composite endpoint was reduced in the DDDRP + MVP arm (19.8% vs 26.5%; HR 0.74). The MVP-alone arm was not significantly different from DDDR (HR 0.89). The benefit came mainly from a reduction in permanent AF (HR 0.39) and in AF lasting more than 7 days. This result is often attributed to reactive atrial ATP rather than to preventive pacing, which is of little efficacy in meta-analysis.",
+  "aRetenir": "MINERVA: DDDRP + MVP (with Reactive ATP) delays progression to permanent AF; MVP alone is not enough."
+ },
+ "prog-ma-016": {
+  "question": "What is the principle of the Medtronic AdaptivCRT algorithm?",
+  "options": [
+   "AV delay set to intrinsic AV minus an offset, for fusion BiV pacing",
+   "Weekly optimisation of AV and VV delays using endocardial acceleration",
+   "Pacing two LV sites using the poles of a single quadripolar lead",
+   "Synchronised LV-only pacing if AV conduction is normal, BiV otherwise"
+  ],
+  "commentaires": [
+   "Incorrect: an AV delay equal to the intrinsic AV interval minus a delta is the principle of SyncAV (Abbott), which remains in biventricular pacing.",
+   "Incorrect: weekly optimisation by endocardial acceleration is MicroPort SonR, with the SonRtip lead.",
+   "Incorrect: pacing two LV sites with a quadripolar lead is Abbott MultiPoint Pacing.",
+   "Correct: AdaptivCRT automatically alternates between synchronised LV-only pacing (normal AV conduction) and biventricular pacing, with adjusted delays."
+  ],
+  "explication": "AdaptivCRT regularly measures intrinsic AV conduction. When it is normal, the algorithm delivers synchronised LV-only pacing, which fuses with intrinsic RV activation via the right bundle branch. Otherwise, it reverts to biventricular pacing, with automatically optimised AV and VV delays. The Adaptive CRT trial showed non-inferiority compared with comprehensive echocardiographic optimisation, with 44% less RV pacing. Common confusions: multisite LV pacing corresponds to Abbott MultiPoint Pacing, an AV delay set to intrinsic conduction minus a delta to SyncAV (Abbott), and optimisation by endocardial acceleration to MicroPort SonR.",
+  "aRetenir": "AdaptivCRT automatically alternates between synchronised LV-only pacing (normal AV conduction) and biventricular pacing."
+ },
+ "prog-ma-017": {
+  "question": "In the AdaptResponse trial (LBBB, normal AV conduction), AdaptivCRT significantly reduced the primary endpoint (all-cause death or intervention for heart failure decompensation) compared with conventional CRT.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: AdaptResponse was stopped for futility; HR 0.89 (95% CI 0.78-1.01; p = 0.077), with no significant difference.",
+   "Correct: the clinical superiority of AdaptivCRT has not been demonstrated, even though its non-inferiority had been shown in the Adaptive CRT trial."
+  ],
+  "explication": "This is false. AdaptResponse (3617 patients with LBBB, LVEF ≤ 35% and PR ≤ 200 ms) was stopped for futility at the third interim analysis. The primary endpoint occurred in 23.5% vs 25.7% of patients at 60 months (HR 0.89; 95% CI 0.78-1.01; p = 0.077), with no significant difference. Event rates were low in both arms, reflecting a very good response to CRT in this population. The algorithm remains usable, since the Adaptive CRT trial had demonstrated its non-inferiority, but its clinical superiority has not been demonstrated.",
+  "aRetenir": "AdaptResponse: no demonstrated clinical superiority of AdaptivCRT over conventional CRT."
+ },
+ "prog-ma-018": {
+  "question": "On which signal does the Medtronic EffectivCRT algorithm rely to classify each paced beat as \"effective CRT\"?",
+  "options": [
+   "The RV coil–can EGM compared with a baseline rhythm template",
+   "The morphology of the unipolar LV EGM: a QS or QS-r pattern",
+   "Endocardial acceleration measured at the tip of a dedicated lead",
+   "RV–can intracardiac impedance during each contraction"
+  ],
+  "commentaires": [
+   "Incorrect: comparing the RV coil–can EGM with a template is the principle of Wavelet, an SVT–VT discriminator.",
+   "Correct: on the unipolar LV EGM, a QS or QS-r pattern indicates effective LV capture; an initial R wave indicates pseudo-fusion or loss of capture.",
+   "Incorrect: endocardial acceleration measured by a dedicated lead is the SonR signal (MicroPort), used to optimise delays.",
+   "Incorrect: intracardiac impedance during contraction is the signal used by Closed Loop Stimulation (Biotronik), a rate-response sensor."
+  ],
+  "explication": "The biventricular pacing percentage displayed by the device often overestimates the CRT actually delivered: pseudo-fusion cycles or cycles with loss of LV capture are counted as paced. EffectivCRT analyses, beat by beat, the unipolar EGM from the LV cathode (to the can or coil). Effective LV capture produces an initial negative deflection (QS or QS-r). An initial positive R wave indicates intrinsic activation arriving before the pacing pulse (pseudo-fusion) or loss of capture. In the validation study, the algorithm correctly classified 98.2% of effective beats and 100% of LV loss-of-capture beats. Endocardial acceleration (SonR), intracardiac impedance (CLS) and the coil–can EGM (Wavelet) serve other functions.",
+  "aRetenir": "EffectivCRT: a QS/QS-r pattern on the unipolar LV EGM indicates effective CRT, an initial R wave ineffective CRT."
+ },
+ "prog-ma-019": {
+  "question": "The PR Logic discriminator in Medtronic dual- and triple-chamber ICDs analyses the relationship between atrial and ventricular events. Which types of rhythm can it recognise in order to withhold therapy? (select all that apply)",
+  "options": [
+   "Conducted AF / atrial flutter",
+   "Sinus tachycardia",
+   "Other 1:1 SVTs (AVNRT or accessory pathway re-entry)",
+   "VF with AV dissociation"
+  ],
+  "commentaires": [
+   "Correct: PR Logic recognises conducted AF and flutter from A-V patterns and withholds therapy below the SVT limit.",
+   "Correct: sinus tachycardia is one of the three SVT families recognised by PR Logic.",
+   "Correct: other 1:1 SVTs (AVNRT, accessory pathways) are recognised by analysing PR and RP intervals.",
+   "Incorrect: VF with AV dissociation and V faster than A must be treated; PR Logic does not withhold therapy for it."
+  ],
+  "explication": "PR Logic analyses, cycle by cycle, the sequence of A and V events (patterns, PR and RP intervals, AV dissociation) to recognise three families of SVT: AF or flutter, sinus tachycardia and other 1:1 SVTs. When the rhythm is classified as SVT, therapy is withheld as long as the rate remains below the programmed SVT limit. VF, with AV dissociation and a ventricular rate higher than the atrial rate, must on the contrary be treated. PR Logic uses the atrial channel: it does not exist in single-chamber ICDs, where discrimination relies on morphology (Wavelet), stability and onset. Pitfall: double counting or far-field sensing on the A channel can distort the analysis.",
+  "aRetenir": "PR Logic recognises AF/flutter, sinus tachycardia and other 1:1 SVTs by analysing A-V sequences."
+ },
+ "prog-ma-020": {
+  "question": "The Wavelet morphology discriminator (Medtronic) compares tachycardia complexes with a baseline rhythm template. In the pivotal validation study, which EGM and which match threshold were used?",
+  "options": [
+   "RV coil–can EGM (far-field), 70% threshold",
+   "Unipolar LV EGM (LV cathode–can), 70% threshold",
+   "RV coil–can EGM (far-field), 94% threshold",
+   "RV tip–ring bipolar EGM (near-field), 70% threshold"
+  ],
+  "commentaires": [
+   "Correct: in the Klein study, Wavelet used the RV coil–can EGM with a 70% match threshold.",
+   "Incorrect: the unipolar LV EGM is the signal analysed by EffectivCRT to assess LV capture, not by Wavelet.",
+   "Incorrect: the right EGM, but the wrong threshold: a 94% correlation is reminiscent of the Rhythm ID threshold (Boston Scientific).",
+   "Incorrect: the tip–ring sensing dipole gives a poor view of global morphology; Wavelet uses a far-field EGM."
+  ],
+  "explication": "Wavelet compares the morphology of the ventricular EGM during tachycardia with a template of the baseline rhythm, which is updated automatically. In the Klein study (1122 patients), the algorithm used the RV coil–can EGM (a \"far-field\" view of the ventricle) with a 70% match threshold. Inappropriate therapies for SVT were reduced by 78%, with 98.6% sensitivity for sustained VT. A complex sufficiently similar to the template points to conducted SVT; a different complex points to VT. The unipolar LV EGM is the one used by EffectivCRT, and the 94% correlation threshold belongs to Rhythm ID (Boston Scientific). Pitfalls: rate-dependent bundle branch block can cause an SVT to be classified as VT, and an old template or one acquired during pacing should be checked.",
+  "aRetenir": "Wavelet compares EGM morphology (RV coil–can) with a baseline template, with a 70% match threshold in the validation study."
+ },
+ "prog-ma-021": {
+  "question": "In the PainFree SST trial (Medtronic ICDs with the SmartShock algorithm suite and modern programming), what was the 1-year inappropriate shock rate in patients with dual- or triple-chamber ICDs?",
+  "options": [
+   "About 1.5%",
+   "About 10%",
+   "About 20%",
+   "About 30%"
+  ],
+  "commentaires": [
+   "Correct: 1.5% at 1 year with dual- or triple-chamber devices (2.5% with single-chamber) in PainFree SST.",
+   "Incorrect: 10% corresponds to older series, before long detection times and modern discriminators.",
+   "Incorrect: this rate was seen in older series with short detection, not with SmartShock.",
+   "Incorrect: 30% is the order of magnitude seen in the very first ICD series, far above the PainFree SST rates."
+  ],
+  "explication": "PainFree SST (2790 patients) combined the SmartShock algorithms (PR Logic, Wavelet, T-wave discrimination, RV lead noise discrimination…) with modern programming. The 1-year inappropriate shock rate was 1.5% with dual- or triple-chamber devices and 2.5% with single-chamber devices. At 2 years, it reached 2.8% and 3.7%. The leading cause remained AF or atrial flutter. Figures of 10 to 30% correspond to older series, before long detection times and modern discriminators.",
+  "aRetenir": "With SmartShock and modern programming, 1-year inappropriate shock rates fall to 1.5-2.5%."
+ },
+ "prog-ma-022": {
+  "question": "Which of these Medtronic algorithms are designed to prevent non-arrhythmic oversensing from triggering therapy? (select all that apply)",
+  "options": [
+   "TWave Discrimination",
+   "Wavelet",
+   "RV Lead Noise Discrimination",
+   "SecureSense"
+  ],
+  "commentaires": [
+   "Correct: TWave Discrimination identifies R/T double counting (amplitude alternation, frequency signature) and withholds detection.",
+   "Incorrect: Wavelet is an SVT–VT morphology discriminator; it does not protect against T-wave oversensing or noise.",
+   "Correct: RV Lead Noise Discrimination compares near-field and far-field signals to recognise RV lead noise.",
+   "Incorrect: SecureSense has the same purpose, but it is Abbott's algorithm, not Medtronic's."
+  ],
+  "explication": "The SmartShock suite comprises not only SVT–VT discriminators but also algorithms against oversensing. TWave Discrimination identifies R/T double counting (typically amplitude alternation and the frequency signature of the T wave) and withholds detection. RV Lead Noise Discrimination compares the bipolar sensing signal (near-field) with the far-field EGM: noise visible only in the near-field suggests a lead problem. The RV Lead Integrity Alert completes the set by issuing an alert and extending the number of intervals required for VF detection. Wavelet, for its part, discriminates VT from SVT on morphology, and SecureSense is Abbott's equivalent for lead noise discrimination.",
+  "aRetenir": "Medtronic protection against oversensing: TWave Discrimination, RV Lead Noise Discrimination and Lead Integrity Alert; Wavelet discriminates VT from SVT."
+ },
+ "prog-ma-023": {
+  "question": "What triggers the Medtronic Lead Integrity Alert (LIA), and how does the device respond?",
+  "options": [
+   "Noise seen in the near-field but absent in the far-field; therapy withheld",
+   "Excessive current during a shock; automatic change of shock vector",
+   "Rapid oversensing or abnormal impedance; alert and extended VF NID",
+   "R/T double counting with amplitude alternation; VF detection withheld"
+  ],
+  "commentaires": [
+   "Incorrect: near-field/far-field comparison is the principle of RV Lead Noise Discrimination, an algorithm distinct from LIA.",
+   "Incorrect: changing the vector on overcurrent during a shock is the role of DynamicTx (Abbott).",
+   "Correct: LIA is triggered by rapid oversensing or abnormal impedance, issues an alert and extends the VF zone NID.",
+   "Incorrect: recognition of R/T double counting is the role of TWave Discrimination."
+  ],
+  "explication": "LIA was designed after the Sprint Fidelis lead fractures, which often presented as inappropriate shocks due to oversensing. It is triggered by signs of rapid oversensing (short intervals, very fast non-sustained episodes) or by an excessive rise in impedance. Its response is twofold: an alert to the patient and the clinic, and extension of the VF zone NID to buy time before an inappropriate shock. In the 2010 prospective study, it reduced the proportion of patients receiving at least one inappropriate shock by 46%. It should not be confused with RV Lead Noise Discrimination (near-field vs far-field), TWave Discrimination (R/T double counting) or Abbott DynamicTx (overcurrent during the shock). An LIA alert calls for prompt analysis of the EGMs and the lead.",
+  "aRetenir": "Lead Integrity Alert: triggered by oversensing or abnormal impedance, it issues an alert and extends the VF NID."
+ },
+ "prog-ma-024": {
+  "question": "Medtronic RV Lead Noise Discrimination compares the RV sensing signal (near-field) with a far-field EGM: a rapid signal seen in the near-field but absent in the far-field suggests lead noise rather than VT/VF.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: true VT/VF is seen on both signals; a signal confined to the sensing channel suggests a fracture or a connection fault.",
+   "Incorrect: this is indeed the principle of the algorithm; only noise of external origin (EMI) may appear on both channels."
+  ],
+  "explication": "This is true. A true ventricular arrhythmia is visible both on the sensing dipole (tip–ring or tip–coil) and on the far-field EGM (coil–can). Noise due to a conductor fracture or a connection fault often appears only on the sensing channel. The algorithm then withholds therapy and generates an alert. This principle of near-field/far-field comparison is also that of Abbott SecureSense, whose alerts may reveal causes other than a fracture (connection problem, myopotential or T-wave oversensing). Pitfall: noise of external origin (EMI) may appear on both channels.",
+  "aRetenir": "A signal seen in the near-field but not in the far-field points to lead noise, not VT/VF."
+ },
+ "prog-ma-025": {
+  "question": "What does the OptiVol feature of Medtronic ICDs and CRT devices measure?",
+  "options": [
+   "Intrathoracic impedance between the RV lead and the can",
+   "Minute ventilation, derived from transthoracic impedance",
+   "S3 heart sounds picked up by the device accelerometer",
+   "Pulmonary artery pressure transmitted by a dedicated sensor"
+  ],
+  "commentaires": [
+   "Correct: OptiVol tracks RV lead–can impedance daily; a fall indicates fluid accumulation.",
+   "Incorrect: minute ventilation is used for rate response in Boston Scientific devices, not for congestion monitoring.",
+   "Incorrect: heart sounds (S1, S3) are part of the Boston Scientific HeartLogic index.",
+   "Incorrect: pulmonary artery pressure requires a sensor implanted in the pulmonary artery, separate from the ICD."
+  ],
+  "explication": "OptiVol measures intrathoracic impedance between the RV lead and the can every day. When fluid accumulates in the lungs, impedance falls, because water conducts current better. A fluid index accumulates deviations below the reference value and triggers an alert above a threshold. In the Yu study, impedance fell on average by 12% over about 18 days before a hospitalisation, and the fall began about 15 days before symptoms. Not to be confused with minute ventilation (Boston Scientific rate response), HeartLogic heart sounds or a pulmonary artery pressure sensor. Pitfall: specificity is imperfect (pneumonia, pocket haematoma, effusion…), so the alert must be interpreted in the clinical context.",
+  "aRetenir": "OptiVol: a fall in intrathoracic impedance indicates fluid overload."
+ },
+ "prog-ma-026": {
+  "question": "The TriageHF score (Medtronic) estimates the risk of heart failure hospitalisation within 30 days. Which parameters does it combine? (select all that apply)",
+  "options": [
+   "Intrathoracic impedance (OptiVol)",
+   "S1 and S3 heart sounds picked up by the accelerometer",
+   "AF burden, physical activity and night-time heart rate",
+   "Weight and blood pressure transmitted by connected sensors"
+  ],
+  "commentaires": [
+   "Correct: intrathoracic impedance measured by OptiVol is one of the parameters of the score.",
+   "Incorrect: heart sounds are a parameter of HeartLogic (Boston Scientific), not of TriageHF.",
+   "Correct: AF burden, activity and night-time heart rate are among the combined parameters, together with % CRT and heart rate variability.",
+   "Incorrect: the score only incorporates parameters measured by the device, not external sensors."
+  ],
+  "explication": "The TriageHF score combines, using a Bayesian model, parameters measured by the device: intrathoracic impedance, AF burden, rapid ventricular rate during AF, CRT percentage, VT, night-time heart rate, heart rate variability and activity. The maximum risk over the preceding 30 days is used to classify the patient as low, medium or high risk. In the validation cohort, high-risk evaluations were associated with a 10-fold higher risk of HF hospitalisation within 30 days than low-risk evaluations (6.8% vs 0.6%). The score does not incorporate external sensors such as weight or blood pressure. Heart sounds (S1, S3) are specific to the Boston Scientific HeartLogic index.",
+  "aRetenir": "TriageHF combines several device parameters; a \"high risk\" status increases the 30-day risk of HF hospitalisation roughly 10-fold."
+ },
+ "prog-ma-027": {
+  "question": "How does the Micra AV leadless pacemaker (implanted in the RV) deliver atrial-synchronous pacing (VDD mode)?",
+  "options": [
+   "A floating atrial dipole that senses the P wave without pacing the atrium",
+   "i2i communication with a second capsule implanted in the atrium",
+   "The accelerometer, sensing atrial contraction (A4 mechanical signal)",
+   "Far-field P-wave sensing by the capsule's electrodes"
+  ],
+  "commentaires": [
+   "Incorrect: the floating atrial dipole is the solution used by Biotronik DX systems, on an ICD lead.",
+   "Incorrect: i2i communication between two capsules is the technology of the Aveir DR (Abbott).",
+   "Correct: Micra AV recognises atrial contraction with its accelerometer (A4) and triggers ventricular pacing.",
+   "Incorrect: the far-field P wave recorded by the capsule is too small and unreliable; Micra AV uses a mechanical signal."
+  ],
+  "explication": "Micra AV has no atrial electrode: it uses its three-axis accelerometer to recognise atrial contraction (A4 signal, corresponding to the A wave of ventricular filling) and triggers ventricular pacing (mechanical VDD). In MARVEL 2, in patients with complete AV block and sinus rhythm, AV synchrony increased from 26.8% in VVI to 89.2% in VDD. In AccelAV, resting AV synchrony reached 85.4% at 1 month. Communication between two capsules corresponds to the Aveir DR (Abbott), and the floating atrial dipole to Biotronik DX systems. Pitfall: synchrony falls during exercise and at high sinus rates, when the A4 signal fuses with passive filling.",
+  "aRetenir": "Micra AV achieves VDD by detecting atrial contraction with its accelerometer (A4), without an atrial electrode.",
+  "legende": "Lead II rhythm strip, 25 mm/s"
+ },
+ "prog-ma-028": {
+  "question": "On what basis does the Reveal LINQ insertable cardiac monitor automatically detect AF?",
+  "options": [
+   "Morphological comparison of QRS complexes with a sinus rhythm template",
+   "Variation in subcutaneous impedance measured between the two electrodes",
+   "A ventricular rate above the tachycardia detection limit",
+   "RR interval irregularity, with a P-wave evidence filter"
+  ],
+  "commentaires": [
+   "Incorrect: template comparison is an SVT–VT discrimination method used in ICDs, not an AF detection method.",
+   "Incorrect: impedance is used to monitor congestion in some ICDs; it does not detect AF.",
+   "Incorrect: a rate limit alone would not distinguish AF from sinus tachycardia; it is used for tachycardia detection.",
+   "Correct: the AF algorithm analyses the irregularity of successive RR intervals, with a P-wave filter to limit false positives."
+  ],
+  "explication": "Insertable cardiac monitors see only a single-lead subcutaneous ECG. The Reveal LINQ AF algorithm analyses the irregularity of successive RR intervals, and the version evaluated in the LINQ Usability Study added a P-wave filter. Compared with Holter monitoring, for AF episodes of 2 minutes or longer, the overall accuracy for classifying AF and non-AF duration reached 99.4%, and AF burden correlated very closely (r = 0.995). A simple rate limit would not distinguish AF from sinus tachycardia, and morphological template comparison belongs to SVT–VT discrimination in ICDs. Pitfall: frequent ectopic beats and sinus arrhythmia remain classic causes of false positives, to be checked on the transmitted tracings.",
+  "aRetenir": "Reveal LINQ detects AF from RR irregularity, with a P-wave filter; the tracings still need to be checked."
+ },
+ "prog-ma-029": {
+  "question": "In a Medtronic ICD, which VF zone number of intervals to detect (NID) setting was validated by the ADVANCE III trial and adopted by the expert consensus on ICD programming?",
+  "options": [
+   "12/16 intervals",
+   "18/24 intervals",
+   "30/40 intervals",
+   "60/80 intervals"
+  ],
+  "commentaires": [
+   "Incorrect: 12/16 is a very short detection setting, leading to therapies for non-sustained VT that would have self-terminated.",
+   "Incorrect: 18/24 is the former standard setting, which served as the comparator in ADVANCE III.",
+   "Correct: 30/40 reduced therapies by 37% and first inappropriate shocks by 45% in ADVANCE III.",
+   "Incorrect: 60/80 would excessively delay treatment of VF; this setting has not been validated."
+  ],
+  "explication": "ADVANCE III (1902 patients, Medtronic ICDs) compared long detection at 30/40 intervals with standard detection at 18/24. Long detection reduced delivered therapies (ATP and shocks) by 37% and first inappropriate shocks by 45%, without significantly increasing mortality or arrhythmic syncope. The 2015 HRS/EHRA/APHRS/SOLAECE consensus, updated in 2019, recommends (class I) a detection duration of at least 6 to 12 seconds or 30 intervals; in Medtronic devices, this corresponds to the 30/40 setting tested in PREPARE and ADVANCE III. 18/24 corresponds to the former standard setting, and 60/80 would excessively delay treatment.",
+  "aRetenir": "Medtronic ICDs: VF NID at 30/40 (ADVANCE III, 2015/2019 consensus) to avoid unnecessary therapies."
+ },
+ "prog-ma-030": {
+  "question": "How does ventricular AutoCapture work in Abbott (formerly St. Jude Medical) pacemakers?",
+  "options": [
+   "Capture confirmed by AV conduction or by resetting the sinus rhythm",
+   "Evoked response analysed every cycle, backup pulse if capture is lost",
+   "Threshold measured periodically, amplitude at twice threshold, no beat-to-beat check",
+   "Ventricular contraction verified by the accelerometer after each pulse"
+  ],
+  "commentaires": [
+   "Incorrect: confirmation by AV conduction or sinus reset is the method used by Medtronic Atrial Capture Management.",
+   "Correct: AutoCapture analyses the evoked response after each pacing pulse and delivers a backup pulse if capture is lost.",
+   "Incorrect: periodic measurement with a safety margin, without beat-to-beat verification, corresponds to Medtronic Capture Management.",
+   "Incorrect: no ventricular capture algorithm uses the accelerometer; it is used for rate response."
+  ],
+  "explication": "AutoCapture verifies capture on every cycle by analysing the ventricular evoked response after the pacing pulse. If capture is lost, a backup pulse (5.0 V on the Assurity MRI) is delivered, followed by a threshold search. The rest of the time, the amplitude is kept just above the measured threshold, which saves battery while guaranteeing safety. Periodic threshold searches (every 8 or 24 h) complement the monitoring. The first multicentre study (Microny) showed good correlation between the adjusted amplitude and the measured thresholds. By contrast, Medtronic Capture Management measures the threshold periodically and applies a safety margin, without beat-to-beat confirmation.",
+  "aRetenir": "AutoCapture: beat-to-beat capture confirmation by evoked response, with a backup pulse if capture is lost."
+ },
+ "prog-ma-031": {
+  "question": "What distinguishes ACap Confirm (Abbott automatic atrial threshold) from ventricular AutoCapture?",
+  "options": [
+   "It confirms atrial capture every cycle by analysing the evoked P wave",
+   "It confirms atrial capture by AV conduction or sinus rhythm reset",
+   "It measures atrial threshold periodically (8 or 24 h), not beat to beat",
+   "It works only with unipolar pacing, as the bipolar signal is insufficient"
+  ],
+  "commentaires": [
+   "Incorrect: the evoked P wave is too small for reliable analysis on every cycle; beat-to-beat confirmation is specific to ventricular AutoCapture.",
+   "Incorrect: AV conduction (AVC) and sinus reset (ACR) are the methods of Medtronic Atrial Capture Management.",
+   "Correct: ACap Confirm performs periodic threshold searches (8 or 24 h) and then adjusts the amplitude.",
+   "Incorrect: on the contrary, the Abbott specifications state a bipolar pacing configuration for ACap Confirm."
+  ],
+  "explication": "In the atrium, the evoked P wave is small and difficult to analyse on every cycle: ACap Confirm therefore performs periodic threshold measurements (search interval of 8 or 24 h on the Assurity MRI) and then adjusts the amplitude. It can also operate in \"Monitor\" mode, which measures without changing the programmed settings. The Abbott specifications state a bipolar pacing configuration for ACap Confirm. Ventricular AutoCapture, on the other hand, confirms capture on every cycle. The AV conduction and sinus reset methods belong to Medtronic Atrial Capture Management. Pitfall: do not confuse periodic adjustment with beat-to-beat confirmation, which do not offer the same protection against abrupt loss of capture.",
+  "aRetenir": "ACap Confirm = atrial threshold measured periodically; AutoCapture = ventricular capture confirmed on every cycle."
+ },
+ "prog-ma-032": {
+  "question": "What is the principle of the Abbott VIP (Ventricular Intrinsic Preference) feature?",
+  "options": [
+   "Periodically extending the AV delay to promote intrinsic conduction",
+   "Increasing the atrial pacing rate as soon as intrinsic P waves are sensed",
+   "Shortening the AV delay as soon as an intrinsic QRS occurs, to maintain V pacing",
+   "Operating in AAI(R) with ventricular backup and switching to DDD(R) in AV block"
+  ],
+  "commentaires": [
+   "Correct: VIP periodically extends the AV delay to search for a conducted QRS and reduce unnecessary RV pacing.",
+   "Incorrect: increasing the atrial rate when intrinsic P waves are sensed is Abbott AF Suppression.",
+   "Incorrect: shortening the AV delay to maintain ventricular pacing is negative AV hysteresis, useful in CRT.",
+   "Incorrect: AAI(R) operation with ventricular backup is how Medtronic MVP works; VIP remains in DDD(R)."
+  ],
+  "explication": "VIP is an AV hysteresis algorithm with search: the device periodically extends the AV delay by a programmable value (50 to 200 ms on the Gallant) to see whether a conducted QRS appears. If conduction is present, the extended AV delay is maintained, which reduces RV pacing. If ventricular pacing reappears, the AV delay returns to its baseline value. The aim is the same as that of Medtronic MVP, but the device remains in DDD instead of switching to AAI(R). Negative AV hysteresis does the opposite (shortening the AV delay to ensure pacing, in CRT), and AF Suppression is an atrial overdrive algorithm.",
+  "aRetenir": "VIP periodically extends the AV delay to promote intrinsic conduction, while remaining in DDD(R)."
+ },
+ "prog-ma-033": {
+  "question": "Comparing VIP (Abbott) and MVP (Medtronic): which statements are correct? (select all that apply)",
+  "options": [
+   "VIP remains a DDD(R) mode with an extended AV delay, whereas MVP operates in AAI(R) with ventricular backup",
+   "MVP tolerates a single non-conducted P wave, whereas VIP paces the ventricle as soon as the extended AV delay expires",
+   "With VIP, the AV delay extension is not capped: any intrinsic PR interval, however long, is respected",
+   "Both algorithms are recommended in permanent complete AV block to reduce RV pacing"
+  ],
+  "commentaires": [
+   "Correct: VIP remains in DDD(R) with an extended AV delay; MVP is an atrial-based mode, AAI(R) with ventricular backup.",
+   "Correct: MVP accepts a single blocked P wave; VIP never lets a P wave go by without pacing the ventricle.",
+   "Incorrect: the VIP extension is capped (up to 200 ms on the Gallant); a longer PR interval results in ventricular pacing.",
+   "Incorrect: in permanent complete AV block, these algorithms are of no use: ventricular pacing is essential."
+  ],
+  "explication": "Both algorithms aim to limit unnecessary RV pacing, by different routes. VIP remains in DDD(R): it extends the AV delay by a capped value (up to 200 ms extension on the Gallant), and any longer PR interval results in ventricular pacing. It never lets a P wave go by without a QRS. MVP, being atrial-based, accepts a very long PR interval and even a single blocked P wave, which further reduces RV pacing but exposes the patient to pauses and pseudo-pacemaker syndrome. In permanent complete AV block, these algorithms are of no use: ventricular pacing is essential, and physiological pacing or CRT should be considered depending on LVEF and the expected pacing percentage.",
+  "aRetenir": "VIP: DDD with a capped AV delay extension; MVP: AAI with backup, which tolerates a blocked P wave."
+ },
+ "prog-ma-034": {
+  "question": "How does the Abbott SyncAV algorithm set the AV delay in CRT?",
+  "options": [
+   "It periodically extends it to allow intrinsic conduction to emerge",
+   "It sets it to the measured intrinsic AV minus a programmable delta",
+   "It optimises it weekly on the basis of endocardial acceleration",
+   "It calculates it once from the intervals measured on the EGMs"
+  ],
+  "commentaires": [
+   "Incorrect: extending the AV delay to promote intrinsic conduction is the principle of VIP, the opposite of the aim of CRT.",
+   "Correct: SyncAV periodically measures the intrinsic AV interval and paces at that interval minus a delta, for fusion BiV pacing.",
+   "Incorrect: weekly optimisation by endocardial acceleration is MicroPort SonR (SonRtip lead).",
+   "Incorrect: a one-off calculation from EGM intervals corresponds to SmartDelay (Boston Scientific), run on demand."
+  ],
+  "explication": "SyncAV continuously adapts the AV delay to the patient's intrinsic AV conduction: it periodically measures the intrinsic AV interval and then paces with a delay equal to that interval minus a delta (50 ms by default in the Thibault study). Biventricular pacing thus fuses with intrinsic activation via the right bundle branch, which narrows the QRS. On the Gallant HF, the SyncAV Plus delta is programmed as a fixed value (−10 to −120 ms) or as a percentage (−10 to −70%). Extending the AV delay to promote intrinsic conduction corresponds to VIP. A one-off calculation from EGMs is SmartDelay (Boston Scientific), and optimisation by endocardial acceleration is SonR (MicroPort). Pitfall: SyncAV requires intact AV conduction; it is ineffective in complete AV block.",
+  "aRetenir": "SyncAV: AV delay = measured intrinsic AV interval minus a programmable delta, for fusion biventricular pacing.",
+  "legende": "Biventricular pacing"
+ },
+ "prog-ma-035": {
+  "question": "In the multicentre study by Thibault et al. (CRT with preserved AV conduction, mean intrinsic QRS about 155 ms, pacing from the latest-activated LV electrode), which setting achieved the greatest acute reduction in QRS duration?",
+  "options": [
+   "LV-only pacing, synchronised with intrinsic RV conduction",
+   "Nominal biventricular pacing, without SyncAV",
+   "Biventricular pacing with SyncAV, nominal 50 ms delta",
+   "Biventricular pacing with SyncAV, patient-optimised delta"
+  ],
+  "commentaires": [
+   "Incorrect: synchronised LV-only pacing (the logic of Medtronic AdaptivCRT) was not evaluated in this study.",
+   "Incorrect: nominal biventricular pacing reduced the QRS by only about 9%.",
+   "Incorrect: the nominal 50 ms delta gave an intermediate gain (about −13%), not the maximum.",
+   "Correct: the delta optimised for each patient gave the greatest reduction, about −20% (mean QRS 123 ms)."
+  ],
+  "explication": "In 90 patients, the intrinsic QRS of 155 ± 29 ms was reduced by 9% with nominal biventricular pacing and by 13% with SyncAV and a default delta of 50 ms. The maximum reduction, 20% (mean QRS 123 ms), was obtained with a delta optimised for each patient. The main predictor of benefit was intrinsic QRS duration. The default delta therefore provides only an intermediate gain. Synchronised LV-only pacing, the logic of Medtronic AdaptivCRT, was not evaluated in this study.",
+  "aRetenir": "SyncAV with a delta optimised for each patient gives the greatest reduction in QRS duration (≈ −20%)."
+ },
+ "prog-ma-036": {
+  "question": "What is the principle of Abbott Negative AV Hysteresis with Search?",
+  "options": [
+   "Extending the AV delay when intrinsic conduction is sensed, to limit V pacing",
+   "Setting the AV delay to intrinsic AV minus a delta, recalculated periodically",
+   "Switching to ADI(R) as long as intrinsic AV conduction is present",
+   "Shortening the AV delay once an intrinsic QRS occurs, to keep V pacing"
+  ],
+  "commentaires": [
+   "Incorrect: extending the AV delay to promote intrinsic conduction is positive AV hysteresis (VIP in Abbott devices), the opposite.",
+   "Incorrect: setting the AV delay to intrinsic AV minus a delta is the principle of SyncAV, another Abbott CRT algorithm.",
+   "Incorrect: switching to ADI(R) when conduction is present is the principle of Vp Suppression (Biotronik).",
+   "Correct: negative AV hysteresis shortens the AV delay after an intrinsic QRS to regain control of the ventricle (CRT, obstructive HCM)."
+  ],
+  "explication": "Negative AV hysteresis does the opposite of VIP. When an intrinsic QRS is sensed before the end of the AV delay, the device shortens the AV delay of the following cycles to regain control of the ventricle by pacing. It then periodically searches for the original value (\"with Search\"). It is useful when ventricular pacing is the therapeutic goal: CRT (where close to 100% biventricular pacing is desired) or pacing for obstructive hypertrophic cardiomyopathy. SyncAV pursues a similar aim in CRT but through continuous calculation (intrinsic AV minus a delta). Pitfall: a very short intrinsic AV interval may remain in fusion despite the algorithm, which should be checked on the ECG.",
+  "aRetenir": "Negative AV hysteresis shortens the AV delay to ensure ventricular pacing (CRT, obstructive HCM)."
+ },
+ "prog-ma-037": {
+  "question": "What is the principle of the Abbott AF Suppression algorithm?",
+  "options": [
+   "Re-attempting atrial ATP when the atrial rhythm organises during an episode",
+   "Pacing the atrium faster on each sensed intrinsic P wave, then slowing",
+   "Avoiding pacing the atrium in its vulnerable period after a PAC",
+   "Shortening the escape interval after a PAC to abolish the compensatory pause"
+  ],
+  "commentaires": [
+   "Incorrect: re-attempting atrial ATP when the arrhythmia organises is Medtronic Reactive ATP, a treatment rather than prevention.",
+   "Correct: AF Suppression overdrives the atrium as soon as intrinsic P waves appear, then decreases the rate to search for intrinsic activity.",
+   "Incorrect: avoiding the atrial vulnerable period after a PAC is the role of PAC Response, another Abbott feature.",
+   "Incorrect: abolishing the post-ectopic pause is the principle of Medtronic Rate Stabilization."
+  ],
+  "explication": "AF Suppression is a dynamic atrial overdrive algorithm: when intrinsic atrial rhythm reappears, the device increases the pacing rate to maintain near-continuous atrial pacing. It then periodically decreases the rate to search for intrinsic activity. In ADOPT, atrial pacing increased from 67.9% to 92.9%, with a 25% relative reduction in symptomatic AF burden. The absolute difference was small (2.50% vs 1.87%). Not to be confused with PAC Response (Abbott), Rate Stabilization or Reactive ATP (Medtronic). Pitfall: recent meta-analyses show no reduction in overall AF burden with preventive pacing.",
+  "aRetenir": "AF Suppression: dynamic atrial overdrive, with a modest benefit on symptomatic AF (ADOPT)."
+ },
+ "prog-ma-038": {
+  "question": "On the Assurity MRI, the AF Suppression overdrive rate increments are programmable, whereas the number of overdrive cycles is fixed.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: it is the other way round: the number of cycles is programmable (15 to 40), whereas the rate increments are fixed.",
+   "Correct: the increments (10 bpm, then 5 bpm) are not programmable; only the number of cycles and the maximum rate are programmable."
+  ],
+  "explication": "This is false: the statement reverses the two parameters. According to the official Assurity MRI specifications, the number of overdrive cycles is programmable from 15 to 40 in steps of 5, and the maximum AF Suppression rate from 80 to 180 bpm. By contrast, the rate increments (\"Lower Rate Overdrive\" 10 bpm, \"Upper Rate Overdrive\" 5 bpm) and rate recovery are listed as non-programmable. The number of cycles determines the duration of overdrive before the rate decreases. The maximum AF Suppression rate is the limit to adjust to the patient's tolerance, as rapid atrial pacing may be poorly tolerated.",
+  "aRetenir": "AF Suppression: the number of overdrive cycles and the maximum rate are programmable, not the rate increments."
+ },
+ "prog-ma-039": {
+  "question": "What is the purpose of the PAC Response feature in Abbott ICDs (Gallant)?",
+  "options": [
+   "Avoiding pacing the atrium in its vulnerable period after a PAC",
+   "Increasing the atrial pacing rate after each PAC to maintain overdrive",
+   "Triggering a mode switch to DDI on the first PAC falling in a dedicated window",
+   "Shortening the atrial escape interval after a PAC to abolish the ensuing pause"
+  ],
+  "commentaires": [
+   "Correct: PAC Response shifts atrial pacing so that it does not fall in the vulnerable period following the PAC (200 to 400 ms on the Gallant).",
+   "Incorrect: increasing the atrial rate when intrinsic P waves are sensed is AF Suppression.",
+   "Incorrect: a PAC in the WARAD window (MicroPort) only opens a suspicion phase; mode switching requires confirmation, and this is not PAC Response.",
+   "Incorrect: shortening the escape interval to abolish the pause is Medtronic atrial Rate Stabilization; if anything, it brings the next pacing pulse forward."
+  ],
+  "explication": "After a PAC, the next atrial pacing pulse may fall in the atrial vulnerable period and trigger AF. PAC Response modifies the pacing timing to avoid pacing the atrium too soon after the PAC, with an interval programmable from 200 to 400 ms on the Gallant. It does not deliver antitachycardia therapy and is not a diagnostic feature. Rate Stabilization (Medtronic), which shortens the escape interval, and AF Suppression, which increases the atrial pacing rate, are based on different logic. Mode switching relies on the filtered atrial rate, not on a single PAC. This feature illustrates the principle of not provoking arrhythmia through ill-timed pacing.",
+  "aRetenir": "PAC Response avoids pacing the atrium in its vulnerable period after a PAC."
+ },
+ "prog-ma-040": {
+  "question": "Which parameters of Abbott SenseAbility automatic sensitivity can be programmed to manage T-wave oversensing without compromising maximum sensitivity? (select all that apply)",
+  "options": [
+   "Threshold Start after sensing (as % of the sensed event peak)",
+   "SMART Pass (additional high-pass filter)",
+   "Decay Delay (delay before the threshold starts to decay)",
+   "PVARP (post-ventricular atrial refractory period)"
+  ],
+  "commentaires": [
+   "Correct: raising the Threshold Start (50, 62.5, 75 or 100%) makes the threshold start above the T wave.",
+   "Incorrect: SMART Pass is the anti-oversensing filter of the Boston Scientific S-ICD, not a SenseAbility parameter.",
+   "Correct: lengthening the Decay Delay (0 to 220 ms) delays threshold decay until after the T wave.",
+   "Incorrect: PVARP concerns the atrial channel and atrial tracking, not ventricular T-wave sensing."
+  ],
+  "explication": "SenseAbility is an automatic sensitivity feature: after each event, the threshold starts at a percentage of the sensed peak (Threshold Start), remains on a plateau for a delay (Decay Delay), then decays to the programmed maximum sensitivity. In the event of T-wave oversensing, increasing the Threshold Start or lengthening the Decay Delay allows the threshold to \"clear\" the T wave. Maximum sensitivity remains unchanged, and so does the detection of low-amplitude VF. Specific settings exist after a paced event. SMART Pass is a filter of the Boston Scientific S-ICD, and PVARP concerns the atrial channel.",
+  "aRetenir": "SenseAbility: adjust Threshold Start and Decay Delay rather than reducing maximum sensitivity."
+ },
+ "prog-ma-041": {
+  "question": "Abbott ICD: double counting due to T-wave oversensing with non-sustained \"VF\" episodes. The R wave measures 3 mV and the VF induced at implantation was of low amplitude. What programming strategy do you adopt, and what mistake must you avoid?",
+  "reponseAttendue": "Adjust SenseAbility: increase the post-sensing Threshold Start (e.g. from 50 to 62.5 or 75%) and/or lengthen the Decay Delay so that the threshold is still above the T wave when it occurs. Then check the markers on the real-time EGM, at rest and during manoeuvres. Mistake to avoid: globally reducing maximum sensitivity (higher mV value), which would risk undersensing low-amplitude VF. If the problem persists: look for a cause (lead, electrolytes, drugs) and consider lead revision.",
+  "explication": "R/T double counting doubles the measured rate and can trigger inappropriate shocks. SenseAbility makes it possible to raise the starting point of the threshold after sensing and to delay its decay: the T wave, which occurs 200 to 400 ms after the QRS, then falls below the threshold without altering maximum sensitivity. With a modest R wave and low-amplitude VF, reducing maximum sensitivity would carry a risk of VF undersensing, which is far more serious than an inappropriate shock. The result must always be checked on the real-time EGM and, if necessary, by a sensing test. A T wave that has become large should prompt a search for hyperkalaemia or a recent change in medication.",
+  "aRetenir": "For T-wave oversensing in Abbott devices: Threshold Start and Decay Delay, never a global reduction in maximum sensitivity."
+ },
+ "prog-ma-042": {
+  "question": "What is the Far Field MD discriminator in Abbott ICDs?",
+  "options": [
+   "A branching of the analysis according to the A-to-V rate ratio",
+   "Protection against far-field R-wave sensing on the atrial channel",
+   "SVT–VT morphology discrimination on the far-field EGM",
+   "A near-field/far-field comparison to recognise lead noise"
+  ],
+  "commentaires": [
+   "Incorrect: branching the analysis according to the A-to-V rate ratio is the role of Rate Branch.",
+   "Incorrect: this is the classic confusion over the term \"far-field\"; it has nothing to do with far-field R-wave sensing on the atrial channel.",
+   "Correct: Far Field MD compares the tachycardia complexes, on a far-field EGM, with an automatically updated template.",
+   "Incorrect: near-field/far-field comparison for lead noise is the principle of SecureSense."
+  ],
+  "explication": "Abbott Morphology Discrimination (MD) compares the morphology of complexes during tachycardia with a baseline rhythm template. The Far Field MD version uses a far-field EGM, which gives a more global view of ventricular activation. The template is updated automatically. The Gallant specifications offer a choice between \"Far Field MD\" and \"Original MD\". The classic confusion concerns the term \"far-field\": it has nothing to do here with far-field R-wave sensing on the atrial channel. Lead noise is the domain of SecureSense, and branching according to A and V rates that of Rate Branch.",
+  "aRetenir": "Far Field MD = SVT–VT morphology discrimination on a far-field EGM, with an automatically updated template."
+ },
+ "prog-ma-043": {
+  "question": "In an Abbott dual-chamber ICD, the Rate Branch algorithm compares the atrial (A) and ventricular (V) rates in the VT zone. What happens if V > A?",
+  "options": [
+   "Classified as ventricular: therapy delivered, no other discriminator",
+   "Classified as SVT: therapy withheld until the SVT limit is crossed",
+   "Analysis of cycle stability and morphology before a decision is made",
+   "Analysis of onset and morphology before a decision is made"
+  ],
+  "commentaires": [
+   "Correct: V > A indicates an almost certainly ventricular origin; therapy is delivered with no other discriminator.",
+   "Incorrect: a rhythm faster in the ventricle than in the atrium cannot be classified as SVT by Rate Branch.",
+   "Incorrect: stability and morphology are applied in the V < A branch (conducted AF or flutter).",
+   "Incorrect: the onset criterion and morphology are applied in the V = A branch."
+  ],
+  "explication": "Rate Branch directs the analysis according to the relationship between atrial and ventricular rates. If V > A, a ventricular origin is almost certain and therapy is delivered with no other discriminator. If V < A (conducted AF or flutter), the device uses interval stability and/or morphology. If V = A, it uses the onset criterion (Sudden Onset or Chamber Onset, which identifies the chamber that accelerated first) and morphology to distinguish sinus tachycardia, 1:1 SVT and VT with 1:1 retrograde conduction. Pitfall: atrial undersensing (low-amplitude P waves, blanking) can mimic V > A and result in inappropriate therapy.",
+  "aRetenir": "Abbott Rate Branch: V > A → therapy; V < A → stability and morphology; V = A → onset and morphology."
+ },
+ "prog-ma-044": {
+  "question": "Abbott dual-chamber ICD, VT zone from 170 bpm. In the stored episode, the atrial EGM rate exceeds 300/min, the mean ventricular rate is 180 bpm and the QRS complexes match the template. The tracing below was recorded during the episode. Which branch of the algorithm applies, and what decision is expected?",
+  "options": [
+   "V > A branch: ventricular origin, therapy delivered with no other criterion",
+   "V = A branch: onset and morphology criteria, therapy delivered",
+   "V < A branch: instability and matching morphology, therapy withheld",
+   "No branch: mode switching suspends ventricular arrhythmia detection"
+  ],
+  "commentaires": [
+   "Incorrect: the atrium (over 300/min) is faster than the ventricle (180 bpm): this is the V < A branch.",
+   "Incorrect: the A and V rates are not equal; the onset criterion is not the rule here.",
+   "Correct: V < A, irregular cycles on the tracing and matching morphology: conducted AF, therapy withheld within the programmed SVT limit and timeout.",
+   "Incorrect: mode switching concerns pacing only; it never suspends ventricular tachycardia detection."
+  ],
+  "explication": "The atrial rate (over 300/min) exceeds the ventricular rate (180 bpm): this is the V < A branch. The tracing shows disorganised atrial activity and irregular ventricular cycles: the stability criterion and the morphology match with the template point to conducted AF, i.e. SVT, and therapy is withheld. This withholding applies only below the programmed SVT limit and until any maximum discrimination time (SVT Discrimination Timeout) has elapsed. Pitfall: VT occurring during AF would be regular and morphologically different, and would be treated. Mode switching concerns pacing only and never suspends ventricular tachycardia detection.",
+  "aRetenir": "Rapid conducted AF = V < A branch; cycle instability and matching morphology → SVT, therapy withheld.",
+  "legende": "Tracing recorded during the episode"
+ },
+ "prog-ma-045": {
+  "question": "In an Abbott ICD, if an \"SVT Discrimination Timeout\" is programmed, therapy may be delivered at the end of this timeout even if the discriminators still classify the rhythm as SVT.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: when the SVT Discrimination Timeout expires (20 s to 60 min, or Off), therapy is delivered regardless of the classification.",
+   "Incorrect: this is precisely the role of this timeout, which protects against a misclassified VT but may cause an inappropriate shock during prolonged rapid AF."
+  ],
+  "explication": "This is true. The SVT Discrimination Timeout (20 s to 60 min, or Off, on the Gallant) sets a maximum duration during which the discriminators can withhold therapy. When it expires, therapy is delivered regardless of the classification. It protects against VT misclassified as SVT, but may cause an inappropriate shock during prolonged rapid AF or exercise-induced sinus tachycardia. Whether to enable it, and its duration, should therefore be tailored to the patient's profile. Reviewing this parameter is part of the investigation of any inappropriate shock delivered after a long discrimination phase.",
+  "aRetenir": "The SVT Discrimination Timeout causes therapy to be delivered when it expires, even if the rhythm is classified as SVT."
+ },
+ "prog-ma-046": {
+  "question": "Regarding the Abbott SecureSense algorithm, which statements are correct? (select all that apply)",
+  "options": [
+   "It discriminates RV lead noise from a true ventricular arrhythmia",
+   "It automatically extends the VF zone NID when it suspects a lead fracture",
+   "It compares QRS morphology during tachycardia with a baseline rhythm template",
+   "It optimises the shock waveform (pulse width, tilt)"
+  ],
+  "commentaires": [
+   "Correct: SecureSense compares the RV sensing signal with a far-field EGM to recognise noise and withhold therapy.",
+   "Incorrect: extending the VF NID on suspicion of fracture is the response of the Medtronic Lead Integrity Alert.",
+   "Incorrect: comparison with a baseline rhythm template is Morphology Discrimination (Far Field MD), an SVT–VT discriminator.",
+   "Incorrect: shock waveform optimisation is the role of DeFT Response."
+  ],
+  "explication": "SecureSense is Abbott's RV lead noise discrimination algorithm, part of ShockGuard. It compares the RV sensing signal with a far-field EGM: a rapid signal absent from the far-field suggests noise, and therapy is withheld. According to the Gallant specifications, it can be programmed On, On with Timeout, Passive or Off. It detects sustained noise and stores short bursts of oversensing, which may also trigger a patient alert. Like any algorithm of this type, it has false positives (myopotentials, P- or T-wave oversensing) and rare false negatives: every alert calls for review of the EGMs. Extending the VF NID is the response of the Medtronic Lead Integrity Alert, comparison with a template belongs to Far Field MD, and shock waveform optimisation to DeFT Response.",
+  "aRetenir": "SecureSense discriminates and flags RV lead noise to prevent inappropriate shocks."
+ },
+ "prog-ma-047": {
+  "question": "Defibrillation testing in a patient with an Abbott ICD: inadequate safety margin. Which non-invasive programming options does DeFT Response technology offer, and what other options should be considered before surgical revision?",
+  "reponseAttendue": "DeFT Response allows the pulse width of phases 1 and 2 (P1/P2) and/or the tilt of the biphasic waveform to be programmed (fixed pulse width or fixed tilt mode), to tailor the waveform to the patient's impedance and physiology. Other options: reverse the polarity (RV cathode/anode), change the vector configuration (RV–can, RV–SVC/can, RV–SVC), use maximum energy (40 J delivered on the Gallant) and correct any reversible cause. If these measures fail: add a coil (SVC, subcutaneous) or reposition the lead.",
+  "explication": "A high defibrillation threshold is rare with current devices, but must be recognised. In Abbott devices, DeFT Response makes the P1/P2 pulse widths and the tilt of the biphasic waveform programmable. Polarity and vector can also be changed, including a \"cold can\" configuration (RV–SVC without the can), and up to 40 J can be delivered on the Gallant. These non-invasive options should be tested before any surgical revision. The 2015 consensus, updated in 2019, considers it reasonable to omit defibrillation testing at a first left pectoral transvenous implant. It does, however, consider testing reasonable in certain situations: right pectoral implant, generator change, hypertrophic cardiomyopathy, channelopathies, or doubt about lead position or function.",
+  "aRetenir": "DeFT Response allows shock pulse width and tilt to be programmed; combined with polarity, vector and energy, it often avoids a surgical revision."
+ },
+ "prog-ma-048": {
+  "question": "What is the role of the DynamicTx algorithm in Abbott ICDs?",
+  "options": [
+   "Comparing near-field and far-field signals to withhold a shock for noise",
+   "Making the phase widths and tilt of the shock waveform programmable",
+   "Extending the VF zone NID after rapid oversensing or abnormal impedance",
+   "Automatically changing the shock vector in case of excessive current"
+  ],
+  "commentaires": [
+   "Incorrect: near-field/far-field comparison is the principle of SecureSense.",
+   "Incorrect: programming of pulse width and tilt is the role of DeFT Response.",
+   "Incorrect: extending the VF NID on oversensing or abnormal impedance is the Medtronic Lead Integrity Alert.",
+   "Correct: DynamicTx detects overcurrent at the time of the shock (short circuit) and changes the configuration to deliver the therapy."
+  ],
+  "explication": "DynamicTx is an over-current detection algorithm. If an abnormally high current is detected at the time of the shock, suggesting an impedance drop due to an insulation breach or a short circuit, the device automatically changes the shock configuration so that the therapy can be delivered. It is a safeguard against high-voltage lead failure, not a solution to the problem: such an alert calls for prompt lead assessment. SecureSense (lead noise), DeFT Response (waveform) and the Medtronic Lead Integrity Alert (oversensing, NID) are separate functions.",
+  "aRetenir": "DynamicTx automatically changes the shock vector in case of overcurrent so that therapy is delivered."
+ },
+ "prog-ma-049": {
+  "question": "Which ATP options in the VF zone are offered by Abbott Gallant ICDs?",
+  "options": [
+   "ATP only after a failed first shock, before the second",
+   "ATP during charging or ATP before capacitor charging",
+   "Automatic atrial ATP if the atrial EGM shows an organised tachycardia",
+   "No ATP in the VF zone: immediate shock, ATP being reserved for the VT zone"
+  ],
+  "commentaires": [
+   "Incorrect: VF zone ATP is delivered before the first shock, during or before charging, not between two shocks.",
+   "Correct: ATP While Charging or ATP Prior to Charging.",
+   "Incorrect: atrial ATP is not available on these ICDs; it is offered by some pacemakers (Medtronic Reactive ATP).",
+   "Incorrect: Gallant ICDs do offer ATP in the VF zone, which is useful for fast monomorphic VT."
+  ],
+  "explication": "Gallant ICDs allow ATP to be delivered in the VF zone, either during capacitor charging (ATP While Charging) or before charging (ATP Prior to Charging). ATP during charging does not delay the shock if the tachycardia persists. This approach is based on the high frequency of fast monomorphic VTs, often terminated by ATP, within the so-called VF zone. The 2015 consensus, updated in 2019, recommends enabling ATP in patients with structural heart disease, including for fast tachycardias. Atrial ATP is not available on these ICDs.",
+  "aRetenir": "Abbott Gallant: ATP in the VF zone during or before charging, to avoid shocks for fast VT."
+ },
+ "prog-ma-050": {
+  "question": "What does Abbott MultiPoint Pacing (MPP) consist of?",
+  "options": [
+   "Pacing two coronary veins via two separate LV leads",
+   "His bundle pacing combined with LV pacing via the coronary sinus",
+   "Pacing two LV sites from a single quadripolar lead, plus the RV",
+   "LV-only pacing synchronised with intrinsic RV conduction"
+  ],
+  "commentaires": [
+   "Incorrect: multisite pacing with two LV leads exists, but MPP uses a single quadripolar lead.",
+   "Incorrect: combined His + LV pacing (HOT-CRT) is a conduction system pacing strategy, not MPP.",
+   "Correct: MPP paces two LV sites from two poles of the same quadripolar lead, in addition to the RV.",
+   "Incorrect: synchronised LV-only pacing is the principle of Medtronic AdaptivCRT."
+  ],
+  "explication": "MPP uses two electrodes of the quadripolar LV lead to pace two LV sites, in addition to the RV. The aim is to recruit more LV myocardium, particularly in the presence of scar or in non-responders. In the MPP trial, non-inferiority compared with conventional biventricular pacing was demonstrated. The best response rate was obtained with anatomically distant poles. It is neither pacing via two LV leads, nor a combination with His bundle pacing, nor the LV-only pacing of AdaptivCRT. Trade-off: MPP increases battery drain.",
+  "aRetenir": "MultiPoint Pacing: two LV sites paced from the same quadripolar lead."
+ },
+ "prog-ma-051": {
+  "question": "In the MultiPoint Pacing trial, patients randomised to MPP with anatomically distant LV poles had a higher response rate than those with other MPP settings.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: in the widely spaced poles subgroup (MPP-AS), 87% of patients were responders at 9 months.",
+   "Incorrect: this is indeed what the subgroup analysis showed, even though the overall superiority of MPP has not been demonstrated."
+  ],
+  "explication": "This is true. The MPP trial (381 patients randomised at 3 months to biventricular pacing or MPP) met its non-inferiority endpoint on the non-responder rate. In the subgroup programmed with anatomically distant poles (MPP-AS), 87% of patients were responders at 9 months. All non-responders at 3 months in this subgroup had become responders at 9 months. These data remain subgroup analyses: the superiority of MPP over conventional CRT has not been demonstrated in general. The 2021 ESC guidelines contain no recommendation in favour of routine use of MPP.",
+  "aRetenir": "MPP is non-inferior to conventional CRT; the benefit appears greater with widely spaced LV poles."
+ },
+ "prog-ma-052": {
+  "question": "What does the CorVue feature of Abbott ICDs and CRT-Ds monitor?",
+  "options": [
+   "Day-to-day variations in thoracic impedance",
+   "Heart sounds and respiration, combined in a composite index",
+   "Minute ventilation used for rate-adaptive pacing",
+   "Pulmonary artery pressure transmitted by an implanted sensor"
+  ],
+  "commentaires": [
+   "Correct: CorVue tracks thoracic impedance; a persistent fall (8 to 18 days, programmable on the Gallant) triggers the alert.",
+   "Incorrect: the index combining heart sounds and respiration is HeartLogic (Boston Scientific).",
+   "Incorrect: minute ventilation is a rate-response sensor (Boston Scientific), not congestion monitoring.",
+   "Incorrect: pulmonary artery pressure is measured with a dedicated implantable sensor, separate from the ICD."
+  ],
+  "explication": "CorVue is Abbott's equivalent of OptiVol: it tracks the thoracic impedance measured by the device over time. A persistent fall suggests fluid accumulation. The alert threshold is expressed as a number of consecutive days of decrease, programmable from 8 to 18 days on the Gallant. Pulmonary artery pressure is measured with a dedicated implantable sensor, separate from the ICD, and the composite heart sounds + respiration index corresponds to HeartLogic (Boston Scientific). As with OptiVol, a CorVue alert must be interpreted against the clinical picture (weight, signs of congestion, medication) to limit false positives.",
+  "aRetenir": "CorVue monitors thoracic impedance; a prolonged fall suggests congestion."
+ },
+ "prog-ma-053": {
+  "question": "How do the two capsules of the Aveir DR dual-chamber leadless pacemaker achieve atrioventricular synchrony?",
+  "reponseAttendue": "Through implant-to-implant (i2i) communication: brief, high-frequency, subthreshold electrical pulses are transmitted by conduction through the blood between the atrial capsule and the ventricular capsule. Communication is bidirectional and occurs on every beat, allowing leadless DDD operation.",
+  "explication": "The Aveir DR combines a capsule in the right atrium and a capsule in the RV. They exchange information beat by beat using i2i technology, which relies on the electrical conductivity of blood, with neither radiofrequency nor an accelerometer. In the i2i study, more than 90% of beats were successfully transmitted in both directions, from implantation to 6 months. The pivotal trial showed AV synchrony of at least 70% in 97.3% of patients at 3 months. To be distinguished from Micra AV (Medtronic), which infers atrial contraction from a mechanical signal picked up by the accelerometer, with a single ventricular capsule.",
+  "aRetenir": "Aveir DR: two capsules synchronised beat by beat by i2i communication, conducted through the blood."
+ },
+ "prog-ma-054": {
+  "question": "In the pivotal trial of the Aveir DR dual-chamber leadless pacemaker (300 patients), what were the main results at 3 months?",
+  "options": [
+   "AV synchrony close to that of Micra AV, i.e. about 85% at rest",
+   "90.3% complication-free; AV synchrony ≥ 70% in 97.3% of patients",
+   "Safety endpoint not met because of frequent atrial perforations",
+   "98.3% successful implants, but AV synchrony ≥ 70% in only 60%"
+  ],
+  "commentaires": [
+   "Incorrect: about 85% at rest is the figure for Micra AV in AccelAV; the Aveir DR, with its atrial capsule, does better.",
+   "Correct: 90.3% complication-free at 90 days and AV synchrony ≥ 70% (sitting position) in 97.3% of patients.",
+   "Incorrect: the safety endpoint was met (90.3%, above the 78% goal), although serious complications did occur.",
+   "Incorrect: the implant rate is correct, but AV synchrony ≥ 70% was achieved in 97.3% of patients."
+  ],
+  "explication": "Implantation was successful in 98.3% of patients: two functioning capsules with established i2i communication. The safety endpoint (freedom from device- or procedure-related complications at 90 days) was met in 90.3% of patients, above the 78% goal. The mean atrial threshold was 0.82 V and the mean P wave 3.58 mV. AV synchrony of at least 70% was achieved in 97.3% of patients, well beyond what mechanical sensing with Micra AV allows (about 85% at rest in AccelAV). There were, however, 35 serious events in 29 patients: complications do occur, hence the importance of long-term follow-up.",
+  "aRetenir": "Aveir DR: 90.3% complication-free and 97.3% with adequate AV synchrony at 3 months."
+ },
+ "prog-ma-055": {
+  "question": "Which features distinguish the Abbott Aveir VR ventricular capsule? (select all that apply)",
+  "options": [
+   "Active fixation with a helix (screw-in)",
+   "Rate response via an accelerometer, like the Micra",
+   "Measurement of electrical parameters (mapping) before final fixation",
+   "Fixation with nitinol tines"
+  ],
+  "commentaires": [
+   "Correct: the Aveir VR screws into the myocardium, which facilitates repositioning and retrieval.",
+   "Incorrect: the Aveir VR adapts its rate based on blood temperature; the accelerometer is the Micra's sensor.",
+   "Correct: threshold, sensing and impedance are measured in contact with the site before screwing in.",
+   "Incorrect: nitinol tines are the fixation mechanism of the Micra (Medtronic)."
+  ],
+  "explication": "The Aveir VR is fixed by a helix screwed into the myocardium. Unlike the Micra's nitinol tines, the helix makes repositioning and retrieval easier: the capsule was designed to be retrievable. The system allows threshold, sensing and impedance to be measured in contact with the site before screwing in: this is \"mapping\" before fixation. Its rate response relies on a blood temperature sensor, whereas the Micra uses an accelerometer. The Aveir VR is also the ventricular component of the Aveir DR. The results of the LEADLESS II phase 2 trial demonstrated its efficacy and safety in VVIR.",
+  "aRetenir": "Aveir VR: helix fixation, electrical mapping before fixation, temperature-based rate response; nitinol tines and an accelerometer are specific to the Micra."
+ },
+ "prog-ma-056": {
+  "question": "What is distinctive about remote monitoring with the Abbott Confirm Rx insertable cardiac monitor?",
+  "options": [
+   "Transmission via a bedside modem connected to a landline",
+   "No remote monitoring: data are reviewed in clinic only",
+   "Automatic daily transmission via a dedicated bedside transmitter",
+   "Direct transmission via the patient's smartphone (Bluetooth)"
+  ],
+  "commentaires": [
+   "Incorrect: landline transmission corresponds to the first generations of remote monitoring.",
+   "Incorrect: the Confirm Rx is remotely monitored; indeed, it is one of the first monitors to connect to a smartphone.",
+   "Incorrect: a dedicated bedside transmitter is the model of earlier generations and of other systems (e.g. Home Monitoring).",
+   "Correct: the Confirm Rx transmits via Bluetooth Low Energy through the myMerlin app, with no bedside unit."
+  ],
+  "explication": "The Confirm Rx was one of the first insertable cardiac monitors to connect directly to the patient's smartphone via Bluetooth Low Energy, using the dedicated app. Tracings are transmitted to the follow-up centre without a bedside unit. Its algorithm was subsequently improved by a software update (SharpSense), which markedly reduced false bradycardia and pause detections. The bedside transmitter and landline correspond to older generations of remote monitoring. Pitfall: transmission depends on the phone (battery, Bluetooth, app updates), which must be explained to the patient.",
+  "aRetenir": "The Confirm Rx transmits via the patient's smartphone (Bluetooth), with no bedside transmitter."
+ },
+ "prog-ma-057": {
+  "question": "The Micra VR (Medtronic) is a leadless pacemaker implanted via the femoral route and fixed in the right ventricle by a helix (screw-in), whose rate response uses an accelerometer.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: the femoral route and the accelerometer are correct, but the Micra is fixed by nitinol tines; the helix is the fixation mechanism of the Aveir (Abbott).",
+   "Correct: the Micra is fixed by four nitinol tines; the screw-in helix is characteristic of the Abbott Aveir VR."
+  ],
+  "explication": "This is false, because of the fixation mechanism. The Micra is a capsule implanted via the femoral vein and fixed in the RV by nitinol tines; helix fixation is that of the Abbott Aveir VR. It paces in VVI(R), and rate response does rely on its accelerometer. The pivotal study (NEJM 2016) showed an implant success rate of 99.2% and a major complication rate lower than that of a historical cohort of transvenous pacemakers. On the Micra AV, the same accelerometer is used to detect atrial contraction. Pitfall: the Micra VR does not sense the atrium and is unsuitable when AV synchrony is essential.",
+  "aRetenir": "Micra: RV capsule implanted via the femoral route, fixed by nitinol tines, VVIR with accelerometer-based rate response."
+ },
+ "prog-ma-058": {
+  "question": "In a patient with a Micra AV and complete AV block, AV synchrony falls markedly on exertion. What is the most likely physiological explanation?",
+  "options": [
+   "A fall in the amplitude of the far-field P wave recorded by the capsule",
+   "T-wave oversensing inhibiting pacing on exertion",
+   "Loss of ventricular capture due to a rise in threshold on exertion",
+   "Fusion of the A3 and A4 mechanical signals as the sinus rate rises"
+  ],
+  "commentaires": [
+   "Incorrect: Micra AV does not sense the electrical P wave; it identifies atrial contraction using the accelerometer.",
+   "Incorrect: T-wave oversensing would inhibit pacing; it does not explain a selective loss of synchrony on exertion.",
+   "Incorrect: loss of capture would produce spikes not followed by a QRS, not a loss of synchrony with effective pacing.",
+   "Correct: diastole shortens, A3 (passive filling) and A4 (atrial contraction) move closer together and then fuse, and A4 is sensed less reliably."
+  ],
+  "explication": "Micra AV identifies atrial contraction by a mechanical signal (A4) sensed by the accelerometer after the end of passive filling (A3). As the rate increases, diastole shortens and the A3 and A4 signals move closer together and then fuse: A4 sensing becomes less reliable. The device then paces more often without atrial synchronisation, at the programmed lower rate. In AccelAV, AV synchrony was 85.4% at rest but 74.8% under ambulatory conditions, and programming optimisation improved it. Predictors of good synchrony were studied in MARVEL 2 (A4 amplitude, among others).",
+  "aRetenir": "Micra AV: at high rates, A3/A4 fusion degrades mechanical atrial sensing and hence AV synchrony."
+ },
+ "prog-ma-059": {
+  "question": "After the SharpSense software update of the Confirm Rx insertable cardiac monitor, what effect was observed in real-world use?",
+  "options": [
+   "More false AF detections, for lack of a P-wave discriminator",
+   "A sharp fall in false bradycardia and pause detections",
+   "Addition of backup bradycardia pacing in the event of a pause",
+   "A move from a bedside transmitter to smartphone transmission"
+  ],
+  "commentaires": [
+   "Incorrect: on the contrary, SharpSense added a P-wave discriminator that improves AF detection.",
+   "Correct: bradycardia detections −86.8% and pause detections −93.1%, with a sharp fall in false positives.",
+   "Incorrect: an insertable cardiac monitor never paces; it is purely diagnostic.",
+   "Incorrect: the Confirm Rx already transmitted via smartphone; SharpSense is an update of the detection algorithm."
+  ],
+  "explication": "In the analysis of 197 Confirm Rx monitors followed for 90 days before and after the SharpSense update, bradycardia detections fell by 86.8% and pause detections by 93.1%. False-positive episodes fell by 91.5% for bradycardia and by 82.8% for pauses. SharpSense also improved AF detection thanks to a P-wave discriminator, evaluated in real-world use in the UK Confirm Rx study. An insertable cardiac monitor never paces. For remote monitoring teams, fewer false positives means a much lighter review workload.",
+  "aRetenir": "SharpSense markedly reduced false-positive bradycardia and pause detections with the Confirm Rx."
+ }
+}

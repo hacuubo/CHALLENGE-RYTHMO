@@ -1,0 +1,274 @@
+{
+ "cas-abt-001": {
+  "question": "An 82-year-old man with complete AV block and an Abbott pacemaker with ventricular AutoCapture switched on. At interrogation, the last measured threshold is 0.625 V and the delivered ventricular amplitude is 0.875 V (0.4 ms). The junior doctor is worried that the margin is inadequate in this pacing-dependent patient. What do you tell them?",
+  "options": [
+   "Inadequate margin: revert to a fixed amplitude at twice the threshold",
+   "Inadequate margin: the algorithm should have added 1 V to the measured threshold",
+   "Normal function: fixed 0.25 V margin and capture confirmed on every beat",
+   "Normal function: the pulse width has been extended to maintain the margin"
+  ],
+  "commentaires": [
+   "Incorrect: the \"twice the threshold\" rule applies to a fixed amplitude without capture verification; here safety relies on beat-to-beat confirmation.",
+   "Incorrect: the ventricular AutoCapture margin is fixed and non-programmable, at 0.25 V above the measured threshold.",
+   "Correct: amplitude = threshold + 0.25 V; each pulse is verified by the evoked response and followed by a 5 V backup pulse if capture is lost.",
+   "Incorrect: AutoCapture adjusts only the amplitude; the pulse width remains as programmed."
+  ],
+  "explication": "Abbott's ventricular AutoCapture measures the threshold periodically (every 8 h by default, or every 24 h) by analysing the evoked response, then sets the amplitude at the threshold plus a fixed 0.25 V margin. Such a margin would be dangerous without monitoring; it is acceptable because capture is verified on every beat and a 5 V backup pulse is delivered 80 to 100 ms after any non-capturing pulse, before a new threshold search. Only the amplitude is adapted, not the pulse width. The main gain is longevity, with no loss of safety in the pacing-dependent patient. The \"twice the threshold\" margin remains the rule when the amplitude is fixed or when the algorithm cannot be used (polarisation signal too large during the set-up test).",
+  "aRetenir": "Abbott ventricular AutoCapture: amplitude = threshold + 0.25 V, made safe by beat-to-beat verification and the 5 V backup pulse."
+ },
+ "cas-abt-002": {
+  "question": "Abbott dual-chamber pacemaker with ventricular AutoCapture, in a patient with paroxysmal AV block who often has intrinsic AV conduction. Which features of the algorithm are designed to stop a fusion beat being mistaken for loss of capture? (select all that apply)",
+  "options": [
+   "During the threshold search, very short AV delays (50 ms paced / 25 ms sensed by default)",
+   "After a first backup pulse, a 100 ms extension of the AV delay on the next cycle",
+   "A routine switch to unipolar pacing during the threshold search",
+   "Confirmation of ventricular contraction by the accelerometer, which is immune to fusion"
+  ],
+  "commentaires": [
+   "Correct: a short AV delay pre-empts intrinsic conduction; longer delays (100/70 or 120/100 ms) predispose to fusion and spurious threshold values.",
+   "Correct: the algorithm first assumes fusion and gives intrinsic conduction the chance to emerge; loss of capture is declared only after two consecutive backup pulses.",
+   "Incorrect: the pacing configuration is not changed for the search; on recent devices AutoCapture works with the programmed configurations.",
+   "Incorrect: capture is judged on the electrical evoked response, not on a mechanical sensor."
+  ],
+  "explication": "Fusion between the pacing pulse and a conducted QRS alters the evoked response and may be interpreted as loss of capture, wrongly triggering backup pulses and distorting the threshold measurement. Abbott's AutoCapture guards against this in two ways. During the threshold search, it uses very short AV delays (50/25 ms by default, as recommended) to pre-empt intrinsic conduction. In routine dual-chamber operation, a single absent evoked response causes the AV delays to be extended by 100 ms on the next cycle, much like a conduction search; the capture recovery procedure starts only after two consecutive losses of capture. Verification relies on the electrical evoked response, never on a mechanical sensor. In a patient with frequent AV conduction, isolated backup pulses should therefore be interpreted with caution.",
+  "aRetenir": "Abbott AutoCapture and fusion: short AV delays during the threshold search, 100 ms extension after a first backup pulse."
+ },
+ "cas-abt-004": {
+  "question": "Abbott dual-chamber pacemaker, PMT response programmed to \"Atrial Pace\". After 8 consecutive VP-AS cycles above the PMT detection rate, with stable VP-AS intervals, how does the device confirm and then terminate the tachycardia?",
+  "options": [
+   "It extends the PVARP for one cycle, with no prior confirmation test",
+   "It shifts the AV delay; if VP-AS is unchanged, it ignores a P, then paces A",
+   "It withholds one ventricular pace, then switches to DDI(R) for a programmed period",
+   "It delivers a rapid atrial burst to make the AV node refractory retrogradely"
+  ],
+  "commentaires": [
+   "Incorrect: Abbott does not extend the PVARP outright; it first tests the VP-AS relationship, then terminates the PMT with an atrial pace.",
+   "Correct: an unchanged VP-AS interval despite the 50 ms change in AV delay proves that the atrium depends on the ventricle; the next P wave is not tracked and an atrial pace is delivered 330 ms later.",
+   "Incorrect: there is no mode switch; the device stays in a tracking mode after termination.",
+   "Incorrect: no atrial burst is delivered; a single atrial pace resynchronises the AV sequence."
+  ],
+  "explication": "Abbott's PMT algorithm can be programmed Off, Passive (detection and diagnostics without intervention) or Atrial Pace, with an adjustable detection rate (90 to 180 bpm, not exceeding the maximum tracking rate). PMT is suspected after 8 consecutive VP-AS cycles above this rate with stable VP-AS intervals. To distinguish it from tracked sinus tachycardia, the device changes the AV delay by 50 ms on the 9th cycle: if the next VP-AS interval does not change, atrial activation does depend on ventricular pacing and the diagnosis is confirmed. The next P wave does not start an AV delay, and an atrial pace is delivered 330 ms after it, restoring a normal AV sequence. If VP-AS varies, the diagnosis is rejected and the search is suspended for 256 cycles. Prevention still relies on a PVARP matched to the VA conduction time.",
+  "aRetenir": "PMT on Abbott devices: 8 stable VP-AS cycles, AV delay shift test, then an untracked P wave and an atrial pace 330 ms later."
+ },
+ "cas-abt-005": {
+  "question": "On an Abbott pacemaker, the PMT detection and termination algorithm can, on rare occasions, misclassify sinus tachycardia as PMT and leave a sinus P wave without ventricular pacing.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: respiratory variation in the P-P interval or a premature atrial contraction at the time of the test can produce a falsely stable VP-AS interval and fool the confirmation step.",
+   "Incorrect: the confirmation step greatly reduces these errors but does not eliminate them; false diagnoses have been reported."
+  ],
+  "explication": "This is true. During sinus tachycardia tracked above the PMT detection rate, the VP-AS intervals can be stable, as in PMT. Changing the AV delay is precisely what settles the question: in sinus tachycardia, the P wave does not depend on the ventricle and the VP-AS interval varies. But if the sinus rate fluctuates at the same moment (respiratory variation) or a premature atrial contraction occurs, the VP-AS interval may appear unchanged and PMT is wrongly diagnosed. The next P wave is then not tracked: in a patient with preserved conduction, an intrinsic QRS is seen; in AV block, a long ventricular cycle. The error is isolated and usually harmless, but it must be recognised when reviewing the episodes so as not to conclude that there are repeated PMTs.",
+  "aRetenir": "An Abbott \"PMT episode\" must be reviewed: confirmation by AV delay shift can be fooled by sinus tachycardia."
+ },
+ "cas-abt-006": {
+  "question": "Regarding Auto Mode Switch (AMS) in Abbott pacemakers, based on the filtered atrial rate interval (FARI), which statements are correct? (select all that apply)",
+  "options": [
+   "An atrial cycle shorter than the FARI shortens it by 39 ms; a longer cycle lengthens it by 23 ms",
+   "A P wave sensed in the PVARP (AR marker) is included in the FARI calculation",
+   "A flutter wave falling in the post-ventricular atrial blanking period is included in the FARI calculation",
+   "Return to a tracking mode requires the filtered atrial rate to fall below the maximum tracking rate",
+   "Mode switching occurs on the very first atrial cycle shorter than the atrial tachycardia detection interval"
+  ],
+  "commentaires": [
+   "Correct: the FARI moves quickly towards short cycles and away from them more slowly, which filters out isolated rapid cycles.",
+   "Correct: an event in the PVARP does not start an AV delay, but it is counted for atrial arrhythmia diagnosis.",
+   "Incorrect: a signal falling in the blanking period is not seen at all; this is why 2:1 flutter can escape mode switching.",
+   "Correct: exit is based on the maximum tracking rate, not on the atrial tachycardia detection rate.",
+   "Incorrect: mode switching requires the FARI, not a single cycle, to become shorter than the detection interval."
+  ],
+  "explication": "In Abbott devices, mode switching is based on a filtered atrial interval updated on every cycle: a P-P interval shorter than the FARI reduces it by 39 ms, a longer interval increases it by 23 ms. Switching to a non-tracking mode (DDI(R) or VVI(R)) occurs when the FARI becomes shorter than the atrial tachycardia detection interval; return to a tracking mode requires the filtered rate to fall back below the maximum tracking rate. Events sensed in the PVARP are counted, but not those in the blanking period: an excessively long post-ventricular atrial blanking (PVAB) period can hide 2:1 flutter, while one that is too short promotes far-field R-wave oversensing. Alternating short and long cycles, typical of far-field R-wave oversensing, makes the FARI drift slowly and can lead to a mode switch. Recording of an AT/AF episode uses somewhat more specific criteria than the mode switch itself.",
+  "aRetenir": "Abbott AMS: FARI −39 / +23 ms, AR events counted but not those in blanking, exit below the maximum tracking rate."
+ },
+ "cas-abt-007": {
+  "question": "A 70-year-old woman with an Abbott pacemaker programmed DDDR for paroxysmal AV block, rate response on. Stored data show numerous \"AT/AF episodes\". On the EGM: after a PVC, a retrograde P wave falls in the PVARP (AR); the next atrial pace fails to capture, the ventricle is paced at the end of the AV delay, a new retrograde P wave falls in the PVARP, and the sequence repeats. The atrial threshold is normal. What is the diagnosis?",
+  "options": [
+   "Pacemaker-mediated tachycardia sustained by retrograde VA conduction",
+   "Repetitive non-reentrant VA synchrony, with functional loss of capture",
+   "Loss of atrial capture caused by a rise in the atrial pacing threshold",
+   "Far-field sensing: R wave sensed by the atrial lead in the PVARP"
+  ],
+  "commentaires": [
+   "Incorrect: the retrograde P wave falls in the PVARP and starts no AV delay; there is no reentrant loop.",
+   "Correct: the atrial pace falls in the refractory period of atrial myocardium depolarised by the retrograde P wave, then the VP restarts VA conduction: the sequence is self-perpetuating.",
+   "Incorrect: the threshold is normal; the loss of capture is functional, related to the timing of the pace.",
+   "Incorrect: the atrial signal is a genuine retrograde activation, triggered by the PVC and then by each VP."
+  ],
+  "explication": "Repetitive non-reentrant VA synchrony requires a mode with atrial pacing (DDD(R), DDI(R), not VDD) and retrograde conduction. A PVC conducted to the atrium produces a retrograde P wave in the PVARP; the next atrial pulse falls in the atrial myocardial refractory period and fails to capture; the VP at the end of the AV delay is again conducted back to the atrium. Unlike PMT, the retrograde P wave is not tracked: this is not reentry. Rate response, a high lower rate, atrial overdrive pacing, a long AV delay and a long PVARP all promote it. In Abbott devices, the FARI calculation also includes paced cycles, so these sequences are stored as AT/AF episodes, whereas they often go unnoticed with other manufacturers. Remedies: lower the lower rate or reduce rate response, shorten the AV delay and the PVARP, and review the PVC response if it is involved. These sequences can cause pacemaker syndrome and even trigger genuine AF.",
+  "aRetenir": "AR followed by a non-capturing AP in a loop = repetitive non-reentrant VA synchrony; on Abbott devices, it shows up as false AT/AF episodes."
+ },
+ "cas-abt-008": {
+  "question": "On the EGM of an Abbott ICD, the first rapid cycles of a VT with sudden onset carry the \"-\" marker instead of T or F. Why?",
+  "options": [
+   "These cycles fall in the post-sensing blanking period and are not measured",
+   "Their morphology matches the sinus reference template",
+   "SecureSense has classified them as lead noise",
+   "The current interval is fast but the average of the last 4 is still sinus"
+  ],
+  "commentaires": [
+   "Incorrect: a signal falling in the blanking period is not sensed at all and would carry no marker.",
+   "Incorrect: morphology only comes into play once the counter is full, during discrimination; it does not change the zone marker.",
+   "Incorrect: SecureSense acts on the decision to treat; it does not change interval classification.",
+   "Correct: if either the current interval or the average of the last 4 intervals falls in the sinus zone, the cycle is not classified: this is a rhythm transition."
+  ],
+  "explication": "Abbott ICDs classify each interval using two values: the current interval and the average of the last 4 intervals, including the current one. If both fall in the same zone, the cycle is classified in that zone; if they fall in two different tachycardia zones, it is classified in the faster one; if either value falls in the sinus zone, the cycle is not classified (\"-\" marker). At the onset of an abrupt VT, the average remains slow for a few cycles: the first intervals therefore appear as \"-\", then as T or F. Cycles counted towards the detection counters need not be consecutive, and the first counter to fill determines the diagnosis. This averaging damps isolated short cycles but slightly delays detection: this must be borne in mind when reading the counters.",
+  "aRetenir": "Abbott ICD: a cycle is classified if the current interval and the average of the last 4 agree; otherwise it is marked \"-\"."
+ },
+ "cas-abt-009": {
+  "question": "A 66-year-old man with ischaemic heart disease and an Abbott single-chamber ICD. Discrimination relies on far-field morphology alone (sudden onset and stability set to Passive). A regular episode with sudden onset in the VT zone is classified as SVT at every redetection for more than 20 minutes; the emergency department ECG shows septal VT. The morphology match score against the template is high. Which adjustment is most logical?",
+  "options": [
+   "Turn sudden onset and stability back on, diagnosing VT if 2 of 3 criteria are met",
+   "Lower the morphology match threshold so that fewer complexes are classified as conducted",
+   "Switch off automatic updating of the morphology template",
+   "Replace morphology with sinus interval history alone"
+  ],
+  "commentaires": [
+   "Correct: sudden onset and regularity would have classified this episode as VT; the 2-of-3 combination avoids relying on a single criterion that can be fooled.",
+   "Incorrect: lowering the match threshold classifies more complexes as conducted; it should instead be raised (e.g. from 90% to 95%).",
+   "Incorrect: the problem is the genuine similarity between septal VT and the sinus QRS, not template updating.",
+   "Incorrect: sinus interval history serves only to recognise AF that becomes regular and does not identify a regular VT."
+  ],
+  "explication": "Now that Abbott morphology discrimination analyses the far-field EGM, it performs well enough to be proposed, in single-chamber devices, as the sole discriminator (sudden onset and stability set to Passive), because sudden onset is often fooled by AF that becomes regular. But a septal VT may have an EGM very similar to the sinus QRS: morphology then classifies it as SVT and therapy is withheld indefinitely, which is dangerous. In this patient, two corrections are possible: re-enable all three criteria with a \"2 of 3\" rule, or raise the match threshold if the scores clearly separate VT from sinus rhythm. Passive mode is precisely what allows you to see, retrospectively, what the other criteria would have concluded. This case is a reminder that no setting is universal: stored episodes should guide programming in each patient.",
+  "aRetenir": "Morphology alone in a single-chamber ICD: effective against AF, but septal VT can fool it; review the passive criteria and adjust."
+ },
+ "cas-abt-010": {
+  "question": "A 37-year-old man with hypertrophic cardiomyopathy and an Abbott single-chamber ICD: VT zone from 180 to 222 bpm with morphology discrimination, VF zone above 222 bpm. He receives a shock while conscious, during rapid AF: the episode, initially classified as SVT at around 210 bpm, accelerated to 230 bpm with complexes identical to the template. Which setting would most probably have prevented this shock?",
+  "options": [
+   "Increase the number of redetection intervals in the VF zone",
+   "Program ATP during charging in the VF zone",
+   "VF zone from 250 bpm, so discrimination works up to at least 230 bpm",
+   "Enable the stability criterion in the VF zone to recognise AF irregularity"
+  ],
+  "commentaires": [
+   "Incorrect: as the AF persists, a longer counter would merely delay the same shock.",
+   "Incorrect: ATP does not terminate AF; it would only add unnecessary pacing before the shock.",
+   "Correct: in Abbott devices, discrimination applies only in VT zones; the lower boundary of the VF zone therefore sets the maximum rate at which discrimination operates.",
+   "Incorrect: no discriminator works in the VF zone on these ICDs: every VF detection is treated."
+  ],
+  "explication": "On Abbott ICDs, the SVT–VT discriminators (morphology, stability, sudden onset) act only in VT zones: an episode detected in the VF zone is treated without discrimination. Here, morphology correctly recognised the AF; it was the cycles moving into the VF zone that triggered the shock. The consensus recommends maintaining discrimination up to high rates (up to 230 bpm); the lower boundary of the VF zone must therefore be set above this rate, with long detection durations. In a young patient in rapid AF, the cause must also be treated: slow AV conduction, discuss a rhythm control strategy and anticoagulation, as hypertrophic cardiomyopathy carries a thromboembolic risk. An inappropriate shock in a conscious patient has a major psychological impact.",
+  "aRetenir": "Abbott ICD: no discrimination in the VF zone; its lower boundary must allow discrimination to operate up to about 230 bpm."
+ },
+ "cas-abt-011": {
+  "question": "Abbott dual-chamber ICD, VT zone from 160 bpm. Atypical flutter at 340 bpm is conducted regularly 2:1 (170 bpm). The device classifies the episode in the V < A branch. Which discriminator in this branch recognises the conducted flutter, even though the regular cycles favour VT?",
+  "options": [
+   "Sudden onset, which identifies the chamber that accelerated first",
+   "Stability of ventricular cycles alone, which finds a regular rhythm",
+   "AV association: constant AV intervals despite the regularity",
+   "Sinus interval history, which counts the long cycles"
+  ],
+  "commentaires": [
+   "Incorrect: analysis of onset and of the chamber of origin is used in the V = A branch.",
+   "Incorrect: 2:1 flutter is regular; stability alone therefore wrongly favours VT.",
+   "Correct: if the variation between AV intervals (AV delta) stays small, the ventricle is linked to the atrium: the rhythm is a conducted SVT.",
+   "Incorrect: this criterion is designed to recognise AF that becomes regular; it does not unmask flutter conducted regularly 2:1."
+  ],
+  "explication": "In an Abbott dual-chamber ICD, the rate relationship guides the analysis. In the V < A branch, the useful criteria are interval stability and morphology. Flutter conducted 2:1 or 3:1 is regular: stability alone would take it for VT. Hence the addition of \"AV association\": the variation between AV intervals is measured over the detection cycles; if it stays below the programmed delta, the ventricle is following the atrium and the rhythm is classified as SVT. This criterion applies only if the rhythm is stable. Morphology, if it matches the template, supports the diagnosis. Pitfall: atrial undersensing (small signals, blanking) can wrongly shift the episode into the V > A branch, where therapy is delivered with no further criteria.",
+  "aRetenir": "V < A branch on Abbott devices: stability + AV association to unmask regularly conducted flutter."
+ },
+ "cas-abt-012": {
+  "question": "The PROVIDE trial (1,670 primary prevention patients, St. Jude Medical ICDs) compared conventional programming with three-zone programming using prolonged detection and ATP. What was its main finding?",
+  "options": [
+   "Fewer inappropriate shocks, but more arrhythmic syncope",
+   "No difference in shocks, as ATP was frequently ineffective",
+   "Fewer shocks, but higher mortality due to delayed therapy",
+   "Fewer shocks and, notably, lower all-cause mortality"
+  ],
+  "commentaires": [
+   "Incorrect: the longer detection durations did not increase syncope or cause any major safety issue.",
+   "Incorrect: the number of shocks fell markedly in the experimental arm.",
+   "Incorrect: all-cause mortality was, on the contrary, lower in the experimental arm.",
+   "Correct: experimental programming reduced shocks and was accompanied by a significant reduction in all-cause mortality."
+  ],
+  "explication": "PROVIDE, the only large programming trial conducted with St. Jude Medical ICDs, compared \"traditional\" programming (one VT zone and one VF zone, 12 intervals each) with three zones: VT1 from about 181 to 213 bpm (25 intervals), VT2 from 214 to 249 bpm (18 intervals) and VF above 250 bpm (12 intervals), with ATP. The experimental arm received fewer shocks and had lower all-cause mortality, as in MADIT-RIT. These results contributed to the 2015 consensus: long detection durations (at least 6 s, about 30 intervals), lowest therapy zone between 185 and 200 bpm in primary prevention, and ATP in all zones in patients with structural heart disease. Message: programming \"nominal\" settings is not neutral for prognosis.",
+  "aRetenir": "PROVIDE (St. Jude): three zones, prolonged detection and ATP = fewer shocks and lower mortality."
+ },
+ "cas-abt-013": {
+  "question": "A patient with an Abbott dual-chamber ICD with SecureSense switched on undergoes surgery without prior suspension of therapies. Monopolar diathermy used on the chest triggers a shock. Why did SecureSense not withhold therapy?",
+  "options": [
+   "SecureSense works only in the VT zone, never in the VF zone",
+   "The noise is also seen on the discrimination channel: counter reset",
+   "SecureSense withholds therapy only when the lead impedance is abnormal",
+   "SecureSense analyses only signals slower than 250 bpm"
+  ],
+  "commentaires": [
+   "Incorrect: SecureSense works in both the VT and VF zones.",
+   "Correct: external interference is seen on all channels; concordance between the bipolar channel and the discrimination channel is interpreted as a genuine arrhythmia.",
+   "Incorrect: the algorithm compares short cycles on the two channels; it does not use impedance.",
+   "Incorrect: there is no such rate limit; noise oversensing is, in fact, very fast."
+  ],
+  "explication": "SecureSense counts short cycles seen on the bipolar sensing channel and resets this counter as soon as two short cycles appear on the discrimination channel (RV coil – can). Lead noise, being local, is seen only on the bipolar channel: therapy is withheld. External interference such as diathermy creates large, rapid signals on all channels (atrial, bipolar and discrimination): the counter is repeatedly reset and the device treats it as genuine VF. SecureSense therefore does not protect against electromagnetic interference. During surgery, therapies must be suspended (by magnet, preferred because it is immediately reversible, or by programming), the patient monitored with an external defibrillator available, bipolar diathermy preferred and the return pad placed well away from the generator.",
+  "aRetenir": "SecureSense withholds therapy only if the noise is absent from the discrimination channel; it does not protect against diathermy."
+ },
+ "cas-abt-014": {
+  "question": "An Abbott ICD records \"non-sustained V oversensing\" episodes flagged by SecureSense, with no therapy delivered. Which of these situations can cause them? (select all that apply)",
+  "options": [
+   "T-wave oversensing on the bipolar channel alone, when the R wave there is of low amplitude",
+   "Intermittent RV loss of capture, followed by a conducted QRS sensed on the bipolar channel",
+   "A sensing offset between the two channels with PVCs coupled close to the VT zone boundary",
+   "Short runs of VF, seen on both the bipolar channel and the discrimination channel"
+  ],
+  "commentaires": [
+   "Correct: the oversensed T wave creates short cycles on the bipolar channel only, as the R wave is larger on the discrimination channel.",
+   "Correct: the QRS conducted after a non-capturing pulse creates a short cycle on the bipolar channel, whereas the discrimination channel sees only one QRS.",
+   "Correct: a sensing delay of a few tens of ms between channels (bundle branch block, RV PVCs) can classify a cycle as short on one side and long on the other: false positive.",
+   "Incorrect: a genuine arrhythmia produces short cycles on both channels, which resets the counter."
+  ],
+  "explication": "Once activated, the SecureSense counter increments with every short cycle on the bipolar channel and is reset only by short cycles on the discrimination channel. If it reaches 10 (or a multiple of 10) without the VT/VF counter filling, a non-sustained oversensing episode is stored, with a possible alert. Designed for lead fracture, the algorithm in practice reveals other forms of oversensing confined to the bipolar channel: T waves (especially when the R wave there is small), myopotentials, P waves. It can also flag unexpected situations: RV loss of capture with a late conducted QRS, or false positives due to a sensing offset between the two channels. Because the counter remains active long after activation (255 VS/VP cycles), even very intermittent abnormalities are picked up. Every non-sustained episode therefore requires EGM review before concluding that there is a lead problem.",
+  "aRetenir": "A SecureSense non-sustained episode is not always a fracture: T waves, loss of capture or an offset between channels can explain it."
+ },
+ "cas-abt-015": {
+  "question": "A 67-year-old man with dilated cardiomyopathy and LBBB, Abbott CRT-D. Poor clinical response, 70% biventricular pacing. Stored data include non-sustained V oversensing episodes; on the EGM, after each BiV pace, a late signal is sensed on the bipolar channel but not on the discrimination channel, and the next cycle is often VS. What is the most appropriate management?",
+  "options": [
+   "Adjust post-pace sensing (Threshold Start and Decay Delay)",
+   "Reduce maximum ventricular sensitivity until the signal disappears",
+   "Program SecureSense Off so that these episodes are no longer stored",
+   "Replace the RV lead, as this signal suggests a conductor fracture"
+  ],
+  "commentaires": [
+   "Correct: this is post-pace T-wave oversensing; Abbott ICDs allow sensing after pacing and after sensing to be adjusted separately.",
+   "Incorrect: reducing maximum sensitivity risks VF undersensing, whereas a targeted adjustment is enough.",
+   "Incorrect: SecureSense merely reveals the problem; switching it off corrects neither the oversensing nor the loss of BiV pacing.",
+   "Incorrect: a signal occurring at a fixed interval after each pace is a T wave, not fracture noise."
+  ],
+  "explication": "The signal sensed at a fixed interval after each pace, on the bipolar channel alone, is a post-pace T wave. It resets the escape interval or limits atrial tracking: the next cycle is intrinsic and the biventricular pacing percentage falls, which partly explains the poor response. SecureSense made the diagnosis possible, but it removes neither the oversensing nor its consequences for pacing. Abbott ICDs have separate automatic sensitivity settings after pacing and after sensing (Threshold Start, Decay Delay): post-pace sensing is corrected in a targeted way, without touching maximum sensitivity. Biventricular pacing should be as close to 100% as possible, and the result then checked on the EGM and counters.",
+  "aRetenir": "Abbott CRT-D: post-pace T-wave oversensing reduces BiV pacing; correct the post-pace sensing settings."
+ },
+ "cas-abt-016": {
+  "question": "For SecureSense, programming the discrimination channel as \"RV tip – can\" rather than \"RV coil – can\" improves recognition of a fracture of the distal electrode conductor.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: the distal electrode becomes common to both channels being compared; noise arising from this conductor then appears on both.",
+   "Correct: the RV coil – can configuration (nominal) is best suited to detecting a fracture; the tip – can vector is only a fallback in case of undersensing on the discrimination channel."
+  ],
+  "explication": "This is false. SecureSense relies on discordance between the bipolar channel (tip-ring) and the discrimination channel. With the RV coil – can vector, the nominal setting, the two channels share no electrode: noise arising from the tip or ring conductor appears only on the bipolar channel. If RV tip – can is chosen, the distal electrode belongs to both channels: noise from this conductor may appear on both, reset the counter and allow inappropriate therapy. This vector remains an option when the coil – can signal is too small (undersensing on the discrimination channel), bearing in mind that it also changes the far-field morphology vector. Another option is to program SecureSense to Passive. The sensing parameters of the discrimination channel are not programmable.",
+  "aRetenir": "SecureSense: keep the RV coil – can vector; tip – can weakens detection of distal conductor fractures."
+ },
+ "cas-abt-017": {
+  "question": "Regarding the detailed operation of SecureSense (Abbott ICDs), which statements are correct? (select all that apply)",
+  "options": [
+   "If there is clear undersensing on the discrimination channel, the algorithm reverts to Passive for that episode",
+   "Once a first therapy has been delivered, the algorithm is suspended until the end of the episode",
+   "The sensitivity and refractory period of the discrimination channel are programmable",
+   "The number of non-sustained episodes needed to trigger an alert is not programmable"
+  ],
+  "commentaires": [
+   "Correct: signals that are too small, a prolonged pause or a single cycle seen on this channel suspend inhibition, so that therapy for genuine VT/VF is not withheld.",
+   "Correct: after a shock, the discrimination channel signal is distorted; the algorithm resumes only on return to sinus rhythm.",
+   "Incorrect: the sensing settings of this channel are fixed; only the vector can be changed (coil or tip – can).",
+   "Incorrect: this number is programmable; however, a single sustained episode with therapy withheld is enough to trigger the alert."
+  ],
+  "explication": "Any algorithm capable of withholding therapy must safeguard sensitivity. SecureSense therefore reverts to Passive by itself during an episode if the discrimination channel is sensing poorly: at least two signals smaller than 0.6 mV, a pause of more than 2.2 s between two sensed events, or a single cycle sensed during the tachycardia. Therapy can then be delivered, and an undersensing alert is displayed on the programmer. After a first therapy, the algorithm is suspended until sinus rhythm returns, because the shock transiently distorts the far-field signal. The sensing parameters of the discrimination channel (refractory period, decay, maximum sensitivity) are not programmable. As for alerts, a single sustained episode with therapy withheld immediately triggers vibration and a remote alert; the number of non-sustained episodes required is programmable.",
+  "aRetenir": "SecureSense reverts to Passive if the discrimination channel senses poorly, and steps aside after the first therapy of an episode."
+ },
+ "cas-abt-018": {
+  "question": "Abbott single-chamber ICD with an integrated bipolar defibrillation lead, SecureSense switched on (RV coil – can vector). An inappropriate shock occurs in sinus rhythm: the EGM shows double counting due to P-wave sensing, seen mainly on the discrimination channel and intermittently on the bipolar channel. Why did SecureSense not protect the patient, and what do you propose?",
+  "reponseAttendue": "The distal coil is probably straddling the tricuspid valve, partly in the atrium: the coil – can channel sees the P wave and shows short cycles, which reset the noise counter. The oversensing is therefore \"concordant\" and therapy is not withheld. Management: check lead position (chest X-ray, R-wave amplitude); switching the discrimination channel to RV tip – can would reduce oversensing on that channel but not on the bipolar channel; reducing sensitivity risks VF undersensing. The solution is lead repositioning, with the distal coil entirely within the RV.",
+  "explication": "P-wave oversensing by the defibrillation lead is rare. It is seen mainly with integrated bipolar leads positioned close to the tricuspid annulus (distal coil straddling the valve, small cavities, hypertrophic cardiomyopathy, children) or after lead retraction, which is accompanied by a fall in R-wave amplitude. SecureSense protects well against oversensing confined to the bipolar channel, such as T-wave oversensing. Here, the discrimination channel uses the coil, which sees the atrium: it too shows short cycles, the counter is reset and the shock is delivered. In a pacing-dependent patient or one with AV block, the same oversensing can also inhibit pacing. Sensitivity settings leave little room without risking undersensing: the real solution is to reposition the lead and to check at implantation that the distal coil lies entirely within the RV.",
+  "aRetenir": "P wave seen by a coil close to the tricuspid valve: SecureSense is defeated; the solution is lead repositioning."
+ }
+}

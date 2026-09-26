@@ -266,7 +266,7 @@
       "Faux : une conduction spontanée se lirait A puis R.",
       "Juste : chez MicroPort, P = stimulation atriale et V = stimulation ventriculaire ; la séquence P – V est donc une double stimulation."
     ],
-    "explication": "MicroPort (ex-Sorin/ELA) utilise une convention qui piège les habitués des autres marques. A signifie détection atriale, P stimulation atriale (« pace »), R détection ventriculaire et V stimulation ventriculaire. Les minuscules p et r signalent une détection en période réfractaire, et Ab ou Vb une stimulation délivrée en période réfractaire ou absolue. Une séquence « P – V » correspond donc à ce que d'autres fabricants notent AP – VP, et « A – R » à AS – VS. Lire P comme « onde P » conduit à une erreur complète sur le fonctionnement du boîtier.",
+    "explication": "MicroPort (ex-Sorin/ELA) utilise une convention qui piège les habitués des autres marques. A signifie détection atriale, P stimulation atriale (« pace »), R détection ventriculaire et V stimulation ventriculaire. Les minuscules p et r signalent une détection en période réfractaire, et Ab ou Vb une stimulation délivrée en période réfractaire relative ou absolue. Une séquence « P – V » correspond donc à ce que d'autres fabricants notent AP – VP, et « A – R » à AS – VS. Lire P comme « onde P » conduit à une erreur complète sur le fonctionnement du boîtier.",
     "aRetenir": "MicroPort : A = détection atriale, P = stimulation atriale, R = détection ventriculaire, V = stimulation ventriculaire.",
     "sources": [
       {
@@ -437,10 +437,10 @@
       1
     ],
     "commentaires": [
-      "Faux : chez MicroPort, Ab n'est pas une détection dans le blanking (sens du même sigle chez Medtronic) mais une stimulation atriale délivrée en période réfractaire ou absolue.",
-      "Juste : chez MicroPort, Ab et Vb sont des stimulations en période réfractaire ou absolue, par exemple asynchrones à la fin de l'intervalle d'échappement en cas de bruit prolongé."
+      "Faux : chez MicroPort, Ab n'est pas une détection dans le blanking (sens du même sigle chez Medtronic) mais une stimulation atriale délivrée en période réfractaire relative ou absolue.",
+      "Juste : chez MicroPort, Ab et Vb sont des stimulations en période réfractaire relative ou absolue, par exemple asynchrones à la fin de l'intervalle d'échappement en cas de bruit prolongé."
     ],
-    "explication": "Le même sigle n'a pas le même sens chez tous les constructeurs. Chez Medtronic, Ab signale une détection atriale dans le blanking post-ventriculaire. Chez MicroPort, Ab et Vb signalent une stimulation délivrée alors que la cavité est en période réfractaire ou absolue. Cela arrive quand un bruit prolongé redéclenche sans cesse les périodes réfractaires relatives : le boîtier stimule alors de façon asynchrone à la fin de l'intervalle d'échappement pour ne pas laisser le patient sans stimulation. Des Ab ou Vb répétés sans raison apparente doivent faire rechercher un bruit (interférence, myopotentiels, défaut de sonde).",
+    "explication": "Le même sigle n'a pas le même sens chez tous les constructeurs. Chez Medtronic, Ab signale une détection atriale dans le blanking post-ventriculaire. Chez MicroPort, Ab et Vb signalent une stimulation délivrée alors que la cavité est en période réfractaire relative ou absolue. Cela arrive quand un bruit prolongé redéclenche sans cesse les périodes réfractaires relatives : le boîtier stimule alors de façon asynchrone à la fin de l'intervalle d'échappement pour ne pas laisser le patient sans stimulation. Des Ab ou Vb répétés sans raison apparente doivent faire rechercher un bruit (interférence, myopotentiels, défaut de sonde).",
     "aRetenir": "Même sigle, autre sens : Ab = détection dans le blanking chez Medtronic, stimulation en période réfractaire chez MicroPort.",
     "sources": [
       {

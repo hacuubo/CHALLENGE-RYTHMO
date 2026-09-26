@@ -1,0 +1,221 @@
+{
+ "cas-bio-001": {
+  "question": "A 54-year-old man has a Biotronik dual-chamber pacemaker implanted for sick sinus syndrome, with Vp Suppression enabled. The statistics show a very large number of ADI → DDD switches, although AV conduction appears normal on every ECG. The periodic EGM, recorded in ADI, shows intrinsic QRS complexes of 1.5 to 2.5 mV, some of which carry no ventricular marker. What is the most likely explanation?",
+  "options": [
+   "Genuine paroxysmal AV block, correctly recognised by the algorithm",
+   "T-wave oversensing, which makes conduction appear to be absent",
+   "Ventricular undersensing: each missed QRS is counted as a blocked P wave",
+   "A poorly set DDD switching criterion, the only possible cause of these switches"
+  ],
+  "commentaires": [
+   "Incorrect: the QRS complexes are clearly present on the EGM after each P wave; it is the device that fails to see them.",
+   "Incorrect: oversensing would add ventricular events; it would not make conduction disappear as far as the algorithm is concerned.",
+   "Correct: an undetected QRS is interpreted as a non-conducted P wave, which falsely fulfils the criteria for switching to DDD.",
+   "Incorrect: adjusting the criterion changes how often switches occur, but does not correct faulty sensing."
+  ],
+  "explication": "Vp Suppression judges AV conduction by the presence of a ventricular sensed event after each atrial event. If low-amplitude QRS complexes are not sensed, the algorithm counts them as blocked P waves and wrongly concludes that AV block is present (\"x out of 8 cycles\" criterion, consecutive blocked P waves or a pause): the device reverts to DDD and paces the ventricle for no reason. The periodic EGM sent via remote monitoring shows these unmarked QRS complexes, a malfunction the device cannot flag by itself. The fix lies in sensing: program a fixed, more sensitive ventricular sensitivity setting (a lower mV value) after checking that there is no T-wave oversensing. Every algorithm designed to preserve intrinsic conduction relies on reliable atrial and ventricular sensing.",
+  "aRetenir": "Vp Suppression: unwarranted switches to DDD should prompt a search for ventricular undersensing, which mimics a blocked P wave."
+ },
+ "cas-bio-002": {
+  "question": "An 83-year-old man has a Biotronik dual-chamber pacemaker for paroxysmal complete AV block, with Vp Suppression enabled; he complains of palpitations. Testing in VDI shows stable retrograde VA conduction of about 380 ms, longer than the programmed PVARP. On the EGM, each conduction search in DDD (greatly extended AV delay) ends with a ventricular paced event followed by a sensed retrograde P wave, which initiates a PMT. What is the most logical course of action?",
+  "options": [
+   "Shorten the PVARP so that the retrograde P wave is better sensed",
+   "Extend the search AV delay further to allow conduction through",
+   "Increase the maximum tracking rate so the tachycardia is better tolerated",
+   "Extend the PVARP beyond the VA time, or abandon Vp Suppression"
+  ],
+  "commentaires": [
+   "Incorrect: it is precisely the sensing of the retrograde P wave outside the PVARP that sustains the PMT.",
+   "Incorrect: a longer AV delay gives the atrium even more time to recover from refractoriness and conduct retrogradely.",
+   "Incorrect: this would speed up the PMT without removing its mechanism.",
+   "Correct: a PVARP longer than VA conduction prevents tracking of the retrograde P wave; with permanent complete AV block, the algorithm is of no benefit anyway."
+  ],
+  "explication": "In DDD, Vp Suppression periodically searches for intrinsic conduction by extending the AV delay for a few cycles (to around 450 ms), with searches initially frequent and then spaced out if they fail. In a patient with no anterograde conduction but preserved retrograde conduction, the ventricle is paced late: the atrium has recovered from refractoriness, conducts retrogradely, and the retrograde P wave sensed outside the PVARP triggers a PMT, with no other trigger needed. The device's PMT algorithm can terminate these episodes but does not prevent them. If the AV block is permanent, the simplest option is not to program Vp Suppression; if it is paroxysmal, the PVARP must be longer than the retrograde conduction time, checking the effect on the 2:1 block rate in an active patient.",
+  "aRetenir": "Vp Suppression with retrograde conduction: the extended search AV delay can trigger PMTs; set PVARP > VA time, or avoid the algorithm in permanent AV block."
+ },
+ "cas-bio-003": {
+  "question": "With Biotronik Vp Suppression, when the device is operating in DDD and tests for the return of AV conduction, it extends the AV delay for a few cycles; if no intrinsic QRS occurs, the ventricle is paced at the end of this extended delay, so the search does not produce a blocked P wave.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: the search uses AV delay hysteresis; a ventricular pacing pulse is delivered at the end of the extended delay if conduction does not appear.",
+   "Incorrect: unlike other algorithms that test conduction in AAI, the Vp Suppression search does not allow a P wave to go without a ventricular response."
+  ],
+  "explication": "In DDD, Vp Suppression tests conduction by means of AV delay hysteresis: the delay is greatly extended for a few cycles and the device returns to ADI if intrinsic QRS complexes are sensed over a programmable number of consecutive cycles. If conduction does not return, the ventricle is paced at the end of the extended delay, so the search creates neither a blocked P wave nor a pause. This is a difference from algorithms that test conduction in AAI, where a blocked P wave is tolerated. During the ADI phase, however, blocked P waves can occur until a switching criterion is met. The trade-off of searching in DDD is the very long AV delay, which can promote retrograde conduction and PMT.",
+  "aRetenir": "The Vp Suppression conduction search is performed in DDD with an extended AV delay: no blocked P wave during the test, but a risk of PMT."
+ },
+ "cas-bio-004": {
+  "question": "A 78-year-old woman has a Biotronik dual-chamber pacemaker for paroxysmal AV block. She has frequent mode switches on exertion, with no atrial arrhythmia. After each ventricular paced event, the EGM shows a small atrial signal (ventricular depolarisation seen by the atrial lead), marked Ars within the PVARP. You extend the far-field protection (FFP) so that this signal falls within it. What do you expect?",
+  "options": [
+   "The signal will no longer be sensed or displayed, as FFP is an absolute blanking",
+   "The signal will still be marked, but excluded from the atrial rate and mode switching",
+   "The signal will start an AV delay, but will no longer count towards mode switching",
+   "No effect, as a signal within the PVARP never counts towards mode switching"
+  ],
+  "commentaires": [
+   "Incorrect: a signal sensed within the FFP remains visible on the marker channel.",
+   "Correct: within the FFP, the signal does not start an AV delay and is not included in the atrial rate calculation, so the inappropriate mode switches disappear.",
+   "Incorrect: an event sensed within the FFP never starts an AV delay.",
+   "Incorrect: a signal sensed within the PVARP but outside the FFP is not tracked, but it does count towards the atrial rate, which is precisely what causes the mode switches."
+  ],
+  "explication": "In Biotronik devices, far-field protection is a period applied to the atrial channel after a sensed or paced ventricular event (nominal values of around 100 ms after Vs and 150 ms after Vp). It is not completely blind: a signal falling within it is marked, but it does not start an AV delay and is excluded from atrial arrhythmia analysis. In the rest of the PVARP, a signal is not tracked but is counted in the atrial rate: on exertion, P waves plus far-field R waves together exceed the mode-switching rate. If FFP is not enough, atrial sensitivity can be reduced while keeping a margin for P waves and atrial arrhythmias. In this patient with preserved conduction, favouring intrinsic conduction (Vp Suppression) also reduces the phenomenon, which is often more marked after a paced QRS.",
+  "aRetenir": "Biotronik: a signal within the FFP is marked but excluded from mode switching; in the rest of the PVARP, it counts towards the atrial rate."
+ },
+ "cas-bio-007": {
+  "question": "A 60-year-old man had a Biotronik dual-chamber pacemaker implanted 3 months ago for paroxysmal AV block and is asymptomatic. The periodic EGM sent via Home Monitoring shows a signal on the atrial channel coinciding with each intrinsic QRS; during the forced-pacing sequence, each atrial pacing pulse is followed by a broad QRS, which the ventricular channel senses shortly afterwards, with a ventricular pacing pulse about 100 ms after the atrial pulse. The ventricular channel is otherwise normal. What is your diagnosis?",
+  "options": [
+   "The two leads have been swapped at the header",
+   "Isolated, harmless far-field R-wave sensing",
+   "Dislodgement of the atrial lead into the ventricle",
+   "Crosstalk: the V channel senses the atrial pulse"
+  ],
+  "commentaires": [
+   "Incorrect: a swap would also result in a \"ventricular\" lead that senses and paces the atrium; here only the atrial lead is abnormal.",
+   "Incorrect: far-field R waves do not explain the ventricular capture produced by the atrial pulse.",
+   "Correct: the atrial lead sees the QRS and captures the ventricle; the resulting QRS is sensed within the safety window, hence ventricular pacing at ~100 ms.",
+   "Incorrect: in crosstalk, the atrial pulse captures the atrium; it does not produce a broad QRS."
+  ],
+  "explication": "An atrial lead that has dislodged into the ventricle senses ventricular depolarisation (an atrial signal locked to the QRS) and, when it paces, captures the ventricle. The resulting QRS is sensed by the ventricular channel after the post-atrial blanking, within the safety window: the device then delivers a ventricular pacing pulse about 100 ms after the atrial pulse, which has no effect because the ventricle is already depolarised. When only one lead malfunctions after implantation, think of dislodgement; when the lead connected to the atrial channel behaves like a ventricular lead and vice versa, think of a swap at the header. A chest X-ray confirms the diagnosis, and surgical revision is required. The periodic EGM thus makes it possible to detect, in an asymptomatic patient, an abnormality that does not trigger any stored episode.",
+  "aRetenir": "An atrial pulse followed by a broad QRS, with an atrial signal locked to the QRS: think of atrial lead dislodgement into the ventricle."
+ },
+ "cas-bio-008": {
+  "question": "A 64-year-old man has a Biotronik dual-chamber ICD, with RBBB and LAFB and a very broad QRS. The transmitted periodic EGM shows, in sinus rhythm, two ventricular sensed events per QRS: the second falls just at the end of the post-sense refractory period, and cycles alternate between VS and VF. No episode has been stored. Which statements are correct? (select all that apply)",
+  "options": [
+   "The VS/VF alternation keeps the up-down VT counter close to zero",
+   "Sinus tachycardia or PVCs could be enough to trigger therapy",
+   "The first step is to extend the post-sense refractory period",
+   "Reducing ventricular sensitivity is the most reliable solution",
+   "Raising the VF zone to 250 bpm solves the problem with no downside"
+  ],
+  "commentaires": [
+   "Correct: each VF cycle adds a point to the VT counter and each VS cycle removes one; the probabilistic VF counter, with 50% short cycles, is not filled either.",
+   "Correct: if the long cycle in turn falls into the VT zone (sinus tachycardia) or if PVCs are interspersed, the counters may fill.",
+   "Correct: the second signal falls at the end of the refractory period; extending it slightly abolishes double counting without changing sensitivity.",
+   "Incorrect: the second signal is often as large as the first; lowering sensitivity is often ineffective and risks undersensing VF.",
+   "Incorrect: this does not abolish double counting and reduces protection; it is not an appropriate response."
+  ],
+  "explication": "When the ventricular electrogram lasts longer than the post-sense refractory period (very broad QRS, sodium channel blockers, hyperkalaemia, integrated bipolar sensing lead), the same QRS is counted twice; the interval between the two sensed events is equal or very close to the programmed refractory period, and therefore always in the VF zone. In Biotronik devices, the VT counter is an up-down counter: a VF cycle increments it and a VS cycle decrements it, so strict alternation leaves it at zero, and the probabilistic VF counter does not reach its ratio. The danger arises as soon as the sinus rate increases or PVCs are added. The first-line fix is to extend the ventricular post-sense refractory period (with the manufacturer's help if the parameter is not directly accessible), bearing in mind that excessive extension may impair VF detection. If this is not possible, a new true bipolar sensing lead may be considered.",
+  "aRetenir": "Double counting of the QRS at the end of the refractory period: extend the post-sense refractory period rather than reduce sensitivity."
+ },
+ "cas-bio-009": {
+  "question": "A 79-year-old man with ischaemic heart disease has a Biotronik dual-chamber ICD, with a VT1 zone programmed with ATP. He has very frequent runs of non-sustained VT (triplets, quadruplets) separated by three or four sinus beats. An episode classified as VT1 triggered nine ATP sequences, although no VT run exceeded four cycles. What is the explanation?",
+  "options": [
+   "The VT counter is probabilistic (X out of Y): 3 fast cycles out of 4 are enough",
+   "The sudden-onset criterion, met by every run, bypasses the counter",
+   "ATP One Shot is triggered as soon as a run reaches the VF zone",
+   "The VT counter adds up runs: a slow cycle removes only one point"
+  ],
+  "commentaires": [
+   "Incorrect: in Biotronik devices, the probabilistic counter is the one used in the VF zone; the VT zone uses an up-down counter.",
+   "Incorrect: sudden onset is a discrimination criterion; it does not replace the detection counter.",
+   "Incorrect: the episode is classified as VT1 and the runs are not in the VF zone; ATP One Shot is not involved.",
+   "Correct: each VT cycle adds a point and each sinus cycle removes only one; if fast cycles predominate, the counter fills over tens of seconds."
+  ],
+  "explication": "In Biotronik devices, the VT zones use an up-down counter: a cycle in the VT zone (or faster) increments the counter, while a slow cycle decrements it by only 1, without resetting it to zero. This strength in the face of intermittent undersensing (which merely delays diagnosis) becomes a pitfall in a patient with repeated non-sustained VT: a triplet adds 3 points, three sinus beats remove only 3, a quadruplet adds 4, and the counter eventually fills. The first cycle of the \"episode\" may precede the diagnosis by several tens of seconds and may not appear on the EGM. The number of intervals required is increased (long detection, as recommended by consensus documents) and, above all, the lower boundary of the VT zone is reconsidered in relation to the rate of these runs, in addition to medical management of the non-sustained VT.",
+  "aRetenir": "Biotronik up-down VT counter: closely spaced runs of non-sustained VT can fill it and trigger unnecessary therapies."
+ },
+ "cas-bio-011": {
+  "question": "A 65-year-old man has a Biotronik single-chamber ICD with ATP One Shot enabled in the VF zone. The transmitted episode shows regular monomorphic VT at 240 bpm detected in the VF zone, a burst of 8 pulses, then a return to a slow rhythm: no shock delivered. Which statement about ATP One Shot is correct?",
+  "options": [
+   "It is delivered for any arrhythmia in the VF zone, even an irregular one",
+   "It is repeated up to three times before a shock is allowed",
+   "It is delivered as a single burst, and only if the rhythm is stable",
+   "It requires shocks to be disabled in the VF zone"
+  ],
+  "commentaires": [
+   "Incorrect: an irregular arrhythmia (true VF) does not receive ATP One Shot; the shock remains the therapy.",
+   "Incorrect: as its name suggests, only one burst is delivered per episode.",
+   "Correct: the single burst is delivered only if the cycles preceding detection are stable, which excludes true VF.",
+   "Incorrect: ATP One Shot precedes or accompanies the shock sequence; it does not replace it."
+  ],
+  "explication": "Many tachycardias detected in the VF zone are fast monomorphic VTs, which a single ATP sequence often terminates painlessly, as shown by the PainFREE Rx II trial. In Biotronik devices, ATP One Shot delivers a single sequence (by default an 8-pulse burst) when the VF counter is filled, provided the preceding cycles are stable, which excludes true VF. If the burst is effective, no shock is delivered; otherwise the shock sequence continues. When the burst is delivered relative to capacitor charging (before or during) depends on the device generation: refer to the manual for the implanted model. Consensus documents recommend at least one ATP sequence for tachycardias up to 230 bpm, as an 8-pulse burst at 88% of the cycle length.",
+  "aRetenir": "Biotronik ATP One Shot: a single burst in the VF zone, only if the rhythm is stable; the shock still follows if needed."
+ },
+ "cas-bio-012": {
+  "question": "A 77-year-old man has a Biotronik CRT-D. A VT in the VT2 zone fails to respond to six ATP sequences; the first shock, programmed at 10 J, converts it into rapid, low-amplitude VF, partly undersensed on the RV channel, which had been programmed pre-emptively to the \"Enhanced T-wave suppression\" sensing profile with no previous oversensing. A charge is wrongly aborted, then a full-energy shock terminates the arrhythmia. Which changes are justified? (select all that apply)",
+  "options": [
+   "Program the first shock in the VT zone at maximum energy",
+   "Return to standard RV sensing, or even a VF-favouring profile",
+   "Reduce RV sensitivity to avoid double counting",
+   "Remove all antitachycardia pacing in the VT2 zone"
+  ],
+  "commentaires": [
+   "Correct: a low-energy shock may fall below the upper limit of vulnerability and convert VT into VF; a maximum-energy first shock limits this risk.",
+   "Correct: the T-wave suppression profile reduces sensitivity; with no prior oversensing it is not warranted and impairs VF detection.",
+   "Incorrect: the problem is undersensing; reducing sensitivity would make it worse.",
+   "Incorrect: ATP remains the first-line treatment for monomorphic VT and often terminates these episodes without a shock."
+  ],
+  "explication": "A low-energy shock (around 10 J) often terminates VT, with a short charge time, but it carries a risk: if it is below the upper limit of vulnerability, it can accelerate and disorganise the VT into a polymorphic arrhythmia. Programming the first shock in the VT zone at full energy increases the likelihood of success and places the shock above this limit. Induced VF often has short, low-amplitude signals, hence a risk of undersensing and inappropriate charge abortion, compounded here by a sensing profile that reduces sensitivity (Enhanced T-wave suppression) without an indication. Sensing should be returned to standard, or even to a profile that favours VF detection, and induction to check sensing should be considered. ATP retains its first-line role.",
+  "aRetenir": "A low-energy first shock in the VT zone can degenerate VT into VF; an anti-T-wave profile without documented oversensing risks undersensing VF."
+ },
+ "cas-bio-013": {
+  "question": "A 59-year-old man has a Biotronik dual-chamber ICD with SMART Detection. Episode 1: a 1:1 tachycardia in the VT1 zone, then loss of VA conduction with V faster than A; classified as VT and treated with ATP. Episode 2, same QRS morphology: 1:1 from start to finish, stable rhythm, stable PR, sudden onset measured at 18% against a 20% threshold; classified as SVT, no therapy. Which analysis is correct?",
+  "options": [
+   "Episode 1: inappropriate ATP, since VT cannot start with 1:1 conduction",
+   "Episode 2: probable VT with 1:1 VA conduction, misclassified on onset",
+   "Episode 2: definite sinus tachycardia, since SMART classified it as such",
+   "Episode 2: monotonic PR variation should have classified it as VT"
+  ],
+  "commentaires": [
+   "Incorrect: VT can conduct retrogradely 1:1; on the contrary, the VA block with V > A in episode 1 proves it is VT.",
+   "Correct: in stable 1:1 rhythm with no PR drift, SMART decides on sudden onset; at 18% for a 20% threshold, the VT is mistaken for sinus tachycardia.",
+   "Incorrect: the device classification is not proof; the morphology is the same as the documented VT.",
+   "Incorrect: monotonic PR variation reflects dissociation (dual tachycardia); here the PR is stable, so this criterion could not apply."
+  ],
+  "explication": "SMART Detection first compares the averaged atrial and ventricular rates. If V is faster than A, VT is diagnosed without any further test: this is the case in episode 1 after loss of retrograde conduction, proof of ventricular origin. When A = V and both rhythms are stable, the algorithm looks for monotonic PR variation (dissociation, hence a dual tachycardia); failing that, it distinguishes VT with 1:1 retrograde conduction (sudden onset) from sinus tachycardia (gradual onset) using the onset criterion. If the measured onset is just below the threshold, a 1:1 VT is classified as sinus tachycardia. VTs with 1:1 conduction are a minority of 1:1 tachycardias, but in a patient with several episodes, all tracings should be reviewed for retrograde block (VT) or anterograde block (SVT), which provides certainty, and programming should be adapted accordingly.",
+  "aRetenir": "SMART, stable 1:1 rhythm with no PR drift: the decision rests on sudden onset; VT with 1:1 retrograde conduction may be classified as SVT."
+ },
+ "cas-bio-014": {
+  "question": "A 76-year-old man has a Biotronik single-chamber ICD with discrimination based on sudden onset and stability. Several episodes classified as VT1 received ATP: sudden onset, regular rhythm, but shock and sensing EGMs identical to those in sinus rhythm, suggesting atrial tachycardia. Which programming change would improve discrimination?",
+  "options": [
+   "Tighten the stability criterion to reject these regular episodes",
+   "Enable MorphMatch, which compares QRS complexes with a sinus template",
+   "Lower the sudden-onset threshold to better recognise these episodes",
+   "Enable SMART Detection, which works without an atrial lead"
+  ],
+  "commentaires": [
+   "Incorrect: stability separates AF (irregular) from VT; a regular atrial tachycardia fulfils it just like VT.",
+   "Correct: a morphology identical to the sinus rhythm template points to supraventricular conduction.",
+   "Incorrect: sudden onset targets sinus tachycardia; atrial tachycardia starts suddenly, like VT.",
+   "Incorrect: SMART relies on comparing atrial and ventricular rhythms; it requires an atrial channel."
+  ],
+  "explication": "In single-chamber devices, the sudden-onset and stability criteria complement each other: the former rejects sinus tachycardia and the latter AF, but neither distinguishes an atrial tachycardia or regularly conducted flutter from VT, since both start suddenly and are regular. Recent Biotronik platforms offer MorphMatch, which compares the QRS morphology during tachycardia with a template built from intrinsic QRS complexes conducted at slow rates and updated regularly. The analysis applies in the VT zones, not in the VF zone. In dual-chamber devices, MorphMatch and SMART cannot be combined, so one must choose between them. Finally, termination of a tachycardia by ATP does not prove its ventricular origin: an atrial tachycardia may also stop after a ventricular burst.",
+  "aRetenir": "Single chamber: sudden onset and stability do not distinguish a regular atrial tachycardia from VT; morphology (MorphMatch) can."
+ },
+ "cas-bio-015": {
+  "question": "A 75-year-old man has a remotely monitored Biotronik BioMonitor implantable loop recorder; several episodes have been classified as AF. The tachogram shows a stable underlying rhythm interrupted by short cycles followed by a long cycle; the Lorenz plot shows a central cloud and four well-separated peripheral clusters. The subcutaneous ECG shows PVCs on a sinus background, sometimes in trigeminy, sometimes in quadrigeminy, then absent. Why did the ectopic beat rejection algorithm not discard these episodes?",
+  "options": [
+   "It rejects only atrial ectopics, with QRS complexes identical to sinus",
+   "It requires a visible P wave before each QRS to rule out AF",
+   "It applies only to patient-activated recordings",
+   "It only recognises PVCs that occur at regular intervals"
+  ],
+  "commentaires": [
+   "Incorrect: the algorithm is based on R-R intervals, not on QRS morphology.",
+   "Incorrect: BioMonitor AF detection is based on R-R variability; it does not analyse the P wave.",
+   "Incorrect: AF detection and ectopic beat rejection apply to automatically stored episodes.",
+   "Correct: it looks for periodicity (bigeminy, trigeminy, quadrigeminy); irregular ectopy fools it."
+  ],
+  "explication": "BioMonitor diagnoses AF from beat-to-beat instability of R-R intervals, without direct analysis of atrial activity. Frequent ectopic beats create the same instability; the rejection algorithm therefore also analyses intervals in pairs, looking for a typical periodicity (short-long in bigeminy, normal-short-long in trigeminy, etc.), and diagnoses AF only in its absence. If the ectopic beats occur irregularly, the algorithm is fooled. The tachogram (short cycle followed by a compensatory pause) and the Lorenz plot (distinct clusters, rather than a diffuse cloud as in AF) immediately suggest ectopy. These episodes should be classified as false positives, anticoagulation should not be started on this basis alone, and AF detection sensitivity should be reduced if the alerts recur.",
+  "aRetenir": "Implantable loop recorder: distinct clusters on the Lorenz plot = ectopic beats; automatic rejection fails if they do not occur periodically."
+ },
+ "cas-bio-017": {
+  "question": "Biotronik dual-chamber pacemaker: you are considering enabling automatic capture control (Capture Control) in the atrium. Which statements are correct? (select all that apply)",
+  "options": [
+   "Loss of capture is recognised by sensing intrinsic or retrograde atrial activity",
+   "Without an intrinsic atrial rhythm or retrograde conduction, measurement may fail",
+   "Atrial capture is verified beat by beat, with a backup pulse if it fails",
+   "The safety margin is smaller than in the ventricle, as amplitude is adjusted continuously"
+  ],
+  "commentaires": [
+   "Correct: the test does not rely on the atrial evoked response, but on the reappearance of sensed atrial activity when pacing no longer captures.",
+   "Correct: in a patient with no intrinsic atrial rhythm and no retrograde conduction, nothing signals loss of capture.",
+   "Incorrect: in the atrium, the threshold is measured at programmed times and the amplitude remains fixed until the next measurement.",
+   "Incorrect: the opposite is true; in the absence of beat-to-beat verification, the nominal atrial margin is wider to cover threshold variations."
+  ],
+  "explication": "Biotronik atrial Capture Control measures the threshold by pacing the atrium slightly above the intrinsic rate, in a mode without atrial tracking, with a short AV delay. It does not rely on the evoked response: it recognises loss of capture by the sensing of atrial activity (return of the intrinsic rhythm or a retrograde P wave). In a patient with no intrinsic atrial activity and no retrograde conduction, the measurement may therefore fail. The amplitude is then set to the measured threshold plus a margin and remains fixed until the next measurement, with no beat-to-beat verification: this is why the nominal atrial margin is wider than in the ventricle. As with any automatic function, you need to know the algorithm's maximum amplitude, which is not suited to a very high threshold, and keep the ATM setting (measurement without adaptation) when a fixed amplitude is preferred.",
+  "aRetenir": "Biotronik atrial Capture Control: loss of capture recognised by sensed atrial activity, fixed amplitude between measurements, hence a wider margin."
+ }
+}

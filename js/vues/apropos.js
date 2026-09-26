@@ -1,4 +1,5 @@
-import { TYPES, base } from '../donnees.js';
+import { TYPES, base, libReco } from '../donnees.js';
+import { t, locale } from '../i18n.js';
 import { esc } from '../util.js';
 import { DEPOT } from './quiz.js';
 
@@ -8,30 +9,35 @@ export function vueAPropos(app) {
     const k = s.titre.trim(); const e = m.get(k) || { ...s, n: 0 }; e.n++; if (!e.url && s.url) e.url = s.url; m.set(k, e);
   }
   const src = [...m.values()].sort((a, b) => b.n - a.n);
-  const parType = Object.keys(TYPES).map(t => `${TYPES[t]} : ${base.questions.filter(q => q.type === t).length}`).join(' · ');
+  const parType = Object.keys(TYPES).map(ty => `${TYPES[ty]}${t(' :', ':')} ${base.questions.filter(q => q.type === ty).length}`).join(' · ');
   const reco = {};
   for (const q of base.questions) for (const r of q.reco || []) reco[r] = (reco[r] || 0) + 1;
   const nbReels = base.questions.filter(q => q.ecg12).length;
 
   app.innerHTML = `
-    <h1>Sources et informations</h1>
+    <h1>${t('Sources et informations', 'Sources and information')}</h1>
     <section class="carte">
-      <p class="avert"><b>Outil pédagogique.</b> Les questions visent l'apprentissage et l'entretien des connaissances ; elles ne remplacent ni les recommandations officielles, ni les manuels des fabricants, ni le jugement clinique. Les valeurs de programmation peuvent varier selon les modèles et versions logicielles : vérifiez toujours la documentation de l'appareil.</p>
-      <p>Base de questions : <b>${base.questions.length}</b> questions — version ${esc(base.version)}${base.date ? ` du ${new Date(base.date).toLocaleDateString('fr-FR')}` : ''}.<br><span class="note">${parType}</span></p>
-      <p class="note">Les questions s'appuient uniquement sur des sources scientifiquement validées (recommandations ESC/EHRA/HRS/ACC/AHA, HAS, articles indexés, manuels techniques officiels) et ont été relues par un rythmologue pour un français clair et naturel. Chaque question indique sa date de relecture.</p>
-      <p class="note">Une erreur, une formulation ambiguë, une recommandation dépassée ? Utilisez le lien « ⚑ Signaler une erreur » sous chaque correction, ou <a href="https://github.com/${DEPOT}/issues" target="_blank" rel="noopener noreferrer">consultez les signalements</a>.</p>
-      <p class="note"><a href="presentation.html">Présentation de l'application</a> : thèmes couverts, méthode, recommandations de référence et questions fréquentes.</p>
+      ${t(`<p class="avert"><b>Outil pédagogique.</b> Les questions visent l'apprentissage et l'entretien des connaissances ; elles ne remplacent ni les recommandations officielles, ni les manuels des fabricants, ni le jugement clinique. Les valeurs de programmation peuvent varier selon les modèles et versions logicielles : vérifiez toujours la documentation de l'appareil.</p>`,
+        `<p class="avert"><b>Educational tool.</b> The questions are designed for learning and keeping knowledge up to date; they do not replace official guidelines, manufacturers' manuals or clinical judgement. Programming values may vary between models and software versions: always check the device documentation.</p>`)}
+      <p>${t('Base de questions :', 'Question bank:')} <b>${base.questions.length}</b> questions — version ${esc(base.version)}${base.date ? ` ${t('du', 'dated')} ${new Date(base.date).toLocaleDateString(locale())}` : ''}.<br><span class="note">${parType}</span></p>
+      <p class="note">${t('Les questions s\'appuient uniquement sur des sources scientifiquement validées (recommandations ESC/EHRA/HRS/ACC/AHA, HAS, articles indexés, manuels techniques officiels) et ont été relues par un rythmologue pour un français clair et naturel. Chaque question indique sa date de relecture.',
+        'The questions rely solely on scientifically validated sources (ESC/EHRA/HRS/ACC/AHA guidelines, the French National Authority for Health (HAS), indexed articles, official technical manuals) and were reviewed by an electrophysiologist. Each question shows its review date. The English version is a translation of the original French questions.')}</p>
+      <p class="note">${t(`Une erreur, une formulation ambiguë, une recommandation dépassée ? Utilisez le lien « ⚑ Signaler une erreur » sous chaque correction, ou <a href="https://github.com/${DEPOT}/issues" target="_blank" rel="noopener noreferrer">consultez les signalements</a>.`,
+        `An error, ambiguous wording or an outdated guideline? Use the "⚑ Report an error" link below each answer, or <a href="https://github.com/${DEPOT}/issues" target="_blank" rel="noopener noreferrer">see existing reports</a>.`)}</p>
+      <p class="note">${t('<a href="presentation.html">Présentation de l\'application</a> : thèmes couverts, méthode, recommandations de référence et questions fréquentes.',
+        '<a href="en/presentation.html">About the app</a>: topics covered, method, reference guidelines and frequently asked questions.')}</p>
     </section>
-    <section class="carte"><h2>Tracés ECG</h2>
-      <p class="note">Les bandes de rythme (dérivation DII) sont synthétiques, générées par l'application pour illustrer rythmes et dysfonctions de stimulation. ${nbReels ? `Les ${nbReels} ECG 12 dérivations sont de vrais enregistrements issus de <a href="https://physionet.org/content/ptb-xl/" target="_blank" rel="noopener noreferrer">PTB-XL</a> (PhysioNet, licence CC BY 4.0) : Wagner P, Strodthoff N, Bousseljot RD et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154 (<a href="https://doi.org/10.1038/s41597-020-0495-6" target="_blank" rel="noopener noreferrer">doi</a>) ; Goldberger AL et al. PhysioBank, PhysioToolkit, and PhysioNet. Circulation 2000;101:e215-e220. Tracés rééchantillonnés à 250 Hz, ligne de base corrigée.` : ''}</p>
+    <section class="carte"><h2>${t('Tracés ECG', 'ECG tracings')}</h2>
+      <p class="note">${t('Les bandes de rythme (dérivation DII) sont synthétiques, générées par l\'application pour illustrer rythmes et dysfonctions de stimulation.', 'The rhythm strips (lead II) are synthetic, generated by the app to illustrate rhythms and pacing malfunctions.')} ${nbReels ? `${t(`Les ${nbReels} ECG 12 dérivations sont de vrais enregistrements issus de`, `The ${nbReels} 12-lead ECGs are real recordings from`)} <a href="https://physionet.org/content/ptb-xl/" target="_blank" rel="noopener noreferrer">PTB-XL</a> (PhysioNet, ${t('licence CC BY 4.0', 'CC BY 4.0 licence')})${t(' :', ':')} Wagner P, Strodthoff N, Bousseljot RD et al. PTB-XL, a large publicly available electrocardiography dataset. Sci Data 2020;7:154 (<a href="https://doi.org/10.1038/s41597-020-0495-6" target="_blank" rel="noopener noreferrer">doi</a>)${t(' ;', ';')} Goldberger AL et al. PhysioBank, PhysioToolkit, and PhysioNet. Circulation 2000;101:e215-e220. ${t('Tracés rééchantillonnés à 250 Hz, ligne de base corrigée.', 'Tracings resampled at 250 Hz, with baseline correction.')}` : ''}</p>
     </section>
-    <section class="carte"><h2>Simulateur d'électrophysiologie</h2>
-      <p class="note">Modèle pédagogique original : le cœur est représenté par un réseau d'une trentaine de sites (oreillettes, anneau tricuspide, His et branches, sinus coronaire, ventricules) reliés par des voies de conduction avec délais décrémentiels (Wenckebach), périodes réfractaires dépendantes du cycle, freinage sinusal et effets de l'isoprénaline ; les réentrées et les réponses aux manœuvres émergent du modèle. Les questions « tracé d'EEP » sont rejouées par ce moteur. Le concept s'inspire du simulateur <a href="https://svtsim.com/" target="_blank" rel="noopener noreferrer">svtsim</a> (S. Iravanian, licence CC BY-NC 4.0), sans reprise de son code. Critères diagnostiques : Michaud GF et al., JACC 2001;38:1163-7 ; Knight BP et al., JACC 1999;33:775-81 ; Hirao K et al., Circulation 1996;94:1027-35 ; Josephson ME, <i>Clinical Cardiac Electrophysiology</i>.</p>
+    <section class="carte"><h2>${t('Simulateur d\'électrophysiologie', 'Electrophysiology simulator')}</h2>
+      <p class="note">${t(`Modèle pédagogique original : le cœur est représenté par un réseau d'une trentaine de sites (oreillettes, anneau tricuspide, His et branches, sinus coronaire, ventricules) reliés par des voies de conduction avec délais décrémentiels (Wenckebach), périodes réfractaires dépendantes du cycle, freinage sinusal et effets de l'isoprénaline ; les réentrées et les réponses aux manœuvres émergent du modèle. Les questions « tracé d'EEP » sont rejouées par ce moteur. Le concept s'inspire du simulateur <a href="https://svtsim.com/" target="_blank" rel="noopener noreferrer">svtsim</a> (S. Iravanian, licence CC BY-NC 4.0), sans reprise de son code. Critères diagnostiques :`,
+        `Original educational model: the heart is represented by a network of about thirty sites (atria, tricuspid annulus, His bundle and bundle branches, coronary sinus, ventricles) linked by conduction pathways with decremental delays (Wenckebach), cycle-length-dependent refractory periods, overdrive suppression of the sinus node and the effects of isoprenaline; re-entry and the responses to pacing manoeuvres emerge from the model. The "EP study tracing" questions are replayed by this engine. The concept is inspired by the <a href="https://svtsim.com/" target="_blank" rel="noopener noreferrer">svtsim</a> simulator (S. Iravanian, CC BY-NC 4.0 licence), without reusing its code. Diagnostic criteria:`)} Michaud GF et al., JACC 2001;38:1163-7${t(' ;', ';')} Knight BP et al., JACC 1999;33:775-81${t(' ;', ';')} Hirao K et al., Circulation 1996;94:1027-35${t(' ;', ';')} Josephson ME, <i>Clinical Cardiac Electrophysiology</i>.</p>
     </section>
-    ${Object.keys(reco).length ? `<section class="carte"><h2>Questions par recommandation de référence</h2>
-      <p class="note">Quand une recommandation est mise à jour, ces questions sont relues en priorité.</p>
-      <ul class="sources-liste">${Object.entries(reco).sort((a, b) => b[1] - a[1]).map(([r, n]) => `<li>${esc(r)} <span class="note">(${n})</span></li>`).join('')}</ul></section>` : ''}
-    <section class="carte"><h2>Références citées (${src.length})</h2>
+    ${Object.keys(reco).length ? `<section class="carte"><h2>${t('Questions par recommandation de référence', 'Questions by reference guideline')}</h2>
+      <p class="note">${t('Quand une recommandation est mise à jour, ces questions sont relues en priorité.', 'When a guideline is updated, these questions are reviewed first.')}</p>
+      <ul class="sources-liste">${Object.entries(reco).sort((a, b) => b[1] - a[1]).map(([r, n]) => `<li>${esc(libReco(r))} <span class="note">(${n})</span></li>`).join('')}</ul></section>` : ''}
+    <section class="carte"><h2>${t('Références citées', 'References cited')} (${src.length})</h2>
       <ol class="sources-liste">${src.map(s => `<li>${s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.titre)}</a>` : esc(s.titre)} <span class="note">(${s.n})</span></li>`).join('')}</ol>
     </section>`;
 }

@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script>try { var l = localStorage.getItem('rythmo.langue'); document.documentElement.lang = l === 'fr' || l === 'en' ? l : /\/en\/(index\.html)?$/.test(location.pathname) ? 'en' : 'fr'; } catch (e) {}</script>
+  <!--seo-->
   <title>Challenge Rythmo · Quiz de rythmologie : ECG, pacemaker, DAI</title>
   <meta name="description" content="Quiz gratuit de rythmologie, sans compte : ECG, pacemaker, DAI, CRT, télécardiologie et électrophysiologie. Corrections sourcées, mode ELO, simulateur d'EEP.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -23,6 +25,10 @@
   <link rel="alternate" type="text/markdown" title="Résumé pour les assistants IA" href="llms.txt">
   <link rel="sitemap" type="application/xml" href="sitemap.xml">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://hacuubo.github.io/CHALLENGE-RYTHMO/#site","url":"https://hacuubo.github.io/CHALLENGE-RYTHMO/","name":"Challenge Rythmo","inLanguage":"fr","description":"Quiz gratuit de rythmologie, sans compte : ECG, pacemaker, DAI, CRT, télécardiologie et électrophysiologie. Corrections sourcées, mode ELO, simulateur d'EEP."},{"@type":["WebApplication","LearningResource"],"@id":"https://hacuubo.github.io/CHALLENGE-RYTHMO/#app","url":"https://hacuubo.github.io/CHALLENGE-RYTHMO/","name":"Challenge Rythmo","alternateName":"Rythmo","description":"Quiz gratuit de rythmologie, sans compte : ECG, pacemaker, DAI, CRT, télécardiologie et électrophysiologie. Corrections sourcées, mode ELO, simulateur d'EEP.","inLanguage":"fr","applicationCategory":"EducationalApplication","applicationSubCategory":"Formation médicale en rythmologie","operatingSystem":"Tous (navigateur web, application installable PWA)","browserRequirements":"JavaScript activé","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"learningResourceType":["Quiz","Simulation"],"educationalLevel":"Formation médicale initiale et continue","audience":{"@type":"Audience","audienceType":"Cardiologues, internes de cardiologie, infirmiers et techniciens de rythmologie, équipes de télésurveillance"},"teaches":["Lecture de l'ECG","Programmation des stimulateurs cardiaques","Programmation des défibrillateurs automatiques implantables","Resynchronisation cardiaque (CRT)","Télésurveillance des prothèses cardiaques","Électrophysiologie et ablation"],"about":[{"@type":"Thing","name":"Rythmologie"},{"@type":"Thing","name":"Stimulateur cardiaque"},{"@type":"Thing","name":"Défibrillateur automatique implantable"},{"@type":"Thing","name":"Électrocardiogramme"},{"@type":"Thing","name":"Électrophysiologie cardiaque"}],"featureList":["Questions corrigées avec sources (ESC, EHRA, HRS, ACC/AHA)","Mode compétitif adaptatif avec classement ELO","Simulateur de baie d'électrophysiologie en temps réel","Vrais ECG 12 dérivations (PTB-XL)","Fonctionne hors ligne, sans compte"],"image":"https://hacuubo.github.io/CHALLENGE-RYTHMO/icons/og.png","screenshot":"https://hacuubo.github.io/CHALLENGE-RYTHMO/icons/og.png","subjectOf":{"@type":"WebPage","url":"https://hacuubo.github.io/CHALLENGE-RYTHMO/presentation.html"}}]}</script>
+  <!--/seo-->
+  <link rel="alternate" hreflang="fr" href="https://hacuubo.github.io/CHALLENGE-RYTHMO/">
+  <link rel="alternate" hreflang="en" href="https://hacuubo.github.io/CHALLENGE-RYTHMO/en/">
+  <link rel="alternate" hreflang="x-default" href="https://hacuubo.github.io/CHALLENGE-RYTHMO/">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
@@ -35,10 +41,11 @@
   <div id="ecran-titre" class="ecran-titre" aria-hidden="true">
     <svg viewBox="0 0 64 64"><path d="M4 34h14l5-12 8 26 7-30 5 16h17" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
     <p class="ecran-titre-nom">Challenge Rythmo</p>
-    <p class="ecran-titre-sous">Rythmologie · stimulation · électrophysiologie</p>
+    <p class="ecran-titre-sous"><span lang="fr">Rythmologie · stimulation · électrophysiologie</span><span lang="en">Cardiac rhythm · pacing · electrophysiology</span></p>
   </div>
   <main id="app" tabindex="-1">
     <!-- Contenu lisible sans JavaScript (moteurs de recherche, assistants IA) : remplacé par l'application au chargement, sous l'écran titre. -->
+    <!--statique-->
     <div class="statique">
       <h1>Challenge Rythmo</h1>
       <p>Quiz gratuit de <strong>rythmologie</strong> en français, sans compte : <!--total-->1 170<!--/total--> questions corrigées et sourcées sur l'<strong>ECG</strong>, la programmation des <strong>stimulateurs cardiaques (pacemakers)</strong> et des <strong>défibrillateurs implantables (DAI)</strong>, la <strong>CRT</strong>, la <strong>télécardiologie</strong> et l'<strong>électrophysiologie</strong>.</p>
@@ -52,6 +59,7 @@
       <p class="chargement">Chargement de la base de questions…</p>
       <noscript><p>JavaScript doit être activé pour utiliser les quiz et le simulateur.</p></noscript>
     </div>
+    <!--/statique-->
   </main>
   <script type="module" src="js/app.js"></script>
 </body>

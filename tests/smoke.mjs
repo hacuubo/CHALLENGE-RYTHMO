@@ -30,8 +30,12 @@ async function verifier(nom, fn) {
 
 for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'bureau']]) {
   const page = await navigateur.newPage({ viewport: { width: largeur, height: hauteur } });
+  // parcours en français par défaut (le navigateur de test n'est pas francophone : pas d'invitation à passer en anglais)
+  await page.addInitScript(() => { if (!sessionStorage.getItem('langue-posee')) { localStorage.setItem('rythmo.langue', 'fr'); sessionStorage.setItem('langue-posee', '1'); } });
   page.on('pageerror', e => erreurs.push(`[${appareil}] ${etape} : ${e.message}`));
-  page.on('console', m => { if (m.type() === 'error') erreurs.push(`[${appareil}] ${etape} : console ${m.text()}`); });
+  // ressource absente : erreur, sauf surcouche anglaise pas encore traduite (repli prévu sur le français)
+  page.on('console', m => { if (m.type() === 'error' && !/^Failed to load resource/.test(m.text())) erreurs.push(`[${appareil}] ${etape} : console ${m.text()}`); });
+  page.on('response', r => { if (r.status() >= 400 && !/\/data\/questions\/en\//.test(r.url())) erreurs.push(`[${appareil}] ${etape} : ${r.status()} ${r.url()}`); });
   const capture = async n => { if (captures) await page.screenshot({ path: path.join(captures, `${appareil}-${n}.png`), fullPage: true }); };
   // navigation sans barre du bas : bouton de l'écran, sinon retour à l'accueil puis case de l'accueil
   const nav = async v => {
@@ -167,7 +171,7 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await capture('config');
     await page.click('#go');
     await page.waitForSelector('#zone');
-    page.once('dialog', d => d.accept());
+    page.once('dialog', d => d.accept().catch(() => {}));
     await nav('progression');
     await page.waitForSelector('.grille-badges');
     await page.waitForSelector('#courbe svg');
@@ -193,7 +197,8 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     if (await page.textContent('#stimuler') !== 'Stop') throw new Error('le bouton Stimuler ne devient pas Stop');
     // compteur du train : S1 délivrés / demandés (8 par défaut)
     await page.waitForFunction(() => /Train S1 \d\/8/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 3000 });
-    await page.waitForFunction(() => /Tachycardie/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 15000 });
+    // simulation en temps réel : l'induction prend ~9 s, davantage sur une machine chargée
+    await page.waitForFunction(() => /Tachycardie/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 30000 });
     // la manœuvre s'affiche sur l'écran de rappel ; toucher le tracé en temps réel ne l'arrête pas
     await page.waitForFunction(() => /S2 320/.test(document.querySelector('#rappel-titre')?.textContent || ''), null, { timeout: 10000 });
     if (!/−/.test(await page.textContent('#recul-val'))) throw new Error('le rappel n\'est pas centré sur l\'extrastimulus');
@@ -202,7 +207,8 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.click('[data-voie=V1]'); await page.click('[data-voie=abld]');
     if (await page.inputValue('#montage') !== 'perso' || await page.getAttribute('[data-voie=V1]', 'aria-pressed') !== 'false') throw new Error('choix des voies inopérant');
     await page.click('#voies-bloc summary');
-    const t0 = await page.evaluate(() => document.querySelector('#etat').textContent);
+    // la barre d'état est réécrite à chaque image : on attend qu'elle soit renseignée
+    const t0 = await (await page.waitForFunction(() => document.querySelector('#etat')?.textContent.trim() || null, null, { timeout: 5000 })).jsonValue();
     await page.click('#ecran', { position: { x: 200, y: 100 } });
     if (/Relecture/.test(await page.evaluate(() => document.querySelector('#etat').textContent)) || !t0) throw new Error('le tracé en temps réel s\'est figé');
     await page.click('#enregistrer');
@@ -286,8 +292,61 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     });
     if (r.length) throw new Error('tracés en échec : ' + r.join(', '));
   });
+  await verifier(`${appareil} : version anglaise (accueil, question et correction), puis retour au français`, async () => {
+    await page.evaluate(() => { location.hash = 'accueil'; }); // indépendant de l'écran laissé par l'étape précédente
+    await page.waitForSelector('.choix-langue [data-langue=en][aria-pressed=false]');
+    await page.click('.choix-langue [data-langue=en]');
+    await page.waitForSelector('.choix-langue [data-langue=en][aria-pressed=true]');
+    if (await page.evaluate(() => document.documentElement.lang) !== 'en') throw new Error('<html lang> non mis à jour');
+    const accueil = await page.textContent('#app');
+    for (const m of ['Training', 'Competitive', 'Simulator', 'Progress', 'Sources and information']) if (!accueil.includes(m)) throw new Error(`accueil : « ${m} » absent`);
+    for (const m of ['Entraînement', 'Compétitif', 'Simulateur']) if (accueil.includes(m)) throw new Error(`accueil : « ${m} » encore en français`);
+    await page.click('.tuile[data-nav=entrainement]');
+    await page.waitForSelector('h1:text("Training")');
+    await page.click('[data-domaine=ecg]');
+    await page.waitForSelector('#zone');
+    await repondre();
+    await page.waitForSelector('#suivant');
+    const quiz = await page.textContent('#app');
+    if (/Question suivante|Voir mes résultats|Signaler une erreur|À retenir/.test(quiz)) throw new Error('correction encore en français');
+    if (!/Next question|See my results/.test(await page.textContent('#suivant'))) throw new Error('bouton suivant non traduit');
+    if (!/Report an error/.test(quiz)) throw new Error('lien de signalement non traduit');
+    if (await page.$('.retenir') && !/Key point/.test(await page.textContent('.retenir'))) throw new Error('« Key point » absent');
+    if (!/Error%20report/.test(await page.getAttribute('.signaler', 'href'))) throw new Error('signalement non prérempli en anglais');
+    await capture('anglais-correction');
+    await page.evaluate(() => { location.hash = 'accueil'; }); // série laissée en cours (sans confirmation)
+    await page.waitForSelector('.menu-principal.centre');
+    if (!/Resume:/.test(await page.textContent('#reprendre'))) throw new Error('bouton de reprise non traduit');
+    // le choix est mémorisé : il survit au rechargement
+    await page.reload();
+    await page.waitForSelector('#ecran-titre', { state: 'detached' });
+    await page.waitForSelector('.choix-langue [data-langue=en][aria-pressed=true]');
+    await page.click('.choix-langue [data-langue=fr]');
+    await page.waitForSelector('.choix-langue [data-langue=fr][aria-pressed=true]');
+    if (!(await page.textContent('#app')).includes('Entraînement')) throw new Error('retour au français incomplet');
+    if (await page.evaluate(() => localStorage.getItem('rythmo.langue')) !== 'fr') throw new Error('choix du français non mémorisé');
+  });
   await page.close();
 }
+
+// Visiteur non francophone sans choix mémorisé : invitation (en anglais) à passer à l'anglais, refermable.
+await verifier('invitation à la version anglaise', async () => {
+  const ctx = await navigateur.newContext({ locale: 'en-GB' });
+  const page = await ctx.newPage();
+  page.on('pageerror', e => erreurs.push(`invitation : ${e.message}`));
+  await page.goto(url);
+  await page.waitForSelector('.invitation-langue');
+  if (!(await page.textContent('#app')).includes('Entraînement')) throw new Error('la version par défaut doit rester en français');
+  await page.click('.invitation-langue [data-langue=en]');
+  await page.waitForSelector('.choix-langue [data-langue=en][aria-pressed=true]');
+  if (await page.$('.invitation-langue')) throw new Error('invitation encore affichée');
+  await page.evaluate(() => localStorage.removeItem('rythmo.langue'));
+  await page.reload();
+  await page.waitForSelector('.fermer-invitation');
+  await page.click('.fermer-invitation');
+  if (await page.$('.invitation-langue') || await page.evaluate(() => localStorage.getItem('rythmo.langue')) !== 'fr') throw new Error('invitation non refermée');
+  await ctx.close();
+});
 
 // Référencement : balises essentielles, données structurées valides, contenu lisible sans JavaScript.
 await verifier('référencement (SEO / GEO)', async () => {

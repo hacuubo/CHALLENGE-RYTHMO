@@ -1,25 +1,28 @@
 # Challenge Rythmo
 
-> Application web gratuite, en français et sans compte pour apprendre la rythmologie cardiaque : 1 170 questions corrigées sur l'ECG, la programmation des stimulateurs cardiaques (pacemakers) et défibrillateurs implantables (DAI), la resynchronisation (CRT), la télésurveillance et l'électrophysiologie, plus un simulateur de baie d'électrophysiologie (EEP) en temps réel.
+> Free web app, in English and French, with no account, for learning cardiac rhythm management: 1,170 questions with detailed, referenced answers on ECG interpretation, pacemaker and implantable cardioverter-defibrillator (ICD) programming, cardiac resynchronisation therapy (CRT), remote monitoring and electrophysiology, plus a real-time electrophysiology (EP) recording system simulator.
 
-Points clés :
+Key facts:
 
-- Public : cardiologues, internes, infirmiers et techniciens de rythmologie, équipes de télésurveillance, étudiants.
-- Modes : entraînement par domaine ou ciblé, compétitif adaptatif avec classement ELO (départ à 600), examen chronométré, révisions espacées, progression.
-- Contenu : ECG (314 questions), Programmation PM / DAI (526 questions), Alertes télécardio (148 questions), Électrophysiologie (182 questions) ; 61 vrais ECG 12 dérivations (PTB-XL, CC BY 4.0) ; difficulté de 1 à 10 ; QCU, QCM, vrai/faux, questions ouvertes.
-- Simulateur d'EEP : 17 scénarios (Conduction normale, Double voie nodale sans tachycardie, TRIN typique (lente-rapide), TRIN atypique (rapide-lente), TRAV orthodromique (voie accessoire latérale gauche cachée), Syndrome de Wolff-Parkinson-White (voie latérale gauche), Flutter atrial typique (antihoraire, isthme-dépendant), Tachycardie atriale focale, TRAV orthodromique (voie accessoire postéro-septale cachée), Tachycardie jonctionnelle réciprocante permanente (Coumel), Fibres de Mahaim (voie atrio-fasciculaire), TRIN typique avec bloc 2:1 infra-hisien, TRAV latérale gauche avec bloc de branche gauche fonctionnel, Flutter péri-mitral (tachycardie atriale macroréentrante gauche), Tachycardie jonctionnelle focale, Tachycardie ventriculaire sur cicatrice, Fibrillation atriale) et cas mystères notés.
-- Sources : uniquement recommandations et consensus ESC, EHRA, HRS, ACC/AHA, articles indexés (DOI) et manuels officiels ; relecture par un rythmologue ; chaque correction cite ses sources.
-- Recommandations de référence : ESC 2021 stimulation et CRT, ESC 2022 arythmies ventriculaires, HRS 2023 télésurveillance, Consensus 2015 programmation DAI, ESC 2024 FA, ESC 2019 TSV, Consensus 2019 programmation DAI, ACC/AHA/HRS 2018 bradycardie, ESC 2018 syncope, ESC 2026 insuffisance cardiaque, EHRA 2023 stimulation de conduction, EHRA/HRS 2024 ablation de FA, HRS 2023 stimulation physiologique, ESC/EHRA 2025 stimulation de conduction, HRS 2017 IRM, Consensus 2019 ablation des arythmies ventriculaires, ESC 2026 MCV et maladie rénale.
-- Confidentialité : aucun compte, aucune donnée transmise ; progression stockée localement. Fonctionne hors ligne (PWA).
-- Limite : outil pédagogique, ne remplace ni les recommandations officielles, ni les manuels des fabricants, ni le jugement clinique.
+- Audience: cardiologists and trainees, cardiac physiologists, device and EP nurses and technicians, remote monitoring teams, students.
+- Languages: English and French (full interface, questions, answers and simulator; chosen on the home screen). The English version is a translation of the French original.
+- Modes: training by domain or targeted, adaptive competitive mode with ELO rating (start 600), timed exam, spaced-repetition review, progress tracking.
+- Content: ECG (314 questions), Pacemaker and ICD programming (526 questions), Remote monitoring alerts (148 questions), Electrophysiology (182 questions); 61 real 12-lead ECGs (PTB-XL, CC BY 4.0); difficulty 1 to 10; single-answer, multiple-answer, true/false and open questions.
+- EP simulator: 17 scenarios (Normal conduction, Dual AV nodal physiology without tachycardia, Typical AVNRT (slow–fast), Atypical AVNRT (fast–slow), Orthodromic AVRT (concealed left lateral accessory pathway), Wolff-Parkinson-White syndrome (left lateral pathway), Typical atrial flutter (counterclockwise, CTI-dependent), Focal atrial tachycardia, Orthodromic AVRT (concealed posteroseptal accessory pathway), Permanent junctional reciprocating tachycardia (Coumel), Mahaim fibres (atriofascicular pathway), Typical AVNRT with 2:1 infra-Hisian block, Left lateral AVRT with functional left bundle branch block, Perimitral flutter (left atrial macro-re-entrant tachycardia), Focal junctional tachycardia, Scar-related ventricular tachycardia, Atrial fibrillation) and scored mystery cases.
+- Sources: ESC, EHRA, HRS and ACC/AHA guidelines and consensus documents, indexed articles (DOI) and official manufacturer manuals only; every answer cites its sources.
+- Reference guidelines: ESC 2021 pacing and CRT, ESC 2022 ventricular arrhythmias, HRS 2023 remote device clinic, 2015 ICD programming consensus, ESC 2024 AF, ESC 2019 SVT, 2019 ICD programming consensus, ACC/AHA/HRS 2018 bradycardia, ESC 2018 syncope, ESC 2026 heart failure, EHRA 2023 conduction system pacing, EHRA/HRS 2024 AF ablation, HRS 2023 physiologic pacing, ESC/EHRA 2025 conduction system pacing, HRS 2017 MRI, 2019 ventricular arrhythmia ablation consensus, ESC 2026 CVD and kidney disease.
+- Privacy: no account, no data transmitted; progress stored locally. Works offline (PWA).
+- Limitation: educational tool; does not replace official guidelines, manufacturers' manuals or clinical judgement.
 
-Base mise à jour le 2026-09-26.
+Question bank updated on 2026-09-26.
 
 ## Pages
 
-- [Application Challenge Rythmo](https://hacuubo.github.io/CHALLENGE-RYTHMO/) : quiz, mode compétitif ELO, simulateur d'électrophysiologie
-- [Présentation détaillée](https://hacuubo.github.io/CHALLENGE-RYTHMO/presentation.html) : thèmes et sous-thèmes, méthode, recommandations, sources, FAQ
+- [Challenge Rythmo app, English](https://hacuubo.github.io/CHALLENGE-RYTHMO/en/): quizzes, competitive ELO mode, electrophysiology simulator
+- [About Challenge Rythmo](https://hacuubo.github.io/CHALLENGE-RYTHMO/en/presentation.html): topics and subtopics, method, guidelines, sources, FAQ
+- [Application Challenge Rythmo, français](https://hacuubo.github.io/CHALLENGE-RYTHMO/): quiz, mode compétitif ELO, simulateur d'électrophysiologie
+- [Présentation détaillée (français)](https://hacuubo.github.io/CHALLENGE-RYTHMO/presentation.html) : thèmes, méthode, recommandations, sources, FAQ
 
 ## Optional
 
-- [Code source et format des questions](https://github.com/hacuubo/CHALLENGE-RYTHMO)
+- [Source code and question format](https://github.com/hacuubo/CHALLENGE-RYTHMO)

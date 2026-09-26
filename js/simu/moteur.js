@@ -4,6 +4,8 @@
 // un délai de conduction (décrémentiel pour le nœud AV), une période réfractaire, ou une simple pénétration
 // cachée (« bloc ») qui la rend réfractaire sans conduire. Les réentrées émergent du réseau, sans être programmées.
 // Simulation à événements discrets, temps en millisecondes. Aucune dépendance au DOM (testable sous Node).
+// Événements du journal : type (clé stable) et texte dans la langue courante ; trad et non t, qui désigne ici le temps.
+import { t as trad } from '../i18n.js';
 
 class Tas {
   constructor() { this.a = []; }
@@ -94,10 +96,10 @@ export class Coeur {
   }
   basculerMedicament(nom, t = this.t) {
     const m = this.medicaments[nom];
-    if (m && m.fin == null) { m.fin = t; this.evenements.push({ t, texte: nom === 'iso' ? 'Arrêt de l\'isoprénaline' : 'Fin de l\'atropine' }); return false; }
+    if (m && m.fin == null) { m.fin = t; this.evenements.push({ t, type: nom, texte: nom === 'iso' ? trad('Arrêt de l\'isoprénaline', 'Isoprenaline stopped') : trad('Fin de l\'atropine', 'Atropine wearing off') }); return false; }
     const reste = this.niveau(nom, t);
     this.medicaments[nom] = { debut: t - reste * 15000 };
-    this.evenements.push({ t, texte: nom === 'iso' ? 'Isoprénaline 1 µg/min' : 'Atropine 1 mg IV' });
+    this.evenements.push({ t, type: nom, texte: nom === 'iso' ? trad('Isoprénaline 1 µg/min', 'Isoprenaline 1 µg/min') : trad('Atropine 1 mg IV', 'Atropine 1 mg IV') });
     return true;
   }
   // Effets combinés : cycle des automatismes, réfractarité et décrément nodaux, réfractarité myocardique.
@@ -175,7 +177,7 @@ export class Coeur {
     for (const v of this.voies) if (v.nodale && v.id !== 'lente' && !v.coupee) {
       if (antero && v.ab && !v.ab.bloc) v.ab.d += ms;
       if (retro && v.ba && !v.ba.bloc) v.ba.d += ms;
-      if ((v.ab?.d ?? 0) > 400) { v.coupee = true; this.evenements.push({ t: this.t, texte: 'Bloc AV complet' }); }
+      if ((v.ab?.d ?? 0) > 400) { v.coupee = true; this.evenements.push({ t: this.t, type: 'bavc', texte: trad('Bloc AV complet', 'Complete heart block') }); }
     }
   }
   annulerStims(apres = this.t) { this.tas.filtrer(e => !(e.type === 'stim' && e.t > apres)); }
@@ -185,7 +187,7 @@ export class Coeur {
     if (this.fa) return;
     this.fa = { debut: t };
     for (const id of SITES_ATRIAUX) if (this.sites[id] && id !== 'sa' && id !== 'foyer') this.tas.pousser({ t: t + 40 + 150 * this.alea(), type: 'fa', s: id });
-    this.evenements.push({ t, texte: 'Fibrillation atriale' });
+    this.evenements.push({ t, type: 'fa', texte: trad('Fibrillation atriale', 'Atrial fibrillation') });
   }
   ondeFA(e) {
     if (!this.fa) return;
@@ -251,7 +253,7 @@ export class Coeur {
       if (s.declenchable && !s.actif && !s.supprime) {
         s.actif = true; s.gen++;
         this.tas.pousser({ t: t + s.cl, type: 'auto', s: s.id, gen: s.gen });
-        this.evenements.push({ t, texte: 'Activité déclenchée' });
+        this.evenements.push({ t, type: 'declenchee', texte: trad('Activité déclenchée', 'Triggered activity') });
       }
     }
   }
@@ -267,13 +269,13 @@ export class Coeur {
     for (const v of this.voies) v.der = t;
     this.trainAtrial.n = 0;
     this.chocs.push(t);
-    this.evenements.push({ t, texte: 'Choc électrique externe' });
+    this.evenements.push({ t, type: 'choc', texte: trad('Choc électrique externe', 'External DC shock') });
   }
 
   // Bolus d'adénosine : bloc transitoire de toutes les voies nodales (délai d'arrivée ≈ 1,5 s, durée ≈ 6 s).
   injecterAdenosine(t = this.t) {
     this.adenosine = { debut: t + 1500, fin: t + 7500 };
-    this.evenements.push({ t, texte: 'Adénosine 12 mg IV' });
+    this.evenements.push({ t, type: 'adenosine', texte: trad('Adénosine 12 mg IV', 'Adenosine 12 mg IV') });
   }
 
   // Ablation d'une cible : voie (par identifiant) ou site automatique. Renvoie ce qui a été détruit.
@@ -281,7 +283,7 @@ export class Coeur {
     const liste = [].concat(cibles), touchees = [];
     for (const v of this.voies) if (!v.coupee && (liste.includes(v.id) || (liste.includes('rapide') && v.id === 'nav'))) { v.coupee = true; touchees.push(v.id); }
     for (const c of liste) { const s = this.sites[c]; if (s && !s.supprime) { s.supprime = true; touchees.push(c); } }
-    this.evenements.push({ t, texte: `Radiofréquence : ${touchees.length ? 'lésion efficace' : 'pas de tissu arythmogène ici'}` });
+    this.evenements.push({ t, type: 'rf', texte: touchees.length ? trad('Radiofréquence : lésion efficace', 'RF application: effective lesion') : trad('Radiofréquence : pas de tissu arythmogène ici', 'RF application: no arrhythmogenic tissue here') });
     return touchees;
   }
 

@@ -1,12 +1,13 @@
 import * as stock from '../store.js';
-import { THEMES, TYPES, NIVEAUX, MARQUES, base, filtrer, construireSerie } from '../donnees.js';
+import { THEMES, TYPES, NIVEAUX, MARQUES, base, filtrer, construireSerie, libSousTheme, libMarque } from '../donnees.js';
 import { esc } from '../util.js';
+import { t, locale } from '../i18n.js';
 
 export function vueConfig(app, { demarrer }) {
   const cfg = stock.config();
-  const compteTheme = t => base.questions.filter(q => q.theme === t).length;
-  const sousParTheme = Object.keys(THEMES).filter(t => cfg.themes.includes(t)).map(t => ({
-    t, liste: [...new Set(base.questions.filter(q => q.theme === t).map(q => q.sousTheme))].sort((a, b) => a.localeCompare(b, 'fr')),
+  const compteTheme = th => base.questions.filter(q => q.theme === th).length;
+  const sousParTheme = Object.keys(THEMES).filter(th => cfg.themes.includes(th)).map(th => ({
+    th, liste: [...new Set(base.questions.filter(q => q.theme === th).map(q => q.sousTheme))].sort((a, b) => libSousTheme(a).localeCompare(libSousTheme(b), locale())),
   }));
   const tousSous = sousParTheme.flatMap(x => x.liste);
   cfg.sousThemes = cfg.sousThemes.filter(s => tousSous.includes(s));
@@ -17,51 +18,51 @@ export function vueConfig(app, { demarrer }) {
   const niv = stock.classement();
 
   app.innerHTML = `
-    <h1>Entraînement ciblé</h1>
+    <h1>${t('Entraînement ciblé', 'Custom training')}</h1>
     <form class="carte" id="f">
-      <fieldset><legend>Mode</legend><div class="puces">
-        <label class="puce"><input type="radio" name="mode" value="entrainement" ${cfg.mode !== 'examen' ? 'checked' : ''}><span>📖 Entraînement <span class="n">correction immédiate</span></span></label>
-        <label class="puce"><input type="radio" name="mode" value="examen" ${cfg.mode === 'examen' ? 'checked' : ''}><span>⏱️ Examen <span class="n">chrono, correction à la fin</span></span></label>
+      <fieldset><legend>${t('Mode', 'Mode')}</legend><div class="puces">
+        <label class="puce"><input type="radio" name="mode" value="entrainement" ${cfg.mode !== 'examen' ? 'checked' : ''}><span>📖 ${t('Entraînement', 'Training')} <span class="n">${t('correction immédiate', 'instant feedback')}</span></span></label>
+        <label class="puce"><input type="radio" name="mode" value="examen" ${cfg.mode === 'examen' ? 'checked' : ''}><span>⏱️ ${t('Examen', 'Exam')} <span class="n">${t('chrono, correction à la fin', 'timed, answers at the end')}</span></span></label>
       </div></fieldset>
 
-      <fieldset><legend>Thèmes</legend><div class="puces">
-        ${Object.entries(THEMES).map(([k, t]) => `<label class="puce"><input type="checkbox" name="theme" value="${k}" ${cfg.themes.includes(k) ? 'checked' : ''}><span>${t.ico} ${t.nom} <span class="n">${compteTheme(k)}</span></span></label>`).join('')}
-        <label class="puce"><input type="checkbox" name="ecgSeul" ${cfg.ecgSeul ? 'checked' : ''}><span>🩺 Tracés uniquement</span></label>
+      <fieldset><legend>${t('Thèmes', 'Topics')}</legend><div class="puces">
+        ${Object.entries(THEMES).map(([k, th]) => `<label class="puce"><input type="checkbox" name="theme" value="${k}" ${cfg.themes.includes(k) ? 'checked' : ''}><span>${th.ico} ${th.nom} <span class="n">${compteTheme(k)}</span></span></label>`).join('')}
+        <label class="puce"><input type="checkbox" name="ecgSeul" ${cfg.ecgSeul ? 'checked' : ''}><span>🩺 ${t('Tracés uniquement', 'Tracings only')}</span></label>
       </div></fieldset>
 
-      <fieldset><legend>Niveau de difficulté</legend>
+      <fieldset><legend>${t('Niveau de difficulté', 'Difficulty level')}</legend>
         <div class="puces" style="margin-bottom:10px">
           ${NIVEAUX.map(n => `<label class="puce"><input type="radio" name="niveau" value="${n.id}" ${niveauActif === n.id ? 'checked' : ''}><span>${n.nom}</span></label>`).join('')}
-          ${niv.n >= 5 ? `<label class="puce"><input type="radio" name="niveau" value="moi"><span>🧭 Mon niveau (${Math.max(1, niv.niveau - 1)}–${Math.min(10, niv.niveau + 2)})</span></label>` : ''}
+          ${niv.n >= 5 ? `<label class="puce"><input type="radio" name="niveau" value="moi"><span>🧭 ${t('Mon niveau', 'My level')} (${Math.max(1, niv.niveau - 1)}–${Math.min(10, niv.niveau + 2)})</span></label>` : ''}
         </div>
-        <div class="plage">Entre <select name="min" aria-label="Difficulté minimale">${opts(cfg.min)}</select> et <select name="max" aria-label="Difficulté maximale">${opts(cfg.max)}</select> <span class="note">(1 = découverte, 10 = expert)</span></div>
+        <div class="plage">${t('Entre', 'Between')} <select name="min" aria-label="${t('Difficulté minimale', 'Minimum difficulty')}">${opts(cfg.min)}</select> ${t('et', 'and')} <select name="max" aria-label="${t('Difficulté maximale', 'Maximum difficulty')}">${opts(cfg.max)}</select> <span class="note">${t('(1 = découverte, 10 = expert)', '(1 = introductory, 10 = expert)')}</span></div>
       </fieldset>
 
-      <fieldset><legend>Série</legend>
-        <div class="plage"><select name="n" aria-label="Nombre de questions">${[5, 10, 20, 30, 50, 9999].map(n => `<option value="${n}" ${cfg.n === n ? 'selected' : ''}>${n === 9999 ? 'Toutes' : n + ' questions'}</option>`).join('')}</select></div>
+      <fieldset><legend>${t('Série', 'Quiz length')}</legend>
+        <div class="plage"><select name="n" aria-label="${t('Nombre de questions', 'Number of questions')}">${[5, 10, 20, 30, 50, 9999].map(n => `<option value="${n}" ${cfg.n === n ? 'selected' : ''}>${n === 9999 ? t('Toutes', 'All') : n + ' questions'}</option>`).join('')}</select></div>
       </fieldset>
 
-      <details class="avance" ${nbAvances ? 'open' : ''}><summary>Plus d'options${nbAvances ? ` <span class="n">(${nbAvances} active${nbAvances > 1 ? 's' : ''})</span>` : ''}</summary>
-        ${marquesVisibles ? `<fieldset><legend>Marques <span class="note">(programmation et télécardio — aucune sélection = toutes)</span></legend><div class="puces">
-          ${['Générique', ...MARQUES].map(m => `<label class="puce"><input type="checkbox" name="marque" value="${m}" ${cfg.marques.includes(m) ? 'checked' : ''}><span>${m}</span></label>`).join('')}
+      <details class="avance" ${nbAvances ? 'open' : ''}><summary>${t('Plus d\'options', 'More options')}${nbAvances ? ` <span class="n">(${nbAvances} active${nbAvances > 1 ? t('s', '') : ''})</span>` : ''}</summary>
+        ${marquesVisibles ? `<fieldset><legend>${t('Marques', 'Manufacturers')} <span class="note">${t('(programmation et télécardio — aucune sélection = toutes)', '(programming and remote monitoring — none selected = all)')}</span></legend><div class="puces">
+          ${['Générique', ...MARQUES].map(m => `<label class="puce"><input type="checkbox" name="marque" value="${m}" ${cfg.marques.includes(m) ? 'checked' : ''}><span>${esc(libMarque(m))}</span></label>`).join('')}
         </div></fieldset>` : ''}
-        <fieldset><legend>Types de questions</legend><div class="puces">
-          ${Object.entries(TYPES).map(([k, t]) => `<label class="puce"><input type="checkbox" name="type" value="${k}" ${cfg.types.includes(k) ? 'checked' : ''}><span>${t}</span></label>`).join('')}
+        <fieldset><legend>${t('Types de questions', 'Question types')}</legend><div class="puces">
+          ${Object.entries(TYPES).map(([k, ty]) => `<label class="puce"><input type="checkbox" name="type" value="${k}" ${cfg.types.includes(k) ? 'checked' : ''}><span>${ty}</span></label>`).join('')}
         </div></fieldset>
-        <fieldset><legend>Ordre</legend><div class="plage">
-          <select name="priorite" aria-label="Ordre des questions">
-            <option value="hasard" ${cfg.priorite === 'hasard' ? 'selected' : ''}>Complètement au hasard</option>
-            <option value="nouvelles" ${cfg.priorite === 'nouvelles' ? 'selected' : ''}>Jamais vues d'abord</option>
-            <option value="faibles" ${cfg.priorite === 'faibles' ? 'selected' : ''}>Mes points faibles d'abord</option>
+        <fieldset><legend>${t('Ordre', 'Order')}</legend><div class="plage">
+          <select name="priorite" aria-label="${t('Ordre des questions', 'Question order')}">
+            <option value="hasard" ${cfg.priorite === 'hasard' ? 'selected' : ''}>${t('Complètement au hasard', 'Random')}</option>
+            <option value="nouvelles" ${cfg.priorite === 'nouvelles' ? 'selected' : ''}>${t('Jamais vues d\'abord', 'Unseen first')}</option>
+            <option value="faibles" ${cfg.priorite === 'faibles' ? 'selected' : ''}>${t('Mes points faibles d\'abord', 'My weak spots first')}</option>
           </select></div></fieldset>
-        <fieldset><legend>Sous-thèmes <span class="note">(aucune sélection = tous)</span></legend>
-          ${sousParTheme.map(({ t, liste }) => `<div class="groupe-sous"><div class="note"><b>${THEMES[t].nom}</b></div><div class="puces">
-            ${liste.map(s => `<label class="puce"><input type="checkbox" name="sous" value="${esc(s)}" ${cfg.sousThemes.includes(s) ? 'checked' : ''}><span>${esc(s)} <span class="n">${base.questions.filter(q => q.sousTheme === s && q.theme === t).length}</span></span></label>`).join('')}
+        <fieldset><legend>${t('Sous-thèmes', 'Subtopics')} <span class="note">${t('(aucune sélection = tous)', '(none selected = all)')}</span></legend>
+          ${sousParTheme.map(({ th, liste }) => `<div class="groupe-sous"><div class="note"><b>${THEMES[th].nom}</b></div><div class="puces">
+            ${liste.map(s => `<label class="puce"><input type="checkbox" name="sous" value="${esc(s)}" ${cfg.sousThemes.includes(s) ? 'checked' : ''}><span>${esc(libSousTheme(s))} <span class="n">${base.questions.filter(q => q.sousTheme === s && q.theme === th).length}</span></span></label>`).join('')}
           </div></div>`).join('')}
         </fieldset>
       </details>
       <p><span class="compteur" id="cpt"></span></p>
-      <button class="btn btn-primaire btn-bloc" id="go">Commencer</button>
+      <button class="btn btn-primaire btn-bloc" id="go">${t('Commencer', 'Start')}</button>
     </form>`;
 
   const f = app.querySelector('#f');
@@ -76,7 +77,7 @@ export function vueConfig(app, { demarrer }) {
   };
   const maj = () => {
     const c = lire(); const l = filtrer(c);
-    app.querySelector('#cpt').textContent = `${l.length} question(s) correspondent à vos critères`;
+    app.querySelector('#cpt').textContent = t(`${l.length} question(s) correspondent à vos critères`, `${l.length} question${l.length === 1 ? ' matches' : 's match'} your criteria`);
     app.querySelector('#go').disabled = !l.length;
     stock.sauverConfig(c);
     return c;
@@ -96,7 +97,7 @@ export function vueConfig(app, { demarrer }) {
     e.preventDefault();
     const c = maj();
     const n = c.mode === 'examen' ? Math.min(c.n, 60) : c.n;
-    demarrer(construireSerie(filtrer(c), n, c.priorite), c.mode === 'examen' ? 'Examen' : 'Entraînement ciblé', { examen: c.mode === 'examen' });
+    demarrer(construireSerie(filtrer(c), n, c.priorite), c.mode === 'examen' ? t('Examen', 'Exam') : t('Entraînement ciblé', 'Custom training'), { examen: c.mode === 'examen' });
   });
   maj();
 }

@@ -1,0 +1,268 @@
+{
+ "cas-mdt-001": {
+  "question": "On interrogation of a Medtronic dual-chamber ICD (VT zone 360 to 300 ms, VT NID 16), a VT episode with AV dissociation and cycle lengths of 350 to 370 ms was treated with ATP only after almost a minute. During this delay, the marker channel shows alternating TS and VS cycles. What is the explanation?",
+  "options": [
+   "PR Logic classified it as SVT as long as AV dissociation was not confirmed",
+   "Each VS cycle resets the VT counter, which counts consecutive cycles",
+   "The VT counter requires 75% fast cycles within a sliding window",
+   "Bradycardia pacing suspends detection after each long cycle"
+  ],
+  "commentaires": [
+   "Incorrect: PR Logic only gives its verdict once the counter is full; here it is the filling of the counter that is delayed.",
+   "Correct: in Medtronic devices, a TS adds 1, an FS changes nothing, and any VS resets the VT counter to zero; a VT oscillating around the lower zone boundary is therefore detected late.",
+   "Incorrect: this probabilistic operation (X/Y, 75%) is that of the VF counter, not the VT counter.",
+   "Incorrect: no such suspension exists; long cycles are simply classified as VS."
+  ],
+  "explication": "In Medtronic devices, the two counters are different in nature: the VF counter is probabilistic (75% short cycles, e.g. 30/40), whereas the VT counter counts consecutive cycles. A TS cycle increments it, an FS cycle leaves it unchanged and a VS cycle resets it to zero. An irregular VT whose cycles oscillate around the lower boundary of the zone is therefore recognised late, even when the diagnosis is obvious by eye (AV dissociation). The remedy is to set the lower boundary of the VT zone with a comfortable margin below the clinical VT: at least 10 to 20 bpm, a margin that the authors advise widening slightly in Medtronic devices. The flip side is favourable: conducted AF, with its many long cycles, rarely fills this counter, which acts as a first filter against inappropriate therapies.",
+  "aRetenir": "Medtronic VT counter = consecutive cycles: a single VS resets it; leave a wide margin between the lower boundary of the VT zone and the clinical VT."
+ },
+ "cas-mdt-002": {
+  "question": "Medtronic ICD: VT zone 400 to 320 ms (NID 16), VF zone below 320 ms (NID 30/40). A VT with cycles oscillating between 310 and 330 ms alternates TS and FS markers: without 75% FS cycles, the VF counter does not fill. After at least 6 FS cycles, how many TS + FS cycles does the Combined Count require, and which therapy is delivered if one of the last 8 cycles is classified as FS?",
+  "options": [
+   "30 cycles; first therapy of the VT zone",
+   "40 cycles; therapy of the slowest zone",
+   "35 cycles; first therapy of the VF zone",
+   "46 cycles; first therapy of the VF zone"
+  ],
+  "commentaires": [
+   "Incorrect: 30 is the VF NID itself; the Combined Count requires 7/6 of it, and an FS among the last 8 cycles points to the VF zone.",
+   "Incorrect: 40 is the window of the probabilistic VF counter, and therapy is not chosen by default from the slow zone.",
+   "Correct: threshold = 7/6 × 30 = 35 TS or FS cycles; if there is at least one FS among the last 8 cycles, the device diagnoses VF.",
+   "Incorrect: the VT and VF NIDs are not added together; the threshold is 7/6 of the VF NID."
+  ],
+  "explication": "In Medtronic devices, an FS cycle does not increment the VT counter (consecutive cycles) and a series of TS cycles does not fill the VF counter: an arrhythmia straddling the VT/VF boundary could therefore escape both. The Combined Count, always active whenever a VT zone and a VF zone are programmed, corrects this weakness. It is armed after 6 FS cycles, then adds TS and FS together up to 7/6 of the VF NID for initial detection (35 for an NID of 30). The device then examines the last 8 cycles: at least one FS leads to a diagnosis of VF and to the first therapy of that zone (often ATP before or during charging); 8 TS cycles lead to a diagnosis of VT.",
+  "aRetenir": "Medtronic Combined Count: armed after 6 FS, full at 7/6 of the VF NID (35 for 30/40); one FS among the last 8 cycles = VF therapy."
+ },
+ "cas-mdt-003": {
+  "question": "You are programming a Medtronic ICD for primary prevention: VF zone from 188 bpm, first therapy ATP. You are deciding between \"ATP During Charging\" and \"ATP Before Charging\". Which statements are correct? (select all that apply)",
+  "options": [
+   "ATP During Charging: if ATP succeeds, the shock is not delivered, but little charging energy is saved",
+   "ATP During Charging: the shock is delayed by a time equal to the duration of the ATP burst",
+   "ATP Before Charging: unsuccessful ATP delays the shock by a few seconds",
+   "The ChargeSaver option switches to ATP Before Charging after several consecutive successes of ATP During Charging",
+   "ATP Before Charging: charging starts even if ATP has terminated the arrhythmia, for safety"
+  ],
+  "commentaires": [
+   "Correct: charging takes place in parallel with ATP; the shock is aborted if the rhythm has reverted, but the energy for charging has already been drawn from the battery.",
+   "Incorrect: the burst is delivered during the charge time, which would have elapsed anyway; the shock is not delayed.",
+   "Correct: charging only starts after the arrhythmia has been reconfirmed following ATP, which delays the shock by a few seconds.",
+   "Correct: ChargeSaver automatically switches to ATP Before Charging when ATP During Charging has succeeded for a programmable number of consecutive episodes.",
+   "Incorrect: if ATP succeeds, no charge is started; that is the whole point of this mode."
+  ],
+  "explication": "A large proportion of tachycardias detected in the VF zone are fast monomorphic VTs, often terminated by a single burst of 8 pulses at 88% of the cycle length (PainFREE Rx II), and the expert consensus recommends programming at least one ATP for fast VTs up to 230 bpm. ATP During Charging does not delay the shock if it fails, but saves almost no energy if it succeeds. ATP Before Charging saves a capacitor charge if the burst succeeds, at the cost of a few seconds' delay if it fails. ChargeSaver combines the two: it starts with ATP During Charging and switches to ATP Before Charging after several successes. In both cases, ATP in the VF zone is only delivered if the last 8 cycles are greater than or equal to a programmed value, which avoids delivering ATP into very fast VF.",
+  "aRetenir": "ATP During Charging = no delay to the shock; ATP Before Charging = saves a charge but delays the shock if it fails; ChargeSaver switches from one to the other after repeated successes."
+ },
+ "cas-mdt-004": {
+  "question": "On interrogation of a Medtronic ICD: VF detected, first 35 J shock unsuccessful, VF redetected. During the second charge, the rhythm spontaneously reverts to sinus, but a second shock is nevertheless delivered, synchronised to a QRS. True or false: this is normal device behaviour.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: only the first shock of an episode is preceded by a confirmation phase at the end of charging; after redetection, the shock is committed and delivered regardless.",
+   "Incorrect: charge abort is only possible before the first shock of the episode; subsequent shocks are committed."
+  ],
+  "explication": "Before the first shock of an episode, the Medtronic ICD checks at the end of charging that the arrhythmia persists; if the rhythm has normalised, the charge is aborted. After an unsuccessful first shock, the situation changes: spontaneous reversion to sinus rhythm is then unlikely, and prolonged undersensing of low-amplitude VF could wrongly suggest termination. Subsequent shocks in the episode are therefore committed: delivered at the end of charging, synchronised to a sensed event if there is one, otherwise asynchronously. This second shock \"in sinus rhythm\" is therefore not a malfunction. The episode should nevertheless be reviewed, as an unsuccessful first shock raises the question of an inadequate defibrillation safety margin (polarity, vector, energy, lead position).",
+  "aRetenir": "Medtronic: end-of-charge confirmation only before the first shock; after redetection, the shock is committed and delivered even if the rhythm has normalised."
+ },
+ "cas-mdt-005": {
+  "question": "Medtronic dual-chamber ICD, PR Logic and Wavelet on. The patient has paroxysmal AF with rapid conduction, so far always correctly classified as SVT. However, one episode triggered four unsuccessful ATP sequences. On review: ongoing AF, but many low-amplitude atrial electrograms are not sensed, so the counted atrial rate becomes lower than the ventricular rate. Why did morphology analysis not correct the diagnosis?",
+  "options": [
+   "If V is judged faster than A, PR Logic calls VT without consulting Wavelet",
+   "Wavelet only works in single-chamber ICDs, not in dual-chamber ICDs",
+   "Wavelet is automatically disabled as soon as the device detects AF",
+   "The Wavelet template is erased and reinitialised at every mode switch"
+  ],
+  "commentaires": [
+   "Correct: the V > A rule takes priority; Wavelet only comes into play when the atrial rate is greater than or equal to the ventricular rate and PR Logic favours VT.",
+   "Incorrect: on recent platforms, Wavelet can be combined with PR Logic in dual- and triple-chamber ICDs.",
+   "Incorrect: no such disabling exists; AF is precisely a situation in which Wavelet can help.",
+   "Incorrect: the template is kept and updated automatically; it is not erased by mode switching."
+  ],
+  "explication": "PR Logic first compares the median atrial and ventricular rates: if V is judged faster than A, it concludes VT without further analysis. When combined with PR Logic, Wavelet can only correct the diagnosis if A ≥ V and PR Logic concludes VT (presumed 1:1 VT or double tachycardia). Atrial undersensing during AF creates a false V > A situation: this is a classic cause of inappropriate therapy despite a dual-chamber discriminator. The first step is to optimise atrial sensing (sensitivity, polarity, post-ventricular atrial blanking). If such episodes recur with no room left for reprogramming, basing discrimination on morphology alone can be considered.",
+  "aRetenir": "PR Logic: V > A = VT outright, Wavelet not consulted; atrial undersensing during AF can therefore cause inappropriate therapy."
+ },
+ "cas-mdt-006": {
+  "question": "Medtronic dual-chamber ICD whose programming was carried over from a previous device: PR Logic on, and Onset criterion also On. VT zone from 430 ms (140 bpm). Stored episode: tachycardia at 140–141 bpm, V > A with obvious AV dissociation; no therapy, VS markers and a reset annotation from the Onset criterion. What is the most logical course of action?",
+  "options": [
+   "Also program the Stability criterion to improve diagnostic specificity",
+   "Lengthen the VT zone NID to 30 intervals",
+   "Change nothing: PR Logic will correct it at the next episode",
+   "Turn the Onset criterion off and let PR Logic discriminate"
+  ],
+  "commentaires": [
+   "Incorrect: Stability, which also takes priority over PR Logic, would add a further risk of undertreatment, particularly for a slightly irregular VT.",
+   "Incorrect: lengthening the NID does nothing about the blocking by the Onset criterion and would delay therapy further.",
+   "Incorrect: programmed single-chamber criteria override PR Logic; as long as Onset is not satisfied, PR Logic is not consulted.",
+   "Correct: here V > A, so PR Logic would have concluded VT; it was the Onset criterion, which takes priority, that blocked the diagnosis."
+  ],
+  "explication": "In Medtronic dual- or triple-chamber ICDs, the Onset and Stability criteria can be combined with PR Logic, but they are evaluated first and take priority over it: if onset is not judged sudden, the device concludes SVT without consulting PR Logic. The criterion compares the first 4 cycles in the VT zone with the 4 preceding cycles. A VT starting just below the zone boundary (139 bpm) and then entering it (140–141 bpm) shows no measurable \"jump\" in rate. The simplest solution is to turn this criterion off, let PR Logic (and Wavelet) discriminate, and review the lower boundary of the VT zone with an adequate margin. This is also the recommended programming in dual-chamber devices: discrimination by PR Logic and Wavelet, without Onset or Stability.",
+  "aRetenir": "In Medtronic devices, Onset and Stability override PR Logic: in dual-chamber devices, leave them Off."
+ },
+ "cas-mdt-007": {
+  "question": "You are reprogramming a recent Medtronic single-chamber ICD (primary prevention, single VF zone from 188 bpm, NID 30/40). The patient received an inappropriate shock for AF conducted at 205 bpm. Which statements are correct? (select all that apply)",
+  "options": [
+   "Wavelet can apply in the VF zone, up to the programmed SVT limit",
+   "An SVT limit of 260 ms (about 230 bpm) is consistent with the expert consensus",
+   "The Onset and Stability criteria also apply in the VF zone",
+   "The usually recommended programming is Wavelet alone, with Onset and Stability Off",
+   "Wavelet only classifies SVT if at least 6 of the last 8 complexes match the template"
+  ],
+  "commentaires": [
+   "Correct: in Medtronic devices, the SVT limit is programmed independently of the zones, so discrimination can act in the VF zone.",
+   "Correct: the consensus recommends discriminating up to about 230 bpm; above that, a supraventricular origin is very unlikely.",
+   "Incorrect: Onset and Stability are restricted to VT zones (and FVT programmed via VT), not the VF zone.",
+   "Correct: combining the three criteria requires all of them to be met before therapy, which can wrongly withhold therapy for a slightly irregular VT.",
+   "Incorrect: VT is diagnosed if at least 6 of the 8 complexes differ from the template; 3 matching complexes are enough to conclude SVT."
+  ],
+  "explication": "Unlike other manufacturers, Medtronic allows discrimination in the VF zone: the SVT limit is programmed independently of the detection zones. The expert consensus recommends discriminating up to about 230 bpm (SVT limit of 260 ms), as conducted AF above 200 bpm does occur. In single-chamber devices, Onset and Stability only work in VT zones. When programmed with Wavelet, they require all criteria to be met before therapy, which reduces sensitivity. The usual programming is therefore Wavelet alone, with a template collected and updated automatically. Wavelet analyses the last 8 complexes: at least 6 differing from the template indicate VT, at least 3 matching indicate SVT.",
+  "aRetenir": "Medtronic single-chamber ICD: Wavelet alone, SVT limit at 260 ms, applicable even in the VF zone."
+ },
+ "cas-mdt-008": {
+  "question": "A young patient with a Medtronic single-chamber ICD for Brugada syndrome. On interrogation: several episodes in which the VF counter fills without therapy, with a TWave Discrimination annotation; the R wave measures 1.4 mV with true bipolar sensing. Which statements are correct? (select all that apply)",
+  "options": [
+   "TWave Discrimination prevented the shocks but does not correct the cause: the low-amplitude R wave",
+   "Testing integrated bipolar sensing (tip to RV coil) may markedly increase R-wave amplitude",
+   "TWave Discrimination can be turned off, since therapies were rightly withheld",
+   "Lengthening post-sense blanking to 400 ms would mask the T wave with no consequence for VF detection"
+  ],
+  "commentaires": [
+   "Correct: the algorithm recognises the double counting and withholds therapy, but the R wave remains small, which also exposes the patient to undersensing of true VF.",
+   "Correct: Medtronic devices allow a choice between true bipolar and integrated bipolar sensing; in some patients the R wave becomes much larger, improving the R/T ratio.",
+   "Incorrect: this algorithm is precisely what prevented the inappropriate shocks; it is on by default and should stay on.",
+   "Incorrect: such a long blanking period would cause VF cycles to be missed; this is not an acceptable strategy in an ICD."
+  ],
+  "explication": "T-wave oversensing during an intrinsic rhythm is mainly promoted by a low-amplitude R wave: auto-adjusting sensitivity, set according to the preceding R wave, quickly reaches high sensitivity levels. This is common in Brugada syndrome, arrhythmogenic right ventricular cardiomyopathy and sarcoidosis. TWave Discrimination identifies the regular alternation of a high-frequency signal (R) and a low-frequency signal (T) at fixed intervals and withholds therapy, without removing the cause. In a Medtronic ICD, integrated bipolar sensing (tip to RV coil) can be tried: the average amplitude is no better, but the gain is sometimes dramatic in an individual patient. The trade-off is that this configuration is slightly more exposed to interference and myopotentials. Another option is to reduce sensitivity, while checking VF detection. Lead repositioning remains the fallback if no satisfactory compromise is found.",
+  "aRetenir": "T-wave oversensing with a small R wave: TWave Discrimination protects, but the cause must be addressed (trial of integrated bipolar sensing, sensitivity adjustment with VF sensing checked, or even repositioning)."
+ },
+ "cas-mdt-009": {
+  "question": "Recent Medtronic dual-chamber pacemaker (Azure) implanted for paroxysmal AV block; sensed AV delay extended to 250 ms to promote intrinsic conduction. Interrogation shows an AS-VP tachycardia at 115 bpm (VA interval ≈ 270 ms), and PMT Intervention is on. On the tracing, after 8 VP-AS cycles, the AV delay of one cycle is extended by 50 ms. Which observation leads the algorithm to conclude that this is a PMT?",
+  "options": [
+   "The VP-AS interval shortens by as much as the AV delay lengthens",
+   "The activity sensor rate is high during the tachycardia",
+   "The VP-AS interval is unchanged despite the change in AV delay",
+   "The next P wave falls within the post-ventricular atrial blanking period"
+  ],
+  "commentaires": [
+   "Incorrect: this is the behaviour of sinus tachycardia; since the atrial rhythm is not linked to the VP, lengthening the AV delay shortens the VA interval.",
+   "Incorrect: older algorithms relied on the sensor to rule out exercise-induced sinus tachycardia; the new algorithm tests the VP-AS relationship.",
+   "Correct: in a PMT, the P wave results from retrograde conduction of the paced beat; the VA interval stays fixed (within a few ms) whatever the AV delay.",
+   "Incorrect: this is not a diagnostic criterion; termination consists precisely in making a P wave fall within an extended PVARP."
+  ],
+  "explication": "PMT Intervention in Medtronic pacemakers suspects a PMT after 8 consecutive VP-AS cycles with a VA interval shorter than 400 ms. On recent platforms, a confirmation phase has been added: the AV delay is extended (by 50 ms) for one cycle, and the following VA interval is compared with the previous one, a sequence repeated several times. A stable VA interval indicates a retrograde P wave driven by the VP and therefore a PMT. A shortening VA interval indicates independent atrial activity, such as sinus tachycardia. A confirmed PMT is terminated by extending the PVARP to 400 ms for one cycle: the retrograde P wave becomes refractory and is not tracked. This confirmation avoids blocking a sinus P wave during exercise, a weakness of earlier versions. Treating the cause remains essential: here, the long AV delay, which promotes PMT initiation, just like a PVC or loss of atrial capture.",
+  "aRetenir": "Recent Medtronic PMT Intervention: the AV delay is extended for one cycle; if the VA interval does not change, the P wave is retrograde → PMT, terminated by a 400 ms PVARP for one cycle."
+ },
+ "cas-mdt-010": {
+  "question": "A 67-year-old man with a recent Medtronic dual-chamber pacemaker (Azure) for sinus node dysfunction, programmed to MVP; resting PR interval 300 ms and exertional dyspnoea. During an incremental atrial pacing test, the AP-VS interval lengthens from 315 ms at 60 bpm to 360 ms at 90 bpm, with no blocked P waves. Which adjustment corrects the problem without giving up on minimising ventricular pacing at rest?",
+  "options": [
+   "Switch to DDD with a fixed AV delay of 150 ms",
+   "Enable MVP switching on long PR, with a limit around 300–350 ms",
+   "Shorten the PVARP so that MVP finally recognises the blocked P waves",
+   "Enable rate response, since a faster rate should shorten the PR"
+  ],
+  "commentaires": [
+   "Incorrect: this would relieve the symptoms, but at the cost of almost continuous RV pacing, whereas the patient conducts at rest.",
+   "Correct: on recent platforms, MVP can switch to DDD(R) when the intrinsic AV interval exceeds a programmed limit; this feature is Off by default.",
+   "Incorrect: no P wave is blocked; the original MVP criterion (non-conducted P waves) will never be met.",
+   "Incorrect: here the PR lengthens with rate; pacing the atrium faster would worsen AV mistiming during exercise."
+  ],
+  "explication": "In its first version, MVP only left AAI(R) operation for non-conducted P waves (2 of 4): a very long but conducted PR interval was tolerated indefinitely. During exercise, a PR interval that fails to shorten makes atrial systole occur too early, sometimes against a closed mitral valve, with symptoms resembling pacemaker syndrome. The 2021 ESC guidelines in fact give a class IIa indication for pacing in first-degree AV block (PR > 300 ms) with symptoms of this kind. Recent platforms offer MVP switching to DDD(R) when the intrinsic AV interval (AS-VS/AP-VS) exceeds a programmable limit; regular conduction checks then allow a return to AAI(R). This option, Off by default, should be reserved for symptomatic patients. A limit of 300 to 350 ms is a reasonable compromise between exercise comfort and repeated switching.",
+  "aRetenir": "Long, conducted, symptomatic PR in MVP: enable switching on long PR (Off by default) rather than programming permanent DDD."
+ },
+ "cas-mdt-011": {
+  "question": "A 25-year-old athlete with post-surgical complete AV block, with no anterograde or retrograde conduction, and a Medtronic CRT-P with epicardial leads: upper tracking rate 190 bpm, rate-adaptive AV delay, PVARP set to Auto. During recovery from exercise, 2:1 block (AS-BV-AR sequences) sets in abruptly and persists for several minutes. The EGM at the start of the episode shows oversensing of the terminal QRS/T wave on the RV channel. Which mechanism sustains the 2:1 block?",
+  "options": [
+   "Auto PVARP lengthens when the measured ventricular rate falls",
+   "The rate-adaptive AV delay lengthens during recovery and lowers the 2:1 point",
+   "A mode switch changes the device to DDIR",
+   "The sinus rate exceeds the upper tracking rate and triggers pacemaker Wenckebach behaviour"
+  ],
+  "commentaires": [
+   "Correct: oversensing makes the measured ventricular rate fall, Auto PVARP lengthens, and every other P wave of the still-fast sinus rhythm falls within it: the 2:1 block becomes self-sustaining.",
+   "Incorrect: the rate-adaptive AV delay shortens with the atrial rate; it explains neither the onset nor the persistence.",
+   "Incorrect: the refractory P waves are marked AR, with no mode switch marker; the device remains in atrial tracking.",
+   "Incorrect: a fixed 2:1 block is seen, not progressive AV delay prolongation; the 190 bpm upper tracking rate is not reached during recovery."
+  ],
+  "explication": "Auto PVARP lengthens at slow rates (protection against PMT) and shortens during exercise (to push back the 2:1 point). It is based on the ventricular rate, calculated as a median over the last few cycles. In this patient, oversensing on the epicardial RV lead initiates the phenomenon: a P wave falls within the blanking period or the PVARP and is not tracked. The ventricular rate falls abruptly while the sinus rate remains fast. The PVARP lengthens, every other P wave falls within it, and the reactive sinus tachycardia caused by low cardiac output sustains the vicious circle, long after the oversensing has stopped. Correction: the shortest possible fixed PVARP, which carries no risk here since the patient has no retrograde conduction, and reduced ventricular sensitivity, while checking that PVCs are still sensed.",
+  "aRetenir": "Auto PVARP: a fall in the measured ventricular rate (oversensing, block) lengthens it and can sustain 2:1 block; in complete AV block without retrograde conduction, prefer a short fixed PVARP."
+ },
+ "cas-mdt-012": {
+  "question": "Medtronic CRT-D in a patient with LBBB and a long PR interval (280 ms): 91% biventricular pacing. Stored episodes show that after a run of PVCs, sinus P waves fall within the PVARP (AR markers) and are followed by intrinsically conducted QRS complexes (VS); the AR-VS sequence persists for many minutes. Which setting addresses this problem most specifically?",
+  "options": [
+   "Extend the post-PVC PVARP to prevent PMT",
+   "Enable Ventricular Sense Response",
+   "Lengthen the sensed AV delay beyond the intrinsic PR",
+   "Enable Atrial Tracking Recovery"
+  ],
+  "commentaires": [
+   "Incorrect: a longer PVARP increases the likelihood that the next P wave will fall within it; it is one of the factors sustaining the phenomenon.",
+   "Incorrect: pacing on an intrinsic QRS already under way inflates the BiV percentage without true resynchronisation; the cause, loss of atrial tracking, persists.",
+   "Incorrect: an AV delay longer than the PR would let intrinsic conduction activate the ventricles and abolish resynchronisation.",
+   "Correct: the algorithm recognises a series of AR-VS cycles and temporarily shortens the PVARP so that the next P wave is tracked again."
+  ],
+  "explication": "In a patient with a long PR interval, a transient loss of AV synchrony (PVC, threshold test, PVARP extension) can make a P wave fall within the PVARP. This P wave is not tracked; it is conducted intrinsically with a long PR interval. The resulting intrinsic QRS starts a new PVARP within which the next P wave falls, and so on. The phenomenon is all the more likely when the PR is long, the sinus rate is fast and the PVARP is long (post-PVC extension, Auto PVARP). Atrial Tracking Recovery detects this succession of AR-VS cycles and temporarily shortens the PVARP: the P wave becomes AS again and is followed by BiV pacing, restoring the sequence. It makes sense to enable it in resynchronised patients with a long PR interval, and to review PVARP extensions, as the risk of PMT is lower when conduction is impaired.",
+  "aRetenir": "Loss of resynchronisation due to P waves within the PVARP (AR-VS cycles) with a long PR: enable Atrial Tracking Recovery and avoid unnecessarily long PVARPs."
+ },
+ "cas-mdt-013": {
+  "question": "Medtronic dual-chamber pacemaker in DDD: on interrogation, a small atrial signal is sensed at a fixed interval about 60 ms after each ventricular pacing pulse (far-field sensing of ventricular activity). Post-ventricular atrial blanking (PVAB) is programmed to Partial. Which statements are correct? (select all that apply)",
+  "options": [
+   "In Partial mode, no signal can be sensed during the entire PVAB",
+   "An event marked Ab starts an AV delay and can therefore be tracked",
+   "Ab events count towards atrial arrhythmia detection, hence a risk of false mode switching",
+   "\"Partial+\" mode transiently reduces atrial sensitivity after the ventricular event",
+   "A very long absolute PVAB has no drawback for atrial flutter detection"
+  ],
+  "commentaires": [
+   "Incorrect: only the first 30 ms are absolute blanking; after that, a signal can be sensed and appears marked Ab.",
+   "Incorrect: like an AR, an Ab event does not start an AV delay; it is not tracked.",
+   "Correct: Ab events are included in the atrial rate calculation; consistent far-field sensing can mimic atrial tachycardia and trigger inappropriate mode switches.",
+   "Correct: after a sensed or paced ventricular event, atrial sensitivity is temporarily reduced, which often eliminates this type of far-field sensing.",
+   "Incorrect: a long absolute blanking period can mask every other flutter wave (2:1 flutter) and prevent mode switching."
+  ],
+  "explication": "On recent platforms, PVAB can be Absolute, Partial or Partial+. In Absolute mode, nothing is sensed or displayed, as in older devices. In Partial mode, only the first 30 ms are blind (to avoid sensing the pacing pulse); a signal sensed afterwards is marked Ab, does not start an AV delay but is included in atrial arrhythmia analysis. Partial+ mode adds a temporary reduction in atrial sensitivity after the ventricular event, which often corrects far-field sensing without sacrificing sensitivity later in the cycle. The other options are less satisfactory. Reducing atrial sensitivity risks undersensing AF, whose signals are often small. A long absolute blanking period risks missing 2:1 flutter. It is in fact thanks to partial blanking that the former Blanked Flutter Search algorithm has disappeared from recent platforms.",
+  "aRetenir": "Medtronic PVAB: Ab = sensed but not tracked, counted for mode switching; \"Partial+\" often corrects far-field sensing without making the atrium deaf."
+ },
+ "cas-mdt-014": {
+  "question": "A pacing-dependent haemodialysis patient with a Medtronic pacemaker in which automatic ventricular threshold management (Capture Management) is on. True or false: the algorithm confirms capture on every beat and delivers a backup pulse if capture is lost, which protects this patient from dialysis-related threshold fluctuations.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: in Medtronic devices, the threshold is measured periodically (one search a day), then the amplitude is adapted for the next 24 hours, without beat-to-beat verification.",
+   "Correct: the backup pulse only exists during the threshold search; between two measurements, only the programmed safety margin protects the patient."
+  ],
+  "explication": "Medtronic ventricular Capture Management measures the threshold once a day, at night, by analysing the evoked response. During the search, each test pulse is followed by a backup pulse, which prevents any pause. The amplitude is then set for 24 hours (threshold multiplied by the programmed margin, without going below the programmed minimum amplitude), with no beat-to-beat verification. This is an important difference from systems with beat-to-beat verification, such as Abbott AutoCapture. In a haemodialysis patient, potassium, calcium and acid–base balance vary over the course of the day, and the threshold with them: the night-time measurement may not reflect the pre-dialysis threshold. In this pacing-dependent patient, it is preferable to program a fixed amplitude with a wide margin, at the cost of higher battery drain.",
+  "aRetenir": "Medtronic Capture Management: daily measurement and adaptation for 24 h, without beat-to-beat verification; if the threshold fluctuates (dialysis), program a fixed output with a wide margin."
+ },
+ "cas-mdt-015": {
+  "question": "Medtronic dual-chamber pacemaker programmed DDD, without rate response, in a patient with complete AV block. True or false: during a mode switch for AF, the device switches to DDIR, with rate response active during the episode.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: in Medtronic devices, the fallback mode is DDIR, even if the programmed mode is not rate-responsive; the sensor parameters (including the upper sensor rate) then apply.",
+   "Incorrect: fallback is not to fixed-rate DDI; the device activates rate response during the mode switch."
+  ],
+  "explication": "During a mode switch, Medtronic pacemakers switch to DDIR, whether the programmed mode is DDD or DDDR. This makes sense in a patient with complete AV block: in AF, atrial tracking is suspended and, without a sensor, the ventricular rate would remain fixed at the lower rate, at rest and during exercise alike. In practice, the upper sensor rate displayed on a device programmed DDD is not irrelevant: it is what caps pacing during mode-switch episodes. The ventricular rate histograms of a patient in persistent AF thus show a plausible rate distribution despite no programmed rate response. If AF becomes permanent and a rate control strategy is chosen, switching to VVIR can be considered.",
+  "aRetenir": "Medtronic mode switch = fallback to DDIR, rate-responsive even if the programmed mode is DDD: sensor parameters matter even in patients without programmed rate response."
+ },
+ "cas-mdt-017": {
+  "question": "CareLink transmission from a Reveal LINQ implanted for syncope: several asymptomatic \"Tachy\" episodes. On the subcutaneous ECG, the T wave is counted as a second event only in cycles where the R wave is of low amplitude (\"railroad track\" appearance on the interval plot). Which programming change is most appropriate?",
+  "options": [
+   "Program a more sensitive setting (i.e. a lower value in mV)",
+   "Set the Ectopy Rejection feature to Aggressive mode",
+   "Lengthen the blanking after sense and the threshold decay delay",
+   "Shorten the programmed pause duration to 1.5 s"
+  ],
+  "commentaires": [
+   "Incorrect: making the device more sensitive would further promote T-wave sensing.",
+   "Incorrect: Ectopy Rejection and P-wave sensing reduce false AF detections caused by ectopic beats, not R-T double counting.",
+   "Correct: the T wave then falls within the blanking period or during the plateau of the sensing threshold, before sensitivity increases.",
+   "Incorrect: this parameter concerns pause detection and would, on the contrary, increase the number of false alerts."
+  ],
+  "explication": "The Reveal LINQ uses an adaptive sensing threshold: each sensed R wave is followed by a programmable blanking period, then a threshold set at a fraction of that R wave's amplitude, held for a programmable delay before decaying towards maximum sensitivity. When the R wave is small, the starting threshold is low and the T wave, whose amplitude is stable, crosses it: the plot takes on a \"railroad track\" appearance (alternating short RT and long TR intervals). This phenomenon is more frequent during exercise, when the R wave becomes smaller. Lengthening the blanking after sense and the delay before threshold decay usually eliminates this double counting. It must then be checked that fast tachycardias and low-amplitude R waves are still properly sensed. These false episodes fill up the device memory and the alert queue: reviewing them and adjusting the programming is part of remote follow-up.",
+  "aRetenir": "False \"Tachy\" episodes on a Reveal LINQ due to T-wave oversensing: lengthen the blanking and the delay before threshold decay, then check that true events are still sensed."
+ }
+}
