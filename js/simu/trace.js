@@ -2,6 +2,9 @@
 // endocavitaires (OD haute, Halo, His proximal et distal, sinus coronaire, VD apex, sonde d'ablation),
 // calculés à partir du journal d'activations du moteur.
 // Vitesse de défilement en mm/s (comme sur papier) ; affichage en balayage avec barre d'effacement ou en défilement.
+// Voie de pression artérielle (modèle de Windkessel), filtres (secteur 50 Hz, passe-haut des électrogrammes),
+// saturation des amplificateurs après un choc et potentiel de polarisation après chaque stimulus.
+import { pressionArterielle, battementsV } from './analyse.js';
 
 import { t } from '../i18n.js';
 
@@ -53,12 +56,14 @@ export const CANAUX = [
   { id: 'rva', get nom() { return t('VD apex', 'RVA'); }, get court() { return t('VD', 'RV'); }, coul: 'vd', src: [['rva', 1.1, 'large'], ['ras', 0.08, 'loin', 10]] },
   { id: 'abld', nom: 'ABL d', court: 'ABd', coul: 'abl', src: [] },  // renseignées selon la position de la sonde
   { id: 'ablu', nom: 'ABL uni', court: 'ABu', coul: 'abl', src: [] },
+  { id: 'pa', get nom() { return t('PA', 'ABP'); }, get court() { return t('PA', 'ABP'); }, coul: 'pa', pression: true },
 ];
 
 export const MONTAGES = {
-  standard: { get nom() { return t('Standard (TSV)', 'Standard (SVT)'); }, voies: ['I', 'II', 'V1', 'hra', 'hisp', 'hisd', 'cs9', 'cs7', 'cs5', 'cs3', 'cs1', 'rva'] },
-  flutter: { nom: 'Flutter (Halo)', voies: ['I', 'II', 'aVF', 'V1', 'hra', 'h78', 'h56', 'h34', 'h12', 'hisd', 'cs9', 'cs5', 'cs1', 'rva'] },
-  ablation: { nom: 'Ablation', voies: ['I', 'II', 'aVF', 'V1', 'V6', 'hisd', 'cs9', 'cs5', 'cs1', 'rva', 'abld', 'ablu'] },
+  standard: { get nom() { return t('Standard (TSV)', 'Standard (SVT)'); }, voies: ['I', 'II', 'V1', 'hra', 'hisp', 'hisd', 'cs9', 'cs7', 'cs5', 'cs3', 'cs1', 'rva', 'pa'] },
+  flutter: { nom: 'Flutter (Halo)', voies: ['I', 'II', 'aVF', 'V1', 'hra', 'h78', 'h56', 'h34', 'h12', 'hisd', 'cs9', 'cs5', 'cs1', 'rva', 'pa'] },
+  ablation: { nom: 'Ablation', voies: ['I', 'II', 'aVF', 'V1', 'V6', 'hisd', 'cs9', 'cs5', 'cs1', 'rva', 'abld', 'ablu', 'pa'] },
+  compact: { get nom() { return t('Réduit (téléphone)', 'Compact (phone)'); }, voies: ['II', 'V1', 'hra', 'hisd', 'cs9', 'cs1', 'rva', 'abld'] },
   complet: { get nom() { return t('Complet', 'Full'); }, voies: CANAUX.map(c => c.id) },
 };
 
@@ -165,7 +170,8 @@ function couleurs(el) {
   const cs = getComputedStyle(el);
   const v = n => cs.getPropertyValue(n).trim();
   return { fond: v('--simu-fond'), grille: v('--simu-grille'), grille2: v('--simu-grille-2'), texte: v('--simu-texte'), surface: v('--simu-surface'),
-    od: v('--simu-od'), halo: v('--simu-halo'), his: v('--simu-his'), sc: v('--simu-sc'), vd: v('--simu-vd'), abl: v('--simu-abl'), stim: v('--simu-stim'), curseur: v('--simu-curseur') };
+    od: v('--simu-od'), halo: v('--simu-halo'), his: v('--simu-his'), sc: v('--simu-sc'), vd: v('--simu-vd'), abl: v('--simu-abl'), stim: v('--simu-stim'), curseur: v('--simu-curseur'),
+    pa: v('--simu-pa') || '#ff6b6b' };
 }
 
 // Bruit reproductible : table pseudo-aléatoire indexée par le temps (même tracé d'une image à l'autre).
@@ -177,15 +183,18 @@ export const fenetreMs = (L, vitesse) => (L - marges(L)) / (vitesse * PX_PAR_MM 
 
 // Dessine la baie. Options :
 //  tFin (instant affiché le plus récent), vitesse (mm/s), mode ('balayage' | 'defilement'), voies (ids affichés), gains {id: facteur},
-//  etiquettes (A/H/V sur le His d), curseurs [[tA, tB], …], report (compas reporté), bruit, ablation {a, v} (sites vus par la sonde).
+//  etiquettes (A/H/V sur le His d), curseurs [[tA, tB], …], report (compas reporté), bruit, ablation {a, v} (sites vus par la sonde),
+//  hauteurMax (px : les voies se resserrent pour tenir), filtre50 (faux : parasite secteur visible), passeHaut (faux : dérive de la ligne de base).
 export function dessinerSimu(canvas, coeur, o = {}) {
   const { tFin, vitesse = 100, mode = 'balayage', voies = MONTAGES.standard.voies, gains = {}, etiquettes = false, curseurs = [], report = false,
-    bruit: avecBruit = true, ablation = null } = o;
+    bruit: avecBruit = true, ablation = null, hauteurMax = 0, filtre50 = true, passeHaut = true } = o;
   const dpr = window.devicePixelRatio || 1;
   const L = canvas.clientWidth, etroit = L < 500, marge = marges(L);
   const canaux = CANAUX.filter(c => voies.includes(c.id));
-  const hSurf = etroit ? 40 : 50, hEndo = etroit ? 30 : 36;
-  const H = Math.round(canaux.reduce((s, c) => s + (c.surface ? hSurf : hEndo), 0) + 24);
+  let hSurf = etroit ? 40 : 50, hEndo = etroit ? 30 : 36;
+  const naturelle = canaux.reduce((s, c) => s + (c.surface || c.pression ? hSurf : hEndo), 0);
+  if (hauteurMax && naturelle + 24 > hauteurMax) { const f = Math.max(0.45, (hauteurMax - 24) / naturelle); hSurf *= f; hEndo *= f; }
+  const H = Math.round(canaux.reduce((s, c) => s + (c.surface || c.pression ? hSurf : hEndo), 0) + 24);
   if (canvas.width !== Math.round(L * dpr) || canvas.height !== Math.round(H * dpr)) {
     canvas.width = Math.round(L * dpr); canvas.height = Math.round(H * dpr); canvas.style.height = `${H}px`;
   }
@@ -227,11 +236,29 @@ export function dessinerSimu(canvas, coeur, o = {}) {
   const j = coeur.journal.filter(x => x.t >= tMin - 800 && x.t <= tMax + 5);
   const stims = coeur.stims.filter(s => s.t >= tMin - 1500 && s.t <= tMax);
   const surf = composantesSurface(j, tMin, tMax, stims);
+  const chocs = (coeur.chocs || []).filter(t => t <= tMax && t + 1500 >= tMin);
+  const saturation = t => { let x = 0; for (const c of chocs) if (t >= c && t < c + 1500) x += 2.2 * Math.exp(-(t - c) / 350); return x; };
   const pas = Math.min(2, 1 / (2 * pxms));
   let y = 0;
   const rangees = [];
   canaux.forEach((canal, k) => {
-    const h = canal.surface ? hSurf : hEndo, mid = y + h / 2, gv = gains[canal.id] || 1, gain = h * (canal.surface ? 0.42 : 0.36);
+    const h = canal.surface || canal.pression ? hSurf : hEndo, mid = y + h / 2, gv = gains[canal.id] || 1, gain = h * (canal.surface ? 0.42 : 0.36);
+    if (canal.pression) { // pression artérielle : 30 à 170 mmHg sur la hauteur de la voie
+      ctx.fillStyle = C.texte; ctx.font = `600 ${etroit ? 10 : 12}px system-ui, sans-serif`; ctx.textAlign = 'left';
+      ctx.fillText(canal.nom, 4, mid + 4);
+      const p = pressionArterielle(coeur.journal, tMin, tMax), Y = mm => y + h - 2 - (Math.max(30, Math.min(170, mm)) - 30) / 140 * (h - 4);
+      ctx.save(); ctx.beginPath(); ctx.rect(marge, y + 1, largeur, h - 2); ctx.clip();
+      ctx.strokeStyle = C.pa; ctx.lineWidth = 1.3;
+      for (const seg of segments) {
+        ctx.beginPath(); let premier = true;
+        for (const [t, mm] of p) { if (t < seg[0] || t > seg[1]) continue; if (premier) { ctx.moveTo(X(t, seg), Y(mm)); premier = false; } else ctx.lineTo(X(t, seg), Y(mm)); }
+        ctx.stroke();
+      }
+      ctx.restore();
+      rangees.push({ id: canal.id, y0: y, y1: y + h }); y += h;
+      return;
+    }
+    const stimsIci = stims.filter(s => SITE_CANAL[s.s] === canal.id);
     ctx.fillStyle = C.texte; ctx.font = `600 ${etroit ? 10 : 12}px system-ui, sans-serif`; ctx.textAlign = 'left';
     ctx.fillText(etroit ? canal.court || canal.nom : canal.nom, 4, mid + 4);
     if (gv !== 1 && !etroit) { ctx.font = '10px system-ui, sans-serif'; ctx.fillText(`×${gv}`, 4, mid + 15); }
@@ -258,8 +285,12 @@ export function dessinerSimu(canvas, coeur, o = {}) {
         while (debut < ev.length && ev[debut].fin < t - 90) debut++;
         let v = 0;
         for (let q = debut; q < ev.length && ev[q].t <= t; q++) if (ev[q].fin >= t) v += ev[q].f(t);
+        for (const s of stimsIci) if (t > s.t && t - s.t < 80) v += 0.55 * Math.exp(-(t - s.t) / 14); // polarisation après le stimulus
         v *= gv;
         if (avecBruit) v += canal.surface ? 0.012 * bruit(t, k) + 0.04 * Math.sin(t / 1600 + k) : 0.02 * bruit(t, k) + 0.012 * Math.sin(t * 0.314 + k);
+        if (!filtre50) v += 0.09 * Math.sin(2 * Math.PI * t / 20 + k);
+        if (!passeHaut && !canal.surface) v += 0.35 * Math.sin(2 * Math.PI * t / 4200 + k * 0.7) + 0.12 * Math.sin(t / 700 + k);
+        if (chocs.length) v += saturation(t) * (k % 2 ? 1 : -1);
         const py = mid - Math.max(-1.3, Math.min(1.3, v)) * gain;
         if (premier) { ctx.moveTo(X(t, seg), py); premier = false; } else ctx.lineTo(X(t, seg), py);
       }
@@ -293,7 +324,8 @@ export function dessinerSimu(canvas, coeur, o = {}) {
     const p = tous[i - 1], ecart = p && s.t - p.t < 2000 ? Math.round(s.t - p.t) : null;
     const ecartP = i > 1 && p.t - tous[i - 2].t < 2000 ? Math.round(p.t - tous[i - 2].t) : null;
     let txt = '';
-    if (ecart == null) txt = 'S';
+    if (s.lib) txt = s.lib; // train programmé : numéro du S1 dans le train, couplage des extrastimulus
+    else if (ecart == null) txt = 'S';
     else if (ecartP == null || Math.abs(ecart - ecartP) > 4) txt = `${ecart}`;
     if (!s.capture) txt = txt ? `${txt}·` : '·';
     if (txt) ctx.fillText(txt, X(s.t, seg), 10);
@@ -318,4 +350,20 @@ export function dessinerSimu(canvas, coeur, o = {}) {
     });
   }
   return { marge, pxms, t0: mode === 'balayage' ? null : segments[0][0], hauteur: H, fenetre, rangees };
+}
+
+// Instants remarquables d'une voie (pour aimanter les compas) : activations locales, début des QRS et des ondes P en surface,
+// stimulus.
+export function evenementsCanal(id, coeur, ablation = null) {
+  const canal = CANAUX.find(c => c.id === id); if (!canal) return [];
+  const j = coeur.journal, r = coeur.stims.map(s => s.t);
+  if (canal.surface) {
+    const P = []; let der = -1e9;
+    for (const x of j) if (ATRIUM.includes(x.s) && x.t - der > 150) { P.push(x.t); der = x.t; }
+    return [...r, ...battementsV(j), ...P];
+  }
+  if (canal.pression) return battementsV(j).map(t => t + 60);
+  let src = canal.src;
+  if (id === 'abld' || id === 'ablu') src = ablation ? [[ablation.a, 1, 'local'], [ablation.v, 1, 'large']] : [];
+  return [...r, ...src.filter(x => x[0]).flatMap(([site, , , dec = 0]) => j.filter(x => x.s === site).map(x => x.t + dec))];
 }

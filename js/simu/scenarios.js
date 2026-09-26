@@ -293,6 +293,28 @@ export const SCENARIOS = {
 };
 
 // Scénarios proposés comme « cas mystère » et réponses possibles (l'ordre des réponses est fixe).
+// Patients adressés en tachycardie : le mécanisme est celui du scénario de base, déjà induit à l'ouverture du cas ;
+// le diagnostic se confirme par les manœuvres (entraînement, ESV His-réfractaire, adénosine…).
+export const ARRIVEES = {
+  'arrivee-flutter': { base: 'flutter', get nom() { return t('Patient en tachycardie : flutter à l\'arrivée', 'Patient in tachycardia: flutter on arrival'); },
+    get contexte() { return t('Homme de 71 ans, palpitations et dyspnée d\'effort depuis trois jours ; ECG : tachycardie régulière à 150/min, aspect en dents de scie en D2, D3 et aVF. Il arrive en salle en tachycardie.', '71-year-old man with palpitations and exertional dyspnoea for three days; ECG: regular tachycardia at 150 bpm with a sawtooth pattern in II, III and aVF. He arrives in the EP lab in tachycardia.'); },
+    recettes: [{ site: 'cs9', extra: [300, 180] }, { site: 'cs9', salve: 250, n: 10 }] },
+  'arrivee-trin': { base: 'trin', get nom() { return t('Patient en tachycardie : TSV à QRS fins (1)', 'Patient in tachycardia: narrow-QRS SVT (1)'); },
+    get contexte() { return t('Femme de 29 ans, tachycardie régulière à QRS fins depuis 40 minutes, non réduite par les manœuvres vagales ; elle arrive en salle en tachycardie.', '29-year-old woman with a regular narrow-QRS tachycardia for 40 minutes, not terminated by vagal manoeuvres; she arrives in the EP lab in tachycardia.'); },
+    recettes: [{ site: 'hra', extra: [400, 200] }] },
+  'arrivee-trav': { base: 'trav', get nom() { return t('Patient en tachycardie : TSV à QRS fins (2)', 'Patient in tachycardia: narrow-QRS SVT (2)'); },
+    get contexte() { return t('Homme de 35 ans, ECG de base sans préexcitation, crises de tachycardie régulière depuis l\'adolescence ; il arrive en salle en tachycardie.', '35-year-old man, baseline ECG without pre-excitation, episodes of regular tachycardia since adolescence; he arrives in the EP lab in tachycardia.'); },
+    recettes: [{ site: 'hra', extra: [400, 200] }, { site: 'rva', extra: [400, 200] }] },
+  'arrivee-ta': { base: 'ta', get nom() { return t('Patient en tachycardie : TSV à QRS fins (3)', 'Patient in tachycardia: narrow-QRS SVT (3)'); },
+    get contexte() { return t('Femme de 58 ans, tachycardie régulière récidivante, résistante aux bêtabloquants ; elle arrive en salle en tachycardie.', '58-year-old woman with recurrent regular tachycardia, refractory to beta-blockers; she arrives in the EP lab in tachycardia.'); },
+    recettes: [{ site: 'hra', salve: 300, n: 10 }, { site: 'hra', salve: 250, n: 12 }] },
+  'arrivee-tv': { base: 'tv', get nom() { return t('Patient en tachycardie : tachycardie à QRS larges', 'Patient in tachycardia: wide-QRS tachycardia'); },
+    get contexte() { return t('Homme de 66 ans, infarctus inféro-latéral ancien ; tachycardie régulière à QRS larges, bien tolérée, en cours à l\'arrivée en salle.', '66-year-old man with an old inferolateral myocardial infarction; regular, well-tolerated wide-QRS tachycardia, ongoing on arrival in the EP lab.'); },
+    recettes: [{ site: 'rva', extra: [400, 200] }] },
+};
+// Scénario complet (arrivée en tachycardie : données du scénario de base, contexte et nom propres).
+export const scenario = id => (ARRIVEES[id] ? { ...SCENARIOS[ARRIVEES[id].base], ...ARRIVEES[id] } : SCENARIOS[id]);
+
 export const MYSTERES = ['normal', 'double', 'trin', 'trin-atyp', 'trin-21', 'trav', 'septale', 'coumel', 'pjrt', 'wpw', 'mahaim', 'ta', 'jonctionnelle', 'flutter', 'flutter-mitral', 'fa', 'tv'];
 
 // Sites de stimulation et d'ablation disponibles.

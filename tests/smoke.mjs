@@ -189,18 +189,31 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.click('.tuile[data-nav=simulateur]');
     await page.waitForSelector('#ecran'); // l'accueil mène directement à la baie
     await page.selectOption('#scenario', 'trin');
+    if (await page.isVisible('#s2')) throw new Error('S2 visible sans « + extrastimulus »');
+    await page.check('#extras');
     await page.fill('#s2', '320'); await page.dispatchEvent('#s2', 'change');
     await page.click('#stimuler');
+    // pendant le train, Stimuler devient Stop
+    if (await page.textContent('#stimuler') !== 'Stop') throw new Error('le bouton Stimuler ne devient pas Stop');
+    // compteur du train : S1 délivrés / demandés (8 par défaut)
+    await page.waitForFunction(() => /Train S1 \d\/8/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 3000 });
     // simulation en temps réel : l'induction prend ~9 s, davantage sur une machine chargée
     await page.waitForFunction(() => /Tachycardie/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 30000 });
     // la manœuvre s'affiche sur l'écran de rappel ; toucher le tracé en temps réel ne l'arrête pas
     await page.waitForFunction(() => /S2 320/.test(document.querySelector('#rappel-titre')?.textContent || ''), null, { timeout: 10000 });
+    if (!/−/.test(await page.textContent('#recul-val'))) throw new Error('le rappel n\'est pas centré sur l\'extrastimulus');
+    // voies : en enlever une et en ajouter une autre passe en montage personnalisé
+    await page.click('#voies-bloc summary');
+    await page.click('[data-voie=V1]'); await page.click('[data-voie=abld]');
+    if (await page.inputValue('#montage') !== 'perso' || await page.getAttribute('[data-voie=V1]', 'aria-pressed') !== 'false') throw new Error('choix des voies inopérant');
+    await page.click('#voies-bloc summary');
     // la barre d'état est réécrite à chaque image : on attend qu'elle soit renseignée
     const t0 = await (await page.waitForFunction(() => document.querySelector('#etat')?.textContent.trim() || null, null, { timeout: 5000 })).jsonValue();
     await page.click('#ecran', { position: { x: 200, y: 100 } });
     if (/Relecture/.test(await page.evaluate(() => document.querySelector('#etat').textContent)) || !t0) throw new Error('le tracé en temps réel s\'est figé');
     await page.click('#enregistrer');
     await page.waitForFunction(() => document.querySelector('#rappel-titre')?.textContent.includes('Enregistrement'), null, { timeout: 5000 });
+    await page.click('#tab-journal');
     await page.click('#journal [data-evt]:last-child');
     if (largeur < 700) { if (!await page.isVisible('#paysage')) throw new Error('invitation au paysage absente'); }
     else {
@@ -211,8 +224,40 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
       if (!await page.evaluate(() => /A-A/.test(document.querySelector('#mesures-rappel').textContent))) throw new Error('mesures du rappel absentes');
     }
     await capture('simulateur');
+    await page.click('#tab-medic');
     await page.click('#adenosine');
     await page.waitForFunction(() => !/Tachycardie/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 15000 });
+    // protocole automatique : stimulation para-hisienne, conclusion nodale dans le scénario de conduction normale
+    await page.selectOption('#scenario', 'normal');
+    await page.click('#tab-proto');
+    await page.click('[data-proto=parahis]');
+    await page.waitForFunction(() => /conduction rétrograde nodale/.test(document.querySelector('#proto-etat')?.textContent || ''), null, { timeout: 20000 });
+    // sonde placée sur la carte, tir de radiofréquence avec température affichée, puis arrêt
+    await page.click('#tab-abl');
+    await page.click('.pt[data-pos=koch]');
+    await page.click('#ablater');
+    await page.waitForFunction(() => /°C/.test(document.querySelector('#rf-etat')?.textContent || ''), null, { timeout: 5000 });
+    await page.click('#ablater');
+    if (await page.getAttribute('#ablater', 'aria-pressed') !== 'false') throw new Error('le tir ne s\'arrête pas');
+    await page.click('#tab-journal');
+    await page.click('#cr-generer');
+    await page.waitForSelector('#compte-rendu .simu-cr-table');
+    await capture('simulateur-console');
+    if (largeur < 700) { // téléphone en paysage : un écran à la fois, bascule vers le rappel
+      await page.setViewportSize({ width: 844, height: 390 });
+      await page.waitForTimeout(300);
+      if (!await page.isVisible('.simu-bascule')) throw new Error('bascule temps réel / rappel absente en paysage');
+      await page.click('.simu-bascule [data-vue=rappel]');
+      await page.waitForTimeout(200);
+      if (await page.isVisible('#ecran') || !await page.isVisible('#ecran-rappel')) throw new Error('bascule vers l\'écran de rappel inopérante');
+      await capture('simulateur-paysage');
+      await page.click('.simu-bascule [data-vue=direct]');
+      await page.setViewportSize({ width: largeur, height: hauteur });
+    }
+    // patient adressé en flutter : tachycardie présente dès l'ouverture, diagnostic à confirmer
+    await page.selectOption('#scenario', 'arrivee-flutter');
+    await page.waitForFunction(() => /Tachycardie/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 3000 });
+    if (await page.textContent('#cas-badge') !== 'Patient en tachycardie' || !await page.isVisible('#diagnostic')) throw new Error('cas « patient en tachycardie » mal présenté');
     await page.selectOption('#scenario', 'mystere');
     await page.selectOption('#reponse', 'trav');
     await page.click('#valider');
