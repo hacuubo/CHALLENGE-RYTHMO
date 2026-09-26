@@ -24,17 +24,19 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
   (« ‹ Accueil », flèche de retour sur « Sources et informations », ✕ pour quitter une série).
 - **Simulateur d'électrophysiologie** : une baie d'EEP en temps réel.
   - Baie : vitesse en mm/s (12,5 à 400), balayage avec barre d'effacement par défaut (défilement en option), D1, D2, aVF, V1, V6,
-    OD haute, Halo, His proximal et distal, sinus coronaire décapolaire, VD apex, sonde d'ablation (bipolaire et unipolaire),
+    OD haute, OD latérale (près de l'isthme), Halo, His proximal et distal, sinus coronaire décapolaire, VD apex, sonde d'ablation (bipolaire et unipolaire),
     **pression artérielle**, montages (dont un montage réduit pour téléphone), gain par voie, bruit, filtre secteur 50 Hz et
     passe-haut des électrogrammes (parasite et dérive respiratoire quand ils sont coupés), saturation après un choc.
     L'écran en temps réel ne se fige jamais ; à côté, un **écran de rappel** affiche chaque manœuvre ou enregistrement :
-    relecture, vitesse propre (pincer pour zoomer), trois compas **aimantés** aux activations avec report, comparaison avec
+    relecture, vitesse propre (pincer pour zoomer), trois compas **aimantés** aux activations avec report (au doigt : appui
+    long de 2 s sur le début, puis appui maintenu sur la fin), comparaison avec
     un rappel de référence. Chaque événement du journal peut être rappelé, avec ses intervalles. Sur téléphone en paysage,
-    un écran à la fois (glisser pour passer du temps réel au rappel, vignette du temps réel) ; en portrait, invitation au paysage.
+    un écran à la fois (glisser pour passer du temps réel au rappel, vignette du temps réel qu'on peut retirer) ; en portrait, invitation au paysage.
   - **Console de stimulation** toujours visible (en bas, à droite en paysage ou sur grand écran) : Stimuler, S2 − 10, Salve,
     Stop, Enregistrer ; pastilles de site ; onglets Programme, Protocoles, Salve, Sonde / RF, Médicaments, Journal ; réglages
     par boutons ± (appui long). Stimulateur : trains S1 à S4, sortie et largeur d'impulsion, seuil propre à chaque site
-    (loi intensité-durée, capture intermittente près du seuil), couplage à la détection, rampe, salve.
+    (loi intensité-durée, capture intermittente près du seuil), couplage à la détection, rampe, salve. On ne stimule que
+    depuis un cathéter dont une voie est affichée ; l'électrogramme capturé suit le spike de quelques millisecondes.
   - **Protocoles automatiques** : extrastimulus atrial ou ventriculaire décrémental (PR atriale, nodale, ventriculaire,
     rétrograde, saut d'AH, induction), rampe jusqu'au Wenckebach antérograde ou rétrograde, temps de récupération sinusale,
     seuil de capture, stimulation para-hisienne interprétée, ESV His-réfractaire, entraînement à arrêt automatique.

@@ -320,7 +320,7 @@ export const MYSTERES = ['normal', 'double', 'trin', 'trin-atyp', 'trin-21', 'tr
 // Sites de stimulation et d'ablation disponibles.
 export const SITES_STIM = [
   { id: 'hra', get nom() { return t('OD haute', `High RA`); } },
-  { id: 'latb', get nom() { return t('OD latérale basse (Halo 3-4)', `Low lateral RA (Halo 3-4)`); } },
+  { id: 'latb', get nom() { return t('OD latérale basse, près de l\'isthme (OD lat ou Halo 3-4)', `Low lateral RA, next to the isthmus (Lat RA or Halo 3-4)`); } },
   { id: 'cti', get nom() { return t('Isthme cavo-tricuspide (Halo 1-2)', `Cavotricuspid isthmus (Halo 1-2)`); } },
   { id: 'cs9', get nom() { return t('SC proximal (9-10)', `Proximal CS (9-10)`); } },
   { id: 'cs1', get nom() { return t('SC distal (1-2)', `Distal CS (1-2)`); } },
