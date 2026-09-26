@@ -238,6 +238,12 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     if (largeur < 700) { if (!await page.isVisible('#paysage')) throw new Error('invitation au paysage absente'); }
     else {
       if (!await page.isVisible('#ecran-rappel')) throw new Error('écran de rappel invisible');
+      // « Vignette direct » : masquer le temps réel, le rappel prend toute la largeur
+      const l0 = (await page.locator('#ecran-rappel').boundingBox()).width;
+      await page.click('#mini-direct');
+      if (await page.isVisible('#ecran') || (await page.locator('#ecran-rappel').boundingBox()).width < l0 * 1.5) throw new Error('le temps réel ne se masque pas à côté du rappel');
+      await page.click('#mini-direct');
+      if (!await page.isVisible('#ecran')) throw new Error('le temps réel ne revient pas');
       const b = await page.locator('#ecran-rappel').boundingBox();
       await page.mouse.move(b.x + b.width * 0.5, b.y + 60); await page.mouse.down(); await page.mouse.move(b.x + b.width * 0.7, b.y + 60); await page.mouse.up();
       await page.waitForTimeout(100);
