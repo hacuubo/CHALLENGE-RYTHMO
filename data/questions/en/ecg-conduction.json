@@ -13,7 +13,7 @@
    "Incorrect: 100 ms corresponds to 2.5 small squares; no gridline on the paper equals 100 ms at 25 mm/s.",
    "Incorrect: 200 ms is the duration of one large square (5 mm), not a small one."
   ],
-  "explication": "At 25 mm/s, 1 second covers 25 mm, so one 1 mm small square equals 1/25 s, i.e. 40 ms. One large square (5 mm) equals 200 ms, and 5 large squares make 1 second. A value of 20 ms would apply at a paper speed of 50 mm/s, which is sometimes used to analyse P waves or pacing spikes more closely. 200 ms is the duration of a large square, not a small one. Always checking the paper speed avoids gross errors when measuring intervals.",
+  "explication": "At 25 mm/s, 1 second covers 25 mm, so one 1 mm small square equals 1/25 s, i.e. 40 ms. One large square (5 mm) equals 200 ms, and 5 large squares make 1 second. A value of 20 ms would apply at a paper speed of 50 mm/s, which is sometimes used to analyse P waves or pacing spikes more closely. 200 ms is the duration of a large square, not a small one. Routinely checking the paper speed avoids gross errors in interval measurement.",
   "aRetenir": "At 25 mm/s: 1 small square = 40 ms, 1 large square = 200 ms."
  },
  "ecg-cond-002": {
@@ -94,7 +94,7 @@
    "Correct: RR = 0.6 s, √0.6 ≈ 0.775; 400/0.775 ≈ 516 ms.",
    "Incorrect: this is the classic error of dividing by RR (400/0.6) rather than by its square root."
   ],
-  "explication": "At 100 bpm, the RR interval is 0.6 s. Bazett: QTc = QT / √RR = 400 / √0.6 = 400 / 0.775 ≈ 516 ms. The value of 667 ms results from the common error of dividing by RR instead of its square root. Above all, Bazett overcorrects at high heart rates: Fridericia (cube root of RR) gives approximately 474 ms. At rates > 90–100 bpm, a linear formula or Fridericia is therefore preferable, or the QT should be measured once the rate slows, before diagnosing a long QT.",
+  "explication": "At 100 bpm, the RR interval is 0.6 s. Bazett: QTc = QT / √RR = 400 / √0.6 = 400 / 0.775 ≈ 516 ms. The value of 667 ms results from the common error of dividing by RR instead of its square root. More importantly, Bazett overcorrects at high heart rates: Fridericia (cube root of RR) gives approximately 474 ms. At rates > 90–100 bpm, a linear formula or Fridericia is therefore preferable, or the QT should be measured once the rate slows, before diagnosing a long QT.",
   "aRetenir": "Bazett QTc = QT/√RR (in s); it overcorrects during tachycardia, so prefer Fridericia at high heart rates."
  },
  "ecg-cond-007": {
@@ -132,7 +132,7 @@
   "aRetenir": "Lead I+ / aVF−: look at lead II; lead II positive = normal axis, lead II negative = left axis deviation < −30°."
  },
  "ecg-cond-009": {
-  "question": "According to the 2009 AHA/ACCF/HRS recommendations, above what value is the QTc considered prolonged in an adult woman?",
+  "question": "According to the 2009 AHA/ACCF/HRS recommendations, at what value is the QTc considered prolonged in an adult woman?",
   "options": [
    "≥ 430 ms",
    "≥ 440 ms",
@@ -145,7 +145,7 @@
    "Correct: QTc is prolonged from 460 ms in women (450 ms in men) according to the 2009 AHA/ACCF/HRS recommendations.",
    "Incorrect: 500 ms is a threshold for a high risk of torsades, not the upper limit of normal."
   ],
-  "explication": "The ECG standardisation recommendations define a prolonged QTc as ≥ 450 ms in men and ≥ 460 ms in women. The value of 440 ms, used for many years, generates too many false positives. The 500 ms threshold is not the upper limit of normal but a threshold of markedly increased risk of torsades de pointes, at which QT-prolonging drugs should be stopped. Conversely, a short QT is considered at around 360–390 ms. The correction formula used should always be stated.",
+  "explication": "The ECG standardisation recommendations define a prolonged QTc as ≥ 450 ms in men and ≥ 460 ms in women. The value of 440 ms, used for many years, generates too many false positives. The 500 ms threshold is not the upper limit of normal but a threshold of markedly increased risk of torsades de pointes, at which QT-prolonging drugs should be stopped. Conversely, the threshold for a short QT is debated at around 360–390 ms. The correction formula used should always be stated.",
   "aRetenir": "Prolonged QTc: ≥ 450 ms in men, ≥ 460 ms in women; > 500 ms = high risk."
  },
  "ecg-cond-010": {
@@ -164,7 +164,7 @@
    "Incorrect: the 10 mm/mV gain is right, but the standard paper speed is 25 mm/s, not 50 mm/s.",
    "Correct: 10 mm/mV yes, but 25 mm/s; at 50 mm/s, every interval would look twice as long."
   ],
-  "explication": "False. The standard amplitude calibration is indeed 10 mm/mV, displayed as a calibration pulse at the start or end of the tracing, but the standard paper speed is 25 mm/s. A speed of 50 mm/s is sometimes used for detailed analysis of P waves or pacing spikes: all durations then look twice as long. The calibration may also be reduced to 5 mm/mV (half standard) when QRS complexes are very large, which distorts the assessment of voltages if it goes unnoticed. Checking these two settings is the first reflex before any interpretation.",
+  "explication": "False. The standard amplitude calibration is indeed 10 mm/mV, displayed as a calibration pulse at the start or end of the tracing, but the standard paper speed is 25 mm/s. A speed of 50 mm/s is sometimes used for detailed analysis of P waves or pacing spikes: all durations then look twice as long. The calibration may also be reduced to 5 mm/mV (half standard) when QRS complexes are very large, which distorts the assessment of voltages if it goes unnoticed. Checking these two settings is the first step before any interpretation.",
   "aRetenir": "Standard ECG: 10 mm/mV and 25 mm/s — always check the calibration pulse."
  },
  "ecg-cond-012": {
@@ -231,10 +231,10 @@
   "commentaires": [
    "Incorrect: sinus arrest produces a pause with no arithmetical relationship to the PP interval; here it equals exactly two cycles.",
    "Incorrect: Mobitz I would show a non-conducted P wave after PR prolongation; here, there is no P wave during the pause.",
-   "Incorrect: respiratory arrhythmia makes the PP interval vary gradually and cyclically, without an abrupt 2-cycle pause.",
+   "Incorrect: respiratory sinus arrhythmia makes the PP interval vary gradually and cyclically, without an abrupt 2-cycle pause.",
    "Correct: the pause equals exactly 2 PP intervals (≈ 1600 ms for a PP of 800 ms): the sinus impulse failed to exit to the atrium."
   ],
-  "explication": "On this tracing, the baseline PP interval is about 800 ms (75 bpm) and the pause, with no P wave, measures exactly two cycles (1600 ms): the sinus impulse was generated but failed to exit to the atrium. This is type II second-degree sinoatrial block (sinoatrial Mobitz II). Sinus node activity itself is not visible on the surface ECG; the block is inferred from this arithmetical relationship. Sinus arrest would produce a pause that is not a multiple of the PP interval. Mobitz I AV block would show a non-conducted P wave. Respiratory arrhythmia produces gradual, cyclical variations without an abrupt pause.",
+  "explication": "On this tracing, the baseline PP interval is about 800 ms (75 bpm) and the pause, with no P wave, measures exactly two cycles (1600 ms): the sinus impulse was generated but failed to exit to the atrium. This is type II second-degree sinoatrial block (sinoatrial Mobitz II). Sinus node activity itself is not visible on the surface ECG; the block is inferred from this arithmetical relationship. Sinus arrest would produce a pause that is not a multiple of the PP interval. Mobitz I AV block would show a non-conducted P wave. Respiratory sinus arrhythmia produces gradual, cyclical variations without an abrupt pause.",
   "aRetenir": "Type II second-degree SA block: pause equal to an exact multiple of the baseline PP cycle."
  },
  "ecg-cond-016": {
@@ -257,7 +257,7 @@
  "ecg-cond-017": {
   "question": "Faced with a pause during sinus rhythm, what sign should you look for to suggest a blocked premature atrial contraction rather than a sinus pause?",
   "reponseAttendue": "A premature P wave, often hidden in the T wave preceding the pause and deforming it (a T wave that is more peaked, notched or taller than the other T waves).",
-  "explication": "A very early PAC arrives while the AV node is still refractory: it is not conducted, and it resets the sinus node, hence a pause. Its P wave is often hidden in the preceding T wave, which it deforms (peaked, notched or taller than the others). This is the first benign cause of a \"pause\" to exclude, by carefully comparing all the T waves. A pause equal to two PP intervals would rather suggest type II SA block, and progressive PR prolongation AV Wenckebach. Blocked PACs in bigeminy can mimic severe sinus bradycardia.",
+  "explication": "A very early PAC arrives while the AV node is still refractory: it is not conducted, and it resets the sinus node, hence a pause. Its P wave is often hidden in the preceding T wave, which it deforms (peaked, notched or taller than the others). This is the first benign cause of a \"pause\" to exclude, by carefully comparing all the T waves. A pause equal to two PP intervals would instead suggest type II SA block, and progressive PR prolongation AV Wenckebach. Blocked PACs in bigeminy can mimic severe sinus bradycardia.",
   "aRetenir": "Before calling it a sinus pause, look for a premature P wave hidden in the T wave."
  },
  "ecg-cond-018": {
@@ -291,7 +291,7 @@
    "Incorrect: there is no prodrome or trigger, and the pause immediately follows termination of the AF episode.",
    "Incorrect: there is no triggering by head rotation or neck pressure."
   ],
-  "explication": "A post-conversion pause after an AF episode reflects an abnormally long sinus node recovery time: this is the typical form of tachycardia–bradycardia syndrome, a manifestation of sick sinus syndrome (sinus node dysfunction). The mechanism is suppression of sinus node automaticity by the tachycardia (overdrive suppression). This is not AV block, since no non-conducted P wave is visible. The context fits neither typical vasovagal syncope (prodrome, trigger) nor carotid sinus hypersensitivity (triggered by head rotation). The documented symptom–rhythm correlation here is ideal.",
+  "explication": "A post-conversion pause after an AF episode reflects an abnormally long sinus node recovery time: this is the typical form of tachycardia–bradycardia syndrome, a manifestation of sick sinus syndrome (sinus node dysfunction). The mechanism is suppression of sinus node automaticity by the tachycardia (overdrive suppression). This is not AV block, since no non-conducted P wave is visible. The context fits neither typical vasovagal syncope (prodrome, trigger) nor carotid sinus hypersensitivity (triggered by head rotation). Here, the documented symptom–rhythm correlation is ideal.",
   "aRetenir": "Pause on termination of AF = tachycardia–bradycardia syndrome."
  },
  "ecg-cond-020": {
@@ -322,7 +322,7 @@
    "Correct: pacing is for bradycardia correlated with symptoms, not an isolated nocturnal rate; consider sleep apnoea."
   ],
   "explication": "False. Pacing is not recommended (class III, ESC 2021) in asymptomatic sinus node dysfunction or when bradycardia is due to a transient or reversible cause. Nocturnal rates of 35–40 bpm are common, particularly in young people or athletes, owing to vagal predominance. The key decision criterion in sinus node dysfunction is the correlation between symptoms and bradycardia, not an isolated heart rate value. Nocturnal bradycardia should, however, prompt a search for sleep apnoea syndrome.",
-  "aRetenir": "Sinus node dysfunction: pace bradycardia correlated with symptoms, not a heart rate number."
+  "aRetenir": "Sinus node dysfunction: pace bradycardia correlated with symptoms, not a heart rate figure."
  },
  "ecg-cond-022": {
   "question": "Before accepting a pacing indication for bradycardia (sinus node dysfunction or AV block), which reversible or extrinsic causes should be sought?",
@@ -368,7 +368,7 @@
    "First-degree AV block",
    "Normal sinus rhythm",
    "Second-degree Mobitz I AV block",
-   "Complete AV block with narrow escape"
+   "Complete AV block with narrow-QRS escape"
   ],
   "commentaires": [
    "Correct: constant PR interval of about 280 ms (> 200 ms), with every P wave conducted.",
@@ -448,13 +448,13 @@
   "options": [
    "Infranodal (His–Purkinje)",
    "Nodal (supra-Hisian)",
-   "Undeterminable without an EP study",
+   "Cannot be determined without an EP study",
    "Sinoatrial (2:1 SA block)"
   ],
   "commentaires": [
    "Correct: a normal conducted PR interval and bifascicular block point to disease of the distal conduction system.",
    "Incorrect: nodal block is rather associated with a long conducted PR interval and narrow QRS complexes.",
-   "Incorrect: an EP study confirms it, but a normal PR and broad QRS make an infranodal site far more likely.",
+   "Incorrect: an EP study would confirm the site, but a normal PR and broad QRS make an infranodal site far more likely.",
    "Incorrect: SA block does not produce blocked P waves; here, visible P waves are not conducted."
   ],
   "explication": "In 2:1 AV block, a normal conducted PR interval combined with broad QRS complexes (bifascicular block) strongly suggests an infranodal site: the AV node conducts normally and the block lies in the diseased distal conduction system. Conversely, a long conducted PR interval with narrow QRS complexes suggests a nodal site. These are only probabilities (intra-Hisian block can have narrow QRS complexes), but they are not equally likely. An infranodal site carries a poor prognosis and requires pacing. SA block does not involve blocked P waves.",
@@ -508,11 +508,11 @@
   "commentaires": [
    "Correct: this is the definition of the Wenckebach periodicity seen on this tracing.",
    "Incorrect: a constant PR interval before the blocked P wave defines Mobitz II, not Wenckebach.",
-   "Incorrect: the pause contains the following, shortest PR interval; it remains less than two PP cycles.",
+   "Incorrect: the pause includes the next PR interval, which is the shortest, so it remains shorter than two PP cycles.",
    "Correct: the AV node recovers during the pause; the next PR interval is the shortest.",
    "Incorrect: the QRS complexes are usually narrow, as the site is most often nodal."
   ],
-  "explication": "This tracing shows Wenckebach periodicity (5:4 second-degree Mobitz I AV block). The PR interval lengthens progressively until the blocked P wave; the first PR interval after the pause is the shortest, because the AV node has recovered. Because the increment in prolongation decreases from one cycle to the next, the RR intervals classically shorten, and the pause remains less than (not more than) two PP cycles. A constant PR interval before the blocked P wave is, on the contrary, the definition of Mobitz II. The QRS complexes are usually narrow, as the site is most often nodal. Beware of atypical Wenckebach (which is common), in which the increments are irregular: comparing the PR interval before and after the pause remains the most reliable clue.",
+  "explication": "This tracing shows Wenckebach periodicity (5:4 second-degree Mobitz I AV block). The PR interval lengthens progressively until the blocked P wave; the first PR interval after the pause is the shortest, because the AV node has recovered. Because the increment in prolongation decreases from one cycle to the next, the RR intervals classically shorten, and the pause remains shorter than two PP cycles. A constant PR interval before the blocked P wave is, on the contrary, the definition of Mobitz II. The QRS complexes are usually narrow, as the site is most often nodal. Beware of atypical Wenckebach (which is common), in which the increments are irregular: comparing the PR interval before and after the pause remains the most reliable clue.",
   "aRetenir": "Wenckebach: lengthening PR, pause < 2 PP, shortest PR after the pause; constant PR before the blocked P wave = Mobitz II."
  },
  "ecg-cond-034": {
@@ -525,7 +525,7 @@
    "Correct: narrow-QRS Wenckebach like this is nodal in the vast majority of cases (decremental conduction in the AV node).",
    "Incorrect: the statement is true; an intra- or infra-Hisian site is the exception, especially with a broad QRS."
   ],
-  "explication": "True. This tracing shows second-degree Mobitz I AV block (3:2 Wenckebach). Narrow-QRS Mobitz I is located in the AV node in the vast majority of cases, a tissue with decremental conduction, which explains the progressive PR prolongation. It is common in young people, athletes and at night (high vagal tone), and its prognosis is generally good. There are exceptions: intra- or infra-Hisian Wenckebach is possible, especially with a broad QRS. When such a site is demonstrated at electrophysiological study (EPS), the 2021 ESC guidelines consider pacing (IIa) even in the absence of symptoms.",
+  "explication": "True. This tracing shows second-degree Mobitz I AV block (3:2 Wenckebach). Narrow-QRS Mobitz I is located in the AV node in the vast majority of cases, a tissue with decremental conduction, which explains the progressive PR prolongation. It is common in young people, athletes and at night (high vagal tone), and its prognosis is generally good. There are exceptions: intra- or infra-Hisian Wenckebach is possible, especially with a broad QRS. When such a site is demonstrated at EP study, the 2021 ESC guidelines consider pacing (IIa) even in the absence of symptoms.",
   "aRetenir": "Mobitz I + narrow QRS = nodal in the vast majority of cases."
  },
  "ecg-cond-035": {
@@ -588,7 +588,7 @@
    "The block is usually nodal, often transient and atropine-responsive"
   ],
   "commentaires": [
-   "Incorrect: a narrow escape at 50 bpm indicates a high-level block; no upfront permanent pacing.",
+   "Incorrect: a narrow-QRS escape at 50 bpm indicates a high (supra-Hisian) level of block; no upfront permanent pacing.",
    "Incorrect: a narrow-QRS escape arises above the His bifurcation: it is junctional.",
    "Incorrect: AV block in anterior infarction, which is infra-Hisian, has a far worse prognosis.",
    "Correct: nodal block (AV nodal artery, vagal reflex) that often regresses after reperfusion."
@@ -705,10 +705,10 @@
    "Acute pericarditis in its early phase"
   ],
   "commentaires": [
-   "Incorrect: inferior infarction rather shifts the axis to the left; it is extensive lateral infarction that must be excluded.",
+   "Incorrect: inferior infarction tends instead to shift the axis to the left; it is extensive lateral infarction that must be excluded.",
    "Incorrect: the QRS measures 100 ms and nothing suggests peaked T waves; this is not the picture.",
    "Correct: LPFB is a diagnosis of exclusion; right ventricular overload is the first cause of right axis deviation to exclude.",
-   "Incorrect: pericarditis alters the ST segment and PR segment, not the QRS axis."
+   "Incorrect: pericarditis alters the ST and PR segments, not the QRS axis."
   ],
   "explication": "Left posterior fascicular block is rare, as the posterior fascicle is short, thick and has a dual blood supply. It is a diagnosis of exclusion: other causes of right axis deviation must be ruled out, in particular right ventricular hypertrophy or overload, a slender body habitus, extensive lateral infarction and pulmonary embolism. The AHA criteria combine an axis of +90° to +180°, rS in I and aVL, qR in III and aVF and a QRS < 120 ms. Combined with RBBB, it forms bifascicular block with a poor prognosis. Inferior infarction, by contrast, shifts the axis to the left, and neither hyperkalaemia nor pericarditis produces this picture with a QRS of 100 ms.",
   "aRetenir": "LPFB = diagnosis of exclusion: rule out right ventricular overload or a slender body habitus."
@@ -850,7 +850,7 @@
   "aRetenir": "Alternating bundle branch block = class I pacing, even if asymptomatic."
  },
  "ecg-cond-055": {
-  "question": "An 86-year-old frail woman has recurrent unexplained injurious syncope, bifascicular block (RBBB + LAFB) and normal LVEF. An EP study is not feasible. What do the 2021 ESC guidelines provide for?",
+  "question": "An 86-year-old frail woman has recurrent unexplained injurious syncope, bifascicular block (RBBB + LAFB) and normal LVEF. An EP study is not feasible. What option do the 2021 ESC guidelines offer?",
   "options": [
    "Empirical pacing may be considered (IIb)",
    "Pacing contraindicated without a prior EP study",
@@ -863,7 +863,7 @@
    "Incorrect: this is not class I; in a patient who can be investigated, an EP study then an ILR remain the rule.",
    "Incorrect: with a normal LVEF, an ICD is not an option."
   ],
-  "explication": "In elderly, frail patients with unexplained syncope and bifascicular block and a high risk of injurious recurrence, the 2021 ESC guidelines allow empirical pacing to be considered without an EP study (class IIb). This option acknowledges that a large proportion of such syncope is due to paroxysmal AV block, while recognising that the evidence remains indirect. It is not class I: in a patient who can be investigated, an EP study followed by an implantable loop recorder remains the rule. An ICD is only discussed if LVEF is reduced.",
+  "explication": "In elderly, frail patients with unexplained syncope and bifascicular block and a high risk of injurious recurrence, the 2021 ESC guidelines allow empirical pacing to be considered without an EP study (class IIb). This option acknowledges that a large proportion of such syncope is due to paroxysmal AV block, while recognising that the evidence remains indirect. It is not class I: in a patient who can be investigated, an EP study followed by an implantable loop recorder remains the rule. An ICD is only considered if LVEF is reduced.",
   "aRetenir": "Frail elderly patient, unexplained syncope + bifascicular block: empirical pacing possible (IIb)."
  },
  "ecg-cond-056": {
@@ -923,7 +923,7 @@
   "question": "Tracing: sinus P waves at 55 bpm, regular narrow QRS complexes at 70 bpm, with no fixed relationship to the P waves; some P waves fall just before or within the QRS complexes. What is the interpretation?",
   "options": [
    "Complete AV block with a junctional escape rhythm",
-   "AV dissociation from accelerated junctional rhythm",
+   "AV dissociation due to accelerated junctional rhythm",
    "2:1 AV block with P waves hidden in the QRS",
    "Sinoatrial block with a junctional escape rhythm"
   ],
@@ -962,7 +962,7 @@
   "aRetenir": "Mobitz II, high-grade or complete AV block, alternating block: class I pacing even without symptoms."
  },
  "ecg-cond-063": {
-  "question": "In an asymptomatic adult with the conduction disorder shown on this tracing present permanently, and with no reversible cause, pacing is not justified as long as the patient remains asymptomatic.",
+  "question": "In an asymptomatic adult in whom the conduction disorder shown on this tracing is permanent and has no reversible cause, pacing is not justified as long as the patient remains asymptomatic.",
   "options": [
    "True",
    "False"
@@ -971,7 +971,7 @@
    "Incorrect: this complete AV block warrants class I pacing in adults, even when asymptomatic.",
    "Correct: the escape rhythm may slow or stop suddenly; pacing is indicated without waiting for symptoms."
   ],
-  "explication": "False. This tracing shows complete AV block with a narrow-QRS escape rhythm (≈ 55 bpm). In adults, third-degree AV block is a class I indication for pacing in the 2021 ESC guidelines, regardless of symptoms, once a reversible cause has been excluded. Apparent tolerance is misleading: the escape rhythm may slow or stop suddenly, and the absence of symptoms often reflects gradual adaptation (patients often find they feel better after implantation). Isolated congenital AV block in children follows specific criteria.",
+  "explication": "False. This tracing shows complete AV block with a narrow-QRS escape rhythm (≈ 55 bpm). In adults, third-degree AV block is a class I indication for pacing in the 2021 ESC guidelines, regardless of symptoms, once a reversible cause has been excluded. Apparent tolerance is misleading: the escape rhythm may slow or stop suddenly, and the absence of symptoms often reflects gradual adaptation (many patients find they feel better after implantation). Isolated congenital AV block in children follows specific criteria.",
   "aRetenir": "Complete AV block in adults with no reversible cause: class I pacing, even if asymptomatic."
  },
  "ecg-cond-064": {
@@ -994,7 +994,7 @@
  "ecg-cond-065": {
   "question": "A 60-year-old patient has dyspnoea and a sensation of neck pulsation, a constant PR interval of 340 ms with 1:1 conduction, and no other cause found. What do the 2021 ESC guidelines say?",
   "options": [
-   "Pacing to be considered (IIa) if symptoms are due to the PR",
+   "Pacing should be considered (IIa) if the PR causes symptoms",
    "Pacing is never indicated in first-degree AV block",
    "Pacing recommended (class I) once the PR exceeds 300 ms",
    "Implantable loop recorder before any decision, no pacing yet"
@@ -1116,19 +1116,19 @@
    "Incorrect: this is reflex asystole, not a ventricular arrhythmia; there is no indication for an ICD."
   ],
   "explication": "This tracing shows about 8 s of asystole due to sinus arrest (no P waves). In patients over 40 with severe, recurrent, unpredictable reflex syncope, documentation of a symptomatic asystolic pause > 3 s (or asymptomatic > 6 s) due to sinus arrest or AV block allows pacing to be considered (class IIa). Dual-chamber mode is preferred to preserve AV synchrony. Pacing treats the cardioinhibitory component but not the vasodepressor component: the patient should be informed of this. There is no indication for an ICD.",
-  "aRetenir": "Reflex syncope over 40 with documented symptomatic asystole > 3 s: DDD should be considered (IIa).",
+  "aRetenir": "Reflex syncope, age > 40, with documented symptomatic asystole > 3 s: DDD should be considered (IIa).",
   "legende": "Implantable loop recorder: recording during syncope"
  },
  "ecg-cond-073": {
   "question": "A 65-year-old patient has recurrent unexplained syncope despite a full work-up (normal ECG, echocardiogram and 24-hour Holter), with no high-risk features requiring admission. Which investigation is recommended to obtain symptom–rhythm correlation?",
   "options": [
-   "Repeated 24-hour Holters every 3 months",
+   "Repeat 24-hour Holter recordings every 3 months",
    "Implantable loop recorder",
    "Diagnostic coronary angiography",
    "EEG and brain MRI"
   ],
   "commentaires": [
-   "Incorrect: with infrequent episodes, the probability of a 24–48 h Holter capturing a syncope is very low.",
+   "Incorrect: with infrequent episodes, the probability of a 24–48 h Holter capturing a syncopal episode is very low.",
    "Correct: infrequent recurrent syncope, negative work-up, no high risk: early ILR (ESC 2018).",
    "Incorrect: coronary angiography does not answer the question of a paroxysmal bradyarrhythmia.",
    "Incorrect: without neurological clues, EEG and MRI do not document the rhythm during syncope."

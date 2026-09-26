@@ -10,34 +10,34 @@
   "commentaires": [
    "Incorrect: the \"twice the threshold\" rule applies to a fixed amplitude without capture verification; here safety relies on beat-to-beat confirmation.",
    "Incorrect: the ventricular AutoCapture margin is fixed and non-programmable, at 0.25 V above the measured threshold.",
-   "Correct: amplitude = threshold + 0.25 V; each pulse is verified by the evoked response and followed by a 5 V back-up pulse if capture is lost.",
+   "Correct: amplitude = threshold + 0.25 V; each pulse is verified by the evoked response and followed by a 5 V backup pulse if capture is lost.",
    "Incorrect: AutoCapture adjusts only the amplitude; the pulse width remains as programmed."
   ],
-  "explication": "Abbott's ventricular AutoCapture measures the threshold periodically (every 8 h by default, or every 24 h) by analysing the evoked response, then sets the amplitude at the threshold plus a fixed 0.25 V margin. Such a margin would be dangerous without monitoring; it is acceptable because capture is verified on every beat and a 5 V back-up pulse is delivered 80 to 100 ms after any non-capturing pulse, before a new threshold search. Only the amplitude is adapted, not the pulse width. The main gain is longevity, with no loss of safety in the pacing-dependent patient. The \"twice the threshold\" margin remains the rule when the amplitude is fixed or when the algorithm cannot be used (polarisation signal too large at the set-up test).",
-  "aRetenir": "Abbott ventricular AutoCapture: amplitude = threshold + 0.25 V, made safe by beat-to-beat verification and the 5 V back-up pulse."
+  "explication": "Abbott's ventricular AutoCapture measures the threshold periodically (every 8 h by default, or every 24 h) by analysing the evoked response, then sets the amplitude at the threshold plus a fixed 0.25 V margin. Such a margin would be dangerous without monitoring; it is acceptable because capture is verified on every beat and a 5 V backup pulse is delivered 80 to 100 ms after any non-capturing pulse, before a new threshold search. Only the amplitude is adapted, not the pulse width. The main gain is longevity, with no loss of safety in the pacing-dependent patient. The \"twice the threshold\" margin remains the rule when the amplitude is fixed or when the algorithm cannot be used (polarisation signal too large during the set-up test).",
+  "aRetenir": "Abbott ventricular AutoCapture: amplitude = threshold + 0.25 V, made safe by beat-to-beat verification and the 5 V backup pulse."
  },
  "cas-abt-002": {
   "question": "Abbott dual-chamber pacemaker with ventricular AutoCapture, in a patient with paroxysmal AV block who often has intrinsic AV conduction. Which features of the algorithm are designed to stop a fusion beat being mistaken for loss of capture? (select all that apply)",
   "options": [
    "During the threshold search, very short AV delays (50 ms paced / 25 ms sensed by default)",
-   "After a first back-up pulse, a 100 ms extension of the AV delay on the next cycle",
+   "After a first backup pulse, a 100 ms extension of the AV delay on the next cycle",
    "A routine switch to unipolar pacing during the threshold search",
    "Confirmation of ventricular contraction by the accelerometer, which is immune to fusion"
   ],
   "commentaires": [
-   "Correct: a short AV delay pre-empts intrinsic conduction; longer delays (100/70 or 120/100 ms) expose to fusion and spurious thresholds.",
-   "Correct: the algorithm first assumes fusion and gives intrinsic conduction the chance to emerge; loss of capture is declared only after two consecutive back-up pulses.",
+   "Correct: a short AV delay pre-empts intrinsic conduction; longer delays (100/70 or 120/100 ms) predispose to fusion and spurious threshold values.",
+   "Correct: the algorithm first assumes fusion and gives intrinsic conduction the chance to emerge; loss of capture is declared only after two consecutive backup pulses.",
    "Incorrect: the pacing configuration is not changed for the search; on recent devices AutoCapture works with the programmed configurations.",
    "Incorrect: capture is judged on the electrical evoked response, not on a mechanical sensor."
   ],
-  "explication": "Fusion between the pacing pulse and a conducted QRS alters the evoked response and may be interpreted as loss of capture, wrongly triggering back-up pulses and distorting the threshold measurement. Abbott's AutoCapture guards against this in two ways. During the threshold search, it uses very short AV delays (50/25 ms by default, as recommended) to pre-empt intrinsic conduction. In routine dual-chamber operation, a single absent evoked response causes the AV delays to be extended by 100 ms on the next cycle, much like a conduction search; the capture recovery procedure starts only after two consecutive losses of capture. Verification relies on the electrical evoked response, never on a mechanical sensor. In a patient with frequent AV conduction, isolated back-up pulses should therefore be interpreted with caution.",
-  "aRetenir": "Abbott AutoCapture and fusion: short AV delays during the threshold search, 100 ms extension after a first back-up pulse."
+  "explication": "Fusion between the pacing pulse and a conducted QRS alters the evoked response and may be interpreted as loss of capture, wrongly triggering backup pulses and distorting the threshold measurement. Abbott's AutoCapture guards against this in two ways. During the threshold search, it uses very short AV delays (50/25 ms by default, as recommended) to pre-empt intrinsic conduction. In routine dual-chamber operation, a single absent evoked response causes the AV delays to be extended by 100 ms on the next cycle, much like a conduction search; the capture recovery procedure starts only after two consecutive losses of capture. Verification relies on the electrical evoked response, never on a mechanical sensor. In a patient with frequent AV conduction, isolated backup pulses should therefore be interpreted with caution.",
+  "aRetenir": "Abbott AutoCapture and fusion: short AV delays during the threshold search, 100 ms extension after a first backup pulse."
  },
  "cas-abt-004": {
   "question": "Abbott dual-chamber pacemaker, PMT response programmed to \"Atrial Pace\". After 8 consecutive VP-AS cycles above the PMT detection rate, with stable VP-AS intervals, how does the device confirm and then terminate the tachycardia?",
   "options": [
    "It extends the PVARP for one cycle, with no prior confirmation test",
-   "AV delay shifted for one cycle; if VP-AS is stable, P not tracked, then atrial pace",
+   "It shifts the AV delay; if VP-AS is unchanged, it ignores a P, then paces A",
    "It withholds one ventricular pace, then switches to DDI(R) for a programmed period",
    "It delivers a rapid atrial burst to make the AV node refractory retrogradely"
   ],
@@ -68,7 +68,7 @@
   "options": [
    "An atrial cycle shorter than the FARI shortens it by 39 ms; a longer cycle lengthens it by 23 ms",
    "A P wave sensed in the PVARP (AR marker) is included in the FARI calculation",
-   "An F wave falling in post-ventricular atrial blanking is included in the FARI calculation",
+   "A flutter wave falling in the post-ventricular atrial blanking period is included in the FARI calculation",
    "Return to a tracking mode requires the filtered atrial rate to fall below the maximum tracking rate",
    "Mode switching occurs on the very first atrial cycle shorter than the atrial tachycardia detection interval"
   ],
@@ -79,15 +79,15 @@
    "Correct: exit is based on the maximum tracking rate, not on the atrial tachycardia detection rate.",
    "Incorrect: mode switching requires the FARI, not a single cycle, to become shorter than the detection interval."
   ],
-  "explication": "In Abbott devices, mode switching is based on a filtered atrial interval updated on every cycle: a P-P interval shorter than the FARI reduces it by 39 ms, a longer interval increases it by 23 ms. Switching to a non-tracking mode (DDI(R) or VVI(R)) occurs when the FARI becomes shorter than the atrial tachycardia detection interval; return to a tracking mode requires the filtered rate to fall back below the maximum tracking rate. Events sensed in the PVARP are counted, but not those in the blanking period: an excessively long PVAB can hide 2:1 flutter, while one that is too short promotes far-field sensing. Alternating short and long cycles, typical of far-field R-wave sensing, makes the FARI drift slowly and can lead to a mode switch. Recording of an AT/AF episode uses somewhat more specific criteria than the mode switch itself.",
+  "explication": "In Abbott devices, mode switching is based on a filtered atrial interval updated on every cycle: a P-P interval shorter than the FARI reduces it by 39 ms, a longer interval increases it by 23 ms. Switching to a non-tracking mode (DDI(R) or VVI(R)) occurs when the FARI becomes shorter than the atrial tachycardia detection interval; return to a tracking mode requires the filtered rate to fall back below the maximum tracking rate. Events sensed in the PVARP are counted, but not those in the blanking period: an excessively long post-ventricular atrial blanking (PVAB) period can hide 2:1 flutter, while one that is too short promotes far-field R-wave oversensing. Alternating short and long cycles, typical of far-field R-wave oversensing, makes the FARI drift slowly and can lead to a mode switch. Recording of an AT/AF episode uses somewhat more specific criteria than the mode switch itself.",
   "aRetenir": "Abbott AMS: FARI −39 / +23 ms, AR events counted but not those in blanking, exit below the maximum tracking rate."
  },
  "cas-abt-007": {
-  "question": "A 70-year-old woman with an Abbott pacemaker programmed DDDR for paroxysmal AV block, rate response on. The memory shows numerous \"AT/AF episodes\". On the EGM: after a PVC, a retrograde P wave falls in the PVARP (AR); the next atrial pace fails to capture, the ventricle is paced at the end of the AV delay, a new retrograde P wave falls in the PVARP, and the sequence repeats. The atrial threshold is normal. What is the diagnosis?",
+  "question": "A 70-year-old woman with an Abbott pacemaker programmed DDDR for paroxysmal AV block, rate response on. Stored data show numerous \"AT/AF episodes\". On the EGM: after a PVC, a retrograde P wave falls in the PVARP (AR); the next atrial pace fails to capture, the ventricle is paced at the end of the AV delay, a new retrograde P wave falls in the PVARP, and the sequence repeats. The atrial threshold is normal. What is the diagnosis?",
   "options": [
    "Pacemaker-mediated tachycardia sustained by retrograde VA conduction",
    "Repetitive non-reentrant VA synchrony, with functional loss of capture",
-   "Atrial loss of capture due to a rise in the atrial pacing threshold",
+   "Loss of atrial capture caused by a rise in the atrial pacing threshold",
    "Far-field sensing: R wave sensed by the atrial lead in the PVARP"
   ],
   "commentaires": [
@@ -130,7 +130,7 @@
    "Incorrect: the problem is the genuine similarity between septal VT and the sinus QRS, not template updating.",
    "Incorrect: sinus interval history serves only to recognise AF that becomes regular and does not identify a regular VT."
   ],
-  "explication": "Since Abbott morphology discrimination has analysed the far-field EGM, it has performed well enough for it to be proposed, in single-chamber devices, as the sole discriminator (sudden onset and stability set to Passive), because sudden onset is often fooled by AF that becomes regular. But a septal VT may have an EGM very similar to the sinus QRS: morphology then classifies it as SVT and therapy is withheld indefinitely, which is dangerous. In this patient, two corrections are possible: re-enable all three criteria with a \"2 of 3\" rule, or raise the match threshold if the scores clearly separate VT from sinus rhythm. Passive mode is precisely what allows you to see, retrospectively, what the other criteria would have concluded. This case is a reminder that no setting is universal: stored episodes should guide programming in each patient.",
+  "explication": "Now that Abbott morphology discrimination analyses the far-field EGM, it performs well enough to be proposed, in single-chamber devices, as the sole discriminator (sudden onset and stability set to Passive), because sudden onset is often fooled by AF that becomes regular. But a septal VT may have an EGM very similar to the sinus QRS: morphology then classifies it as SVT and therapy is withheld indefinitely, which is dangerous. In this patient, two corrections are possible: re-enable all three criteria with a \"2 of 3\" rule, or raise the match threshold if the scores clearly separate VT from sinus rhythm. Passive mode is precisely what allows you to see, retrospectively, what the other criteria would have concluded. This case is a reminder that no setting is universal: stored episodes should guide programming in each patient.",
   "aRetenir": "Morphology alone in a single-chamber ICD: effective against AF, but septal VT can fool it; review the passive criteria and adjust."
  },
  "cas-abt-010": {
@@ -189,7 +189,7 @@
   "options": [
    "SecureSense works only in the VT zone, never in the VF zone",
    "The noise is also seen on the discrimination channel: counter reset",
-   "SecureSense withholds therapy only when lead impedance is abnormal",
+   "SecureSense withholds therapy only when the lead impedance is abnormal",
    "SecureSense analyses only signals slower than 250 bpm"
   ],
   "commentaires": [
@@ -219,9 +219,9 @@
   "aRetenir": "A SecureSense non-sustained episode is not always a fracture: T waves, loss of capture or an offset between channels can explain it."
  },
  "cas-abt-015": {
-  "question": "A 67-year-old man with dilated cardiomyopathy and LBBB, Abbott CRT-D. Poor clinical response, 70% biventricular pacing. The memory contains non-sustained V oversensing episodes; on the EGM, after each BiV pace, a late signal is sensed on the bipolar channel but not on the discrimination channel, and the next cycle is often VS. What is the most appropriate management?",
+  "question": "A 67-year-old man with dilated cardiomyopathy and LBBB, Abbott CRT-D. Poor clinical response, 70% biventricular pacing. Stored data include non-sustained V oversensing episodes; on the EGM, after each BiV pace, a late signal is sensed on the bipolar channel but not on the discrimination channel, and the next cycle is often VS. What is the most appropriate management?",
   "options": [
-   "Adjust the post-pace sensing settings (threshold start and decay delay)",
+   "Adjust post-pace sensing (Threshold Start and Decay Delay)",
    "Reduce maximum ventricular sensitivity until the signal disappears",
    "Programme SecureSense Off so that these episodes are no longer stored",
    "Replace the RV lead, as this signal suggests a conductor fracture"
@@ -232,7 +232,7 @@
    "Incorrect: SecureSense merely reveals the problem; switching it off corrects neither the oversensing nor the loss of BiV pacing.",
    "Incorrect: a signal occurring at a fixed interval after each pace is a T wave, not fracture noise."
   ],
-  "explication": "The signal sensed at a fixed interval after each pace, on the bipolar channel alone, is a post-pace T wave. It resets the escape interval or limits atrial tracking: the next cycle is intrinsic and the biventricular pacing percentage falls, which partly explains the poor response. SecureSense made the diagnosis possible, but it removes neither the oversensing nor its consequences for pacing. Abbott ICDs have separate automatic sensitivity settings after pacing and after sensing (threshold start, decay delay): post-pace sensing is corrected in a targeted way, without touching maximum sensitivity. Biventricular pacing should be as close to 100% as possible, and the result then checked on the EGM and counters.",
+  "explication": "The signal sensed at a fixed interval after each pace, on the bipolar channel alone, is a post-pace T wave. It resets the escape interval or limits atrial tracking: the next cycle is intrinsic and the biventricular pacing percentage falls, which partly explains the poor response. SecureSense made the diagnosis possible, but it removes neither the oversensing nor its consequences for pacing. Abbott ICDs have separate automatic sensitivity settings after pacing and after sensing (Threshold Start, Decay Delay): post-pace sensing is corrected in a targeted way, without touching maximum sensitivity. Biventricular pacing should be as close to 100% as possible, and the result then checked on the EGM and counters.",
   "aRetenir": "Abbott CRT-D: post-pace T-wave oversensing reduces BiV pacing; correct the post-pace sensing settings."
  },
  "cas-abt-016": {

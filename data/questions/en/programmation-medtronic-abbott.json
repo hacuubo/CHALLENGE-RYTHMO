@@ -84,7 +84,7 @@
  "prog-ma-006": {
   "question": "What are the recognised limitations of, or precautions with, MVP mode? (select all that apply)",
   "options": [
-   "A very long PR interval tolerated over time can cause a \"pseudo-pacemaker syndrome\" picture",
+   "A very long PR interval tolerated over time can cause a \"pseudo-pacemaker syndrome\"",
    "After a non-conducted P wave, a backup V pulse is delivered in the same cycle, 80 ms after that P wave",
    "A blocked P wave creates a short-long-short sequence, which is proarrhythmic in some ICD patients",
    "In permanent complete AV block, MVP keeps the device in AAI(R) most of the time"
@@ -144,13 +144,13 @@
    "Incorrect: the Sleep function does not depend on measured activity; lowering the rate when the sensor detects rest corresponds to Abbott Rest Rate.",
    "Correct: the Sleep function applies a lower rate between a programmed bedtime and wake time, based on the device clock."
   ],
-  "explication": "This is false. The Sleep function applies a lower base rate (Sleep Rate) between a programmed bedtime and wake time, to reflect the physiological night-time fall in heart rate. It relies on the device clock, not on the patient's actual activity. Rate lowering triggered by the activity sensor is the logic of Abbott Rest Rate. Practical consequence: the Sleep function times need to be adjusted in night-shift workers or after a change of time zone. It avoids unnecessary night-time pacing, which may be poorly tolerated and drains the battery.",
+  "explication": "This is false. The Sleep function applies a lower pacing rate (Sleep Rate) between a programmed bedtime and wake time, to reflect the physiological night-time fall in heart rate. It relies on the device clock, not on the patient's actual activity. Rate lowering triggered by the activity sensor is the logic of Abbott Rest Rate. Practical consequence: the Sleep function times need to be adjusted in night-shift workers or after a change of time zone. It avoids unnecessary night-time pacing, which may be poorly tolerated and drains the battery.",
   "aRetenir": "The Medtronic Sleep function lowers the lower rate according to programmed times, not according to detected activity."
  },
  "prog-ma-011": {
   "question": "Explain the principle of the Conducted AF Response algorithm in Medtronic devices (particularly in CRT) and its purpose.",
   "reponseAttendue": "In conducted AF, the algorithm increases the ventricular pacing rate when conducted intrinsic ventricular events are sensed, then gradually decreases it. The ventricular response is thus regularised, with more paced cycles: in CRT, this increases the percentage of biventricular pacing during AF.",
-  "explication": "In AF, irregular AV conduction competes with pacing and reduces the percentage of biventricular pacing, whereas CRT requires near-continuous pacing. Conducted AF Response increases the pacing rate on each conducted ventricular sensed event, then brings it back down: the mean rate rises slightly and more cycles are paced. In the CRTee trial, this algorithm was the comparator for a more recent algorithm (EffectivCRT during AF), based on actual LV capture effectiveness. The latter further increased the percentage of effective CRT, at the cost of a +2.5 bpm increase in mean rate. Pitfall: no algorithm is a substitute for rate control or AV junction ablation when biventricular pacing remains insufficient.",
+  "explication": "In AF, irregular AV conduction competes with pacing and reduces the percentage of biventricular pacing, whereas CRT requires near-continuous pacing. Conducted AF Response increases the pacing rate on each conducted ventricular sensed event, then brings it back down: the mean rate rises slightly and more cycles are paced. In the CRTee trial, this algorithm was the comparator for a more recent algorithm (EffectivCRT During AF), based on actual LV capture effectiveness. The latter further increased the percentage of effective CRT, at the cost of a +2.5 bpm increase in mean rate. Pitfall: no algorithm is a substitute for rate control or AV junction ablation when biventricular pacing remains insufficient.",
   "aRetenir": "Conducted AF Response regularises conducted AF by transiently increasing the pacing rate, which increases the pacing percentage (biventricular in CRT)."
  },
  "prog-ma-012": {
@@ -303,7 +303,7 @@
    "Correct: 1.5% at 1 year with dual- or triple-chamber devices (2.5% with single-chamber) in PainFree SST.",
    "Incorrect: 10% corresponds to older series, before long detection times and modern discriminators.",
    "Incorrect: this rate was seen in older series with short detection, not with SmartShock.",
-   "Incorrect: 30% is the order of magnitude of the very first ICD series, bearing no comparison with PainFree SST."
+   "Incorrect: 30% is the order of magnitude seen in the very first ICD series, far above the PainFree SST rates."
   ],
   "explication": "PainFree SST (2790 patients) combined the SmartShock algorithms (PR Logic, Wavelet, T-wave discrimination, RV lead noise discrimination…) with modern programming. The 1-year inappropriate shock rate was 1.5% with dual- or triple-chamber devices and 2.5% with single-chamber devices. At 2 years, it reached 2.8% and 3.7%. The leading cause remained AF or atrial flutter. Figures of 10 to 30% correspond to older series, before long detection times and modern discriminators.",
   "aRetenir": "With SmartShock and modern programming, 1-year inappropriate shock rates fall to 1.5-2.5%."
@@ -433,7 +433,7 @@
    "60/80 intervals"
   ],
   "commentaires": [
-   "Incorrect: 12/16 is a very short detection, leading to therapies for non-sustained VT that would have self-terminated.",
+   "Incorrect: 12/16 is a very short detection setting, leading to therapies for non-sustained VT that would have self-terminated.",
    "Incorrect: 18/24 is the former standard setting, which served as the comparator in ADVANCE III.",
    "Correct: 30/40 reduced therapies by 37% and first inappropriate shocks by 45% in ADVANCE III.",
    "Incorrect: 60/80 would excessively delay treatment of VF; this setting has not been validated."
@@ -586,7 +586,7 @@
   ],
   "commentaires": [
    "Incorrect: it is the other way round: the number of cycles is programmable (15 to 40), whereas the rate increments are fixed.",
-   "Correct: the increments (10 bpm, then 5 bpm) are not programmable; the number of cycles and the maximum rate are set."
+   "Correct: the increments (10 bpm, then 5 bpm) are not programmable; only the number of cycles and the maximum rate are programmable."
   ],
   "explication": "This is false: the statement reverses the two parameters. According to the official Assurity MRI specifications, the number of overdrive cycles is programmable from 15 to 40 in steps of 5, and the maximum AF Suppression rate from 80 to 180 bpm. By contrast, the rate increments (\"Lower Rate Overdrive\" 10 bpm, \"Upper Rate Overdrive\" 5 bpm) and rate recovery are listed as non-programmable. The number of cycles determines the duration of overdrive before the rate decreases. The maximum AF Suppression rate is the limit to adjust to the patient's tolerance, as rapid atrial pacing may be poorly tolerated.",
   "aRetenir": "AF Suppression: the number of overdrive cycles and the maximum rate are programmable, not the rate increments."
@@ -603,7 +603,7 @@
    "Correct: PAC Response shifts atrial pacing so that it does not fall in the vulnerable period following the PAC (200 to 400 ms on the Gallant).",
    "Incorrect: increasing the atrial rate when intrinsic P waves are sensed is AF Suppression.",
    "Incorrect: a PAC in the WARAD window (MicroPort) only opens a suspicion phase; mode switching requires confirmation, and this is not PAC Response.",
-   "Incorrect: shortening the escape interval to abolish the pause is Medtronic atrial Rate Stabilization; on the contrary, it brings the pacing pulse closer."
+   "Incorrect: shortening the escape interval to abolish the pause is Medtronic atrial Rate Stabilization; if anything, it brings the next pacing pulse forward."
   ],
   "explication": "After a PAC, the next atrial pacing pulse may fall in the atrial vulnerable period and trigger AF. PAC Response modifies the pacing timing to avoid pacing the atrium too soon after the PAC, with an interval programmable from 200 to 400 ms on the Gallant. It does not deliver antitachycardia therapy and is not a diagnostic feature. Rate Stabilization (Medtronic), which shortens the escape interval, and AF Suppression, which increases the atrial pacing rate, are based on different logic. Mode switching relies on the filtered atrial rate, not on a single PAC. This feature illustrates the principle of not provoking arrhythmia through ill-timed pacing.",
   "aRetenir": "PAC Response avoids pacing the atrium in its vulnerable period after a PAC."
@@ -652,7 +652,7 @@
   "question": "In an Abbott dual-chamber ICD, the Rate Branch algorithm compares the atrial (A) and ventricular (V) rates in the VT zone. What happens if V > A?",
   "options": [
    "Classified as ventricular: therapy delivered, no other discriminator",
-   "Rhythm classified as SVT: therapy withheld until the SVT limit is crossed",
+   "Classified as SVT: therapy withheld until the SVT limit is crossed",
    "Analysis of cycle stability and morphology before a decision is made",
    "Analysis of onset and morphology before a decision is made"
   ],
@@ -884,7 +884,7 @@
    "Incorrect: loss of capture would produce spikes not followed by a QRS, not a loss of synchrony with effective pacing.",
    "Correct: diastole shortens, A3 (passive filling) and A4 (atrial contraction) move closer together and then fuse, and A4 is sensed less reliably."
   ],
-  "explication": "Micra AV identifies atrial contraction by a mechanical signal (A4) sensed by the accelerometer after the end of passive filling (A3). As the rate increases, diastole shortens and the A3 and A4 signals move closer together and then fuse: A4 sensing becomes less reliable. The device then paces more often without atrial synchronisation, at the programmed lower rate. In AccelAV, AV synchrony was 85.4% at rest but 74.8% during ambulatory conditions, and programming optimisation improved it. Predictors of good synchrony were studied in MARVEL 2 (A4 amplitude, among others).",
+  "explication": "Micra AV identifies atrial contraction by a mechanical signal (A4) sensed by the accelerometer after the end of passive filling (A3). As the rate increases, diastole shortens and the A3 and A4 signals move closer together and then fuse: A4 sensing becomes less reliable. The device then paces more often without atrial synchronisation, at the programmed lower rate. In AccelAV, AV synchrony was 85.4% at rest but 74.8% under ambulatory conditions, and programming optimisation improved it. Predictors of good synchrony were studied in MARVEL 2 (A4 amplitude, among others).",
   "aRetenir": "Micra AV: at high rates, A3/A4 fusion degrades mechanical atrial sensing and hence AV synchrony."
  },
  "prog-ma-059": {

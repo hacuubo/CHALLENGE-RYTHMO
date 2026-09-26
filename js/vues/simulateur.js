@@ -81,8 +81,8 @@ export function vueSimulateur(app) {
         <div class="simu-panneau simu-rappel" id="rappel">
           <div class="simu-titre-ecran"><b>${t('Écran de rappel', 'Review screen')}</b> <span id="rappel-titre" class="note"></span></div>
           <div class="simu-barre">
-            <button class="btn btn-mini" id="evt-prec" aria-label="${t('Événement précédent du journal', 'Previous log event')}">◀ ${t('Évt', 'Evt')}</button>
-            <button class="btn btn-mini" id="evt-suiv" aria-label="${t('Événement suivant du journal', 'Next log event')}">${t('Évt', 'Evt')} ▶</button>
+            <button class="btn btn-mini" id="evt-prec" aria-label="${t('Événement précédent du journal', 'Previous log event')}">◀ ${t('Évt', 'Event')}</button>
+            <button class="btn btn-mini" id="evt-suiv" aria-label="${t('Événement suivant du journal', 'Next log event')}">${t('Évt', 'Event')} ▶</button>
             <label class="simu-mini">${t('Vitesse', 'Speed')} <select id="vitesse-rappel">${VITESSES.map(v => `<option value="${v}" ${v === r.vitesseRappel ? 'selected' : ''}>${t(String(v).replace('.', ','), String(v))} mm/s</option>`).join('')}</select></label>
             <div class="simu-mesures" id="mesures-rappel" aria-live="off"></div>
           </div>
