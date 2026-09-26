@@ -197,7 +197,7 @@ export function dessinerSimu(canvas, coeur, o = {}) {
     bruit: avecBruit = true, ablation = null, hauteurMax = 0, filtre50 = true, passeHaut = true } = o;
   const dpr = window.devicePixelRatio || 1;
   const L = canvas.clientWidth, etroit = L < 500, marge = marges(L);
-  const canaux = CANAUX.filter(c => voies.includes(c.id));
+  const canaux = voies.map(id => CANAUX.find(c => c.id === id)).filter(Boolean); // dans l'ordre choisi par l'utilisateur
   let hSurf = etroit ? 40 : 50, hEndo = etroit ? 30 : 36;
   const naturelle = canaux.reduce((s, c) => s + (c.surface || c.pression ? hSurf : hEndo), 0);
   if (hauteurMax && naturelle + 24 > hauteurMax) { const f = Math.max(0.45, (hauteurMax - 24) / naturelle); hSurf *= f; hEndo *= f; }
