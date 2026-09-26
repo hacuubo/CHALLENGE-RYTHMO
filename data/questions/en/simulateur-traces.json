@@ -13,7 +13,7 @@
    "Incorrect: aberration affects the QRS (and the HV), not the AH interval; here the jump is above the His.",
    "Incorrect: an anterograde accessory pathway pre-excites the ventricle (short HV); here the His normally precedes the V."
   ],
-  "explication": "Atrial extrastimulus testing explores the AV nodal conduction curve: as S2 shortens, the AH gradually lengthens (decrement). Here the AH abruptly increases from 128 to 254 ms for a 10 ms shorter coupling interval: the fast pathway has reached its effective refractory period and conduction switches to the slow pathway. This defines dual AV nodal physiology (jump ≥ 50 ms for 10 ms). This physiology is common and warrants treatment only if AVNRT is inducible or documented.",
+  "explication": "Atrial extrastimulus testing explores the AV nodal conduction curve: as S2 shortens, the AH gradually lengthens (decrement). Here the AH abruptly increases from 128 to 254 ms for a 10 ms shorter coupling interval: the fast pathway has reached its effective refractory period and conduction switches to the slow pathway. This defines dual AV nodal physiology (jump ≥ 50 ms for 10 ms). The finding is common and warrants treatment only if AVNRT is inducible or documented.",
   "aRetenir": "AH jump ≥ 50 ms for a 10 ms decrement in coupling interval = dual AV nodal physiology; not in itself an indication for ablation.",
   "legende": "S2 = 330 ms"
  },
@@ -39,14 +39,14 @@
   "options": [
    "V-A-A-V response: atrial tachycardia",
    "V-A-V response, PPI − TCL < 115 ms: re-entry over a septal pathway",
-   "V-A-V response, PPI − TCL of 134 ms: AV nodal re-entry",
-   "Uninterpretable manoeuvre without QRS fusion"
+   "V-A-V response, PPI − TCL = 134 ms: AV nodal re-entry",
+   "Manoeuvre uninterpretable without QRS fusion"
   ],
   "commentaires": [
    "Incorrect: the last entrained A is followed by a V, not by a second A: the response is V-A-V.",
    "Incorrect: PPI − TCL = 134 ms, above 115 ms: the RV apex is far from the circuit, which points to AVNRT.",
    "Correct: V-A-V response and PPI − TCL = 460 − 326 = 134 ms > 115 ms: the RV apex is remote from the circuit.",
-   "Incorrect: absence of QRS fusion does not prevent interpretation of the response or the PPI; it is even expected in AVNRT."
+   "Incorrect: absence of QRS fusion does not prevent interpretation of the response or the PPI; indeed, it is expected in AVNRT."
   ],
   "explication": "On cessation of entrainment, the last entrained A is followed by a V (V-A-V response): the tachycardia involves the AV node, which excludes atrial tachycardia. The PPI measured at the pacing site (460 ms) exceeds the tachycardia cycle length by 134 ms: the RV apex is remote from the circuit. A PPI − TCL > 115 ms (and an SA − VA > 85 ms) favours AVNRT; a value < 115 ms points to re-entry over a septal accessory pathway (Michaud). Always measure the PPI on the electrogram of the pacing site.",
   "aRetenir": "RV entrainment: V-A-V + PPI − TCL > 115 ms → AVNRT; < 115 ms → AVRT (septal pathway)."
@@ -73,7 +73,7 @@
   "options": [
    "The presence of an accessory pathway with retrograde conduction",
    "Retrograde conduction over the fast pathway of an intact AV node",
-   "AV nodal re-entry with a lower final common pathway",
+   "AV nodal re-entry with a lower common pathway",
    "Resetting of a left atrial focus by the PVC"
   ],
   "commentaires": [
@@ -82,7 +82,7 @@
    "Incorrect: in AVNRT, a His-refractory PVC does not reach the nodal circuit and does not affect the atrium.",
    "Incorrect: to reset an atrial focus, the PVC would have to reach the atrium, which already requires an extranodal pathway when the His is refractory."
   ],
-  "explication": "A PVC delivered when the His is refractory (at the time of, or just before, the expected His) cannot conduct retrogradely through the His–AV node axis. If the next A is advanced with the same activation sequence, the impulse has travelled over an accessory pathway: this proves its presence. The pathway participates in the circuit if the PVC delays the atrium or terminates the tachycardia without reaching it. Conversely, absence of advancement does not exclude a pathway remote from the pacing site, such as a left lateral pathway paced from the RV apex.",
+  "explication": "A PVC delivered when the His is refractory (at the time of, or just before, the expected His) cannot conduct retrogradely through the His–AV nodal axis. If the next A is advanced with the same activation sequence, the impulse has travelled over an accessory pathway: this proves its presence. The pathway participates in the circuit if the PVC delays the atrium or terminates the tachycardia without reaching it. Conversely, absence of advancement does not exclude a pathway remote from the pacing site, such as a left lateral pathway paced from the RV apex.",
   "aRetenir": "His-refractory PVC that advances the atrium with the same sequence = accessory pathway; one that terminates the tachycardia without reaching the atrium = participating pathway."
  },
  "simu-006": {
@@ -91,7 +91,7 @@
    "Retrograde conduction exclusively over the AV node",
    "Extranodal retrograde conduction: septal pathway",
    "Both nodal and extranodal retrograde conduction (fusion)",
-   "No ventriculoatrial retrograde conduction"
+   "No retrograde VA conduction"
   ],
   "commentaires": [
    "Incorrect: if the atrium were activated via the AV node, loss of His capture would lengthen the stimulus-to-A interval (the impulse must first reach the His).",
@@ -104,12 +104,12 @@
   "legende": "15 mA, then 5 mA"
  },
  "simu-007": {
-  "question": "Para-Hisian pacing in sinus rhythm: 15 mA (His and septal myocardial capture), then 5 mA (myocardium only, wider QRS). The stimulus-to-A interval measured at the His (A), the earliest atrial site, is 66 ms at 15 mA and 135 ms at 5 mA, with the same atrial sequence. What is the conclusion?",
+  "question": "Para-Hisian pacing in sinus rhythm: 15 mA (His and septal myocardial capture), then 5 mA (myocardium only, wider QRS). The stimulus-to-A interval measured at the His catheter (A), the earliest atrial site, is 66 ms at 15 mA and 135 ms at 5 mA, with the same atrial sequence. What is the conclusion?",
   "options": [
    "Retrograde conduction over the AV node only",
    "Extranodal retrograde conduction: septal accessory pathway",
    "Both nodal and extranodal retrograde conduction (fusion)",
-   "No ventriculoatrial retrograde conduction"
+   "No retrograde VA conduction"
   ],
   "commentaires": [
    "Correct: the stimulus-to-A interval lengthens by 69 ms with loss of His capture, with the same sequence: the impulse must reach the His before conducting retrogradely over the AV node.",
@@ -133,7 +133,7 @@
    "Incorrect: a site outside the circuit would give a PPI clearly longer than the cycle length; here PPI − TCL = 0 ms.",
    "Correct: PPI − TCL = 0 ms (< 20-30 ms): the isthmus is part of the circuit and is the ablation target.",
    "Incorrect: the flutter resumes unchanged after entrainment is stopped, with no disorganised activity.",
-   "Incorrect: the PPI is precisely measured on the electrogram of the pacing site, here the isthmus bipole."
+   "Incorrect: the PPI is, by definition, measured on the electrogram of the pacing site, here the isthmus bipole."
   ],
   "explication": "Entrainment consists of pacing slightly faster than the tachycardia and then measuring the return cycle (PPI) at the pacing site. If this site is within the circuit, the impulse travels once around the circuit and returns after one cycle length: PPI ≈ TCL (difference < 20-30 ms). Here the difference is 0 ms: the cavotricuspid isthmus is part of the circuit, confirming typical isthmus-dependent flutter. Isthmus ablation, with confirmation of bidirectional block, is the reference treatment.",
   "aRetenir": "PPI − TCL < 20-30 ms = site within the circuit; for typical flutter, the cavotricuspid isthmus."
@@ -173,7 +173,7 @@
   "aRetenir": "A tachycardia that persists despite AV block (or block below the His) excludes AVRT."
  },
  "simu-011": {
-  "question": "Orthodromic tachycardia: with an LBBB-like QRS (tracing), the VA is 178 ms and the cycle length 361 ms; when the QRS narrows again, the VA returns to 133 ms and the cycle length to 337 ms. What is the conclusion?",
+  "question": "Orthodromic tachycardia: with an LBBB-morphology QRS (tracing), the VA is 178 ms and the cycle length 361 ms; when the QRS narrows again, the VA returns to 133 ms and the cycle length to 337 ms. What is the conclusion?",
   "options": [
    "Right-sided accessory pathway, contralateral to the block",
    "Left-sided accessory pathway, ipsilateral to the block",
@@ -210,7 +210,7 @@
   "question": "Fixed-rate atrial pacing at a cycle length of 310 ms (high RA). The AH increases from 85 to 186 ms over a few beats, then an atrial activation is not followed by an H (tracing). What is the interpretation?",
   "options": [
    "Infra-Hisian second-degree AV block",
-   "Physiological nodal Wenckebach point",
+   "Physiological AV nodal Wenckebach point",
    "Atrial effective refractory period reached",
    "High-grade AV block, pacing indicated"
   ],

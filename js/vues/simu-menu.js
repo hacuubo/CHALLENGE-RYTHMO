@@ -8,10 +8,10 @@ import { t } from '../i18n.js';
 // titres évalués à l'affichage, dans la langue courante
 const GROUPES = () => [
   [t('Physiologie', 'Physiology'), ['normal', 'double']],
-  [t('Réentrées nodales et jonction', 'AV nodal re-entry and junction'), ['trin', 'trin-atyp', 'trin-21', 'jonctionnelle']],
+  [t('Réentrées nodales et jonction', 'AV nodal re-entry and junctional'), ['trin', 'trin-atyp', 'trin-21', 'jonctionnelle']],
   [t('Voies accessoires', 'Accessory pathways'), ['trav', 'septale', 'coumel', 'pjrt', 'wpw', 'mahaim']],
   [t('Tachycardies atriales', 'Atrial tachycardias'), ['ta', 'flutter', 'flutter-mitral', 'fa']],
-  [t('Ventricule', 'Ventricle'), ['tv']],
+  [t('Ventricule', 'Ventricular arrhythmias'), ['tv']],
 ];
 
 export function vueSimuMenu(app, { aller }) {

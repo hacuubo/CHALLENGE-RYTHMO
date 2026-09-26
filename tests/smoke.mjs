@@ -267,8 +267,9 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     if (await page.$('.retenir') && !/Key point/.test(await page.textContent('.retenir'))) throw new Error('« Key point » absent');
     if (!/Error%20report/.test(await page.getAttribute('.signaler', 'href'))) throw new Error('signalement non prérempli en anglais');
     await capture('anglais-correction');
-    page.once('dialog', d => d.accept().catch(() => {})); // (une étape précédente peut avoir laissé son propre gestionnaire)
-    await nav('accueil');
+    await page.evaluate(() => { location.hash = 'accueil'; }); // série laissée en cours (sans confirmation)
+    await page.waitForSelector('.menu-principal.centre');
+    if (!/Resume:/.test(await page.textContent('#reprendre'))) throw new Error('bouton de reprise non traduit');
     // le choix est mémorisé : il survit au rechargement
     await page.reload();
     await page.waitForSelector('#ecran-titre', { state: 'detached' });

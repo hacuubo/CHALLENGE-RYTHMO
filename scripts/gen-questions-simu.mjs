@@ -87,7 +87,7 @@ const simu = (scenario, etapes, fin, { vitesse = 50, montage = 'standard', legen
         'Incorrect: aberration affects the QRS (and the HV), not the AH interval; here the jump is above the His.',
         'Incorrect: an anterograde accessory pathway pre-excites the ventricle (short HV); here the His normally precedes the V.',
       ],
-      explication: `Atrial extrastimulus testing explores the AV nodal conduction curve: as S2 shortens, the AH gradually lengthens (decrement). Here the AH abruptly increases from ${prec.ah} to ${ah} ms for a 10 ms shorter coupling interval: the fast pathway has reached its effective refractory period and conduction switches to the slow pathway. This defines dual AV nodal physiology (jump ≥ 50 ms for 10 ms). This physiology is common and warrants treatment only if AVNRT is inducible or documented.`,
+      explication: `Atrial extrastimulus testing explores the AV nodal conduction curve: as S2 shortens, the AH gradually lengthens (decrement). Here the AH abruptly increases from ${prec.ah} to ${ah} ms for a 10 ms shorter coupling interval: the fast pathway has reached its effective refractory period and conduction switches to the slow pathway. This defines dual AV nodal physiology (jump ≥ 50 ms for 10 ms). The finding is common and warrants treatment only if AVNRT is inducible or documented.`,
       aRetenir: 'AH jump ≥ 50 ms for a 10 ms decrement in coupling interval = dual AV nodal physiology; not in itself an indication for ablation.',
       legende: `S2 = ${s2} ms`,
     },
@@ -155,12 +155,12 @@ const simu = (scenario, etapes, fin, { vitesse = 50, montage = 'standard', legen
     sources: [SRC.michaud, SRC.knight, SRC.esc],
     en: {
       question: `Narrow-QRS tachycardia, cycle length ${R(tcl)} ms. Entrainment from the RV apex at ${cl} ms, with 1:1 retrograde conduction, then pacing is stopped (tracing). The PPI measured on the RV catheter is ${a.ppi} ms. What is the conclusion?`,
-      options: ['V-A-A-V response: atrial tachycardia', 'V-A-V response, PPI − TCL < 115 ms: re-entry over a septal pathway', `V-A-V response, PPI − TCL of ${a.pptcl} ms: AV nodal re-entry`, 'Uninterpretable manoeuvre without QRS fusion'],
+      options: ['V-A-A-V response: atrial tachycardia', 'V-A-V response, PPI − TCL < 115 ms: re-entry over a septal pathway', `V-A-V response, PPI − TCL = ${a.pptcl} ms: AV nodal re-entry`, 'Manoeuvre uninterpretable without QRS fusion'],
       commentaires: [
         'Incorrect: the last entrained A is followed by a V, not by a second A: the response is V-A-V.',
         `Incorrect: PPI − TCL = ${a.pptcl} ms, above 115 ms: the RV apex is far from the circuit, which points to AVNRT.`,
         `Correct: V-A-V response and PPI − TCL = ${a.ppi} − ${R(tcl)} = ${a.pptcl} ms > 115 ms: the RV apex is remote from the circuit.`,
-        'Incorrect: absence of QRS fusion does not prevent interpretation of the response or the PPI; it is even expected in AVNRT.',
+        'Incorrect: absence of QRS fusion does not prevent interpretation of the response or the PPI; indeed, it is expected in AVNRT.',
       ],
       explication: `On cessation of entrainment, the last entrained A is followed by a V (V-A-V response): the tachycardia involves the AV node, which excludes atrial tachycardia. The PPI measured at the pacing site (${a.ppi} ms) exceeds the tachycardia cycle length by ${a.pptcl} ms: the RV apex is remote from the circuit. A PPI − TCL > 115 ms (and an SA − VA > 85 ms) favours AVNRT; a value < 115 ms points to re-entry over a septal accessory pathway (Michaud). Always measure the PPI on the electrogram of the pacing site.`,
       aRetenir: 'RV entrainment: V-A-V + PPI − TCL > 115 ms → AVNRT; < 115 ms → AVRT (septal pathway).',
@@ -235,14 +235,14 @@ const simu = (scenario, etapes, fin, { vitesse = 50, montage = 'standard', legen
     sources: [SRC.josephson, SRC.knight],
     en: {
       question: `Orthodromic tachycardia (cycle length ${R(tcl)} ms, distal CS activated first). A PVC is delivered at the RV apex 30 ms before the expected His, when the His is refractory: the next His is not affected (tracing). The next A is advanced by ${av} ms with the same sequence. What does this response prove?`,
-      options: ['The presence of an accessory pathway with retrograde conduction', 'Retrograde conduction over the fast pathway of an intact AV node', 'AV nodal re-entry with a lower final common pathway', 'Resetting of a left atrial focus by the PVC'],
+      options: ['The presence of an accessory pathway with retrograde conduction', 'Retrograde conduction over the fast pathway of an intact AV node', 'AV nodal re-entry with a lower common pathway', 'Resetting of a left atrial focus by the PVC'],
       commentaires: [
         'Correct: as the His is refractory, the impulse can reach the atrium only by bypassing the AV node, i.e. over an accessory pathway.',
         'Incorrect: to conduct retrogradely over the AV node, the impulse must pass through the His, which is refractory here.',
         'Incorrect: in AVNRT, a His-refractory PVC does not reach the nodal circuit and does not affect the atrium.',
         'Incorrect: to reset an atrial focus, the PVC would have to reach the atrium, which already requires an extranodal pathway when the His is refractory.',
       ],
-      explication: `A PVC delivered when the His is refractory (at the time of, or just before, the expected His) cannot conduct retrogradely through the His–AV node axis. If the next A is advanced with the same activation sequence, the impulse has travelled over an accessory pathway: this proves its presence. The pathway participates in the circuit if the PVC delays the atrium or terminates the tachycardia without reaching it. Conversely, absence of advancement does not exclude a pathway remote from the pacing site, such as a left lateral pathway paced from the RV apex.`,
+      explication: `A PVC delivered when the His is refractory (at the time of, or just before, the expected His) cannot conduct retrogradely through the His–AV nodal axis. If the next A is advanced with the same activation sequence, the impulse has travelled over an accessory pathway: this proves its presence. The pathway participates in the circuit if the PVC delays the atrium or terminates the tachycardia without reaching it. Conversely, absence of advancement does not exclude a pathway remote from the pacing site, such as a left lateral pathway paced from the RV apex.`,
       aRetenir: 'His-refractory PVC that advances the atrium with the same sequence = accessory pathway; one that terminates the tachycardia without reaching the atrium = participating pathway.',
     },
   });
@@ -281,10 +281,10 @@ for (const [scenario, site] of [['septale', 'cs9'], ['normal', 'ras']]) {
     aRetenir: 'Para-hisien : stimulus-A allongé sans capture du His = conduction nodale ; inchangé au site de sortie = voie accessoire septale.',
     sources: [SRC.hirao, SRC.josephson],
     en: {
-      question: `Para-Hisian pacing in sinus rhythm: 15 mA (His and septal myocardial capture), then 5 mA (myocardium only, wider QRS). The stimulus-to-A interval measured at ${extra ? 'the CS ostium' : 'the His (A)'}, the earliest atrial site, is ${saH} ms at 15 mA and ${saB} ms at 5 mA, with the same atrial sequence. What is the conclusion?`,
+      question: `Para-Hisian pacing in sinus rhythm: 15 mA (His and septal myocardial capture), then 5 mA (myocardium only, wider QRS). The stimulus-to-A interval measured at ${extra ? 'the CS ostium' : 'the His catheter (A)'}, the earliest atrial site, is ${saH} ms at 15 mA and ${saB} ms at 5 mA, with the same atrial sequence. What is the conclusion?`,
       options: extra
-        ? ['Retrograde conduction exclusively over the AV node', 'Extranodal retrograde conduction: septal pathway', 'Both nodal and extranodal retrograde conduction (fusion)', 'No ventriculoatrial retrograde conduction']
-        : ['Retrograde conduction over the AV node only', 'Extranodal retrograde conduction: septal accessory pathway', 'Both nodal and extranodal retrograde conduction (fusion)', 'No ventriculoatrial retrograde conduction'],
+        ? ['Retrograde conduction exclusively over the AV node', 'Extranodal retrograde conduction: septal pathway', 'Both nodal and extranodal retrograde conduction (fusion)', 'No retrograde VA conduction']
+        : ['Retrograde conduction over the AV node only', 'Extranodal retrograde conduction: septal accessory pathway', 'Both nodal and extranodal retrograde conduction (fusion)', 'No retrograde VA conduction'],
       commentaires: extra ? [
         'Incorrect: if the atrium were activated via the AV node, loss of His capture would lengthen the stimulus-to-A interval (the impulse must first reach the His).',
         `Correct: the stimulus-to-A interval remains ${saB} ms whether or not the His is captured: the atrium is activated from the ventricular myocardium via a septal pathway.`,
@@ -333,7 +333,7 @@ for (const [scenario, site] of [['septale', 'cs9'], ['normal', 'ras']]) {
         `Incorrect: a site outside the circuit would give a PPI clearly longer than the cycle length; here PPI − TCL = ${a.pptcl} ms.`,
         `Correct: PPI − TCL = ${a.pptcl} ms (< 20-30 ms): the isthmus is part of the circuit and is the ablation target.`,
         'Incorrect: the flutter resumes unchanged after entrainment is stopped, with no disorganised activity.',
-        'Incorrect: the PPI is precisely measured on the electrogram of the pacing site, here the isthmus bipole.',
+        'Incorrect: the PPI is, by definition, measured on the electrogram of the pacing site, here the isthmus bipole.',
       ],
       explication: `Entrainment consists of pacing slightly faster than the tachycardia and then measuring the return cycle (PPI) at the pacing site. If this site is within the circuit, the impulse travels once around the circuit and returns after one cycle length: PPI ≈ TCL (difference < 20-30 ms). Here the difference is ${a.pptcl} ms: the cavotricuspid isthmus is part of the circuit, confirming typical isthmus-dependent flutter. Isthmus ablation, with confirmation of bidirectional block, is the reference treatment.`,
       aRetenir: 'PPI − TCL < 20-30 ms = site within the circuit; for typical flutter, the cavotricuspid isthmus.',
@@ -446,7 +446,7 @@ for (const [scenario, site] of [['septale', 'cs9'], ['normal', 'ras']]) {
     aRetenir: 'Signe de Coumel : allongement du VA (≥ 35 ms) et du cycle en bloc de branche → voie accessoire homolatérale au bloc, participant au circuit.',
     sources: [{ titre: 'Coumel P, Attuel P. Reciprocating tachycardia in overt and latent preexcitation. Influence of functional bundle branch block on the rate of the tachycardia. Eur J Cardiol 1974;1:423-36', url: null }, SRC.josephson],
     en: {
-      question: `Orthodromic tachycardia: with an LBBB-like QRS (tracing), the VA is ${va} ms and the cycle length ${c1} ms; when the QRS narrows again, the VA returns to ${va0} ms and the cycle length to ${c0} ms. What is the conclusion?`,
+      question: `Orthodromic tachycardia: with an LBBB-morphology QRS (tracing), the VA is ${va} ms and the cycle length ${c1} ms; when the QRS narrows again, the VA returns to ${va0} ms and the cycle length to ${c0} ms. What is the conclusion?`,
       options: ['Right-sided accessory pathway, contralateral to the block', 'Left-sided accessory pathway, ipsilateral to the block', 'AVNRT with aberrant conduction', 'Fascicular ventricular tachycardia'],
       commentaires: [
         'Incorrect: bundle branch block contralateral to the pathway does not change the VA.',
@@ -524,7 +524,7 @@ for (const [scenario, site] of [['septale', 'cs9'], ['normal', 'ras']]) {
     sources: [SRC.josephson],
     en: {
       question: `Fixed-rate atrial pacing at a cycle length of ${pointW} ms (high RA). The AH increases from ${suite[0]} to ${suite.at(-1)} ms over a few beats, then an atrial activation is not followed by an H (tracing). What is the interpretation?`,
-      options: ['Infra-Hisian second-degree AV block', 'Physiological nodal Wenckebach point', 'Atrial effective refractory period reached', 'High-grade AV block, pacing indicated'],
+      options: ['Infra-Hisian second-degree AV block', 'Physiological AV nodal Wenckebach point', 'Atrial effective refractory period reached', 'High-grade AV block, pacing indicated'],
       commentaires: [
         'Incorrect: block occurs between A and H (above the His), after progressive AH prolongation; infra-Hisian block would occur after an H.',
         `Correct: progressive AH prolongation, then an A not followed by an H at ${pointW} ms: AV nodal Wenckebach periodicity, normal at this cycle length.`,
@@ -688,7 +688,7 @@ for (const [scenario, site] of [['septale', 'cs9'], ['normal', 'ras']]) {
     en: {
       question: `Manifest left lateral accessory pathway. A rapid atrial burst triggers pre-excited atrial fibrillation (tracing, 25 mm/s). The shortest RR interval between two pre-excited QRS complexes is ${sperri} ms. How should this value be interpreted?`,
       options: haut
-        ? ['High-risk pathway for sudden death (RR ≤ 250 ms)', 'Low-risk pathway, no ablation to discuss', 'Measurement invalid during atrial fibrillation', 'Pathway with exclusively retrograde conduction']
+        ? ['High-risk pathway for sudden death (RR ≤ 250 ms)', 'Low-risk pathway, ablation not to be considered', 'Measurement invalid during atrial fibrillation', 'Pathway with exclusively retrograde conduction']
         : ['High-risk pathway for sudden death (RR ≤ 250 ms)', 'Lower risk by SPERRI; ablation if symptomatic', 'Measurement invalid during atrial fibrillation', 'Pathway with exclusively retrograde conduction'],
       commentaires: haut ? [
         `Correct: shortest pre-excited RR ${sperri} ms (≤ 250 ms): pathway with rapid anterograde conduction, with a risk of very rapidly conducted AF and ventricular fibrillation; ablation is recommended.`,

@@ -1749,7 +1749,7 @@
     },
     "options": [
       "Bloc de branche droit complet",
-      "Bloc de branche droit incomplet",
+      "Aspect rSr' de type BBD incomplet",
       "Aspect de Brugada de type 1",
       "Hypertrophie ventriculaire droite"
     ],
@@ -1759,12 +1759,12 @@
     "reponseAttendue": null,
     "commentaires": [
       "La durée du QRS est inférieure à 120 ms : le bloc n'est pas complet.",
-      "Aspect rSr' en V1 avec un QRS d'environ 90-100 ms (< 120 ms).",
+      "Aspect rSr' en V1 avec un QRS d'environ 100 ms : aspect de type BBD incomplet (PTB-XL), variante normale puisque le QRS est < 110 ms.",
       "Le type 1 comporte un sus-décalage ST en dôme ≥ 2 mm suivi d'une T négative en V1-V2, absent ici.",
       "Il n'y a ni grande onde R en V1, ni axe droit, ni surcharge droite."
     ],
-    "explication": "En V1, le QRS a un aspect rSr' avec une petite onde r' terminale, et la durée totale du QRS est d'environ 90-100 ms ; l'onde S de V6 et DI est discrètement élargie. Selon l'AHA/ACCF/HRS 2009, le bloc de branche droit incomplet associe un aspect rsr'/rSR' en V1-V2 et une durée de QRS comprise entre 110 et 119 ms chez l'adulte ; en pratique, l'aspect rSr' à QRS fin est une variante fréquente, sans signification pathologique chez un sujet asymptomatique. Le compte rendu PTB-XL le qualifie d'ailleurs de « probable variante normale ». Le principal diagnostic différentiel à ne pas manquer est l'aspect de Brugada (sus-décalage ST en V1-V2).",
-    "aRetenir": "rSr' en V1 avec QRS < 120 ms : BBD incomplet, le plus souvent une variante normale chez l'asymptomatique.",
+    "explication": "En V1, le QRS a un aspect rSr' avec une petite onde r' terminale, et la durée totale du QRS est d'environ 100 ms ; l'onde S de V6 et DI est discrètement élargie. Selon l'AHA/ACCF/HRS 2009, le bloc de branche droit incomplet exige stricto sensu un aspect rsr'/rSR' en V1-V2 et un QRS de 110 à 119 ms chez l'adulte ; avec un QRS < 110 ms comme ici, cet aspect rSr' (annoté « BBD incomplet » dans PTB-XL) est plutôt un aspect de type BBD incomplet : variante fréquente, sans signification pathologique chez un sujet asymptomatique. Le compte rendu PTB-XL le qualifie d'ailleurs de « probable variante normale ». Le principal diagnostic différentiel à ne pas manquer est l'aspect de Brugada (sus-décalage ST en V1-V2).",
+    "aRetenir": "rSr' en V1 avec QRS < 120 ms : BBD incomplet si le QRS mesure 110-119 ms ; en dessous de 110 ms, aspect rSr' le plus souvent variante normale.",
     "sources": [
       {
         "titre": "Surawicz B, et al. AHA/ACCF/HRS recommendations for the standardization and interpretation of the electrocardiogram. Part III: intraventricular conduction disturbances. J Am Coll Cardiol 2009;53:976-981",
@@ -1793,7 +1793,7 @@
       "fichier": "ptbxl-01005"
     },
     "options": [
-      "Environ −70°",
+      "Environ −60°",
       "Environ 0°",
       "Environ +60°",
       "Environ +120°"
@@ -1803,12 +1803,12 @@
     ],
     "reponseAttendue": null,
     "commentaires": [
-      "DI positif, DII, DIII et aVF négatifs avec aspect rS : axe très gauche, vers −70°.",
+      "DI positif, DII, DIII et aVF négatifs avec aspect rS : axe très gauche, vers −60°.",
       "Un axe à 0° donnerait un aVF isodiphasique et un DII positif.",
       "Un axe à +60° donnerait un DII très positif et un aVL faible, soit l'inverse du tracé.",
       "Un axe droit donnerait un DI négatif et un DIII positif."
     ],
-    "explication": "Méthode rapide : DI est positif (axe entre −90° et +90°) et aVF est négatif (axe entre 0° et −90°). DII est lui aussi nettement négatif (rS) : l'axe est donc au-delà de −30°. La dérivation la plus isodiphasique étant proche de aVR/DI, et aVL étant positif, l'axe se situe vers −60° à −75°. Cet axe très gauche, avec aspect rS en DII, DIII, aVF, qR en aVL et QRS fins, répond aux critères de l'hémibloc antérieur gauche (axe entre −45° et −90°, AHA/ACCF/HRS 2009), annoté dans PTB-XL. Le calcul de l'axe est la première étape pour reconnaître un hémibloc.",
+    "explication": "Méthode rapide : DI est positif (axe entre −90° et +90°) et aVF est négatif (axe entre 0° et −90°). DII est lui aussi nettement négatif (rS) : l'axe est donc au-delà de −30°. La dérivation la plus isodiphasique est aVR (−150°) : l'axe lui est perpendiculaire, soit −60° ou +120° ; DI étant positif, il est à −60°, ce que confirment DIII (+120°), la plus négative, et aVL positif. Cet axe très gauche, avec aspect rS en DII, DIII, aVF, qR en aVL et QRS fins, répond aux critères de l'hémibloc antérieur gauche (axe entre −45° et −90°, AHA/ACCF/HRS 2009), annoté dans PTB-XL. Le calcul de l'axe est la première étape pour reconnaître un hémibloc.",
     "aRetenir": "DI positif + DII négatif = axe au-delà de −30° ; entre −45° et −90° avec rS inférieurs, penser hémibloc antérieur gauche.",
     "sources": [
       {
@@ -2355,13 +2355,13 @@
     ],
     "reponseAttendue": null,
     "commentaires": [
-      "L'élargissement débute dès le début du QRS, immédiatement après une P rapprochée : c'est une onde delta.",
+      "L'élargissement débute dès le début du QRS, immédiatement après l'onde P, sans quasi aucun segment PR isoélectrique : c'est une onde delta.",
       "Les ondes négatives en DIII et aVF sont des ondes delta négatives (pseudo-Q), pas des Q de nécrose.",
-      "Le PR n'est pas allongé mais raccourci, avec une onde delta.",
-      "PR court et empâtement initial du QRS (onde delta) bien visible en DI, aVL et V2-V4."
+      "Le PR n'est pas allongé (≈ 130 ms) et s'enchaîne directement avec une onde delta.",
+      "Onde P enchaînée directement avec un empâtement initial du QRS (onde delta) bien visible en DI, aVL et V2-V4."
     ],
-    "explication": "Le PR est court (≈ 120-140 ms, « plutôt court » selon le rapport PTB-XL), et la montée du QRS est empâtée d'emblée (onde delta), nettement en DI, aVL et V2-V4 où l'onde R est ample dès V1 et dominante en V2. En DIII et aVF, l'onde delta est négative et mime une onde Q (pseudo-infarctus inférieur). La repolarisation est secondairement modifiée. Une onde R dominante en V1 suggère une voie accessoire gauche. Chez un patient symptomatique (palpitations), l'ESC 2019 recommande une EEP et, le plus souvent, l'ablation de la voie. Annotation PTB-XL : WPW.",
-    "aRetenir": "Préexcitation = PR court + onde delta + QRS élargi par fusion ; les delta négatives peuvent simuler des ondes Q de nécrose.",
+    "explication": "Le PR est à la limite inférieure de la normale (≈ 130 ms, « plutôt court » selon le rapport PTB-XL) plutôt que franchement court (< 120 ms), mais l'onde P s'enchaîne avec le QRS sans quasi aucun segment PR isoélectrique, et la montée du QRS est empâtée d'emblée (onde delta), nettement en DI, aVL et V2-V4 où l'onde R est ample dès V1 et dominante en V2. En DIII et aVF, l'onde delta est négative et mime une onde Q (pseudo-infarctus inférieur). La repolarisation est secondairement modifiée. Une onde R dominante en V1 suggère une voie accessoire gauche ; avec une voie latérale gauche, éloignée du nœud sinusal, le PR est souvent peu raccourci et c'est l'onde delta qui fait le diagnostic. Chez un patient symptomatique (palpitations), l'ESC 2019 recommande une EEP et, le plus souvent, l'ablation de la voie. Annotation PTB-XL : WPW.",
+    "aRetenir": "Préexcitation = PR court (parfois seulement à la limite inférieure de la normale) + onde delta + QRS élargi par fusion ; les delta négatives peuvent simuler des ondes Q de nécrose.",
     "sources": [
       {
         "titre": "Brugada J, et al. 2019 ESC Guidelines for the management of patients with supraventricular tachycardia. Eur Heart J 2020;41:655-720",
@@ -2460,7 +2460,7 @@
       "Vérapamil, diltiazem, digoxine (et adénosine) peuvent favoriser une conduction rapide par la voie et une FV.",
       "Chez un patient symptomatique, l'ablation par cathéter est le traitement recommandé (ESC 2019, classe I)."
     ],
-    "explication": "Rythme sinusal à ≈ 50/min ; le PR est court et le QRS débute par une onde delta très ample, positive en DII, DIII, aVF et en V1-V3, négative en DI et aVL (axe apparent droit). Le QRS est élargi par fusion entre activation par la voie accessoire et par le réseau normal. Chez ce patient symptomatique, l'ESC 2019 recommande l'EEP et l'ablation (classe I). Le risque majeur est la FA préexcitée conduite très rapidement par la voie, pouvant dégénérer en FV : les freinateurs nodaux sont alors contre-indiqués, la cardioversion électrique (si instabilité) ou l'ibutilide/procaïnamide sont recommandés. Annotation PTB-XL : WPW.",
+    "explication": "Rythme sinusal à ≈ 50/min ; le PR est court et le QRS débute par une onde delta très ample, positive en DII, DIII, aVF et en V1-V3, négative en DI et aVL (axe apparent droit). Le QRS est élargi par fusion entre activation par la voie accessoire et par le réseau normal. Chez ce patient symptomatique, l'ESC 2019 recommande l'EEP et l'ablation (classe I). Le risque majeur est la FA préexcitée conduite très rapidement par la voie, pouvant dégénérer en FV : les freinateurs nodaux sont alors contre-indiqués, la cardioversion électrique est recommandée en cas d'instabilité, et l'ibutilide ou le procaïnamide IV doivent être envisagés si l'état est stable (classe IIa). Annotation PTB-XL : WPW.",
     "aRetenir": "WPW symptomatique : ablation ; FA préexcitée : jamais de freinateur nodal, cardioversion si instable.",
     "sources": [
       {
@@ -2537,12 +2537,12 @@
     "reponseAttendue": null,
     "commentaires": [
       "La stimulation VG épicardique donne un aspect de retard droit (R dominante en V1) avec axe souvent droit.",
-      "Spike suivi d'un QRS large de type retard gauche (QS en V1-V3) avec axe hypérieur (DII, DIII, aVF négatifs).",
+      "Spike suivi d'un QRS large de type retard gauche (QS en V1-V3) avec axe supérieur (DII, DIII, aVF négatifs).",
       "La stimulation hisienne sélective produit un QRS fin identique au QRS spontané.",
       "Une stimulation atriale seule serait suivie d'une onde P puis d'un QRS spontané fin."
     ],
-    "explication": "Chaque QRS est précédé d'un spike ventriculaire à fréquence fixe (≈ 70/min). Le QRS stimulé est large, avec un aspect de retard gauche (QS en V1-V3, R en DI et aVL) et un axe frontal hypérieur (DII, DIII et aVF négatifs) : l'activation part de la région apicale du ventricule droit et remonte vers la base, ce qui est typique de la stimulation VD apicale ou septale basse. Une stimulation VG épicardique donnerait une R dominante en V1 ; une stimulation du système de conduction (His, branche gauche) un QRS fin ou un aspect de retard droit incomplet. Annotation PTB-XL : rythme électro-entraîné normal.",
-    "aRetenir": "Stimulation VD apicale : QRS large de type BBG avec axe hypérieur ; stimulation VG : R dominante en V1.",
+    "explication": "Chaque QRS est précédé d'un spike ventriculaire à fréquence fixe (≈ 70/min). Le QRS stimulé est large, avec un aspect de retard gauche (QS en V1-V3, R en DI et aVL) et un axe frontal supérieur (DII, DIII et aVF négatifs) : l'activation part de la région apicale du ventricule droit et remonte vers la base, ce qui est typique de la stimulation VD apicale ou septale basse. Une stimulation VG épicardique donnerait une R dominante en V1 ; une stimulation du système de conduction (His, branche gauche) un QRS fin ou un aspect de retard droit incomplet. Annotation PTB-XL : rythme électro-entraîné normal.",
+    "aRetenir": "Stimulation VD apicale : QRS large de type BBG avec axe supérieur ; stimulation VG : R dominante en V1.",
     "sources": [
       {
         "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
@@ -2585,7 +2585,7 @@
       "La stimulation VD produit une activation lente de type BBG avec une repolarisation secondairement discordante.",
       "La discordance ST-T est la règle en stimulation VD : elle ne traduit pas en soi une ischémie."
     ],
-    "explication": "Chaque QRS est précédé d'un spike, à ≈ 80/min. Les QRS sont larges avec aspect de retard gauche (QS en V1-V3) et axe hypérieur : stimulation ventriculaire droite. Comme dans le bloc de branche gauche, la dépolarisation anormale entraîne une repolarisation « secondaire », discordante par rapport au QRS (sus-décalage ST en V1-V3, T négatives en DI, aVL). Ces anomalies ne doivent pas être interprétées comme une ischémie ; en cas de douleur thoracique, des critères spécifiques (Sgarbossa modifiés) sont nécessaires, avec une sensibilité limitée. Autre piège : les T négatives persistantes après retour en rythme spontané (« mémoire cardiaque ») ne sont pas forcément ischémiques. Annotation PTB-XL : rythme électro-entraîné normal.",
+    "explication": "Chaque QRS est précédé d'un spike, à ≈ 80/min. Les QRS sont larges avec aspect de retard gauche (QS en V1-V3) et axe supérieur : stimulation ventriculaire droite. Comme dans le bloc de branche gauche, la dépolarisation anormale entraîne une repolarisation « secondaire », discordante par rapport au QRS (sus-décalage ST en V1-V3, T négatives en DI, aVL). Ces anomalies ne doivent pas être interprétées comme une ischémie ; en cas de douleur thoracique, des critères spécifiques (Sgarbossa modifiés) sont nécessaires, avec une sensibilité limitée. Autre piège : les T négatives persistantes après retour en rythme spontané (« mémoire cardiaque ») ne sont pas forcément ischémiques. Annotation PTB-XL : rythme électro-entraîné normal.",
     "aRetenir": "Stimulation VD : repolarisation discordante attendue ; l'ischémie ne s'y évalue qu'avec des critères spécifiques.",
     "sources": [
       {
@@ -2685,7 +2685,7 @@
       "Chaque spike ventriculaire est suivi d'un QRS large de capture.",
       "Chaque spike ventriculaire suit une onde P à intervalle fixe, et la fréquence (≈ 94/min) suit le rythme atrial."
     ],
-    "explication": "Chaque QRS large, de type retard gauche avec axe hypérieur (stimulation VD), est précédé d'un spike ventriculaire, lui-même précédé d'une onde P à un intervalle constant (≈ 150 ms). Aucun spike atrial n'est visible devant ces P. La fréquence ventriculaire (≈ 94/min) suit donc l'activité atriale : le stimulateur détecte l'oreillette et stimule le ventricule après le délai AV (fonctionnement VDD/DDD, « P-synchrone »). Chez une patiente en BAV complet, c'est le comportement attendu, qui maintient le synchronisme AV et l'adaptation de fréquence d'origine sinusale. Annotation PTB-XL : rythme électro-entraîné régulier, fonctionnement normal.",
+    "explication": "Chaque QRS large, de type retard gauche avec axe supérieur (stimulation VD), est précédé d'un spike ventriculaire, lui-même précédé d'une onde P à un intervalle constant (≈ 150 ms). Aucun spike atrial n'est visible devant ces P. La fréquence ventriculaire (≈ 94/min) suit donc l'activité atriale : le stimulateur détecte l'oreillette et stimule le ventricule après le délai AV (fonctionnement VDD/DDD, « P-synchrone »). Chez une patiente en BAV complet, c'est le comportement attendu, qui maintient le synchronisme AV et l'adaptation de fréquence d'origine sinusale. Annotation PTB-XL : rythme électro-entraîné régulier, fonctionnement normal.",
     "aRetenir": "P détectée puis spike V à délai fixe : stimulation ventriculaire P-synchrone (VDD/DDD), qui suit la fréquence sinusale.",
     "sources": [
       {
