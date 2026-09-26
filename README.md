@@ -35,7 +35,7 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
     un rappel de référence. Chaque fin de stimulation (programmée ou arrêtée par Stop) est rappelée centrée sur le dernier
     complexe stimulé ; chaque événement du journal peut être rappelé, avec ses intervalles. Ordre des voies modifiable (▲ ou
     glisser le nom de la voie sur le tracé) ; les sites de stimulation portent le nom de la voie affichée (SC 1-2, OD lat…). Sur téléphone en paysage,
-    un écran à la fois (glisser pour passer du temps réel au rappel, vignette du temps réel qu'on peut retirer) ; en portrait, invitation au paysage.
+    un écran à la fois (glisser pour passer du temps réel au rappel, vignette du temps réel qu'on peut retirer ; sur ordinateur, « Vignette direct » masque le temps réel et le rappel prend toute la largeur) ; en portrait, invitation au paysage.
   - **Console de stimulation** toujours visible (en bas, à droite en paysage ou sur grand écran) : Stimuler, S2 − 10, Salve,
     Stop, Enregistrer ; pastilles de site ; onglets Programme, Protocoles, Salve, Sonde / RF, Médicaments, Journal ; réglages
     par boutons ± (appui long). Stimulateur : trains S1 à S4, sortie et largeur d'impulsion, seuil propre à chaque site

@@ -245,6 +245,12 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     if (largeur < 700) { if (!await page.isVisible('#paysage')) throw new Error('invitation au paysage absente'); }
     else {
       if (!await page.isVisible('#ecran-rappel')) throw new Error('écran de rappel invisible');
+      // « Vignette direct » : masquer le temps réel, le rappel prend toute la largeur
+      const l0 = (await page.locator('#ecran-rappel').boundingBox()).width;
+      await page.click('#mini-direct');
+      if (await page.isVisible('#ecran') || (await page.locator('#ecran-rappel').boundingBox()).width < l0 * 1.5) throw new Error('le temps réel ne se masque pas à côté du rappel');
+      await page.click('#mini-direct');
+      if (!await page.isVisible('#ecran')) throw new Error('le temps réel ne revient pas');
       const b = await page.locator('#ecran-rappel').boundingBox();
       await page.mouse.move(b.x + b.width * 0.5, b.y + 60); await page.mouse.down(); await page.mouse.move(b.x + b.width * 0.7, b.y + 60); await page.mouse.up();
       await page.waitForTimeout(100);
@@ -282,17 +288,35 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
       await page.click('#mini-direct');
       if (await page.isVisible('#ecran-mini')) throw new Error('la vignette du temps réel ne se retire pas');
       await page.click('#mini-direct');
-      const toucher = (x, duree) => page.evaluate(async ([x, duree]) => {
+      // doigt posé sur le rappel, maintenu jusqu'à la condition (ou la durée fixée) : indépendant de la charge de la machine
+      const toucher = (x, { duree = 0, jusqua = null } = {}) => page.evaluate(async ([x, duree, jusqua]) => {
         const cv = document.querySelector('#ecran-rappel'), b = cv.getBoundingClientRect();
         const ev = type => new PointerEvent(type, { pointerId: 7, pointerType: 'touch', isPrimary: true, bubbles: true, clientX: b.left + b.width * x, clientY: b.top + 60 });
-        cv.dispatchEvent(ev('pointerdown')); await new Promise(f => setTimeout(f, duree)); cv.dispatchEvent(ev('pointerup'));
-      }, [x, duree]);
-      await toucher(0.5, 300);
+        const pret = { debut: () => /Début posé/.test(document.querySelector('#message').textContent), fin: () => document.querySelector('#appui').hidden };
+        cv.dispatchEvent(ev('pointerdown'));
+        await new Promise(f => setTimeout(f, jusqua ? 100 : duree));
+        let ok = true;
+        const suivi = []; // déroulé de l'appui (bague visible ou non, titre du rappel), pour le diagnostic en cas d'échec
+        if (jusqua) {
+          const t0 = performance.now();
+          while (!(ok = pret[jusqua]()) && performance.now() - t0 < 8000) {
+            await new Promise(f => setTimeout(f, 250));
+            suivi.push(`${Math.round(performance.now() - t0)}:${document.querySelector('#appui').hidden ? 'h' : 'v'}:${document.querySelector('#rappel-titre').textContent.slice(0, 18)}`);
+          }
+        }
+        cv.dispatchEvent(ev('pointerup'));
+        window.__suiviAppui = suivi.join(' | ');
+        return ok;
+      }, [x, duree, jusqua]);
+      // le compas ne se pose que sur un tracé enregistré : on attend la fin des enregistrements en cours (tir RF juste arrêté),
+      // faute de quoi le milieu du rappel peut être encore vide et l'appui long n'y trouve aucun instant
+      await page.waitForFunction(() => !document.querySelector('#journal [title="Enregistrement en cours"]'), null, { timeout: 20000 });
+      await toucher(0.5, { duree: 300 });
       if (/Début posé/.test(await page.textContent('#message'))) throw new Error('un appui bref pose un compas');
-      await toucher(0.5, 2200);
-      if (!/Début posé/.test(await page.textContent('#message'))) throw new Error('l\'appui long ne pose pas le début du compas');
-      await toucher(0.7, 1200);
-      if (!await page.isHidden('#appui')) throw new Error('la bague d\'appui reste affichée');
+      const etatRappel = () => page.evaluate(() => JSON.stringify({ titre: document.querySelector('#rappel-titre').textContent.slice(0, 60), vide: document.querySelector('#rappel-vide').hidden,
+        message: document.querySelector('#message').textContent, suivi: window.__suiviAppui, largeur: document.querySelector('#ecran-rappel').clientWidth, vue: document.querySelector('.simu-baie').dataset.vue }));
+      if (!await toucher(0.5, { jusqua: 'debut' })) throw new Error(`l'appui long ne pose pas le début du compas ${await etatRappel()}`);
+      if (!await toucher(0.7, { jusqua: 'fin' })) throw new Error('l\'appui maintenu ne pose pas la fin du compas');
       await page.click('.simu-bascule [data-vue=direct]');
       await page.setViewportSize({ width: largeur, height: hauteur });
     }
