@@ -698,7 +698,7 @@ export function vueSimulateur(app) {
       const texte = trs == null ? t('pas de reprise sinusale en 6 s (dysfonction sinusale sévère)', 'no sinus recovery within 6 s (severe sinus node dysfunction)')
         : t(`TRS ${trs} ms (N < 1500), TRS corrigé ${trs - base} ms (N < 525)`, `SNRT ${trs} ms (normal < 1500), CSNRT ${trs - base} ms (normal < 525)`);
       st.cr.trs = texte;
-      entree(der, t('Fin de salve : récupération sinusale', 'End of burst: sinus node recovery'), { debut: der - 3000, capture: der + (trs ?? 6000) + 1500, focus: der + (trs ?? 0) / 2 });
+      entree(der, t('Fin de salve : récupération sinusale', 'End of burst: sinus node recovery'), { debut: der - 3000, capture: der + (trs ?? 6000) + 1500, focus: der, finStim: true }); // centré sur le dernier complexe stimulé, la pause sinusale à sa droite
       resultat(t(`Récupération sinusale : ${texte}`, `Sinus node recovery: ${texte}`));
       return false;
     } };
