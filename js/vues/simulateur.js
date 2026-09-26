@@ -181,6 +181,7 @@ export function vueSimulateur(app) {
     <section class="simu-console" id="console" aria-label="${t('Console de stimulation', 'Stimulator console')}">
       <div class="simu-actions">
         <button class="btn btn-primaire simu-go" id="stimuler" title="${t('Stimuler ; pendant une stimulation, une salve ou un protocole : Stop', 'Pace; during pacing, a burst or a protocol: Stop')}">${t('Stimuler', 'Pace')}</button>
+        <button class="btn simu-rf-btn" id="ablater" aria-pressed="false" title="${t('Tir de radiofréquence à la position de la sonde (onglet Sonde / RF) ; appuyer de nouveau pour arrêter', 'RF application at the catheter position (Cath / RF tab); press again to stop')}"></button>
         <button class="btn" id="enregistrer" title="${t('Envoyer les 10 dernières secondes sur l\'écran de rappel', 'Send the last 10 seconds to the review screen')}">${t('Enreg.', 'Record')}</button>
       </div>
       ${puces('site', SITES_STIM, r.site, COURTS(), t('Site de stimulation', 'Pacing site'))}
@@ -239,7 +240,7 @@ export function vueSimulateur(app) {
           <label class="simu-champ large"><span>${t('Position', 'Position')}</span><select id="position">${opt(POSITIONS, st.position)}</select></label>
           <div class="simu-grille-pas">${pas('puissance', t('Puissance (W)', 'Power (W)'), r.puissance, 5, 5, 50)}${pas('duree-rf', t('Durée max (s)', 'Max duration (s)'), r.dureeRF, 10, 10, 120)}</div>
           <div class="simu-rf">
-            <button class="btn btn-danger simu-rf-btn" id="ablater" aria-pressed="false">${t('Radiofréquence', 'RF ablation')}</button>
+            <span class="simu-pas-lib">${t('Générateur (tir : bouton violet « Radiofréquence » en haut de la console)', 'Generator (apply with the purple "RF" button at the top of the console)')}</span>
             <output class="simu-rf-etat" id="rf-etat">${t('Générateur prêt', 'Generator ready')}</output>
           </div>
           <p class="note">${t('Électrogrammes de la sonde (ABL d, ABL uni) avec le montage « Ablation » ou en les ajoutant dans « Voies affichées » ; stimulez depuis la sonde avec le site « Sonde abl. ». Surveillez le rythme jonctionnel et sa conduction VA pendant un tir près du nœud AV.', 'Catheter electrograms (ABL d, ABL uni) are shown with the "Ablation" montage or by adding them under "Displayed channels"; pace from the catheter with the "ABL cath" site. Watch for junctional rhythm and its VA conduction during any application near the AV node.')}</p>
@@ -791,6 +792,14 @@ export function vueSimulateur(app) {
   }
 
   // ---------- radiofréquence : générateur, lésion progressive, rythme jonctionnel, bloc AV ----------
+  // bouton violet de la console : Radiofréquence, puis Arrêter pendant le tir (libellé court sur téléphone)
+  function libRF(actif, cryo = false) {
+    const b = $('#ablater');
+    b.setAttribute('aria-pressed', String(actif));
+    b.innerHTML = actif
+      ? `<span class="long">${cryo ? t('Arrêter la cryo', 'Stop cryo') : t('Arrêter la RF', 'Stop RF')}</span><span class="court">${t('Arrêt RF', 'Stop RF')}</span>`
+      : `<span class="long">${t('Radiofréquence', 'RF ablation')}</span><span class="court">RF</span>`;
+  }
   function demarrerRF() {
     reglages();
     const pos = positionActuelle(), cryo = pos.id === 'cryo-his';
@@ -798,14 +807,14 @@ export function vueSimulateur(app) {
     const contact = 0.55 + 0.45 * Math.random();
     st.rf = { debut: st.t, pos, cryo, contact, imp0: Math.round(120 - 25 * contact + 6 * Math.random()), lesion: 0, applique: false, junct: false, alerteVA: false,
       temp: 37, imp: 0, tMax: 37, derive: pos.id === 'koch' ? 25000 + 20000 * Math.random() : Infinity };
-    $('#ablater').setAttribute('aria-pressed', 'true'); $('#ablater').textContent = cryo ? t('Arrêter la cryothérapie', 'Stop cryoablation') : t('Arrêter le tir', 'Stop RF');
+    libRF(true, cryo);
     noter(null, t(`Radiofréquence : ${cryo ? 'cryothérapie' : `tir ${r.puissance} W`}, ${pos.nom}`, cryo ? `Cryoablation: ${pos.nom}` : `RF application ${r.puissance} W: ${pos.nom}`), { debut: st.t - 3000, capture: st.t + 8000, rf: true });
   }
   function arreterRF(silencieux = false) {
     const rf = st.rf; if (!rf) return;
     st.rf = null;
     st.coeur?.jonction(null);
-    $('#ablater').setAttribute('aria-pressed', 'false'); $('#ablater').textContent = t('Radiofréquence', 'RF ablation');
+    libRF(false);
     const duree = Math.round((st.t - rf.debut) / 1000);
     st.cr?.tirs.push({ pos: rf.pos.nom, duree, puissance: rf.cryo ? 'cryo' : `${r.puissance} W`, efficace: rf.applique, tMax: Math.round(rf.tMax) });
     if (!silencieux) noter(null, t(`Fin du tir : ${duree} s, ${Math.round(rf.tMax)} °C ${rf.cryo ? 'min' : 'max'}`, `End of application: ${duree} s, ${Math.round(rf.tMax)} °C ${rf.cryo ? 'min' : 'max'}`), { debut: rf.debut - 2000, capture: st.t + 2500, auto: r.rappelApres });
@@ -972,6 +981,7 @@ export function vueSimulateur(app) {
   $('#carte').addEventListener('keydown', e => { const g = e.target.closest('[data-pos]'); if (g && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); placerSonde(g.dataset.pos); } });
   $('#carte-effacer').onclick = () => { st.carte = {}; majCarte(); };
   $('#ablater').onclick = () => (st.rf ? arreterRF() : demarrerRF());
+  libRF(false);
   $('#cr-generer').onclick = compteRendu;
   for (const b of app.querySelectorAll('[data-proto]')) b.onclick = () => lancerProtocole(b.dataset.proto);
   $('#site').addEventListener('click', e => { const b = e.target.closest('[data-v]'); if (b) choisirPuce('site', b.dataset.v); });

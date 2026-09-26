@@ -520,7 +520,7 @@ main:has(.simu-baie) > :not(.simu-poste) { max-width: 860px; margin-left: auto; 
 .simu-console .btn { background: #16212c; color: #e8eef3; border-color: #2c3e50; }
 .simu-console .btn-primaire { background: var(--primaire-2); border-color: var(--primaire-2); color: #fff; }
 .simu-console .btn-danger { background: #5a1620; border-color: #a33a48; color: #fff; }
-.simu-actions { display: grid; grid-template-columns: 3fr 1fr; gap: 6px; }
+.simu-actions { display: grid; grid-template-columns: 2.2fr 1.4fr 1fr; gap: 6px; }
 .simu-actions .btn { padding: 10px 4px; font-weight: 700; min-height: 44px; }
 .simu-go { font-size: 1.05rem; }
 .simu-console .btn-stop { background: #b3261e; border-color: #e0605a; color: #fff; }
@@ -578,9 +578,11 @@ main:has(.simu-baie) > :not(.simu-poste) { max-width: 860px; margin-left: auto; 
 .simu-carte .pt:focus-visible circle { stroke: var(--simu-curseur); stroke-width: 3; }
 .simu-carte-legende { margin: 0; font-size: .76rem; }
 .simu-rf { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 4px 0 8px; }
-.simu-rf-btn { min-height: 48px; min-width: 150px; font-weight: 700; }
-.simu-rf-btn[aria-pressed="true"] { background: #c0392b !important; animation: simu-rf 1s ease-in-out infinite; }
-@keyframes simu-rf { 50% { box-shadow: 0 0 0 4px rgba(255, 93, 93, .35); } }
+.simu-console .simu-rf-btn { background: #5b2a86; border-color: #8e5bd0; color: #fff; }
+.simu-console .simu-rf-btn[aria-pressed="true"] { background: #8e44ad; border-color: #d2a8ff; animation: simu-rf 1s ease-in-out infinite; }
+.simu-rf-btn .court { display: none; }
+@media (max-width: 480px) { .simu-rf-btn .long { display: none; } .simu-rf-btn .court { display: inline; } }
+@keyframes simu-rf { 50% { box-shadow: 0 0 0 4px rgba(178, 120, 255, .45); } }
 @media (prefers-reduced-motion: reduce) { .simu-rf-btn[aria-pressed="true"] { animation: none; } }
 .simu-rf-etat { font-variant-numeric: tabular-nums; font-size: .85rem; color: #ffd24a; }
 /* baie : réglages repliables, constantes, référence de comparaison */
@@ -616,7 +618,7 @@ main:has(.simu-baie) > :not(.simu-poste) { max-width: 860px; margin-left: auto; 
 /* ordinateur : console sous la baie (les deux écrans gardent toute la largeur), en deux colonnes pour rester basse :
    à gauche Stimuler et les sites, à droite les onglets de réglage */
 @media (min-width: 1024px) and (min-height: 521px) {
-  .simu-console { position: static; display: grid; grid-template-columns: minmax(260px, 340px) minmax(0, 1fr); grid-template-rows: auto auto 1fr; column-gap: 16px; }
+  .simu-console { position: static; display: grid; grid-template-columns: minmax(300px, 420px) minmax(0, 1fr); grid-template-rows: auto auto 1fr; column-gap: 16px; }
   .simu-console > .simu-actions, .simu-console > #site, .simu-console > .simu-resume { grid-column: 1; }
   .simu-console > .simu-onglets { grid-column: 2; grid-row: 1; }
   .simu-console > .simu-pans { grid-column: 2; grid-row: 2 / span 2; max-height: 300px; }
