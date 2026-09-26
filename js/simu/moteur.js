@@ -249,7 +249,7 @@ export class Coeur {
     const liste = [].concat(cibles), touchees = [];
     for (const v of this.voies) if (!v.coupee && (liste.includes(v.id) || (liste.includes('rapide') && v.id === 'nav'))) { v.coupee = true; touchees.push(v.id); }
     for (const c of liste) { const s = this.sites[c]; if (s && !s.supprime) { s.supprime = true; touchees.push(c); } }
-    this.evenements.push({ t, type: 'rf', texte: touchees.length ? trad('Radiofréquence : lésion efficace', 'RF delivery: effective lesion') : trad('Radiofréquence : pas de tissu arythmogène ici', 'RF delivery: no arrhythmogenic tissue here') });
+    this.evenements.push({ t, type: 'rf', texte: touchees.length ? trad('Radiofréquence : lésion efficace', 'RF application: effective lesion') : trad('Radiofréquence : pas de tissu arythmogène ici', 'RF application: no arrhythmogenic tissue here') });
     return touchees;
   }
 

@@ -15,6 +15,8 @@ await page.click('#salve'); await page.waitForTimeout(1500); await page.click('#
 await page.click('#adenosine'); await page.click('#ablater');
 await page.waitForTimeout(4000);
 await page.evaluate(() => document.querySelector('.simu-guide').open = true);
-await page.screenshot({ path: `${SCR}full-en.png`, fullPage: true });
+await page.evaluate(() => window.scrollTo(0, 0)); await page.screenshot({ path: `${SCR}p1.png` });
+await page.locator('.simu-commandes').screenshot({ path: `${SCR}p2.png` });
+await page.locator('.simu-guide').screenshot({ path: `${SCR}p3.png` });
 console.log(await page.evaluate(() => [...document.querySelectorAll('#journal li')].map(l => l.textContent.trim().replace(/\s+/g, ' ')).join('\n')));
 await nav.close(); console.log(err.join('\n') || 'aucune erreur');
