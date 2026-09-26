@@ -295,7 +295,9 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
       }, [x, duree, jusqua]);
       await toucher(0.5, { duree: 300 });
       if (/Début posé/.test(await page.textContent('#message'))) throw new Error('un appui bref pose un compas');
-      if (!await toucher(0.5, { jusqua: 'debut' })) throw new Error('l\'appui long ne pose pas le début du compas');
+      const etatRappel = () => page.evaluate(() => JSON.stringify({ titre: document.querySelector('#rappel-titre').textContent.slice(0, 60), vide: document.querySelector('#rappel-vide').hidden,
+        message: document.querySelector('#message').textContent, largeur: document.querySelector('#ecran-rappel').clientWidth, vue: document.querySelector('.simu-baie').dataset.vue }));
+      if (!await toucher(0.5, { jusqua: 'debut' })) throw new Error(`l'appui long ne pose pas le début du compas ${await etatRappel()}`);
       if (!await toucher(0.7, { jusqua: 'fin' })) throw new Error('l\'appui maintenu ne pose pas la fin du compas');
       await page.click('.simu-bascule [data-vue=direct]');
       await page.setViewportSize({ width: largeur, height: hauteur });
