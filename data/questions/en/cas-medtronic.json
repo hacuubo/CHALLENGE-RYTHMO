@@ -68,8 +68,8 @@
  "cas-mdt-005": {
   "question": "Medtronic dual-chamber ICD, PR Logic and Wavelet on. The patient has paroxysmal AF with rapid conduction, so far always correctly classified as SVT. However, one episode triggered four unsuccessful ATP sequences. On review: ongoing AF, but many low-amplitude atrial electrograms are not sensed, so the counted atrial rate becomes lower than the ventricular rate. Why did morphology analysis not correct the diagnosis?",
   "options": [
-   "If V is judged faster than A, PR Logic concludes VT without consulting Wavelet",
-   "Wavelet only works in single-chamber ICDs, not in dual-chamber devices",
+   "If V seems faster than A, PR Logic calls VT without consulting Wavelet",
+   "Wavelet only works in single-chamber ICDs, not in dual-chamber ICDs",
    "Wavelet is automatically disabled as soon as the device detects AF",
    "The Wavelet template is erased and reinitialised at every mode switch"
   ],
@@ -251,9 +251,9 @@
  "cas-mdt-017": {
   "question": "CareLink transmission from a Reveal LINQ implanted for syncope: several asymptomatic \"Tachy\" episodes. On the subcutaneous ECG, the T wave is counted as a second event only in cycles where the R wave is of low amplitude (\"railroad track\" appearance on the interval plot). Which programming change is most appropriate?",
   "options": [
-   "Program a more sensitive setting (lower mV value)",
-   "Set Ectopy Rejection to Aggressive",
-   "Lengthen the blanking after sense and the delay before threshold decay",
+   "Program a more sensitive setting (i.e. a lower value in mV)",
+   "Set the Ectopy Rejection feature to Aggressive mode",
+   "Lengthen the blanking after sense and the threshold decay delay",
    "Shorten the programmed pause duration to 1.5 s"
   ],
   "commentaires": [
