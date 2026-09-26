@@ -41,7 +41,7 @@ jobs:
       - name: Vérifier que index.json et la version du cache sont à jour
         run: |
           node scripts/build-index.mjs
-          git diff --exit-code -- data/questions/index.json sw.js index.html presentation.html en/index.html en/presentation.html sitemap.xml llms.txt || { echo "Lancez node scripts/build-index.mjs et committez le résultat"; exit 1; }
+          git diff --exit-code -- data/questions/index.json sw.js index.html presentation.html en/index.html en/presentation.html sitemap.xml robots.txt llms.txt || { echo "Lancez node scripts/build-index.mjs et committez le résultat"; exit 1; }
 
   interface:
     runs-on: ubuntu-latest

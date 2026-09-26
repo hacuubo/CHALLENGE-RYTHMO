@@ -12,6 +12,10 @@ import { SCENARIOS } from '../js/simu/scenarios.js';
 import { definirLangue } from '../js/i18n.js';
 
 export const SITE = 'https://shockandpace.com/';
+export const CONTACT = 'contact@shockandpace.com';
+// éditeur du site, référencé par les données structurées de toutes les pages
+const EDITEUR = { '@type': 'Organization', '@id': SITE + '#editeur', name: 'Shock & Pace', url: SITE, email: CONTACT,
+  logo: SITE + 'icons/icon-512.png', sameAs: ['https://github.com/hacuubo/CHALLENGE-RYTHMO'] };
 const racine = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dirQ = path.join(racine, 'data', 'questions');
 
@@ -176,7 +180,7 @@ function presentation(l, d) {
     '@context': 'https://schema.org',
     '@graph': [
       { '@type': 'WebPage', '@id': url, url, name: T.titre, description, inLanguage: l,
-        dateModified: d.idx.date, isPartOf: { '@id': SITE + '#site' }, about: { '@id': SITE + '#app' },
+        dateModified: d.idx.date, isPartOf: { '@id': SITE + '#site' }, about: { '@id': SITE + '#app' }, publisher: EDITEUR,
         breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Shock & Pace', item: SITE + T.app },
           { '@type': 'ListItem', position: 2, name: T.fil, item: url }] } },
@@ -317,7 +321,8 @@ function accueilAnglais(d) {
   const desc = 'Free cardiac rhythm quiz, no account needed: ECG, pacemakers, ICDs, CRT, remote monitoring and electrophysiology. Referenced answers, competitive ELO mode and an EP simulator.';
   const url = SITE + 'en/';
   const ld = { '@context': 'https://schema.org', '@graph': [
-    { '@type': 'WebSite', '@id': SITE + '#site', url: SITE, name: 'Shock & Pace', inLanguage: ['fr', 'en'], description: desc },
+    { '@type': 'WebSite', '@id': SITE + '#site', url: SITE, name: 'Shock & Pace', inLanguage: ['fr', 'en'], description: desc, publisher: { '@id': SITE + '#editeur' } },
+    EDITEUR,
     { '@type': ['WebApplication', 'LearningResource'], '@id': SITE + '#app', url, name: 'Shock & Pace', alternateName: 'Challenge Rythmo',
       description: desc, inLanguage: ['en', 'fr'], applicationCategory: 'EducationalApplication',
       applicationSubCategory: 'Medical education in cardiac electrophysiology and devices',
@@ -328,7 +333,8 @@ function accueilAnglais(d) {
       teaches: ['ECG interpretation', 'Pacemaker programming', 'Implantable cardioverter-defibrillator programming', 'Cardiac resynchronisation therapy (CRT)', 'Remote monitoring of cardiac devices', 'Electrophysiology and catheter ablation'],
       about: ['Cardiac electrophysiology', 'Pacemaker', 'Implantable cardioverter-defibrillator', 'Electrocardiography', 'Cardiac arrhythmia'].map(name => ({ '@type': 'Thing', name })),
       featureList: ['Questions with referenced answers (ESC, EHRA, HRS, ACC/AHA)', 'Adaptive competitive mode with ELO rating', 'Real-time EP recording system simulator', 'Real 12-lead ECGs (PTB-XL)', 'Works offline, no account'],
-      image: SITE + 'icons/og.png', screenshot: SITE + 'icons/og.png', subjectOf: { '@type': 'WebPage', url: SITE + 'en/presentation.html' } }] };
+      image: SITE + 'icons/og.png', screenshot: SITE + 'icons/og.png', subjectOf: { '@type': 'WebPage', url: SITE + 'en/presentation.html' },
+      publisher: { '@id': SITE + '#editeur' } }] };
   const tete = `  <!--seo-->
   <title>Shock &amp; Pace · Cardiac rhythm quiz: ECG, pacemaker, ICD</title>
   <meta name="description" content="${esc(desc)}">
@@ -425,6 +431,17 @@ ${url('en/presentation.html', '0.8', alt('presentation.html', 'en/presentation.h
 </urlset>
 `);
 
+  // robots.txt : tout est public ; robots des moteurs de recherche et des assistants IA explicitement autorisés
+  const robotsIA = ['Googlebot', 'Bingbot', 'Google-Extended', 'GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot',
+    'Claude-User', 'PerplexityBot', 'Perplexity-User', 'Applebot', 'Applebot-Extended', 'DuckAssistBot', 'MistralAI-User'];
+  fs.writeFileSync(path.join(racine, 'robots.txt'), `# Shock & Pace : tout le contenu est public.
+${robotsIA.map(b => `User-agent: ${b}\nAllow: /\n`).join('\n')}
+User-agent: *
+Allow: /
+
+Sitemap: ${SITE}sitemap.xml
+`);
+
   // llms.txt : résumé en Markdown pour les moteurs de réponse et assistants IA (https://llmstxt.org/)
   const th = { fr: d.themes('fr'), en: d.themes('en') };
   fs.writeFileSync(path.join(racine, 'llms.txt'), `# Shock & Pace
@@ -442,6 +459,7 @@ Key facts:
 - Reference guidelines: ${d.recos('en').map(([r]) => r).join(', ')}.
 - Privacy: no account, no data transmitted; progress stored locally. Works offline (PWA).
 - Limitation: educational tool; does not replace official guidelines, manufacturers' manuals or clinical judgement.
+- Contact: ${CONTACT}
 
 Question bank updated on ${idx.date}.
 
@@ -456,7 +474,7 @@ Question bank updated on ${idx.date}.
 
 - [Source code and question format](https://github.com/hacuubo/CHALLENGE-RYTHMO)
 `);
-  console.log(`SEO : presentation.html, en/presentation.html, en/index.html, sitemap.xml, llms.txt (${n} questions, ${d.sources.length} sources)`);
+  console.log(`SEO : presentation.html, en/presentation.html, en/index.html, sitemap.xml, robots.txt, llms.txt (${n} questions, ${d.sources.length} sources)`);
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) generer();
