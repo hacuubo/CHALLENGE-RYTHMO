@@ -58,7 +58,7 @@ export function vueSimulateur(app) {
   // téléphone : montage réduit par défaut pour que le tracé tienne à l'écran avec la console
   const telephone = matchMedia('(max-width: 699px), (max-height: 520px)').matches;
   const r = { v: 2, site: 'hra', sortie: 5, largeur: 2, detection: '', s1: 600, n: 8, s2: 400, s3: 0, s4: 0, extras: false, rappelApres: true, decrement: false,
-    salveCl: 400, rampeDebut: 500, rampeFin: 250, rampePas: 10, vitesse: 100, vitesseRappel: 100, mode: 'balayage', montage: telephone ? 'compact' : 'standard',
+    salveCl: 400, salveType: 'burst', salveDuree: 10, modeStim: 'prog', modeSimu: 'libre', rampeDebut: 500, rampeFin: 250, rampePas: 10, vitesse: 100, vitesseRappel: 100, mode: 'balayage', montage: telephone ? 'compact' : 'standard',
     bruit: true, etiquettes: true, filtre50: true, passeHaut: true, aimant: true, puissance: 30, dureeRF: 60, onglet: 'prog', ...sauve };
   if (!VITESSES.includes(r.vitesse)) r.vitesse = 100;
   if (!VITESSES.includes(r.vitesseRappel)) r.vitesseRappel = 100;
@@ -70,7 +70,8 @@ export function vueSimulateur(app) {
   if (!SITES_DETECTION.some(s => s.id === r.detection)) r.detection = '';
   // rappel : entrée du journal affichée sur l'écran de rappel (instantané du tracé), avec sa relecture et ses compas
   // enquete : diagnostic à trouver (cas mystère ou patient arrivé en tachycardie), explication cachée jusqu'à la conclusion
-  const st = { scenario: 'normal', mystere: false, enquete: false, coeur: null, t: 0, gains: {}, salve: null, position: 'od-haute', actions: [], faites: new Set(), analyses: [],
+  // historique : manœuvres dans l'ordre où elles ont été faites (type, instant, en tachycardie ou non) pour noter la démarche
+  const st = { historique: [], scenario: 'normal', mystere: false, enquete: false, coeur: null, t: 0, gains: {}, salve: null, position: 'od-haute', actions: [], faites: new Set(), analyses: [],
     positionsTachy: new Set(), tachyAvant: false, dernierMaj: 0, numero: 0,
     rappel: null, recul: 0, curseurs: [], nouveauCompas: false, report: false, demande: null, sale: true, reference: null,
     proto: null, rf: null, carte: {}, cr: null, vue: 'direct', hypo: 0, bump: null, train: null };
@@ -91,17 +92,22 @@ export function vueSimulateur(app) {
   app.innerHTML = `
     <h1 class="simu-h1">${t('Simulateur d\'électrophysiologie', 'Electrophysiology simulator')}</h1>
     <section class="simu-sombre simu-tete">
+      <div class="simu-modes" role="tablist" aria-label="${t('Mode du simulateur', 'Simulator mode')}">
+        <button type="button" role="tab" data-mode="libre" aria-selected="${r.modeSimu !== 'quiz'}"><b>${t('Entraînement libre', 'Free training')}</b><small>${t('Scénario au choix, explications visibles', 'Pick a scenario, explanations shown')}</small></button>
+        <button type="button" role="tab" data-mode="quiz" aria-selected="${r.modeSimu === 'quiz'}"><b>${t('Quiz', 'Quiz')}</b><small>${t('Cas clinique tiré au sort, diagnostic et démarche notés', 'Random clinical case, diagnosis and work-up scored')}</small></button>
+      </div>
       <div class="simu-cas-ligne">
-        <label class="simu-champ large"><span>${t('Scénario', 'Scenario')}</span>
+        <label class="simu-champ large" id="choix-scenario"><span>${t('Scénario', 'Scenario')}</span>
           <select id="scenario">
-            <option value="mystere">🎲 ${t('Cas mystère (diagnostic à trouver, démarche notée)', 'Mystery case (find the diagnosis, work-up scored)')}</option>
             <optgroup label="${t('Patient en tachycardie à l\'arrivée (diagnostic à confirmer)', 'Patient in tachycardia on arrival (diagnosis to confirm)')}">
               ${Object.entries(ARRIVEES).map(([id, s]) => `<option value="${id}">${esc(s.nom)}</option>`).join('')}</optgroup>
             <optgroup label="${t('Scénarios d\'apprentissage', 'Teaching scenarios')}">
               ${Object.entries(SCENARIOS).map(([id, s]) => `<option value="${id}" ${id === 'normal' ? 'selected' : ''}>${esc(s.nom)}</option>`).join('')}</optgroup>
           </select></label>
+        <button type="button" class="btn btn-primaire" id="quiz-nouveau" hidden>${t('Nouveau cas', 'New case')}</button>
         <span class="simu-badge" id="cas-badge"></span>
       </div>
+      <p class="note simu-quiz-stats" id="quiz-stats" hidden></p>
       <p class="simu-contexte" id="contexte"></p>
     </section>
 
@@ -180,7 +186,7 @@ export function vueSimulateur(app) {
       ${puces('site', SITES_STIM, r.site, COURTS(), t('Site de stimulation', 'Pacing site'))}
       <p class="simu-resume" id="resume"></p>
       <div class="simu-onglets" role="tablist" aria-label="${t('Réglages de la console', 'Console settings')}">
-        ${onglet('prog', t('Programme', 'Programme'))}${onglet('proto', t('Protocoles', 'Protocols'))}${onglet('salve', t('Salve', 'Burst'))}${onglet('abl', t('Sonde / RF', 'Cath / RF'))}${onglet('medic', t('Médic.', 'Drugs'))}${onglet('journal', t('Journal', 'Log'))}
+        ${onglet('prog', t('Programme', 'Programme'))}${onglet('salve', t('Salve', 'Burst'))}${onglet('proto', t('Protocoles', 'Protocols'))}${onglet('abl', t('Sonde / RF', 'Cath / RF'))}${onglet('medic', t('Médic.', 'Drugs'))}${onglet('journal', t('Journal', 'Log'))}
         <button type="button" class="simu-replier" id="replier" aria-label="${t('Replier ou déplier la console', 'Collapse or expand the console')}" aria-expanded="true">▾</button>
       </div>
       <div class="simu-pans">
@@ -209,11 +215,16 @@ export function vueSimulateur(app) {
           </div>
           <p class="simu-proto-etat" id="proto-etat" role="status"></p>`)}
         ${panneau('salve', `
-          <div class="simu-grille-pas">${pas('salve-cl', t('Salve : cycle (ms)', 'Burst CL (ms)'), r.salveCl, 10, 150, 2000)}</div>
-          <button class="btn" id="salve">${t('Démarrer la salve', 'Start burst')}</button>
-          <p class="note">${t('La salve stimule en continu à ce cycle jusqu\'à « Arrêter la salve » ou « Stop ».', 'The burst paces continuously at this cycle length until "Stop burst" or "Stop".')}</p>
-          <div class="simu-grille-pas">${pas('rampe-debut', t('Rampe : de', 'Ramp: from'), r.rampeDebut, 10, 150, 2000)}${pas('rampe-fin', t('à', 'to'), r.rampeFin, 10, 150, 2000)}${pas('rampe-pas', t('pas', 'step'), r.rampePas, 5, 5, 50)}</div>
-          <button class="btn" id="rampe">${t('Lancer la rampe', 'Start ramp')}</button>`)}
+          <div class="simu-ligne-puces"><span class="simu-pas-lib">${t('Type de salve', 'Burst type')}</span>${puces('salveType', [{ id: 'burst', nom: t('Burst : cycle fixe', 'Burst: fixed cycle length') }, { id: 'rampe', nom: t('Rampe : cycle décroissant', 'Ramp: decreasing cycle length') }], r.salveType, { burst: 'Burst', rampe: t('Rampe', 'Ramp') }, t('Type de salve', 'Burst type'))}</div>
+          <div id="bloc-burst" ${r.salveType === 'burst' ? '' : 'hidden'}>
+            <div class="simu-grille-pas">${pas('salve-cl', t('Cycle (ms)', 'Cycle length (ms)'), r.salveCl, 10, 150, 2000)}${pas('salve-duree', t('Durée (s)', 'Duration (s)'), r.salveDuree, 1, 0, 60)}</div>
+            <p class="note">${t('Durée 0 : salve continue jusqu\'à « Stop ».', 'Duration 0: continuous burst until "Stop".')}</p>
+          </div>
+          <div id="bloc-rampe" ${r.salveType === 'rampe' ? '' : 'hidden'}>
+            <div class="simu-grille-pas">${pas('rampe-debut', t('Rampe : de (ms)', 'Ramp: from (ms)'), r.rampeDebut, 10, 150, 2000)}${pas('rampe-fin', t('à (ms)', 'to (ms)'), r.rampeFin, 10, 150, 2000)}${pas('rampe-pas', t('pas (ms)', 'step (ms)'), r.rampePas, 5, 5, 50)}</div>
+            <p class="note">${t('4 stimulus par palier.', '4 stimuli per step.')}</p>
+          </div>
+          <p class="note">${t('Lancez avec « Stimuler » (le bouton bleu) ; il devient « Stop » pendant la salve.', 'Start with "Pace" (the blue button); it turns into "Stop" during the burst.')}</p>`)}
         ${panneau('abl', `
           <div class="simu-carte-bloc">
             <svg class="simu-carte" id="carte" viewBox="0 0 300 214" role="group" aria-label="${t('Carte schématique des positions de la sonde (vue oblique antérieure gauche)', 'Schematic map of catheter positions (left anterior oblique view)')}">
@@ -263,7 +274,7 @@ export function vueSimulateur(app) {
     <details class="simu-sombre simu-guide">
       <summary><b>${t('Mode d\'emploi et manœuvres clés', 'User guide and key manoeuvres')}</b></summary>
       <ul>
-        <li>${t(`<b>Console</b> : toujours en bas de l'écran (à droite en paysage sur téléphone). Stimuler (qui devient Stop pendant une stimulation, une salve ou un protocole) et Enregistrer restent visibles ; « + extrastimulus » affiche S2, S3 et S4 ; la salve se lance depuis l'onglet Salve ; les pastilles choisissent le site ; les onglets donnent les réglages (± : appui long pour aller vite). Touchez l'onglet ouvert pour replier la console.`, `<b>Console</b>: always at the bottom of the screen (on the right in landscape on a phone). Pace (which becomes Stop during pacing, a burst or a protocol) and Record always remain visible; "+ extrastimuli" shows S2, S3 and S4; the burst is started from the Burst tab; the chips select the pacing site; the tabs hold the settings (±: press and hold to go faster). Tap the open tab to collapse the console.`)}</li>
+        <li>${t(`<b>Console</b> : sous la baie (à droite en paysage sur téléphone). « Stimuler » délivre le programme (onglet Programme) ou la salve (onglet Salve : burst de durée choisie, 0 = continu, ou rampe), selon le dernier des deux onglets ouvert. Stimuler (qui devient Stop pendant une stimulation, une salve ou un protocole) et Enregistrer restent visibles ; « + extrastimulus » affiche S2, S3 et S4 ; les pastilles choisissent le site ; les onglets donnent les réglages (± : appui long pour aller vite). Touchez l'onglet ouvert pour replier la console.`, `<b>Console</b>: below the EP lab (on the right in landscape on a phone). "Pace" delivers the programme (Programme tab) or the burst (Burst tab: burst of chosen duration, 0 = continuous, or ramp), whichever of the two tabs was opened last. Pace (which becomes Stop during pacing, a burst or a protocol) and Record always remain visible; "+ extrastimuli" shows S2, S3 and S4; the chips select the pacing site; the tabs hold the settings (±: press and hold to go faster). Tap the open tab to collapse the console.`)}</li>
         <li>${t(`<b>Baie</b> : vitesse en mm/s (25 mm/s pour une vue d'ensemble, 100 à 200 mm/s pour mesurer). L'écran en temps réel est en balayage (défilement en option) et ne se fige jamais. Choisissez un montage, puis ajoutez ou enlevez chaque voie dans « Voies affichées ». L'<b>écran de rappel</b> affiche chaque manœuvre ou enregistrement, centré sur l'extrastimulus (ou le stimulus bloqué, le dernier stimulus d'une salve) ; tout événement du journal peut y être rappelé. Faites glisser pour poser un compas (aimanté aux activations), pincez pour changer de vitesse, « Comparer » garde un rappel en référence (avant / après adénosine, avant / après ablation). Sur téléphone en paysage, un seul écran à la fois : glissez horizontalement pour passer du temps réel au rappel.`, `<b>Recording system</b>: sweep speed in mm/s (25 mm/s for an overview, 100 to 200 mm/s for measurements). The real-time screen uses sweep mode (scrolling as an option) and never freezes. Choose a montage, then add or remove individual channels under "Displayed channels". The <b>review screen</b> shows each manoeuvre or recording, centred on the extrastimulus (or on the blocked stimulus, or the last stimulus of a burst); any event in the log can be recalled there. Drag to place a calliper (it snaps to activations), pinch to change the sweep speed; "Compare" keeps a recording as a reference (before / after adenosine, before / after ablation). On a phone in landscape, one screen at a time: swipe horizontally to switch between real time and review.`)}</li>
         <li>${t(`<b>Protocoles</b> : extrastimulus décrémental automatique (PR, saut d'AH, induction), rampe jusqu'au Wenckebach antérograde ou rétrograde, temps de récupération sinusale, seuil de capture, para-hisien, ESV His-réfractaire et entraînement avec arrêt automatique. Les résultats vont dans le journal et le compte rendu.`, `<b>Protocols</b>: automatic decremental extrastimulus testing (ERP, AH jump, induction), ramp to anterograde or retrograde Wenckebach, sinus node recovery time, capture threshold, para-Hisian pacing, His-refractory PVC and entrainment with automatic stop. The results go into the log and the report.`)}</li>
         <li>${t(`<b>Extrastimulus</b> : train de S1 (ex. 8 × 600 ms) puis, en cochant « + extrastimulus », S2, S3, S4 (0 = désactivé) ; diminuez S2 par pas de 10 ms (boutons ± ou décrément automatique). Saut de l'AH ≥ 50 ms pour 10 ms de raccourcissement du couplage = double voie nodale. Période réfractaire effective : du tissu stimulé quand S2 ne capture plus ; du nœud AV quand S2 capture sans être suivi d'un H.`, `<b>Extrastimulus testing</b>: S1 drive train (e.g. 8 × 600 ms) then, after ticking "+ extrastimuli", S2, S3, S4 (0 = off); decrease S2 in 10 ms steps (± buttons or automatic decrement). AH jump ≥ 50 ms for a 10 ms decrement in coupling interval = dual AV nodal physiology. Effective refractory period: of the paced tissue when S2 no longer captures; of the AV node when S2 captures but is not followed by an H.`)}</li>
@@ -314,8 +325,12 @@ export function vueSimulateur(app) {
       <span class="note">${hms(a.t)}</span> ${esc(a.texte)}${a.instantane ? '' : ` <span class="note" title="${t('Enregistrement en cours', 'Recording in progress')}">⏳</span>`}
       ${a.mes ? `<small class="simu-evt-mes">V-V ${f0(a.mes.cycleV)} · AH ${f0(a.mes.AH)} · HV ${f0(a.mes.HV)} · VA ${f0(a.mes.VA)}</small>` : ''}</button></li>`).join('');
   }
+  function faire(type, extra = {}) {
+    st.faites.add(type);
+    st.historique.push({ type, t: st.t, tachy: tachycardie(st.coeur).active, ...extra });
+  }
   function noter(type, texte, fenetre) {
-    if (type) st.faites.add(type);
+    if (type) faire(type);
     const e = texte ? entree(st.t, texte, fenetre) : null;
     majJournal();
     return e;
@@ -361,8 +376,7 @@ export function vueSimulateur(app) {
       st.coeur.chocs = [];
     }
     Object.assign(st, { t: st.coeur.t, salve: null, actions: [], faites: new Set(), analyses: [], positionsTachy: new Set(), tachyAvant: false,
-      rappel: null, recul: 0, curseurs: [], nouveauCompas: false, demande: null, sale: true, reference: null, proto: null, rf: null, carte: {}, cr: nouveauCR(), hypo: 0, bump: null, train: null });
-    $('#salve').textContent = t('Démarrer la salve', 'Start burst'); $('#salve').classList.remove('actif');
+      rappel: null, recul: 0, curseurs: [], nouveauCompas: false, demande: null, sale: true, reference: null, proto: null, rf: null, carte: {}, cr: nouveauCR(), hypo: 0, bump: null, train: null, historique: [] });
     for (const id of ['#iso', '#atropine']) { $(id).setAttribute('aria-pressed', 'false'); $(id).classList.remove('actif'); }
     $('#rappel-titre').textContent = ''; $('#rappel-vide').hidden = false; $('#paysage-nouveau').textContent = ''; $('#reference').hidden = true;
     $('#proto-etat').textContent = ''; $('#compte-rendu').hidden = true; $('#rf-etat').textContent = t('Générateur prêt', 'Generator ready');
@@ -376,29 +390,44 @@ export function vueSimulateur(app) {
     st.enquete = st.mystere || !!arrivee;
     $('#diagnostic').hidden = !st.enquete; $('#verdict').innerHTML = ''; $('#reponse').value = '';
     $('#contexte').innerHTML = sc.contexte ? `<b>${t('Contexte :', 'Clinical context:')}</b> ${esc(sc.contexte)}` : '';
-    $('#cas-badge').textContent = arrivee ? t('Patient en tachycardie', 'Patient in tachycardia') : st.mystere ? t('Cas mystère', 'Mystery case') : t('Apprentissage', 'Teaching');
+    $('#cas-badge').textContent = st.mystere ? (arrivee ? t('Quiz · patient en tachycardie', 'Quiz · patient in tachycardia') : 'Quiz') : arrivee ? t('Patient en tachycardie', 'Patient in tachycardia') : t('Apprentissage', 'Teaching');
     $('#cas-badge').className = `simu-badge ${arrivee ? 'tachy' : st.mystere ? 'mystere' : ''}`;
     $('#explication-scenario').innerHTML = arrivee
       ? t(`<h2>Patient adressé en tachycardie</h2><p class="note">La tachycardie est en cours${induit ? '' : ' (elle s\'est arrêtée à l\'installation : induisez-la)'}. Mesurez le cycle, le VA et la séquence atriale, confirmez le mécanisme par les manœuvres (entraînement, ESV His-réfractaire, adénosine…), traitez si besoin, puis concluez.${st.mystere ? ' Les paramètres varient légèrement d\'un cas à l\'autre.' : ''}</p>`,
         `<h2>Patient referred in tachycardia</h2><p class="note">The tachycardia is ongoing${induit ? '' : ' (it terminated during catheter placement: induce it)'}. Measure the cycle length, the VA interval and the atrial activation sequence, confirm the mechanism with manoeuvres (entrainment, His-refractory PVC, adenosine…), treat if needed, then conclude.${st.mystere ? ' The parameters vary slightly from one case to the next.' : ''}</p>`)
       : st.mystere
-        ? t('<h2>Cas mystère</h2><p class="note">Le mécanisme est caché et les paramètres varient légèrement d\'un cas à l\'autre. Faites les manœuvres utiles, traitez si besoin, puis concluez.</p>',
-          '<h2>Mystery case</h2><p class="note">The mechanism is hidden and the parameters vary slightly from one case to the next. Perform the relevant manoeuvres, treat if needed, then conclude.</p>')
+        ? t('<h2>Quiz</h2><p class="note">Cas tiré au sort, mécanisme caché, paramètres légèrement variables. Explorez de façon systématique : intervalles de base, stimulation ventriculaire puis atriale, induction, manœuvres en tachycardie, traitement, contrôle. Deux notes : le diagnostic et l\'enchaînement logique des manœuvres.</p>',
+          '<h2>Quiz</h2><p class="note">Random case, hidden mechanism, slightly variable parameters. Work systematically: baseline intervals, ventricular then atrial pacing, induction, manoeuvres during tachycardia, treatment, check. Two scores: the diagnosis and the logical sequence of manoeuvres.</p>')
         : `<h2>${esc(sc.nom)}</h2><p>${esc(sc.explication)}</p>`;
-    noter(null, arrivee ? t('Patient en tachycardie à l\'arrivée', 'Patient in tachycardia on arrival') : st.mystere ? t('Nouveau cas mystère', 'New mystery case') : t(`Scénario : ${sc.nom}`, `Scenario: ${sc.nom}`), { debut: st.t - 5000, capture: st.t + 4000, auto: !!arrivee });
+    noter(null, arrivee ? t('Patient en tachycardie à l\'arrivée', 'Patient in tachycardia on arrival') : st.mystere ? t('Nouveau cas de quiz', 'New quiz case') : t(`Scénario : ${sc.nom}`, `Scenario: ${sc.nom}`), { debut: st.t - 5000, capture: st.t + 4000, auto: !!arrivee });
   }
+  // quiz : cas tiré au sort (un scénario, ou une fois sur quatre environ un patient arrivé en tachycardie) ; entraînement libre : scénario choisi
   function choisir(v) {
-    st.mystere = v === 'mystere';
-    // cas mystère : un scénario d'apprentissage ou, une fois sur quatre environ, un patient arrivé en tachycardie
+    st.mystere = r.modeSimu === 'quiz';
     st.scenario = st.mystere ? melanger(Math.random() < 0.25 ? Object.keys(ARRIVEES) : MYSTERES)[0] : v;
     nouveauCoeur();
+  }
+  const STATS_QUIZ = 'rythmo.simuQuiz';
+  const lireStats = () => { try { return JSON.parse(localStorage.getItem(STATS_QUIZ)) || []; } catch { return []; } };
+  function majStatsQuiz() {
+    const l = lireStats(), moy = k => virgule(Math.round(l.reduce((a, x) => a + x[k], 0) / l.length * 10) / 10);
+    $('#quiz-stats').hidden = r.modeSimu !== 'quiz' || !l.length;
+    if (l.length) $('#quiz-stats').textContent = t(`${l.length} cas faits · moyenne : diagnostic ${moy('d')}/10, démarche ${moy('m')}/10`, `${l.length} cases done · average: diagnosis ${moy('d')}/10, work-up ${moy('m')}/10`);
+  }
+  function appliquerMode(mode, scenarioLibre) {
+    r.modeSimu = mode; ecrire(r);
+    for (const b of app.querySelectorAll('[data-mode]')) b.setAttribute('aria-selected', String(b.dataset.mode === mode));
+    $('#choix-scenario').hidden = mode === 'quiz'; $('#quiz-nouveau').hidden = mode !== 'quiz';
+    majStatsQuiz();
+    if (scenarioLibre) $('#scenario').value = scenarioLibre;
+    choisir($('#scenario').value);
   }
 
   const reglages = () => {
     const n = (id, min = 0) => Math.max(min, +$(id).value || 0);
     Object.assign(r, { sortie: n('#sortie', 0.1), largeur: Math.min(2, n('#largeur', 0.5)), s1: Math.max(200, n('#s1')), n: Math.min(30, Math.round(n('#n'))),
       s2: Math.round(n('#s2')), s3: Math.round(n('#s3')), s4: Math.round(n('#s4')), extras: $('#extras').checked, rappelApres: $('#rappel-apres').checked, decrement: $('#decrement').checked,
-      salveCl: n('#salve-cl', 150), rampeDebut: n('#rampe-debut', 150), rampeFin: n('#rampe-fin', 150), rampePas: n('#rampe-pas', 1),
+      salveCl: n('#salve-cl', 150), salveDuree: Math.min(60, Math.round(n('#salve-duree'))), rampeDebut: n('#rampe-debut', 150), rampeFin: n('#rampe-fin', 150), rampePas: n('#rampe-pas', 1),
       puissance: Math.min(50, n('#puissance', 5)), dureeRF: Math.min(120, n('#duree-rf', 10)),
       vitesse: +$('#vitesse').value, vitesseRappel: +$('#vitesse-rappel').value, mode: $('#mode').value,
       bruit: $('#bruit').checked, etiquettes: $('#etiquettes').checked, filtre50: $('#filtre50').checked, passeHaut: $('#passe-haut').checked });
@@ -410,10 +439,14 @@ export function vueSimulateur(app) {
   const nomSite = () => `${SITES_STIM.find(s => s.id === r.site).nom}${r.site === 'abl' ? ` (${positionActuelle().nom})` : ''}`;
   // réglages effectivement délivrés : S2, S3, S4 ignorés tant que « + extrastimulus » n'est pas coché
   const programme = () => ({ ...r, ...(r.extras ? {} : { s2: 0, s3: 0, s4: 0 }) });
+  // résumé de ce que « Stimuler » va délivrer : programme (train + extrastimulus) ou salve (burst ou rampe)
   function majResume() {
-    const q = programme(), extras = [q.s2, q.s3, q.s4].filter(Boolean);
-    $('#resume').textContent = `${r.n ? `${r.n} × ${r.s1}` : t('sans train', 'no drive train')}${extras.map((x, i) => ` · S${i + 2} ${x}`).join('')} ms · ${virgule(r.sortie)} mA / ${virgule(r.largeur)} ms`
-      + `${r.detection ? t(` · couplé ${COURTS_DETECTION()[r.detection]}`, ` · synced ${COURTS_DETECTION()[r.detection]}`) : ''} · ${t('salve', 'burst')} ${r.salveCl} ms`;
+    const q = programme(), extras = [q.s2, q.s3, q.s4].filter(Boolean), sortie = `${virgule(r.sortie)} mA / ${virgule(r.largeur)} ms`;
+    $('#resume').textContent = r.modeStim === 'salve'
+      ? (r.salveType === 'rampe' ? t(`Stimuler → rampe ${r.rampeDebut} → ${r.rampeFin} ms (pas ${r.rampePas}) · ${sortie}`, `Pace → ramp ${r.rampeDebut} → ${r.rampeFin} ms (${r.rampePas} ms steps) · ${sortie}`)
+        : t(`Stimuler → burst ${r.salveCl} ms ${r.salveDuree ? `pendant ${r.salveDuree} s` : 'continu'} · ${sortie}`, `Pace → burst ${r.salveCl} ms ${r.salveDuree ? `for ${r.salveDuree} s` : 'continuous'} · ${sortie}`))
+      : t('Stimuler → ', 'Pace → ') + `${r.n ? `${r.n} × ${r.s1}` : t('sans train', 'no drive train')}${extras.map((x, i) => ` · S${i + 2} ${x}`).join('')} ms · ${sortie}`
+        + `${r.detection ? t(` · couplé ${COURTS_DETECTION()[r.detection]}`, ` · synced ${COURTS_DETECTION()[r.detection]}`) : ''}`;
   }
   function choisirPuce(groupe, v) {
     for (const b of $(`#${groupe}`).querySelectorAll('[data-v]')) b.setAttribute('aria-checked', String(b.dataset.v === v));
@@ -491,12 +524,13 @@ export function vueSimulateur(app) {
     noter(null, texte, { debut: st.t - 3000, capture: st.t + 500 }); $('#proto-etat').textContent = texte;
   }
 
-  function demarrerSalve(site, cl, { nom = nomSite(), type } = {}) {
-    const tach = tachycardie(st.coeur);
-    st.salve = { site, cl, prochain: st.coeur.t + 100, debut: st.coeur.t + 100, sortie: r.sortie, largeur: r.largeur, tachy: tach.active,
+  // salve à cycle fixe ; duree (ms) : arrêt automatique, sinon continue jusqu'à « Stop »
+  function demarrerSalve(site, cl, { nom = nomSite(), type, duree = 0 } = {}) {
+    const tach = tachycardie(st.coeur), debut = st.coeur.t + 100;
+    st.salve = { site, cl, prochain: debut, debut, fin: duree ? debut + duree : null, sortie: r.sortie, largeur: r.largeur, tachy: tach.active,
       tcl: VENTRICULAIRES.has(site) ? tach.cycleV : (tach.cycleA ?? tach.cycleV), nom };
-    noter(type ?? classer(site, { salve: true }), t(`Salve : ${nom} à ${cl} ms, ${virgule(r.sortie)} mA`, `Burst: ${nom} at ${cl} ms, ${virgule(r.sortie)} mA`));
-    $('#salve').textContent = t('Arrêter la salve', 'Stop burst'); $('#salve').classList.add('actif');
+    noter(type ?? classer(site, { salve: true }), t(`Salve : ${nom} à ${cl} ms${duree ? ` pendant ${duree / 1000} s` : ''}, ${virgule(r.sortie)} mA`, `Burst: ${nom} at ${cl} ms${duree ? ` for ${duree / 1000} s` : ''}, ${virgule(r.sortie)} mA`));
+    majBoutonStim();
   }
   function arreterSalve() {
     const s = st.salve; if (!s) return;
@@ -504,7 +538,7 @@ export function vueSimulateur(app) {
     c.annulerStims(c.t);
     const der = c.stims.filter(x => x.s === s.site).at(-1)?.t;
     noter(null, t(`Arrêt de la salve (${s.nom} à ${s.cl} ms)`, `Burst stopped (${s.nom} at ${s.cl} ms)`), { debut: Math.max(s.debut - 2000, st.t - 30000), capture: st.t + 3500, focus: der, auto: r.rappelApres });
-    st.salve = null; $('#salve').textContent = t('Démarrer la salve', 'Start burst'); $('#salve').classList.remove('actif');
+    st.salve = null; majBoutonStim();
     if (s.tachy && der != null) {
       setTimeout(() => {
         const a = analyserEntrainement(c, { der, site: s.site, tcl: s.tcl, ventriculaire: VENTRICULAIRES.has(s.site) });
@@ -531,7 +565,7 @@ export function vueSimulateur(app) {
     const nom = atrial ? t('Extrastimulus atrial décrémental', 'Decremental atrial extrastimulus') : t('Extrastimulus ventriculaire décrémental', 'Decremental ventricular extrastimulus');
     // période réfractaire de conduction : nodale (atrial) ou rétrograde (ventriculaire)
     const libPR = () => t(`PR ${atrial ? 'nodale' : 'rétrograde'}`, `${atrial ? 'AV nodal' : 'retrograde'} ERP`);
-    st.faites.add(atrial ? 'extraA' : 'extraV');
+    faire(atrial ? 'extraA' : 'extraV');
     noter(null, t(`Protocole : ${nom} (${n} × ${s1} ms, S2 dès ${s2} ms, ${virgule(sortie)} mA)`, `Protocol: ${nom} (${n} × ${s1} ms, S2 from ${s2} ms, ${virgule(sortie)} mA)`));
     const conclure = texte => {
       if (atrial) st.cr.extraA = res; else st.cr.extraV = res;
@@ -559,7 +593,7 @@ export function vueSimulateur(app) {
       const Vapres = battementsV(c.journal, attente.ts + 150, tc).filter(v => !c.stims.some(s => Math.abs(s.t - v) < 5));
       const gaps = Vapres.slice(1).map((x, i) => x - Vapres[i]);
       if (Vapres.length >= 4 && gaps.every(g => g < 470)) {
-        res.induction = attente.s2; st.faites.add('induction');
+        res.induction = attente.s2; faire('induction');
         return conclure(`${t(`tachycardie induite à S2 = ${attente.s2} ms`, `tachycardia induced at S2 = ${attente.s2} ms`)}${res.saut ? t(` ; ${res.saut}`, `; ${res.saut}`) : ''}`);
       }
       if (!rep.capture) {
@@ -587,7 +621,7 @@ export function vueSimulateur(app) {
     const liste = []; let ts = c.t + 150;
     for (let cl = Math.max(r.rampeDebut, 400); cl >= Math.min(r.rampeFin, 250) && liste.length < 200; cl -= 10) for (let k = 0; k < 4; k++) { c.stimuler(site, ts, sortie, r.largeur); liste.push({ t: ts, cl }); ts += cl; }
     const nom = atrial ? t('Rampe atriale (Wenckebach AV)', 'Atrial ramp (AV Wenckebach)') : t('Rampe ventriculaire (Wenckebach VA)', 'Ventricular ramp (VA Wenckebach)');
-    st.faites.add(atrial ? 'extraA' : 'stimV');
+    faire(atrial ? 'extraA' : 'stimV');
     const e = noter(null, t(`Protocole : ${nom}, ${liste[0].cl} → ${liste.at(-1).cl} ms`, `Protocol: ${nom}, ${liste[0].cl} → ${liste.at(-1).cl} ms`), { debut: c.t - 1000, capture: ts + 1500, auto: r.rappelApres });
     let i = 0, conduits = 0;
     const fin = (texte, tFin) => {
@@ -788,6 +822,7 @@ export function vueSimulateur(app) {
     if (rf.lesion >= 1 && !rf.applique) {
       rf.applique = true;
       const touchees = c.ablater(rf.pos.cibles);
+      st.historique.push({ type: 'tir', t: st.t, tachy: tachycardie(c).active, efficace: touchees.length > 0 });
       if (touchees.includes('nav') || touchees.includes('rapide')) message(t('Bloc AV : la voie nodale rapide a été détruite.', 'AV block: the fast pathway has been ablated.'));
     }
     if (!rf.cryo && ['koch', 'his'].includes(rf.pos.id)) {
@@ -838,7 +873,7 @@ export function vueSimulateur(app) {
     if (id === st.position) return;
     st.position = id; $('#position').value = id;
     const c = st.coeur, pos = positionActuelle();
-    if (tachycardie(c).active) { st.positionsTachy.add(st.position); if (st.positionsTachy.size >= 2) st.faites.add('cartographie'); }
+    if (tachycardie(c).active) { st.positionsTachy.add(st.position); if (st.positionsTachy.size >= 2 && !st.faites.has('cartographie')) faire('cartographie'); }
     if (st.rf) arreterRF();
     noter(null, t(`Sonde d'ablation : ${pos.nom}`, `Ablation catheter: ${pos.nom}`));
     // contact du cathéter : extrasystoles mécaniques, parfois bloc transitoire d'une voie accessoire (« bump »)
@@ -903,23 +938,25 @@ export function vueSimulateur(app) {
     b.classList.toggle('btn-stop', actif); b.classList.toggle('btn-primaire', !actif);
     b.setAttribute('aria-label', actif ? t('Arrêter la stimulation en cours', 'Stop the current pacing') : t('Stimuler', 'Pace'));
   }
-  $('#stimuler').onclick = () => { if (stimEnCours()) toutArreter({ rf: false }); else stimuler(); majBoutonStim(); };
-  $('#extras').addEventListener('change', e => { $('#extras-bloc').hidden = !e.target.checked; reglages(); });
-  $('#salve').onclick = () => {
-    reglages();
-    if (st.salve) { st.proto = null; arreterSalve(); return; }
-    vibrer();
-    demarrerSalve(siteReel(), r.salveCl);
-  };
-  $('#rampe').onclick = () => {
-    reglages();
-    const site = siteReel(), c = st.coeur, t0 = c.t + 150;
+  // Stimuler délivre le programme (onglet Programme) ou la salve (onglet Salve : burst ou rampe), selon le dernier des deux ouvert
+  function lancerSalve() {
+    reglages(); vibrer();
+    const site = siteReel();
+    if (r.salveType === 'burst') { demarrerSalve(site, r.salveCl, { duree: r.salveDuree * 1000 }); return; }
+    const c = st.coeur, t0 = c.t + 150;
     let ts = t0, n = 0;
     for (let cl = r.rampeDebut; cl >= r.rampeFin && n < 200; cl -= r.rampePas) for (let k = 0; k < 4; k++, n++) { c.stimuler(site, ts, r.sortie, r.largeur); ts += cl; }
     noter(VENTRICULAIRES.has(site) ? 'stimV' : 'extraA', t(`Rampe ${r.rampeDebut} → ${r.rampeFin} ms (pas ${r.rampePas} ms, 4 stimulus par palier)`, `Ramp ${r.rampeDebut} → ${r.rampeFin} ms (${r.rampePas} ms steps, 4 stimuli per step)`),
       { debut: t0 - 1500, capture: ts + 1500, auto: r.rappelApres });
-  };
-  $('#enregistrer').onclick = () => { reglages(); noter(null, t('Enregistrement', 'Recording'), { debut: st.t - 10000, capture: st.t, auto: true }); };
+  }
+  $('#stimuler').onclick = () => { if (stimEnCours()) toutArreter({ rf: false }); else if (r.modeStim === 'salve') lancerSalve(); else stimuler(); majBoutonStim(); };
+  $('#salveType').addEventListener('click', e => {
+    const b = e.target.closest('[data-v]'); if (!b) return;
+    choisirPuce('salveType', b.dataset.v);
+    $('#bloc-burst').hidden = r.salveType !== 'burst'; $('#bloc-rampe').hidden = r.salveType !== 'rampe'; majResume();
+  });
+  $('#extras').addEventListener('change', e => { $('#extras-bloc').hidden = !e.target.checked; reglages(); });
+  $('#enregistrer').onclick = () => { reglages(); faire('mesure'); noter(null, t('Enregistrement', 'Recording'), { debut: st.t - 10000, capture: st.t, auto: true }); };
   $('#adenosine').onclick = () => { st.coeur.injecterAdenosine(); noter('adenosine'); };
   const basculer = (nom, type) => {
     const on = st.coeur.basculerMedicament(nom);
@@ -945,7 +982,9 @@ export function vueSimulateur(app) {
   $('.simu-onglets').addEventListener('click', e => {
     const b = e.target.closest('[data-onglet]'); if (!b) return;
     if (b.dataset.onglet === r.onglet && !console_.classList.contains('repliee')) { replier(true); return; }
-    r.onglet = b.dataset.onglet; ecrire(r); replier(false);
+    r.onglet = b.dataset.onglet;
+    if (r.onglet === 'prog' || r.onglet === 'salve') { r.modeStim = r.onglet; majResume(); } // ce que « Stimuler » délivre
+    ecrire(r); replier(false);
     for (const x of app.querySelectorAll('[data-onglet]')) x.setAttribute('aria-selected', String(x === b));
     for (const p of app.querySelectorAll('.simu-pan')) p.hidden = p.id !== `pan-${r.onglet}`;
   });
@@ -967,7 +1006,7 @@ export function vueSimulateur(app) {
   });
   for (const ev of ['pointerup', 'pointerleave', 'pointercancel']) console_.addEventListener(ev, finRepete);
   console_.addEventListener('keydown', e => { const b = e.target.closest('.btn-pas'); if (b && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); pasSuivant(b); } });
-  for (const id of ['#sortie', '#largeur', '#s1', '#n', '#s2', '#s3', '#s4', '#rappel-apres', '#decrement', '#salve-cl', '#rampe-debut', '#rampe-fin', '#rampe-pas', '#puissance', '#duree-rf',
+  for (const id of ['#sortie', '#largeur', '#s1', '#n', '#s2', '#s3', '#s4', '#rappel-apres', '#decrement', '#salve-cl', '#salve-duree', '#rampe-debut', '#rampe-fin', '#rampe-pas', '#puissance', '#duree-rf',
     '#vitesse', '#mode', '#bruit', '#etiquettes', '#filtre50', '#passe-haut']) $(id).addEventListener('change', reglages);
   // montage : jeu de voies prédéfini ; chaque voie peut ensuite être ajoutée ou enlevée (montage personnalisé)
   function majVoies() {
@@ -1096,7 +1135,7 @@ export function vueSimulateur(app) {
     glisse = true; st.sale = true; canvasR.setPointerCapture(e.pointerId);
   });
   canvasR.addEventListener('pointermove', e => { if (glisse && st.curseurs.length && nbDoigtsR() < 2) { st.curseurs.at(-1)[1] = aimanter(temps(e)); st.sale = true; } });
-  canvasR.addEventListener('pointerup', () => { glisse = false; });
+  canvasR.addEventListener('pointerup', () => { if (glisse && st.curseurs.at(-1)?.[1] != null && st.historique.at(-1)?.type !== 'mesure') faire('mesure'); glisse = false; });
   if (typeof ResizeObserver === 'function') new ResizeObserver(() => { if (canvasR.isConnected) majRecul(); }).observe(canvasR);
 
   // ---------- boucle d'animation ----------
@@ -1111,7 +1150,10 @@ export function vueSimulateur(app) {
     const dt = Math.min(100, maintenant - dernier); dernier = maintenant;
     const c = st.coeur;
     const cible = st.t + dt;
-    if (st.salve) while (st.salve.prochain < cible + 400) { c.stimuler(st.salve.site, st.salve.prochain, st.salve.sortie, st.salve.largeur); st.salve.prochain += st.salve.cl; }
+    if (st.salve) {
+      while (st.salve.prochain < cible + 400 && (st.salve.fin == null || st.salve.prochain <= st.salve.fin)) { c.stimuler(st.salve.site, st.salve.prochain, st.salve.sortie, st.salve.largeur); st.salve.prochain += st.salve.cl; }
+      if (st.salve.fin != null && st.t > st.salve.prochain - st.salve.cl + 20 && st.salve.prochain > st.salve.fin) arreterSalve(); // burst de durée choisie terminé
+    }
     c.avancer(cible); st.t = cible;
     if (st.proto && !st.proto.etape(st.t)) st.proto = null;
     majBoutonStim();
@@ -1185,41 +1227,127 @@ export function vueSimulateur(app) {
     boucle = requestAnimationFrame(image);
   }
 
-  // ---------- notation d'un cas mystère ----------
+  // ---------- quiz : note du diagnostic, note de la démarche, démarche idéale ----------
+  // familles de mécanismes : un diagnostic de la bonne famille vaut la moitié des points
+  const FAMILLES = [['normal', 'double'], ['trin', 'trin-atyp', 'trin-21'], ['trav', 'septale', 'pjrt', 'coumel', 'wpw', 'mahaim'], ['flutter', 'flutter-mitral'], ['ta', 'jonctionnelle']];
+  const ETUDE = new Set(['extraA', 'extraV', 'stimV', 'induction', 'iso', 'salveA']); // étude de base et induction
+  const STIMULATION = new Set(['extraA', 'extraV', 'stimV', 'salveA', 'induction', 'parahis']);
+  const MANOEUVRE_SINUSAL = new Set(['parahis']); // manœuvres qui s'interprètent en rythme sinusal
+  const IDEAL = () => ({
+    esvHis: t('ESV His-réfractaire (VD couplé au His, S2 = TCL − 30 ms) : un atrium avancé ou retardé, ou un arrêt sans atteindre l\'atrium, prouve une voie accessoire.', 'His-refractory PVC (RV synced to the His, S2 = TCL − 30 ms): an advanced or delayed atrium, or termination without reaching the atrium, proves an accessory pathway.'),
+    entrainementV: t('Entraînement ventriculaire à TCL − 20 à 40 ms : V-A-V (réentrée nodale ou voie accessoire) ou V-A-A-V (tachycardie atriale) ; PPI − TCL > 115 ms en faveur d\'une TRIN.', 'Ventricular entrainment at TCL − 20 to 40 ms: V-A-V (nodal re-entry or accessory pathway) or V-A-A-V (atrial tachycardia); PPI − TCL > 115 ms favours AVNRT.'),
+    entrainementA: t('Entraînement atrial depuis l\'isthme, le SC proximal et distal : PPI − TCL < 20-30 ms = site dans le circuit.', 'Atrial entrainment from the isthmus, proximal and distal CS: PPI − TCL < 20-30 ms = site within the circuit.'),
+    entrainementCicatrice: t('Entraînement depuis la cicatrice : PPI − TCL court et QRS identique (fusion cachée) = isthme critique.', 'Entrainment from the scar: short PPI − TCL and identical QRS (concealed fusion) = critical isthmus.'),
+    parahis: t('Stimulation para-hisienne en rythme sinusal : S-A qui s\'allonge à la perte de capture du His = conduction nodale ; S-A constant = voie accessoire septale.', 'Para-Hisian pacing in sinus rhythm: S-A lengthening on loss of His capture = nodal conduction; constant S-A = septal accessory pathway.'),
+    adenosine: t('Adénosine en tachycardie : arrêt sur une onde A (dépendance nodale) ou persistance de l\'activité atriale avec bloc AV (tachycardie atriale).', 'Adenosine during tachycardia: termination on an A wave (node-dependent) or persistent atrial activity with AV block (atrial tachycardia).'),
+    cartographie: t('Cartographie avec la sonde d\'ablation : site d\'activation le plus précoce (carte colorée), électrogramme local, QS en unipolaire.', 'Mapping with the ablation catheter: earliest activation site (coloured map), local electrogram, QS on the unipolar.'),
+  });
+  function demarcheIdeale(sc, id) {
+    const base = sc.base ?? id, arrivee = !!ARRIVEES[id], tachy = !['normal', 'double'].includes(base);
+    const disc = (sc.manoeuvres || []).filter(m => IDEAL()[m]).map(m => IDEAL()[m]);
+    const pos = sc.position ? POSITIONS.find(p => p.id === sc.position)?.nom : '';
+    const etapes = [];
+    if (arrivee) etapes.push(t('Analyser la tachycardie avant toute manœuvre : cycle, rapport A/V, VA, séquence atriale (Enregistrer, compas).', 'Analyse the tachycardia before any manoeuvre: cycle length, A/V ratio, VA interval, atrial sequence (Record, calipers).'));
+    else {
+      etapes.push(t('Mesurer les intervalles de base : cycle, AH, HV (Enregistrer, compas).', 'Measure baseline intervals: cycle length, AH, HV (Record, calipers).'));
+      etapes.push(t('Stimulation ventriculaire : rampe et extrastimulus (conduction rétrograde, séquence atriale, décrément).', 'Ventricular pacing: ramp and extrastimuli (retrograde conduction, atrial sequence, decrement).'));
+      etapes.push(t('Stimulation atriale : extrastimulus décrémental et rampe (courbe AH, saut, PR nodale, Wenckebach).', 'Atrial pacing: decremental extrastimuli and ramp (AH curve, jump, AV nodal ERP, Wenckebach).'));
+      etapes.push(tachy ? t('Induction : extrastimulus atrial ou ventriculaire, salve, sous isoprénaline si besoin.', 'Induction: atrial or ventricular extrastimuli, burst, under isoproterenol if needed.')
+        : t('Rechercher une tachycardie, y compris sous isoprénaline : non inductible.', 'Attempt induction, including under isoproterenol: not inducible.'));
+    }
+    if (tachy && !arrivee) etapes.push(t('En tachycardie : cycle, VA, séquence atriale, rapport A/V.', 'During tachycardia: cycle length, VA interval, atrial sequence, A/V ratio.'));
+    etapes.push(...disc);
+    if (arrivee) etapes.push(t('Arrêter la tachycardie (stimulation, adénosine) puis étudier la conduction en rythme sinusal.', 'Terminate the tachycardia (pacing, adenosine), then study conduction in sinus rhythm.'));
+    etapes.push(sc.cible ? (sc.ablationOptionnelle ? t(`Traitement : abstention possible ; si ablation, ${pos} (cryothérapie prudente).`, `Treatment: observation acceptable; if ablating, ${pos} (cautious cryoablation).`) : t(`Traitement : ablation, ${pos}.`, `Treatment: ablation, ${pos}.`))
+      : base === 'fa' ? t('Traitement : isolation des veines pulmonaires (non modélisée ici).', 'Treatment: pulmonary vein isolation (not modelled here).') : t('Traitement : pas d\'ablation.', 'Treatment: no ablation.'));
+    if (sc.cible) etapes.push(base === 'flutter' ? t('Contrôle : bloc bidirectionnel de l\'isthme (stimulation de l\'ostium du SC puis de l\'isthme latéral) et non-inductibilité.', 'Check: bidirectional isthmus block (pacing from the CS ostium, then the lateral isthmus) and non-inducibility.')
+      : t('Contrôle : non-inductibilité (± isoprénaline) et conduction AV conservée.', 'Check: non-inducibility (± isoproterenol) and preserved AV conduction.'));
+    return etapes;
+  }
+  function evaluer(sc, id, rep) {
+    const base = sc.base ?? id, arrivee = !!ARRIVEES[id], h = st.historique, c = st.coeur;
+    const noteDiag = rep === base ? 10 : FAMILLES.some(f => f.includes(base) && f.includes(rep)) ? 5 : 0;
+    const premier = pred => h.find(pred)?.t ?? Infinity;
+    const cible = sc.cible ? [].concat(sc.cible) : [];
+    const tirs = h.filter(x => x.type === 'tir'), premierTir = tirs[0]?.t ?? Infinity, dernierEfficace = tirs.filter(x => x.efficace).at(-1)?.t;
+    const tire = st.actions.some(a => a.rf);
+    const ablOk = !cible.length || c.voies.some(v => v.coupee && cible.includes(v.id)) || cible.some(x => c.sites[x]?.supprime) || (sc.ablationOptionnelle && !tire);
+    const blocAV = c.voies.some(v => v.coupee && (v.id === 'nav' || v.id === 'rapide')) && !cible.includes('rapide');
+    const ablInutile = !cible.length && tire;
+    const disc = (sc.manoeuvres || []).filter(m => !ETUDE.has(m) || (base === 'fa' && m === 'salveA'));
+    // une manœuvre discriminante compte si elle a été faite dans le bon contexte (en tachycardie, ou en rythme sinusal pour le para-hisien)
+    const faiteBien = m => h.some(x => x.type === m && (MANOEUVRE_SINUSAL.has(m) ? !x.tachy : (x.tachy || !['esvHis', 'entrainementV', 'entrainementA', 'entrainementCicatrice', 'adenosine', 'cartographie'].includes(m))));
+    const lignes = [], ajoute = (pts, max, texte) => lignes.push({ pts, max, texte });
+    const induction = premier(x => x.type === 'induction');
+    if (arrivee) {
+      const premiereManoeuvre = premier(x => x.type !== 'mesure');
+      ajoute(premier(x => x.type === 'mesure') < premiereManoeuvre ? 1 : 0, 1, t('Tachycardie analysée (enregistrement, compas) avant la première manœuvre', 'Tachycardia analysed (recording, calipers) before the first manoeuvre'));
+      ajoute(h.some(x => STIMULATION.has(x.type) && !x.tachy) ? 1 : 0, 1, t('Conduction étudiée en rythme sinusal après l\'arrêt de la tachycardie', 'Conduction studied in sinus rhythm after termination'));
+      ajoute(disc.some(m => !MANOEUVRE_SINUSAL.has(m) && faiteBien(m)) || !disc.length ? 1 : 0, 1, t('Manœuvres faites pendant la tachycardie, avant de l\'arrêter', 'Manoeuvres performed during the tachycardia, before terminating it'));
+    } else {
+      const avantInduction = Math.min(induction, premierTir);
+      ajoute(premier(x => ['stimV', 'extraV'].includes(x.type) && !x.tachy) < avantInduction ? 1 : 0, 1, t('Conduction rétrograde étudiée (stimulation ventriculaire) avant l\'induction', 'Retrograde conduction studied (ventricular pacing) before induction'));
+      ajoute(premier(x => x.type === 'extraA' && !x.tachy) < avantInduction ? 1 : 0, 1, t('Conduction antérograde étudiée (extrastimulus atrial, Wenckebach) avant l\'induction', 'Anterograde conduction studied (atrial extrastimuli, Wenckebach) before induction'));
+      const inductible = !['normal', 'double'].includes(base);
+      ajoute(inductible ? (induction < Infinity ? 1 : 0) : (st.faites.has('iso') ? 1 : st.faites.has('extraA') ? 0.5 : 0), 1,
+        inductible ? t('Tachycardie induite', 'Tachycardia induced') : t('Inductibilité recherchée jusque sous isoprénaline', 'Inducibility tested, including under isoproterenol'));
+    }
+    const faits = disc.filter(faiteBien);
+    ajoute(disc.length ? Math.round(4 * faits.length / disc.length * 2) / 2 : (st.faites.has('extraA') && (st.faites.has('stimV') || st.faites.has('extraV')) ? 4 : 2), 4,
+      disc.length ? t(`Manœuvres discriminantes : ${faits.length}/${disc.length} (${disc.map(m => `${faiteBien(m) ? '✓' : '✗'} ${MANOEUVRES()[m]}`).join(' ; ')})`, `Discriminating manoeuvres: ${faits.length}/${disc.length} (${disc.map(m => `${faiteBien(m) ? '✓' : '✗'} ${MANOEUVRES()[m]}`).join('; ')})`)
+        : t('Étude complète de la conduction antérograde et rétrograde', 'Complete anterograde and retrograde conduction study'));
+    const dernierDisc = Math.max(-Infinity, ...h.filter(x => disc.includes(x.type)).map(x => x.t));
+    ajoute(tirs.length ? (faits.length && dernierDisc < premierTir ? 1 : 0) : (faits.length || !disc.length ? 1 : 0), 1, t('Diagnostic établi avant le premier tir', 'Diagnosis established before the first RF delivery'));
+    ajoute(ablOk && !blocAV && !ablInutile ? 1 : 0, 1, cible.length ? t('Traitement de la bonne cible', 'Correct target treated') : t('Pas de tir inutile', 'No unnecessary RF delivery'));
+    ajoute(cible.length ? (dernierEfficace != null && h.some(x => STIMULATION.has(x.type) && x.t > dernierEfficace) ? 1 : 0) : (tire ? 0 : 1), 1,
+      cible.length ? t('Contrôle après ablation (tentative de réinduction, conduction)', 'Post-ablation check (re-induction attempt, conduction)') : t('Aucune lésion inutile', 'No unnecessary lesion'));
+    let noteDemarche = lignes.reduce((a, l) => a + l.pts, 0);
+    if (blocAV) noteDemarche -= 2;
+    if (tirs.filter(x => !x.efficace).length > 3) noteDemarche -= 0.5;
+    noteDemarche = Math.max(0, Math.round(noteDemarche * 2) / 2);
+    return { base, noteDiag, noteDemarche, lignes, blocAV, ablOk, ablInutile, tire, cible };
+  }
+
   $('#valider').onclick = () => {
     const rep = $('#reponse').value;
     if (!rep) return;
-    const sc = scenario(st.scenario), juste = rep === (sc.base ?? st.scenario), nomDiag = sc.base ? SCENARIOS[sc.base].nom : sc.nom;
-    // patient arrivé en tachycardie : l'induction et les extrastimulus en rythme de base ne font pas partie de la démarche attendue
-    const cles = (sc.manoeuvres || []).filter(m => !(sc.base && ['induction', 'extraA', 'extraV'].includes(m))), faites = cles.filter(m => st.faites.has(m));
-    const cible = sc.cible ? [].concat(sc.cible) : [];
-    const tire = st.actions.some(a => a.rf);
-    const ablOk = !cible.length || st.coeur.voies.some(v => v.coupee && cible.includes(v.id)) || cible.some(c => st.coeur.sites[c]?.supprime) || (sc.ablationOptionnelle && !tire);
-    const blocAV = st.coeur.voies.some(v => v.coupee && (v.id === 'nav' || v.id === 'rapide')) && !cible.includes('rapide');
-    const ablInutile = !cible.length && tire;
-    const note = Math.round(((juste ? 5 : 0) + (cles.length ? 3 * faites.length / cles.length : 3) + (ablOk && !blocAV && !ablInutile ? 2 : 0)) * 10) / 10;
+    const sc = scenario(st.scenario), ev = evaluer(sc, st.scenario, rep), nomDiag = SCENARIOS[ev.base].nom;
     const posNom = sc.position ? POSITIONS.find(p => p.id === sc.position)?.nom : '';
-    const traitement = st.scenario === 'fa'
-      ? (ablInutile ? t('✗ Tir sans cible modélisée.', '✗ RF delivered with no modelled target.') : t('✓ Isolation des veines pulmonaires indiquée (non modélisée ici).', '✓ Pulmonary vein isolation indicated (not modelled here).'))
-      : cible.length
-        ? (sc.ablationOptionnelle && !tire ? t(`✓ Abstention ou traitement médical acceptables ; si ablation : ${esc(posNom)}.`, `✓ Observation or medical therapy acceptable; if ablating: ${esc(posNom)}.`)
-          : ablOk ? t(`✓ Substrat détruit (${esc(posNom)}).`, `✓ Substrate ablated (${esc(posNom)}).`)
+    const traitement = ev.base === 'fa'
+      ? (ev.ablInutile ? t('✗ Tir sans cible modélisée.', '✗ RF delivered with no modelled target.') : t('✓ Isolation des veines pulmonaires indiquée (non modélisée ici).', '✓ Pulmonary vein isolation indicated (not modelled here).'))
+      : ev.cible.length
+        ? (sc.ablationOptionnelle && !ev.tire ? t(`✓ Abstention ou traitement médical acceptables ; si ablation : ${esc(posNom)}.`, `✓ Observation or medical therapy acceptable; if ablating: ${esc(posNom)}.`)
+          : ev.ablOk ? t(`✓ Substrat détruit (${esc(posNom)}).`, `✓ Substrate ablated (${esc(posNom)}).`)
             : t(`✗ Substrat non traité ; cible attendue : ${esc(posNom)}.`, `✗ Substrate not ablated; expected target: ${esc(posNom)}.`))
-        : ablInutile ? t('✗ Tir de radiofréquence sans cible arythmogène.', '✗ RF delivered with no arrhythmogenic target.') : t('✓ Pas d\'ablation nécessaire.', '✓ No ablation needed.');
-    $('#verdict').innerHTML = `<div class="retour ${juste ? 'ok' : 'ko'}"><h3>${juste ? t('Bon diagnostic !', 'Correct diagnosis!') : t('Ce n\'est pas ça.', 'Incorrect diagnosis.')} ${t('Note :', 'Score:')} ${note} / 10</h3>
-      <p>${t('Il s\'agissait de :', 'The diagnosis was:')} <b>${esc(nomDiag)}</b>.</p><p>${esc(sc.explication)}</p>
-      <h4>${t('Manœuvres clés pour ce diagnostic', 'Key manoeuvres for this diagnosis')}</h4>
-      <ul class="simu-check">${cles.map(m => `<li class="${st.faites.has(m) ? 'fait' : 'manque'}">${st.faites.has(m) ? '✓' : '✗'} ${esc(MANOEUVRES()[m])}</li>`).join('') || '<li>—</li>'}</ul>
+        : ev.ablInutile ? t('✗ Tir de radiofréquence sans cible arythmogène.', '✗ RF delivered with no arrhythmogenic target.') : t('✓ Pas d\'ablation nécessaire.', '✓ No ablation needed.');
+    if (st.mystere) { try { localStorage.setItem(STATS_QUIZ, JSON.stringify([...lireStats(), { d: ev.noteDiag, m: ev.noteDemarche, s: ev.base }].slice(-200))); } catch { /* stockage indisponible */ } majStatsQuiz(); }
+    const pts = x => virgule(x);
+    $('#verdict').innerHTML = `<div class="retour ${ev.noteDiag === 10 ? 'ok' : 'ko'}">
+      <div class="simu-notes">
+        <div class="simu-note ${ev.noteDiag === 10 ? 'ok' : ev.noteDiag ? 'moyen' : 'ko'}"><span>${t('Diagnostic', 'Diagnosis')}</span><b>${pts(ev.noteDiag)}<small>/10</small></b></div>
+        <div class="simu-note ${ev.noteDemarche >= 8 ? 'ok' : ev.noteDemarche >= 5 ? 'moyen' : 'ko'}"><span>${t('Démarche', 'Work-up')}</span><b>${pts(ev.noteDemarche)}<small>/10</small></b></div>
+      </div>
+      <h3>${ev.noteDiag === 10 ? t('Bon diagnostic !', 'Correct diagnosis!') : ev.noteDiag ? t('Presque : bonne famille de mécanismes.', 'Close: right family of mechanisms.') : t('Ce n\'est pas ça.', 'Incorrect diagnosis.')}</h3>
+      <p>${t('Il s\'agissait de :', 'The diagnosis was:')} <b>${esc(nomDiag)}</b>.</p>
+      <h4>${t('Votre démarche', 'Your work-up')}</h4>
+      <ul class="simu-check">${ev.lignes.map(l => `<li class="${l.pts >= l.max ? 'fait' : l.pts ? 'partiel' : 'manque'}">${l.pts >= l.max ? '✓' : l.pts ? '◐' : '✗'} ${esc(l.texte)} <span class="note">(${pts(l.pts)}/${l.max})</span></li>`).join('')}
+        ${ev.blocAV ? `<li class="manque">✗ ${t('Bloc AV iatrogène (− 2)', 'Iatrogenic AV block (− 2)')}</li>` : ''}</ul>
+      <h4>${t('Explication', 'Explanation')}</h4><p>${esc(sc.explication)}</p>
+      <h4>${t('Démarche idéale', 'Ideal work-up')}</h4><ol class="simu-ideal">${demarcheIdeale(sc, st.scenario).map(e => `<li>${esc(e)}</li>`).join('')}</ol>
       ${st.analyses.length ? `<h4>${t('Vos mesures', 'Your measurements')}</h4><ul>${st.analyses.map(a => `<li>${esc(a)}</li>`).join('')}</ul>` : ''}
       ${st.bump ? `<p class="note">${t('Un contact de la sonde a pu bloquer transitoirement la voie accessoire (« bump ») : la préexcitation disparaît sans tir, puis revient.', 'Catheter contact may have transiently blocked the accessory pathway ("bump"): pre-excitation disappears without any RF delivery, then returns.')}</p>` : ''}
-      <h4>${t('Traitement', 'Treatment')}</h4><p>${traitement}${blocAV ? t(' <b>✗ Bloc AV iatrogène.</b>', ' <b>✗ Iatrogenic AV block.</b>') : ''}</p>
-      <div class="actions serre gauche"><button class="btn btn-primaire" id="autre">${t('Nouveau cas mystère', 'New mystery case')}</button><button class="btn" id="cr-verdict">${t('Compte rendu', 'Report')}</button></div></div>`;
-    $('#autre').onclick = () => choisir('mystere');
+      <h4>${t('Traitement', 'Treatment')}</h4><p>${traitement}${ev.blocAV ? t(' <b>✗ Bloc AV iatrogène.</b>', ' <b>✗ Iatrogenic AV block.</b>') : ''}</p>
+      <div class="actions serre gauche">${st.mystere ? `<button class="btn btn-primaire" id="autre">${t('Nouveau cas', 'New case')}</button>` : ''}<button class="btn" id="cr-verdict">${t('Compte rendu', 'Report')}</button></div></div>`;
+    if (st.mystere) $('#autre').onclick = () => { choisir(); window.scrollTo({ top: 0, behavior: 'smooth' }); };
     $('#cr-verdict').onclick = compteRendu;
   };
 
+  $('.simu-modes').addEventListener('click', e => { const b = e.target.closest('[data-mode]'); if (b && b.dataset.mode !== r.modeSimu) appliquerMode(b.dataset.mode); });
+  $('#quiz-nouveau').onclick = () => choisir();
   const initial = choixInitial; choixInitial = null;
-  if (initial) { $('#scenario').value = initial; choisir(initial); } else nouveauCoeur();
+  if (initial === 'mystere') appliquerMode('quiz');
+  else if (initial) appliquerMode('libre', initial);
+  else appliquerMode(r.modeSimu === 'quiz' ? 'quiz' : 'libre');
   majResume();
   boucle = requestAnimationFrame(image);
 }

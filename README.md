@@ -52,8 +52,12 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
     est en cours à l'ouverture du cas, le mécanisme se confirme par les manœuvres (entraînement, ESV His-réfractaire,
     adénosine) ; ils entrent aussi dans le tirage des cas mystères.
   - Partie scénario (fiche du cas, diagnostic, explication, compte rendu) dans la même charte sombre que la baie.
-  - Cas mystères avec contexte clinique, notation de la démarche (diagnostic, manœuvres clés, traitement) et débriefing
-    avec les mesures de vos manœuvres (réponse à l'entraînement, PPI − TCL, effet de l'ESV His-réfractaire).
+  - Deux modes : **entraînement libre** (scénario au choix, explications visibles) et **quiz** (cas clinique tiré au sort,
+    mécanisme caché). Le quiz donne une note de diagnostic (/10, moitié des points pour la bonne famille de mécanismes) et
+    une note de démarche (/10) : étude de base avant l'induction, induction, manœuvres discriminantes faites dans le bon
+    contexte, diagnostic avant le premier tir, bonne cible, contrôle après ablation (pénalité en cas de bloc AV). Puis
+    explication, démarche idéale pas à pas, mesures de vos manœuvres et moyenne des cas faits.
+  - Salve : burst de durée choisie (ou continu) ou rampe, lancés par le même bouton « Stimuler » que le programme.
   - 17 questions « tracé d'EEP » générées par le moteur, rejouées à l'identique dans le quiz.
   Les réentrées et les réponses aux manœuvres émergent du modèle. Concept inspiré de svtsim (S. Iravanian), code original.
 - **Mode compétitif** : classement **ELO des échecs** (départ 600 pour tout débutant, formule FIDE, K = 40 puis 20, 10 au-delà de 2400).

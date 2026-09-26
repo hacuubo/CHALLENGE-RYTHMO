@@ -494,7 +494,6 @@ main { padding-top: max(20px, env(safe-area-inset-top)); }
 #app > .note.centre, .raccourcis { color: rgba(255, 255, 255, .75); }
 /* le simulateur prend toute la largeur pour loger les deux écrans de la baie */
 main:has(.simu-baie) { max-width: 1680px; }
-main:has(.simu-baie) > :not(.simu-baie) { max-width: 860px; margin-left: auto; margin-right: auto; }
 
 /* ---------- Choix de la langue (accueil) ---------- */
 .choix-langue { display: flex; width: fit-content; margin: 0 0 -10px auto; padding: 3px; gap: 2px; border-radius: 999px;
@@ -614,13 +613,16 @@ main:has(.simu-baie) > :not(.simu-poste) { max-width: 860px; margin-left: auto; 
   .simu-console { padding: 6px 6px calc(6px + env(safe-area-inset-bottom)); }
 }
 /* console à droite (ordinateur large, téléphone en paysage) : Stimuler sur toute la largeur, pastilles sur plusieurs lignes */
-@media (min-width: 1280px) { .simu-puces#site { flex-wrap: wrap; overflow: visible; } }
-/* ordinateur large : console à droite de la baie */
-@media (min-width: 1280px) {
-  .simu-poste { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 12px; align-items: start; }
-  .simu-poste .simu-baie { margin: 0; }
-  .simu-console { position: sticky; top: 12px; bottom: auto; margin: 0; }
-  .simu-pans { max-height: calc(100vh - 260px); }
+/* ordinateur : console sous la baie (les deux écrans gardent toute la largeur), en deux colonnes pour rester basse :
+   à gauche Stimuler et les sites, à droite les onglets de réglage */
+@media (min-width: 1024px) and (min-height: 521px) {
+  .simu-console { position: static; display: grid; grid-template-columns: minmax(260px, 340px) minmax(0, 1fr); grid-template-rows: auto auto 1fr; column-gap: 16px; }
+  .simu-console > .simu-actions, .simu-console > #site, .simu-console > .simu-resume { grid-column: 1; }
+  .simu-console > .simu-onglets { grid-column: 2; grid-row: 1; }
+  .simu-console > .simu-pans { grid-column: 2; grid-row: 2 / span 2; max-height: 300px; }
+  .simu-console > #site { flex-wrap: wrap; overflow: visible; }
+  .simu-console > .simu-resume { white-space: normal; }
+  .simu-actions .simu-go { min-height: 56px; font-size: 1.15rem; }
 }
 /* téléphone en paysage : baie plein écran à gauche (un écran à la fois, glisser pour changer), console à droite */
 @media (orientation: landscape) and (max-height: 520px) {
@@ -683,3 +685,24 @@ main:has(.simu-baie) > :not(.simu-poste) { max-width: 860px; margin-left: auto; 
 .simu-tete .simu-contexte { margin-top: 10px; padding: 10px 12px; background: #0b1118; border-radius: 10px; color: #cfdbe5; font-size: .93rem; }
 .simu-tete .simu-contexte b { color: var(--simu-his); }
 #explication-scenario:empty { display: none; }
+/* modes du simulateur, notes du quiz */
+.simu-modes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+.simu-modes button { text-align: left; border: 1px solid #2c3e50; background: #16212c; color: #e8eef3; border-radius: 12px; padding: 10px 12px; font: inherit; }
+.simu-modes button b { display: block; font-size: 1rem; }
+.simu-modes button small { display: block; color: var(--simu-texte); font-size: .78rem; margin-top: 2px; }
+.simu-modes button[aria-selected="true"] { border-color: var(--simu-curseur); background: #13283a; box-shadow: inset 0 0 0 1px var(--simu-curseur); }
+#choix-scenario[hidden], #quiz-nouveau[hidden], .simu-quiz-stats[hidden] { display: none; }
+.simu-quiz-stats { margin: 8px 0 0; }
+.simu-notes { display: grid; grid-template-columns: repeat(2, minmax(0, 170px)); gap: 10px; margin-bottom: 10px; }
+.simu-note { border-radius: 12px; padding: 10px 12px; background: #16212c; border: 1px solid #2c3e50; }
+.simu-note span { display: block; font-size: .8rem; color: var(--simu-texte); }
+.simu-note b { font-size: 1.7rem; font-variant-numeric: tabular-nums; }
+.simu-note b small { font-size: .9rem; color: var(--simu-texte); margin-left: 2px; }
+.simu-note.ok { border-color: var(--simu-sc); } .simu-note.ok b { color: var(--simu-sc); }
+.simu-note.moyen { border-color: var(--simu-his); } .simu-note.moyen b { color: var(--simu-his); }
+.simu-note.ko { border-color: var(--simu-stim); } .simu-note.ko b { color: var(--simu-stim); }
+.simu-sombre .simu-check .partiel { color: var(--simu-his); }
+.simu-check li { margin: 4px 0; }
+.simu-ideal { padding-left: 1.3em; }
+.simu-ideal li { margin: 5px 0; }
+.simu-ideal li::marker { color: var(--simu-curseur); font-weight: 700; }
