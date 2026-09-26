@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url';
 import { SCENARIOS } from '../js/simu/scenarios.js';
 import { definirLangue } from '../js/i18n.js';
 
-export const SITE = 'https://hacuubo.github.io/CHALLENGE-RYTHMO/';
+export const SITE = 'https://shockandpace.com/';
 const racine = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dirQ = path.join(racine, 'data', 'questions');
 
