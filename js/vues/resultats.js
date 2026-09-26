@@ -32,7 +32,7 @@ export function vueResultats(app, { demarrer }) {
       ${badges.length ? `<div class="nouveaux-badges">${badges.map(b => `<div class="badge-gagne"><span>${b.ico}</span><b>${esc(b.nom)}</b><small>${esc(b.desc)}</small></div>`).join('')}</div>` : ''}
     </section>
     <section class="carte"><h2>${t('Par thème', 'By topic')}</h2><div class="barres">
-      ${Object.entries(parTheme).map(([t, v]) => `<div class="barre-ligne"><span>${THEMES[t].nom}</span><span class="piste"><i style="width:${pct(v.ok, v.n)}%"></i></span><span class="val">${v.ok}/${v.n}</span></div>`).join('')}
+      ${Object.entries(parTheme).map(([th, v]) => `<div class="barre-ligne"><span>${THEMES[th].nom}</span><span class="piste"><i style="width:${pct(v.ok, v.n)}%"></i></span><span class="val">${v.ok}/${v.n}</span></div>`).join('')}
     </div></section>
     <section class="carte"><h2>${s.examen ? t('Correction détaillée', 'Detailed answers') : `${t('À revoir', 'To review')} (${erreurs.length})`}</h2>
       ${(s.examen ? vues : erreurs).length ? `<ul class="liste-erreurs">${(s.examen ? vues : erreurs).map(({ q, r }) => `<li><details><summary>${r?.juste ? '✅' : '❌'} ${esc(q.question)}</summary>

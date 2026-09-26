@@ -3,7 +3,7 @@
 // d'un Holter implantable, et canal de marqueurs avec intervalles, à 25 mm/s.
 // Les tracés sont schématiques : ils illustrent la logique de détection, pas un modèle précis de boîtier.
 
-import { t } from './i18n.js';
+import { t as tr } from './i18n.js'; // « t » désigne le temps dans ce fichier
 
 const MS_PAR_MM = 40;
 
@@ -21,15 +21,15 @@ function rng(seedStr) {
 
 // libellés des canaux relus à chaque dessin (suivent la langue courante)
 const CANAUX = {
-  A: { get nom() { return t('EGM A (bipolaire)', 'A EGM (bipolar)'); }, gain: 6 },
-  V: { get nom() { return t('EGM VD (bipolaire)', 'RV EGM (bipolar)'); }, gain: 7 },
-  FF: { get nom() { return t('EGM de choc (boîtier–coil)', 'Shock EGM (can–coil)'); }, gain: 8 },
-  FFpm: { get nom() { return t('EGM champ lointain (boîtier)', 'Far-field EGM (can)'); }, gain: 8 },
-  SC: { get nom() { return t('ECG sous-cutané (Holter implantable)', 'Subcutaneous ECG (loop recorder)'); }, gain: 9 },
+  A: { get nom() { return tr('EGM A (bipolaire)', 'A EGM (bipolar)'); }, gain: 6 },
+  V: { get nom() { return tr('EGM VD (bipolaire)', 'RV EGM (bipolar)'); }, gain: 7 },
+  FF: { get nom() { return tr('EGM de choc (boîtier–coil)', 'Shock EGM (can–coil)'); }, gain: 8 },
+  FFpm: { get nom() { return tr('EGM champ lointain (boîtier)', 'Far-field EGM (can)'); }, gain: 8 },
+  SC: { get nom() { return tr('ECG sous-cutané (Holter implantable)', 'Subcutaneous ECG (loop recorder)'); }, gain: 9 },
 };
 // annotations en toutes lettres du canal de marqueurs dont l'abréviation diffère en anglais
 const ANNOTATIONS_EN = { FA: 'AF', SV: 'VSP' };
-const annotation = lab => t(lab, ANNOTATIONS_EN[lab] || lab);
+const annotation = lab => tr(lab, ANNOTATIONS_EN[lab] || lab);
 
 class Scene {
   constructor(rand, duree) {

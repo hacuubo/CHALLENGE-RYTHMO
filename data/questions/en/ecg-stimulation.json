@@ -82,7 +82,7 @@
   ],
   "commentaires": [
    "Incorrect: in DDI, the response to sensing is inhibition only; a sensed P wave never triggers ventricular pacing.",
-   "Correct: it is DDD (and VDD) that tracks the atrium; DDI has no atrial tracking, which is why it is used as a mode-switch mode."
+   "Correct: it is DDD (and VDD) that tracks the atrium; DDI has no atrial tracking, which is why it is used as the mode-switch fallback mode."
   ],
   "explication": "DDI mode paces and senses in both chambers, but its response to sensing is inhibition only: a sensed P wave inhibits atrial pacing but does not trigger ventricular pacing. There is therefore no atrial tracking; the ventricle is paced at the lower (or sensor) rate if no QRS is sensed. This is what makes it the typical fallback mode for mode switching during atrial arrhythmias. In a patient with complete AV block in sinus rhythm, DDI results in AV dissociation with loss of AV synchrony.",
   "aRetenir": "DDI = no atrial tracking: a sensed P wave never results in synchronised ventricular pacing."
@@ -90,7 +90,7 @@
  "ecg-stim-008": {
   "question": "A patient with complete AV block and normal sinus node function (sinus rate 85 bpm) whose dual-chamber pacemaker was inadvertently left in DDI at 60 bpm. What would you expect on the ECG?",
   "options": [
-   "Sinus P waves at 85 bpm dissociated from paced QRS at 60 bpm",
+   "Sinus P waves at 85 bpm dissociated from paced QRS complexes at 60 bpm",
    "Sinus P waves each followed by a V spike after the AV delay, at 85 bpm",
    "Atrioventricular sequential pacing at 60 bpm",
    "Pacemaker-mediated tachycardia at the upper tracking rate"
@@ -115,10 +115,10 @@
   "commentaires": [
    "Incorrect: every atrial spike is followed by a P wave: atrial capture is present.",
    "Incorrect: in AAI there is no ventricular channel, so ventricular oversensing is impossible.",
-   "Incorrect: rate response speeds up pacing but does not block P waves; at most it can unmask nodal Wenckebach block.",
+   "Incorrect: rate response speeds up pacing but does not block P waves; at most it can unmask AV nodal Wenckebach block.",
    "Correct: the paced P wave proves atrial capture; the absence of a subsequent QRS reflects AV block, which AAI cannot compensate for."
   ],
-  "explication": "The atrial spikes are followed by a P wave: atrial capture is present. The absence of a QRS after some P waves reflects AV block, which AAI mode cannot compensate for since it does not pace the ventricle. This is why the 2021 ESC guidelines favour dual-chamber pacing (with algorithms to minimise ventricular pacing) over AAI in sick sinus syndrome, given the risk of AV block developing during follow-up. Ventricular oversensing makes no sense in AAI (no V channel). Rate response does not cause blocked P waves, although a high paced atrial rate can unmask nodal Wenckebach block.",
+  "explication": "The atrial spikes are followed by a P wave: atrial capture is present. The absence of a QRS after some P waves reflects AV block, which AAI mode cannot compensate for since it does not pace the ventricle. This is why the 2021 ESC guidelines favour dual-chamber pacing (with algorithms to minimise ventricular pacing) over AAI in sick sinus syndrome, given the risk of AV block developing during follow-up. Ventricular oversensing makes no sense in AAI (no V channel). Rate response does not cause blocked P waves, although a high paced atrial rate can unmask AV nodal Wenckebach block.",
   "aRetenir": "In AAI, a captured but non-conducted P wave is AV block, not pacemaker malfunction."
  },
  "ecg-stim-010": {
@@ -229,11 +229,11 @@
   ],
   "commentaires": [
    "Incorrect: this is the definition of non-selective His bundle capture (septal myocardium captured at the same time).",
-   "Incorrect: an RBBB-like pattern in V1 rather suggests left bundle branch pacing.",
+   "Incorrect: an RBBB-like pattern in V1 suggests left bundle branch pacing instead.",
    "Incorrect: a wide QRS positive in V1 and negative in I suggests primary left-sided activation, not His bundle capture.",
-   "Correct: only the His bundle is captured; the impulse travels through the conduction system, giving a native QRS preceded by an interval close to the HV."
+   "Correct: only the His bundle is captured; the impulse travels through the conduction system, giving a native QRS preceded by an interval close to the HV interval."
   ],
-  "explication": "In selective His bundle capture, only the His bundle is captured: the impulse travels through the conduction system and the QRS is identical to the native QRS, preceded by an isoelectric interval between the spike and QRS onset (close to the HV interval). In non-selective capture, the adjacent septal myocardium is captured at the same time: there is no longer an isoelectric interval and a pseudo-delta wave appears, with a QRS whose axis and duration remain close to the native one. An RBBB-like pattern in V1 rather suggests left bundle branch pacing. These definitions were standardised by the 2018 multicentre working group.",
+  "explication": "In selective His bundle capture, only the His bundle is captured: the impulse travels through the conduction system and the QRS is identical to the native QRS, preceded by an isoelectric interval between the spike and QRS onset (close to the HV interval). In non-selective capture, the adjacent septal myocardium is captured at the same time: there is no longer an isoelectric interval and a pseudo-delta wave appears, with a QRS whose axis and duration remain close to the native one. An RBBB-like pattern in V1 suggests left bundle branch pacing instead. These definitions were standardised by the 2018 multicentre working group.",
   "aRetenir": "Selective His = isoelectric spike–QRS interval + QRS identical to native."
  },
  "ecg-stim-017": {
@@ -259,11 +259,11 @@
   ],
   "commentaires": [
    "Correct: in LBBAP, early left-sided activation delays the RV relatively: a pseudo-RBBB pattern is expected, though it does not prove bundle branch capture on its own.",
-   "Incorrect: an LV lead via a shunt also gives an RBBB-like pattern, but the context of septal screw-in and imaging settle the question.",
+   "Incorrect: an LV lead via a shunt also gives an RBBB-like pattern, but the septal implantation context and imaging settle the question.",
    "Incorrect: a 120 ms paced QRS preceded by the spike indicates capture; an escape beat would not follow the spike.",
    "Incorrect: RV apical pacing produces an LBBB-like pattern (QS in V1), not a qR pattern."
   ],
-  "explication": "With left bundle branch pacing, the LV is activated rapidly via the left conduction system, whereas the RV is activated later, across the septum: a pseudo-RBBB pattern is classically seen in V1 (qR, rSR' or Qr). This pattern is expected and almost always present, but it is not sufficient to confirm left bundle branch capture (deep LV septal pacing can produce it). An endocardial left-sided lead via a shunt also produces an RBBB-like pattern, but the context, the depth of screw-in into the septum and imaging settle the question. RV apical pacing, by contrast, produces an LBBB-like pattern.",
+  "explication": "With left bundle branch pacing, the LV is activated rapidly via the left conduction system, whereas the RV is activated later, across the septum: a pseudo-RBBB pattern is classically seen in V1 (qR, rSR' or Qr). This pattern is expected and almost always present, but it is not sufficient to confirm left bundle branch capture (deep LV septal pacing can produce it). An endocardial left-sided lead via a shunt also produces an RBBB-like pattern, but the context, the depth of lead penetration into the septum and imaging settle the question. RV apical pacing, by contrast, produces an LBBB-like pattern.",
   "aRetenir": "In LBBAP, a pseudo-RBBB pattern (qR/rSR') in V1 is expected, but does not on its own prove left bundle branch capture."
  },
  "ecg-stim-019": {
@@ -295,11 +295,11 @@
   ],
   "commentaires": [
    "Incorrect: such a short interval is seen with septal myocardial pacing; it does not discriminate.",
-   "Incorrect: a similar but insufficient value: it does not guarantee the 100% specificity reported in the study.",
+   "Incorrect: close, but too low to guarantee the 100% specificity reported in the study.",
    "Correct: a V6 R-wave peak – V1 R'-wave peak interval > 44 ms was 100% specific for left bundle branch capture.",
    "Incorrect: the published cut-off is lower; requiring > 60 ms would miss many cases of left bundle branch capture."
   ],
-  "explication": "In this physiology-based study, the authors compared left bundle branch capture (selective or non-selective) with left septal myocardial pacing. When the left bundle branch is captured, the LV lateral wall (V6) is activated early, whereas the RV (V1) is activated late across the septum: the interval between the two peaks lengthens. A V6–V1 interval > 44 ms was 100% specific for left bundle branch capture; lower values overlap with septal pacing, and a higher cut-off would lose sensitivity. This criterion complements the V6 R-wave peak time and is included in the 2023 EHRA consensus on conduction system pacing.",
+  "explication": "In this physiology-based study, the authors compared left bundle branch capture (selective or non-selective) with left septal myocardial pacing. When the left bundle branch is captured, the LV lateral wall (V6) is activated early, whereas the RV (V1) is activated late across the septum: the interval between the two peaks lengthens. A V6–V1 interval > 44 ms was 100% specific for left bundle branch capture; lower values overlap with septal pacing, and a higher cut-off would lose sensitivity. This criterion complements the V6 R-wave peak time and is included in the 2023 EHRA clinical consensus statement on conduction system pacing implantation.",
   "aRetenir": "V6 R-wave peak – V1 R'-wave peak interval > 44 ms = left bundle branch capture."
  },
  "ecg-stim-021": {
@@ -333,7 +333,7 @@
    "Incorrect: changing the mode does not change the energy delivered; the ventricular spikes would remain subthreshold.",
    "Incorrect: sensitivity concerns sensing; it has no effect on loss of capture."
   ],
-  "explication": "The problem is loss of capture: capture must be restored by increasing the safety margin (maximum amplitude and pulse width), and the cause then sought (threshold, impedance, chest X-ray for lead displacement, electrolytes). If reprogramming is not sufficient, chronotropic support (isoprenaline) or temporary pacing (transcutaneous or transvenous) is required pending revision. A magnet triggers asynchronous pacing, which helps with oversensing but is ineffective against loss of capture. Changing the sensitivity or the mode does nothing to the energy delivered.",
+  "explication": "The problem is loss of capture: capture must be restored by increasing the safety margin (maximum amplitude and pulse width), and the cause then sought (threshold, impedance, chest X-ray for lead displacement, electrolytes). If reprogramming is not sufficient, chronotropic support (isoprenaline) or temporary pacing (transcutaneous or transvenous) is required pending system revision. A magnet triggers asynchronous pacing, which helps with oversensing but is ineffective against loss of capture. Changing the sensitivity or the mode does nothing to the energy delivered.",
   "aRetenir": "Loss of capture in a dependent patient: increase amplitude and pulse width straight away, then look for the cause."
  },
  "ecg-stim-023": {
@@ -415,12 +415,12 @@
    "Lengthen the ventricular refractory period"
   ],
   "commentaires": [
-   "Correct: a 2.5 mV QRS is not seen with a 4 mV threshold; at 1 mV, a safety margin of 2 to 3 is restored.",
+   "Correct: a 2.5 mV QRS is not seen with a 4 mV threshold; at 1 mV, a two- to threefold safety margin is restored.",
    "Incorrect: this is the vocabulary trap: increasing the value in mV makes the channel less sensitive and worsens undersensing.",
    "Incorrect: pacing amplitude relates to capture; the problem here is one of sensing.",
    "Incorrect: lengthening the refractory period would make it more likely that early signals are ignored."
   ],
-  "explication": "The tracing shows spikes delivered despite intrinsic QRS complexes: this is undersensing. Sensitivity is the amplitude threshold above which a signal is recognised. A 2.5 mV QRS is not sensed if the threshold is 4 mV: the programmed value must be lowered, ideally to one half or one third of the signal amplitude (safety margin of 2 to 3), i.e. about 1 mV here. The classic pitfall is the confusing terminology: lowering the value in mV makes the device more sensitive. Increasing the value would worsen undersensing. Pacing amplitude relates to capture, and lengthening the refractory period would make it more likely that early signals are not sensed.",
+  "explication": "The tracing shows spikes delivered despite intrinsic QRS complexes: this is undersensing. Sensitivity is the amplitude threshold above which a signal is recognised. A 2.5 mV QRS is not sensed if the threshold is 4 mV: the programmed value must be lowered, ideally to one half or one third of the signal amplitude (a two- to threefold safety margin), i.e. about 1 mV here. The classic pitfall is the confusing terminology: lowering the value in mV makes the device more sensitive. Increasing the value would worsen undersensing. Pacing amplitude relates to capture, and lengthening the refractory period would make it more likely that early signals are not sensed.",
   "aRetenir": "Undersensing: lower the sensitivity value (in mV) to make the device more sensitive."
  },
  "ecg-stim-028": {
@@ -450,7 +450,7 @@
   ],
   "commentaires": [
    "Incorrect: loss of capture leaves visible spikes not followed by a QRS; here the pause has no spike.",
-   "Incorrect: crosstalk only occurs in dual-chamber systems; this patient has a VVI.",
+   "Incorrect: crosstalk only occurs in dual-chamber systems; this patient has a VVI pacemaker.",
    "Correct: a pause without a spike with baseline noise during arm effort, in a unipolar configuration: inhibition by myopotentials.",
    "Incorrect: battery depletion slows the rate gradually and permanently, with no pauses related to arm effort."
   ],
@@ -471,7 +471,7 @@
    "Incorrect: retrograde VA conduction is the return limb of PMT, not crosstalk.",
    "Incorrect: an atrial spike does not capture the ventricle; crosstalk is a sensing problem, not a capture problem."
   ],
-  "explication": "Crosstalk classically refers to sensing by the ventricular channel of a signal of atrial origin, mainly the atrial spike, particularly when the atrial output is high and the ventricular sensitivity is high. The ventricular channel then believes it has seen a QRS and inhibits ventricular pacing: in a patient with complete AV block, this can cause asystole. There are two safeguards: the post-atrial ventricular blanking period and ventricular safety pacing. Sensing of the far-field R wave by the atrial channel is another form of oversensing, which can notably cause inappropriate mode switching.",
+  "explication": "Crosstalk classically refers to sensing by the ventricular channel of a signal of atrial origin, mainly the atrial spike, particularly when the atrial output is high and the ventricular sensitivity is high. The ventricular channel then interprets it as a QRS and inhibits ventricular pacing: in a patient with complete AV block, this can cause asystole. There are two safeguards: the post-atrial ventricular blanking period and ventricular safety pacing. Sensing of the far-field R wave by the atrial channel is another form of oversensing, which can notably cause inappropriate mode switching.",
   "aRetenir": "Crosstalk = the V channel senses the A spike and inhibits ventricular pacing."
  },
  "ecg-stim-031": {
@@ -505,9 +505,9 @@
   ],
   "commentaires": [
    "Incorrect: the safety pacing spike is delivered at a short AV delay, within the PVC's QRS, in the refractory period: it cannot fall on the T wave.",
-   "Correct: the deliberately short delay places the spike within the PVC's QRS; it protects against crosstalk without creating R on T."
+   "Correct: the deliberately short delay places the spike within the PVC's QRS; it protects against crosstalk without creating an R-on-T risk."
   ],
-  "explication": "Safety pacing is delivered at a short AV delay (about 100–120 ms) after the atrial spike, i.e. within the QRS of the sensed PVC, and therefore in the absolute refractory period of the myocardium. The spike can neither capture nor fall on the T wave. That is precisely why this delay is deliberately short: it protects against asystole in the event of crosstalk without creating a risk of R on T. This phenomenon is normal and must not be mistaken for undersensing.",
+  "explication": "Safety pacing is delivered at a short AV delay (about 100–120 ms) after the atrial spike, i.e. within the QRS of the sensed PVC, and therefore in the absolute refractory period of the myocardium. The spike can neither capture nor fall on the T wave. That is precisely why this delay is deliberately short: it protects against asystole in the event of crosstalk without creating a risk of R-on-T. This phenomenon is normal and must not be mistaken for undersensing.",
   "aRetenir": "Safety pacing falls within the QRS (refractory period): it is harmless."
  },
  "ecg-stim-034": {
@@ -537,7 +537,7 @@
    "Incorrect: it is the other way round: after an intrinsic beat, the device waits for the hysteresis interval, which is longer than the lower rate interval.",
    "Correct: the intrinsic QRS–spike interval is longer than the spike–spike interval; this is the definition of hysteresis."
   ],
-  "explication": "The statement reverses the definition of rate hysteresis. After an intrinsic beat, the pacemaker waits for the longer hysteresis interval; once it starts pacing, it continues at the faster lower rate. On the ECG, the first \"intrinsic beat – spike\" interval is therefore longer than the subsequent \"spike – spike\" intervals. This function must not be confused with oversensing, which also lengthens an interval, but inappropriately and without any fixed relationship to the programmed settings.",
+  "explication": "The statement reverses the definition of rate hysteresis. After an intrinsic beat, the pacemaker waits for the longer hysteresis interval; once it starts pacing, it continues at the lower rate, which is faster. On the ECG, the first \"intrinsic beat – spike\" interval is therefore longer than the subsequent \"spike – spike\" intervals. This function must not be confused with oversensing, which also lengthens an interval, but inappropriately and without any fixed relationship to the programmed settings.",
   "aRetenir": "Hysteresis: intrinsic QRS–spike interval > spike–spike interval."
  },
  "ecg-stim-036": {
@@ -554,7 +554,7 @@
    "Incorrect: pacemaker Wenckebach occurs when the sinus rate exceeds the MTR, not at resting rates.",
    "Incorrect: during paced periods, every V spike is followed by a QRS; the narrow QRS complexes are conducted, not escape beats."
   ],
-  "explication": "Algorithms that minimise ventricular pacing (AV hysteresis, intrinsic conduction search, or AAI/DDD mode-switching modes depending on the manufacturer) periodically extend the AV delay to allow intrinsic conduction to emerge. If an intrinsic QRS occurs within this extended delay, the pacemaker is inhibited; otherwise, it reverts to the programmed AV delay. These AV delay variations are therefore expected. Pacemaker Wenckebach occurs at the maximum tracking rate, not at resting rates. The rationale is to reduce unnecessary RV pacing, which is harmful in the long term, but a very long PR interval may also be poorly tolerated.",
+  "explication": "Algorithms that minimise ventricular pacing (AV hysteresis, intrinsic conduction search, or AAI↔DDD switching modes, depending on the manufacturer) periodically extend the AV delay to allow intrinsic conduction to emerge. If an intrinsic QRS occurs within this extended delay, the pacemaker is inhibited; otherwise, it reverts to the programmed AV delay. These AV delay variations are therefore expected. Pacemaker Wenckebach occurs at the maximum tracking rate, not at resting rates. The rationale is to reduce unnecessary RV pacing, which is harmful in the long term, but a very long PR interval may also be poorly tolerated.",
   "aRetenir": "Periodic AV delay variations with a ventricular pacing minimisation algorithm: normal function."
  },
  "ecg-stim-037": {
@@ -768,7 +768,7 @@
   "options": [
    "Rate accelerating gradually with exercise",
    "Sinus-like P waves before each spike",
-   "Fixed VP–retrograde P, abrupt stop with magnet",
+   "Fixed VP–retrograde P, stops with a magnet",
    "Tachycardia persisting unchanged with a magnet"
   ],
   "commentaires": [
@@ -809,9 +809,9 @@
    "Correct: during the confirmation phase, AF is tracked up to the MTR; the device then switches to DDI/VDI at the lower rate.",
    "Incorrect: the AF is genuine and ventricular pacing remains effective; nothing suggests loss of capture.",
    "Incorrect: PMT would be regular, driven by retrograde P waves, not irregular at the onset of AF.",
-   "Incorrect: pacemaker 2:1 block concerns a regular sinus tachycardia exceeding the TARP."
+   "Incorrect: pacemaker 2:1 block occurs with a regular sinus tachycardia whose P–P interval is shorter than the TARP."
   ],
-  "explication": "Mode switch algorithms need a few cycles or seconds to confirm the atrial arrhythmia. During this phase, the pacemaker continues to track atrial events sensed outside the PVARP, resulting in rapid, irregular ventricular pacing capped at the MTR. Once the arrhythmia is confirmed, it switches to a non-tracking mode (DDI/VDI) and paces the ventricle at the lower rate, the mode switch base rate or the sensor rate. This behaviour is normal. PMT would be regular, and pacemaker 2:1 block concerns a sinus tachycardia.",
+  "explication": "Mode switch algorithms need a few cycles or seconds to confirm the atrial arrhythmia. During this phase, the pacemaker continues to track atrial events sensed outside the PVARP, resulting in rapid, irregular ventricular pacing capped at the MTR. Once the arrhythmia is confirmed, it switches to a non-tracking mode (DDI/VDI) and paces the ventricle at the lower rate, the fallback rate or the sensor rate. This behaviour is normal. PMT would be regular, and pacemaker 2:1 block occurs with sinus tachycardia.",
   "aRetenir": "Rapid, irregular V pacing at the onset of AF, then pacing at the lower rate = normal mode switching."
  },
  "ecg-stim-054": {
@@ -853,7 +853,7 @@
    "Therapies suspended, pacing unchanged"
   ],
   "commentaires": [
-   "Incorrect: this is the response of a pacemaker; in an ICD, pacing does not switch to asynchronous.",
+   "Incorrect: this is the response of a pacemaker; in an ICD, pacing does not switch to asynchronous mode.",
    "Incorrect: a magnet never triggers a shock; on the contrary, it inhibits therapies.",
    "Incorrect: the effect is temporary: therapies resume as soon as the magnet is removed.",
    "Correct: the magnet suspends detection and therapies (ATP, shocks) while it is in place, without affecting bradycardia pacing."
@@ -907,7 +907,7 @@
   ],
   "commentaires": [
    "Incorrect: 70% leaves nearly a third of beats unresynchronised; the clinical benefit is markedly reduced.",
-   "Incorrect: even 85% remains insufficient; the benefit on mortality and hospitalisation increases up to nearly 100%.",
+   "Incorrect: even 85% remains insufficient; the benefit in terms of mortality and hospitalisation increases up to nearly 100%.",
    "Incorrect: a similar value but still too low: the classic threshold is at least 98%.",
    "Correct: biventricular pacing should be as close as possible to 100%, with a classic threshold of at least 98%."
   ],
@@ -947,11 +947,11 @@
    "Incorrect: a zero VV delay means simultaneous pacing of both ventricles, which is still biventricular.",
    "Incorrect: on the contrary, this is the measure that promotes effective biventricular pacing."
   ],
-  "explication": "Biventricular pacing is only delivered if the ventricle has not depolarised spontaneously before the end of the AV delay. Rapid AF and frequent PVCs activate the ventricle spontaneously. An intrinsic PR interval shorter than the AV delay leads to ventricular sensing and inhibits pacing, or causes fusion. Likewise, if the sinus rate exceeds the MTR, the pacemaker enters pacemaker Wenckebach and allows intrinsic conduction through. Programming an AV delay shorter than the intrinsic PR interval is, on the contrary, the measure that promotes biventricular pacing, and a zero VV delay is still simultaneous biventricular pacing. Guidelines stress controlling AF (or even AV node ablation) to guarantee resynchronisation.",
+  "explication": "Biventricular pacing is only delivered if the ventricle has not depolarised spontaneously before the end of the AV delay. Rapid AF and frequent PVCs activate the ventricle spontaneously. An intrinsic PR interval shorter than the AV delay leads to ventricular sensing and inhibits pacing, or causes fusion. Likewise, if the sinus rate exceeds the MTR, the device exhibits pacemaker Wenckebach behaviour and allows intrinsic conduction through. Programming an AV delay shorter than the intrinsic PR interval is, on the contrary, the measure that promotes biventricular pacing, and a zero VV delay is still simultaneous biventricular pacing. Guidelines stress controlling AF (or even AV node ablation) to guarantee resynchronisation.",
   "aRetenir": "Loss of CRT: rapid AF, PVCs, short PR interval, sinus rate > MTR, loss of LV capture."
  },
  "ecg-stim-064": {
-  "question": "A CRT non-responder: the device reports 99% biventricular pacing. Intrinsic PR 160 ms, programmed sensed AV delay 150 ms. Here is an extract from his Holter recording. What is the interpretation?",
+  "question": "A CRT non-responder: the device reports 99% biventricular pacing. Intrinsic PR 160 ms, programmed sensed AV delay 150 ms. Here is an extract from the Holter recording. What is the interpretation?",
   "options": [
    "Reliable figure: non-response is due to the cardiomyopathy",
    "Fusion and pseudofusion: shorten the AV delay",
@@ -964,7 +964,7 @@
    "Incorrect: LV-only pacing would give paced QRS complexes of constant morphology, not unchanged intrinsic QRS complexes.",
    "Incorrect: crosstalk inhibits ventricular pacing; here the V spikes are delivered."
   ],
-  "explication": "The Holter shows spikes falling within intrinsic QRS complexes of unchanged morphology (pseudofusion) and QRS complexes of intermediate morphology (fusion). The device counters record every spike delivered as a biventricular paced beat, even if it falls within a QRS already under way or only partly contributes to activation. Here, the AV delay of 150 ms is too close to the intrinsic PR of 160 ms: intrinsic conduction activates the ventricle before or at the time of the spike. Effective resynchronisation is therefore much lower than the 99% reported. Correction consists of shortening the AV delay (while taking care of LV filling) and checking the result with a 12-lead ECG and Holter monitoring.",
+  "explication": "The Holter shows spikes falling within intrinsic QRS complexes of unchanged morphology (pseudofusion) and QRS complexes of intermediate morphology (fusion). The device counters record every spike delivered as a biventricular paced beat, even if it falls within a QRS already under way or only partly contributes to activation. Here, the AV delay of 150 ms is too close to the intrinsic PR of 160 ms: intrinsic conduction activates the ventricle before or at the time of the spike. Effective resynchronisation is therefore much lower than the 99% reported. Correction consists of shortening the AV delay (while preserving LV filling) and checking the result with a 12-lead ECG and Holter monitoring.",
   "aRetenir": "With CRT, pseudofusion is counted as BiV pacing: check effective resynchronisation on ECG/Holter."
  },
  "ecg-stim-065": {
@@ -982,7 +982,7 @@
  },
  "ecg-stim-066": {
   "question": "How do you check LV capture on a 12-lead ECG in a CRT patient, and which appearance suggests it has been lost?",
-  "reponseAttendue": "Compare with the reference ECG and with the RV-only / LV-only morphologies. BiV pacing (RV apex + lateral LV) usually produces a dominant R wave in V1, a negative QRS (Q/QS) in lead I and a right axis. Loss of LV capture shows as reversion to the RV apical pacing pattern: QS in V1, R in lead I, marked left axis deviation. Confirm with an LV threshold test.",
+  "reponseAttendue": "Compare with the reference ECG and with the RV-only / LV-only morphologies. BiV pacing (RV apex + lateral LV) usually produces a dominant R wave in V1, a negative QRS (Q/QS) in lead I and right axis deviation. Loss of LV capture shows as reversion to the RV apical pacing pattern: QS in V1, R in lead I, marked left axis deviation. Confirm with an LV threshold test.",
   "explication": "Pacing the LV lateral wall activates the heart from left to right and from base to apex, producing a dominant R wave in V1 and a negative lead I. RV apical pacing alone, in contrast, produces an LBBB-like pattern with an R wave in lead I and marked left axis deviation. In some patients, V1 remains negative during BiV pacing (V1 placed too high, anterior or septal LV lead, LV latency), hence the importance of having a reference ECG recorded at implantation. A threshold test with LV-only pacing, observing the change in morphology, remains the most reliable method.",
   "aRetenir": "Loss of LV capture with CRT: reversion to the RV apical pattern (QS in V1, R in lead I) compared with the reference ECG."
  },
@@ -1282,7 +1282,7 @@
   ],
   "commentaires": [
    "Correct: fracture noise is chaotic and very high-frequency, with intervals no arrhythmia could produce.",
-   "Incorrect: a slow decline in R wave suggests fibrosis or progression of the cardiomyopathy rather than conductor fracture.",
+   "Incorrect: a slow decline in R-wave amplitude suggests fibrosis or progression of the cardiomyopathy rather than conductor fracture.",
    "Correct: a fracture interrupts the circuit: abruptly high or unstable impedance.",
    "Incorrect: a second marker at a fixed distance from the QRS suggests T-wave oversensing.",
    "Correct: noise reproduced by arm or pocket manoeuvres is highly suggestive of mechanical lead damage."
@@ -1351,7 +1351,7 @@
  },
  "ecg-stim-088": {
   "question": "A patient in DDD: sensed AV delay 150 ms, MTR 130 bpm, measured retrograde VA conduction time 350 ms, programmed PVARP 250 ms. A PVC triggers PMT. What will its rate be, and what is the practical consequence?",
-  "reponseAttendue": "PMT cycle length = AV delay (150 ms) + VA time (350 ms) = 500 ms, i.e. 120 bpm, below the MTR (≈ 462 ms). The PMT therefore does not run at the MTR: an algorithm that only looks for it at the MTR may miss it. The PVARP should be lengthened beyond 350 ms (or post-PVC PVARP extension and a PMT algorithm with an appropriate detection rate enabled).",
+  "reponseAttendue": "PMT cycle length = AV delay (150 ms) + VA time (350 ms) = 500 ms, i.e. 120 bpm, slower than the MTR (MTR interval ≈ 462 ms). The PMT therefore does not run at the MTR: an algorithm that only looks for it at the MTR may miss it. The PVARP should be lengthened beyond 350 ms (or enable post-PVC PVARP extension and a PMT algorithm with a suitable detection rate).",
   "explication": "In PMT, each cycle consists of the AV delay after sensing of the retrograde P wave plus the VA conduction time of the paced QRS. If this total is longer than the MTR interval, the tachycardia runs at a rate below the MTR, which can lead to it being mistaken for a tracked sinus tachycardia. Here, the 250 ms PVARP is shorter than the 350 ms VA time: the retrograde P wave falls outside the PVARP and is tracked. Lengthening the PVARP beyond the VA time eliminates the risk but lengthens the TARP (150 + 380 = 530 ms, 2:1 block at about 113 bpm), which may limit an active patient: post-PVC PVARP extension and PMT algorithms should then be preferred.",
   "aRetenir": "PMT rate = 60,000 / (AV delay + VA time), capped by the MTR."
  }

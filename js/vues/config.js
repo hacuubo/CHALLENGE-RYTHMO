@@ -5,9 +5,9 @@ import { t, locale } from '../i18n.js';
 
 export function vueConfig(app, { demarrer }) {
   const cfg = stock.config();
-  const compteTheme = t => base.questions.filter(q => q.theme === t).length;
-  const sousParTheme = Object.keys(THEMES).filter(t => cfg.themes.includes(t)).map(t => ({
-    t, liste: [...new Set(base.questions.filter(q => q.theme === t).map(q => q.sousTheme))].sort((a, b) => libSousTheme(a).localeCompare(libSousTheme(b), locale())),
+  const compteTheme = th => base.questions.filter(q => q.theme === th).length;
+  const sousParTheme = Object.keys(THEMES).filter(th => cfg.themes.includes(th)).map(th => ({
+    th, liste: [...new Set(base.questions.filter(q => q.theme === th).map(q => q.sousTheme))].sort((a, b) => libSousTheme(a).localeCompare(libSousTheme(b), locale())),
   }));
   const tousSous = sousParTheme.flatMap(x => x.liste);
   cfg.sousThemes = cfg.sousThemes.filter(s => tousSous.includes(s));
@@ -26,7 +26,7 @@ export function vueConfig(app, { demarrer }) {
       </div></fieldset>
 
       <fieldset><legend>${t('Thèmes', 'Topics')}</legend><div class="puces">
-        ${Object.entries(THEMES).map(([k, t]) => `<label class="puce"><input type="checkbox" name="theme" value="${k}" ${cfg.themes.includes(k) ? 'checked' : ''}><span>${t.ico} ${t.nom} <span class="n">${compteTheme(k)}</span></span></label>`).join('')}
+        ${Object.entries(THEMES).map(([k, th]) => `<label class="puce"><input type="checkbox" name="theme" value="${k}" ${cfg.themes.includes(k) ? 'checked' : ''}><span>${th.ico} ${th.nom} <span class="n">${compteTheme(k)}</span></span></label>`).join('')}
         <label class="puce"><input type="checkbox" name="ecgSeul" ${cfg.ecgSeul ? 'checked' : ''}><span>🩺 ${t('Tracés uniquement', 'Tracings only')}</span></label>
       </div></fieldset>
 
@@ -47,7 +47,7 @@ export function vueConfig(app, { demarrer }) {
           ${['Générique', ...MARQUES].map(m => `<label class="puce"><input type="checkbox" name="marque" value="${m}" ${cfg.marques.includes(m) ? 'checked' : ''}><span>${esc(libMarque(m))}</span></label>`).join('')}
         </div></fieldset>` : ''}
         <fieldset><legend>${t('Types de questions', 'Question types')}</legend><div class="puces">
-          ${Object.entries(TYPES).map(([k, t]) => `<label class="puce"><input type="checkbox" name="type" value="${k}" ${cfg.types.includes(k) ? 'checked' : ''}><span>${t}</span></label>`).join('')}
+          ${Object.entries(TYPES).map(([k, ty]) => `<label class="puce"><input type="checkbox" name="type" value="${k}" ${cfg.types.includes(k) ? 'checked' : ''}><span>${ty}</span></label>`).join('')}
         </div></fieldset>
         <fieldset><legend>${t('Ordre', 'Order')}</legend><div class="plage">
           <select name="priorite" aria-label="${t('Ordre des questions', 'Question order')}">
@@ -56,8 +56,8 @@ export function vueConfig(app, { demarrer }) {
             <option value="faibles" ${cfg.priorite === 'faibles' ? 'selected' : ''}>${t('Mes points faibles d\'abord', 'My weak spots first')}</option>
           </select></div></fieldset>
         <fieldset><legend>${t('Sous-thèmes', 'Subtopics')} <span class="note">${t('(aucune sélection = tous)', '(none selected = all)')}</span></legend>
-          ${sousParTheme.map(({ t, liste }) => `<div class="groupe-sous"><div class="note"><b>${THEMES[t].nom}</b></div><div class="puces">
-            ${liste.map(s => `<label class="puce"><input type="checkbox" name="sous" value="${esc(s)}" ${cfg.sousThemes.includes(s) ? 'checked' : ''}><span>${esc(libSousTheme(s))} <span class="n">${base.questions.filter(q => q.sousTheme === s && q.theme === t).length}</span></span></label>`).join('')}
+          ${sousParTheme.map(({ th, liste }) => `<div class="groupe-sous"><div class="note"><b>${THEMES[th].nom}</b></div><div class="puces">
+            ${liste.map(s => `<label class="puce"><input type="checkbox" name="sous" value="${esc(s)}" ${cfg.sousThemes.includes(s) ? 'checked' : ''}><span>${esc(libSousTheme(s))} <span class="n">${base.questions.filter(q => q.sousTheme === s && q.theme === th).length}</span></span></label>`).join('')}
           </div></div>`).join('')}
         </fieldset>
       </details>

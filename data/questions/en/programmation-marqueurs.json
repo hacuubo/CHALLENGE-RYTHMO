@@ -8,7 +8,7 @@
    "Noise detected, charge interrupted, then detection confirmed"
   ],
   "commentaires": [
-   "Correct: FS marks each cycle in the VF zone, FD VF detection, CE the end of charge and CD the cardioversion or defibrillation delivered.",
+   "Correct: FS marks each cycle in the VF zone, FD VF detection, CE the end of charge and CD the delivered cardioversion or defibrillation shock.",
    "Incorrect: the VT zone is marked TS/TD and ATP TP; none of these markers appears here.",
    "Incorrect: the order is reversed; CE (end of charge) necessarily precedes CD (shock delivered).",
    "Incorrect: noise has no dedicated FS/FD marker; CE does not mean the charge was interrupted."
@@ -30,7 +30,7 @@
   "aRetenir": "Medtronic: VR = refractory V sense, including during noise reversion; a run of VR markers means re-reading the EGM for noise."
  },
  "prog-mq-006": {
-  "question": "Reviewing a tracing from a Biotronik pacemaker. Which of these marker readings are correct? (more than one answer)",
+  "question": "Reviewing a tracing from a Biotronik pacemaker. Which of these marker readings are correct? (select all that apply)",
   "options": [
    "Ars: atrial sensed event in the atrial refractory period",
    "As (PVARP): atrial sensed event in the PVARP, no AV delay triggered",
@@ -98,7 +98,7 @@
   "aRetenir": "Boston: AS-Fl = sensed in the Atrial Flutter Response window, (AS) = in the TARP, [AS] = in the blanking noise window."
  },
  "prog-mq-012": {
-  "question": "You are reviewing the memory of a Boston Scientific pacemaker. Which of these marker readings are correct? (more than one answer)",
+  "question": "You are reviewing the memory of a Boston Scientific pacemaker. Which of these marker readings are correct? (select all that apply)",
   "options": [
    "VP-Ns: asynchronous V pacing due to noise on the V channel",
    "PVP→: PVARP extension after a PVC",
@@ -130,7 +130,7 @@
    "Incorrect: intrinsic conduction would read A then R.",
    "Correct: in MicroPort devices, P = atrial pacing and V = ventricular pacing; the P – V sequence is therefore dual-chamber pacing."
   ],
-  "explication": "MicroPort (formerly Sorin/ELA) uses a convention that catches out those used to other brands. A means atrial sensing, P atrial pacing (\"pace\"), R ventricular sensing and V ventricular pacing. Lower-case p and r flag a sensed event in the refractory period, and Ab or Vb a pulse delivered in the refractory or absolute refractory period. A \"P – V\" sequence therefore corresponds to what other manufacturers mark AP – VP, and \"A – R\" to AS – VS. Reading P as \"P wave\" leads to a complete misinterpretation of device function.",
+  "explication": "MicroPort (formerly Sorin/ELA) uses a convention that catches out those used to other brands. A means atrial sensing, P atrial pacing (\"pace\"), R ventricular sensing and V ventricular pacing. Lower-case p and r flag a sensed event in the refractory period, and Ab or Vb a pulse delivered during a relative or absolute refractory period. A \"P – V\" sequence therefore corresponds to what other manufacturers mark AP – VP, and \"A – R\" to AS – VS. Reading P as \"P wave\" leads to a complete misinterpretation of device function.",
   "aRetenir": "MicroPort: A = atrial sensing, P = atrial pacing, R = ventricular sensing, V = ventricular pacing."
  },
  "prog-mq-014": {
@@ -151,26 +151,26 @@
   "aRetenir": "MicroPort: sensed event in the safety window = \"r\", then \"Vb\" pacing at the end of the window (the equivalent of safety pacing)."
  },
  "prog-mq-015": {
-  "question": "Episode from a MicroPort ICD: on the marker channel, a run of R markers is annotated \"VT-LCL\", followed by a V and seven closely spaced Vb markers under the annotation \"ATP2 VT\". The tachycardia persists; \"C\" markers appear under the following R markers, then the annotation \"19.7 J\". Which readings are correct? (more than one answer)",
+  "question": "Episode from a MicroPort ICD: on the marker channel, a run of R markers is annotated \"VTLC\", followed by a V and seven closely spaced Vb markers under the annotation \"ATP2 VT\". The tachycardia persists; \"C\" markers appear under the following R markers, then the annotation \"19.7 J\". Which readings are correct? (select all that apply)",
   "options": [
    "The run of V and Vb markers corresponds to the ATP pulses",
-   "VT-LCL means short-cycle VT, close to the VF zone",
+   "VTLC means short-cycle VT, close to the VF zone",
    "The C markers flag capacitor charging",
    "19.7 J is the energy of the delivered shock",
    "ATP2 VT denotes ATP delivered in the fast VT/VF zone"
   ],
   "commentaires": [
    "Correct: ATP pulses, delivered in the midst of the tachycardia, are marked V then Vb (pacing in the refractory period).",
-   "Incorrect: VT-LCL means long-cycle VT, classified as stable, dissociated VT after the long-cycle analysis that distinguishes it from AF.",
+   "Incorrect: VTLC stands for VT long cycle: stable, dissociated VT confirmed by the Long Cycle Search, which distinguishes it from AF.",
    "Correct: in MicroPort devices, the letter C under the cycles marks charging.",
    "Correct: the XX.X J annotation gives the energy of the delivered shock.",
    "Incorrect: ATP1/ATP2 VT relate to the slow VT or VT zone; in the fast VT/VF zone, the annotation is \"Fast VT ATP\"."
   ],
-  "explication": "In MicroPort devices, the diagnosis is annotated above the markers: VT-LCL indicates that at least 6 of the last 8 cycles are in the VT zone and meet the stable, dissociated VT criterion, confirmed by the long-cycle analysis that rules out AF. ATP pulses have no dedicated marker: they appear as a V followed by a series of Vb markers, since they fall in the refractory period. The annotation ATP1 VT or ATP2 VT denotes the programmes of the slow VT or VT zone, and Fast VT ATP that of the fast VT/VF zone. Charging is flagged by the letter C under each cycle, and the shock by its energy in joules. Knowing these conventions avoids mistaking a series of Vb markers for abnormal pacing.",
-  "aRetenir": "MicroPort: ATP = V then a series of Vb, charging = \"C\", shock = energy in joules; VT-LCL = long-cycle VT."
+  "explication": "In MicroPort devices, the diagnosis is annotated above the markers: VTLC (VT long cycle) indicates that at least 6 of the last 8 cycles are in the VT zone and meet the stable, dissociated VT criterion, confirmed by the Long Cycle Search, which rules out AF. ATP pulses have no dedicated marker: they appear as a V followed by a series of Vb markers, since they fall in the refractory period. The annotation ATP1 VT or ATP2 VT denotes the programmes of the slow VT or VT zone, and Fast VT ATP that of the fast VT/VF zone. Charging is flagged by the letter C under each cycle, and the shock by its energy in joules. Knowing these conventions avoids mistaking a series of Vb markers for abnormal pacing.",
+  "aRetenir": "MicroPort: ATP = V then a series of Vb, charging = \"C\", shock = energy in joules; VTLC = VT long cycle."
  },
  "prog-mq-016": {
-  "question": "Regarding the atrial refractory periods of MicroPort dual-chamber pacemakers, which statements are correct? (more than one answer)",
+  "question": "Regarding the atrial refractory periods of MicroPort dual-chamber pacemakers, which statements are correct? (select all that apply)",
   "options": [
    "Post-ventricular atrial blanking (PVAB) is the only programmable refractory parameter",
    "A fixed, programmable PVARP of 250 to 400 ms protects against PMT",
@@ -178,7 +178,7 @@
    "A P wave sensed in the WARAD window is ignored by all algorithms"
   ],
   "commentaires": [
-   "Correct: in the bradycardia range, the other refractory periods are short, fixed or retriggerable; only the PVAB is programmable.",
+   "Correct: in MicroPort pacemakers, the other refractory periods are short, fixed or retriggerable; only the PVAB is programmable.",
    "Incorrect: MicroPort does not use a fixed programmable PVARP; protection relies on short retriggerable periods and analysis of the WARAD window.",
    "Correct: on models other than Alizea, only the post-pacing PVAB is programmable and the post-sensing PVAB is derived from it (minus 55 ms).",
    "Incorrect: a P wave in the WARAD window is marked p and is still analysed (atrial rate acceleration detection, fallback)."
@@ -210,14 +210,14 @@
    "False"
   ],
   "commentaires": [
-   "Incorrect: in MicroPort devices, Ab is not a sensed event in blanking (the meaning of the same abbreviation in Medtronic devices) but atrial pacing delivered in the refractory or absolute refractory period.",
-   "Correct: in MicroPort devices, Ab and Vb are paced events in the refractory or absolute refractory period, e.g. asynchronous at the end of the escape interval during prolonged noise."
+   "Incorrect: in MicroPort devices, Ab is not a sensed event in blanking (the meaning of the same abbreviation in Medtronic devices) but atrial pacing delivered during a relative or absolute refractory period.",
+   "Correct: in MicroPort devices, Ab and Vb are paced events delivered during a relative or absolute refractory period, e.g. asynchronous at the end of the escape interval during prolonged noise."
   ],
-  "explication": "The same abbreviation does not mean the same thing for every manufacturer. In Medtronic devices, Ab flags an atrial sensed event in the post-ventricular blanking period. In MicroPort devices, Ab and Vb flag a pulse delivered while the chamber is in the refractory or absolute refractory period. This happens when prolonged noise keeps retriggering the relative refractory periods: the device then paces asynchronously at the end of the escape interval so as not to leave the patient without pacing. Repeated Ab or Vb markers with no apparent reason should prompt a search for noise (interference, myopotentials, lead fault).",
-  "aRetenir": "Same abbreviation, different meaning: Ab = sensed in blanking in Medtronic devices, paced in the refractory period in MicroPort devices."
+  "explication": "The same abbreviation does not mean the same thing for every manufacturer. In Medtronic devices, Ab flags an atrial sensed event in the post-ventricular blanking period. In MicroPort devices, Ab and Vb flag a pulse delivered while the chamber is in a relative or absolute refractory period. This happens when prolonged noise keeps retriggering the relative refractory periods: the device then paces asynchronously at the end of the escape interval so as not to leave the patient without pacing. Repeated Ab or Vb markers with no apparent reason should prompt a search for noise (interference, myopotentials, lead fault).",
+  "aRetenir": "Same abbreviation, different meaning: Ab = sensed in blanking in Medtronic devices, paced in a refractory period in MicroPort devices."
  },
  "prog-mq-019": {
-  "question": "A retrograde P wave falls in the post-ventricular atrial refractory period, outside blanking. Depending on the manufacturer, which markers can flag it? (more than one answer)",
+  "question": "A retrograde P wave falls in the post-ventricular atrial refractory period, outside blanking. Depending on the manufacturer, which markers can flag it? (select all that apply)",
   "options": [
    "Medtronic: AR",
    "Biotronik: As (PVARP)",
@@ -236,22 +236,22 @@
   "aRetenir": "Atrial sensing in the PVARP: AR (Medtronic, Abbott), As (PVARP) (Biotronik), (AS) (Boston), p (MicroPort)."
  },
  "prog-mq-020": {
-  "question": "A patient with a dual-chamber pacemaker has a paroxysm of AF. Which markers flag mode switching (or fallback) for the manufacturer indicated? (more than one answer)",
+  "question": "A patient with a dual-chamber pacemaker has a paroxysm of AF. Which markers flag mode switching (or fallback) for the manufacturer indicated? (select all that apply)",
   "options": [
    "Medtronic: MS",
    "Abbott: AMS",
    "Boston Scientific: ATR-FB",
    "Biotronik: Afib",
-   "MicroPort: VT-LCL"
+   "MicroPort: VTLC"
   ],
   "commentaires": [
    "Correct: MS (mode switch) marks mode switching in Medtronic devices.",
    "Correct: in Abbott devices, AMS denotes Auto Mode Switch.",
-   "Correct: in Boston devices, ATR-FB marks the start of fallback in Atrial Tachy Response (ATR).",
+   "Correct: in Boston devices, ATR-FB marks the start of ATR fallback (Atrial Tachy Response).",
    "Incorrect: on Biotronik ICDs, Afib is a SMART classification of an event as SVT due to AF, not mode switching.",
-   "Incorrect: VT-LCL is a long-cycle VT diagnosis on MicroPort ICDs."
+   "Incorrect: VTLC (VT long cycle) is a VT diagnosis on MicroPort ICDs."
   ],
-  "explication": "Mode switching has a different name and marker depending on the manufacturer. Medtronic marks it MS, Abbott AMS (Auto Mode Switch), and Boston Scientific describes it as Atrial Tachy Response (ATR), with the ATR↑ and ATR↓ markers for the counter, ATR-Dur for the duration, ATR-FB for the start of fallback and ATR-End for its end. MicroPort refers to fallback mode switching (FMS, Fallback Mode Switch). These markers must not be confused with those used by ICDs to classify ventricular tachycardias (Afib in Biotronik devices, VT-LCL in MicroPort devices).",
+  "explication": "Mode switching has a different name and marker depending on the manufacturer. Medtronic marks it MS, Abbott AMS (Auto Mode Switch), and Boston Scientific describes it as Atrial Tachy Response (ATR), with the ATR↑ and ATR↓ markers for the counter, ATR-Dur for the duration, ATR-FB for the start of fallback and ATR-End for its end. MicroPort refers to fallback mode switching (FMS, Fallback Mode Switch). These markers must not be confused with those used by ICDs to classify ventricular tachycardias (Afib in Biotronik devices, VTLC in MicroPort devices).",
   "aRetenir": "Mode switching: MS (Medtronic), AMS (Abbott), ATR-FB (Boston), FMS/fallback (MicroPort)."
  },
  "prog-mq-021": {
@@ -285,7 +285,7 @@
    "Incorrect: this is not an interval average but a majority rule.",
    "Incorrect: the 18-out-of-24 counter is Medtronic's VF detection rule, not MicroPort's."
   ],
-  "explication": "MicroPort ICDs annotate the rhythm continuously using a majority rule over the last 8 sliding cycles. If at least 6 are in the VF zone, the annotation is VF; if at least 6 are in the slow VT or VT zone, the decision tree adds its diagnosis (VT, VT-LCL, SVT/ST); if at least 6 are slow or paced, \"Slow rhythm\". When no category reaches 6 out of 8 cycles, the annotation is \"No majority\", which is common during AF with an irregular ventricular response around a zone boundary. This reading helps explain why a therapy was delivered or delayed.",
+  "explication": "MicroPort ICDs annotate the rhythm continuously using a majority rule over the last 8 sliding cycles. If at least 6 are in the VF zone, the annotation is VF; if at least 6 are in the slow VT or VT zone, the decision tree adds its diagnosis (VT, VTLC, SVT/ST); if at least 6 are slow or paced, \"Slow rhythm\". When no category reaches 6 out of 8 cycles, the annotation is \"No majority\", which is common during AF with an irregular ventricular response around a zone boundary. This reading helps explain why a therapy was delivered or delayed.",
   "aRetenir": "MicroPort: rhythm annotated by a majority of 6 of the last 8 sliding cycles; otherwise \"No majority\"."
  }
 }

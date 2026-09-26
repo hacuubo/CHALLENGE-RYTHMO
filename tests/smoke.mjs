@@ -25,7 +25,7 @@ const captures = process.env.CAPTURES;
 let etape = '';
 async function verifier(nom, fn) {
   etape = nom;
-  try { await fn(); console.log('✓', nom); } catch (e) { erreurs.push(`${nom} : ${e.message.split('\n')[0]}`); console.log('✗', nom, e.message.split('\n')[0]);; if (process.env.DEBUG) console.log(e.message); }
+  try { await fn(); console.log('✓', nom); } catch (e) { erreurs.push(`${nom} : ${e.message.split('\n')[0]}`); console.log('✗', nom, e.message.split('\n')[0]); }
 }
 
 for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'bureau']]) {
@@ -246,7 +246,7 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     if (r.length) throw new Error('tracés en échec : ' + r.join(', '));
   });
   await verifier(`${appareil} : version anglaise (accueil, question et correction), puis retour au français`, async () => {
-    await nav('accueil');
+    await page.evaluate(() => { location.hash = 'accueil'; }); // indépendant de l'écran laissé par l'étape précédente
     await page.waitForSelector('.choix-langue [data-langue=en][aria-pressed=false]');
     await page.click('.choix-langue [data-langue=en]');
     await page.waitForSelector('.choix-langue [data-langue=en][aria-pressed=true]');
