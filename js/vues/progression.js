@@ -58,7 +58,7 @@ export function vueProgression(app, { appliquerApparence }) {
   app.querySelector('#export').onclick = () => {
     const a = document.createElement('a');
     a.href = URL.createObjectURL(new Blob([JSON.stringify(stock.progres(), null, 1)], { type: 'application/json' }));
-    a.download = `challenge-rythmo-progression-${new Date().toISOString().slice(0, 10)}.json`; a.click();
+    a.download = `shock-and-pace-progression-${new Date().toISOString().slice(0, 10)}.json`; a.click();
   };
   app.querySelector('#import').onchange = async e => {
     try { stock.importer(JSON.parse(await e.target.files[0].text())); toast(t('Progression importée', 'Progress imported')); vueProgression(app, { appliquerApparence }); } catch { toast(t('Fichier invalide', 'Invalid file')); }
