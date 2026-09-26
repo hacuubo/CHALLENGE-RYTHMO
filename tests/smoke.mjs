@@ -198,6 +198,9 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.click('#stimuler');
     if (await page.textContent('#stimuler') === 'Stop') throw new Error('Stop n\'arrête pas la stimulation continue');
     await page.uncheck('#continu');
+    // scénario rechargé : l'induction part d'un cœur au repos, indépendamment de la stimulation continue qui précède
+    // (selon l'instant du Stop, elle peut laisser une tachycardie déjà induite ou des oreillettes encore réfractaires)
+    await page.selectOption('#scenario', 'normal'); await page.selectOption('#scenario', 'trin');
     if (await page.isVisible('#s2')) throw new Error('S2 visible sans « + extrastimulus »');
     await page.check('#extras');
     // S2 à 300 ms : au cœur de la fenêtre d'induction de la TRIN (6000/6000 inductions au banc) ; 320 ms tombe en bordure
