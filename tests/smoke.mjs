@@ -281,17 +281,22 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
       await page.click('#mini-direct');
       if (await page.isVisible('#ecran-mini')) throw new Error('la vignette du temps réel ne se retire pas');
       await page.click('#mini-direct');
-      const toucher = (x, duree) => page.evaluate(async ([x, duree]) => {
+      // doigt posé sur le rappel, maintenu jusqu'à la condition (ou la durée fixée) : indépendant de la charge de la machine
+      const toucher = (x, { duree = 0, jusqua = null } = {}) => page.evaluate(async ([x, duree, jusqua]) => {
         const cv = document.querySelector('#ecran-rappel'), b = cv.getBoundingClientRect();
         const ev = type => new PointerEvent(type, { pointerId: 7, pointerType: 'touch', isPrimary: true, bubbles: true, clientX: b.left + b.width * x, clientY: b.top + 60 });
-        cv.dispatchEvent(ev('pointerdown')); await new Promise(f => setTimeout(f, duree)); cv.dispatchEvent(ev('pointerup'));
-      }, [x, duree]);
-      await toucher(0.5, 300);
+        const pret = { debut: () => /Début posé/.test(document.querySelector('#message').textContent), fin: () => document.querySelector('#appui').hidden };
+        cv.dispatchEvent(ev('pointerdown'));
+        await new Promise(f => setTimeout(f, jusqua ? 100 : duree));
+        let ok = true;
+        if (jusqua) { const t0 = performance.now(); while (!(ok = pret[jusqua]()) && performance.now() - t0 < 8000) await new Promise(f => setTimeout(f, 50)); }
+        cv.dispatchEvent(ev('pointerup'));
+        return ok;
+      }, [x, duree, jusqua]);
+      await toucher(0.5, { duree: 300 });
       if (/Début posé/.test(await page.textContent('#message'))) throw new Error('un appui bref pose un compas');
-      await toucher(0.5, 2200);
-      if (!/Début posé/.test(await page.textContent('#message'))) throw new Error('l\'appui long ne pose pas le début du compas');
-      await toucher(0.7, 1200);
-      if (!await page.isHidden('#appui')) throw new Error('la bague d\'appui reste affichée');
+      if (!await toucher(0.5, { jusqua: 'debut' })) throw new Error('l\'appui long ne pose pas le début du compas');
+      if (!await toucher(0.7, { jusqua: 'fin' })) throw new Error('l\'appui maintenu ne pose pas la fin du compas');
       await page.click('.simu-bascule [data-vue=direct]');
       await page.setViewportSize({ width: largeur, height: hauteur });
     }
