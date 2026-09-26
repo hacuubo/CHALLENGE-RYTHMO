@@ -63,7 +63,8 @@ export async function charger() {
   const idx = await lireJson('data/questions/index.json');
   const [listes, surcouches, lib] = await Promise.all([
     Promise.all(idx.fichiers.map(f => lireJson(`data/questions/${f}`))),
-    en ? Promise.all(idx.fichiers.map(f => lireJson(`data/questions/en/${f}`, true))) : [],
+    // index.en (facultatif) : liste des surcouches disponibles, pour ne pas demander de fichier absent
+    en ? Promise.all(idx.fichiers.map(f => (!idx.en || idx.en.includes(f) ? lireJson(`data/questions/en/${f}`, true) : null))) : [],
     en ? lireJson('data/questions/en/libelles.json', true) : null,
   ]);
   libelles = { sousThemes: {}, reco: {}, ...(lib || {}) };

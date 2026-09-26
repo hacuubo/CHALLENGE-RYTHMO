@@ -266,7 +266,7 @@
    "Correct: doubling the amplitude at a constant pulse width gives the classic 100% safety margin.",
    "Incorrect: five times threshold wastes battery (energy ∝ V²) with no benefit."
   ],
-  "explication": "The classic rule is to programme an amplitude at least twice the threshold (100% safety margin) at a constant pulse width, or to triple the pulse width if the threshold was measured at a short pulse width. Programming at or just above threshold risks loss of capture with physiological fluctuations (sleep, drugs, electrolyte disturbances). Conversely, a very high output wastes battery with no benefit, since energy varies with the square of the voltage. Automatic capture management algorithms can reduce this margin by verifying capture beat by beat.",
+  "explication": "The classic rule is to program an amplitude at least twice the threshold (100% safety margin) at a constant pulse width, or to triple the pulse width if the threshold was measured at a short pulse width. Programming at or just above threshold risks loss of capture with physiological fluctuations (sleep, drugs, electrolyte disturbances). Conversely, a very high output wastes battery with no benefit, since energy varies with the square of the voltage. Automatic capture management algorithms can reduce this margin by verifying capture beat by beat.",
   "aRetenir": "Safety margin: 2 × threshold in amplitude."
  },
  "prog-fond-018": {
@@ -460,7 +460,7 @@
    "Shorten the PVARP to improve P-wave sensing",
    "Extend the PVAB and/or reduce atrial sensitivity",
    "Raise the maximum tracking rate to 150 bpm",
-   "Programme atrial sensing to unipolar configuration"
+   "Program atrial sensing to unipolar configuration"
   ],
   "commentaires": [
    "Incorrect: PVARP does not prevent the mode-switch algorithm from counting far-field signals; shortening it changes nothing.",
@@ -519,7 +519,7 @@
    "Incorrect: a poor connection gives a high impedance, not a low one.",
    "Incorrect: normal maturation does not make impedance fall from 650 to 180 Ω."
   ],
-  "explication": "A low impedance (typically < 200 Ω) or a marked fall suggests an insulation breach: current leaks between conductors or into the tissues. This increases current drain (battery depletion) and can cause loss of capture and oversensing. Fracture and connection problems, by contrast, give a high impedance. Compare with previous values, check the other configurations and, if the defect affects the inner insulation of a bipolar lead, programme to unipolar pending lead revision.",
+  "explication": "A low impedance (typically < 200 Ω) or a marked fall suggests an insulation breach: current leaks between conductors or into the tissues. This increases current drain (battery depletion) and can cause loss of capture and oversensing. Fracture and connection problems, by contrast, give a high impedance. Compare with previous values, check the other configurations and, if the defect affects the inner insulation of a bipolar lead, program to unipolar pending lead revision.",
   "aRetenir": "Low impedance = insulation breach."
  },
  "prog-fond-034": {
@@ -851,7 +851,7 @@
    "Incorrect: a very long PR creates harmful AV dyssynchrony (E–A fusion, diastolic MR): allowing conduction at all costs is not physiological.",
    "Correct: intrinsic conduction versus pacing must be weighed case by case, ideally with physiological pacing if the pacing burden becomes high."
   ],
-  "explication": "A very long PR interval can cause harmful AV dyssynchrony: premature atrial contraction, fusion of the E and A waves, diastolic mitral regurgitation and symptoms resembling pacemaker syndrome. In this setting, allowing conduction at all costs with extreme AV delays is not physiological. Intrinsic conduction versus pacing must be weighed case by case, ideally with physiological pacing (conduction system pacing) if the ventricular pacing burden becomes high. Minimisation of V pacing has been validated mainly in patients with normal conduction.",
+  "explication": "A very long PR interval can cause harmful AV dyssynchrony: atrial contraction occurring too early, fusion of the E and A waves, diastolic mitral regurgitation and symptoms resembling pacemaker syndrome. In this setting, allowing conduction at all costs with extreme AV delays is not physiological. Intrinsic conduction versus pacing must be weighed case by case, ideally with physiological pacing (conduction system pacing) if the ventricular pacing burden becomes high. Minimisation of V pacing has been validated mainly in patients with normal conduction.",
   "aRetenir": "A very long PR is not always preferable to pacing: AV dyssynchrony is harmful too."
  },
  "prog-fond-056": {
@@ -880,7 +880,7 @@
    "Turning on rate hysteresis at 50 bpm"
   ],
   "commentaires": [
-   "Incorrect: energy increases linearly with pulse width: only + 25%.",
+   "Incorrect: energy increases linearly with pulse width: only +25%.",
    "Incorrect: sensitivity has a negligible impact on current drain.",
    "Correct: energy varies with the square of the voltage: doubling the amplitude quadruples pacing-related current drain.",
    "Incorrect: hysteresis tends, if anything, to save battery by favouring intrinsic rhythm."
@@ -1019,7 +1019,7 @@
   ],
   "commentaires": [
    "Incorrect: the ESC 2021 guidelines state that it should be considered (IIa) if no alternative imaging is possible, under a strict protocol.",
-   "Correct: in the absence of epicardial, abandoned or damaged leads and adaptors, MRI remains possible under a protocol."
+   "Correct: in the absence of epicardial, abandoned or damaged leads or adaptors, MRI remains possible under a protocol."
   ],
   "explication": "The statement is false. Data from large registries (MagnaSafe, Nazarian 2017) have shown that 1.5 T MRI in patients with non-MR-conditional systems can be performed with few events, provided a strict protocol is followed (appropriate programming, monitoring, device checks before and after). The ESC 2021 guidelines therefore state that it should be considered (class IIa) if no alternative imaging is possible and in the absence of epicardial, abandoned or damaged leads or adaptors/extenders. The 2017 HRS consensus statement takes the same line. Shared decision-making taking the expected benefit into account is required.",
   "aRetenir": "Non-MR-conditional system: MRI possible under a protocol in the absence of epicardial, abandoned or damaged leads."

@@ -40,7 +40,7 @@
   "aRetenir": "RYTHMIQ switches to DDD(R) after 3 slow ventricular beats out of 11."
  },
  "prog-bbm-004": {
-  "question": "In a Boston Scientific patient with RYTHMIQ on, if AV Search+ is programmed Off, a switch from AAI(R) to DDD(R) occurs only once: the device then remains in DDD(R) until it is reprogrammed.",
+  "question": "In a patient with a Boston Scientific pacemaker and RYTHMIQ on, if AV Search+ is programmed Off, a switch from AAI(R) to DDD(R) occurs only once: the device then remains in DDD(R) until it is reprogrammed.",
   "options": [
    "True",
    "False"
@@ -74,13 +74,13 @@
   "options": [
    "Threshold measured and trended, without ever changing the programmed amplitude",
    "Threshold measured periodically, amplitude at twice threshold, no beat-to-beat check",
-   "Threshold measured using AV conduction or sinus rhythm reset",
+   "Threshold measured by the AV conduction or atrial chamber reset method",
    "Daily threshold + 0.5 V, capture confirmed on every beat, backup pulse"
   ],
   "commentaires": [
    "Incorrect: measuring and trending the threshold without adapting the amplitude is the ATM mode of Biotronik Capture Control.",
    "Incorrect: an amplitude at twice threshold without beat-to-beat verification corresponds to Boston Scientific atrial RAAT, not RVAC.",
-   "Incorrect: AV conduction and sinus rhythm reset are the atrial methods of Medtronic (Atrial Capture Management).",
+   "Incorrect: AV conduction and atrial chamber reset are the two methods of Medtronic Atrial Capture Management.",
    "Correct: RVAC sets the amplitude 0.5 V above the daily threshold, confirms capture on every beat and delivers a backup pulse."
   ],
   "explication": "PaceSafe RVAC measures the ventricular threshold every day and sets the amplitude 0.5 V above that threshold (range 0.7 to 3.5 V, pulse width fixed at 0.4 ms). It then confirms capture beat by beat using the evoked response. If loss of capture occurs, a backup pulse of at least 3.5 V is delivered about 70 ms after the primary pulse. If loss of capture is confirmed (2 cycles out of 4), the algorithm is suspended and a new test is performed an hour later. The atrium follows a different logic (RAAT: twice the threshold, without beat-to-beat verification). Threshold monitoring without amplitude adaptation corresponds to Biotronik ATM mode.",
@@ -339,7 +339,7 @@
   "aRetenir": "CLS = intracardiac ventricular impedance, reflecting contractility, responding to both physical and mental stress."
  },
  "prog-bbm-024": {
-  "question": "A 52-year-old woman has recurrent, frequent reflex syncope causing injury, with a cardioinhibitory response on tilt testing (asystole > 3 s). Pacing is decided upon. Which programming is supported by the randomised SPAIN trial?",
+  "question": "A 52-year-old woman has recurrent, frequent reflex syncope causing injury, with a cardioinhibitory response on tilt testing (asystole > 3 s). A decision is made to implant a pacemaker. Which programming is supported by the randomised SPAIN trial?",
   "options": [
    "VVI at 40 bpm with rate hysteresis",
    "DDD with Rate Drop Response",
@@ -358,10 +358,10 @@
  "prog-bbm-025": {
   "question": "How does the CLS algorithm build its resting reference to detect an increase in demand?",
   "options": [
-   "A single curve recorded during automatic initialisation at implant",
+   "A single curve recorded during initialisation at implant",
    "Monthly manual calibration with an exercise test in clinic",
    "The mean sinus rate over the last 24 hours, taken as rest",
-   "The mean of the last 256 resting curves, paced and sensed apart"
+   "The mean of the last 256 rest curves, Vp and Vs separately"
   ],
   "commentaires": [
    "Incorrect: a curve frozen since implant would not track changes in the patient; the reference is updated continuously.",
@@ -446,7 +446,7 @@
    "R-R stability and A/V ratio analysed before any decision",
    "Onset criterion and PR stability analysed before any decision",
    "QRS morphology compared with the reference before any decision",
-   "VT counter incremented without further tests; VT therapy"
+   "VT counter incremented, no other test; VT therapy given"
   ],
   "commentaires": [
    "Incorrect: R-R stability and the A/V ratio are tested when the atrium is faster than the ventricle.",
@@ -829,7 +829,7 @@
   "question": "In a MicroPort pacemaker, how does the Fallback Mode Switch (FMS) work?",
   "options": [
    "Switch to AAI(R) with VVI backup for the whole duration of the arrhythmia",
-   "WARAD suspicion, confirmation on 28 of 32 cycles, then DDI(R)",
+   "WARAD suspicion, 28-of-32 confirmation, then fallback to DDI(R)",
    "Fallback to VVI(R) as soon as the atrial rate exceeds the maximum rate",
    "Fallback once an entry counter is met, with a gradual decrease in rate"
   ],

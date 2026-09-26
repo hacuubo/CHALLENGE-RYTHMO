@@ -1,5 +1,5 @@
 // Mesures automatiques sur le journal d'activations : cycles, intervalles AH / HV / VA, détection d'une tachycardie.
-import { t as tr } from '../i18n.js'; // t désigne ici le temps
+import { t as trad } from '../i18n.js'; // t désigne ici le temps
 // sites dont l'activation fait le QRS (la cicatrice, de faible masse, n'en fait pas partie)
 const SITES_QRS = ['vsep', 'vbd', 'vps', 'rva', 'lvl'];
 
@@ -68,7 +68,7 @@ export function analyserEntrainement(coeur, { der, site, tcl, ventriculaire }) {
       const V = battementsV(j, Aent + 1, Aent + 1500).filter(v => !coeur.stims.some(s => Math.abs(s.t - v) < 5));
       const A = activations(j, 'hra', Aent + 5, Aent + 1500);
       if (A.length && V.length) r.reponse = A[0] < V[0] ? 'V-A-A-V' : 'V-A-V';
-    } else r.reponse = tr('atrium non entraîné (pas de conduction rétrograde 1:1)', 'atrium not entrained (no 1:1 retrograde conduction)');
+    } else r.reponse = trad('atrium non entraîné (pas de conduction rétrograde 1:1)', 'atrium not entrained (no 1:1 retrograde conduction)');
   }
   return r;
 }

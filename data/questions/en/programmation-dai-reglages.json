@@ -17,7 +17,7 @@
   "aRetenir": "Medtronic: VF zone at 188 bpm with ATP Before/During Charging = one ATP burst for fast VT, without an FVT zone."
  },
  "prog-dair-003": {
-  "question": "True or false: in a Medtronic dual-chamber ICD, the 2019 appendix advises leaving the PR Logic \"Other 1:1 SVTs\" criterion off until the atrial lead has matured (about 3 months), because an atrial lead dislodged towards the ventricle would make VT look like a 1:1 tachycardia and could withhold therapy.",
+  "question": "True or false: in a Medtronic dual-chamber ICD, the 2019 appendix advises leaving the PR Logic \"Other 1:1 SVTs\" criterion off until the atrial lead has stabilised (about 3 months), because an atrial lead dislodged towards the ventricle would make VT look like a 1:1 tachycardia and could withhold therapy.",
   "options": [
    "True",
    "False"
@@ -26,8 +26,8 @@
    "Correct: that is the reason for the delay; a VT seen as \"1:1\" because the atrial lead is sensing the ventricle would be wrongly classified as SVT.",
    "Incorrect: the appendix does recommend enabling \"Other 1:1 SVTs\" only once the atrial lead is stable."
   ],
-  "explication": "The PR Logic \"Other 1:1 SVTs\" criterion withholds therapy when it recognises a 1:1 atrioventricular relationship consistent with SVT (AVNRT, accessory pathway). It relies entirely on the reliability of the atrial channel. During the first few weeks, an atrial lead can dislodge and sense ventricular activity: a VT would then show 1:1 association and could be classified as SVT, with therapy withheld. Hence the recommendation to enable it only once the lead has matured, at around 3 months, while the AF/flutter and sinus tachycardia criteria remain active from implantation. Like all discriminators, PR Logic applies only up to the SVT limit (260 ms, i.e. 230 bpm).",
-  "aRetenir": "PR Logic: enable \"Other 1:1 SVTs\" only once the atrial lead has matured (≈ 3 months)."
+  "explication": "The PR Logic \"Other 1:1 SVTs\" criterion withholds therapy when it recognises a 1:1 atrioventricular relationship consistent with SVT (AVNRT, accessory pathway). It relies entirely on the reliability of the atrial channel. During the first few weeks, an atrial lead can dislodge and sense ventricular activity: a VT would then show 1:1 association and could be classified as SVT, with therapy withheld. Hence the recommendation to enable it only once the lead has stabilised, at around 3 months, while the AF/flutter and sinus tachycardia criteria remain active from implantation. Like all discriminators, PR Logic applies only up to the SVT limit (260 ms, i.e. 230 bpm).",
+  "aRetenir": "PR Logic: enable \"Other 1:1 SVTs\" only once the atrial lead has stabilised (≈ 3 months)."
  },
  "prog-dair-005": {
   "question": "Abbott ICD: the 2019 appendix proposes 30 detection intervals in the VF and VT-2 zones, but states that fewer may be reasonable in some cases. Which statements are correct? (more than one answer)",
@@ -79,7 +79,7 @@
    "Correct: the Sustained VT Timer plays the same role in Biotronik devices; the appendix sets it to OFF.",
    "Incorrect: it is a component of PARAD+ and Stability+/Acc that helps recognise AF; it stays on."
   ],
-  "explication": "\"Therapy after time-out\" timers (SRD in Boston Scientific, Sustained VT Timer in Biotronik, SVT Discrimination Timeout in Abbott devices) force therapy when a fast rhythm persists, even if it is classified as SVT. They were designed so that a misclassified slow VT would not go untreated, but mainly result in inappropriate shocks for exercise-induced sinus tachycardia or prolonged AF. The consensus has them turned off, relying instead on a well-placed rate zone and effective discriminators. The SVT limit (Medtronic 260 ms, Abbott and Boston 230 bpm) is not a timer but a rate boundary, and should be kept. MicroPort's long cycle search is used to recognise AF in a rhythm that appears stable.",
+  "explication": "\"Therapy after time-out\" timers (SRD in Boston Scientific, Sustained VT Timer in Biotronik and SVT Discrimination Timeout in Abbott devices) force therapy when a fast rhythm persists, even if it is classified as SVT. They were designed so that a misclassified slow VT would not go untreated, but mainly result in inappropriate shocks for exercise-induced sinus tachycardia or prolonged AF. The consensus has them turned off, relying instead on a well-placed rate zone and effective discriminators. The SVT limit (Medtronic 260 ms, Abbott and Boston 230 bpm) is not a timer but a rate boundary, and should be kept. MicroPort's long cycle search is used to recognise AF in a rhythm that appears stable.",
   "aRetenir": "SRD, Sustained VT Timer, SVT Discrimination Timeout: OFF; the SVT limit, by contrast, stays at 230 bpm."
  },
  "prog-dair-008": {
@@ -96,7 +96,7 @@
   "aRetenir": "Permanent complete AV block: SVT–VT discriminators are unnecessary; keep the oversensing protections."
  },
  "prog-dair-009": {
-  "question": "Among these patients due to receive a transvenous ICD, in which one should defibrillation testing (VF induction) not be performed?",
+  "question": "Which of these patients due to receive a transvenous ICD should not undergo defibrillation testing (VF induction)?",
   "options": [
    "45-year-old woman, right pectoral implant because of left venous occlusion",
    "70-year-old man, generator replacement on an old defibrillation lead",
@@ -155,7 +155,7 @@
    "A single high-rate zone with prolonged detection"
   ],
   "commentaires": [
-   "Incorrect: a low zone in a young patient will capture exercise-induced sinus tachycardia and multiply inappropriate shocks.",
+   "Incorrect: a low zone in a young patient will encompass exercise-induced sinus tachycardia and lead to many inappropriate shocks.",
    "Incorrect: short detection increases unnecessary therapies with no proven benefit on syncope.",
    "Incorrect: no permanent pacing is indicated here; it has no proven preventive role in Brugada syndrome.",
    "Correct: arrhythmias in Brugada syndrome are fast polymorphic VT or VF; a high zone with long detection limits inappropriate shocks."
@@ -164,7 +164,7 @@
   "aRetenir": "Channelopathy in a young patient: single high zone, long detection, consider an S-ICD."
  },
  "prog-dair-013": {
-  "question": "66-year-old man with ischaemic heart disease on amiodarone. He has a documented, well-tolerated monomorphic VT at 145 bpm. A dual-chamber ICD is implanted. Which programming proposals are consistent with the consensus? (more than one answer)",
+  "question": "66-year-old man with ischaemic heart disease on amiodarone. He has a documented, well-tolerated monomorphic VT at 145 bpm. A dual-chamber ICD is implanted. Which programming choices are consistent with the consensus? (more than one answer)",
   "options": [
    "A therapy zone 10 to 20 bpm below the clinical VT, with several ATP sequences before the shock",
    "Discriminators on, as this low zone overlaps with the rates of exercise-induced sinus tachycardia",
@@ -177,7 +177,7 @@
    "Correct: the appendix mentions this rare option for a stable slow VT; a back-up shock remains the rule.",
    "Incorrect: the consensus favours burst as the first ATP; ramp is a second-line option."
   ],
-  "explication": "When the clinical VT is known, the consensus sets the lower therapy boundary 10 to 20 bpm below its rate, here around 125 to 135 bpm, all the more so as amiodarone may slow the VT further. A well-tolerated slow VT lends itself to several ATP sequences (burst first line) before the shock, which as a rule remains programmed; the appendix accepts, rarely, not programming a back-up shock for a haemodynamically stable slow VT. Such a low zone overlaps with exercise-induced sinus tachycardia and AF: SVT–VT discriminators must remain on, up to 200 or even 230 bpm. Remote monitoring helps detect a VT that slows below the zone.",
+  "explication": "When the clinical VT is known, the consensus sets the lower therapy boundary 10 to 20 bpm below its rate, here around 125 to 135 bpm, all the more so as amiodarone may slow the VT further. A well-tolerated slow VT lends itself to several ATP sequences (burst as first line) before the shock, which as a rule remains programmed; the appendix accepts, rarely, not programming a back-up shock for a haemodynamically stable slow VT. Such a low zone overlaps with exercise-induced sinus tachycardia and AF: SVT–VT discriminators must remain on, up to 200 or even 230 bpm. Remote monitoring helps detect a VT that slows below the zone.",
   "aRetenir": "Known slow VT: zone 10–20 bpm below the VT, several burst ATP attempts, discriminators on, back-up shock as a rule."
  }
 }

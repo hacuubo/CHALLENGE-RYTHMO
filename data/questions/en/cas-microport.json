@@ -10,10 +10,10 @@
   "commentaires": [
    "Incorrect: after a paced atrial event, the limit is not the programmed Long PR but that value plus 100 ms.",
    "Incorrect: the first-degree AV block criterion requires 6 consecutive long intervals; 2 consecutive events correspond to the complete AV block criterion (blocked P waves).",
-   "Correct: after atrial pacing, the limit is Long PR + 100 ms, i.e. 450 ms at the lower rate; AR intervals of 410-430 ms trigger nothing.",
+   "Correct: after atrial pacing, the limit is Long PR + 100 ms, i.e. 450 ms at the lower rate; AR intervals of 410–430 ms trigger nothing.",
    "Incorrect: when programmed to \"Rest + Exercise\", the criterion also applies at rest; only the \"Exercise only\" option restricts it to exercise."
   ],
-  "explication": "In SafeR, the first-degree AV block criterion is met when 6 consecutive PR or AR intervals exceed the limit. The programmed value applies to sensed P waves; after a paced atrial event the device automatically adds 100 ms (not programmable), because atrial pacing prolongs the conduction time to the ventricle. With \"Rest + Exercise\", the limit varies between Long PR max (at the lower rate) and Long PR min (at the maximum rate). Here the limit is 350 + 100 = 450 ms: AR intervals of 410-430 ms are tolerated and the patient stays in AAI. Knowing this rule avoids suspecting an algorithm malfunction when a long AR interval is seen without a mode switch.",
+  "explication": "In SafeR, the first-degree AV block criterion is met when 6 consecutive PR or AR intervals exceed the limit. The programmed value applies to sensed P waves; after a paced atrial event the device automatically adds 100 ms (not programmable), because atrial pacing prolongs the conduction time to the ventricle. With \"Rest + Exercise\", the limit varies between Long PR max (at the lower rate) and Long PR min (at the maximum rate). Here the limit is 350 + 100 = 450 ms: AR intervals of 410–430 ms are tolerated and the patient stays in AAI. Knowing this rule avoids suspecting an algorithm malfunction when a long AR interval is seen without a switch to DDD.",
   "aRetenir": "SafeR, first-degree AV block: 6 consecutive long PR/AR intervals; after atrial pacing, the limit is the programmed Long PR + 100 ms."
  },
  "cas-mp-002": {
@@ -206,7 +206,7 @@
   "aRetenir": "PARAD+: P waves hidden in the post-ventricular blanking period create spurious dissociation, and an SVT may be classified as VT."
  },
  "cas-mp-014": {
-  "question": "MicroPort dual-chamber ICD: VT zone 160-220 bpm (bursts, then ramps, then shocks); VF zone above 220 bpm with a fast VT section up to 240 bpm (one burst before charging if the VT is stable). A stable VT at 230 bpm receives the fast VT burst, unsuccessfully; it slows to 200 bpm and is redetected in the VT zone. What therapy does the device deliver next?",
+  "question": "MicroPort dual-chamber ICD: VT zone 160–220 bpm (bursts, then ramps, then shocks); VF zone above 220 bpm with a fast VT section up to 240 bpm (one burst before charging if the VT is stable). A stable VT at 230 bpm receives the fast VT burst, unsuccessfully; it slows to 200 bpm and is redetected in the VT zone. What therapy does the device deliver next?",
   "options": [
    "The first ATP burst programmed in the VT zone",
    "No therapy as long as the VT remains in the VT zone",
@@ -214,7 +214,7 @@
    "A maximum-energy shock from the VF zone"
   ],
   "commentaires": [
-   "Incorrect: VT zone ATP is of level 1, lower than the fast VT ATP already delivered (level 2); it is no longer available in this episode.",
+   "Incorrect: VT zone ATP is level 1, lower than the fast VT ATP already delivered (level 2); it is no longer available in this episode.",
    "Incorrect: a change of zone allows the next line of therapy in the new zone to be engaged.",
    "Correct: the escalation rule requires a therapy at least as aggressive as the previous one; the next available therapy in the VT zone is the first shock.",
    "Incorrect: the tachycardia is redetected in the VT zone; that zone's therapies apply."
@@ -236,7 +236,7 @@
   "aRetenir": "Zone therapies exhausted = ICD inactive until the episode ends (6 slow cycles out of 8) or the tachycardia changes zone."
  },
  "cas-mp-016": {
-  "question": "MicroPort ICD with \"Auto ATP Switch\" enabled; in the VT zone, ATP 1 = bursts, ATP 2 = ramps, then shocks. The penultimate VT episode was terminated by a ramp. In the last episode, all ATP failed and the VT was terminated by a shock. A new VT occurs in the same zone. What will the first therapy be?",
+  "question": "MicroPort ICD with \"ATP Switch\" enabled; in the VT zone, ATP 1 = bursts, ATP 2 = ramps, then shocks. The penultimate VT episode was terminated by a ramp. In the last episode, all ATP failed and the VT was terminated by a shock. A new VT occurs in the same zone. What will the first therapy be?",
   "options": [
    "A burst, since all ATP failed in the last episode",
    "A shock, since it terminated the last VT",
@@ -249,8 +249,8 @@
    "Correct: the function moves the last successful ATP programme of the VT and slow VT zones to first place, here the ramp.",
    "Incorrect: a shock does not reset the function; it does not alter the ATP order at all."
   ],
-  "explication": "The \"Auto ATP Switch\" function in MicroPort ICDs delivers first, in the next episode, the ATP programme (ATP 1 or ATP 2 of the VT and slow VT zones) that terminated the last VT successfully treated by ATP. Shocks are not included in this memory: an episode terminated by a shock does not change the order. Here, the last termination by ATP was achieved by a ramp: the new VT therefore first receives a ramp, then bursts. As ramps are an aggressive therapy, which quickly reaches the minimum coupling interval and may accelerate a VT, this function should be decided on a case-by-case basis. On review, ATP that does not start with the expected programme is often explained by this function.",
-  "aRetenir": "Auto ATP Switch (MicroPort): the last successful ATP moves to first place in the next episode; shocks are not taken into account."
+  "explication": "The \"ATP Switch\" function in MicroPort ICDs delivers first, in the next episode, the ATP programme (ATP 1 or ATP 2 of the VT and slow VT zones) that terminated the last VT successfully treated by ATP. Shocks are not included in this memory: an episode terminated by a shock does not change the order. Here, the last termination by ATP was achieved by a ramp: the new VT therefore first receives a ramp, then bursts. As ramps are an aggressive therapy, which quickly reaches the minimum coupling interval and may accelerate a VT, this function should be decided on a case-by-case basis. On review, ATP that does not start with the expected programme is often explained by this function.",
+  "aRetenir": "ATP Switch (MicroPort): the last successful ATP moves to first place in the next episode; shocks are not taken into account."
  },
  "cas-mp-017": {
   "question": "In a MicroPort CRT-D, a maximum tracking rate (e.g. 150 bpm) can be programmed above the lower boundary of a slow VT zone (e.g. 130 bpm).",
@@ -262,7 +262,7 @@
    "Correct: this overlap is permitted; it ensures resynchronisation during exercise in a patient who also needs a slow zone.",
    "Incorrect: MicroPort, like Biotronik, allows this overlap between bradycardia pacing and a tachycardia zone."
   ],
-  "explication": "In an active CRT patient, the sinus rate during exercise may exceed a maximum tracking rate that is set too low. The device then enters pacemaker Wenckebach: the AV delay lengthens, intrinsic conduction resumes and resynchronisation is lost just when it is most needed. MicroPort ICDs (like Biotronik) allow the maximum rate to be programmed independently of the tachycardia zones, even above the boundary of a slow VT zone. The patient thus keeps biventricular pacing during exercise, while the discrimination and persistence criteria of the slow zone deal with true slow VTs. An excessively low maximum rate can be spotted on rate trends, on exercise-related SVT episodes or on a BiV pacing percentage that drops on exertion.",
+  "explication": "In an active CRT patient, the sinus rate during exercise may exceed a maximum tracking rate that is set too low. The device then enters pacemaker Wenckebach: the AV delay lengthens, intrinsic conduction resumes and resynchronisation is lost just when it is most needed. MicroPort ICDs (like Biotronik devices) allow the maximum rate to be programmed independently of the tachycardia zones, even above the boundary of a slow VT zone. The patient thus keeps biventricular pacing during exercise, while the discrimination and persistence criteria of the slow zone deal with true slow VTs. An excessively low maximum rate can be spotted on rate trends, on exercise-related SVT episodes or on a BiV pacing percentage that drops on exertion.",
   "aRetenir": "MicroPort CRT-D: the maximum tracking rate may overlap the slow VT zone, to preserve resynchronisation during exercise."
  },
  "cas-mp-018": {
@@ -275,7 +275,7 @@
    "Correct: from Platinium onwards, the magnet inhibits detection and therapies, and bradycardia pacing is not replaced by an asynchronous mode.",
    "Incorrect: this was the behaviour of earlier platforms, which paced at the magnet rate (96 bpm at beginning of life, 80 bpm at elective replacement)."
   ],
-  "explication": "In MicroPort ICDs predating Platinium, the magnet suspended therapies and imposed pacing at the magnet rate, which depended on battery depletion (96 bpm at beginning of life, 80 bpm at elective replacement). From Platinium onwards, it only inhibits arrhythmia detection and therapies; pacing is not replaced by an asynchronous mode. After a recent charge (electrical storm, lead fault), inhibition persists briefly after magnet removal, to allow time to start interrogation. On magnet removal, detection resumes and therapies restart from the beginning of each zone. During surgery with monopolar electrocautery, the magnet therefore prevents an inappropriate shock, but does not protect a pacing-dependent patient from inhibition due to oversensing: the device must then be reprogrammed to an asynchronous mode.",
+  "explication": "In MicroPort ICDs predating Platinium, the magnet suspended therapies and imposed pacing at the magnet rate, which depended on battery depletion (96 bpm at beginning of life, 80 bpm at elective replacement). From Platinium onwards, it only inhibits arrhythmia detection and therapies; pacing is not replaced by an asynchronous mode. After a recent charge (electrical storm, lead fault), inhibition persists briefly after magnet removal, to allow time to start interrogation. On magnet removal, detection resumes and therapies restart from the beginning of each zone. During surgery with monopolar diathermy, the magnet therefore prevents an inappropriate shock, but does not protect a pacemaker-dependent patient from inhibition due to oversensing: the device must then be reprogrammed to an asynchronous mode.",
   "aRetenir": "MicroPort Platinium ICDs: a magnet suspends detection and therapies without switching to asynchronous pacing; in a dependent patient, the device must be reprogrammed."
  }
 }

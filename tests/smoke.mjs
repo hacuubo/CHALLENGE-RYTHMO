@@ -25,7 +25,7 @@ const captures = process.env.CAPTURES;
 let etape = '';
 async function verifier(nom, fn) {
   etape = nom;
-  try { await fn(); console.log('✓', nom); } catch (e) { erreurs.push(`${nom} : ${e.message.split('\n')[0]}`); console.log('✗', nom, e.message.split('\n')[0]); }
+  try { await fn(); console.log('✓', nom); } catch (e) { erreurs.push(`${nom} : ${e.message.split('\n')[0]}`); console.log('✗', nom, e.message.split('\n')[0]);; if (process.env.DEBUG) console.log(e.message); }
 }
 
 for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'bureau']]) {
@@ -33,7 +33,9 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
   // parcours en français par défaut (le navigateur de test n'est pas francophone : pas d'invitation à passer en anglais)
   await page.addInitScript(() => { if (!sessionStorage.getItem('langue-posee')) { localStorage.setItem('rythmo.langue', 'fr'); sessionStorage.setItem('langue-posee', '1'); } });
   page.on('pageerror', e => erreurs.push(`[${appareil}] ${etape} : ${e.message}`));
-  page.on('console', m => { if (m.type() === 'error') erreurs.push(`[${appareil}] ${etape} : console ${m.text()}`); });
+  // ressource absente : erreur, sauf surcouche anglaise pas encore traduite (repli prévu sur le français)
+  page.on('console', m => { if (m.type() === 'error' && !/^Failed to load resource/.test(m.text())) erreurs.push(`[${appareil}] ${etape} : console ${m.text()}`); });
+  page.on('response', r => { if (r.status() >= 400 && !/\/data\/questions\/en\//.test(r.url())) erreurs.push(`[${appareil}] ${etape} : ${r.status()} ${r.url()}`); });
   const capture = async n => { if (captures) await page.screenshot({ path: path.join(captures, `${appareil}-${n}.png`), fullPage: true }); };
   // navigation sans barre du bas : bouton de l'écran, sinon retour à l'accueil puis case de l'accueil
   const nav = async v => {

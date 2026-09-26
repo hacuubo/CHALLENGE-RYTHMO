@@ -354,18 +354,18 @@ export function vueSimulateur(app) {
   $('#salve').onclick = () => {
     reglages();
     if (st.salve) { arreterSalve(); return; }
-    const site = siteReel(), t = tachycardie(st.coeur);
-    st.salve = { site, cl: r.s1, prochain: st.coeur.t + 100, debut: st.coeur.t + 100, sortie: r.sortie, tachy: t.active, tcl: VENTRICULAIRES.has(site) ? t.cycleV : (t.cycleA ?? t.cycleV), nom: nomSite() };
+    const site = siteReel(), tach = tachycardie(st.coeur);
+    st.salve = { site, cl: r.s1, prochain: st.coeur.t + 100, debut: st.coeur.t + 100, sortie: r.sortie, tachy: tach.active, tcl: VENTRICULAIRES.has(site) ? tach.cycleV : (tach.cycleA ?? tach.cycleV), nom: nomSite() };
     noter(classer(site, { salve: true }), t(`Salve : ${st.salve.nom} à ${r.s1} ms, ${r.sortie} mA`, `Burst: ${st.salve.nom} at ${r.s1} ms, ${r.sortie} mA`));
     $('#salve').textContent = t('Arrêter la salve', 'Stop burst');
   };
   $('#rampe').onclick = () => {
     reglages();
     const site = siteReel(), c = st.coeur, t0 = c.t + 150;
-    let t = t0, n = 0;
-    for (let cl = r.rampeDebut; cl >= r.rampeFin && n < 200; cl -= r.rampePas) for (let k = 0; k < 4; k++, n++) { c.stimuler(site, t, r.sortie); t += cl; }
+    let ts = t0, n = 0;
+    for (let cl = r.rampeDebut; cl >= r.rampeFin && n < 200; cl -= r.rampePas) for (let k = 0; k < 4; k++, n++) { c.stimuler(site, ts, r.sortie); ts += cl; }
     noter(VENTRICULAIRES.has(site) ? 'stimV' : 'extraA', t(`Rampe ${r.rampeDebut} → ${r.rampeFin} ms (pas ${r.rampePas} ms, 4 stimulus par palier)`, `Ramp ${r.rampeDebut} → ${r.rampeFin} ms (${r.rampePas} ms steps, 4 stimuli per step)`),
-      { debut: t0 - 1500, capture: t + 1500, auto: r.rappelApres });
+      { debut: t0 - 1500, capture: ts + 1500, auto: r.rappelApres });
   };
   $('#enregistrer').onclick = () => { reglages(); noter(null, t('Enregistrement', 'Recording'), { debut: st.t - 10000, capture: st.t, auto: true }); };
   $('#adenosine').onclick = () => { st.coeur.injecterAdenosine(); noter('adenosine'); };

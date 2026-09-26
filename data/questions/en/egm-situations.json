@@ -32,7 +32,7 @@
    "Correct: loss of conduction in 2 of the last 4 A-A intervals triggers the switch to DDD(R), followed by periodic conduction checks.",
    "Incorrect: the backup pace is only delivered after the next atrial event, which is precisely what creates the pause."
   ],
-  "explication": "MVP accepts a non-conducted P wave and only paces the ventricle in the next cycle (80 ms after the AS), which produces a pause. In some ICD recipients, the resulting short–long–short sequence has been associated with pause-dependent VT. When such a relationship is documented, DDD(R) mode (with a long AV delay or a conduction search algorithm) is preferred over MVP. The device switches to DDD(R) on its own if loss of conduction affects 2 of the last 4 A-A intervals, but then returns to AAI(R) after a successful conduction check.",
+  "explication": "MVP tolerates a non-conducted P wave and only paces the ventricle in the next cycle (80 ms after the AS), which produces a pause. In some ICD recipients, the resulting short–long–short sequence has been associated with pause-dependent VT. When such a relationship is documented, DDD(R) mode (with a long AV delay or a conduction search algorithm) is preferred over MVP. The device switches to DDD(R) on its own if loss of conduction affects 2 of the last 4 A-A intervals, but then returns to AAI(R) after a successful conduction check.",
   "aRetenir": "VT triggered after a blocked P wave in MVP: think short–long–short and prefer DDD(R) mode."
  },
  "egm-103": {
@@ -100,7 +100,7 @@
    "Incorrect: the change from 833 to 380 ms is abrupt, not the gradual acceleration of sinus tachycardia.",
    "Incorrect: 380 ms is shorter than 400 ms, so the cycles are correctly classified as TS in the VT zone."
   ],
-  "explication": "After two sinus beats, the atrial EGM shows regular activity at 190 ms, every other wave of which is conducted (AS) while the other falls just after the QRS (AR). The ventricle, with a morphology identical to sinus rhythm, beats at 380 ms, in the VT zone. The A/V discriminator finds A > V with a fixed (2:1) relationship: it withholds therapy and classifies the episode as SVT (atrial flutter or atrial tachycardia with 2:1 conduction). Further management is that of the atrial arrhythmia: anticoagulation according to the CHA2DS2-VA score, rate control and discussion of ablation.",
+  "explication": "After two sinus beats, the atrial EGM shows regular activity at 190 ms: every other atrial event is conducted (AS), and the alternate one falls just after the QRS (AR). The ventricle, with a morphology identical to sinus rhythm, beats at 380 ms, in the VT zone. The A/V discriminator finds A > V with a fixed (2:1) relationship: it withholds therapy and classifies the episode as SVT (atrial flutter or atrial tachycardia with 2:1 conduction). Further management is that of the atrial arrhythmia: anticoagulation according to the CHA2DS2-VA score, rate control and discussion of ablation.",
   "aRetenir": "Regular A > V (2:1) with QRS identical to sinus rhythm: conducted atrial tachycardia, therapy rightly withheld."
  },
  "egm-107": {
@@ -274,7 +274,7 @@
    "Correct: the spike, delivered once the spontaneous QRS is already under way, does not alter activation; the device nevertheless counts it as pacing, hence a misleading VP percentage.",
    "Incorrect: true fusion produces a QRS of intermediate morphology; here the appearance is that of the spontaneous QRS."
   ],
-  "explication": "The intrinsic PR interval fluctuates around the programmed AV delay: depending on the cycle, the QRS is sensed (VS), paced, or a spike falls within a spontaneous QRS already under way without altering its appearance (pseudo-fusion). The spike is delivered because intrinsic activation has not yet reached the RV lead by the end of the AV delay; it falls in the refractory period and has no effect. The device nevertheless counts these pseudo-fusion beats as paced, hence a misleading VP percentage, which should lead to a conclusion of neither pacemaker dependence nor loss of capture. Management is to promote intrinsic conduction with a conduction-preserving algorithm (AV hysteresis, conduction search, AAI/DDD switching modes), since unnecessary RV pacing is harmful in the long term.",
+  "explication": "The intrinsic PR interval fluctuates around the programmed AV delay: depending on the cycle, the QRS is sensed (VS), paced, or a spike falls within a spontaneous QRS already under way without altering its appearance (pseudo-fusion). The spike is delivered because intrinsic activation has not yet reached the RV lead by the end of the AV delay; it falls in the refractory period and has no effect. The device nevertheless counts these pseudo-fusion beats as paced, hence a misleading VP percentage, which should not be taken as evidence of either pacemaker dependence or loss of capture. Management is to promote intrinsic conduction with a conduction-preserving algorithm (AV hysteresis, conduction search, AAI/DDD switching modes), since unnecessary RV pacing is harmful in the long term.",
   "aRetenir": "V spike within a spontaneous QRS of unchanged appearance: pseudo-fusion, ineffective but counted as VP, which inflates the pacing percentage."
  },
  "egm-117": {

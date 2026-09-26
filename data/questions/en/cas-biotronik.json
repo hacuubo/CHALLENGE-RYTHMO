@@ -13,7 +13,7 @@
    "Correct: an undetected QRS is interpreted as a non-conducted P wave, which falsely fulfils the criteria for switching to DDD.",
    "Incorrect: adjusting the criterion changes how often switches occur, but does not correct faulty sensing."
   ],
-  "explication": "Vp Suppression judges AV conduction by the presence of a ventricular sensed event after each atrial event. If low-amplitude QRS complexes are not sensed, the algorithm counts them as blocked P waves and wrongly concludes that AV block is present (\"x out of 8 cycles\" criterion, consecutive blocked P waves or a pause): the device reverts to DDD and paces the ventricle for no reason. The periodic EGM sent via remote monitoring shows these unmarked QRS complexes, a malfunction the device cannot flag by itself. The fix lies in sensing: programme a more sensitive fixed ventricular sensitivity (a lower mV value) after checking that there is no T-wave oversensing. Every algorithm designed to preserve intrinsic conduction relies on reliable atrial and ventricular sensing.",
+  "explication": "Vp Suppression judges AV conduction by the presence of a ventricular sensed event after each atrial event. If low-amplitude QRS complexes are not sensed, the algorithm counts them as blocked P waves and wrongly concludes that AV block is present (\"x out of 8 cycles\" criterion, consecutive blocked P waves or a pause): the device reverts to DDD and paces the ventricle for no reason. The periodic EGM sent via remote monitoring shows these unmarked QRS complexes, a malfunction the device cannot flag by itself. The fix lies in sensing: program a fixed, more sensitive ventricular sensitivity setting (a lower mV value) after checking that there is no T-wave oversensing. Every algorithm designed to preserve intrinsic conduction relies on reliable atrial and ventricular sensing.",
   "aRetenir": "Vp Suppression: unwarranted switches to DDD should prompt a search for ventricular undersensing, which mimics a blocked P wave."
  },
  "cas-bio-002": {
@@ -30,7 +30,7 @@
    "Incorrect: this would speed up the PMT without removing its mechanism.",
    "Correct: a PVARP longer than VA conduction prevents tracking of the retrograde P wave; with permanent complete AV block, the algorithm is of no benefit anyway."
   ],
-  "explication": "In DDD, Vp Suppression periodically searches for intrinsic conduction by extending the AV delay for a few cycles (to around 450 ms), with searches initially frequent and then spaced out if they fail. In a patient with no anterograde conduction but preserved retrograde conduction, the ventricle is paced late: the atrium has recovered from refractoriness, conducts retrogradely, and the retrograde P wave sensed outside the PVARP triggers a PMT, with no other trigger needed. The device's PMT algorithm can terminate these episodes but does not prevent them. If the AV block is permanent, the simplest option is not to programme Vp Suppression; if it is paroxysmal, the PVARP must be longer than the retrograde conduction time, checking the effect on the 2:1 block rate in an active patient.",
+  "explication": "In DDD, Vp Suppression periodically searches for intrinsic conduction by extending the AV delay for a few cycles (to around 450 ms), with searches initially frequent and then spaced out if they fail. In a patient with no anterograde conduction but preserved retrograde conduction, the ventricle is paced late: the atrium has recovered from refractoriness, conducts retrogradely, and the retrograde P wave sensed outside the PVARP triggers a PMT, with no other trigger needed. The device's PMT algorithm can terminate these episodes but does not prevent them. If the AV block is permanent, the simplest option is not to program Vp Suppression; if it is paroxysmal, the PVARP must be longer than the retrograde conduction time, checking the effect on the 2:1 block rate in an active patient.",
   "aRetenir": "Vp Suppression with retrograde conduction: the extended search AV delay can trigger PMTs; set PVARP > VA time, or avoid the algorithm in permanent AV block."
  },
  "cas-bio-003": {
@@ -134,10 +134,10 @@
   "aRetenir": "Biotronik ATP One Shot: a single burst in the VF zone, only if the rhythm is stable; the shock still follows if needed."
  },
  "cas-bio-012": {
-  "question": "A 77-year-old man has a Biotronik CRT-D. A VT in the VT2 zone fails to respond to six ATP sequences; the first shock, programmed at 10 J, converts it into rapid, low-amplitude VF, partly undersensed on the RV channel, which had been programmed pre-emptively to \"enhanced T-wave suppression\" with no previous oversensing. A charge is wrongly aborted, then a full-energy shock terminates the arrhythmia. Which changes are justified? (more than one answer)",
+  "question": "A 77-year-old man has a Biotronik CRT-D. A VT in the VT2 zone fails to respond to six ATP sequences; the first shock, programmed at 10 J, converts it into rapid, low-amplitude VF, partly undersensed on the RV channel, which had been programmed pre-emptively to the \"Enhanced T-wave suppression\" sensing profile with no previous oversensing. A charge is wrongly aborted, then a full-energy shock terminates the arrhythmia. Which changes are justified? (more than one answer)",
   "options": [
-   "Programme the first shock in the VT zone at maximum energy",
-   "Return to standard RV sensing, or even a VF-favouring setting",
+   "Program the first shock in the VT zone at maximum energy",
+   "Return to standard RV sensing, or even a VF-favouring profile",
    "Reduce RV sensitivity to avoid double counting",
    "Remove all antitachycardia pacing in the VT2 zone"
   ],
@@ -147,7 +147,7 @@
    "Incorrect: the problem is undersensing; reducing sensitivity would make it worse.",
    "Incorrect: ATP remains the first-line treatment for monomorphic VT and often terminates these episodes without a shock."
   ],
-  "explication": "A low-energy shock (around 10 J) often terminates VT, with a short charge time, but it carries a risk: if it is below the upper limit of vulnerability, it can accelerate and disorganise the VT into a polymorphic arrhythmia. Programming the first shock in the VT zone at full energy increases the likelihood of success and places the shock above this limit. Induced VF often has short, low-amplitude signals, hence a risk of undersensing and inappropriate charge abortion, compounded here by a sensing profile that reduces sensitivity (enhanced T-wave suppression) without an indication. Sensing should be returned to standard, or even to a profile that favours VF detection, and induction to check sensing should be considered. ATP retains its first-line role.",
+  "explication": "A low-energy shock (around 10 J) often terminates VT, with a short charge time, but it carries a risk: if it is below the upper limit of vulnerability, it can accelerate and disorganise the VT into a polymorphic arrhythmia. Programming the first shock in the VT zone at full energy increases the likelihood of success and places the shock above this limit. Induced VF often has short, low-amplitude signals, hence a risk of undersensing and inappropriate charge abortion, compounded here by a sensing profile that reduces sensitivity (Enhanced T-wave suppression) without an indication. Sensing should be returned to standard, or even to a profile that favours VF detection, and induction to check sensing should be considered. ATP retains its first-line role.",
   "aRetenir": "A low-energy first shock in the VT zone can degenerate VT into VF; an anti-T-wave profile without documented oversensing risks undersensing VF."
  },
  "cas-bio-013": {
