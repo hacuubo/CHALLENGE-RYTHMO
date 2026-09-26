@@ -393,7 +393,7 @@ export function vueSimulateur(app) {
     const c0 = st.coeur, brut = c0.stimuler.bind(c0);
     c0.stimuler = (site, tt, sortie, largeur, lib) => brut(site, tt, sortie, largeur, lib, r.site === 'abl' && site === siteReel() ? 'abl' : null);
     Object.assign(st, { t: st.coeur.t, salve: null, actions: [], faites: new Set(), analyses: [], positionsTachy: new Set(), tachyAvant: false,
-      rappel: null, recul: 0, curseurs: [], nouveauCompas: false, finOuverte: false, demande: null, sale: true, reference: null, dernierAffiche: null, proto: null, rf: null, carte: {}, cr: nouveauCR(), hypo: 0, bump: null, train: null, historique: [] });
+      rappel: null, recul: 0, curseurs: [], nouveauCompas: false, finOuverte: false, demande: null, sale: true, reference: null, proto: null, rf: null, carte: {}, cr: nouveauCR(), hypo: 0, bump: null, train: null, historique: [] });
     for (const id of ['#iso', '#atropine']) { $(id).setAttribute('aria-pressed', 'false'); $(id).classList.remove('actif'); }
     $('#rappel-titre').textContent = ''; $('#rappel-vide').hidden = false; $('#paysage-nouveau').textContent = ''; $('#reference').hidden = true;
     $('#proto-etat').textContent = ''; $('#compte-rendu').hidden = true; $('#rf-etat').textContent = t('Générateur prêt', 'Generator ready');
@@ -533,6 +533,7 @@ export function vueSimulateur(app) {
       if (type === 'esvHis' && liste.length) {
         const te = liste.at(-1);
         setTimeout(() => {
+          if (!canvas.isConnected) return; // simulateur quitté entre-temps
           const av = analyserESV(c, te, tcl);
           if (av != null) resultat(t(`ESV His-réfractaire : ${av > 5 ? `atrium avancé de ${av} ms` : av < -5 ? `atrium retardé de ${-av} ms` : 'atrium inchangé'}${tachycardie(c).active ? '' : ', tachycardie arrêtée'}`,
             `His-refractory PVC: ${av > 5 ? `atrium advanced by ${av} ms` : av < -5 ? `atrium delayed by ${-av} ms` : 'atrium unchanged'}${tachycardie(c).active ? '' : ', tachycardia terminated'}`), { manoeuvre: true });
@@ -579,6 +580,7 @@ export function vueSimulateur(app) {
     st.salve = null; majBoutonStim();
     if (s.tachy && der != null) {
       setTimeout(() => {
+        if (!canvas.isConnected) return; // simulateur quitté entre-temps
         const a = analyserEntrainement(c, { der, site: s.site, tcl: s.tcl, ventriculaire: VENTRICULAIRES.has(s.site) });
         resultat(t(`Entraînement depuis ${s.nom} à ${s.cl} ms (TCL ${Math.round(s.tcl)}) : ${tachycardie(c).active ? '' : 'tachycardie arrêtée ; '}${a.reponse ? `réponse ${a.reponse}, ` : ''}PPI ${a.ppi ?? '—'} ms, PPI − TCL ${a.pptcl ?? '—'} ms`,
           `Entrainment from ${s.nom} at ${s.cl} ms (TCL ${Math.round(s.tcl)}): ${tachycardie(c).active ? '' : 'tachycardia terminated; '}${a.reponse ? (a.reponse.startsWith('V') ? `${a.reponse} response, ` : `${a.reponse}, `) : ''}PPI ${a.ppi ?? '—'} ms, PPI − TCL ${a.pptcl ?? '—'} ms`), { manoeuvre: true });
@@ -1341,7 +1343,9 @@ export function vueSimulateur(app) {
         if (d != null && d + apres > e.capture) { e.capture = d + apres; continue; }
       }
       capturer(e); capture = true;
-      if (e === st.demande || !e.remplacee && e.t >= (st.dernierAffiche ?? -Infinity)) { st.dernierAffiche = e.t; rappeler(e); }
+      // une alerte ou un événement survenu pendant une manœuvre encore en enregistrement s'effacera devant elle : on ne l'affiche pas
+      const couverte = !e.finStim && e.focus == null && st.actions.some(a => a !== e && !a.instantane && !a.remplacee && (a.finStim || a.focus != null) && e.t >= a.debut && e.t <= a.capture + 500);
+      if (e === st.demande || !e.remplacee && !couverte) rappeler(e);
     }
     if (capture) rendreJournal();
     const o = optionsTrace();
