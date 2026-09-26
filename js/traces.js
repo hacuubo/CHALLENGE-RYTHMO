@@ -8,8 +8,8 @@ const MS_PAR_MM = 40;
 export function monterTrace(conteneur, dessiner, { titre = t('Tracé', 'Tracing'), legende = '' } = {}) {
   conteneur.innerHTML = `
     <div class="trace-outils">
-      <button type="button" class="outil" data-compas aria-pressed="false" title="${t('Mesurer un intervalle', 'Measure an interval')}">📏 ${t('Compas', 'Calipers')}</button>
-      <button type="button" class="outil" data-plein title="${t('Afficher en plein écran', 'Show full screen')}">⤢ ${t('Plein écran', 'Full screen')}</button>
+      <button type="button" class="outil" data-compas aria-pressed="false" title="${t('Mesurer un intervalle', 'Measure an interval')}">📏 ${t('Compas', 'Callipers')}</button>
+      <button type="button" class="outil" data-plein title="${t('Afficher en plein écran', 'View full screen')}">⤢ ${t('Plein écran', 'Full screen')}</button>
     </div>
     <div class="ecg-cadre"><div class="trace-pile"><canvas role="img" aria-label="${titre}"></canvas><canvas class="calque" aria-hidden="true"></canvas></div></div>
     <div class="ecg-legende">${legende}</div>
@@ -78,7 +78,7 @@ function pleinEcran(dessiner, titre, legende) {
   d.setAttribute('role', 'dialog'); d.setAttribute('aria-modal', 'true'); d.setAttribute('aria-label', titre);
   d.innerHTML = `
     <div class="plein-tete">
-      <button type="button" class="outil" data-compas aria-pressed="false">📏 ${t('Compas', 'Calipers')}</button>
+      <button type="button" class="outil" data-compas aria-pressed="false">📏 ${t('Compas', 'Callipers')}</button>
       <span class="compas-mesure" aria-live="polite">${legende}</span>
       <button type="button" class="outil" data-fermer aria-label="${t('Fermer', 'Close')}">✕ ${t('Fermer', 'Close')}</button>
     </div>

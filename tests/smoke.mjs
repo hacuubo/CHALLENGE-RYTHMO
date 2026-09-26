@@ -191,10 +191,12 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.selectOption('#scenario', 'trin');
     await page.fill('#s2', '320'); await page.dispatchEvent('#s2', 'change');
     await page.click('#stimuler');
-    await page.waitForFunction(() => /Tachycardie/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 15000 });
+    // simulation en temps réel : l'induction prend ~9 s, davantage sur une machine chargée
+    await page.waitForFunction(() => /Tachycardie/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 30000 });
     // la manœuvre s'affiche sur l'écran de rappel ; toucher le tracé en temps réel ne l'arrête pas
     await page.waitForFunction(() => /S2 320/.test(document.querySelector('#rappel-titre')?.textContent || ''), null, { timeout: 10000 });
-    const t0 = await page.evaluate(() => document.querySelector('#etat').textContent);
+    // la barre d'état est réécrite à chaque image : on attend qu'elle soit renseignée
+    const t0 = await (await page.waitForFunction(() => document.querySelector('#etat')?.textContent.trim() || null, null, { timeout: 5000 })).jsonValue();
     await page.click('#ecran', { position: { x: 200, y: 100 } });
     if (/Relecture/.test(await page.evaluate(() => document.querySelector('#etat').textContent)) || !t0) throw new Error('le tracé en temps réel s\'est figé');
     await page.click('#enregistrer');

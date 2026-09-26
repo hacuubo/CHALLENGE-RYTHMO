@@ -51,7 +51,7 @@ export function vueConfig(app, { demarrer }) {
         </div></fieldset>
         <fieldset><legend>${t('Ordre', 'Order')}</legend><div class="plage">
           <select name="priorite" aria-label="${t('Ordre des questions', 'Question order')}">
-            <option value="hasard" ${cfg.priorite === 'hasard' ? 'selected' : ''}>${t('Complètement au hasard', 'Completely random')}</option>
+            <option value="hasard" ${cfg.priorite === 'hasard' ? 'selected' : ''}>${t('Complètement au hasard', 'Random')}</option>
             <option value="nouvelles" ${cfg.priorite === 'nouvelles' ? 'selected' : ''}>${t('Jamais vues d\'abord', 'Unseen first')}</option>
             <option value="faibles" ${cfg.priorite === 'faibles' ? 'selected' : ''}>${t('Mes points faibles d\'abord', 'My weak spots first')}</option>
           </select></div></fieldset>

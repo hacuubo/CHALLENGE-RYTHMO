@@ -26,7 +26,7 @@ export function vueProgression(app, { appliquerApparence }) {
     <h1>${t('Ma progression', 'My progress')}</h1>
     <section class="carte">
       <div class="ligne-reglage"><div><h2 style="margin:0">${t('Classement ELO :', 'ELO rating:')} ${c.elo}</h2>
-        <span class="note">${esc(c.titre.nom)} · ${t('record', 'best')} ${c.pic} · ${t(`${c.n} question(s) classée(s)`, `${c.n} rated question${c.n === 1 ? '' : 's'}`)}</span></div>
+        <span class="note">${esc(c.titre.nom)} · ${t('record', 'peak')} ${c.pic} · ${t(`${c.n} question(s) classée(s)`, `${c.n} rated question${c.n === 1 ? '' : 's'}`)}</span></div>
         <button class="btn btn-primaire" data-nav="competitif">${t('Jouer', 'Play')}</button></div>
       <h3 style="margin-top:14px">${t('Évolution jour après jour', 'Day-by-day history')}</h3>
       <div id="courbe"></div>
@@ -36,11 +36,11 @@ export function vueProgression(app, { appliquerApparence }) {
     </section>
     <section class="carte"><h2>${t('Badges', 'Badges')}</h2><div class="grille-badges">
       ${stock.BADGES.map(b => `<div class="badge-carte ${p.badges[b.id] ? 'gagne' : ''}" title="${esc(b.desc)}"><span>${b.ico}</span><b>${esc(b.nom)}</b><small>${esc(b.desc)}</small></div>`).join('')}
-    </div><p class="note">${t(`Série record : ${p.serie.record || p.serie.compte || 0} jour(s) · meilleure série de bonnes réponses : ${p.compteurs.meilleurCombo || 0}`, `Longest streak: ${p.serie.record || p.serie.compte || 0} day(s) · most correct answers in a row: ${p.compteurs.meilleurCombo || 0}`)}</p></section>
+    </div><p class="note">${t(`Série record : ${p.serie.record || p.serie.compte || 0} jour(s) · meilleure série de bonnes réponses : ${p.compteurs.meilleurCombo || 0}`, `Longest daily streak: ${p.serie.record || p.serie.compte || 0} day${(p.serie.record || p.serie.compte || 0) === 1 ? '' : 's'} · most correct answers in a row: ${p.compteurs.meilleurCombo || 0}`)}</p></section>
     <section class="carte"><h2>${t('Réussite par thème', 'Success by topic')}</h2><div class="barres">${lignes((a, b) => a[0].localeCompare(b[0]), q => THEMES[q.theme].nom)}</div></section>
     <section class="carte"><h2>${t('Réussite par niveau de difficulté', 'Success by difficulty level')}</h2><div class="barres">${lignes((a, b) => parseInt(a[0].replace(/\D+/, '')) - parseInt(b[0].replace(/\D+/, '')), q => t('Niveau ', 'Level ') + q.difficulte)}</div></section>
     <section class="carte"><h2>${t('Dernières séries', 'Recent quizzes')}</h2>
-      ${hist.length ? `<ul class="liste-erreurs">${hist.map(h => `<li>${new Date(h.date).toLocaleDateString(locale(), { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })} — ${esc(h.titre)} : <b>${h.ok}/${h.n}</b> (${h.points} pts)</li>`).join('')}</ul>` : `<p class="vide">${t('Aucune série terminée pour le moment.', 'No quizzes completed yet.')}</p>`}
+      ${hist.length ? `<ul class="liste-erreurs">${hist.map(h => `<li>${new Date(h.date).toLocaleDateString(locale(), { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })} — ${esc(h.titre)}${t(' :', ':')} <b>${h.ok}/${h.n}</b> (${h.points} ${t('pts', h.points === 1 ? 'pt' : 'pts')})</li>`).join('')}</ul>` : `<p class="vide">${t('Aucune série terminée pour le moment.', 'No quizzes completed yet.')}</p>`}
     </section>
     <section class="carte">
       <h2>${t('Réglages', 'Settings')}</h2>
@@ -54,7 +54,7 @@ export function vueProgression(app, { appliquerApparence }) {
   const sel = app.querySelector('#theme-ui');
   sel.value = stock.apparence();
   sel.onchange = () => { stock.sauverApparence(sel.value); appliquerApparence(); };
-  app.querySelector('#raz').onclick = () => { if (confirm(t('Effacer toute votre progression ?', 'Erase all your progress?'))) { stock.reinitialiser(); vueProgression(app, { appliquerApparence }); toast(t('Progression effacée', 'Progress erased')); } };
+  app.querySelector('#raz').onclick = () => { if (confirm(t('Effacer toute votre progression ?', 'Erase all your progress? This cannot be undone.'))) { stock.reinitialiser(); vueProgression(app, { appliquerApparence }); toast(t('Progression effacée', 'Progress erased')); } };
   app.querySelector('#export').onclick = () => {
     const a = document.createElement('a');
     a.href = URL.createObjectURL(new Blob([JSON.stringify(stock.progres(), null, 1)], { type: 'application/json' }));

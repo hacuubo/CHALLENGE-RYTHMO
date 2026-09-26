@@ -79,6 +79,21 @@ Sur mobile, ouvrir l'adresse du site puis « Ajouter à l'écran d'accueil » po
 - Déclarer `sitemap.xml` dans Google Search Console et Bing Webmaster Tools (un `robots.txt` n'est lu qu'à la
   racine du domaine, pas dans le sous-dossier d'un site GitHub Pages de projet).
 
+### Version anglaise
+
+L'application est entièrement bilingue (français / anglais) : interface, 1 170 questions, corrections, simulateur.
+La langue se choisit sur l'écran d'accueil (sélecteur FR | EN) ; l'adresse `/en/` ouvre la version anglaise, et un
+visiteur non francophone se voit proposer l'anglais.
+
+- Code : chaque texte visible est écrit `t('français', 'English')` (`js/i18n.js`).
+- Questions : la base française reste la référence (réponses, difficulté, tracés, sources) ; l'anglais est une
+  surcouche de textes, `data/questions/en/<même fichier>.json`, plus `en/libelles.json` (sous-thèmes, recommandations).
+  `node scripts/i18n.mjs extraire | assembler | verifier` ; la CI exige une traduction complète et conforme et contrôle
+  aussi les biais de longueur en anglais (`audit-biais.mjs --en`).
+- Conventions et glossaire : `docs/GLOSSAIRE_EN.md`. Toute question ajoutée ou modifiée en français doit l'être aussi
+  dans la surcouche anglaise.
+- Questions du simulateur : `scripts/gen-questions-simu.mjs` génère les deux langues.
+
 ## Base de questions
 
 - Fichiers : `data/questions/*.json`, format décrit dans [`docs/FORMAT_QUESTIONS.md`](docs/FORMAT_QUESTIONS.md).

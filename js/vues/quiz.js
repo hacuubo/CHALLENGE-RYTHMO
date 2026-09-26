@@ -76,7 +76,7 @@ export function afficherTrace(div, q) {
         c.style.width = `${Math.max(320, (boite.clientWidth || 700) - 4)}px`;
         const geo = dessinerSimu(c, coeur, { tFin: q.simu.fin, vitesse: q.simu.vitesse || 50, mode: 'defilement', voies, etiquettes: false, bruit: true });
         return { pxmm: geo.pxms * 40, x0: geo.marge };
-      }, { titre: t('Tracé d\'exploration électrophysiologique', 'Electrophysiology study tracing'), legende: `${t('Simulateur d\'EEP', 'EP study simulator')} · ${decimal(q.simu.vitesse || 50)} mm/s${q.simu.legende ? ' — ' + esc(q.simu.legende) : ''}` });
+      }, { titre: t('Tracé d\'exploration électrophysiologique', 'EP study tracing'), legende: `${t('Simulateur d\'EEP', 'EP study simulator')} · ${decimal(q.simu.vitesse || 50)} mm/s${q.simu.legende ? ' — ' + esc(q.simu.legende) : ''}` });
     });
     return;
   }
@@ -98,7 +98,7 @@ export function afficherTrace(div, q) {
     monterTrace(div, (c, o) => dessinerECG12(c, ecg, o), {
       titre: t('ECG 12 dérivations', '12-lead ECG'), legende: `${t('12 dérivations', '12 leads')} · 25 mm/s · 10 mm/mV${q.ecg12.legende ? ' — ' + esc(q.ecg12.legende) : ''} · <a href="https://physionet.org/content/ptb-xl/" target="_blank" rel="noopener noreferrer">PTB-XL</a>`,
     });
-  }).catch(() => { div.innerHTML = `<p class="note">${t('ECG indisponible hors ligne. Reconnectez-vous pour l\'afficher.', 'ECG unavailable offline. Reconnect to display it.')}</p>`; });
+  }).catch(() => { div.innerHTML = `<p class="note">${t('ECG indisponible hors ligne. Reconnectez-vous pour l\'afficher.', 'This ECG is not available offline. Reconnect to view it.')}</p>`; });
 }
 
 function demarrerChrono(app, aller) {
@@ -202,20 +202,20 @@ function zoneOuverte(app, q, rep, suite) {
   if (rep) {
     zone.innerHTML = `
       ${rep.texte ? `<div class="consigne">${t('Votre réponse :', 'Your answer:')}</div><div class="modele">${esc(rep.texte)}</div>` : ''}
-      <div class="consigne">${t('Réponse attendue :', 'Expected answer:')}</div><div class="modele"><b>${esc(q.reponseAttendue)}</b></div>`;
+      <div class="consigne">${t('Réponse attendue :', 'Model answer:')}</div><div class="modele"><b>${esc(q.reponseAttendue)}</b></div>`;
     clavier = e => { if (e.key === 'Enter' && !e.target.closest('button, a, textarea')) { e.preventDefault(); suite(); } };
     return;
   }
   zone.innerHTML = `
-    <div class="consigne">${t('Rédigez votre réponse (ou réfléchissez-y), puis comparez-la à la réponse attendue.', 'Write your answer (or think it through), then compare it with the expected answer.')}</div>
+    <div class="consigne">${t('Rédigez votre réponse (ou réfléchissez-y), puis comparez-la à la réponse attendue.', 'Write your answer (or think it through), then compare it with the model answer.')}</div>
     <textarea id="txt" placeholder="${t('Votre réponse…', 'Your answer…')}" aria-label="${t('Votre réponse', 'Your answer')}"></textarea>
-    <div class="actions"><button class="btn btn-primaire btn-bloc" id="voir">${t('Voir la réponse', 'Show the answer')}</button></div>`;
+    <div class="actions"><button class="btn btn-primaire btn-bloc" id="voir">${t('Voir la réponse', 'Show answer')}</button></div>`;
   clavier = null;
   zone.querySelector('#voir').onclick = () => {
     const texte = zone.querySelector('#txt').value.trim();
     zone.innerHTML = `
       ${texte ? `<div class="consigne">${t('Votre réponse :', 'Your answer:')}</div><div class="modele">${esc(texte)}</div>` : ''}
-      <div class="consigne">${t('Réponse attendue :', 'Expected answer:')}</div><div class="modele"><b>${esc(q.reponseAttendue)}</b></div>
+      <div class="consigne">${t('Réponse attendue :', 'Model answer:')}</div><div class="modele"><b>${esc(q.reponseAttendue)}</b></div>
       <div class="consigne" style="margin-top:12px">${t('Évaluez-vous honnêtement :', 'Rate yourself honestly:')}</div>
       <div class="auto-eval">
         <button class="btn" data-e="0">❌ ${t('À revoir', 'Needs review')}</button>
@@ -254,7 +254,7 @@ export function lienSignalement(q, rep) {
 
 export function blocCorrection(q, rep) {
   const bonnes = q.type !== 'ouverte' && (!rep || !rep.juste)
-    ? `<p><b>${q.reponses.length > 1 ? t('Réponses attendues :', 'Expected answers:') : t('Réponse attendue :', 'Expected answer:')}</b> ${q.reponses.map(i => (q.type === 'vf' ? '' : lettre(i) + ' — ') + esc(q.options[i])).join(t(' ; ', '; '))}</p>` : '';
+    ? `<p><b>${q.reponses.length > 1 ? t('Réponses attendues :', 'Correct answers:') : t('Réponse attendue :', 'Correct answer:')}</b> ${q.reponses.map(i => (q.type === 'vf' ? '' : lettre(i) + ' — ') + esc(q.options[i])).join(t(' ; ', '; '))}</p>` : '';
   return `
     ${bonnes}
     <div class="explication">${paragraphes(q.explication)}</div>

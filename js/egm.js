@@ -28,7 +28,7 @@ const CANAUX = {
   SC: { get nom() { return tr('ECG sous-cutané (Holter implantable)', 'Subcutaneous ECG (loop recorder)'); }, gain: 9 },
 };
 // annotations en toutes lettres du canal de marqueurs dont l'abréviation diffère en anglais
-const ANNOTATIONS_EN = { FA: 'AF', SV: 'VSP' };
+const ANNOTATIONS_EN = { FA: 'AF', SV: 'VSP', 'Back-up': 'Backup' };
 const annotation = lab => tr(lab, ANNOTATIONS_EN[lab] || lab);
 
 class Scene {

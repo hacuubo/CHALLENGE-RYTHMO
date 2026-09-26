@@ -65,7 +65,7 @@ function assembler(f) {
 const FRANCAIS = /\b(les|des|une|du|est|sont|avec|pour|dans|sur|pas|qui|que|mais|donc|ou bien|lorsque|après|très|être|cette|ces|aux|leur)\b/gi;
 function indicesFrancais(s) {
   const m = String(s).match(FRANCAIS) || [];
-  return m.length >= 3 || /[àâçèêëîïôûœ]/i.test(String(s).replace(/\b(Holter|Coumel|Mahaim|Brugada|Wenckebach|Mobitz|Bachmann|Kent|Josephson|Lenègre|Lev|Twiddler|Chagas|Ebstein)\b/g, ''));
+  return m.length >= 3 || /[àâçèêëîïôûœ]/i.test(String(s).replace(/\b(Holter|Coumel|Mahaim|Brugada|Wenckebach|Mobitz|Bachmann|Kent|Josephson|Lenègre|Lev|Twiddler|Chagas|Ebstein|Haïssaguerre|Jaïs)\b/g, ''));
 }
 
 function verifier(liste, partiel) {

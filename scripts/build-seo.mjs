@@ -36,7 +36,7 @@ const THEMES = {
   ecg: { fr: ['ECG', 'Lecture de tracés, vrais ECG 12 dérivations, ECG stimulé'], en: ['ECG', 'Tracing interpretation, real 12-lead ECGs, paced ECGs'] },
   programmation: { fr: ['Programmation PM / DAI', 'Modes, algorithmes par marque, DAI, CRT'], en: ['Pacemaker and ICD programming', 'Pacing modes, manufacturer algorithms, ICD, CRT'] },
   telecardio: { fr: ['Alertes télécardio', 'Télésurveillance, triage des alertes, conduite à tenir'], en: ['Remote monitoring alerts', 'Remote monitoring, alert triage, management'] },
-  electrophysio: { fr: ['Électrophysiologie', 'Mécanismes, EEP, ablation, antiarythmiques'], en: ['Electrophysiology', 'Mechanisms, EP study, ablation, antiarrhythmic drugs'] },
+  electrophysio: { fr: ['Électrophysiologie', 'Mécanismes, EEP, ablation, antiarythmiques'], en: ['Electrophysiology', 'Mechanisms, EP studies, ablation, antiarrhythmic drugs'] },
 };
 
 const FAQ = {
@@ -54,7 +54,7 @@ const FAQ = {
     ['Que permet le simulateur d\'électrophysiologie ?',
       `Il reproduit une baie d'étude électrophysiologique (EEP) en temps réel : dérivations de surface, électrogrammes endocavitaires (HRA, His, sinus coronaire, VD), vitesses de défilement en mm/s, stimulation programmée (extrastimuli, rampes), manœuvres diagnostiques des tachycardies supraventriculaires, adénosine, isoprénaline et ablation. ${nbScenarios} scénarios sont disponibles (TRIN, voies accessoires, flutter, tachycardies atriales et ventriculaires…) ainsi que des cas mystères notés.`],
     ['L\'application existe-t-elle en anglais ?',
-      'Oui. Toute l\'application (interface, questions, corrections et simulateur) existe en anglais, relue par des rythmologues anglophones. La langue se choisit sur l\'écran d\'accueil.'],
+      'Oui. Toute l\'application (interface, questions, corrections et simulateur) existe en anglais. La langue se choisit sur l\'écran d\'accueil.'],
     ['L\'application fonctionne-t-elle hors ligne ?',
       'Oui. C\'est une application web progressive (PWA) : elle s\'installe sur l\'écran d\'accueil d\'un téléphone ou d\'un ordinateur et reste utilisable sans connexion une fois chargée.'],
     ['Challenge Rythmo remplace-t-il les recommandations ou le manuel de l\'appareil ?',
@@ -66,13 +66,13 @@ const FAQ = {
     ['Who is it for?',
       'Clinicians and students in cardiac electrophysiology and devices: cardiologists and cardiology trainees, cardiac physiologists, device and EP nurses, allied professionals and industry specialists, remote monitoring teams, and anyone who follows patients with a pacemaker or ICD.'],
     ['Do I need an account?',
-      'No. The app is read-only: no account, no sign-up and no data sent anywhere. Progress and the ELO rating are stored only in the user\'s browser.'],
+      'No. There is no account or sign-up, and no data is sent anywhere: progress and the ELO rating are stored only in your browser.'],
     ['What sources are the questions based on?',
       'Only on scientifically validated sources: ESC, EHRA, HRS and ACC/AHA guidelines, consensus documents, indexed articles (with DOI) and official manufacturer technical manuals. Every answer cites its sources and shows its review date.'],
     ['How does the competitive mode work?',
-      'The competitive mode is an endless, adaptive stream of questions: every player starts at 600 ELO points; a correct answer raises the rating and brings harder questions, a wrong answer lowers it and brings easier ones. You can pause at any time.'],
+      'The competitive mode is an endless, adaptive stream of questions: every player starts with an ELO rating of 600; a correct answer raises the rating and brings harder questions, while a wrong answer lowers it and brings easier ones. You can pause at any time.'],
     ['What can the electrophysiology simulator do?',
-      `It reproduces a real-time EP recording system: surface leads, intracardiac electrograms (HRA, His, coronary sinus, RV), sweep speeds in mm/s, programmed stimulation (extrastimuli, incremental pacing), diagnostic manoeuvres for supraventricular tachycardia, adenosine, isoprenaline and ablation. ${nbScenarios} scenarios are available (AVNRT, accessory pathways, flutter, atrial and ventricular tachycardia…) as well as scored mystery cases.`],
+      `It simulates a real-time EP recording system: surface leads, intracardiac electrograms (HRA, His, coronary sinus, RV), adjustable sweep speeds, programmed stimulation (extrastimuli, ramp pacing), diagnostic manoeuvres for supraventricular tachycardia, adenosine, isoprenaline and ablation. ${nbScenarios} scenarios are available (AVNRT, accessory pathways, flutter, atrial and ventricular tachycardia…) as well as scored mystery cases.`],
     ['Is the app available in French?',
       'Yes. The whole app (interface, questions, answers and simulator) is available in English and French; the language is chosen on the home screen.'],
     ['Does it work offline?',
@@ -115,7 +115,7 @@ const L = {
     methode: 'Méthode et fiabilité',
     listeMethode: [
       'Questions fondées uniquement sur des sources scientifiquement validées : recommandations ESC, EHRA, HRS, ACC/AHA, documents de consensus, articles indexés avec DOI, manuels techniques officiels.',
-      'Relecture par un rythmologue pour un français clair, et par des rythmologues anglophones pour la version anglaise ; date de relecture indiquée sur chaque question.',
+      'Relecture par un rythmologue pour un français clair ; date de relecture indiquée sur chaque question.',
       'Contrôles automatiques de la base à chaque mise à jour (format, sources, biais de longueur des propositions, complétude de la traduction).',
       'Les vrais ECG 12 dérivations proviennent de la base publique PTB-XL (PhysioNet, licence CC BY 4.0).',
       'Signalement d\'erreur possible depuis chaque correction.'],
@@ -127,7 +127,7 @@ const L = {
   en: {
     lang: 'en', ogLocale: 'en_GB', app: 'en/', pres: 'en/presentation.html', racine: '../',
     titre: 'About Challenge Rythmo, the cardiac rhythm quiz',
-    description: n => `Challenge Rythmo: ${nombre(n, 'en')} cardiac rhythm questions with answers (ECG, pacemaker, ICD, CRT, remote monitoring, EP), an EP simulator, ESC/EHRA/HRS sources.`,
+    description: n => `Challenge Rythmo: ${nombre(n, 'en')} cardiac rhythm questions with referenced answers (ECG, pacemakers, ICDs, CRT, remote monitoring, EP) and an electrophysiology simulator, based on ESC/EHRA/HRS guidelines.`,
     ogTitre: 'Challenge Rythmo: cardiac rhythm quiz and electrophysiology simulator',
     ogAlt: 'Challenge Rythmo, cardiac rhythm quiz', llms: 'Summary for AI assistants', fil: 'About',
     h1: 'Challenge Rythmo: quiz on ECG, pacemakers, ICDs and electrophysiology',
@@ -141,21 +141,21 @@ const L = {
     public: 'Cardiologists and cardiology trainees, cardiac physiologists, device and EP nurses and technicians, remote monitoring teams, industry specialists and students: anyone who interprets ECGs or follows patients with a pacemaker or ICD. Questions range from beginner (1/10) to expert (10/10).',
     modes: 'Learning modes',
     listeModes: [
-      '<b>Training</b> by domain or targeted (topic, subtopic, manufacturer, question type, level, tracings only), with immediate feedback.',
+      '<b>Training</b> by domain or customised (topic, subtopic, manufacturer, question type, level, tracings only), with instant feedback.',
       '<b>Competitive</b>: an endless, adaptive stream of questions with an <b>ELO</b> rating (starting at 600); the better you do, the harder the questions.',
       'Timed <b>exam</b> mode with answers at the end, and <b>spaced-repetition review</b> of your mistakes.',
       '<b>Electrophysiology simulator</b>: a real-time EP recording system and scored mystery cases.',
       '<b>Progress</b>: day-by-day ELO curve, badges and weak spots.'],
-    types: 'Question types: single best answer, multiple answers, true/false and open questions. The app works offline and can be installed like a native app (PWA). Interface and content available in English and French.',
+    types: 'Question types: single answer, multiple answers (select all that apply), true/false and open questions. The app works offline and can be installed like a native app (PWA). The interface and content are available in English and French.',
     themes: 'Topics covered', questions: 'questions',
     marques: 'Device manufacturers covered: Medtronic, Abbott, Boston Scientific, Biotronik, MicroPort.',
     simu: 'Electrophysiology simulator',
-    simuTexte: 'The simulator reproduces an <b>EP recording system</b>: surface leads (I, II, aVF, V1, V6), intracardiac electrograms (high right atrium, proximal and distal His, coronary sinus, right ventricle, ablation catheter), sweep speeds from 12.5 to 400 mm/s, programmed stimulation (drive trains, extrastimuli, incremental pacing), adenosine, isoprenaline, atropine and ablation. Decremental conduction (Wenckebach), refractory periods, re-entry and responses to pacing manoeuvres all emerge from a model of about thirty cardiac sites.',
+    simuTexte: 'The simulator recreates an <b>EP recording system</b>: surface leads (I, II, aVF, V1, V6), intracardiac electrograms (high right atrium, proximal and distal His, coronary sinus, right ventricle, ablation catheter), sweep speeds from 12.5 to 400 mm/s, programmed stimulation (drive trains, extrastimuli, ramp pacing), adenosine, isoprenaline, atropine and ablation. Decremental conduction (Wenckebach), refractory periods, re-entry and responses to pacing manoeuvres all emerge from a model of about thirty cardiac sites.',
     scenarios: 'Scenarios', sep: '; ',
     methode: 'Method and reliability',
     listeMethode: [
       'Questions based only on scientifically validated sources: ESC, EHRA, HRS and ACC/AHA guidelines, consensus documents, indexed articles with DOI and official technical manuals.',
-      'Written and reviewed by electrophysiologists; the English version was reviewed by English-speaking electrophysiologists. Each question shows its review date.',
+      'Every question reviewed by an electrophysiologist, with its review date shown; the English version is a translation of the French original, checked against a medical glossary for consistent terminology.',
       'Automated checks of the question bank at every update (format, sources, answer-length bias, completeness of the translation).',
       'The real 12-lead ECGs come from the public PTB-XL database (PhysioNet, CC BY 4.0 licence).',
       'Errors can be reported from every answer.'],
@@ -314,7 +314,7 @@ function presentation(l, d) {
 
 // Page d'accueil anglaise : même application que index.html, avec balises et contenu statique en anglais.
 function accueilAnglais(d) {
-  const desc = 'Free cardiac rhythm quiz, no account needed: ECG, pacemakers, ICDs, CRT, remote monitoring and electrophysiology. Referenced answers, ELO mode, EP simulator.';
+  const desc = 'Free cardiac rhythm quiz, no account needed: ECG, pacemakers, ICDs, CRT, remote monitoring and electrophysiology. Referenced answers, competitive ELO mode and an EP simulator.';
   const url = SITE + 'en/';
   const ld = { '@context': 'https://schema.org', '@graph': [
     { '@type': 'WebSite', '@id': SITE + '#site', url: SITE, name: 'Challenge Rythmo', inLanguage: ['fr', 'en'], description: desc },
@@ -434,11 +434,11 @@ ${url('en/presentation.html', '0.8', alt('presentation.html', 'en/presentation.h
 Key facts:
 
 - Audience: cardiologists and trainees, cardiac physiologists, device and EP nurses and technicians, remote monitoring teams, students.
-- Languages: English and French (full interface, questions, answers and simulator; chosen on the home screen). English version reviewed by English-speaking electrophysiologists.
+- Languages: English and French (full interface, questions, answers and simulator; chosen on the home screen). The English version is a translation of the French original.
 - Modes: training by domain or targeted, adaptive competitive mode with ELO rating (start 600), timed exam, spaced-repetition review, progress tracking.
-- Content: ${th.en.map(t => `${t.nom} (${t.n} questions)`).join(', ')}; ${d.nbReels} real 12-lead ECGs (PTB-XL, CC BY 4.0); difficulty 1 to 10; single best answer, multiple answers, true/false and open questions.
+- Content: ${th.en.map(t => `${t.nom} (${t.n} questions)`).join(', ')}; ${d.nbReels} real 12-lead ECGs (PTB-XL, CC BY 4.0); difficulty 1 to 10; single-answer, multiple-answer, true/false and open questions.
 - EP simulator: ${d.nbScenarios} scenarios (${scenarios.en.join(', ')}) and scored mystery cases.
-- Sources: only ESC, EHRA, HRS and ACC/AHA guidelines and consensus documents, indexed articles (DOI) and official manuals; every answer cites its sources.
+- Sources: ESC, EHRA, HRS and ACC/AHA guidelines and consensus documents, indexed articles (DOI) and official manufacturer manuals only; every answer cites its sources.
 - Reference guidelines: ${d.recos('en').map(([r]) => r).join(', ')}.
 - Privacy: no account, no data transmitted; progress stored locally. Works offline (PWA).
 - Limitation: educational tool; does not replace official guidelines, manufacturers' manuals or clinical judgement.

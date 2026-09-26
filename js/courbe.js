@@ -7,7 +7,7 @@ const fmtJour = j => new Date(j + 'T12:00:00').toLocaleDateString(locale(), { da
 
 export function courbeElo(conteneur, points, { depart = 600 } = {}) {
   if (!points.length) {
-    conteneur.innerHTML = `<p class="vide">${t('Jouez une partie compétitive pour voir votre courbe.', 'Play a competitive game to see your rating curve.')}</p>`;
+    conteneur.innerHTML = `<p class="vide">${t('Jouez une partie compétitive pour voir votre courbe.', 'Play in competitive mode to see your rating history.')}</p>`;
     return;
   }
   // un point de départ la veille du premier jour, pour montrer d'où l'on part
@@ -52,7 +52,7 @@ export function courbeElo(conteneur, points, { depart = 600 } = {}) {
     point.setAttribute('cx', x(i)); point.setAttribute('cy', y(p.elo)); point.setAttribute('visibility', 'visible');
     const d = prec ? p.elo - prec.elo : 0;
     bulle.innerHTML = p.jour
-      ? `<b>${fmtJour(p.jour)}</b><br>ELO ${Math.round(p.elo)} <span class="delta ${d >= 0 ? 'plus' : 'moins'}">${d >= 0 ? '+' : ''}${Math.round(d)}</span><br>${t(`${p.n} question(s), ${p.gagnees ?? 0} juste(s)`, `${p.n} question(s), ${p.gagnees ?? 0} correct`)}`
+      ? `<b>${fmtJour(p.jour)}</b><br>ELO ${Math.round(p.elo)} <span class="delta ${d >= 0 ? 'plus' : 'moins'}">${d >= 0 ? '+' : ''}${Math.round(d)}</span><br>${t(`${p.n} question(s), ${p.gagnees ?? 0} juste(s)`, `${p.n} question${p.n === 1 ? '' : 's'}, ${p.gagnees ?? 0} correct`)}`
       : `<b>${t('Départ', 'Start')}</b><br>ELO ${p.elo}`;
     bulle.hidden = false;
     const gauche = (x(i) / W) * r.width;

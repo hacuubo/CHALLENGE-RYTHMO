@@ -6,7 +6,7 @@ import { t, enAnglais, langue } from './i18n.js';
 
 export const THEMES = {
   ecg: { get nom() { return 'ECG'; }, ico: '📈', get desc() { return t('Lecture de tracés, vrais ECG 12 dérivations, ECG stimulé', 'Tracing interpretation, real 12-lead ECGs, paced ECGs'); } },
-  programmation: { get nom() { return t('Programmation PM / DAI', 'Pacemaker / ICD programming'); }, ico: '⚙️', get desc() { return t('Modes, algorithmes par marque, DAI, CRT', 'Modes, manufacturer algorithms, ICD, CRT'); } },
+  programmation: { get nom() { return t('Programmation PM / DAI', 'Pacemaker / ICD programming'); }, ico: '⚙️', get desc() { return t('Modes, algorithmes par marque, DAI, CRT', 'Pacing modes, manufacturer algorithms, ICD, CRT'); } },
   telecardio: { get nom() { return t('Alertes télécardio', 'Remote monitoring alerts'); }, ico: '📡', get desc() { return t('Télésurveillance, triage des alertes, conduite à tenir', 'Remote monitoring, alert triage, management'); } },
   electrophysio: { get nom() { return t('Électrophysiologie', 'Electrophysiology'); }, ico: '⚡', get desc() { return t('Mécanismes, EEP, ablation, antiarythmiques', 'Mechanisms, EP studies, ablation, antiarrhythmic drugs'); } },
 };
@@ -22,7 +22,7 @@ export const NIVEAUX = [
   { id: 'deb', get nom() { return t('Débutant (1–3)', 'Beginner (1–3)'); }, min: 1, max: 3 },
   { id: 'inter', get nom() { return t('Intermédiaire (4–6)', 'Intermediate (4–6)'); }, min: 4, max: 6 },
   { id: 'av', get nom() { return t('Avancé (7–10)', 'Advanced (7–10)'); }, min: 7, max: 10 },
-  { id: 'sup3', get nom() { return t('Au-dessus de 3', 'Above 3'); }, min: 4, max: 10 },
+  { id: 'sup3', get nom() { return t('Au-dessus de 3', 'Level 4 and above'); }, min: 4, max: 10 },
 ];
 
 export const base = { version: '', date: '', langue: 'fr', questions: [], parId: new Map() };

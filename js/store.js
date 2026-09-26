@@ -125,7 +125,7 @@ export const BADGES = [
   badge('semaine', '📆', ['Assidu', 'Dedicated'], ['7 jours d\'affilée', '7 days in a row']),
   badge('cent', '🎯', ['Centurion', 'Centurion'], ['100 questions différentes vues', '100 different questions seen']),
   badge('cinqcents', '🏅', ['Marathonien', 'Marathon runner'], ['500 questions différentes vues', '500 different questions seen']),
-  badge('ecg50', '📈', ['Œil d\'ECG', 'ECG eye'], ['50 bonnes réponses sur des tracés', '50 correct answers on tracings']),
+  badge('ecg50', '📈', ['Œil d\'ECG', 'Eagle eye'], ['50 bonnes réponses sur des tracés', '50 correct answers on tracings']),
   badge('examen', '⏱️', ['Examen réussi', 'Exam passed'], ['Au moins 80 % en mode examen (10 questions ou plus)', 'At least 80% in exam mode (10 questions or more)']),
   badge('club', '♞', ['Joueur de club', 'Club player'], ['Atteindre 1400 ELO en mode compétitif', 'Reach 1400 ELO in competitive mode']),
   badge('expert', '♛', ['Expert', 'Expert'], ['Atteindre 1800 ELO en mode compétitif', 'Reach 1800 ELO in competitive mode']),
