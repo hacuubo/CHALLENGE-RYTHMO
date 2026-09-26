@@ -724,3 +724,10 @@ main:has(.simu-baie) > :not(.simu-poste) { max-width: 860px; margin-left: auto; 
 @property --p { syntax: '<percentage>'; inherits: false; initial-value: 0%; }
 .simu-appui.charge { animation: simu-appui var(--duree, 2000ms) linear forwards; }
 @keyframes simu-appui { from { --p: 0%; } to { --p: 100%; } }
+/* ordre des voies à l'écran */
+.simu-ordre { padding: 4px 0 8px; }
+.simu-ordre > span { display: block; font-size: .72rem; margin-bottom: 4px; }
+.simu-ordre ol { display: flex; flex-wrap: wrap; gap: 4px; margin: 0; padding: 0; list-style: none; counter-reset: voie; }
+.simu-ordre li { display: inline-flex; align-items: center; gap: 4px; border: 1px solid #2c3e50; background: #16212c; color: #e8eef3; border-radius: 999px; padding: 2px 10px 2px 2px; font-size: .78rem; font-weight: 600; }
+.simu-ordre li button { border: 0; background: #23384a; color: #fff; border-radius: 50%; width: 26px; height: 26px; font-size: .7rem; cursor: pointer; }
+.simu-ordre li button:disabled { opacity: .3; cursor: default; }

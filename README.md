@@ -30,7 +30,9 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
     L'écran en temps réel ne se fige jamais ; à côté, un **écran de rappel** affiche chaque manœuvre ou enregistrement :
     relecture, vitesse propre (pincer pour zoomer), trois compas **aimantés** aux activations avec report (au doigt : appui
     long de 2 s sur le début, puis appui maintenu sur la fin), comparaison avec
-    un rappel de référence. Chaque événement du journal peut être rappelé, avec ses intervalles. Sur téléphone en paysage,
+    un rappel de référence. Chaque fin de stimulation (programmée ou arrêtée par Stop) est rappelée centrée sur le dernier
+    complexe stimulé ; chaque événement du journal peut être rappelé, avec ses intervalles. Ordre des voies modifiable (▲ ou
+    glisser le nom de la voie sur le tracé) ; les sites de stimulation portent le nom de la voie affichée (SC 1-2, OD lat…). Sur téléphone en paysage,
     un écran à la fois (glisser pour passer du temps réel au rappel, vignette du temps réel qu'on peut retirer) ; en portrait, invitation au paysage.
   - **Console de stimulation** toujours visible (en bas, à droite en paysage ou sur grand écran) : Stimuler, S2 − 10, Salve,
     Stop, Enregistrer ; pastilles de site ; onglets Programme, Protocoles, Salve, Sonde / RF, Médicaments, Journal ; réglages
