@@ -198,19 +198,26 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.click('#stimuler');
     if (await page.textContent('#stimuler') === 'Stop') throw new Error('Stop n\'arrête pas la stimulation continue');
     await page.uncheck('#continu');
+    // scénario rechargé : l'induction part d'un cœur au repos, indépendamment de la stimulation continue qui précède
+    // (selon l'instant du Stop, elle peut laisser une tachycardie déjà induite ou des oreillettes encore réfractaires)
+    await page.selectOption('#scenario', 'normal'); await page.selectOption('#scenario', 'trin');
     if (await page.isVisible('#s2')) throw new Error('S2 visible sans « + extrastimulus »');
     await page.check('#extras');
-    await page.fill('#s2', '320'); await page.dispatchEvent('#s2', 'change');
+    // S2 à 300 ms : au cœur de la fenêtre d'induction de la TRIN (6000/6000 inductions au banc) ; 320 ms tombe en bordure
+    // de la période réfractaire de la voie rapide et échoue dans ~2 % des cas à cause de la variabilité physiologique
+    await page.fill('#s2', '300'); await page.dispatchEvent('#s2', 'change');
     await page.click('#stimuler');
     // pendant le train, Stimuler devient Stop
     if (await page.textContent('#stimuler') !== 'Stop') throw new Error('le bouton Stimuler ne devient pas Stop');
     // compteur du train : S1 délivrés / demandés (8 par défaut)
     await page.waitForFunction(() => /Train S1 \d\/8/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 3000 });
+    // la manœuvre s'affiche sur l'écran de rappel, centrée sur l'extrastimulus. On la vérifie dès qu'elle paraît : quelques
+    // secondes plus tard, le rappel passe volontairement au dernier événement (« Tachycardie »), plus tôt sur une machine lente.
+    await page.waitForFunction(() => /S2 300/.test(document.querySelector('#rappel-titre')?.textContent || '')
+      && /−/.test(document.querySelector('#recul-val')?.textContent || ''), null, { timeout: 30000 })
+      .catch(() => { throw new Error('le rappel ne montre pas la manœuvre centrée sur l\'extrastimulus'); });
     // simulation en temps réel : l'induction prend ~9 s, davantage sur une machine chargée
     await page.waitForFunction(() => /Tachycardie/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 30000 });
-    // la manœuvre s'affiche sur l'écran de rappel ; toucher le tracé en temps réel ne l'arrête pas
-    await page.waitForFunction(() => /S2 320/.test(document.querySelector('#rappel-titre')?.textContent || ''), null, { timeout: 10000 });
-    if (!/−/.test(await page.textContent('#recul-val'))) throw new Error('le rappel n\'est pas centré sur l\'extrastimulus');
     // voies : en enlever une et en ajouter une autre passe en montage personnalisé
     await page.click('#voies-bloc summary');
     await page.click('[data-voie=V1]'); await page.click('[data-voie=abld]');
