@@ -11,9 +11,11 @@ permissions:
   pages: write
   id-token: write
 
+# Une file par branche : une nouvelle poussée annule les vérifications en cours de la même PR,
+# mais jamais celles de main ni la publication.
 concurrency:
-  group: pages
-  cancel-in-progress: true
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   verifier:
@@ -58,6 +60,10 @@ jobs:
   publier:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     needs: [verifier, interface]
+    # publications en série, sans annuler celle qui est en cours
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     environment:
       name: github-pages
