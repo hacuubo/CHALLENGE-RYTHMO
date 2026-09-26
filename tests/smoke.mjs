@@ -300,6 +300,9 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
         cv.dispatchEvent(ev('pointerup'));
         return ok;
       }, [x, duree, jusqua]);
+      // le compas ne se pose que sur un tracé enregistré : on attend la fin des enregistrements en cours (tir RF juste arrêté),
+      // faute de quoi le milieu du rappel peut être encore vide et l'appui long n'y trouve aucun instant
+      await page.waitForFunction(() => !document.querySelector('#journal [title="Enregistrement en cours"]'), null, { timeout: 20000 });
       await toucher(0.5, { duree: 300 });
       if (/Début posé/.test(await page.textContent('#message'))) throw new Error('un appui bref pose un compas');
       const etatRappel = () => page.evaluate(() => JSON.stringify({ titre: document.querySelector('#rappel-titre').textContent.slice(0, 60), vide: document.querySelector('#rappel-vide').hidden,
