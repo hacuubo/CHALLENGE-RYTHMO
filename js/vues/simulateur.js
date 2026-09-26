@@ -195,8 +195,9 @@ export function vueSimulateur(app) {
       </div>
       <div class="simu-pans">
         ${panneau('prog', `
-          <label class="simu-case simu-extras"><input type="checkbox" id="continu" ${r.continu ? 'checked' : ''}> ${t('Nb S1 infini : stimulation continue à S1 jusqu\'à Stop', 'Unlimited S1: continuous pacing at S1 until Stop')}</label>
-          <div class="simu-grille-pas">${pas('s1', 'S1 (ms)', r.s1, 10, 200, 2000)}${pas('n', t('Nb S1', 'S1 count'), r.n, 1, 0, 30)}
+          <div class="simu-grille-pas">${pas('s1', 'S1 (ms)', r.s1, 10, 200, 2000).replace('<span class="simu-pas-lib">S1 (ms)</span>',
+            // case « ∞ » à côté de S1 : nombre de S1 infini, stimulation continue à S1 jusqu'à Stop
+            `<span class="simu-pas-lib">S1 (ms) <label class="simu-infini" title="${t('Nombre de S1 infini : stimulation continue à S1 jusqu\'à Stop', 'Unlimited S1: continuous pacing at S1 until Stop')}"><input type="checkbox" id="continu" ${r.continu ? 'checked' : ''} aria-label="${t('Nombre de S1 infini : stimulation continue à S1 jusqu\'à Stop', 'Unlimited S1: continuous pacing at S1 until Stop')}"><span aria-hidden="true">∞</span></label></span>`)}${pas('n', t('Nb S1', 'S1 count'), r.n, 1, 0, 30)}
           ${pas('sortie', t('Sortie (mA)', 'Output (mA)'), r.sortie, 0.5, 0.1, 20)}${pas('largeur', t('Impulsion (ms)', 'Pulse width (ms)'), r.largeur, 0.5, 0.5, 2)}</div>
           <label class="simu-case simu-extras"><input type="checkbox" id="extras" ${r.extras ? 'checked' : ''}> ${t('+ extrastimulus (S2, S3, S4)', '+ extrastimuli (S2, S3, S4)')}</label>
           <div id="extras-bloc" ${r.extras ? '' : 'hidden'}>
@@ -331,6 +332,7 @@ export function vueSimulateur(app) {
   }
   const f0 = v => (v == null ? '—' : Math.round(v));
   function rendreJournal() {
+    if (!$('#journal')) return; // vue quittée : une analyse différée (setTimeout) peut encore aboutir après la sortie
     $('#journal').innerHTML = st.actions.slice().reverse().map(a => `<li><button class="simu-evt${a === st.rappel ? ' choisi' : ''}" data-evt="${a.id}" ${a === st.rappel ? 'aria-current="true"' : ''}>
       <span class="note">${hms(a.t)}</span> ${esc(a.texte)}${a.instantane ? '' : ` <span class="note" title="${t('Enregistrement en cours', 'Recording in progress')}">⏳</span>`}
       ${a.mes ? `<small class="simu-evt-mes">V-V ${f0(a.mes.cycleV)} · AH ${f0(a.mes.AH)} · HV ${f0(a.mes.HV)} · VA ${f0(a.mes.VA)}</small>` : ''}</button></li>`).join('');
@@ -559,7 +561,7 @@ export function vueSimulateur(app) {
   function resultat(texte, { manoeuvre = false } = {}) {
     st.analyses.push(texte); if (manoeuvre) st.cr.manoeuvres.push(texte);
     // conclusion d'une manœuvre : dernier élément du journal, son rappel est centré sur le dernier complexe stimulé
-    noter(null, texte, { debut: st.t - 8000, capture: st.t + 500, finStim: true }); $('#proto-etat').textContent = texte;
+    noter(null, texte, { debut: st.t - 8000, capture: st.t + 500, finStim: true }); if ($('#proto-etat')) $('#proto-etat').textContent = texte;
   }
 
   // salve à cycle fixe ; duree (ms) : arrêt automatique, sinon continue jusqu'à « Stop »
