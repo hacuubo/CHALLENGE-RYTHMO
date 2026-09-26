@@ -1,8 +1,8 @@
 // Banc d'essai du simulateur d'électrophysiologie (sans navigateur) : node tests/simulateur.mjs
 // Vérifie, pour chaque scénario, le rythme de base, l'induction, les manœuvres diagnostiques et l'ablation.
 import { Coeur } from '../js/simu/moteur.js';
-import { SCENARIOS } from '../js/simu/scenarios.js';
-import { tachycardie, mesures, battementsV, activations, sitePlusPrecoce, reponseStim, recuperationSinusale, constantes } from '../js/simu/analyse.js';
+import { SCENARIOS, ARRIVEES } from '../js/simu/scenarios.js';
+import { tachycardie, mesures, battementsV, activations, sitePlusPrecoce, reponseStim, recuperationSinusale, constantes, induireTachycardie } from '../js/simu/analyse.js';
 import { seuilCapture } from '../js/simu/moteur.js';
 
 const GRAINE = +(process.env.GRAINE || 7), VARIATION = +(process.env.VARIATION || 0);
@@ -444,6 +444,15 @@ function esvHR(c) {
   verifier(ah0 != null && mesures(n).AH >= ah0 + 50, `lésion nodale : AH ${ah0} → ${mesures(n).AH} ms`);
   n.leserNoeud(400); attendre(n, 5000);
   verifier(n.voies.find(v => v.id === 'nav').coupee && mesures(n).cycleV > 1100, 'lésion nodale poussée : bloc AV complet');
+}
+
+// patients adressés en tachycardie : l'induction préalable réussit et la tachycardie persiste à l'ouverture du cas
+console.log('Patients en tachycardie à l\'arrivée');
+for (const [id, a] of Object.entries(ARRIVEES)) {
+  const c = nouveau(a.base);
+  const r = induireTachycardie(c, a.recettes); attendre(c, 6000);
+  const t = tachycardie(c);
+  verifier(r != null && t.active, `${id} : en tachycardie à l'ouverture (A ${Math.round(t.cycleA ?? 0)} / V ${Math.round(t.cycleV ?? 0)} ms)`);
 }
 
 console.log(erreurs.length ? `\n${erreurs.length} échec(s)` : '\nSimulateur conforme.');

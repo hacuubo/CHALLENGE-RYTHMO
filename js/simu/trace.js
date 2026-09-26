@@ -322,7 +322,8 @@ export function dessinerSimu(canvas, coeur, o = {}) {
     const p = tous[i - 1], ecart = p && s.t - p.t < 2000 ? Math.round(s.t - p.t) : null;
     const ecartP = i > 1 && p.t - tous[i - 2].t < 2000 ? Math.round(p.t - tous[i - 2].t) : null;
     let txt = '';
-    if (ecart == null) txt = 'S';
+    if (s.lib) txt = s.lib; // train programmé : numéro du S1 dans le train, couplage des extrastimulus
+    else if (ecart == null) txt = 'S';
     else if (ecartP == null || Math.abs(ecart - ecartP) > 4) txt = `${ecart}`;
     if (!s.capture) txt = txt ? `${txt}·` : '·';
     if (txt) ctx.fillText(txt, X(s.t, seg), 10);

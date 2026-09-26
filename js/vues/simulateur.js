@@ -2,10 +2,10 @@
 // protocoles automatiques, sonde d'ablation avec générateur de radiofréquence et cartographie, constantes du patient,
 // cas mystères notés et compte rendu d'exploration.
 import { Coeur, SITES_ATRIAUX, seuilCapture } from '../simu/moteur.js';
-import { SCENARIOS, MYSTERES, SITES_STIM, SITES_DETECTION, POSITIONS } from '../simu/scenarios.js';
+import { SCENARIOS, MYSTERES, ARRIVEES, scenario, SITES_STIM, SITES_DETECTION, POSITIONS } from '../simu/scenarios.js';
 import { dessinerSimu, MONTAGES, VITESSES, CANAUX, fenetreMs, marges, evenementsCanal } from '../simu/trace.js';
 import { mesures, tachycardie, analyserEntrainement, analyserESV, reponseStim, recuperationSinusale, constantes, tempsLocal,
-  activations, battementsV, sitePlusPrecoce } from '../simu/analyse.js';
+  activations, battementsV, sitePlusPrecoce, induireTachycardie } from '../simu/analyse.js';
 import { esc, melanger } from '../util.js';
 
 let boucle = null;
@@ -64,10 +64,11 @@ export function vueSimulateur(app) {
   if (!SITES_STIM.some(s => s.id === r.site)) r.site = 'hra';
   if (!SITES_DETECTION.some(s => s.id === r.detection)) r.detection = '';
   // rappel : entrée du journal affichée sur l'écran de rappel (instantané du tracé), avec sa relecture et ses compas
-  const st = { scenario: 'normal', mystere: false, coeur: null, t: 0, gains: {}, salve: null, position: 'od-haute', actions: [], faites: new Set(), analyses: [],
+  // enquete : diagnostic à trouver (cas mystère ou patient arrivé en tachycardie), explication cachée jusqu'à la conclusion
+  const st = { scenario: 'normal', mystere: false, enquete: false, coeur: null, t: 0, gains: {}, salve: null, position: 'od-haute', actions: [], faites: new Set(), analyses: [],
     positionsTachy: new Set(), tachyAvant: false, dernierMaj: 0, numero: 0,
     rappel: null, recul: 0, curseurs: [], nouveauCompas: false, report: false, demande: null, sale: true, reference: null,
-    proto: null, rf: null, carte: {}, cr: null, vue: 'direct', hypo: 0, bump: null };
+    proto: null, rf: null, carte: {}, cr: null, vue: 'direct', hypo: 0, bump: null, train: null };
 
   const opt = (liste, v) => liste.map(o => `<option value="${o.id}" ${o.id === v ? 'selected' : ''}>${esc(o.nom)}</option>`).join('');
   // sélecteur numérique à boutons ± (appui long : défilement rapide) ; la saisie au clavier reste possible
@@ -84,12 +85,18 @@ export function vueSimulateur(app) {
 
   app.innerHTML = `
     <h1 class="simu-h1">Simulateur d'électrophysiologie</h1>
-    <section class="carte simu-tete">
-      <label class="simu-champ large"><span>Scénario</span>
-        <select id="scenario">
-          <option value="mystere">🎲 Cas mystère (diagnostic à trouver, démarche notée)</option>
-          ${Object.entries(SCENARIOS).map(([id, s]) => `<option value="${id}" ${id === 'normal' ? 'selected' : ''}>${esc(s.nom)}</option>`).join('')}
-        </select></label>
+    <section class="simu-sombre simu-tete">
+      <div class="simu-cas-ligne">
+        <label class="simu-champ large"><span>Scénario</span>
+          <select id="scenario">
+            <option value="mystere">🎲 Cas mystère (diagnostic à trouver, démarche notée)</option>
+            <optgroup label="Patient en tachycardie à l'arrivée (diagnostic à confirmer)">
+              ${Object.entries(ARRIVEES).map(([id, s]) => `<option value="${id}">${esc(s.nom)}</option>`).join('')}</optgroup>
+            <optgroup label="Scénarios d'apprentissage">
+              ${Object.entries(SCENARIOS).map(([id, s]) => `<option value="${id}" ${id === 'normal' ? 'selected' : ''}>${esc(s.nom)}</option>`).join('')}</optgroup>
+          </select></label>
+        <span class="simu-badge" id="cas-badge"></span>
+      </div>
       <p class="simu-contexte" id="contexte"></p>
     </section>
 
@@ -236,7 +243,7 @@ export function vueSimulateur(app) {
     </section>
     </div>
 
-    <section class="carte" id="diagnostic" hidden>
+    <section class="simu-sombre" id="diagnostic" hidden>
       <h2>Votre diagnostic</h2>
       <p class="note">Stimulez, induisez, faites vos manœuvres, traitez si besoin, puis concluez. Votre démarche est notée.</p>
       <div class="simu-ligne"><label class="simu-champ large"><span>Diagnostic</span><select id="reponse">
@@ -245,10 +252,10 @@ export function vueSimulateur(app) {
       <div id="verdict"></div>
     </section>
 
-    <section class="carte simu-cr" id="compte-rendu" hidden></section>
-    <section class="carte" id="explication-scenario"></section>
+    <section class="simu-sombre simu-cr" id="compte-rendu" hidden></section>
+    <section class="simu-sombre" id="explication-scenario"></section>
 
-    <details class="carte simu-guide">
+    <details class="simu-sombre simu-guide">
       <summary><b>Mode d'emploi et manœuvres clés</b></summary>
       <ul>
         <li><b>Console</b> : toujours en bas de l'écran (à droite en paysage sur téléphone). Stimuler (qui devient Stop pendant une stimulation, une salve ou un protocole) et Enregistrer restent visibles ; « + extrastimulus » affiche S2, S3 et S4 ; la salve se lance depuis l'onglet Salve ; les pastilles choisissent le site ; les onglets donnent les réglages (± : appui long pour aller vite). Touchez l'onglet ouvert pour replier la console.</li>
@@ -336,27 +343,46 @@ export function vueSimulateur(app) {
   const nouveauCR = () => ({ base: null, wenck: null, wenckRetro: null, extraA: null, extraV: null, trs: null, seuils: [], parahis: null, inductions: [], tirs: [], hypotension: false });
 
   function nouveauCoeur() {
-    const sc = SCENARIOS[st.scenario];
+    const sc = scenario(st.scenario), arrivee = ARRIVEES[st.scenario];
     arreterRF(true);
     st.coeur = new Coeur(sc.def(), { variation: st.mystere ? Math.min(0.05, sc.variation ?? 1) : 0 });
     st.coeur.avancer(2500);
-    Object.assign(st, { t: 2500, salve: null, actions: [], faites: new Set(), analyses: [], positionsTachy: new Set(), tachyAvant: false,
-      rappel: null, recul: 0, curseurs: [], nouveauCompas: false, demande: null, sale: true, reference: null, proto: null, rf: null, carte: {}, cr: nouveauCR(), hypo: 0, bump: null });
+    // patient adressé en tachycardie : induction faite hors de la vue de l'utilisateur, avant l'ouverture du cas
+    const induit = arrivee ? induireTachycardie(st.coeur, arrivee.recettes) : null;
+    if (arrivee) {
+      st.coeur.avancer(st.coeur.t + 6000);
+      for (const e of st.coeur.evenements) e.vu = true;
+      st.coeur.chocs = [];
+    }
+    Object.assign(st, { t: st.coeur.t, salve: null, actions: [], faites: new Set(), analyses: [], positionsTachy: new Set(), tachyAvant: false,
+      rappel: null, recul: 0, curseurs: [], nouveauCompas: false, demande: null, sale: true, reference: null, proto: null, rf: null, carte: {}, cr: nouveauCR(), hypo: 0, bump: null, train: null });
     $('#salve').textContent = 'Démarrer la salve'; $('#salve').classList.remove('actif');
     for (const id of ['#iso', '#atropine']) { $(id).setAttribute('aria-pressed', 'false'); $(id).classList.remove('actif'); }
     $('#rappel-titre').textContent = ''; $('#rappel-vide').hidden = false; $('#paysage-nouveau').textContent = ''; $('#reference').hidden = true;
     $('#proto-etat').textContent = ''; $('#compte-rendu').hidden = true; $('#rf-etat').textContent = 'Générateur prêt';
     majRecul(); majCarte(); majResume();
-    $('#diagnostic').hidden = !st.mystere; $('#verdict').innerHTML = ''; $('#reponse').value = '';
+    if (arrivee && induit) {
+      // la tachycardie est là dès l'ouverture : l'induction ne fait pas partie de la démarche à noter
+      const tach = tachycardie(st.coeur);
+      st.faites.add('induction'); st.tachyAvant = true;
+      st.cr.inductions.push({ cycleA: tach.cycleA, cycleV: tach.cycleV, VA: mesures(st.coeur).VA, precoce: 'tachycardie présente à l\'arrivée' });
+    }
+    st.enquete = st.mystere || !!arrivee;
+    $('#diagnostic').hidden = !st.enquete; $('#verdict').innerHTML = ''; $('#reponse').value = '';
     $('#contexte').innerHTML = sc.contexte ? `<b>Contexte :</b> ${esc(sc.contexte)}` : '';
-    $('#explication-scenario').innerHTML = st.mystere
-      ? '<h2>Cas mystère</h2><p class="note">Le mécanisme est caché et les paramètres varient légèrement d\'un cas à l\'autre. Faites les manœuvres utiles, traitez si besoin, puis concluez.</p>'
-      : `<h2>${esc(sc.nom)}</h2><p>${esc(sc.explication)}</p>`;
-    noter(null, st.mystere ? 'Nouveau cas mystère' : `Scénario : ${sc.nom}`, { debut: 0, capture: 6500 });
+    $('#cas-badge').textContent = arrivee ? 'Patient en tachycardie' : st.mystere ? 'Cas mystère' : 'Apprentissage';
+    $('#cas-badge').className = `simu-badge ${arrivee ? 'tachy' : st.mystere ? 'mystere' : ''}`;
+    $('#explication-scenario').innerHTML = arrivee
+      ? `<h2>Patient adressé en tachycardie</h2><p class="note">La tachycardie est en cours${induit ? '' : ' (elle s\'est arrêtée à l\'installation : induisez-la)'}. Mesurez le cycle, le VA et la séquence atriale, confirmez le mécanisme par les manœuvres (entraînement, ESV His-réfractaire, adénosine…), traitez si besoin, puis concluez.${st.mystere ? ' Les paramètres varient légèrement d\'un cas à l\'autre.' : ''}</p>`
+      : st.mystere
+        ? '<h2>Cas mystère</h2><p class="note">Le mécanisme est caché et les paramètres varient légèrement d\'un cas à l\'autre. Faites les manœuvres utiles, traitez si besoin, puis concluez.</p>'
+        : `<h2>${esc(sc.nom)}</h2><p>${esc(sc.explication)}</p>`;
+    noter(null, arrivee ? 'Patient en tachycardie à l\'arrivée' : st.mystere ? 'Nouveau cas mystère' : `Scénario : ${sc.nom}`, { debut: st.t - 5000, capture: st.t + 4000, auto: !!arrivee });
   }
   function choisir(v) {
     st.mystere = v === 'mystere';
-    st.scenario = st.mystere ? melanger(MYSTERES)[0] : v;
+    // cas mystère : un scénario d'apprentissage ou, une fois sur quatre environ, un patient arrivé en tachycardie
+    st.scenario = st.mystere ? melanger(Math.random() < 0.25 ? Object.keys(ARRIVEES) : MYSTERES)[0] : v;
     nouveauCoeur();
   }
 
@@ -408,7 +434,10 @@ export function vueSimulateur(app) {
     const extras = [p.s2, p.s3, p.s4].filter(Boolean);
     if (!p.n && extras.length) t -= extras[0];
     for (const x of extras) { t += x; liste.push(t); }
-    liste.forEach(x => c.stimuler(site, x, p.sortie, p.largeur));
+    // chaque stimulus porte son rang dans le train (1/8 … 8/8) puis le couplage de l'extrastimulus (S2 400…)
+    const libs = [...Array.from({ length: p.n }, (_, i) => `${i + 1}/${p.n}`), ...extras.map((x, i) => `S${i + 2} ${x}`)];
+    liste.forEach((x, i) => c.stimuler(site, x, p.sortie, p.largeur, libs[i]));
+    st.train = { temps: liste, n: p.n, nx: extras.length };
     // rappel centré sur le premier extrastimulus (S2), ou sur le dernier stimulus d'un train simple
     if (e && liste.length) Object.assign(e, { debut: liste[0] - 1500, capture: liste.at(-1) + 2000, focus: extras.length ? liste[p.n] : liste.at(-1), instantane: null });
     return liste;
@@ -496,9 +525,10 @@ export function vueSimulateur(app) {
       return false;
     };
     const lancerTrain = t0 => {
-      for (let i = 0; i < n; i++) c.stimuler(site, t0 + i * s1, sortie, r.largeur);
+      for (let i = 0; i < n; i++) c.stimuler(site, t0 + i * s1, sortie, r.largeur, `${i + 1}/${n}`);
       const ts = t0 + (n - 1) * s1 + s2;
-      c.stimuler(site, ts, sortie, r.largeur);
+      c.stimuler(site, ts, sortie, r.largeur, `S2 ${s2}`);
+      st.train = { temps: [...Array.from({ length: n }, (_, i) => t0 + i * s1), ts], n, nx: 1 };
       fixer('#s2', s2); reglages();
       entree(t0, `${atrial ? 'OD haute' : 'VD apex'} : ${n} × S1 ${s1} S2 ${s2} ms`, { debut: t0 - 1500, capture: ts + 2000, focus: ts, auto: r.rappelApres });
       majJournal();
@@ -688,7 +718,7 @@ export function vueSimulateur(app) {
   function toutArreter({ silencieux = false, rf = true } = {}) {
     const c = st.coeur;
     const actif = st.proto || st.salve || (rf && st.rf) || c.tas.a.some(e => e.type === 'stim' && e.t > c.t);
-    st.proto = null;
+    st.proto = null; st.train = null;
     $('#proto-etat').textContent = '';
     if (st.salve) arreterSalve();
     c.annulerStims(c.t);
@@ -795,15 +825,15 @@ export function vueSimulateur(app) {
 
   // ---------- compte rendu ----------
   function compteRendu() {
-    const sc = SCENARIOS[st.scenario], cr = st.cr, c = st.coeur, b = cr.base;
+    const sc = scenario(st.scenario), cr = st.cr, c = st.coeur, b = cr.base;
     const ligne = (lib, v) => `<tr><th>${lib}</th><td>${v ? esc(v) : '<span class="note">non réalisé</span>'}</td></tr>`;
     const ext = (x, atrial) => x && [`${x.n} × ${x.s1} ms`, x.pr ? `PR ${atrial ? 'atriale' : 'ventriculaire'} ${x.pr} ms` : '', x.prConduction ? `PR ${atrial ? 'nodale' : 'rétrograde'} ${x.prConduction} ms` : '',
       x.saut || '', x.induction ? `induction à S2 = ${x.induction} ms` : ''].filter(Boolean).join(' ; ');
     const blocAV = c.voies.some(v => v.nodale && v.coupee && v.id !== 'lente') && !(sc.cible && [].concat(sc.cible).includes('rapide'));
-    const conclusion = st.mystere ? ($('#verdict').textContent ? `Diagnostic proposé : ${$('#reponse').selectedOptions[0]?.text}` : 'Diagnostic non encore proposé') : sc.nom;
+    const conclusion = st.enquete ? ($('#verdict').textContent ? `Diagnostic proposé : ${$('#reponse').selectedOptions[0]?.text}` : 'Diagnostic non encore proposé') : sc.nom;
     const rows = [
       ligne('Indication', sc.contexte),
-      ligne('Rythme de base', b && `cycle ${f0(b.cycleA)} ms, AH ${f0(b.AH)} ms, HV ${f0(b.HV)} ms${b.pa ? ` ; PA ${b.pa.sys}/${b.pa.dia} mmHg` : ''}`),
+      ligne(ARRIVEES[st.scenario] ? 'Rythme à l\'arrivée' : 'Rythme de base', b && `cycle ${f0(b.cycleA)} ms, AH ${f0(b.AH)} ms, HV ${f0(b.HV)} ms${b.pa ? ` ; PA ${b.pa.sys}/${b.pa.dia} mmHg` : ''}`),
       ligne('Conduction AV (rampe)', cr.wenck), ligne('Conduction VA (rampe)', cr.wenckRetro),
       ligne('Extrastimulus atrial', ext(cr.extraA, true)), ligne('Extrastimulus ventriculaire', ext(cr.extraV, false)),
       ligne('Fonction sinusale', cr.trs), ligne('Seuils de capture', cr.seuils.join(' ; ')), ligne('Para-hisien', cr.parahis),
@@ -1103,7 +1133,14 @@ export function vueSimulateur(app) {
       // carte : point acquis quand la sonde reste en place pendant la tachycardie
       if (tach.active && maintenant - dernierePos > 1500) { dernierePos = maintenant; acquerirPoint(); }
       const ad = c.adenosine && st.t < c.adenosine.fin + 500, iso = c.niveau('iso', st.t);
-      etat.textContent = [st.proto ? `▶ ${st.proto.nom}` : '', jonctionnel ? 'Rythme jonctionnel' : '', st.salve ? `Salve ${st.salve.cl} ms` : '', st.rf ? `${st.rf.cryo ? 'Cryo' : 'RF'} ${Math.round(st.rf.temp)} °C ${Math.round((st.t - st.rf.debut) / 1000)} s` : '',
+      // compteur du train en cours : S1 délivrés / demandés, puis extrastimulus
+      let train = '';
+      if (st.train) {
+        const faits = st.train.temps.filter(x => x <= st.t).length;
+        if (faits >= st.train.temps.length) st.train = null;
+        else train = faits <= st.train.n ? `Train S1 ${faits}/${st.train.n}` : `S${faits - st.train.n + 1}`;
+      }
+      etat.textContent = [train, st.proto ? `▶ ${st.proto.nom}` : '', jonctionnel ? 'Rythme jonctionnel' : '', st.salve ? `Salve ${st.salve.cl} ms` : '', st.rf ? `${st.rf.cryo ? 'Cryo' : 'RF'} ${Math.round(st.rf.temp)} °C ${Math.round((st.t - st.rf.debut) / 1000)} s` : '',
         ad ? 'Adénosine' : '', iso > 0.05 ? `Isoprénaline ${Math.round(iso * 100)} %` : '', c.fa ? 'FA' : '',
         tach.active ? `Tachycardie (${tach.cycleA != null && tach.cycleV != null && Math.abs(tach.cycleA - tach.cycleV) > 20 ? `A ${Math.round(tach.cycleA)} / V ${Math.round(tach.cycleV)}` : `cycle ${Math.round(tach.cycleV ?? tach.cycleA)}`} ms)` : ''].filter(Boolean).join(' · ');
     }
@@ -1114,8 +1151,9 @@ export function vueSimulateur(app) {
   $('#valider').onclick = () => {
     const rep = $('#reponse').value;
     if (!rep) return;
-    const sc = SCENARIOS[st.scenario], juste = rep === st.scenario;
-    const cles = sc.manoeuvres || [], faites = cles.filter(m => st.faites.has(m));
+    const sc = scenario(st.scenario), juste = rep === (sc.base ?? st.scenario), nomDiag = sc.base ? SCENARIOS[sc.base].nom : sc.nom;
+    // patient arrivé en tachycardie : l'induction et les extrastimulus en rythme de base ne font pas partie de la démarche attendue
+    const cles = (sc.manoeuvres || []).filter(m => !(sc.base && ['induction', 'extraA', 'extraV'].includes(m))), faites = cles.filter(m => st.faites.has(m));
     const cible = sc.cible ? [].concat(sc.cible) : [];
     const tire = st.actions.some(a => a.texte.startsWith('Radiofréquence'));
     const ablOk = !cible.length || st.coeur.voies.some(v => v.coupee && cible.includes(v.id)) || cible.some(c => st.coeur.sites[c]?.supprime) || (sc.ablationOptionnelle && !tire);
@@ -1124,7 +1162,7 @@ export function vueSimulateur(app) {
     const note = Math.round(((juste ? 5 : 0) + (cles.length ? 3 * faites.length / cles.length : 3) + (ablOk && !blocAV && !ablInutile ? 2 : 0)) * 10) / 10;
     const posNom = sc.position ? POSITIONS.find(p => p.id === sc.position)?.nom : '';
     $('#verdict').innerHTML = `<div class="retour ${juste ? 'ok' : 'ko'}"><h3>${juste ? 'Bon diagnostic !' : 'Ce n\'est pas ça.'} Note : ${note} / 10</h3>
-      <p>Il s'agissait de : <b>${esc(sc.nom)}</b>.</p><p>${esc(sc.explication)}</p>
+      <p>Il s'agissait de : <b>${esc(nomDiag)}</b>.</p><p>${esc(sc.explication)}</p>
       <h4>Manœuvres clés pour ce diagnostic</h4>
       <ul class="simu-check">${cles.map(m => `<li class="${st.faites.has(m) ? 'fait' : 'manque'}">${st.faites.has(m) ? '✓' : '✗'} ${esc(MANOEUVRES[m])}</li>`).join('') || '<li>—</li>'}</ul>
       ${st.analyses.length ? `<h4>Vos mesures</h4><ul>${st.analyses.map(a => `<li>${esc(a)}</li>`).join('')}</ul>` : ''}

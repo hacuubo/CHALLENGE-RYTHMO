@@ -48,6 +48,10 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
   - 17 scénarios : conduction normale, double voie nodale, TRIN typique, atypique et avec 2:1 infra-hisien, TRAV sur voie
     latérale gauche ou postéro-septale, Coumel, PJRT, WPW (et FA préexcitée), Mahaim, TA focale, tachycardie jonctionnelle,
     flutter typique et péri-mitral, FA, TV sur cicatrice.
+  - **Patients adressés en tachycardie** (flutter typique, trois TSV à QRS fins, tachycardie à QRS larges) : la tachycardie
+    est en cours à l'ouverture du cas, le mécanisme se confirme par les manœuvres (entraînement, ESV His-réfractaire,
+    adénosine) ; ils entrent aussi dans le tirage des cas mystères.
+  - Partie scénario (fiche du cas, diagnostic, explication, compte rendu) dans la même charte sombre que la baie.
   - Cas mystères avec contexte clinique, notation de la démarche (diagnostic, manœuvres clés, traitement) et débriefing
     avec les mesures de vos manœuvres (réponse à l'entraînement, PPI − TCL, effet de l'ESV His-réfractaire).
   - 17 questions « tracé d'EEP » générées par le moteur, rejouées à l'identique dans le quiz.
