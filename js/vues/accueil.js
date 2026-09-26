@@ -27,7 +27,7 @@ export function vueAccueil(app, ctx) {
 
   app.innerHTML = `
     ${choixLangue}
-    <h1 class="titre-accueil"><span class="titre-logo" aria-hidden="true">${ICONES.ecg}</span>Challenge Rythmo</h1>
+    <h1 class="titre-accueil"><span class="titre-logo" aria-hidden="true">${ICONES.ecg}</span>Shock &amp; Pace</h1>
     ${invitation}
     ${enCours ? `<button class="reprise" id="reprendre">▶ ${t('Reprendre :', 'Resume:')} ${esc(enCours.titre)} (${enCours.faites}/${enCours.total})</button>` : ''}
     <nav class="menu-principal centre" aria-label="${t('Choisir une activité', 'Choose an activity')}">

@@ -1,4 +1,6 @@
-# Challenge Rythmo
+# Shock & Pace
+
+*Anciennement « Challenge Rythmo ».*
 
 Application web progressive (PWA) pour s'entraîner en **rythmologie et stimulation cardiaque** en s'amusant :
 ECG, programmation des stimulateurs et défibrillateurs (par marque), alertes de télécardiologie, électrophysiologie.

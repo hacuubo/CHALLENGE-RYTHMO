@@ -41,8 +41,8 @@ const THEMES = {
 
 const FAQ = {
   fr: (n, nbScenarios) => [
-    ['Qu\'est-ce que Challenge Rythmo ?',
-      `Challenge Rythmo est une application web gratuite, en français et en anglais, pour apprendre et entretenir ses connaissances en rythmologie : lecture d'ECG, programmation et suivi des stimulateurs cardiaques (pacemakers) et défibrillateurs implantables (DAI), resynchronisation (CRT), télésurveillance des prothèses et électrophysiologie. Elle propose ${nombre(n)} questions corrigées et un simulateur d'électrophysiologie.`],
+    ['Qu\'est-ce que Shock & Pace ?',
+      `Shock & Pace est une application web gratuite, en français et en anglais, pour apprendre et entretenir ses connaissances en rythmologie : lecture d'ECG, programmation et suivi des stimulateurs cardiaques (pacemakers) et défibrillateurs implantables (DAI), resynchronisation (CRT), télésurveillance des prothèses et électrophysiologie. Elle propose ${nombre(n)} questions corrigées et un simulateur d'électrophysiologie.`],
     ['À qui s\'adresse l\'application ?',
       'Aux professionnels et étudiants de la rythmologie : cardiologues et internes de cardiologie, infirmiers et techniciens de rythmologie ou de télésurveillance, et plus largement à toute personne qui suit des porteurs de stimulateur ou de défibrillateur.'],
     ['Faut-il créer un compte ?',
@@ -57,12 +57,12 @@ const FAQ = {
       'Oui. Toute l\'application (interface, questions, corrections et simulateur) existe en anglais. La langue se choisit sur l\'écran d\'accueil.'],
     ['L\'application fonctionne-t-elle hors ligne ?',
       'Oui. C\'est une application web progressive (PWA) : elle s\'installe sur l\'écran d\'accueil d\'un téléphone ou d\'un ordinateur et reste utilisable sans connexion une fois chargée.'],
-    ['Challenge Rythmo remplace-t-il les recommandations ou le manuel de l\'appareil ?',
+    ['Shock & Pace remplace-t-il les recommandations ou le manuel de l\'appareil ?',
       'Non. C\'est un outil pédagogique : il ne remplace ni les recommandations officielles, ni les manuels des fabricants, ni le jugement clinique. Les valeurs de programmation peuvent varier selon les modèles et les versions logicielles.'],
   ],
   en: (n, nbScenarios) => [
-    ['What is Challenge Rythmo?',
-      `Challenge Rythmo is a free web app, in English and French, for learning and maintaining knowledge in cardiac rhythm management: ECG interpretation, programming and follow-up of pacemakers and implantable cardioverter-defibrillators (ICDs), cardiac resynchronisation therapy (CRT), remote monitoring and electrophysiology. It offers ${nombre(n, 'en')} questions with detailed answers and an electrophysiology simulator.`],
+    ['What is Shock & Pace?',
+      `Shock & Pace is a free web app, in English and French, for learning and maintaining knowledge in cardiac rhythm management: ECG interpretation, programming and follow-up of pacemakers and implantable cardioverter-defibrillators (ICDs), cardiac resynchronisation therapy (CRT), remote monitoring and electrophysiology. It offers ${nombre(n, 'en')} questions with detailed answers and an electrophysiology simulator.`],
     ['Who is it for?',
       'Clinicians and students in cardiac electrophysiology and devices: cardiologists and cardiology trainees, cardiac physiologists, device and EP nurses, allied professionals and industry specialists, remote monitoring teams, and anyone who follows patients with a pacemaker or ICD.'],
     ['Do I need an account?',
@@ -77,7 +77,7 @@ const FAQ = {
       'Yes. The whole app (interface, questions, answers and simulator) is available in English and French; the language is chosen on the home screen.'],
     ['Does it work offline?',
       'Yes. It is a progressive web app (PWA): it can be installed on the home screen of a phone or computer and keeps working offline once loaded.'],
-    ['Does Challenge Rythmo replace guidelines or the device manual?',
+    ['Does Shock & Pace replace guidelines or the device manual?',
       'No. It is an educational tool: it does not replace official guidelines, manufacturers\' manuals or clinical judgement. Programming values may vary between models and software versions.'],
   ],
 };
@@ -86,15 +86,15 @@ const FAQ = {
 const L = {
   fr: {
     lang: 'fr', ogLocale: 'fr_FR', app: '', pres: 'presentation.html', racine: '',
-    titre: 'Présentation de Challenge Rythmo, quiz de rythmologie',
-    description: n => `Challenge Rythmo : ${nombre(n)} questions de rythmologie corrigées (ECG, pacemaker, DAI, CRT, télécardio, EEP), simulateur d'électrophysiologie, sources ESC/EHRA/HRS.`,
-    ogTitre: 'Challenge Rythmo : quiz de rythmologie et simulateur d\'électrophysiologie',
-    ogAlt: 'Challenge Rythmo, quiz de rythmologie', llms: 'Résumé pour les assistants IA', fil: 'Présentation',
-    h1: 'Challenge Rythmo : quiz de rythmologie, ECG, pacemaker, DAI et électrophysiologie',
+    titre: 'Présentation de Shock & Pace, quiz de rythmologie',
+    description: n => `Shock & Pace : ${nombre(n)} questions de rythmologie corrigées (ECG, pacemaker, DAI, CRT, télécardio, EEP), simulateur d'électrophysiologie, sources ESC/EHRA/HRS.`,
+    ogTitre: 'Shock & Pace : quiz de rythmologie et simulateur d\'électrophysiologie',
+    ogAlt: 'Shock & Pace, quiz de rythmologie', llms: 'Résumé pour les assistants IA', fil: 'Présentation',
+    h1: 'Shock & Pace : quiz de rythmologie, ECG, pacemaker, DAI et électrophysiologie',
     chapo: 'Application web gratuite, en français et en anglais, pour apprendre et entretenir ses connaissances en rythmologie cardiaque, sans compte ni inscription.',
-    ouvrir: 'Ouvrir l\'application', ouvrir2: 'Ouvrir Challenge Rythmo', autre: 'English version',
+    ouvrir: 'Ouvrir l\'application', ouvrir2: 'Ouvrir Shock & Pace', autre: 'English version',
     enBref: 'En bref',
-    bref: '<b>Challenge Rythmo</b> est une application d\'entraînement en <b>rythmologie</b> : lecture d\'<b>ECG</b>, programmation et suivi des <b>stimulateurs cardiaques (pacemakers)</b> et des <b>défibrillateurs automatiques implantables (DAI)</b>, <b>resynchronisation cardiaque (CRT)</b> et stimulation de conduction, <b>télésurveillance</b> des prothèses et <b>électrophysiologie</b> (EEP, manœuvres, ablation). Chaque question est corrigée, avec un commentaire pour chaque proposition et des sources cliquables.',
+    bref: '<b>Shock &amp; Pace</b> est une application d\'entraînement en <b>rythmologie</b> : lecture d\'<b>ECG</b>, programmation et suivi des <b>stimulateurs cardiaques (pacemakers)</b> et des <b>défibrillateurs automatiques implantables (DAI)</b>, <b>resynchronisation cardiaque (CRT)</b> et stimulation de conduction, <b>télésurveillance</b> des prothèses et <b>électrophysiologie</b> (EEP, manœuvres, ablation). Chaque question est corrigée, avec un commentaire pour chaque proposition et des sources cliquables.',
     chiffres: ['questions corrigées', 'vrais ECG 12 dérivations', 'scénarios de simulateur d\'EEP', 'recommandations de référence'],
     maj: (d, v) => `Base de questions mise à jour le ${new Date(d + 'T12:00:00Z').toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })} (version ${v}).`,
     pourQui: 'Pour qui ?',
@@ -126,15 +126,15 @@ const L = {
   },
   en: {
     lang: 'en', ogLocale: 'en_GB', app: 'en/', pres: 'en/presentation.html', racine: '../',
-    titre: 'About Challenge Rythmo, the cardiac rhythm quiz',
-    description: n => `Challenge Rythmo: ${nombre(n, 'en')} cardiac rhythm questions with referenced answers (ECG, pacemakers, ICDs, CRT, remote monitoring, EP) and an electrophysiology simulator, based on ESC/EHRA/HRS guidelines.`,
-    ogTitre: 'Challenge Rythmo: cardiac rhythm quiz and electrophysiology simulator',
-    ogAlt: 'Challenge Rythmo, cardiac rhythm quiz', llms: 'Summary for AI assistants', fil: 'About',
-    h1: 'Challenge Rythmo: quiz on ECG, pacemakers, ICDs and electrophysiology',
+    titre: 'About Shock & Pace, the cardiac rhythm quiz',
+    description: n => `Shock & Pace: ${nombre(n, 'en')} cardiac rhythm questions with referenced answers (ECG, pacemakers, ICDs, CRT, remote monitoring, EP) and an electrophysiology simulator, based on ESC/EHRA/HRS guidelines.`,
+    ogTitre: 'Shock & Pace: cardiac rhythm quiz and electrophysiology simulator',
+    ogAlt: 'Shock & Pace, cardiac rhythm quiz', llms: 'Summary for AI assistants', fil: 'About',
+    h1: 'Shock & Pace: quiz on ECG, pacemakers, ICDs and electrophysiology',
     chapo: 'A free web app, in English and French, for learning and maintaining your knowledge of cardiac rhythm management, with no account or sign-up.',
-    ouvrir: 'Open the app', ouvrir2: 'Open Challenge Rythmo', autre: 'Version française',
+    ouvrir: 'Open the app', ouvrir2: 'Open Shock & Pace', autre: 'Version française',
     enBref: 'At a glance',
-    bref: '<b>Challenge Rythmo</b> is a training app for <b>cardiac rhythm management</b>: <b>ECG</b> interpretation, programming and follow-up of <b>pacemakers</b> and <b>implantable cardioverter-defibrillators (ICDs)</b>, <b>cardiac resynchronisation therapy (CRT)</b> and conduction system pacing, <b>remote monitoring</b> and <b>electrophysiology</b> (EP studies, pacing manoeuvres, ablation). Every question comes with a detailed answer, a comment on each option and clickable references.',
+    bref: '<b>Shock &amp; Pace</b> is a training app for <b>cardiac rhythm management</b>: <b>ECG</b> interpretation, programming and follow-up of <b>pacemakers</b> and <b>implantable cardioverter-defibrillators (ICDs)</b>, <b>cardiac resynchronisation therapy (CRT)</b> and conduction system pacing, <b>remote monitoring</b> and <b>electrophysiology</b> (EP studies, pacing manoeuvres, ablation). Every question comes with a detailed answer, a comment on each option and clickable references.',
     chiffres: ['questions with detailed answers', 'real 12-lead ECGs', 'EP simulator scenarios', 'reference guidelines'],
     maj: (d, v) => `Question bank updated on ${new Date(d + 'T12:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })} (version ${v}).`,
     pourQui: 'Who is it for?',
@@ -178,7 +178,7 @@ function presentation(l, d) {
       { '@type': 'WebPage', '@id': url, url, name: T.titre, description, inLanguage: l,
         dateModified: d.idx.date, isPartOf: { '@id': SITE + '#site' }, about: { '@id': SITE + '#app' },
         breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Challenge Rythmo', item: SITE + T.app },
+          { '@type': 'ListItem', position: 1, name: 'Shock & Pace', item: SITE + T.app },
           { '@type': 'ListItem', position: 2, name: T.fil, item: url }] } },
       { '@type': 'FAQPage', '@id': url + '#faq', inLanguage: l,
         mainEntity: faq.map(([q, rep]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: rep } })) },
@@ -203,7 +203,7 @@ function presentation(l, d) {
   <meta property="og:type" content="article">
   <meta property="og:locale" content="${T.ogLocale}">
   <meta property="og:locale:alternate" content="${l === 'fr' ? 'en_GB' : 'fr_FR'}">
-  <meta property="og:site_name" content="Challenge Rythmo">
+  <meta property="og:site_name" content="Shock &amp; Pace">
   <meta property="og:title" content="${esc(T.ogTitre)}">
   <meta property="og:description" content="${esc(description)}">
   <meta property="og:url" content="${url}">
@@ -238,7 +238,7 @@ function presentation(l, d) {
 </head>
 <body>
   <header><div class="l">
-    <p class="fil"><span><a href="${r}${T.app}">Challenge Rythmo</a> › ${esc(T.fil)}</span><a href="${urlAutre}" hreflang="${l === 'fr' ? 'en' : 'fr'}" lang="${l === 'fr' ? 'en' : 'fr'}">${esc(T.autre)}</a></p>
+    <p class="fil"><span><a href="${r}${T.app}">Shock &amp; Pace</a> › ${esc(T.fil)}</span><a href="${urlAutre}" hreflang="${l === 'fr' ? 'en' : 'fr'}" lang="${l === 'fr' ? 'en' : 'fr'}">${esc(T.autre)}</a></p>
     <h1>${esc(T.h1)}</h1>
     <p>${esc(T.chapo)}</p>
     <a class="cta" href="${r}${T.app}">${esc(T.ouvrir)}</a>
@@ -306,7 +306,7 @@ function presentation(l, d) {
     </section>
     <p style="text-align:center"><a class="cta" style="background:var(--bleu);color:#fff" href="${r}${T.app}">${esc(T.ouvrir2)}</a></p>
   </main>
-  <footer>Challenge Rythmo · ${esc(T.pied)} · <a href="https://github.com/hacuubo/CHALLENGE-RYTHMO">${esc(T.code)}</a></footer>
+  <footer>Shock &amp; Pace · ${esc(T.pied)} · <a href="https://github.com/hacuubo/CHALLENGE-RYTHMO">${esc(T.code)}</a></footer>
 </body>
 </html>
 `.replace(`${esc(T.scenarios)}: `, l === 'fr' ? `${esc(T.scenarios)} : ` : `${esc(T.scenarios)}: `);
@@ -317,8 +317,8 @@ function accueilAnglais(d) {
   const desc = 'Free cardiac rhythm quiz, no account needed: ECG, pacemakers, ICDs, CRT, remote monitoring and electrophysiology. Referenced answers, competitive ELO mode and an EP simulator.';
   const url = SITE + 'en/';
   const ld = { '@context': 'https://schema.org', '@graph': [
-    { '@type': 'WebSite', '@id': SITE + '#site', url: SITE, name: 'Challenge Rythmo', inLanguage: ['fr', 'en'], description: desc },
-    { '@type': ['WebApplication', 'LearningResource'], '@id': SITE + '#app', url, name: 'Challenge Rythmo', alternateName: 'Rythmo',
+    { '@type': 'WebSite', '@id': SITE + '#site', url: SITE, name: 'Shock & Pace', inLanguage: ['fr', 'en'], description: desc },
+    { '@type': ['WebApplication', 'LearningResource'], '@id': SITE + '#app', url, name: 'Shock & Pace', alternateName: 'Challenge Rythmo',
       description: desc, inLanguage: ['en', 'fr'], applicationCategory: 'EducationalApplication',
       applicationSubCategory: 'Medical education in cardiac electrophysiology and devices',
       operatingSystem: 'Any (web browser, installable PWA)', browserRequirements: 'Requires JavaScript',
@@ -330,23 +330,23 @@ function accueilAnglais(d) {
       featureList: ['Questions with referenced answers (ESC, EHRA, HRS, ACC/AHA)', 'Adaptive competitive mode with ELO rating', 'Real-time EP recording system simulator', 'Real 12-lead ECGs (PTB-XL)', 'Works offline, no account'],
       image: SITE + 'icons/og.png', screenshot: SITE + 'icons/og.png', subjectOf: { '@type': 'WebPage', url: SITE + 'en/presentation.html' } }] };
   const tete = `  <!--seo-->
-  <title>Challenge Rythmo · Cardiac rhythm quiz: ECG, pacemaker, ICD</title>
+  <title>Shock &amp; Pace · Cardiac rhythm quiz: ECG, pacemaker, ICD</title>
   <meta name="description" content="${esc(desc)}">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="${url}">
-  <meta name="application-name" content="Challenge Rythmo">
+  <meta name="application-name" content="Shock &amp; Pace">
   <meta name="theme-color" content="#0b3a5d">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_GB">
   <meta property="og:locale:alternate" content="fr_FR">
-  <meta property="og:site_name" content="Challenge Rythmo">
-  <meta property="og:title" content="Challenge Rythmo · Cardiac rhythm quiz and electrophysiology simulator">
+  <meta property="og:site_name" content="Shock &amp; Pace">
+  <meta property="og:title" content="Shock &amp; Pace · Cardiac rhythm quiz and electrophysiology simulator">
   <meta property="og:description" content="${esc(desc)}">
   <meta property="og:url" content="${url}">
   <meta property="og:image" content="${SITE}icons/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Challenge Rythmo, cardiac rhythm quiz">
+  <meta property="og:image:alt" content="Shock &amp; Pace, cardiac rhythm quiz">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="alternate" type="text/markdown" title="Summary for AI assistants" href="llms.txt">
   <link rel="sitemap" type="application/xml" href="sitemap.xml">
@@ -354,7 +354,7 @@ function accueilAnglais(d) {
   <!--/seo-->`;
   const statique = `    <!--statique-->
     <div class="statique">
-      <h1>Challenge Rythmo</h1>
+      <h1>Shock &amp; Pace</h1>
       <p>A free <strong>cardiac rhythm</strong> quiz, no account needed: ${nombre(d.n, 'en')} questions with referenced answers on <strong>ECG</strong> interpretation, <strong>pacemaker</strong> and <strong>implantable cardioverter-defibrillator (ICD)</strong> programming, <strong>CRT</strong>, <strong>remote monitoring</strong> and <strong>electrophysiology</strong>.</p>
       <ul>
         <li>Training by domain, from beginner to expert, with detailed answers and references (ESC, EHRA, HRS, ACC/AHA).</li>
@@ -427,7 +427,7 @@ ${url('en/presentation.html', '0.8', alt('presentation.html', 'en/presentation.h
 
   // llms.txt : résumé en Markdown pour les moteurs de réponse et assistants IA (https://llmstxt.org/)
   const th = { fr: d.themes('fr'), en: d.themes('en') };
-  fs.writeFileSync(path.join(racine, 'llms.txt'), `# Challenge Rythmo
+  fs.writeFileSync(path.join(racine, 'llms.txt'), `# Shock & Pace
 
 > Free web app, in English and French, with no account, for learning cardiac rhythm management: ${nombre(n, 'en')} questions with detailed, referenced answers on ECG interpretation, pacemaker and implantable cardioverter-defibrillator (ICD) programming, cardiac resynchronisation therapy (CRT), remote monitoring and electrophysiology, plus a real-time electrophysiology (EP) recording system simulator.
 
@@ -447,9 +447,9 @@ Question bank updated on ${idx.date}.
 
 ## Pages
 
-- [Challenge Rythmo app, English](${SITE}en/): quizzes, competitive ELO mode, electrophysiology simulator
-- [About Challenge Rythmo](${SITE}en/presentation.html): topics and subtopics, method, guidelines, sources, FAQ
-- [Application Challenge Rythmo, français](${SITE}): quiz, mode compétitif ELO, simulateur d'électrophysiologie
+- [Shock & Pace app, English](${SITE}en/): quizzes, competitive ELO mode, electrophysiology simulator
+- [About Shock & Pace](${SITE}en/presentation.html): topics and subtopics, method, guidelines, sources, FAQ
+- [Application Shock & Pace, français](${SITE}): quiz, mode compétitif ELO, simulateur d'électrophysiologie
 - [Présentation détaillée (français)](${SITE}presentation.html) : thèmes, méthode, recommandations, sources, FAQ
 
 ## Optional
