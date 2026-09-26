@@ -201,7 +201,7 @@ function presentation(l, d) {
   <link rel="alternate" hreflang="fr" href="${SITE}presentation.html">
   <link rel="alternate" hreflang="en" href="${SITE}en/presentation.html">
   <link rel="alternate" hreflang="x-default" href="${SITE}presentation.html">
-  <meta name="theme-color" content="#0b3a5d">
+  <meta name="theme-color" content="#0A2540">
   <link rel="icon" href="${r}icons/icon.svg" type="image/svg+xml">
   <link rel="alternate" type="text/markdown" title="${esc(T.llms)}" href="${r}llms.txt">
   <meta property="og:type" content="article">
@@ -218,11 +218,11 @@ function presentation(l, d) {
   <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">${JSON.stringify(jsonld)}</script>
   <style>
-    :root { --fond: #f6f8fb; --carte: #fff; --texte: #14202b; --texte-2: #4a5a6a; --lien: #0b5fa5; --bord: #dfe6ee; --bleu: #0b3a5d; }
+    :root { --fond: #f6f8fb; --carte: #fff; --texte: #14202b; --texte-2: #4a5a6a; --lien: #0b5fa5; --bord: #dfe6ee; --bleu: #0A2540; }
     @media (prefers-color-scheme: dark) { :root { --fond: #0b1621; --carte: #122232; --texte: #e8eef4; --texte-2: #a9b8c6; --lien: #7cc0ff; --bord: #22384d; } }
     * { box-sizing: border-box; }
     body { margin: 0; font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--fond); color: var(--texte); }
-    header { background: linear-gradient(160deg, #0b3a5d, #1a6fae); color: #fff; padding: 40px 16px 32px; }
+    header { background: linear-gradient(160deg, #0A2540, #123a63); color: #fff; padding: 40px 16px 32px; }
     header .l, main { max-width: 860px; margin: 0 auto; }
     header h1 { margin: 0 0 8px; font-size: clamp(1.6rem, 5vw, 2.3rem); line-height: 1.2; }
     header p { margin: 0 0 18px; color: rgba(255, 255, 255, .88); font-size: 1.08rem; }
@@ -341,7 +341,7 @@ function accueilAnglais(d) {
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="${url}">
   <meta name="application-name" content="Shock &amp; Pace">
-  <meta name="theme-color" content="#0b3a5d">
+  <meta name="theme-color" content="#0A2540">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_GB">
   <meta property="og:locale:alternate" content="fr_FR">

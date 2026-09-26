@@ -5,8 +5,8 @@
   --texte: #14212b;
   --texte-2: #4d5f6d;
   --bord: #d6e0e8;
-  --primaire: #0f3d5c;
-  --primaire-2: #1d6fa5;
+  --primaire: #0A2540;
+  --primaire-2: #1565C0;
   --accent: #d6364c;
   --ok: #1d8a4e;
   --ok-fond: #e5f5ec;
@@ -421,14 +421,14 @@ details.avance > summary { cursor: pointer; font-weight: 700; margin-bottom: 12p
 @media (min-width: 900px) { .simu-commandes { grid-template-columns: 1.3fr 1fr; } .simu-commandes .simu-journal-bloc { grid-column: 1 / -1; } }
 
 /* ---------- Thème bleu, écran titre et accueil épuré ---------- */
-:root { --fond-bleu: linear-gradient(165deg, #082c47 0%, #0f4c78 50%, #1a6fae 100%); --sur-bleu: #ffffff; --sur-bleu-2: rgba(255, 255, 255, .78); }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --fond-bleu: linear-gradient(165deg, #04121f 0%, #082a45 55%, #0e3f66 100%); --fond-bleu-bas: #0e3f66; } }
-:root[data-theme="dark"] { --fond-bleu: linear-gradient(165deg, #04121f 0%, #082a45 55%, #0e3f66 100%); --fond-bleu-bas: #0e3f66; }
-html { background: #0b3a5d; }
-body { background: var(--fond-bleu) top / 100% 100vh no-repeat, var(--fond-bleu-bas, #1a6fae); min-height: 100vh; }
+:root { --shock: #FF6A3D; --fond-bleu-bas: #123a63; --fond-bleu: linear-gradient(165deg, #061a2e 0%, #0A2540 55%, #123a63 100%); --sur-bleu: #ffffff; --sur-bleu-2: rgba(255, 255, 255, .78); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --fond-bleu: linear-gradient(165deg, #030d18 0%, #071b2f 55%, #0c2a47 100%); --fond-bleu-bas: #0c2a47; } }
+:root[data-theme="dark"] { --fond-bleu: linear-gradient(165deg, #030d18 0%, #071b2f 55%, #0c2a47 100%); --fond-bleu-bas: #0c2a47; }
+html { background: #0A2540; }
+body { background: var(--fond-bleu) top / 100% 100vh no-repeat, var(--fond-bleu-bas, #123a63); min-height: 100vh; }
 .barre { background: rgba(4, 22, 38, .35); border-bottom-color: rgba(255, 255, 255, .12); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
 .logo { color: #fff; }
-.logo svg { color: #ff8193; }
+.logo svg { color: var(--shock); }
 .onglets button { color: var(--sur-bleu-2); }
 .onglets button.actif { background: rgba(255, 255, 255, .16); color: #fff; }
 .retour-fleche { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; margin: 0 0 6px -6px; border: 0; border-radius: 50%; background: none; color: #fff; cursor: pointer; }
@@ -443,8 +443,8 @@ body { background: var(--fond-bleu) top / 100% 100vh no-repeat, var(--fond-bleu-
 .statique .chargement { margin-top: 24px; }
 
 .ecran-titre { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
-  background: var(--fond-bleu), #0b3a5d; color: #fff; text-align: center; padding: 24px; transition: opacity .55s ease, transform .55s ease; }
-.ecran-titre svg { width: min(38vw, 180px); height: auto; color: #ff8193; }
+  background: var(--fond-bleu), #0A2540; color: #fff; text-align: center; padding: 24px; transition: opacity .55s ease, transform .55s ease; }
+.ecran-titre svg { width: min(46vw, 220px); height: auto; }
 .ecran-titre path { stroke-dasharray: 160; stroke-dashoffset: 160; animation: trace-titre 1.1s ease-out forwards; }
 .ecran-titre-nom { margin: 8px 0 0; font-size: clamp(2rem, 8vw, 3.2rem); font-weight: 800; letter-spacing: .02em; opacity: 0; animation: apparition .6s .45s ease-out forwards; }
 html:not([lang=en]) .ecran-titre-sous [lang=en], html[lang=en] .ecran-titre-sous [lang=fr] { display: none; }
@@ -480,7 +480,10 @@ html:not([lang=en]) .ecran-titre-sous [lang=en], html[lang=en] .ecran-titre-sous
 .choix-simu:hover { background: rgba(255, 255, 255, .14); }
 
 .titre-accueil { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 18px; }
-.titre-logo .icone { width: 34px; height: 34px; color: #ff8193; stroke-width: 2.2; }
+.titre-logo .logo-marque { width: 52px; height: 30px; color: #fff; display: block; }
+.esperluette { color: var(--shock); }
+/* marque : Plus Jakarta Sans pour le nom et les grands titres (repli sur la police du système hors ligne) */
+.ecran-titre-nom, .titre-accueil, #app > h1 { font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif; letter-spacing: -0.01em; }
 .tuile-ico .icone { width: 26px; height: 26px; }
 .tuile-ico { color: #fff; }
 .domaine .ico .icone { width: 28px; height: 28px; color: var(--primaire-2); }
