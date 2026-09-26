@@ -191,6 +191,8 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.click('#stimuler');
     // pendant le train, Stimuler devient Stop
     if (await page.textContent('#stimuler') !== 'Stop') throw new Error('le bouton Stimuler ne devient pas Stop');
+    // compteur du train : S1 délivrés / demandés (8 par défaut)
+    await page.waitForFunction(() => /Train S1 \d\/8/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 3000 });
     await page.waitForFunction(() => /Tachycardie/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 15000 });
     // la manœuvre s'affiche sur l'écran de rappel ; toucher le tracé en temps réel ne l'arrête pas
     await page.waitForFunction(() => /S2 320/.test(document.querySelector('#rappel-titre')?.textContent || ''), null, { timeout: 10000 });

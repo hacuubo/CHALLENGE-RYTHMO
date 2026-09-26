@@ -68,7 +68,7 @@ export function vueSimulateur(app) {
   const st = { scenario: 'normal', mystere: false, enquete: false, coeur: null, t: 0, gains: {}, salve: null, position: 'od-haute', actions: [], faites: new Set(), analyses: [],
     positionsTachy: new Set(), tachyAvant: false, dernierMaj: 0, numero: 0,
     rappel: null, recul: 0, curseurs: [], nouveauCompas: false, report: false, demande: null, sale: true, reference: null,
-    proto: null, rf: null, carte: {}, cr: null, vue: 'direct', hypo: 0, bump: null };
+    proto: null, rf: null, carte: {}, cr: null, vue: 'direct', hypo: 0, bump: null, train: null };
 
   const opt = (liste, v) => liste.map(o => `<option value="${o.id}" ${o.id === v ? 'selected' : ''}>${esc(o.nom)}</option>`).join('');
   // sélecteur numérique à boutons ± (appui long : défilement rapide) ; la saisie au clavier reste possible
@@ -355,7 +355,7 @@ export function vueSimulateur(app) {
       st.coeur.chocs = [];
     }
     Object.assign(st, { t: st.coeur.t, salve: null, actions: [], faites: new Set(), analyses: [], positionsTachy: new Set(), tachyAvant: false,
-      rappel: null, recul: 0, curseurs: [], nouveauCompas: false, demande: null, sale: true, reference: null, proto: null, rf: null, carte: {}, cr: nouveauCR(), hypo: 0, bump: null });
+      rappel: null, recul: 0, curseurs: [], nouveauCompas: false, demande: null, sale: true, reference: null, proto: null, rf: null, carte: {}, cr: nouveauCR(), hypo: 0, bump: null, train: null });
     $('#salve').textContent = 'Démarrer la salve'; $('#salve').classList.remove('actif');
     for (const id of ['#iso', '#atropine']) { $(id).setAttribute('aria-pressed', 'false'); $(id).classList.remove('actif'); }
     $('#rappel-titre').textContent = ''; $('#rappel-vide').hidden = false; $('#paysage-nouveau').textContent = ''; $('#reference').hidden = true;
@@ -434,7 +434,10 @@ export function vueSimulateur(app) {
     const extras = [p.s2, p.s3, p.s4].filter(Boolean);
     if (!p.n && extras.length) t -= extras[0];
     for (const x of extras) { t += x; liste.push(t); }
-    liste.forEach(x => c.stimuler(site, x, p.sortie, p.largeur));
+    // chaque stimulus porte son rang dans le train (1/8 … 8/8) puis le couplage de l'extrastimulus (S2 400…)
+    const libs = [...Array.from({ length: p.n }, (_, i) => `${i + 1}/${p.n}`), ...extras.map((x, i) => `S${i + 2} ${x}`)];
+    liste.forEach((x, i) => c.stimuler(site, x, p.sortie, p.largeur, libs[i]));
+    st.train = { temps: liste, n: p.n, nx: extras.length };
     // rappel centré sur le premier extrastimulus (S2), ou sur le dernier stimulus d'un train simple
     if (e && liste.length) Object.assign(e, { debut: liste[0] - 1500, capture: liste.at(-1) + 2000, focus: extras.length ? liste[p.n] : liste.at(-1), instantane: null });
     return liste;
@@ -522,9 +525,10 @@ export function vueSimulateur(app) {
       return false;
     };
     const lancerTrain = t0 => {
-      for (let i = 0; i < n; i++) c.stimuler(site, t0 + i * s1, sortie, r.largeur);
+      for (let i = 0; i < n; i++) c.stimuler(site, t0 + i * s1, sortie, r.largeur, `${i + 1}/${n}`);
       const ts = t0 + (n - 1) * s1 + s2;
-      c.stimuler(site, ts, sortie, r.largeur);
+      c.stimuler(site, ts, sortie, r.largeur, `S2 ${s2}`);
+      st.train = { temps: [...Array.from({ length: n }, (_, i) => t0 + i * s1), ts], n, nx: 1 };
       fixer('#s2', s2); reglages();
       entree(t0, `${atrial ? 'OD haute' : 'VD apex'} : ${n} × S1 ${s1} S2 ${s2} ms`, { debut: t0 - 1500, capture: ts + 2000, focus: ts, auto: r.rappelApres });
       majJournal();
@@ -714,7 +718,7 @@ export function vueSimulateur(app) {
   function toutArreter({ silencieux = false, rf = true } = {}) {
     const c = st.coeur;
     const actif = st.proto || st.salve || (rf && st.rf) || c.tas.a.some(e => e.type === 'stim' && e.t > c.t);
-    st.proto = null;
+    st.proto = null; st.train = null;
     $('#proto-etat').textContent = '';
     if (st.salve) arreterSalve();
     c.annulerStims(c.t);
@@ -1129,7 +1133,14 @@ export function vueSimulateur(app) {
       // carte : point acquis quand la sonde reste en place pendant la tachycardie
       if (tach.active && maintenant - dernierePos > 1500) { dernierePos = maintenant; acquerirPoint(); }
       const ad = c.adenosine && st.t < c.adenosine.fin + 500, iso = c.niveau('iso', st.t);
-      etat.textContent = [st.proto ? `▶ ${st.proto.nom}` : '', jonctionnel ? 'Rythme jonctionnel' : '', st.salve ? `Salve ${st.salve.cl} ms` : '', st.rf ? `${st.rf.cryo ? 'Cryo' : 'RF'} ${Math.round(st.rf.temp)} °C ${Math.round((st.t - st.rf.debut) / 1000)} s` : '',
+      // compteur du train en cours : S1 délivrés / demandés, puis extrastimulus
+      let train = '';
+      if (st.train) {
+        const faits = st.train.temps.filter(x => x <= st.t).length;
+        if (faits >= st.train.temps.length) st.train = null;
+        else train = faits <= st.train.n ? `Train S1 ${faits}/${st.train.n}` : `S${faits - st.train.n + 1}`;
+      }
+      etat.textContent = [train, st.proto ? `▶ ${st.proto.nom}` : '', jonctionnel ? 'Rythme jonctionnel' : '', st.salve ? `Salve ${st.salve.cl} ms` : '', st.rf ? `${st.rf.cryo ? 'Cryo' : 'RF'} ${Math.round(st.rf.temp)} °C ${Math.round((st.t - st.rf.debut) / 1000)} s` : '',
         ad ? 'Adénosine' : '', iso > 0.05 ? `Isoprénaline ${Math.round(iso * 100)} %` : '', c.fa ? 'FA' : '',
         tach.active ? `Tachycardie (${tach.cycleA != null && tach.cycleV != null && Math.abs(tach.cycleA - tach.cycleV) > 20 ? `A ${Math.round(tach.cycleA)} / V ${Math.round(tach.cycleV)}` : `cycle ${Math.round(tach.cycleV ?? tach.cycleA)}`} ms)` : ''].filter(Boolean).join(' · ');
     }

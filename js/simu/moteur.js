@@ -150,7 +150,8 @@ export class Coeur {
     return true;
   }
 
-  stimuler(site, t, sortie = 5, largeur = 2) { this.tas.pousser({ t, type: 'stim', s: site, sortie, largeur }); }
+  // lib : étiquette affichée au-dessus du stimulus (numéro dans le train « 3/8 », « S2 400 »…)
+  stimuler(site, t, sortie = 5, largeur = 2, lib = null) { this.tas.pousser({ t, type: 'stim', s: site, sortie, largeur, lib }); }
   // Capture d'un site : certaine au-dessus du seuil, intermittente dans une marge de ± 8 % autour du seuil.
   capte(site, sortie, largeur = 2) {
     const s = seuilCapture(site, largeur);
@@ -226,7 +227,7 @@ export class Coeur {
           if (sortie >= SEUILS.his && this.sites.his) capture = this.activer('his', e.t, 'stim', r) || capture;
           if (sortie >= SEUILS.defaut) capture = this.activer('vbd', e.t, 'stim', r) || capture;
         } else if (this.capte(e.s, sortie, e.largeur)) capture = this.activer(e.s, e.t, 'stim', r);
-        this.stims.push({ t: e.t, s: e.s, capture, sortie, his: e.s === 'parahis' && sortie >= SEUILS.his });
+        this.stims.push({ t: e.t, s: e.s, capture, sortie, his: e.s === 'parahis' && sortie >= SEUILS.his, lib: e.lib ?? null });
         this.suivreTrainAtrial(e.s, e.t, capture);
       } else if (e.type === 'fa') this.ondeFA(e);
     }
