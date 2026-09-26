@@ -149,3 +149,22 @@ export function tempsLocal(journal, site, reference, t, tcl) {
   }).filter(x => x != null).map(x => { let y = x; while (y >= 0.3 * tcl) y -= tcl; while (y < -0.7 * tcl) y += tcl; return y; });
   return d.length ? Math.round(mediane(d)) : null;
 }
+
+// Met le cœur en tachycardie avant l'arrivée de l'utilisateur (patient adressé en tachycardie) : essaie chaque recette
+// jusqu'à obtenir une tachycardie soutenue. Recette : { site, extra: [S2 de départ, S2 minimal] } (8 × 600 ms + S2 dégressif)
+// ou { site, salve: cycle, n }. Renvoie la recette qui a réussi, ou null.
+export function induireTachycardie(coeur, recettes) {
+  const c = coeur;
+  for (const r of recettes) {
+    const couplages = r.salve ? [null] : Array.from({ length: Math.floor((r.extra[0] - r.extra[1]) / 10) + 1 }, (_, i) => r.extra[0] - 10 * i);
+    for (const s2 of couplages) {
+      let t = c.t + 100;
+      if (r.salve) for (let i = 0; i < r.n; i++) { c.stimuler(r.site, t); if (i < r.n - 1) t += r.salve; }
+      else { for (let i = 0; i < 8; i++) { c.stimuler(r.site, t); if (i < 7) t += 600; } t += s2; c.stimuler(r.site, t); }
+      c.avancer(t + 3500);
+      if (tachycardie(c).active) return { ...r, s2 };
+      c.choc(); c.avancer(c.t + 1500);
+    }
+  }
+  return null;
+}

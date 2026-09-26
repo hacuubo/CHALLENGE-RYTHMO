@@ -246,6 +246,10 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
       await page.click('.simu-bascule [data-vue=direct]');
       await page.setViewportSize({ width: largeur, height: hauteur });
     }
+    // patient adressé en flutter : tachycardie présente dès l'ouverture, diagnostic à confirmer
+    await page.selectOption('#scenario', 'arrivee-flutter');
+    await page.waitForFunction(() => /Tachycardie/.test(document.querySelector('#etat')?.textContent || ''), null, { timeout: 3000 });
+    if (await page.textContent('#cas-badge') !== 'Patient en tachycardie' || !await page.isVisible('#diagnostic')) throw new Error('cas « patient en tachycardie » mal présenté');
     await page.selectOption('#scenario', 'mystere');
     await page.selectOption('#reponse', 'trav');
     await page.click('#valider');

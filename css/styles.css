@@ -632,3 +632,36 @@ main:has(.simu-baie) > :not(.simu-poste) { max-width: 860px; margin-left: auto; 
 .simu-voies-groupe > span { font-size: .72rem; text-transform: uppercase; letter-spacing: .04em; margin-right: 2px; }
 .simu-voies-groupe button { border: 1px solid #2c3e50; background: #16212c; color: #8fa3b3; border-radius: 999px; padding: 5px 10px; font-size: .8rem; font-weight: 600; min-height: 32px; text-decoration: line-through; }
 .simu-voies-groupe button[aria-pressed="true"] { background: #23384a; color: #fff; border-color: var(--simu-curseur); text-decoration: none; }
+/* partie scénario (fiche du cas, diagnostic, explication, compte rendu, mode d'emploi) : même direction artistique que la baie */
+.simu-sombre { background: #0f1a24; color: #e8eef3; border: 1px solid #22384b; border-radius: 14px; padding: 14px 16px; margin: 12px 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .25); }
+.simu-sombre h2, .simu-sombre h3, .simu-sombre h4 { color: #fff; }
+.simu-sombre h2 { font-size: 1.1rem; margin: 0 0 8px; }
+.simu-sombre h4 { margin: 14px 0 6px; font-size: .95rem; color: var(--simu-curseur); }
+.simu-sombre .note, .simu-sombre .simu-champ span { color: var(--simu-texte); }
+.simu-sombre p { line-height: 1.55; }
+.simu-sombre .simu-champ select { background: #16212c; color: #e8eef3; border-color: #2c3e50; }
+.simu-sombre .btn { background: #16212c; color: #e8eef3; border-color: #2c3e50; }
+.simu-sombre .btn-primaire { background: var(--primaire-2); border-color: var(--primaire-2); color: #fff; }
+.simu-sombre .retour { background: #0b1118; border-color: #22384b; color: #e8eef3; }
+.simu-sombre .retour.ok { border-left-color: var(--simu-sc); }
+.simu-sombre .retour.ko { border-left-color: var(--simu-stim); }
+.simu-sombre .simu-check .fait { color: var(--simu-sc); }
+.simu-sombre .simu-check .manque { color: var(--simu-stim); }
+.simu-sombre .simu-cr-table th { color: var(--simu-texte); }
+.simu-sombre .simu-cr-table td { border-bottom-color: #22384b; }
+.simu-sombre a { color: var(--simu-curseur); }
+.simu-sombre.simu-guide summary { color: #fff; }
+.simu-sombre.simu-guide li::marker { color: var(--simu-curseur); }
+.simu-tete { border-left: 4px solid var(--simu-curseur); }
+.simu-cas-ligne { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: end; flex: 1 1 100%; }
+.simu-cas-ligne .simu-champ { flex: 1 1 240px; min-width: 0; }
+.simu-cas-ligne .simu-champ select { width: 100%; max-width: 100%; }
+.simu-badge { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: .78rem; font-weight: 700; letter-spacing: .02em;
+  background: #16212c; border: 1px solid #2c3e50; color: var(--simu-texte); white-space: nowrap; }
+.simu-badge:empty { display: none; }
+.simu-badge.tachy { background: #3a1419; border-color: var(--simu-stim); color: #ffb3b3; }
+.simu-badge.mystere { background: #2e2710; border-color: var(--simu-his); color: var(--simu-his); }
+.simu-tete .simu-contexte { margin-top: 10px; padding: 10px 12px; background: #0b1118; border-radius: 10px; color: #cfdbe5; font-size: .93rem; }
+.simu-tete .simu-contexte b { color: var(--simu-his); }
+#explication-scenario:empty { display: none; }
