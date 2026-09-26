@@ -169,7 +169,7 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await capture('config');
     await page.click('#go');
     await page.waitForSelector('#zone');
-    page.once('dialog', d => d.accept());
+    page.once('dialog', d => d.accept().catch(() => {}));
     await nav('progression');
     await page.waitForSelector('.grille-badges');
     await page.waitForSelector('#courbe svg');

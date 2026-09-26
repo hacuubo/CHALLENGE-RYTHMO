@@ -56,8 +56,8 @@
   "question": "Dual-chamber ICD recipient (ischaemic cardiomyopathy, LVEF 30%). VT zone 150–188 bpm with ATP, VF zone > 188 bpm (cycle length < 320 ms) with ATP during charging then shocks. Remote monitoring alert. Which reading is correct?",
   "options": [
    "VT at 360 ms terminated by ATP, then return to sinus rhythm",
-   "Poorly discriminated sinus tachycardia, wrongly classified as VT by the device",
-   "VT at 360 ms accelerated by ATP into fast VT ≈ 235 ms, in the VF zone, with charging",
+   "Poorly discriminated sinus tachycardia, misclassified as VT by the device",
+   "VT at 360 ms accelerated by ATP to ≈ 235 ms (VF zone), charging",
    "RV lead noise triggering false VF detection"
   ],
   "commentaires": [
@@ -89,9 +89,9 @@
  "egm-106": {
   "question": "Dual-chamber ICD, VT zone from 150 bpm (400 ms) with discriminators enabled. Episode stored as \"SVT — therapy withheld\". What reasoning led the device to withhold therapy?",
   "options": [
-   "Atrial activity is twice as fast as ventricular activity (A > V)",
+   "Atrial rate is twice the ventricular rate (A > V)",
    "The ventricular rate is irregular, suggesting AF",
-   "The onset was gradual, suggesting sinus tachycardia",
+   "The onset was gradual, in keeping with sinus tachycardia",
    "The ventricular cycles are below the VT zone cut-off"
   ],
   "commentaires": [
@@ -142,10 +142,10 @@
  "egm-109": {
   "question": "An episode of \"untreated VF — non-sustained\" is transmitted from a dual-chamber ICD. The patient says he was using an angle grinder in his workshop at the time of the episode. What is your interpretation and management?",
   "options": [
-   "RV lead fracture: planned surgical revision",
+   "RV lead fracture: schedule surgical lead revision",
    "Self-terminating VF: increase the beta-blocker",
-   "External interference: education about the source, no lead revision",
-   "Pectoral myopotential oversensing: reduce sensitivity"
+   "External interference: identify the source, no lead revision",
+   "Pectoral myopotential oversensing: reduce the sensitivity"
   ],
   "commentaires": [
    "Incorrect: lead noise affects only the channel of the faulty lead; here all three channels are contaminated simultaneously.",
@@ -155,5 +155,152 @@
   ],
   "explication": "Electromagnetic interference is recognised by a high-frequency signal of regular appearance, present simultaneously on all channels (including the atrial and ventricular bipoles, which share no conductor), with an abrupt onset and offset corresponding to the use of an appliance. The spontaneous QRS complexes remain visible through it. The device counted it as rapid activity (AS/AR, FS), hence the stored episode. No lead revision is warranted: identify the source (faulty tool, poor earthing, proximity), advise keeping a sufficient distance and check that the lead parameters are normal.",
   "aRetenir": "Artefact simultaneous on all channels = external source; noise confined to one channel = lead."
+ },
+ "egm-110": {
+  "question": "Dual-chamber pacemaker implanted 6 years ago for AV block. Over the past 3 weeks, remote monitoring has reported dozens of short \"AT/AF\" episodes with mode switching; atrial impedance has risen from 480 to 1900 Ω. Here is one episode. What do you do?",
+  "options": [
+   "Start anticoagulation after calculating the CHA2DS2-VA score",
+   "Increase atrial sensitivity to detect AF more reliably",
+   "Start an antiarrhythmic drug to reduce the AF burden",
+   "Suspect an atrial lead problem and check the lead"
+  ],
+  "commentaires": [
+   "Incorrect: the \"episodes\" consist of non-physiological signals; the underlying rhythm is sinus, and there is no AF to anticoagulate.",
+   "Incorrect: increasing sensitivity would make noise sensing worse.",
+   "Incorrect: there is no atrial arrhythmia to treat.",
+   "Correct: bursts of irregular spikes at intervals < 100 ms on the A EGM only, sinus P waves visible between bursts, and an abrupt rise in impedance: an atrial lead fault is likely."
+  ],
+  "explication": "On the atrial EGM, bursts of very brief signals of variable amplitude and non-physiological intervals (< 100 ms) appear intermittently, while sinus P waves remain visible and the ventricular EGM is normal. The device interprets them as AF and mode switches (MS). The abrupt rise in impedance confirms a conductor problem. This should be checked in clinic (measurements, provocative manoeuvres of the arm and pocket, chest X-ray), with reprogramming if needed (non-atrial-tracking mode) before revision. False episodes must be excluded from the AF burden: no anticoagulation decision should be made without reviewing the EGMs.",
+  "aRetenir": "Non-physiological bursts on the A EGM alone + rising impedance: false AF due to an atrial lead fault, no anticoagulation."
+ },
+ "egm-111": {
+  "question": "\"Shock delivered\" alert in a 64-year-old man with a primary prevention ICD. Programmed shocks: first shock at 25 J, subsequent ones at maximum energy. Which reading of the episode is correct?",
+  "options": [
+   "A single successful shock, followed by bradycardia pacing",
+   "Two shocks for monomorphic VT, the first having accelerated the VT",
+   "Two shocks delivered for lead noise, with no real arrhythmia",
+   "VF: first shock unsuccessful, second shock successful"
+  ],
+  "commentaires": [
+   "Incorrect: after the first shock (CD), fibrillatory activity persists and a new charge is needed.",
+   "Incorrect: ventricular activity is disorganised (FS at 170–240 ms, variable amplitude) from the outset: this is VF.",
+   "Incorrect: the disorganised activity is visible on the RV EGM and the shock EGM, and the rhythm returns after the second shock.",
+   "Correct: FS, charging, first shock without effect, redetection and second charge, then a second shock followed by pacing (VP)."
+  ],
+  "explication": "The tracing shows detected VF (FS), charging (Chg), a first shock (CD) after which fibrillation persists, redetection, a new charge and a successful second shock, followed by post-shock bradycardia pacing. An unsuccessful first shock at reduced energy should prompt programming all shocks at maximum energy (as recommended by the programming consensus), followed by a search for a cause: shock impedance, antiarrhythmic drug (amiodarone), electrolyte disturbance, ischaemia, progression of heart disease, and consideration of the shock vector or polarity.",
+  "aRetenir": "An unsuccessful shock for VF: program all shocks at maximum energy and look for the cause."
+ },
+ "egm-112": {
+  "question": "CRT-D in a 70-year-old woman (LVEF 28%, LBBB): worsening dyspnoea, alert \"biventricular pacing 81%\". Persistent AF for 5 weeks, mean rate 95 bpm on a beta-blocker. Which management options are appropriate?",
+  "options": [
+   "Discuss a rhythm control strategy (cardioversion, AF ablation)",
+   "Lower the lower rate to allow intrinsic conduction to emerge",
+   "Consider AV junction ablation if BiV pacing remains insufficient",
+   "Rely on VS-triggered pacing algorithms to restore resynchronisation"
+  ],
+  "commentaires": [
+   "Correct: restoring sinus rhythm re-establishes AV synchrony and BiV pacing; this is an option in a symptomatic patient with recent-onset AF.",
+   "Incorrect: this would further increase the proportion of intrinsic conduction, the opposite of the goal.",
+   "Correct: the 2021 ESC guidelines support AV junction ablation (IIa) in AF patients whose BiV pacing remains incomplete despite treatment.",
+   "Incorrect: pacing triggered after sensing mainly produces fusion or pseudo-fusion beats, without true resynchronisation."
+  ],
+  "explication": "On the EGM, AF is conducted rapidly and irregularly: most cycles are VS with an intrinsic QRS, and BiV pacing only occurs after the longest cycles. The BiV percentage falls, whereas at least 98% is the target to obtain the benefit of CRT. The pacing counter often overestimates true BiV capture, as it includes fusion beats. Management combines optimisation of rate control, a rhythm control strategy where feasible and, if this fails, AV junction ablation to achieve 100% BiV pacing.",
+  "aRetenir": "CRT with conducted AF: insufficient %BiV; control rhythm or rate, or even ablate the AV junction."
+ },
+ "egm-113": {
+  "question": "Single-chamber VVI pacemaker, lower rate 60 bpm, in an 88-year-old woman with slow permanent AF. The remote monitoring nurse flags a \"pause\" on this recording that is longer than the lower rate interval. How do you explain it?",
+  "options": [
+   "Undersensing of the QRS preceding the pause",
+   "Rate hysteresis programmed at 50 bpm",
+   "Sleep function lowering the lower rate",
+   "T-wave oversensing prolonging the escape interval"
+  ],
+  "commentaires": [
+   "Incorrect: each spontaneous QRS is marked VS; sensing is correct.",
+   "Correct: after a sensed event, the escape interval is that of the hysteresis rate (1200 ms = 50 bpm); once pacing is established, the device paces at the lower rate (1000 ms = 60 bpm).",
+   "Incorrect: a sleep rate would also change the interval between two paced beats, which remains at 1000 ms here.",
+   "Incorrect: no intermediate sensed event appears on the marker channel during the pause."
+  ],
+  "explication": "Rate hysteresis lengthens the escape interval after a spontaneous beat to allow the patient's own rhythm to emerge. Here, the last VS is followed by an escape interval of 1200 ms (50 bpm), then pacing continues at the lower rate (1000 ms). When the spontaneous rhythm returns at a faster rate (750 ms), the device is inhibited. An apparent pause longer than the lower rate interval is therefore not a malfunction: the programmed settings must be known before diagnosing oversensing.",
+  "aRetenir": "Escape interval longer than the lower rate after a VS, then pacing at the lower rate: hysteresis."
+ },
+ "egm-114": {
+  "question": "An implantable loop recorder was inserted after a cryptogenic ischaemic stroke. A 4-hour \"AF\" episode is transmitted. Which features of the tracing allow the physician to confirm the episode as genuine AF?",
+  "options": [
+   "Irregularly irregular RR intervals, with no repeating pattern",
+   "Absence of organised P waves before the QRS complexes",
+   "The \"AF\" label assigned by the device",
+   "A fibrillatory baseline between the QRS complexes",
+   "A ventricular rate above 100 bpm"
+  ],
+  "commentaires": [
+   "Correct: the intervals vary from 440 to 930 ms with no grouping or alternation, unlike frequent PACs.",
+   "Correct: no P wave precedes the QRS complexes, whereas they are visible in false positives due to PACs.",
+   "Incorrect: the algorithm is wrong in a substantial proportion of cases (PACs, noise, undersensing); every detection must be reviewed.",
+   "Correct: the irregular undulation of the baseline reflects fibrillatory atrial activity.",
+   "Incorrect: AF may be slow or have a normal rate; the rate does not make the diagnosis."
+  ],
+  "explication": "Implantable loop recorders detect AF from RR irregularity (and sometimes the absence of P waves), with an imperfect positive predictive value: PACs, noise and undersensing generate false episodes. The physician must review the subcutaneous ECG. Here, the RR intervals are irregularly irregular, no P wave precedes the QRS complexes and the baseline is fibrillatory: this is genuine AF. In a patient who has had a stroke, its confirmation leads to a discussion of anticoagulation according to the 2024 ESC guidelines.",
+  "aRetenir": "AF on an implantable loop recorder: irregularly irregular RR, no P waves, fibrillatory baseline; always review the EGM before deciding."
+ },
+ "egm-115": {
+  "question": "DDD dual-chamber pacemaker, lower rate 60 bpm, paced AV delay 250 ms, intact intrinsic AV conduction (sinus node dysfunction). Check 3 weeks after implantation. What is the abnormality?",
+  "options": [
+   "Intermittent loss of atrial capture",
+   "Intermittent loss of ventricular capture",
+   "Atrial undersensing with competitive pacing",
+   "Crosstalk with inhibition of ventricular pacing"
+  ],
+  "commentaires": [
+   "Correct: on some cycles, the AP spike is followed by no P wave; without atrial activation, nothing is conducted and the device paces the ventricle at the end of the AV delay (VP at 250 ms).",
+   "Incorrect: each VP is followed by a broad evoked response on the RV EGM and the far-field EGM.",
+   "Incorrect: no spontaneous P wave is visible; all atrial events are paced.",
+   "Incorrect: the ventricle is paced (VP), not inhibited; there is no early V sensing after AP."
+  ],
+  "explication": "When the atrial pulse captures, the atrium depolarises and the impulse is conducted: VS at ≈ 200 ms. On three cycles, the atrial spike is followed by no P wave on the atrial EGM: there is nothing to conduct and the ventricle is paced at the end of the programmed AV delay (250 ms), with a different, paced QRS. Early after implantation, this suggests atrial lead dislodgement or a rise in threshold. Measure the atrial threshold, increase the amplitude with an adequate safety margin and check the lead position (chest X-ray).",
+  "aRetenir": "AP not followed by a P wave, then VP at the end of the AV delay in a patient who conducts: loss of atrial capture."
+ },
+ "egm-116": {
+  "question": "Dual-chamber pacemaker for sinus node dysfunction with normal AV conduction (PR 180–240 ms). Sensed AV delay programmed at 200 ms, with no conduction-preserving algorithm. Ventricular pacing percentage displayed: 78%. On several cycles, the ventricular spike falls within a spontaneous QRS whose appearance is unchanged. How do you interpret these cycles?",
+  "options": [
+   "Intermittent loss of capture: increase ventricular output",
+   "Ventricular undersensing: spontaneous QRS complexes are missed",
+   "Pseudo-fusion: ineffective spikes, wrongly counted as pacing",
+   "True fusion: hybrid QRS, partly paced and partly intrinsic"
+  ],
+  "commentaires": [
+   "Incorrect: capture is not the issue; the spike falls on myocardium already activated by intrinsic conduction, so it cannot capture.",
+   "Incorrect: the QRS is not missed; its activation simply has not yet reached the RV lead when the AV delay expires.",
+   "Correct: the spike, delivered once the spontaneous QRS is already under way, does not alter activation; the device nevertheless counts it as pacing, hence a misleading VP percentage.",
+   "Incorrect: true fusion produces a QRS of intermediate morphology; here the appearance is that of the spontaneous QRS."
+  ],
+  "explication": "The intrinsic PR interval fluctuates around the programmed AV delay: depending on the cycle, the QRS is sensed (VS), paced, or a spike falls within a spontaneous QRS already under way without altering its appearance (pseudo-fusion). The spike is delivered because intrinsic activation has not yet reached the RV lead by the end of the AV delay; it falls in the refractory period and has no effect. The device nevertheless counts these pseudo-fusion beats as paced, hence a misleading VP percentage, which should lead to a conclusion of neither pacemaker dependence nor loss of capture. Management is to promote intrinsic conduction with a conduction-preserving algorithm (AV hysteresis, conduction search, AAI/DDD switching modes), since unnecessary RV pacing is harmful in the long term.",
+  "aRetenir": "V spike within a spontaneous QRS of unchanged appearance: pseudo-fusion, ineffective but counted as VP, which inflates the pacing percentage."
+ },
+ "egm-117": {
+  "question": "A 47-year-old electrician has a dual-chamber ICD for primary prevention (dilated cardiomyopathy). An episode was recorded at his workplace, with no therapy delivered. True or false: had this phenomenon lasted a few seconds longer, the device could have delivered an inappropriate shock.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: the artefact is counted as very short intervals (FS); if it persists beyond the VF zone detection duration, the device charges and may deliver a shock.",
+   "Incorrect: SVT–VT discriminators do not apply in the VF zone, and an artefact also present on the shock EGM defeats lead noise algorithms."
+  ],
+  "explication": "The regular, high-frequency artefact appears simultaneously on the A EGM, RV EGM and shock EGM, with an abrupt onset and offset: this is external electromagnetic interference. The device counts it as very rapid ventricular activity (FS); the episode, which was brief (about 3 seconds), did not meet the programmed duration criterion. Longer exposure (arc welding station, faulty tool, high-current conductor) may meet it and lead to charging followed by an inappropriate shock: in the VF zone, discriminators do not apply, and noise algorithms that compare the RV EGM with a far-field EGM are defeated when the latter is also contaminated. In an exposed worker, the workplace should be assessed (distance, earthing, field measurements with the occupational health service or the manufacturer), and the patient taught to move away from the source at the slightest symptom.",
+  "aRetenir": "Prolonged electromagnetic interference is counted as VF and may lead to an inappropriate shock; assess occupational exposure."
+ },
+ "egm-118": {
+  "question": "A 64-year-old woman with cardiac sarcoidosis on amiodarone has a dual-chamber ICD with a VT zone from 150 bpm. She presents with 6 hours of palpitations; she is conscious, BP 105/70 mmHg. Real-time EGM on the programmer. True or false: an immediate attempt can be made to terminate this rhythm with ATP delivered manually from the programmer, under ECG monitoring with an external defibrillator at hand.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: all ICDs allow manually commanded ATP (burst or ramp) or shocks to be delivered from the programmer; for well-tolerated slow VT, manual ATP is often effective and painless.",
+   "Incorrect: VT below the detection zone can still be treated with a manually commanded therapy; external cardioversion is not the first resort in a stable patient."
+  ],
+  "explication": "The EGM shows slow ventricular tachycardia (regular cycles of 500 ms, i.e. 120 bpm), dissociated from the atria and with a morphology different from the sinus beats: it remains below the VT zone cut-off (400 ms), hence no automatic therapy. In a conscious, stable patient, the programmer allows manual ATP to be delivered immediately (burst at about 81–88% of the cycle length). Like any ATP, it may accelerate the VT: work under ECG monitoring with an external defibrillator ready, with a commanded internal shock or external cardioversion under sedation as fallbacks. Then look for a cause (ischaemia, potassium, amiodarone-induced thyroid dysfunction, sarcoidosis flare), program a detection zone about 10 bpm below the rate of this slow VT with discriminators enabled, and discuss ablation if it recurs.",
+  "aRetenir": "Slow VT below the zone in a stable ICD recipient: manual ATP from the programmer, external defibrillator ready, then an adjusted zone."
  }
 }
