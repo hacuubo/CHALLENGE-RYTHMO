@@ -220,7 +220,7 @@
   "rappel": "Rate and cycle length are inversely related: rate (bpm) = 60,000 / cycle length (ms), and conversely cycle length (ms) = 60,000 / rate. The relationship is not linear: at fast rates, a few milliseconds are enough to cross into another zone, which matters when a zone boundary is placed close to a VT rate. Manufacturers express zones, discrimination criteria and ATP parameters sometimes in bpm and sometimes in ms. Reviewing a stored episode therefore requires converting marker intervals into rates without error."
  },
  "prog-dai-014": {
-  "question": "According to the 2019 HRS/EHRA/APHRS/LAHRS consensus on ICD programming, what lower boundary is recommended for the slowest therapy zone in a primary prevention patient?",
+  "question": "According to the 2015 HRS/EHRA/APHRS/SOLAECE consensus on ICD programming, what lower boundary is recommended for the slowest therapy zone in a primary prevention patient?",
   "options": [
    "Between 140 and 150 bpm",
    "Between 160 and 170 bpm",
@@ -231,14 +231,14 @@
    "Incorrect: such a low zone encompasses exercise-induced sinus tachycardia and AF, a source of inappropriate therapies.",
    "Incorrect: this is outdated \"conventional\" programming, which multiplies inappropriate therapies.",
    "Incorrect: 170 bpm was the threshold of the conventional arm of MADIT-RIT, which was outperformed by high-rate zones.",
-   "Correct: the 2019 consensus recommends (class I) a first therapy zone between 185 and 200 bpm in primary prevention."
+   "Correct: the 2015 consensus recommends (class I) a first therapy zone between 185 and 200 bpm in primary prevention."
   ],
   "explication": "In primary prevention patients, the consensus recommends (class I) setting the slowest therapy zone between 185 and 200 bpm. This \"high-rate zone\" strategy, validated notably by MADIT-RIT, greatly reduces inappropriate therapies (sinus tachycardia, AF) and unnecessary therapies for slow non-sustained VT, without increasing mortality. A zone at 140–180 bpm risks treating SVT: the conventional arm of MADIT-RIT, which treated from 170 bpm, fared worse. In secondary prevention the reasoning is different, based on the rate of the documented VT.",
   "aRetenir": "Primary prevention: first therapy zone between 185 and 200 bpm.",
   "rappel": "Programming consensus statements distinguish two approaches. In primary prevention, no VT has been documented: high therapy zones are programmed, because slower tachycardias are often SVTs (sinus tachycardia, AF) or well-tolerated slow VTs, and treating them leads to unnecessary or inappropriate therapies. A lower monitor zone, without therapy, can be kept to record episodes. In secondary prevention, programming is tailored to the documented clinical VT."
  },
  "prog-dai-015": {
-  "question": "According to the 2019 programming consensus, what detection duration is recommended in primary prevention before therapy is delivered?",
+  "question": "According to the 2015 programming consensus, what detection duration is recommended in primary prevention before therapy is delivered?",
   "options": [
    "At least 2.5 seconds or 12 out of 16 intervals",
    "At least 4 seconds or 18 out of 24 intervals",
@@ -248,10 +248,10 @@
   "commentaires": [
    "Incorrect: this is short detection, which leads to treating many episodes that would have stopped on their own.",
    "Incorrect: 18/24 is the \"standard\" detection that ADVANCE III compared with long detection, and it resulted in more therapies.",
-   "Correct: the 2019 consensus recommends (class I) at least 6 to 12 s or 30 intervals in primary prevention.",
+   "Correct: the 2015 consensus recommends (class I) at least 6 to 12 s or 30 intervals in primary prevention.",
    "Incorrect: such a long delay for all rhythms would dangerously delay treatment of fast VT and VF."
   ],
-  "explication": "The 2019 consensus recommends (class I) prolonged detection: the tachycardia must persist for at least 6 to 12 seconds, or 30 intervals, before therapy is delivered. Many fast VTs terminate spontaneously within a few seconds: waiting avoids unnecessary ATP and shocks. MADIT-RIT and ADVANCE III (30 out of 40 intervals versus 18 out of 24) showed that this strategy reduces therapies without a significant increase in syncope. The pitfall is to believe that short detection is \"safer\": above all, it multiplies avoidable shocks. Conversely, a uniform one-minute delay would delay treatment of the fastest rhythms.",
+  "explication": "The 2015 consensus recommends (class I) prolonged detection: the tachycardia must persist for at least 6 to 12 seconds, or 30 intervals, before therapy is delivered. Many fast VTs terminate spontaneously within a few seconds: waiting avoids unnecessary ATP and shocks. MADIT-RIT and ADVANCE III (30 out of 40 intervals versus 18 out of 24) showed that this strategy reduces therapies without a significant increase in syncope. The pitfall is to believe that short detection is \"safer\": above all, it multiplies avoidable shocks. Conversely, a uniform one-minute delay would delay treatment of the fastest rhythms.",
   "aRetenir": "Long detection (≥ 6–12 s or 30 intervals): fewer unnecessary therapies, with no loss of safety.",
   "rappel": "Detection duration is the time, or number of fast intervals, that the ICD requires before declaring a tachycardia and delivering therapy. Depending on the manufacturer, it is programmed as a number of consecutive intervals, as a sliding window (X out of Y intervals) or in seconds. Prolonged detection gives non-sustained tachycardias time to stop spontaneously, which reduces ATP and shocks, both appropriate and inappropriate. The capacitor charge time is then added before a shock, which justifies shorter delays at the fastest rates."
  },
@@ -301,7 +301,7 @@
    "Incorrect: the reduction in therapies (about one third) was achieved without a significant increase in syncope.",
    "Correct: the first part is accurate, but there was no significant excess of syncope; this is what underpins the recommendation."
   ],
-  "explication": "False, because of the second part of the statement. ADVANCE III randomised about 1,900 ICD patients to standard detection of 18 out of 24 intervals or long detection of 30 out of 40 intervals. Long detection reduced therapies delivered by about one third, and lowered inappropriate shocks, without a significant increase in syncope. Together with MADIT-RIT and PainFree SST, this trial underpins the 2019 consensus recommendation for prolonged detection. The message: many fast non-sustained episodes stop on their own if given time, and waiting does not come at the price of syncope.",
+  "explication": "False, because of the second part of the statement. ADVANCE III randomised about 1,900 ICD patients to standard detection of 18 out of 24 intervals or long detection of 30 out of 40 intervals. Long detection reduced therapies delivered by about one third, and lowered inappropriate shocks, without a significant increase in syncope. Together with MADIT-RIT and PainFree SST, this trial underpins the 2015 consensus recommendation for prolonged detection. The message: many fast non-sustained episodes stop on their own if given time, and waiting does not come at the price of syncope.",
   "aRetenir": "ADVANCE III: 30/40 detection = fewer therapies, same safety.",
   "rappel": "ICD detection often works as a sliding window: tachycardia is declared when X of the last Y intervals are shorter than the zone limit. Increasing X and Y lengthens detection while tolerating a few slower cycles, so that the counter is not reset by a slightly irregular tachycardia. The classic concern about long detection is syncope before therapy; in practice, non-sustained episodes stop on their own and sustained episodes are still treated. The same approach applies to the VF zone as well as to VT zones."
  },
