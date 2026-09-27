@@ -739,7 +739,8 @@
    "Incorrect: lengthening the PVARP would lengthen the TARP and lower the 2:1 block rate even further."
   ],
   "explication": "The abrupt halving of the ventricular rate reflects pacemaker 2:1 block: the P–P interval has become shorter than the TARP. In a young patient, programming must be adapted to track high sinus rates: dynamic shortening of the AV delay on exercise, a shorter PVARP (taking into account the risk of PMT if VA conduction is present), and a higher MTR, while preserving a Wenckebach phase, which is better tolerated than 2:1 block. Lengthening the PVARP would do the opposite. VVIR would abolish AV synchrony and sinus chronotropic adaptation. An ICD does not address the problem.",
-  "aRetenir": "Abrupt halving of the rate on exercise in DDD = pacemaker 2:1 block: shorten the TARP and raise the MTR."
+  "aRetenir": "Abrupt halving of the rate on exercise in DDD = pacemaker 2:1 block: shorten the TARP and raise the MTR.",
+  "rappel": "In a young, active patient paced in DDD for AV block, the aim is to reproduce the physiological response to exercise: the sinus node drives the rate, and the PR interval shortens naturally as the rate increases. A dynamic AV delay (shortening of the AV delay with rate) and adaptive PVARP reproduce this behaviour and reduce the TARP at high rates. The MTR should be matched to the sinus rates actually reached on exercise, within the limits of cardiac tolerance. Programming is best validated by an exercise test, which reveals pacemaker 2:1 block or early Wenckebach behaviour not visible at rest."
  },
  "ecg-stim-047": {
   "question": "A patient with a DDD pacemaker (MTR 130 bpm) reports palpitations of sudden onset. What is the mechanism of the tachycardia recorded on this tracing?",
@@ -756,7 +757,8 @@
    "Incorrect: runaway is an exceptional circuit failure; here the onset after a PVC and the retrograde P waves point to PMT."
   ],
   "explication": "In PMT (also known as endless-loop tachycardia), the pacemaker forms the antegrade limb of a circuit whose retrograde limb is the patient's own VA conduction. On this tracing, a PVC dissociates atrium and ventricle; the retrograde P wave that follows falls outside the PVARP: it is sensed and tracked, the paced QRS is again conducted to the atrium, and so on, often at the MTR. A tracked sinus tachycardia would have antegrade P waves and a variable rate. Runaway is an exceptional circuit failure. VT would have QRS complexes not preceded by spikes.",
-  "aRetenir": "PMT = pacemaker (antegrade limb) + VA conduction (retrograde limb) loop, often at the MTR."
+  "aRetenir": "PMT = pacemaker (antegrade limb) + VA conduction (retrograde limb) loop, often at the MTR.",
+  "rappel": "In PMT, the loop cycle length is the sum of the sensed AV delay and the retrograde VA conduction time. If this sum is shorter than the maximum tracking rate interval, ventricular pacing is delayed until the MTR, so PMT typically runs at the MTR; otherwise it runs at a slightly lower rate. PMT starts abruptly with an event that dissociates atrium and ventricle, most often a PVC, and is recognised by QRS complexes that are all paced, each followed by a retrograde P wave (negative in the inferior leads). It belongs to a wider spectrum of pacemaker-mediated arrhythmias, which includes tracking of an atrial tachycardia, tracking of oversensed signals and sensor-driven tachycardia."
  },
  "ecg-stim-048": {
   "question": "Which of the following predispose to pacemaker-mediated tachycardia in a patient with a DDD pacemaker?",
@@ -775,7 +777,8 @@
    "Incorrect: without retrograde conduction there is no retrograde P wave and the loop cannot exist."
   ],
   "explication": "PMT requires retrograde VA conduction and a mode with atrial tracking (DDD, VDD). The classic triggers are those that dissociate atrium and ventricle: PVCs, loss of atrial capture or atrial undersensing, an excessively long AV delay, magnet removal. If the PVARP is shorter than the VA conduction time, the retrograde P wave is sensed and tracked; if it is longer, the retrograde P wave falls in the refractory period and is not tracked. In DDI there is no atrial tracking, so PMT cannot occur. Without retrograde conduction, classic PMT is impossible.",
-  "aRetenir": "PMT: VA conduction + tracking mode + a trigger dissociating A and V (PVC, loss of atrial capture) + PVARP too short."
+  "aRetenir": "PMT: VA conduction + tracking mode + a trigger dissociating A and V (PVC, loss of atrial capture) + PVARP too short.",
+  "rappel": "Prevention of PMT relies first on knowing the retrograde VA conduction time, which can be measured by a device test or during ventricular pacing at interrogation. The PVARP is programmed to cover this time with a margin. Since the PVC is the main trigger, most devices automatically extend the PVARP for the cycle following a sensed PVC. Specific algorithms also monitor sequences of ventricular pacing at the MTR with a stable VP-AS interval, and break the loop by not tracking one atrial event. VA conduction can be present even in a patient with antegrade AV block and can vary with adrenergic state: its absence at rest does not guarantee its absence on exercise."
  },
  "ecg-stim-049": {
   "question": "In the emergency department, a patient with a DDD pacemaker (MTR 130 bpm) presents with this well-tolerated tachycardia, which does not terminate spontaneously. Which simple measure is most effective at terminating it immediately?",
@@ -792,7 +795,8 @@
    "Correct: with a magnet, the pacemaker switches to asynchronous pacing (DOO): it no longer senses the retrograde P wave and the PMT loop is broken."
   ],
   "explication": "The tracing shows a regular paced tachycardia, initiated by a PVC, with tracked retrograde P waves: this is PMT. A magnet switches the pacemaker to asynchronous mode (DOO): it no longer senses the atrium and therefore no longer tracks the retrograde P wave, which immediately breaks the loop. The device must then be reprogrammed (longer PVARP, PMT prevention algorithm enabled) and the trigger treated. Adenosine can terminate PMT by blocking nodal VA conduction, but it is less simple and less safe than a magnet. A DC shock is not indicated for a well-tolerated paced tachycardia. Carotid sinus massage has only an inconsistent effect.",
-  "aRetenir": "PMT: a magnet breaks the loop by abolishing atrial sensing."
+  "aRetenir": "PMT: a magnet breaks the loop by abolishing atrial sensing.",
+  "rappel": "On a pacemaker, the magnet activates a switch that suppresses sensing: the device paces asynchronously (VOO or DOO depending on the model) at a fixed magnet rate while the magnet is in place, then resumes its programmed operation as soon as it is removed. The magnet rate and exact behaviour are manufacturer-specific, and the magnet response can sometimes be programmed or disabled. Its uses are diagnostic (checking capture, estimating battery status) and therapeutic (terminating PMT, protecting a pacing-dependent patient from inhibition by electromagnetic interference). Asynchronous pacing may compete with the intrinsic rhythm."
  },
  "ecg-stim-050": {
   "question": "Classic pacemaker-mediated tachycardia cannot occur in a patient without retrograde ventriculoatrial conduction.",
@@ -805,7 +809,8 @@
    "Incorrect: without VA conduction there is no classic PMT; only other mechanisms (tracking of an atrial tachycardia or of noise) remain possible."
   ],
   "explication": "PMT is a circuit whose retrograde limb is necessarily the patient's VA conduction: without it, no retrograde P wave is generated after the paced QRS and the loop cannot be sustained. This is why some pacemakers test VA conduction and why the PVARP is set to cover the retrograde conduction time. Other pacemaker-related arrhythmias can nevertheless occur without VA conduction (tracking of an atrial tachycardia, tracking of noise or far-field R waves on the atrial channel): they can produce a rapid ventricular rate but are not PMT.",
-  "aRetenir": "No VA conduction, no PMT."
+  "aRetenir": "No VA conduction, no PMT.",
+  "rappel": "Retrograde VA conduction usually travels backwards through the AV node. It is common in pacemaker patients, particularly in sinus node dysfunction with preserved AV conduction, but may also persist in patients with antegrade AV block, because antegrade and retrograde conduction are not affected in the same way. It varies with adrenergic tone and drugs: absent at rest, it may appear on exercise or with catecholamines. It is demonstrated during ventricular pacing, by observing retrograde P waves at a fixed interval after paced QRS complexes, or by an automatic device test. It is involved in PMT and in pacemaker syndrome."
  },
  "ecg-stim-051": {
   "question": "Faced with a regular paced tachycardia in a patient with a DDD pacemaker, which finding most strongly favours PMT rather than an atrial tachycardia tracked by the pacemaker?",
@@ -822,7 +827,8 @@
    "Incorrect: an atrial arrhythmia persists with a magnet; PMT stops immediately."
   ],
   "explication": "In PMT, each paced QRS is followed by a retrograde P wave (negative in II, III, aVF) after a fixed VA conduction time, and the tachycardia stops immediately when a magnet abolishes atrial tracking. With a tracked atrial tachycardia, the P waves are antegrade and their rate is independent of the QRS complexes: with a magnet, the pacemaker switches to asynchronous pacing but the atrial arrhythmia persists, with a ventricular rate dependent on intrinsic AV conduction. Gradual acceleration with exercise suggests a tracked sinus tachycardia. Manufacturers' algorithms use the same principle (stability of the VP–AS interval, transient PVARP extension or AV delay modification).",
-  "aRetenir": "PMT: fixed VP–retrograde P interval and immediate termination with a magnet."
+  "aRetenir": "PMT: fixed VP–retrograde P interval and immediate termination with a magnet.",
+  "rappel": "Faced with a fully paced tachycardia in a DDD patient, the differential diagnosis includes tracked sinus tachycardia, atrial tachycardia or flutter tracked up to the MTR (before or without mode switching), PMT, tracking of oversensed signals on the atrial channel (far-field R waves, noise), sensor-driven tachycardia and, exceptionally, pacemaker runaway. Three elements guide the diagnosis: the position and morphology of P waves relative to the QRS, the mode of onset (gradual or abrupt after a PVC) and the response to a magnet, which suppresses tracking and unmasks the underlying atrial rhythm. Interrogation with markers and EGMs confirms the mechanism."
  },
  "ecg-stim-052": {
   "question": "What is the main purpose of the mode switch function in a dual-chamber pacemaker?",
@@ -839,7 +845,8 @@
    "Incorrect: saving battery is not its purpose; it protects the patient from rapid ventricular pacing."
   ],
   "explication": "In DDD or VDD mode, every atrial event sensed outside the refractory period can be followed by ventricular pacing, up to the MTR. During AF or atrial flutter, this would result in rapid, irregular ventricular pacing. Mode switching detects an abnormally high atrial rate and changes to a mode without atrial tracking (DDI(R), VDI(R)), then reverts to the original mode when the arrhythmia ends. It does not prevent AF but limits its ventricular consequences. It also allows episodes to be dated and quantified, which is useful for follow-up.",
-  "aRetenir": "Mode switching changes to a non-tracking mode (DDI/VDI) to avoid tracking an atrial arrhythmia."
+  "aRetenir": "Mode switching changes to a non-tracking mode (DDI/VDI) to avoid tracking an atrial arrhythmia.",
+  "rappel": "A mode-switching algorithm relies on several programmable parameters: an atrial detection rate for the arrhythmia, a confirmation criterion (number of cycles, duration or mean atrial rate depending on the manufacturer), a non-tracking fallback mode and a fallback rate, sometimes reached gradually. Its efficacy depends entirely on atrial sensing: undersensed low-amplitude AF, or atrial flutter with every other flutter wave falling in the post-ventricular atrial blanking period, can prevent or interrupt mode switching. Return to the tracking mode occurs when the sensed atrial rate falls back below the threshold for long enough."
  },
  "ecg-stim-053": {
   "question": "A patient in DDD, MTR 130 bpm. At the onset of an episode of AF, the Holter shows a few seconds of rapid, irregular ventricular pacing close to 130 bpm, then regular ventricular pacing at 70 bpm while the AF persists. What is the interpretation?",
@@ -856,7 +863,8 @@
    "Incorrect: pacemaker 2:1 block occurs with a regular sinus tachycardia whose P–P interval is shorter than the TARP."
   ],
   "explication": "Mode switch algorithms need a few cycles or seconds to confirm the atrial arrhythmia. During this phase, the pacemaker continues to track atrial events sensed outside the PVARP, resulting in rapid, irregular ventricular pacing capped at the MTR. Once the arrhythmia is confirmed, it switches to a non-tracking mode (DDI/VDI) and paces the ventricle at the lower rate, the fallback rate or the sensor rate. This behaviour is normal. PMT would be regular, and pacemaker 2:1 block occurs with sinus tachycardia.",
-  "aRetenir": "Rapid, irregular V pacing at the onset of AF, then pacing at the lower rate = normal mode switching."
+  "aRetenir": "Rapid, irregular V pacing at the onset of AF, then pacing at the lower rate = normal mode switching.",
+  "rappel": "During mode switching, the ventricle is paced independently of the atrium, at the fallback, lower or sensor rate, or inhibited by faster intrinsic AV conduction: AV synchrony is suspended, which is normal during an atrial arrhythmia. The ECG then shows disorganised atrial activity and paced QRS complexes with no fixed relationship to it. Repeated switching in and out of the fallback mode suggests borderline atrial sensing (low-voltage AF, waves falling in blanking periods): analysis of stored EGMs guides adjustment of atrial sensitivity or blanking. Return to 1:1 tracking after the arrhythmia ends confirms correct operation."
  },
  "ecg-stim-054": {
   "question": "Which of the following can cause inappropriate mode switch episodes (in the absence of an atrial arrhythmia)?",
@@ -873,7 +881,8 @@
    "Incorrect: loss of ventricular capture does not alter the counting of atrial events."
   ],
   "explication": "Mode switching is triggered when the sensed atrial rate exceeds a threshold. If the atrial channel double counts (P wave + far-field R wave) or senses noise, the atrial rate \"seen\" is falsely high and mode switching is triggered inappropriately. Correction involves EGM analysis, lengthening the post-ventricular atrial blanking (PVAB), reducing atrial sensitivity, or lead revision in the case of noise. Undersensing of AF produces the opposite: absent or intermittent mode switching. Loss of ventricular capture has no influence on atrial counting.",
-  "aRetenir": "Inappropriate mode switching: think of far-field R waves and atrial lead noise."
+  "aRetenir": "Inappropriate mode switching: think of far-field R waves and atrial lead noise.",
+  "rappel": "The far-field R wave is the ventricular signal picked up by the atrial lead; it occurs after the P wave, during or just after the QRS. It is promoted by a low atrial lead position, close to the tricuspid annulus, by high atrial sensitivity and by unipolar sensing. Post-ventricular atrial blanking (PVAB) makes the atrial channel blind just after the ventricular event so that it is ignored. Its setting is a compromise: a PVAB that is too short lets the far-field R wave through; too long, it masks some AF or flutter waves and compromises mode switching. Stored atrial EGMs, in which the suspect signal appears at a fixed interval from the QRS, point to the diagnosis."
  },
  "ecg-stim-055": {
   "question": "Mode switch episodes recorded by a pacemaker require no analysis, since they always indicate AF.",
@@ -886,7 +895,8 @@
    "Correct: a mode switch episode is not synonymous with confirmed AF; analysis of the stored EGMs is essential."
   ],
   "explication": "Mode switch counters and atrial high-rate episode (AHRE) counters are very useful for detecting subclinical AF, but they can be distorted by atrial oversensing (far-field R waves, noise). Guidelines (2024 ESC AF guidelines) stress the need to review the stored electrograms to confirm that the episode is indeed an atrial arrhythmia before any decision, particularly regarding anticoagulation. The duration and burden of episodes also matter for the therapeutic decision. A mode switch episode is therefore not synonymous with confirmed AF.",
-  "aRetenir": "A mode switch episode must be confirmed on the EGMs before concluding that it is AF."
+  "aRetenir": "A mode switch episode must be confirmed on the EGMs before concluding that it is AF.",
+  "rappel": "High atrial rate episodes detected by an implanted device, once confirmed on the EGMs, correspond to device-detected subclinical AF. This is not equivalent to clinical AF: the associated stroke risk is lower, and it increases with the duration and burden of episodes. The 2024 ESC guidelines state that DOAC therapy may be considered (class IIb) in patients with asymptomatic device-detected subclinical AF and elevated thromboembolic risk, excluding those at high bleeding risk. These patients must be followed up, because progression to clinical AF, which is then managed according to the usual anticoagulation rules, is common."
  },
  "ecg-stim-057": {
   "question": "What is the usual effect of applying a magnet to an ICD?",
@@ -903,7 +913,8 @@
    "Correct: the magnet suspends detection and therapies (ATP, shocks) while it is in place, without affecting bradycardia pacing."
   ],
   "explication": "In ICDs, a magnet suspends tachyarrhythmia detection and therefore therapies (ATP and shocks) for as long as it is held in place, but bradycardia pacing remains unchanged, with no switch to asynchronous pacing. This is useful in the event of repeated inappropriate shocks or during surgery with diathermy. In a pacemaker-dependent patient, the magnet therefore does not protect against inhibition of pacing by interference: the ICD must then be reprogrammed (asynchronous mode). Therapies resume normally when the magnet is removed.",
-  "aRetenir": "Magnet on an ICD: therapies suspended, bradycardia pacing unchanged."
+  "aRetenir": "Magnet on an ICD: therapies suspended, bradycardia pacing unchanged.",
+  "rappel": "On an ICD, the magnet acts only while it is applied and must remain correctly centred over the can: a displaced magnet leaves therapies re-enabled without the team noticing. Some manufacturers signal magnet recognition by tones, and the magnet response may be programmable, or even disabled, on some models: it must be known before relying on it. The magnet changes neither the programmed parameters nor pacing, which remains susceptible to interference. Throughout any period without therapies, continuous ECG monitoring and an external defibrillator immediately available are essential."
  },
  "ecg-stim-058": {
   "question": "In a pacemaker, a decrease in the magnet pacing rate compared with its initial value may indicate that the battery has reached the elective replacement indicator (ERI).",
@@ -916,7 +927,8 @@
    "Incorrect: the magnet rate is precisely an indicator of depletion: a fall often signals ERI (refer to the manual)."
   ],
   "explication": "The magnet rate has historically served as an indicator of battery status: when the battery reaches ERI, most pacemakers lower their magnet rate to a predefined value, specific to each manufacturer and model. Before remote monitoring, measuring this rate (on an ECG or via transtelephonic transmission) was a way of detecting battery depletion. Always refer to the manufacturer's manual, as nominal and end-of-life values differ. Some models also change their operating mode at ERI (e.g. switching to VVI).",
-  "aRetenir": "A fall in the magnet rate often signals ERI (values specific to each manufacturer)."
+  "aRetenir": "A fall in the magnet rate often signals ERI (values specific to each manufacturer).",
+  "rappel": "Battery life is described in successive stages: beginning of life, elective replacement indicator (ERI), then end of service (EOS). ERI leaves an operating reserve of a few months, which allows replacement to be scheduled; at EOS, function is no longer guaranteed. As these thresholds approach, many devices reduce their functions to save energy (disabling rate response or advanced features, switching to a single-chamber mode), which may alter the ECG. Battery voltage and impedance, estimated longevity and, nowadays, remote monitoring alerts are the reference indicators; the magnet rate remains a simple marker."
  },
  "ecg-stim-059": {
   "question": "In a patient with a pacemaker, an ECG recorded with a magnet shows regular spikes at a fixed rate, some of which fall just after an intrinsic QRS and are not followed by a QRS. What is the interpretation?",
@@ -933,13 +945,15 @@
    "Incorrect: the spikes are regular, at a fixed rate: there is no inhibition."
   ],
   "explication": "With a magnet, sensing is suspended and the pacemaker delivers spikes at a fixed rate regardless of the intrinsic rhythm. When the intrinsic rhythm is faster or similar, spikes fall in the refractory period of the ventricle that has just depolarised: their failure to capture is functional non-capture, not true loss of capture. Likewise, the absence of sensing is intentional, not undersensing. To assess capture, spikes falling outside the refractory period must be analysed.",
-  "aRetenir": "With a magnet, spikes in the refractory period not followed by a QRS = functional non-capture, which is normal."
+  "aRetenir": "With a magnet, spikes in the refractory period not followed by a QRS = functional non-capture, which is normal.",
+  "rappel": "With a magnet applied, the pacemaker delivers its pulses regardless of the intrinsic rhythm: the resulting ECG is used to check capture on the spikes falling outside the refractory period, not sensing, which is deliberately suspended. Depending on the manufacturer, the first cycles under magnet may be delivered at a higher rate or at reduced output to test the capture safety margin, after which the device settles at the magnet rate. When the intrinsic rhythm is faster than the magnet rate, many spikes fall within or just after the QRS complexes: only those occurring later, on excitable myocardium, allow capture to be assessed."
  },
  "ecg-stim-060": {
   "question": "Compare the magnet response of a pacemaker and of an ICD, and state the practical consequence in a pacemaker-dependent patient with an ICD undergoing surgery with diathermy.",
   "reponseAttendue": "Pacemaker: asynchronous pacing (VOO/DOO) at the magnet rate. ICD: suspension of tachyarrhythmia therapies with no change to pacing. In a dependent patient with an ICD, a magnet does not protect against inhibition of pacing by diathermy: the ICD must be reprogrammed (therapies deactivated + asynchronous mode) with monitoring.",
   "explication": "The fundamental difference lies in the role of the magnet: in a pacemaker, it suspends sensing to guarantee pacing; in an ICD, it suspends tachyarrhythmia detection to prevent inappropriate therapies. In a dependent patient, diathermy interference can inhibit ICD pacing despite the magnet, hence the need for temporary asynchronous programming. While therapies are off, the patient must be monitored with an external defibrillator immediately available. The magnet response is sometimes programmable or disabled depending on the manufacturer: it must be checked.",
-  "aRetenir": "Magnet: asynchronous pacing in a pacemaker, therapies suspended in an ICD (no asynchronous pacing)."
+  "aRetenir": "Magnet: asynchronous pacing in a pacemaker, therapies suspended in an ICD (no asynchronous pacing).",
+  "rappel": "Perioperative management of an implantable device relies on a few questions: type of device (pacemaker or ICD), pacing dependency, surgical site and risk of electromagnetic interference. Bipolar diathermy, short bursts and a return electrode placed so that the current path runs away from the device reduce this risk. A pacemaker can be protected from inhibition by a magnet or by asynchronous programming. An ICD whose therapies are suspended requires continuous ECG monitoring and external defibrillation pads available. Any reprogrammed device must be re-interrogated and restored to its original programming before monitoring ends."
  },
  "ecg-stim-061": {
   "question": "In this patient with a CRT pacemaker, what percentage of biventricular pacing should be targeted?",
@@ -956,7 +970,8 @@
    "Correct: biventricular pacing should be as close as possible to 100%, with a classic threshold of at least 98%."
   ],
   "explication": "The benefit of resynchronisation depends on near-continuous biventricular pacing: mortality and hospitalisations fall as the pacing percentage approaches 100%, with a classic threshold of at least 98%. Any drop (rapid AF, PVCs, intrinsic AV conduction faster than the AV delay) must be sought and corrected. The tracing shows biventricular pacing, with a relatively narrow paced QRS. A high reported percentage may, however, include fusion or pseudofusion beats, hence the value of the ECG and Holter monitoring.",
-  "aRetenir": "With CRT, aim for a biventricular pacing percentage as close as possible to 100% (≥ 98%)."
+  "aRetenir": "With CRT, aim for a biventricular pacing percentage as close as possible to 100% (≥ 98%).",
+  "rappel": "On the ECG of a patient with CRT, effective biventricular pacing is usually recognised by a QRS narrower than the native LBBB QRS, with a visible LV contribution, typically an R wave in V1 and a negative or predominantly negative QRS in lead I when the LV lead is lateral. Loss of LV capture leaves isolated RV pacing: a wider QRS, LBBB-like with QS in V1 and, with an apical lead, extreme left axis. Loss of RV capture leaves isolated LV pacing, with a marked RBBB-like pattern. Any change in paced QRS morphology compared with the post-implant reference ECG should prompt a check of the thresholds of both leads."
  },
  "ecg-stim-062": {
   "question": "CRT patient (RV apical lead, lateral LV lead). On the follow-up ECG, V1 shows a broad QS and lead I a tall R wave, whereas at implantation V1 showed a dominant R wave and lead I a QS. What is the most likely explanation?",
