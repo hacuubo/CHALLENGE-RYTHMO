@@ -253,7 +253,7 @@ export const SCENARIOS = {
     def: () => {
       const d = base();
       d.sites.his = { erp: 250, cl: 1400, declenchable: false };
-      d.sites.jet = { erp: 250, cl: 430, declenchable: true };
+      d.sites.jet = { erp: 250, cl: 430, declenchable: true, catecholaminergique: true }; // automatisme jonctionnel, démasqué seulement sous isoprénaline
       d.voies.push({ id: 'jet-his', a: 'jet', b: 'his', ab: myo(5), ba: myo(5) });
       regler(d, 'nav', { ba: nod(70, 90, 100, 330) });
       return d;
