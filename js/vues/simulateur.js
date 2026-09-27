@@ -600,7 +600,7 @@ export function vueSimulateur(app) {
         if (!canvas.isConnected) return; // simulateur quitté entre-temps
         const a = analyserEntrainement(c, { der, site: s.site, tcl: s.tcl, ventriculaire: VENTRICULAIRES.has(s.site), debut: s.debut });
         const tete = t(`Entraînement depuis ${s.nom} à ${s.cl} ms (TCL ${Math.round(s.tcl)}) : `, `Entrainment from ${s.nom} at ${s.cl} ms (TCL ${Math.round(s.tcl)}): `);
-        const rep = a.reponse?.startsWith('V') ? t(`réponse ${a.reponse}${a.pseudo ? ' (A-H-A : bloc sous le His, pas de V-A-A-V vraie)' : ''}, `, `${a.reponse} response${a.pseudo ? ' (A-H-A: block below the His, not a true V-A-A-V)' : ''}, `) : '';
+        const rep = !a.reponse ? '' : a.reponse.startsWith('V') ? t(`réponse ${a.reponse}${a.pseudo ? ' (A-H-A : bloc sous le His, pas de V-A-A-V vraie)' : ''}, `, `${a.reponse} response${a.pseudo ? ' (A-H-A: block below the His, not a true V-A-A-V)' : ''}, `) : `${a.reponse}, `;
         const sava = a.savA != null ? t(`, SA − VA ${a.savA} ms`, `, SA − VA ${a.savA} ms`) : '';
         resultat(a.interpretable ? `${tete}${rep}PPI ${a.ppi ?? '—'} ms, PPI − TCL ${a.pptcl ?? '—'} ms${sava}`
           : `${tete}${t('non interprétable', 'uninterpretable')} (${a.motif})${a.arret ? '' : t(`, PPI ${a.ppi ?? '—'} ms`, `, PPI ${a.ppi ?? '—'} ms`)}`, { manoeuvre: true });

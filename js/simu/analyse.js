@@ -75,17 +75,22 @@ export function analyserEntrainement(coeur, { der, site, tcl, ventriculaire, deb
   const ppiT = activations(j, site === 'parahis' ? 'vbd' : site, der + 1, der + 3000)[0];
   const r = { ppi: ppiT != null ? Math.round(ppiT - der) : null, pptcl: ppiT != null && tcl ? Math.round(ppiT - der - tcl) : null, reponse: null,
     interpretable: true, motif: null, arret: false, sa: null, va: null, savA: null, pseudo: false };
-  // tachycardie persistante après l'arrêt : battements réguliers au voisinage du cycle initial
-  const ref = ventriculaire ? battementsV(j, der + 1, der + 4000).filter(v => !coeur.stims.some(s => Math.abs(s.t - v) < 5)) : activations(j, 'hra', der + 1, der + 4000);
-  const apres = ecarts(ref), c0 = mediane(apres.slice(1));
-  r.arret = !tcl || apres.length < 3 || c0 == null || Math.abs(c0 - tcl) > Math.max(40, 0.15 * tcl);
+  // tachycardie persistante après l'arrêt : battements réguliers au voisinage du cycle initial, sur l'un ou l'autre étage
+  // (une TV persiste après une salve atriale, un flutter après une salve ventriculaire)
+  const refs = [battementsV(j, der + 1, der + 4000).filter(v => !coeur.stims.some(s => Math.abs(s.t - v) < 5)), activations(j, 'hra', der + 1, der + 4000)];
+  const persiste = l => { const d = ecarts(l), c0 = mediane(d.slice(1)); return d.length >= 3 && c0 != null && Math.abs(c0 - tcl) <= Math.max(40, 0.15 * tcl); };
+  r.arret = !tcl || !refs.some(persiste);
   if (!dernier?.capture) { r.interpretable = false; r.motif = trad('perte de capture au dernier stimulus', 'loss of capture on the last stimulus'); }
   else if (r.arret) { r.interpretable = false; r.motif = trad('tachycardie arrêtée par la stimulation', 'tachycardia terminated by pacing'); }
   if (ventriculaire) {
+    // tachycardie sans relation VA 1:1 avant la stimulation (TV, bloc VA) : l'atrium n'a pas à être entraîné, seul le PPI compte
+    const t1 = debut ?? (stims[0]?.t ?? der), cA = cycleSite(j, 'hra', t1 - 3000, t1), cV = mediane(ecarts(battementsV(j, t1 - 3000, t1)));
+    const dissocie = cA == null || cV == null || Math.abs(cA - cV) > 0.1 * cV;
     const Aent = j.find(x => x.s === 'hra' && x.r === `stim:${der}`)?.t;
     const Aavant = activations(j, 'hra', der - 4 * (cl ?? tcl) - 50, Aent ?? der);
     const suit = Aent != null && cl != null && Aavant.length >= 3 && ecarts(Aavant).slice(-2).every(d => Math.abs(d - cl) <= 12);
-    if (!suit) {
+    if (dissocie) r.reponse = trad('atrium dissocié (tachycardie ventriculaire ou bloc VA) : réponse V-A-V / V-A-A-V sans objet', 'dissociated atrium (ventricular tachycardia or VA block): V-A-V / V-A-A-V response not applicable');
+    else if (!suit) {
       r.reponse = trad('atrium non entraîné (pas de conduction rétrograde 1:1)', 'atrium not entrained (no 1:1 retrograde conduction)');
       if (r.interpretable) { r.interpretable = false; r.motif = r.reponse; }
     } else {
