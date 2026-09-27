@@ -778,7 +778,8 @@
    "Incorrect: without mode switching, the ventricle would be paced at the maximum tracking rate."
   ],
   "explication": "In an ICD patient, AF has three consequences to assess: thromboembolic risk (duration, burden, CHA2DS2-VA, anticoagulation), the risk of inappropriate therapy if the ventricular rate approaches the detection zones, and haemodynamic impact (HF, loss of BiV pacing with CRT). Remote monitoring makes it possible to act before an inappropriate shock, as ECOST showed, by controlling the rate and adjusting the programming (zones, discriminators); disabling therapies would leave the patient unprotected. Turning off mode switching to track AF in DDD would also be a mistake: the ventricle would be paced at the maximum tracking rate.",
-  "aRetenir": "AF in an ICD patient: thromboembolic risk, risk of inappropriate shock and impact on HF."
+  "aRetenir": "AF in an ICD patient: thromboembolic risk, risk of inappropriate shock and impact on HF.",
+  "rappel": "In an ICD recipient, AF raises a specific problem: if the conducted ventricular rate reaches a VT or VF detection zone, the device may deliver inappropriate therapy. SVT–VT discriminators (RR stability, EGM morphology, comparison of atrial and ventricular rates in a dual-chamber device) apply mainly in the VT zone and are not infallible; in the VF zone, rate alone is usually enough to trigger therapy. Prevention relies on ventricular rate control in AF and appropriate programming (high-rate zones, prolonged detection durations), never on disabling therapies."
  },
  "tele-049": {
   "question": "A patient already anticoagulated for known paroxysmal AF. Remote monitoring has shown persistent AF (100% burden) for 3 weeks, with a mean ventricular rate of 75 bpm. The patient is asymptomatic. What level of urgency and what management?",
@@ -795,7 +796,8 @@
    "Correct: non-critical alert; planned reassessment of rhythm control, checking adherence to anticoagulation."
   ],
   "explication": "Well-tolerated persistent AF with a controlled rate in a patient already anticoagulated is not life-threatening: the alert is reviewed within the usual time frame, is not critical, and warrants planned reassessment rather than immediate action. The 2024 ESC guidelines suggest considering rhythm control, especially if the AF is recent, and cardioversion requires at least 3 weeks of effective anticoagulation or a TOE. Progression to persistent AF is also a marker of disease progression to be documented. Doing nothing would miss a window to restore sinus rhythm, and stopping the anticoagulant would be a serious error: thromboembolic risk does not fall when AF becomes permanent.",
-  "aRetenir": "Well-tolerated persistent AF on anticoagulation: non-urgent, but planned reassessment of rhythm control."
+  "aRetenir": "Well-tolerated persistent AF on anticoagulation: non-urgent, but planned reassessment of rhythm control.",
+  "rappel": "AF is classified by duration: paroxysmal (terminating spontaneously or with intervention within 7 days), persistent (beyond 7 days), long-standing persistent (more than 12 months, with a rhythm-control strategy still considered) and permanent (a shared decision not to attempt further restoration of sinus rhythm). Moving from one form to the next reflects disease progression. Anticoagulation depends on thromboembolic risk (CHA2DS2-VA), not on the type of AF. Cardioversion of AF lasting more than 24 hours requires at least 3 weeks of effective anticoagulation or a TOE."
  },
  "tele-050": {
   "question": "In an ARTESiA subgroup analysis (Lancet Neurol 2025), how did patients with prior stroke or TIA fare?",
@@ -812,7 +814,8 @@
    "Incorrect: they were included, as a minority, and were the subject of a subgroup analysis."
   ],
   "explication": "Patients with prior stroke or TIA made up a minority of ARTESiA participants but had a higher stroke risk on aspirin. Apixaban reduced strokes in this subgroup, with a greater absolute benefit than in the other patients. This illustrates the general principle of the 2024 ESC guidelines: in subclinical AF, the decision to anticoagulate depends on individual thromboembolic risk, which is highest in patients with a history of cerebrovascular events. These results nonetheless come from a subgroup analysis.",
-  "aRetenir": "Subclinical AF with prior stroke/TIA: higher risk, greater absolute benefit from DOACs."
+  "aRetenir": "Subclinical AF with prior stroke/TIA: higher risk, greater absolute benefit from DOACs.",
+  "rappel": "The absolute benefit of a preventive treatment depends on the patient's baseline risk: for the same relative reduction, the higher the initial risk, the greater the number of events prevented. In AF, prior stroke or TIA is one of the strongest embolic risk factors, which is why it carries 2 points in the CHA2DS2-VA score. A subgroup analysis nevertheless remains exploratory: it generates hypotheses and nuances the interpretation of a trial, without the evidential weight of the primary endpoint."
  },
  "tele-051": {
   "question": "Dual-chamber pacemaker; the measured P-wave amplitude on the atrial lead has fallen from 2.5 to 0.6 mV. The AF burden counter reads 3%, whereas the clinic ECG shows AF. What is the explanation and what is the risk?",
@@ -829,7 +832,8 @@
    "Incorrect: a counter is only reliable if atrial sensing is good, which is no longer the case here."
   ],
   "explication": "AF electrograms are of low and highly variable amplitude. When atrial sensing is degraded, some signals fall below the sensitivity threshold and others fall into the post-ventricular blanking periods: the device no longer counts all the AF, the burden is underestimated and mode switching may be intermittent, with periods of irregular tracking. In remote monitoring, a low burden is therefore only reliable if atrial sensing is good. Atrial sensitivity should be checked and, if necessary, cautiously increased (watching for far-field sensing), and the anticoagulation decision should rely on the ECG. Far-field oversensing instead leads to overestimation.",
-  "aRetenir": "Poor atrial sensing leads to underestimation of AF burden: do not be reassured by the counter."
+  "aRetenir": "Poor atrial sensing leads to underestimation of AF burden: do not be reassured by the counter.",
+  "rappel": "The quality of atrial sensing determines the reliability of all the device's atrial diagnostics: AF burden, stored episodes and mode switching. AF electrograms are of low and highly variable amplitude; a fall in the measured P-wave amplitude (displacement, fibrosis, progression of atrial disease) leads to undersensing. Some signals also fall within post-ventricular blanking periods, particularly at high ventricular rates. Increasing atrial sensitivity improves sensing but at the risk of far-field R-wave oversensing, so both must be checked."
  },
  "tele-052": {
   "question": "In a patient with a cardiac implantable electronic device and subclinical AF confirmed on the EGM (with no AF on ECG), which factors favour oral anticoagulation?",
@@ -848,7 +852,8 @@
    "Incorrect: a single episode lasting a few seconds has no demonstrated thromboembolic significance."
   ],
   "explication": "The benefit of anticoagulation in subclinical AF is modest on average (NOAH-AFNET 6/ARTESiA meta-analysis: about one third fewer ischaemic strokes, more major bleeding); it grows as thromboembolic risk rises. Prior stroke/TIA (greater absolute benefit in the ARTESiA subgroup), a high CHA2DS2-VA score and long episodes (>24 h, associated with increased risk in ASSERT) point towards anticoagulation. A high bleeding risk, by contrast, weighs against it: the 2024 ESC guidelines explicitly exclude these patients from the class IIb recommendation. A single episode lasting a few seconds has no demonstrated thromboembolic significance.",
-  "aRetenir": "Subclinical AF: anticoagulation is weighed according to thromboembolic risk (prior stroke, CHA2DS2-VA, duration) and bleeding risk."
+  "aRetenir": "Subclinical AF: anticoagulation is weighed according to thromboembolic risk (prior stroke, CHA2DS2-VA, duration) and bleeding risk.",
+  "rappel": "The decision to anticoagulate in subclinical AF rests on an individual balance. On the benefit side: a high embolic risk (high CHA2DS2-VA score, prior stroke or TIA) and a high arrhythmia burden, particularly episodes lasting more than 24 hours, which come close to clinical AF. On the risk side: high bleeding risk, assessed by looking for modifiable factors (uncontrolled hypertension, concomitant antiplatelet or NSAID, alcohol). Very short, isolated episodes have no proven embolic significance and call for monitoring."
  },
  "tele-053": {
   "question": "An ICD patient calls the clinic: he received a single shock an hour ago and feels well, with no pain or presyncope. What do you advise?",
@@ -865,7 +870,8 @@
    "Incorrect: the magnet suspends all protection and should only be used under medical supervision, once the diagnosis is established."
   ],
   "explication": "A single, well-tolerated shock in a patient who feels well is not a life-threatening emergency but must be analysed promptly: the 2023 HRS consensus classifies it as a \"yellow\" alert, to be handled within the working day. The key question is whether it was an appropriate shock for VT/VF, or an inappropriate one for rapid AF, sinus tachycardia, oversensing or lead noise. The transmission, manual or automatic (some systems, such as Biotronik Home Monitoring, have no patient-initiated transmission but transmit automatically after the event), provides the episode EGM. By contrast, multiple shocks (a \"red\" alert in the consensus), a shock followed by symptoms (pain, breathlessness, syncope) or an electrical storm call for the emergency services (15). Ignoring the shock would be a mistake: even if appropriate, it may reveal ischaemia, hypokalaemia or decompensation. Applying a magnet at home would leave the patient without any protection and without a diagnosis.",
-  "aRetenir": "Single well-tolerated shock: transmission and prompt review; multiple shocks or symptoms: emergency services (15)."
+  "aRetenir": "Single well-tolerated shock: transmission and prompt review; multiple shocks or symptoms: emergency services (15).",
+  "rappel": "Every ICD shock must be analysed on the episode EGM to distinguish an appropriate shock (VT or VF) from an inappropriate one (fast SVT, oversensing, lead noise). Management depends on the number of shocks and on tolerance: a single shock in a patient who feels well warrants a transmission and prompt analysis, whereas multiple shocks or a shock followed by symptoms (chest pain, breathlessness, syncope) require the emergency services. Even when appropriate, a shock calls for a search for a trigger (ischaemia, potassium disorder, decompensation, adherence). A magnet, which suspends therapies in most ICDs, is used only under medical supervision."
  },
  "tele-054": {
   "question": "An ICD patient reports three shocks in one hour and feels unwell. What should be done?",
@@ -882,7 +888,8 @@
    "Incorrect (under-reaction): multiple shocks with feeling unwell = immediate emergency, not a deferred appointment."
   ],
   "explication": "Multiple shocks in quick succession, especially with symptoms, require emergency care by the SAMU (French emergency medical service): this may be an electrical storm, which is life-threatening, or repeated inappropriate shocks (lead noise, rapid AF) that must be stopped. In hospital, device interrogation guides treatment: sedation, correction of triggers, antiarrhythmic drugs, temporary deactivation of therapies if they are inappropriate. A magnet suspends therapies in most ICDs, but should only be used under medical supervision and once the diagnosis is established. The 2023 HRS consensus classifies multiple shocks as critical (\"red\") alerts, but remote monitoring is not an emergency service: the symptomatic patient calls the emergency services (15).",
-  "aRetenir": "Multiple shocks = call the emergency services (15), without waiting for remote monitoring."
+  "aRetenir": "Multiple shocks = call the emergency services (15), without waiting for remote monitoring.",
+  "rappel": "Placing a magnet over an ICD suspends tachyarrhythmia detection, and therefore therapies, in most models, without changing bradycardia pacing; the effect ends when the magnet is removed. It is used to stop inappropriate shocks (lead noise, oversensing, fast SVT) or to protect a procedure exposed to interference, always with ECG monitoring and an external defibrillator available. In electrical storm, it would deprive the patient of life-saving protection. Determining the type of shocks relies on interrogation of the device in a medical setting."
  },
  "tele-055": {
   "question": "According to the 2022 ESC guidelines, how is electrical storm defined in an ICD patient?",
@@ -899,7 +906,8 @@
    "Correct: at least 3 separate episodes of sustained VT/VF within 24 h requiring therapy (ATP or shock)."
   ],
   "explication": "Electrical storm is defined as at least 3 separate episodes of sustained ventricular arrhythmia within 24 hours; in an ICD patient, these are episodes requiring therapy (ATP or shock). It is an emergency associated with excess mortality, requiring hospital admission, a search for a trigger (ischaemia, potassium disturbance, HF, drugs) and often beta-blockers, amiodarone, sedation or even ablation. Frequent PVCs, non-sustained VT, shocks spread over several weeks or inappropriate shocks do not meet this definition. Remote monitoring may reveal ATP-treated episodes that the patient did not feel.",
-  "aRetenir": "Electrical storm = ≥3 treated sustained VT/VF episodes in 24 h: hospital admission."
+  "aRetenir": "Electrical storm = ≥3 treated sustained VT/VF episodes in 24 h: hospital admission.",
+  "rappel": "Electrical storm is defined as at least 3 distinct episodes of sustained ventricular arrhythmia within 24 hours, separated by at least 5 minutes, requiring intervention (in an ICD recipient: ATP or shock). It is managed in hospital: identification and correction of triggers (ischaemia, potassium disorder, heart failure decompensation, proarrhythmic drugs), beta-blocker and amiodarone, sedation to reduce adrenergic drive, ICD reprogramming if needed, and catheter ablation in case of failure or recurrent monomorphic VT. Incessant VT, which persists despite therapies, is a particular form."
  },
  "tele-056": {
   "question": "ICD remote monitoring: a single episode of monomorphic VT at 190 bpm, terminated by one ATP burst; the patient is asymptomatic and felt nothing. No other episodes. What is the most appropriate course of action?",
@@ -916,7 +924,8 @@
    "Incorrect (over-reaction): a single episode is not an electrical storm (≥3 in 24 h)."
   ],
   "explication": "A single VT terminated by ATP shows that the ICD is working and is not an electrical storm. It should not, however, be closed without action: it is an arrhythmic event that may reveal ischaemia, a potassium disturbance, decompensation or non-adherence. Calling the patient and reviewing treatment (beta-blocker, antiarrhythmic drug, considering ablation if episodes recur) are indicated. ATP reduces the number of shocks and disabling it would be harmful. The level of urgency increases with recurrence, symptoms or shocks.",
-  "aRetenir": "VT treated by ATP: neither panic nor closing the alert; look for the cause and seek the responsible physician's opinion."
+  "aRetenir": "VT treated by ATP: neither panic nor closing the alert; look for the cause and seek the responsible physician's opinion.",
+  "rappel": "Antitachycardia pacing (ATP) delivers a burst or ramp of pulses slightly faster than the VT, which penetrate the re-entry circuit and terminate it painlessly. It terminates most fast monomorphic VTs and reduces the number of shocks; the risk of VT acceleration exists but is low. Every treated episode, even if not felt, is a ventricular arrhythmia that warrants a search for a trigger and a review of treatment. Recurrence prompts optimisation of antiarrhythmic therapy and consideration of ablation, whereas electrical storm requires hospital admission."
  },
  "tele-057": {
   "question": "Single-chamber ICD: a shock was delivered for an irregular tachycardia at 210 bpm, with EGM morphology identical to that of the baseline rhythm and highly variable RR intervals. The patient has known paroxysmal AF. What do you conclude and what do you do?",
@@ -933,7 +942,8 @@
    "Incorrect: T-wave oversensing produces alternating signals at a fixed interval, not highly variable RR intervals."
   ],
   "explication": "An irregular tachycardia whose morphology is identical to that of the conducted rhythm, in a patient with paroxysmal AF, points to rapidly conducted AF: the shock is inappropriate. Management combines rate or rhythm control, anticoagulation according to CHA2DS2-VA and optimised programming (higher detection zone, longer detection durations, morphology and stability discriminators), as in MADIT-RIT. Remote monitoring allows rapid AF to be spotted before the shock, hence the reduction in inappropriate shocks in ECOST. Lead noise would produce very short, non-physiological intervals and a non-cardiac signal.",
-  "aRetenir": "Irregular tachycardia with the same morphology as the baseline rhythm = rapid AF: inappropriate shock."
+  "aRetenir": "Irregular tachycardia with the same morphology as the baseline rhythm = rapid AF: inappropriate shock.",
+  "rappel": "SVT–VT discrimination in an ICD relies on a few criteria. Stability: AF produces irregular RR intervals, monomorphic VT regular cycles. Morphology: a ventricular EGM identical to the template of conducted rhythm points to a supraventricular origin. Onset: sudden for VT, gradual for sinus tachycardia. In a dual-chamber device, comparison of atrial and ventricular rates is added. In a single-chamber device, only ventricular criteria are available. These discriminators apply mainly in the VT zone, hence the importance of sufficiently high detection zones and prolonged detection durations."
  },
  "tele-058": {
   "question": "A secondary prevention ICD patient on amiodarone. For the past week, remote monitoring has shown repeated episodes of monomorphic VT at 140 bpm, lasting several minutes, in a monitor-only zone below the lowest therapy zone (150 bpm): no therapy delivered. The patient reports exertional breathlessness. What do you do?",
@@ -950,7 +960,8 @@
    "Incorrect (under-reaction): the absence of therapy does not mean the absence of severity; the patient is symptomatic."
   ],
   "explication": "Amiodarone slows VT, which may fall below the lowest therapy zone and merely be recorded in a monitor zone, without therapy. Prolonged, repeated, symptomatic slow VT can cause haemodynamic deterioration and heart failure decompensation. The patient should be seen promptly, the VT documented, and an additional therapy zone with ATP considered (taking care not to treat exercise-induced sinus tachycardia), as well as ablation, which is the option of choice for recurrent VT in ischaemic cardiomyopathy despite amiodarone. The absence of therapy does not mean the absence of severity.",
-  "aRetenir": "Slow VT below the therapy zone: no therapy does not mean no problem."
+  "aRetenir": "Slow VT below the therapy zone: no therapy does not mean no problem.",
+  "rappel": "An ICD treats a tachycardia only if its rate reaches a therapy zone; below that, a monitor zone can only store the episodes. Antiarrhythmic drugs, amiodarone in particular, slow VT and can bring it below the lowest zone, so that it persists untreated. Prolonged slow VT may be poorly tolerated and lead to heart failure decompensation. Creating a slow VT zone with ATP must take into account the overlap with exercise-induced sinus tachycardia or AF, and must therefore be combined with discriminators. Ablation is the treatment of choice for recurrent monomorphic VT in ischaemic heart disease despite amiodarone."
  },
  "tele-059": {
   "question": "True or false: in MADIT-RIT, ICD programming with a high-rate therapy zone (≥200 bpm) reduced inappropriate therapies and all-cause mortality compared with conventional programming.",
@@ -963,7 +974,8 @@
    "Incorrect: MADIT-RIT did show both benefits for high-rate programming."
   ],
   "explication": "MADIT-RIT randomised 1500 primary prevention patients to three programming strategies: conventional (therapy from 170 bpm after 2.5 s), high-rate (therapy only from 200 bpm) or delayed detection (delays of 60 s, 12 s or 2.5 s depending on rate). Both strategies markedly reduced first inappropriate therapies (by about 80%). High-rate programming also significantly reduced all-cause mortality (HR 0.45); with delayed detection, the mortality reduction was of similar magnitude but not significant (HR 0.56, p = 0.06). This result underpins current programming recommendations, which give non-sustained VT time to terminate spontaneously. In remote monitoring, this means that many brief episodes are recorded without being treated: this is intentional.",
-  "aRetenir": "MADIT-RIT: higher detection rate or longer detection = far fewer inappropriate therapies; mortality reduced with the high-rate strategy."
+  "aRetenir": "MADIT-RIT: higher detection rate or longer detection = far fewer inappropriate therapies; mortality reduced with the high-rate strategy.",
+  "rappel": "Modern ICD programming aims to limit unnecessary therapies: many fast episodes are non-sustained VTs that stop spontaneously, or SVTs. The two levers are a high detection rate (therapy reserved for the fastest rates) and a prolonged detection duration (therapy only if the arrhythmia persists), supplemented by SVT–VT discriminators and ATP before charging. Avoiding unnecessary therapies spares the patient painful shocks and saves battery, with no demonstrated loss of protection. On remote monitoring, it is therefore normal to see stored episodes without therapy."
  },
  "tele-060": {
   "question": "ICD: an episode classified as \"VF\" triggered a shock. The near-field ventricular EGM shows, in sinus rhythm at 95 bpm, two sensed signals per cycle, alternating between a large-amplitude signal (QRS) and a small rounded signal occurring about 300 ms later. What is the diagnosis?",
@@ -980,13 +992,15 @@
    "Incorrect: interference would produce a non-physiological high-frequency signal."
   ],
   "explication": "Two signals per cycle, alternating between the QRS and a slow rounded repolarisation wave at a fixed interval, indicate T-wave oversensing. The counted rate doubles (95 → 190 bpm), which may reach the VF zone and trigger an inappropriate shock. Predisposing factors are a small R wave (automatically increased sensitivity), large T waves (hyperkalaemia, long QT, Brugada) or changes in repolarisation. Correction involves changing the sensitivity or filtering, a T-wave rejection algorithm, a change of sensing vector or lead revision. Interference would produce a non-physiological high-frequency signal.",
-  "aRetenir": "Two alternating signals per cycle at a fixed interval = T-wave oversensing."
+  "aRetenir": "Two alternating signals per cycle at a fixed interval = T-wave oversensing.",
+  "rappel": "An ICD adjusts its ventricular sensitivity automatically: after each sensed event, the sensing threshold starts at a fraction of the R-wave amplitude and then decays towards the maximum programmed sensitivity, so as to detect low-amplitude VF signals. This behaviour exposes the device to T-wave oversensing, particularly when the R wave is small or the T wave large (hyperkalaemia, long QT, Brugada, repolarisation changes). Regular double counting (R then T at a fixed interval) doubles the measured rate. Corrective options involve sensitivity, filtering, T-wave rejection algorithms, the sensing vector or the lead."
  },
  "tele-061": {
   "question": "Propose three urgency levels for triaging ICD remote monitoring alerts and give two examples of each.",
   "reponseAttendue": "Level 1, critical (\"red\" alert in the 2023 HRS consensus, handled as a priority the same day, immediate contact, possibly the emergency services, 15 in France): multiple shocks, noise on the ICD lead, out-of-range shock or RV pacing impedance, VF detection or therapies disabled, battery end of life or device reset. Level 2, important (\"yellow\" alert, reviewed within the working day with prompt action): single shock, VT treated by ATP, AF burden or ventricular rate during AF above thresholds, fall in % BiV pacing, out-of-range pacing threshold, ERI (plan replacement), HF alert. Level 3, non-actionable (information already known, to be reviewed at the scheduled check, with alerts reprogrammed to reduce their number): known persistent AF, already anticoagulated and controlled; brief AF episodes already known in a low-risk patient. Context changes the level: in a pacemaker-dependent patient, loss of capture, abnormal RV impedance or noise become critical.",
   "explication": "The 2023 HRS consensus distinguishes \"red\" alerts, critical because they may deprive the patient of therapy (ICD lead malfunction, depleted battery, therapies disabled, multiple shocks), from \"yellow\" alerts, important because early review may change management (single shock, ATP, AF, % pacing, thresholds, ERI). It asks for all alerts to be handled within the working day, prioritising red ones, and for non-actionable alerts to be reprogrammed to avoid overload. Each clinic translates these principles into its own protocol, according to its resources and review hours. Patient context matters: a threshold rise does not carry the same urgency in a pacemaker-dependent patient as in one who is not. The examples given here are indicative.",
-  "aRetenir": "Effective triage assigns each alert a level (critical, important, non-actionable) and a response time, adapted to the patient's context."
+  "aRetenir": "Effective triage assigns each alert a level (critical, important, non-actionable) and a response time, adapted to the patient's context.",
+  "rappel": "Triage of device alerts is based on the potential clinical consequence of each event. Critical alerts are those that may deprive the patient of therapy or reveal a life-threatening problem: ICD lead dysfunction, a shock circuit fault, a depleted battery, disabled therapies, multiple shocks. Important alerts are those for which early review may change management: a single shock, ATP, AF, loss of BiV pacing, thresholds, ERI, HF alerts. Non-actionable alerts should be reprogrammed to avoid overload. The patient's context, particularly pacemaker dependence, can raise an alert by one level."
  },
  "tele-062": {
   "question": "Dual-chamber ICD: on the EGM of a tachycardia at 180 bpm, which features favour VT over supraventricular tachycardia?",
@@ -1005,7 +1019,8 @@
    "Incorrect: a gradual onset in parallel with sinus acceleration suggests sinus tachycardia."
   ],
   "explication": "An atrial channel allows atrial and ventricular rates to be compared: V > A indicates VT in the vast majority of cases. A change in ventricular EGM morphology relative to the baseline rhythm template and AV dissociation are also strong arguments. Conversely, an atrial rate faster than the ventricular rate with irregular RR intervals suggests conducted AF or atrial flutter, and a gradual onset in parallel with sinus acceleration suggests sinus tachycardia. The pitfall is VT with 1:1 retrograde conduction (A = V), where morphology and mode of onset become decisive.",
-  "aRetenir": "V > A, different morphology and AV dissociation = VT; irregular A > V or gradual onset = supraventricular origin."
+  "aRetenir": "V > A, different morphology and AV dissociation = VT; irregular A > V or gradual onset = supraventricular origin.",
+  "rappel": "In a dual-chamber ICD, analysis of a tachycardia starts with the relationship between atrial and ventricular rates. V > A indicates VT in the vast majority of cases; A > V points to SVT (conducted AF, atrial flutter or atrial tachycardia), without excluding coexisting VT; A = V (1:1) is the most difficult situation, which relies on ventricular EGM morphology, the mode of onset (initiating atrial or ventricular event, sudden or gradual) and stability. AV dissociation and a change in morphology from the baseline rhythm template are strong arguments for VT."
  },
  "tele-063": {
   "question": "Impedance alert: the RV lead pacing impedance has risen abruptly from 550 Ω to over 2500 Ω. What is the main hypothesis?",
@@ -1022,7 +1037,8 @@
    "Incorrect: maturation alters the threshold in the first weeks, not impedance to this extent."
   ],
   "explication": "An abrupt rise in impedance beyond the usual limits (typically above 1500–2000 Ω depending on the lead) points to a conductor fracture or poor contact at the connector (loose set screw). An insulation breach, by contrast, lowers impedance through current leakage. Maturation of the electrode–tissue interface alters the threshold in the first weeks, but not impedance to this extent. The risk is loss of capture and, in an ICD, noise sensing with inappropriate shocks.",
-  "aRetenir": "Soaring impedance = conductor fracture or faulty connection."
+  "aRetenir": "Soaring impedance = conductor fracture or faulty connection.",
+  "rappel": "Lead pacing impedance usually lies between about 200 and 2,000 Ω depending on the model, and its trend matters more than a single value. A sudden rise, or a value beyond the limits, points to conductor fracture or a connection fault at the header; a fall points to an insulation breach. An abnormal impedance is often accompanied by threshold changes, loss of capture or noise on the sensing channel. In an ICD, such noise exposes the patient to inappropriate shocks, which makes an impedance alert on a defibrillation lead particularly urgent."
  },
  "tele-064": {
   "question": "Pacemaker: the bipolar atrial lead impedance has gradually fallen from 480 Ω to 190 Ω. What is the main hypothesis?",
@@ -1039,7 +1055,8 @@
    "Correct: collapsing impedance (below 200–250 Ω) reflects current leakage through damaged insulation."
   ],
   "explication": "A fall in impedance, particularly below 200–250 Ω, reflects current leakage through damaged insulation (wear from friction, subclavian crush, abrasion in the pocket). It increases current drain and therefore battery depletion, and can cause loss of capture or oversensing. Lead dislodgement mainly affects threshold and sensing, and a fracture raises impedance. Trends should be compared, pacing and sensing checked, and reprogramming (a unipolar configuration as a temporary fix, depending on the defect) or lead revision considered.",
-  "aRetenir": "Collapsing impedance = insulation breach."
+  "aRetenir": "Collapsing impedance = insulation breach.",
+  "rappel": "Lead insulation separates the conductors from each other and from the surrounding tissue. An insulation breach (abrasion in the pocket, friction against the can or another lead, crush between the clavicle and the first rib) creates a current leak that lowers the measured impedance, often gradually. The consequences are increased battery drain, loss of capture through current shunting and oversensing of spurious potentials. A fall in impedance is always read on the trend, with checks of threshold and sensing; depending on the conductor involved, unipolar reconfiguration may serve as a temporary fix until revision."
  },
  "tele-065": {
   "question": "ICD: noise alert on the RV lead. The near-field EGM shows irregular high-frequency signals with intervals of 120–150 ms, not visible on the shock (far-field) EGM. Numerous very brief \"non-sustained VT\" episodes. No shocks yet. What should be done?",
@@ -1056,7 +1073,8 @@
    "Correct: a \"red\" alert; see the patient the same day, adjust therapies under ECG monitoring, then revise the lead."
   ],
   "explication": "Non-physiological intervals (below about 150 ms), a high-frequency signal visible on the near-field EGM but absent from the far-field EGM, and very short non-sustained VTs are the classic signs of a defibrillation lead fracture. The risk is an inappropriate shock at any moment, or even repeated shocks, as well as loss of protection if the lead fails. The 2023 HRS consensus classifies noise on an ICD lead as a critical (\"red\") alert: the patient must be seen the same day; therapies can be temporarily adjusted under continuous ECG monitoring, and lead revision is usually required. These signals are not true non-sustained VTs. Swerdlow showed that an early detection algorithm reduced fracture-related inappropriate shocks.",
-  "aRetenir": "ICD lead noise (intervals <150 ms, near-field only) = same-day emergency."
+  "aRetenir": "ICD lead noise (intervals <150 ms, near-field only) = same-day emergency.",
+  "rappel": "An ICD records two types of ventricular EGM: the near-field EGM (bipolar, between tip and ring or distal coil), used for sensing, and the far-field EGM, recorded between the shock electrodes and reflecting global ventricular activity. Fracture or connection noise usually affects the sensing channel only: the shock EGM then shows the normal baseline rhythm. Non-physiological intervals, an intermittent, saturating signal and very short non-sustained VTs are the markers of noise. In an ICD recipient, it exposes the patient to inappropriate shocks at any time."
  },
  "tele-066": {
   "question": "What does Medtronic's Lead Integrity Alert (LIA) algorithm do when it is triggered?",
@@ -1073,7 +1091,8 @@
    "Incorrect: LIA does not change the pacing amplitude."
   ],
   "explication": "LIA combines several indicators of lead fracture: abnormal impedance or an abrupt change, non-sustained VT episodes with very short intervals, and a short-interval counter (sensing integrity counter). When triggered, it alerts the patient and the clinic and automatically extends the number of intervals needed to detect VF, buying time to intervene before an inappropriate shock. Swerdlow showed that this algorithm reduced inappropriate shocks due to lead fracture. It does not disable therapies and does not replace lead revision: an LIA alert remains an emergency.",
-  "aRetenir": "Medtronic LIA: alert + extended VF detection, but the situation remains urgent."
+  "aRetenir": "Medtronic LIA: alert + extended VF detection, but the situation remains urgent.",
+  "rappel": "Algorithms monitoring the integrity of defibrillation leads combine several indicators of fracture: abnormal impedance or a sudden change, a counter of very short, non-physiological ventricular intervals, and non-sustained VT episodes with very short cycles. Their aim is to detect the dysfunction before the first inappropriate shock. When triggered, they alert the patient and the clinic and may automatically modify detection to delay therapy on noise, without disabling protection. They buy time but do not correct the fault: lead revision is still required."
  },
  "tele-067": {
   "question": "Pacemaker-dependent patient (complete AV block with no escape rhythm). Alert: RV pacing threshold has risen from 0.75 V to 3.0 V at 0.4 ms, with a programmed amplitude of 3.5 V. Implanted 3 weeks ago. What level of urgency?",
@@ -1090,7 +1109,8 @@
    "Correct: pacemaker dependence + near-zero margin = same-day action, then check the lead position."
   ],
   "explication": "An early threshold rise may reflect an inflammatory reaction at the interface or micro-dislodgement of the lead. Here the safety margin is now only 0.5 V, whereas the usual target is at least twice the threshold voltage. In a pacemaker-dependent patient, any further rise would cause loss of capture and asystole. Action is needed the same day: increase the amplitude, check the lead position and consider revision if the threshold keeps rising. As long as capture is maintained, emergency insertion of a temporary pacing wire is not necessary. The 2023 HRS consensus classifies threshold alerts as \"yellow\" alerts, but pacemaker dependence and a near-zero margin justify prioritising them here. The same figure would be less urgent in a patient with an escape rhythm.",
-  "aRetenir": "Threshold rise + pacemaker dependence = same-day emergency."
+  "aRetenir": "Threshold rise + pacemaker dependence = same-day emergency.",
+  "rappel": "The pacing safety margin is classically programmed to at least twice the threshold voltage (or three times the pulse width), to cover threshold fluctuations. After implantation, the threshold may rise transiently through an inflammatory reaction at the electrode–tissue interface, a phenomenon reduced by steroid-eluting electrodes; a large or sudden rise prompts a search for microdislodgement. The severity of loss of capture depends on the underlying rhythm: in a pacemaker-dependent patient, it causes asystole. Automatic capture management algorithms adjust the output when programmed in adaptive mode."
  },
  "tele-068": {
   "question": "True or false: in a patient who is not pacemaker-dependent, a moderate rise in atrial threshold, with a safety margin that is still adequate, requires urgent lead revision.",
@@ -1103,7 +1123,8 @@
    "Correct: loss of atrial capture would at worst cause loss of AV synchrony, without asystole; not urgent."
   ],
   "explication": "If the safety margin remains adequate and the patient is not dependent, the situation is not urgent: the trend is monitored, the threshold checked at a transmission or scheduled visit, and the amplitude adjusted if needed. Loss of atrial capture would at worst cause loss of AV synchrony, without asystole. Lead dislodgement should nonetheless be sought if the rise is early or abrupt, and the impact on the battery monitored if the amplitude has to be increased. The level of urgency always depends on the clinical consequence of loss of capture.",
-  "aRetenir": "The urgency of a threshold alert depends on the patient's pacing dependence and the remaining margin."
+  "aRetenir": "The urgency of a threshold alert depends on the patient's pacing dependence and the remaining margin.",
+  "rappel": "The consequence of loss of capture depends on the chamber and on the underlying rhythm. Loss of atrial capture deprives the patient of AV synchrony, with at most a fall in cardiac output or pacemaker syndrome. Loss of ventricular capture in a patient without a reliable escape rhythm causes asystole. Increasing the amplitude to preserve the margin has an energy cost that shortens battery longevity. The threshold trend and the time since implantation help to distinguish an interface reaction from displacement."
  },
  "tele-069": {
   "question": "Which of the following point to lead noise rather than a true ventricular arrhythmia on an ICD EGM?",
@@ -1122,7 +1143,8 @@
    "Correct: noise is often reproduced by manoeuvres (shoulder movement, pressure on the pocket)."
   ],
   "explication": "Lead noise is recognised by intervals incompatible with myocardial activity and a sometimes saturating signal, confined to the near-field channel (the far-field shock EGM shows a normal baseline rhythm), often associated with a change in impedance and reproduced by manoeuvres (shoulder movement, pressure on the pocket). A true ventricular arrhythmia, by contrast, appears on all channels, with a consistent morphology, physiological cycle lengths (for example regular at around 300 ms for VT at 200 bpm) and a plausible onset. The underlying rhythm visible on the far-field EGM is the most useful argument for deciding. The pitfall is to conclude \"non-sustained VT\" and leave the patient exposed to a shock.",
-  "aRetenir": "Lead noise: impossible intervals, near-field only, abnormal impedance, reproducible with movement."
+  "aRetenir": "Lead noise: impossible intervals, near-field only, abnormal impedance, reproducible with movement.",
+  "rappel": "Lead noise arises from non-cardiac signals picked up by the sensing circuit: conductor fracture, insulation breach, a faulty connection at the header, more rarely external interference or myopotentials. It is distinguished from a true arrhythmia by non-physiological intervals, too short for myocardial activity (the myocardium has a refractory period), confinement to the sensing channel, an associated change in impedance and reproduction by provocative manoeuvres (arm movements, pressure on the pocket). Comparison with the shock EGM, which shows the underlying rhythm, is the most useful argument."
  },
  "tele-070": {
   "question": "ICD: the shock circuit impedance, stable at around 50 Ω for years, is measured at over 200 Ω on the automatic daily test. What do you fear and what do you do?",
@@ -1139,7 +1161,8 @@
    "Incorrect: shock impedance has nothing to do with T-wave sensing."
   ],
   "explication": "The ICD regularly measures the impedance of the defibrillation circuit using very low-energy pulses. A clear, abrupt rise usually reflects a fault in the high-voltage conductor or connection, with a risk of an ineffective, or even absent, shock during true VF. It is a critical (\"red\") alert in the 2023 HRS consensus: the patient must be seen promptly and lead revision is often required. Depending on the coil involved, temporary reprogramming of the shock pathway may be considered. This parameter has nothing to do with the battery or with T-wave sensing.",
-  "aRetenir": "Soaring shock impedance = potentially ineffective shock: emergency."
+  "aRetenir": "Soaring shock impedance = potentially ineffective shock: emergency.",
+  "rappel": "An ICD regularly measures shock circuit impedance using painless, very low-energy pulses; with current leads, it usually lies at a few tens of ohms, and what matters most is its stability over time. A sudden rise indicates a fault in the high-voltage conductor or connection, with a risk of an ineffective or undelivered shock during true VF. A very marked fall may, conversely, suggest a short circuit. These abnormalities do not necessarily affect pacing or sensing, which use other conductors, hence the value of automatic measurement."
  },
  "tele-071": {
   "question": "Dual-coil ICD (RV and SVC). An episode of VF required two shocks: the first, delivered along the RV → can + SVC pathway, was ineffective with an abnormally high measured impedance; the next one terminated the VF. For the past few days, the automatically measured shock impedance has been high, while pacing impedance and sensing are normal. What is the most appropriate course of action pending lead revision?",
@@ -1156,13 +1179,15 @@
    "Incorrect: this would leave the patient unprotected against VF."
   ],
   "explication": "A high shock impedance with normal pacing and sensing points to an isolated fault in the high-voltage circuit (a coil conductor or connection), for example in the SVC coil conductor, which is exposed to mechanical stress along its subclavian course. A shock delivered through a faulty circuit may be ineffective, which is potentially fatal. In hospital and under monitoring, the faulty pathway is identified by measuring the impedance of each configuration; if the fault is confined to the SVC coil, it can be excluded from the shock pathway as a temporary fix (RV to can) pending revision, bearing in mind that the efficacy of the new pathway is not guaranteed. Disabling therapies would leave the patient unprotected, and reducing energy changes neither the impedance nor the conductor fault. An effective second shock guarantees nothing for subsequent ones.",
-  "aRetenir": "Ineffective shock + high shock impedance: identify and exclude the faulty pathway, then revise the lead."
+  "aRetenir": "Ineffective shock + high shock impedance: identify and exclude the faulty pathway, then revise the lead.",
+  "rappel": "A dual-coil ICD can deliver shocks along several pathways: RV coil to can, RV coil to SVC coil, or RV coil to can and SVC coil combined, the most common nominal configuration. Measuring the impedance of each pathway makes it possible to localise a conductor or connection fault. As a temporary fix, excluding the faulty coil from the shock circuit may restore defibrillation, with no guarantee of efficacy since the defibrillation threshold depends on the pathway. These manipulations are carried out in hospital, under monitoring, pending lead revision."
  },
  "tele-072": {
   "question": "Friday, 5 pm: noise alert on an ICD's RV lead, with an impedance change and numerous non-sustained VT episodes with very short intervals. The patient has not yet received a shock. Describe your management.",
   "reponseAttendue": "Review the EGMs (non-physiological intervals, near-field only) to confirm noise. Call the patient immediately, without waiting until Monday. Refer them the same day to a centre able to interrogate and reprogram the ICD (emergency department, CCU), with instructions to call the emergency services (15 in France) if a shock occurs. On site, under monitoring: confirm the fracture or connection fault, reprogram temporarily to prevent inappropriate shocks (therapies suspended under continuous ECG monitoring, with an external defibrillator at hand), then lead revision. Document every action and inform the on-call electrophysiology team.",
   "explication": "ICD lead noise is one of the few remote monitoring alerts that warrant immediate action: an inappropriate shock can occur at any moment, sometimes in series, and a failing lead may also fail to protect against true VF. The time of day does not change the urgency: the clinic protocol must cover this scenario (on-call rota, referral to an implanting centre). Suspending therapies is only acceptable under continuous monitoring, with an external defibrillator at hand. Lead revision resolves the problem definitively. LIA-type algorithms buy time but do not replace this course of action.",
-  "aRetenir": "ICD lead noise = same-day action, whatever the time, and therapies suspended only under monitoring."
+  "aRetenir": "ICD lead noise = same-day action, whatever the time, and therapies suspended only under monitoring.",
+  "rappel": "Suspending ICD therapies (by programming or with a magnet) exposes the patient to untreated VF: this measure is acceptable only with continuous ECG monitoring, an external defibrillator immediately available and a team able to use it, until lead revision or reactivation of therapies. The protocol of a remote monitoring centre must provide for handling critical alerts outside working hours: an on-call pathway, referral to a centre able to interrogate and reprogram the device, and instructions to the patient. Every step is documented."
  },
  "tele-073": {
   "question": "\"ERI\" (elective replacement indicator) alert on the pacemaker of a patient who is not pacemaker-dependent. What is the usual course of action?",

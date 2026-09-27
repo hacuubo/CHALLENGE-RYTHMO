@@ -942,7 +942,8 @@
    "Incorrect: hysteresis tends, if anything, to save battery by favouring intrinsic rhythm."
   ],
   "explication": "Energy per pulse is proportional to the square of the voltage: doubling the amplitude quadruples pacing-related current drain, which has a major effect in a continuously paced patient. Increasing pulse width from 0.4 to 0.5 ms raises energy by only 25%. Hysteresis tends, if anything, to save battery, and sensitivity has only a negligible impact. Hence the value of a safety margin that is just sufficient, and of automatic capture management algorithms.",
-  "aRetenir": "Pacing amplitude is the main driver of battery drain."
+  "aRetenir": "Pacing amplitude is the main driver of battery drain.",
+  "rappel": "Pacemaker current drain consists of a background current (circuits, memory, telemetry, algorithms) and a pacing cost, proportional to the number of pulses and the energy of each. In a patient who is rarely paced, background current mainly determines longevity; in a continuously paced patient, the programmed output becomes decisive. Energy per pulse varies with the square of the amplitude, linearly with pulse width and inversely with impedance. Reducing the amplitude to what is needed, based on a measured chronic threshold, is therefore the most effective setting."
  },
  "prog-fond-058": {
   "question": "On reaching ERI, some pacemakers simplify their operation (e.g. switching to a single-chamber mode or turning off rate response) to preserve the battery.",
@@ -955,7 +956,8 @@
    "Incorrect: these automatic changes (VVI, rate response turned off…) do exist and can cause symptoms."
   ],
   "explication": "To guarantee pacing until replacement, many devices automatically change their programming at ERI: switching to VVI or a simplified mode, turning off rate response or certain diagnostic functions, and sometimes lowering the rate. These changes vary between manufacturers and can cause symptoms (loss of AV synchrony). Reaching ERI is also flagged by remote monitoring and, on many devices, by a change in the magnet rate.",
-  "aRetenir": "At ERI, the device may change its mode of operation: plan the replacement ahead."
+  "aRetenir": "At ERI, the device may change its mode of operation: plan the replacement ahead.",
+  "rappel": "As the battery approaches depletion, the manufacturer defines an end-of-life behaviour designed to ensure reliable basic pacing until replacement. This behaviour, described in each device's manual, may include a mode change, deactivation of rate response or ancillary features, and a change in lower rate or magnet rate. In a patient who depends on AV synchrony or rate response, these changes may cause symptoms. Reaching ERI therefore requires planning the replacement and checking clinical tolerance."
  },
  "prog-fond-059": {
   "question": "What is the usual effect of applying a magnet to a pacemaker (not an ICD)?",
@@ -972,7 +974,8 @@
    "Incorrect: the magnet suspends sensing rather than making it more sensitive."
   ],
   "explication": "On most pacemakers, a magnet suspends sensing: the device paces asynchronously (VOO/DOO) at a manufacturer-defined magnet rate, which often varies with battery status. This protects a pacemaker-dependent patient from inhibition by interference and allows capture to be checked. The magnet does not stop pacing. On an ICD, a magnet suspends antitachycardia therapies without altering bradycardia pacing: the effect is therefore different.",
-  "aRetenir": "Magnet on a pacemaker = asynchronous pacing; on an ICD = therapies suspended."
+  "aRetenir": "Magnet on a pacemaker = asynchronous pacing; on an ICD = therapies suspended.",
+  "rappel": "The magnet response is programmable or manufacturer-specific: most pacemakers switch to asynchronous pacing while the magnet is in place, then resume their programming as soon as it is removed. The magnet rate indicates battery status (it changes at ERI in some models), and a few initial beats can serve as a capture margin test in some devices. Some pacemakers can be programmed not to respond to a magnet. A magnet is a simple safety tool, particularly in the operating theatre, when no programmer is available."
  },
  "prog-fond-060": {
   "question": "Which elements are routinely assessed at a standard pacemaker check?",
@@ -991,7 +994,8 @@
    "Incorrect: a conventional pacemaker does not measure LVEF; it is assessed by echocardiography."
   ],
   "explication": "Follow-up includes device interrogation (battery, counters, stored events, pacing percentages), lead checks (impedances, thresholds, sensed P- and R-wave amplitudes), analysis of stored EGMs and adjustment of programming to the patient's needs. A pacemaker does not deliver shocks: defibrillation testing does not apply. Nor does a conventional pacemaker measure LVEF: this is assessed by echocardiography, particularly in patients with a high ventricular pacing burden. Clinical examination (wound, symptoms) is also part of follow-up.",
-  "aRetenir": "Follow-up = battery, impedances, thresholds, sensing, stored data, and tailoring of programming."
+  "aRetenir": "Follow-up = battery, impedances, thresholds, sensing, stored data, and tailoring of programming.",
+  "rappel": "A pacemaker check follows a structured sequence: interrogation (battery, alerts, counters, pacing percentages, rate histograms), review of stored episodes and their EGMs, tests (impedance, P- and R-wave amplitudes, capture thresholds), then programming adjustments (outputs with a safety margin, sensitivities, algorithms) and printing or filing the report. Everything is interpreted alongside the clinical picture (symptoms, wound, medication, LVEF). Automatic trends between visits complement one-off measurements."
  },
  "prog-fond-061": {
   "question": "According to the 2015 HRS consensus statement on remote monitoring, what is the role of in-clinic follow-up for a remotely monitored patient?",
@@ -1008,13 +1012,15 @@
    "Correct: the 2015 HRS consensus recommends, alongside remote monitoring, at least one in-person evaluation per year."
   ],
   "explication": "Remote monitoring reduces the number of clinic visits and allows early detection of problems (leads, arrhythmias, battery), but it does not entirely replace clinical evaluation. The 2015 HRS consensus statement recommends, alongside remote monitoring, at least one in-person evaluation per year. The 2023 HRS/EHRA/APHRS/LAHRS consensus statement details the practical organisation of remote follow-up. Monthly visits would be needlessly burdensome.",
-  "aRetenir": "Remote monitoring + at least one in-person visit per year."
+  "aRetenir": "Remote monitoring + at least one in-person visit per year.",
+  "rappel": "Remote monitoring relies on scheduled transmissions and automatic alerts (battery, lead integrity, arrhythmias, and heart failure parameters in some devices), relayed by a home transmitter or an app. It detects technical and clinical problems earlier and allows in-person visits to be spaced out. Its effectiveness depends on organisation: a trained team, a workflow for handling alerts, response times and patient information. In-person visits remain necessary for clinical examination and certain tests."
  },
  "prog-fond-062": {
   "question": "How is loss of ventricular capture recognised on the ECG during a decremental threshold test?",
   "reponseAttendue": "The ventricular spike is no longer followed by a paced (wide) QRS: an isolated spike appears, followed by intrinsic rhythm or a pause. The threshold is the last amplitude that captured.",
   "explication": "To measure the threshold, the heart is paced above the intrinsic rate and the amplitude is then reduced step by step. As long as capture is present, each spike is followed by a wide QRS of constant morphology. On loss of capture, the spike is no longer followed by a QRS: either an intrinsic escape rhythm or, in a dependent patient, a pause is seen, hence the value of a short test with automatic return to the initial settings. The threshold is the lowest amplitude that still captured. Fusion (intermediate morphology) must be distinguished from true loss of capture.",
-  "aRetenir": "Loss of capture = spike not followed by a paced QRS."
+  "aRetenir": "Loss of capture = spike not followed by a paced QRS.",
+  "rappel": "During a threshold test, the aim is to identify the point at which the pulse stops depolarising the myocardium. Ventricular capture is recognised by a wide paced QRS of constant morphology immediately following the spike; atrial capture, harder to see, is assessed on the paced P wave or on the ventricular response (AV conduction). There are several pitfalls: fusion and pseudofusion with the intrinsic rhythm, which mimic a change in capture, and pacing during the refractory period, which does not capture without implying a rise in threshold. Devices' automatic tests rely on detection of the evoked response."
  },
  "prog-fond-063": {
   "question": "A patient has a pacemaker whose generator is labelled \"MR-conditional\". According to the labelling, what determines whether MRI can be performed?",
@@ -1031,7 +1037,8 @@
    "Incorrect: dependence guides programming during the scan, not the labelling of the system."
   ],
   "explication": "MR-conditional labelling applies to a complete system: the generator and leads must form a combination validated by the manufacturer. An MR-conditional generator connected to an old non-validated lead, or the presence of an abandoned lead, falls outside the labelling. The conditions include field strength (1.5 T or 3 T), sometimes exclusion zones, SAR limits and programming to MRI mode. Time since implantation is one of the conditions but is not sufficient on its own.",
-  "aRetenir": "MR-conditional = a complete validated system, used under the manufacturer's conditions."
+  "aRetenir": "MR-conditional = a complete validated system, used under the manufacturer's conditions.",
+  "rappel": "\"MR-conditional\" labelling means that a system poses no known hazard in a specified MRI environment defined by the manufacturer. The theoretical risks of MRI in a device patient are heating at the lead tips (rise in threshold), inhibition or inappropriate pacing, electrical reset and, more rarely, attraction of the can. Before the scan, the identity of all components (can, leads, adaptors, abandoned leads) and the manufacturer's conditions are therefore checked, then the MRI mode is programmed."
  },
  "prog-fond-064": {
   "question": "A pacemaker-dependent patient needs an MRI scan. According to the 2017 HRS consensus statement, how should the device be programmed during the scan?",
@@ -1048,7 +1055,8 @@
    "Incorrect: rate response and advanced features must be switched off during the scan."
   ],
   "explication": "During MRI, electromagnetic fields can be wrongly sensed as cardiac activity and inhibit pacing: in a pacemaker-dependent patient, this carries a risk of asystole. An asynchronous mode is therefore programmed, at a rate high enough to avoid competition with the intrinsic rhythm, with rate response and other algorithms switched off. ODO mode would be fatal in a dependent patient. The patient must be monitored and the original programming restored after the scan.",
-  "aRetenir": "MRI in a pacemaker-dependent patient = asynchronous mode."
+  "aRetenir": "MRI in a pacemaker-dependent patient = asynchronous mode.",
+  "rappel": "The programming strategy for MRI follows from the patient's pacing dependence, assessed at the pre-scan check (escape rhythm, tolerance of rate reduction). In a pacemaker-dependent patient, pacing must be guaranteed despite interference, hence an asynchronous mode at a rate above the intrinsic rhythm to avoid competition, with deactivation of features that may react to the field (rate response, algorithms). Time in asynchronous mode should be limited to the scan, under monitoring, with immediate reprogramming afterwards."
  },
  "prog-fond-065": {
   "question": "A patient who is not pacemaker-dependent needs an MRI scan. Which programming does the 2017 HRS consensus statement propose?",
@@ -1065,7 +1073,8 @@
    "Incorrect: rate response and advanced features are switched off during the scan."
   ],
   "explication": "In a patient who is not pacemaker-dependent, a non-pacing mode or an inhibited mode can be chosen, which avoids unnecessary asynchronous pacing and the theoretical risk of pacing in the vulnerable period. Asynchronous pacing remains the option for dependent patients. Rate response and advanced features are switched off. Even for an MR-conditional system, appropriate programming (MRI mode) is required.",
-  "aRetenir": "MRI in a non-dependent patient: non-pacing or inhibited mode."
+  "aRetenir": "MRI in a non-dependent patient: non-pacing or inhibited mode.",
+  "rappel": "In a patient who is not pacemaker-dependent, the main concern during MRI is not asystole but inappropriate or asynchronous pacing competing with the intrinsic rhythm. A non-pacing or inhibited mode is therefore chosen, with rate response and advanced features switched off, and the patient's own rhythm is relied upon during the scan, under monitoring. The degree of dependence must be reassessed before each scan, as it may change over time. The original programming is restored at the end of the scan."
  },
  "prog-fond-066": {
   "question": "According to the ESC 2021 guidelines, MRI is absolutely contraindicated in any patient with a non-MR-conditional pacing system, whatever the circumstances.",
@@ -1078,7 +1087,8 @@
    "Correct: in the absence of epicardial, abandoned or damaged leads or adaptors, MRI remains possible under a protocol."
   ],
   "explication": "The statement is false. Data from large registries (MagnaSafe, Nazarian 2017) have shown that 1.5 T MRI in patients with non-MR-conditional systems can be performed with few events, provided a strict protocol is followed (appropriate programming, monitoring, device checks before and after). The ESC 2021 guidelines therefore state that it should be considered (class IIa) if no alternative imaging is possible and in the absence of epicardial, abandoned or damaged leads or adaptors/extenders. The 2017 HRS consensus statement takes the same line. Shared decision-making taking the expected benefit into account is required.",
-  "aRetenir": "Non-MR-conditional system: MRI possible under a protocol in the absence of epicardial, abandoned or damaged leads."
+  "aRetenir": "Non-MR-conditional system: MRI possible under a protocol in the absence of epicardial, abandoned or damaged leads.",
+  "rappel": "A non-MR-conditional (legacy) system has not been assessed by its manufacturer for an MRI environment; this does not mean the scan is impossible. The risk depends mainly on the leads: epicardial, abandoned or damaged leads, or those connected through adaptors and extenders, carry a risk of heating and remain contraindications. The decision is based on the benefit–risk balance, the absence of alternative imaging and appropriate organisation: device check and programming before, monitoring and trained staff during, and a device check after the scan."
  },
  "prog-fond-067": {
   "question": "Regarding MRI in a patient with a cardiac implantable electronic device, which measures are recommended?",
@@ -1095,7 +1105,8 @@
    "Incorrect: in a dependent patient, suspending pacing would be dangerous: an asynchronous mode is chosen."
   ],
   "explication": "The 2017 HRS consensus statement recommends a device check before the scan, appropriate programming, monitoring (ECG, oximetry) during the MRI, the presence of staff capable of managing cardiac arrest with an external defibrillator available (outside the magnet room), and a check after the scan with restoration of the original programming. In ICD patients, therapies are suspended during the scan because noise could be interpreted as VF. Suspending pacing in a pacemaker-dependent patient would be dangerous: an asynchronous mode is chosen.",
-  "aRetenir": "MRI: appropriate programming, monitoring, trained staff, device checks before and after."
+  "aRetenir": "MRI: appropriate programming, monitoring, trained staff, device checks before and after.",
+  "rappel": "MRI in a pacemaker or ICD patient follows a local protocol involving the electrophysiologist, the radiologist and the nursing and technical team. It includes system identification, assessment of pacing dependence, programming to MRI or adapted mode (asynchronous if dependent, non-pacing or inhibited otherwise, tachytherapies suspended for an ICD), adherence to the manufacturer's conditions (field strength, SAR, zones), continuous monitoring during the scan and a final device check with restoration of the programming. While ICD therapies are suspended, the patient is protected by readily available external defibrillation."
  },
  "prog-fond-068": {
   "question": "What is the main risk of monopolar diathermy in a pacemaker-dependent patient?",
@@ -1112,7 +1123,8 @@
    "Correct: the diathermy current is mistaken for cardiac activity: the pacemaker is inhibited as long as diathermy is active."
   ],
   "explication": "Monopolar diathermy current generates a high-frequency signal that the pacemaker may interpret as intrinsic cardiac activity: it is inhibited, which, in a pacemaker-dependent patient, causes asystole for as long as diathermy is active. The other risks are rarer: reprogramming or electrical reset, tissue injury at the electrode interface. In an ICD patient, the main risk is an inappropriate shock. Hence asynchronous programming or a magnet in a dependent patient.",
-  "aRetenir": "Monopolar diathermy: risk of inhibition in dependent patients, of inappropriate shock in ICD patients."
+  "aRetenir": "Monopolar diathermy: risk of inhibition in dependent patients, of inappropriate shock in ICD patients.",
+  "rappel": "Medical electromagnetic interference (diathermy, radiofrequency ablation, cardioversion, lithotripsy, neurostimulation) can affect a pacemaker in several ways: oversensing with inhibition or, in dual-chamber devices, tracking of the spurious signal; switching to a noise reversion mode; electrical reset (return to a backup mode); more rarely, injury at the electrode–tissue interface. The effect depends on distance from the system, the intensity and duration of application, and the sensing configuration. Pacing dependence and device type (pacemaker or ICD) determine the protection strategy."
  },
  "prog-fond-069": {
   "question": "Which measures reduce the risk of diathermy interference in a patient with a pacemaker?",
@@ -1129,7 +1141,8 @@
    "Incorrect: a pad close to the generator would make the current pass through the system."
   ],
   "explication": "Bipolar diathermy confines the current to the area between the two tips and interferes much less. With monopolar diathermy, the return pad should be positioned so that the current path between the active electrode and the pad does not cross the generator or the leads: placing it close to the generator would, on the contrary, make the current pass through the system. Short applications of a few seconds limit the duration of any inhibition. A device check after the procedure is required if the pacemaker was reprogrammed or if interference was observed.",
-  "aRetenir": "Diathermy: bipolar, return pad away from the generator, brief applications."
+  "aRetenir": "Diathermy: bipolar, return pad away from the generator, brief applications.",
+  "rappel": "With monopolar diathermy, current flows from the active electrode to the return pad through the patient's body: the closer this path runs to the can and leads, the greater the risk of interference. Prevention combines choosing bipolar diathermy or other techniques when possible, positioning the pad so that the current path runs away from the system, short bursts, continuous pulse monitoring (plethysmography) rather than relying only on the interference-affected ECG, and availability of a magnet or programmer. The strategy is defined before surgery with the anaesthetic team."
  },
  "prog-fond-070": {
   "question": "For surgery below the umbilicus using monopolar diathermy, routine reprogramming of the pacemaker is usually required.",
@@ -1142,7 +1155,8 @@
    "Correct: monitoring and an available magnet are usually sufficient; the strategy is mainly an issue for surgery above the umbilicus."
   ],
   "explication": "The risk of interference depends on the distance between the diathermy site and the implanted system. For surgery below the umbilicus, with a well-placed return pad (e.g. on the thigh), the risk is low and the 2022 EHRA consensus does not require routine reprogramming. Monitoring and an available magnet are nonetheless required. For surgery above the umbilicus in a pacemaker-dependent patient, the strategy (asynchronous mode or magnet) should be defined before the procedure.",
-  "aRetenir": "Surgery below the umbilicus: low risk, no routine reprogramming."
+  "aRetenir": "Surgery below the umbilicus: low risk, no routine reprogramming.",
+  "rappel": "Perioperative management of a cardiac device patient is graded according to three questions: is the surgical site close to the system (above or below the umbilicus)? Will monopolar energy be used? Is the patient pacemaker-dependent or an ICD recipient? When the risk of interference is low, monitoring and an available magnet are sufficient. When it is high, an asynchronous mode is programmed or a magnet is used in a dependent patient, and ICD therapies are suspended, with external defibrillation available. A postoperative device check is needed if the system was reprogrammed or exposed to interference."
  },
  "prog-fond-071": {
   "question": "External electrical cardioversion of AF in a patient with a pacemaker. Which precaution is recommended?",
@@ -1159,7 +1173,8 @@
    "Incorrect: having a pacemaker does not warrant changing the shock energy."
   ],
   "explication": "External shock current can damage the generator or the electrode–myocardium interface (acute threshold rise, loss of capture) and cause a reset. Guidelines advise placing the pads at least 8 cm from the generator, preferably in an anteroposterior position, then checking device function (thresholds, sensing, programming) after cardioversion. Switching off pacing would be dangerous in a dependent patient. The energy does not need to be changed for this reason.",
-  "aRetenir": "Cardioversion: pads ≥ 8 cm from the generator, preferably anteroposterior, and a device check after the shock."
+  "aRetenir": "Cardioversion: pads ≥ 8 cm from the generator, preferably anteroposterior, and a device check after the shock.",
+  "rappel": "An external shock exposes an implanted system to two types of damage: damage to the circuits or an electrical reset (return to backup settings), and conduction of current along the leads to the electrode–myocardium interface, with an acute rise in threshold or even transient loss of capture. The risk rises when the current path runs parallel to the system. The anteroposterior position directs the current path perpendicular to the leads. A device check after the shock, and possibly later, verifies thresholds, sensing and programming, and temporary pacing should be ready if needed."
  },
  "prog-fond-072": {
   "question": "Radiotherapy in a patient with a pacemaker. According to the 2017 HRS consensus statement, which parameter particularly increases the risk of malfunction (reset, memory errors)?",
@@ -1176,13 +1191,15 @@
    "Incorrect: rate programming does not affect the susceptibility of the circuits to radiation."
   ],
   "explication": "Ionising radiation can damage the device circuitry in two ways: through the cumulative dose received by the generator, and through secondary neutrons produced by high-energy photon beams (> 10 MV), which cause random errors (resets, memory corruption). The 2017 HRS consensus statement recommends favouring non-neutron-producing beams, estimating the dose to the generator and adapting follow-up (checks during and after treatment). The generator must never be in the direct radiation field. Patient positioning and the lower rate play no part.",
-  "aRetenir": "Radiotherapy: generator dose and beams > 10 MV (neutrons) increase the risk."
+  "aRetenir": "Radiotherapy: generator dose and beams > 10 MV (neutrons) increase the risk.",
+  "rappel": "Radiotherapy can damage the circuits of a pacemaker or ICD unpredictably, sometimes with no immediately visible abnormality. The recommended approach combines a risk assessment before treatment (estimated cumulative dose to the device, beam energy, pacing dependence), the choice of techniques that limit the dose to the device and neutron production, monitoring during sessions matched to the risk, and device checks during and after treatment. When the device lies in or very close to the field, relocating it may be discussed with the radiation oncologist."
  },
  "prog-fond-073": {
   "question": "A pacemaker-dependent patient is undergoing thoracic surgery with monopolar diathermy above the umbilicus. What perioperative strategy would you propose?",
   "reponseAttendue": "Preoperative device check; programming to an asynchronous mode (DOO/VOO) at a rate above the intrinsic rhythm (or a magnet if the generator is accessible); rate response switched off (especially minute ventilation); continuous monitoring with a defibrillator available; postoperative device check and reprogramming.",
   "explication": "In a dependent patient, inhibition by diathermy can cause asystole: sensing must be suspended during the procedure. An asynchronous mode is programmed at an appropriate rate, or a magnet is used if the operative field allows and the magnet response of this particular device is known. Sensors that may be disturbed (minute ventilation) are switched off. The patient is monitored by means that do not rely solely on the disturbed ECG (pulse oximetry, arterial pressure). After the procedure, the device is checked and the original programming restored.",
-  "aRetenir": "Dependent patient + diathermy above the umbilicus = asynchronous mode, sensors off, monitoring, postoperative check."
+  "aRetenir": "Dependent patient + diathermy above the umbilicus = asynchronous mode, sensors off, monitoring, postoperative check.",
+  "rappel": "Perioperative strategy for a pacemaker patient is prepared before surgery: identification of the device and its magnet response, assessment of pacing dependence, date of the last check, surgical site and type of energy used. In a pacemaker-dependent patient with a high risk of interference, pacing must be guaranteed by an asynchronous mode (programmed or via a magnet). Monitoring must include a signal independent of the ECG (pulse, blood pressure). After surgery, restoring the original programming and checking the system are essential before continuous monitoring is stopped."
  },
  "prog-fond-074": {
   "question": "By which route is a ventricular leadless pacemaker usually implanted?",
@@ -1199,7 +1216,8 @@
    "Incorrect: the available ventricular capsules are implanted in the RV via a venous route."
   ],
   "explication": "A leadless pacemaker is a capsule containing the battery and electronics, delivered by catheter via the femoral vein and fixed to the right ventricular wall (often septal) with tines or a helix. There is no pocket and no transvenous lead, which eliminates the corresponding complications. The first systems provide VVI(R) pacing. The subclavian and epicardial routes apply to conventional pacemakers.",
-  "aRetenir": "Leadless: capsule implanted in the right ventricle via the femoral route."
+  "aRetenir": "Leadless: capsule implanted in the right ventricle via the femoral route.",
+  "rappel": "A leadless pacemaker is a self-contained intracardiac device combining battery, electronics and electrodes in a capsule a few centimetres long. It is implanted percutaneously through a large-bore catheter under fluoroscopy and attaches to the endocardium with tines or a screw; a septal position is usually sought. First-generation devices operate in VVI(R) with accelerometer-based rate response. At end of life, the capsule can be left in place and a new one implanted, or it can be retrieved depending on the system and time since implantation."
  },
  "prog-fond-075": {
   "question": "According to the ESC 2021 guidelines, in which situation should a leadless pacemaker be considered as an alternative to a conventional pacemaker?",
@@ -1216,7 +1234,8 @@
    "Correct: class IIa when upper-limb venous access is lacking or the risk of pocket infection is high (previous infection, dialysis)."
   ],
   "explication": "The ESC 2021 guidelines state that leadless pacing should be considered (class IIa) as an alternative to conventional transvenous pacing when there is no upper-limb venous access or when the risk of pocket infection is particularly high, e.g. after a previous device infection or in patients on haemodialysis. The available systems do not provide resynchronisation, and leadless systems capable of atrial pacing (dual-chamber with two capsules) are recent and not yet widely used, which limits their value in sinus node dysfunction. Long-term follow-up remains shorter than for conventional systems.",
-  "aRetenir": "Leadless: an alternative when there is no upper venous access or a high infection risk."
+  "aRetenir": "Leadless: an alternative when there is no upper venous access or a high infection risk.",
+  "rappel": "Choosing between a conventional and a leadless pacemaker weighs pacing needs (atrial pacing, AV synchrony, resynchronisation) against the risks related to leads and the pocket. The situations most favourable to a leadless device are lack of upper-body venous access (occlusion, dialysis fistula) and high infection risk (previous device infection, haemodialysis, immunosuppression). Long-term data and end-of-life management remain less documented than for conventional systems, which matters in younger patients."
  },
  "prog-fond-076": {
   "question": "Leadless pacemakers eliminate pocket- and lead-related complications but carry a specific risk of pericardial effusion or perforation at implantation.",
@@ -1229,7 +1248,8 @@
    "Incorrect: both parts are correct: pocket/lead complications are eliminated, but there is a pericardial risk at implantation."
   ],
   "explication": "The pivotal leadless pacemaker studies showed no pocket complications (haematoma, infection, erosion) and no lead complications (fracture, lead dislodgement, subclavian vein thrombosis). However, manipulating a large-bore catheter in the right ventricle carries a risk of pericardial effusion or tamponade, of the order of 1.5% in these initial series, as well as femoral access-site complications and, more rarely, capsule dislodgement or embolisation. These risks must be explained to the patient, particularly in elderly and frail individuals.",
-  "aRetenir": "Leadless: no pocket/lead complications, but a risk of tamponade."
+  "aRetenir": "Leadless: no pocket/lead complications, but a risk of tamponade.",
+  "rappel": "The complication profile of a leadless pacemaker differs from that of a conventional pacemaker. Pocket complications (haematoma, infection, erosion) and lead complications (fracture, insulation breach, dislodgement, venous thrombosis or occlusion, lead-related tricuspid regurgitation) disappear. They are replaced by procedure-related complications: pericardial effusion or tamponade, femoral access-site complications (haematoma, arteriovenous fistula), and more rarely capsule dislodgement or embolisation. The risk of perforation is higher in elderly, small or frail patients."
  },
  "prog-fond-077": {
   "question": "How do some leadless pacemakers implanted in the right ventricle manage to provide atrially synchronised pacing (VDD-type operation)?",
@@ -1246,7 +1266,8 @@
    "Incorrect: the P wave is too small to be sensed reliably by a ventricular electrode."
   ],
   "explication": "The P wave is too small to be sensed reliably by a ventricular electrode. The validated approach uses the capsule's accelerometer to detect the mechanical signal of atrial contraction (active late-diastolic filling), then triggers ventricular pacing after a delay. The AV synchrony achieved is good at rest but may deteriorate at higher rates or when the mechanical signal is weak. There is no atrial lead; separately, dual-chamber systems with two communicating capsules exist.",
-  "aRetenir": "Leadless VDD: mechanical detection of atrial systole by the accelerometer."
+  "aRetenir": "Leadless VDD: mechanical detection of atrial systole by the accelerometer.",
+  "rappel": "VDD operation of a ventricular capsule relies on mechanical sensing: the accelerometer records several signals during the cardiac cycle, including one related to atrial contraction (A wave), which occurs at end-diastole. The algorithm looks for this signal in a window after the ventricular event and triggers pacing after a delay. The quality of synchrony depends on the amplitude of the atrial signal and on the separation between E and A waves; it deteriorates as the rate rises (E–A fusion) or with weak atrial contraction. Several parameters can be adjusted to optimise it."
  },
  "prog-fond-078": {
   "question": "A patient paced in VVI mode for paroxysmal AV block, in sinus rhythm with retrograde VA conduction, complains of dizzy spells, a pounding sensation in the neck and hypotension during paced periods. Which diagnosis should be considered?",
@@ -1263,7 +1284,8 @@
    "Incorrect: oversensing inhibits pacing; here the symptoms occur while the patient is being paced."
   ],
   "explication": "Pacemaker syndrome results from loss of AV synchrony during ventricular pacing: the atrium contracts against closed AV valves, particularly with retrograde VA conduction, producing jugular cannon waves, reduced cardiac output and sometimes a vasodepressor reflex. Symptoms (dizzy spells, dyspnoea, neck pulsation, hypotension) occur during pacing. Treatment is to restore AV synchrony (DDD) or to lower the lower rate to limit pacing. PMT does not occur in VVI.",
-  "aRetenir": "Symptoms in VVI with retrograde VA conduction = pacemaker syndrome."
+  "aRetenir": "Symptoms in VVI with retrograde VA conduction = pacemaker syndrome.",
+  "rappel": "Retrograde VA conduction is common, including in some patients with intermittent AV block; during ventricular pacing, it activates the atrium shortly after each QRS. Atrial contraction then occurs against closed AV valves, with venous reflux, raised atrial pressures and reduced ventricular filling. The diagnosis is clinical, supported by cannon waves, a fall in blood pressure during pacing and sometimes by demonstrating VA conduction on the ECG or at device check. Treatment aims to restore AV synchrony or to limit pacing."
  },
  "prog-fond-079": {
   "question": "What R-wave amplitude is usually sought when implanting a right ventricular lead?",
@@ -1280,7 +1302,8 @@
    "Incorrect: such an amplitude is not realistic for an intracardiac EGM."
   ],
   "explication": "At implantation, an R wave of at least 5 mV (often much more, 10–20 mV) is usually sought, and a P wave of at least 1.5–2 mV on the atrial lead: the two targets must not be confused. These values ensure reliable sensing with a comfortable safety margin. A small signal risks undersensing, particularly with the fall in amplitude seen in the weeks after implantation. Values such as 50 mV are not realistic for an intracardiac EGM.",
-  "aRetenir": "At implantation: R ≥ 5 mV, P ≥ 1.5–2 mV."
+  "aRetenir": "At implantation: R ≥ 5 mV, P ≥ 1.5–2 mV.",
+  "rappel": "Electrical measurements at implantation validate lead position: sensed signal amplitude, capture threshold, impedance, and a check for phrenic nerve stimulation at high output. Signal amplitude is lower in the atrium than in the ventricle, hence different targets, and it tends to decline in the weeks after implantation before stabilising. A small signal from the outset should prompt a search for a better position, since it will require a fine sensitivity that is prone to oversensing. The signal slope (slew rate) completes the assessment."
  },
  "prog-fond-080": {
   "question": "A patient paced for sinus node dysfunction has normal AV conduction but shows 85% ventricular pacing at follow-up, with a programmed AV delay of 150 ms and an intrinsic PR of 200 ms. What is the most logical course of action?",
@@ -1297,7 +1320,8 @@
    "Incorrect: raising the lower rate would increase pacing without correcting the inappropriate AV delay."
   ],
   "explication": "As the programmed AV delay (150 ms) is shorter than intrinsic conduction (200 ms), the pacemaker consistently pre-empts the conducted QRS: this is unnecessary ventricular pacing, associated with an increased risk of AF and heart failure. The AV delay should be extended or a minimisation algorithm enabled, as recommended by the ESC 2021 guidelines in sinus node dysfunction. Shortening the AV delay or raising the lower rate would increase the pacing percentage. The fall in the percentage should then be confirmed at the next follow-up.",
-  "aRetenir": "AV delay shorter than the intrinsic PR = unnecessary V pacing to be corrected."
+  "aRetenir": "AV delay shorter than the intrinsic PR = unnecessary V pacing to be corrected.",
+  "rappel": "The ventricular pacing percentage is a key parameter at every check in a patient with preserved AV conduction. A high percentage should prompt comparison of the programmed AV delay with intrinsic conduction (AR or PR), taking into account the difference between paced and sensed AV delays and the prolonged conduction during atrial pacing. If conduction is reliable, it is allowed by a longer AV delay or a minimisation algorithm. If it is very prolonged or unstable, the trade-off is discussed on a case-by-case basis."
  },
  "prog-fond-081": {
   "question": "An ICD patient is to undergo a procedure with monopolar diathermy. What is the effect of placing a magnet over the generator?",
@@ -1314,7 +1338,8 @@
    "Correct: the magnet suspends tachyarrhythmia detection and therapy, but does not make pacing asynchronous."
   ],
   "explication": "On the vast majority of ICDs, a magnet suspends tachyarrhythmia detection and therapy while it is in place, which prevents inappropriate shocks caused by diathermy noise. However, it does not switch pacing to an asynchronous mode: a pacemaker-dependent patient remains exposed to inhibition by diathermy and requires reprogramming (asynchronous mode) with a programmer. This is a major difference from a pacemaker. An external defibrillator must remain available throughout the procedure.",
-  "aRetenir": "Magnet on an ICD = therapies suspended, no asynchronous pacing."
+  "aRetenir": "Magnet on an ICD = therapies suspended, no asynchronous pacing.",
+  "rappel": "The magnet response differs fundamentally between pacemakers and ICDs. On a pacemaker, it affects pacing (asynchronous mode). On most ICDs, it only affects tachyarrhythmia detection and therapy, which are suspended while the magnet is applied, with no effect on bradycardia pacing; the response may be programmable or disabled on some models. Perioperative strategy for an ICD patient therefore depends on two separate questions: should therapies be suspended, and is the patient pacemaker-dependent, in which case reprogramming is needed?"
  },
  "prog-fond-082": {
   "question": "What is the difference between ERI and EOS?",
@@ -1331,7 +1356,8 @@
    "Incorrect: both indicators concern the generator battery."
   ],
   "explication": "ERI marks the start of the elective replacement period: the pacemaker still works, sometimes with simplified functions. If replacement is not performed, the battery continues to deplete until EOS, when the manufacturer no longer guarantees correct function (loss of capture, malfunction). In a pacemaker-dependent patient, letting a device reach EOS is dangerous. Remote monitoring helps ensure ERI is not missed.",
-  "aRetenir": "ERI = schedule replacement; EOS = function not guaranteed, urgent replacement."
+  "aRetenir": "ERI = schedule replacement; EOS = function not guaranteed, urgent replacement.",
+  "rappel": "Pacemaker battery depletion is initially slow and stable, then accelerates near end of life. Manufacturers define successive indicators: BOL (beginning of life), ERI or RRT (recommended replacement, with a guaranteed reserve to organise the procedure), then EOS or EOL (end of service). The indicators are calculated from battery voltage and/or impedance and appear at device check, on remote monitoring and sometimes as a change in magnet rate. The actual time between ERI and EOS depends on the programming and the pacing percentage."
  },
  "prog-fond-083": {
   "question": "What was the main lesson of the MagnaSafe study (1.5 T MRI under a protocol in patients with non-MR-conditional pacemakers and ICDs)?",
@@ -1348,6 +1374,7 @@
    "Incorrect: no systematic threshold rise was observed; events were rare."
   ],
   "explication": "MagnaSafe included more than 1,500 non-thoracic MRI scans at 1.5 T in patients with non-MR-conditional pacemakers or ICDs, programmed according to a protocol (asynchronous or non-pacing mode, therapies switched off). There were no deaths, no lead failures and no loss of capture; events (a few partial electrical resets, self-terminating episodes of AF) were rare. Only one ICD, programmed outside the protocol, had to be replaced. These data, like those of Nazarian 2017, supported opening up MRI to these patients in the guidelines. They do not remove the need for a strict protocol.",
-  "aRetenir": "MagnaSafe: 1.5 T MRI under a protocol in patients with non-MR-conditional systems, with very few events."
+  "aRetenir": "MagnaSafe: 1.5 T MRI under a protocol in patients with non-MR-conditional systems, with very few events.",
+  "rappel": "Large prospective registries (MagnaSafe, Nazarian 2017) assessed MRI in patients with non-MR-conditional systems performed under a standardised protocol: pre-scan check, programming according to pacing dependence, suspension of ICD therapies, monitoring and a post-scan check. Their reassuring results apply to 1.5 T MRI and to the situations included in these studies; they do not extend to epicardial, abandoned or damaged leads, or to the other exclusions of these studies. They led guidelines to propose MRI under protocol when no alternative is available."
  }
 }

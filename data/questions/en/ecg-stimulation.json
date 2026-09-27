@@ -507,7 +507,8 @@
   "question": "A Holter recording in a patient with a dual-chamber pacemaker shows pauses without ventricular spikes. Which causes of oversensing would you look for, and how?",
   "reponseAttendue": "Causes: myopotentials (especially with unipolar sensing), T waves or far-field P waves, crosstalk (A spike sensed by the V channel), lead noise (fracture, insulation breach, loose connection), electromagnetic interference. Approach: interrogation with stored EGMs and markers, impedance measurements, provocative manoeuvres (arm movements, pocket manipulation), chest X-ray, then correction (sensitivity, bipolar configuration, blanking, lead revision).",
   "explication": "A pause without a spike reflects inhibition of the pacemaker by a non-cardiac signal or a misclassified cardiac signal. Interrogation is the key step: the stored electrograms and the marker channel show what the device \"saw\" (VS on noise, on the T wave, on the A spike). Chaotic, non-physiological noise associated with impedance changes suggests a lead or connection problem. Myopotentials can be reproduced by muscular manoeuvres, and crosstalk by increasing the atrial output with a high ventricular sensitivity. Hysteresis or an algorithm promoting intrinsic conduction must be excluded first, before concluding that there is a malfunction.",
-  "aRetenir": "Pause without a spike: interrogate the device (EGMs + markers) to identify the oversensed signal."
+  "aRetenir": "Pause without a spike: interrogate the device (EGMs + markers) to identify the oversensed signal.",
+  "rappel": "Lead integrity is assessed from several converging elements: impedance trends (abrupt rise with conductor fracture or a faulty connection, fall with an insulation breach), changes in thresholds and sensed amplitudes, counters of very short intervals and stored noise episodes. Lead noise appears as signals at non-physiological intervals, with irregular amplitude and frequency, often intermittent and sometimes reproduced by manipulating the pocket. Many pacemakers have a noise reversion feature: when continuous noise is detected, they pace asynchronously rather than inhibit. The chest X-ray looks for a fracture, a loose set screw or subclavian crush."
  },
  "ecg-stim-032": {
   "question": "A patient in DDD with a programmed paced AV delay of 200 ms. On a few cycles, the V spike occurs about 110 ms after the A spike, coinciding with an intrinsic PVC. What is the explanation?",
@@ -524,7 +525,8 @@
    "Incorrect: dynamic AV delay moderately shortens the AV delay at higher rates, unrelated to a PVC."
   ],
   "explication": "After an atrial spike, the ventricular channel is blind during the post-atrial blanking period, after which a short window opens (crosstalk detection or safety window). Any signal sensed in this window may be crosstalk or a genuine QRS (PVC): as a precaution, the device delivers a ventricular spike at a shortened AV delay (around 100 to 120 ms depending on the manufacturer) instead of inhibiting. If the signal was a PVC, the spike falls within the QRS, in the refractory period, harmlessly; if it was crosstalk, the patient is protected from asystole. Dynamic AV delay shortening does not produce such a short delay, nor one linked to a PVC.",
-  "aRetenir": "V spike at a very short AV delay falling within a PVC after an A spike = ventricular safety pacing, normal function."
+  "aRetenir": "V spike at a very short AV delay falling within a PVC after an A spike = ventricular safety pacing, normal function.",
+  "rappel": "In DDD, after an atrial spike, the ventricular channel goes through two successive phases. First, post-atrial ventricular blanking, a brief interval during which nothing is sensed, so that the atrial spike itself is not seen. Then the crosstalk detection window (or safety window), during which a sensed signal is ambiguous: it may be crosstalk or a genuine QRS. To avoid any risk of asystole, the device then responds with a ventricular spike at a short AV delay rather than by inhibition. This mechanism only applies to cycles starting with atrial pacing; beyond the window, a sensed signal inhibits ventricular pacing normally."
  },
  "ecg-stim-033": {
   "question": "The ventricular spike delivered during ventricular safety pacing triggered by a PVC carries a high risk of VF through the R-on-T phenomenon.",
@@ -537,7 +539,8 @@
    "Correct: the deliberately short delay places the spike within the PVC's QRS; it protects against crosstalk without creating an R-on-T risk."
   ],
   "explication": "Safety pacing is delivered at a short AV delay (about 100–120 ms) after the atrial spike, i.e. within the QRS of the sensed PVC, and therefore in the absolute refractory period of the myocardium. The spike can neither capture nor fall on the T wave. That is precisely why this delay is deliberately short: it protects against asystole in the event of crosstalk without creating a risk of R-on-T. This phenomenon is normal and must not be mistaken for undersensing.",
-  "aRetenir": "Safety pacing falls within the QRS (refractory period): it is harmless."
+  "aRetenir": "Safety pacing falls within the QRS (refractory period): it is harmless.",
+  "rappel": "The ventricular myocardium is absolutely refractory during the QRS and early repolarisation; the vulnerable period, during which a stimulus can induce VF, lies around the peak of the T wave. The risk of the R-on-T phenomenon therefore concerns spikes delivered late after an unsensed QRS: asynchronous pacing (magnet, noise reversion, VOO), undersensing or competition with the intrinsic rhythm. This risk remains low in practice at pacing outputs, but increases when the myocardium is unstable (acute ischaemia, electrolyte disturbances, long QT). A spike falling within the QRS, by contrast, can neither capture nor induce an arrhythmia."
  },
  "ecg-stim-034": {
   "question": "A VVI pacemaker programmed with a lower rate of 60 bpm and a hysteresis rate of 50 bpm. The Holter shows an intrinsic rhythm at 55 bpm, with no spikes at all. What is the interpretation?",
@@ -554,7 +557,8 @@
    "Correct: after an intrinsic beat, the escape interval is 1200 ms (50 bpm); a rhythm at 55 bpm is therefore not paced."
   ],
   "explication": "Hysteresis allows the intrinsic rhythm to fall below the lower rate: after a sensed event, the pacemaker waits for a longer interval (60,000/50 = 1200 ms) before pacing. As long as the intrinsic rhythm stays above 50 bpm, no pacing is delivered, which promotes intrinsic activation and saves battery. If the pacemaker does have to pace, it then does so at the lower rate (1000 ms). The pitfall is to conclude that there is oversensing or malfunction on seeing an intrinsic rhythm below the programmed lower rate: always check whether hysteresis is programmed.",
-  "aRetenir": "Hysteresis: after an intrinsic beat, the escape interval is longer than the lower rate interval."
+  "aRetenir": "Hysteresis: after an intrinsic beat, the escape interval is longer than the lower rate interval.",
+  "rappel": "Rate hysteresis is a programmable feature that separates two intervals: the lower rate interval, between two consecutive paced beats, and the longer hysteresis interval, which applies after a sensed intrinsic event. Its aim is to favour the intrinsic rhythm, reduce unnecessary pacing and save battery. Some devices offer search hysteresis: they periodically lower the pacing rate to check whether an intrinsic rhythm reappears above the hysteresis rate. Other features also allow intrinsic rates below the lower rate, such as the rest or sleep rate: the programming must always be known before concluding that there is an abnormality."
  },
  "ecg-stim-035": {
   "question": "When hysteresis is programmed, the escape interval after a sensed event is shorter than the interval between two consecutive paced beats.",
@@ -567,7 +571,8 @@
    "Correct: the intrinsic QRS–spike interval is longer than the spike–spike interval; this is the definition of hysteresis."
   ],
   "explication": "The statement reverses the definition of rate hysteresis. After an intrinsic beat, the pacemaker waits for the longer hysteresis interval; once it starts pacing, it continues at the lower rate, which is faster. On the ECG, the first \"intrinsic beat – spike\" interval is therefore longer than the subsequent \"spike – spike\" intervals. This function must not be confused with oversensing, which also lengthens an interval, but inappropriately and without any fixed relationship to the programmed settings.",
-  "aRetenir": "Hysteresis: intrinsic QRS–spike interval > spike–spike interval."
+  "aRetenir": "Hysteresis: intrinsic QRS–spike interval > spike–spike interval.",
+  "rappel": "On the ECG, the spike-to-spike interval directly measures the programmed pacing interval. The escape interval, however, starts when the lead senses the intrinsic event, not at the onset of the complex on the surface ECG: it therefore appears slightly longer than its programmed value when activation reaches the electrode late, for example in RBBB with an RV lead. This difference is modest and constant. A large, variable prolongation unrelated to the programming suggests oversensing instead. Careful measurement of intervals with callipers, compared with the programmed parameters, is the basis for analysing a paced ECG."
  },
  "ecg-stim-036": {
   "question": "A patient in DDD programmed with an intrinsic AV conduction search algorithm. The ECG shows periods of paced P waves followed by narrow intrinsic QRS complexes with a PR of 280 ms, alternating with periods of AV sequential pacing with an AV delay of 180 ms. What is the interpretation?",
@@ -584,7 +589,8 @@
    "Incorrect: during paced periods, every V spike is followed by a QRS; the narrow QRS complexes are conducted, not escape beats."
   ],
   "explication": "Algorithms that minimise ventricular pacing (AV hysteresis, intrinsic conduction search, or AAI↔DDD switching modes, depending on the manufacturer) periodically extend the AV delay to allow intrinsic conduction to emerge. If an intrinsic QRS occurs within this extended delay, the pacemaker is inhibited; otherwise, it reverts to the programmed AV delay. These AV delay variations are therefore expected. Pacemaker Wenckebach occurs at the maximum tracking rate, not at resting rates. The rationale is to reduce unnecessary RV pacing, which is harmful in the long term, but a very long PR interval may also be poorly tolerated.",
-  "aRetenir": "Periodic AV delay variations with a ventricular pacing minimisation algorithm: normal function."
+  "aRetenir": "Periodic AV delay variations with a ventricular pacing minimisation algorithm: normal function.",
+  "rappel": "Unnecessary RV pacing desynchronises ventricular activation and is associated, in the long term, with AF and impaired LV function. In patients paced for sinus node dysfunction or intermittent AV block, the 2021 ESC guidelines recommend minimising unnecessary ventricular pacing. Two families of algorithms exist: AV delay extension with periodic search for intrinsic conduction, and modes that operate with atrial pacing and ventricular monitoring, switching to DDD only when AV conduction is lost. Their limitation is a very long PR interval, which can cause suboptimal LV filling and symptoms similar to pacemaker syndrome."
  },
  "ecg-stim-037": {
   "question": "A patient with a ventricular pacemaker whose sinus rate is close to the lower rate. What phenomenon explains the variable QRS morphology on this tracing?",
@@ -601,7 +607,8 @@
    "Incorrect: crosstalk concerns sensing of the atrial spike by the V channel in dual-chamber systems; it does not explain hybrid QRS complexes."
   ],
   "explication": "A fusion beat results from activation of the ventricle by both the intrinsic impulse and the paced stimulus, delivered at roughly the same time: the QRS has a hybrid morphology, intermediate between the intrinsic QRS and the fully paced QRS. This tracing shows paced QRS complexes, intrinsic QRS complexes, fusion beats and pseudofusion beats (a spike within an unchanged intrinsic QRS). This phenomenon is normal when the intrinsic rate is close to the pacing rate: intrinsic depolarisation has begun but has not yet been sensed by the lead. It is neither undersensing nor loss of capture.",
-  "aRetenir": "Fusion = QRS of intermediate morphology; pseudofusion = ineffective spike within an intrinsic QRS: both are normal phenomena."
+  "aRetenir": "Fusion = QRS of intermediate morphology; pseudofusion = ineffective spike within an intrinsic QRS: both are normal phenomena.",
+  "rappel": "Fusion and pseudo-fusion are explained by the delay between the onset of ventricular activation on the surface ECG and the moment this activation reaches the electrode and exceeds the sensing threshold. During this delay, the device is unaware that the QRS has begun and may deliver its spike. The delay is greater when the electrode is activated late, for example an RV lead in the presence of RBBB. To prove capture, pacing is performed at a rate clearly above the intrinsic rhythm (fully paced QRS complexes); to assess sensing, the lower rate is reduced to allow the intrinsic rhythm to emerge."
  },
  "ecg-stim-038": {
   "question": "A ventricular spike falls within an intrinsic QRS whose morphology is strictly identical to that of the other intrinsic QRS complexes. What is this beat called?",
@@ -618,7 +625,8 @@
    "Incorrect: the myocardium is refractory at the time of the spike: this cannot be called loss of capture."
   ],
   "explication": "In pseudofusion, the ventricular spike is delivered while the ventricle is already undergoing intrinsic depolarisation (the signal had not yet reached the electrode or crossed the sensing threshold). The spike falls in the refractory period and does not contribute to activation: the QRS retains its intrinsic morphology. In fusion, the QRS has an intermediate morphology. Pseudo-pseudofusion refers to an atrial spike falling within a QRS. This is not loss of capture, because the myocardium is refractory at the time of the spike.",
-  "aRetenir": "Pseudofusion = ineffective V spike within an intrinsic QRS of unchanged morphology."
+  "aRetenir": "Pseudofusion = ineffective V spike within an intrinsic QRS of unchanged morphology.",
+  "rappel": "Pseudo-fusion corresponds to a spike delivered within an intrinsic QRS already under way, before the lead has sensed it: the myocardium surrounding the electrode is already depolarised or about to be reached by the activation wavefront, and the spike has no effect on the morphology. Such a beat allows neither capture nor sensing to be assessed. During threshold testing, pseudo-fusion beats may suggest persistent capture when the output is already below threshold: pacing must be performed well above the intrinsic rate. In practice, pseudo-fusion is harmless in antibradycardia pacing."
  },
  "ecg-stim-039": {
   "question": "In a patient in DDD, an ATRIAL spike appears superimposed on the onset of an intrinsic QRS (typically a PVC). What is this phenomenon called?",
@@ -635,7 +643,8 @@
    "Correct: an atrial spike delivered at the end of the VA interval falls within a QRS that has begun but not yet been sensed; a normal phenomenon."
   ],
   "explication": "Pseudo-pseudofusion refers to an atrial spike falling within an intrinsic QRS during dual-chamber pacing. It occurs when a QRS (often a PVC) has begun on the surface ECG but has not yet been sensed by the ventricular lead when the VA interval times out: the atrial spike is delivered and is superimposed on the QRS, with no effect whatsoever on the ventricle. Depending on when the PVC is then sensed, the ventricular channel is either inhibited or delivers safety pacing. This phenomenon is normal and does not indicate malfunction. Pseudofusion refers to a VENTRICULAR spike falling within an intrinsic QRS, crosstalk is sensing of the A spike by the V channel, and \"atrioventricular fusion\" does not describe any recognised phenomenon.",
-  "aRetenir": "Pseudo-pseudofusion = atrial spike superimposed on an intrinsic QRS in DDD, a normal phenomenon."
+  "aRetenir": "Pseudo-pseudofusion = atrial spike superimposed on an intrinsic QRS in DDD, a normal phenomenon.",
+  "rappel": "In DDD, the atrial spike is delivered at the end of the VA interval if no event has been sensed. A PVC beginning just before that moment may not yet have been sensed by the ventricular lead: the atrial spike then overlaps the QRS, with no possible ventricular capture and often no useful atrial capture. What follows depends on when the PVC is sensed: during post-atrial ventricular blanking, it is ignored and a ventricular spike is delivered at the end of the AV delay; in the safety window, it triggers ventricular safety pacing; beyond it, it inhibits ventricular pacing. These overlap phenomena are normal and are analysed with the marker channel."
  },
  "ecg-stim-040": {
   "question": "Frequent fusion and pseudofusion beats in a patient with a single-chamber VVI pacemaker whose intrinsic rate is close to the lower rate indicate a malfunction requiring lead revision.",
@@ -648,13 +657,15 @@
    "Correct: these are normal phenomena in bradycardia pacing; they only become a problem with CRT."
   ],
   "explication": "Fusion and pseudofusion are physiological phenomena when the intrinsic rate is close to the pacing rate: intrinsic depolarisation begins before it is sensed by the lead, and the spike is delivered at that moment. There is neither undersensing nor loss of capture. If these beats hinder analysis, the lower rate can be reduced or hysteresis programmed. With CRT, however, fusion and pseudofusion are detrimental because they reduce effective biventricular pacing.",
-  "aRetenir": "In bradycardia pacing, fusion and pseudofusion are normal; with CRT, they need to be corrected."
+  "aRetenir": "In bradycardia pacing, fusion and pseudofusion are normal; with CRT, they need to be corrected.",
+  "rappel": "In CRT, the benefit relies on effective biventricular pacing on almost every cycle; the 2021 ESC guidelines emphasise the goal of a biventricular pacing percentage as close to 100% as possible. The device counters record fusion or pseudo-fusion beats as paced and therefore overestimate effective pacing. The usual causes of loss of effective pacing are AF with rapid conduction, frequent PVCs and an AV delay too long relative to the intrinsic PR interval. Possible responses include AV delay optimisation, rate control, treatment of PVCs and, in AF, AV junction ablation if needed."
  },
  "ecg-stim-041": {
   "question": "Define and distinguish fusion, pseudofusion and pseudo-pseudofusion.",
   "reponseAttendue": "Fusion: QRS of intermediate morphology, activated by both the V spike and the intrinsic impulse. Pseudofusion: V spike falling within an intrinsic QRS without altering it (spike in the refractory period). Pseudo-pseudofusion: ATRIAL spike superimposed on an intrinsic QRS during dual-chamber pacing. All three are normal phenomena, not malfunctions.",
   "explication": "These three phenomena occur when intrinsic activity and pacing overlap in time. Fusion is the only one in which the spike genuinely contributes to ventricular activation, hence the hybrid morphology. In pseudofusion, the ventricular spike is ineffective because the myocardium is already depolarised. In pseudo-pseudofusion, it is the atrial spike, which has no effect on the ventricle, that is superimposed on the QRS. Knowing them avoids wrongly concluding that there is undersensing or loss of capture.",
-  "aRetenir": "Fusion (hybrid morphology), pseudofusion (ineffective V spike), pseudo-pseudofusion (A spike within the QRS): three normal phenomena."
+  "aRetenir": "Fusion (hybrid morphology), pseudofusion (ineffective V spike), pseudo-pseudofusion (A spike within the QRS): three normal phenomena.",
+  "rappel": "Analysing a paced ECG follows a systematic approach: identify the spikes and their chamber, check that each spike delivered outside the refractory period captures (capture), check that each intrinsic event inhibits or triggers pacing as expected (sensing), then measure the intervals and compare them with the programming. Before concluding that there is a malfunction, normal behaviours that mimic an abnormality must be ruled out: fusion and its variants, hysteresis, ventricular pacing minimisation algorithms, ventricular safety pacing, upper rate behaviour and mode switching. The marker channel, obtained at interrogation, resolves most ambiguous situations."
  },
  "ecg-stim-042": {
   "question": "A patient in DDD with a maximum tracking rate of 130 bpm. During exercise, the sinus rate exceeds 130 bpm. The ECG shows progressive lengthening of the interval between the sensed P wave and the V spike, then a P wave not followed by ventricular pacing. What is this?",
@@ -671,7 +682,8 @@
    "Incorrect: mode switching responds to an atrial arrhythmia, not to exercise-induced sinus tachycardia."
   ],
   "explication": "The pacemaker cannot pace the ventricle faster than the maximum tracking rate (MTR). When the sinus rate exceeds it, the V spike is delayed until the end of the MTR interval: the P–V spike interval lengthens with each cycle. Eventually a P wave falls in the PVARP: it is not tracked, which resets the cycle. This is pacemaker (pseudo-)Wenckebach, which persists as long as the sinus rate remains between the MTR and the 2:1 block rate. It is neither intrinsic AV block (the delayed V spike is delivered by the pacemaker, which limits its own rate) nor mode switching, which responds to an atrial arrhythmia.",
-  "aRetenir": "Sinus rate > MTR: progressive AS-VP lengthening then a non-tracked P wave = pacemaker Wenckebach."
+  "aRetenir": "Sinus rate > MTR: progressive AS-VP lengthening then a non-tracked P wave = pacemaker Wenckebach.",
+  "rappel": "The maximum tracking rate (MTR) is the highest rate at which a dual-chamber pacemaker can pace the ventricle while tracking the atrium. It is programmed according to age, activity level and cardiac tolerance, for example lower in coronary artery disease. Above the MTR, tracking is no longer 1:1: the sensed P-to-ventricular spike intervals become variable and the ventricular rate is capped, with periodic pauses when a P wave falls in the PVARP. This behaviour is a deliberate protection against excessively rapid ventricular pacing, particularly during atrial tachycardia. When rate response is active, sensor-driven atrial pacing may smooth the transition."
  },
  "ecg-stim-043": {
   "question": "DDD pacemaker: sensed AV delay 150 ms, PVARP 250 ms, maximum tracking rate 130 bpm. Above what sinus rate does pacemaker 2:1 block occur?",
@@ -688,13 +700,15 @@
    "Incorrect: this calculation leaves out part of the TARP; 2:1 block occurs as soon as the P–P interval falls below 400 ms."
   ],
   "explication": "The total atrial refractory period (TARP) is the sum of the sensed AV delay and the PVARP: 150 + 250 = 400 ms. If the P–P interval becomes shorter than the TARP, every other P wave falls in the PVARP and is not tracked: this is 2:1 block. The corresponding rate is 60,000/400 = 150 bpm. Between 130 bpm (MTR) and 150 bpm, the patient exhibits pacemaker Wenckebach. The pitfall is to confuse the MTR (130 bpm, onset of Wenckebach) with the 2:1 block rate.",
-  "aRetenir": "2:1 block rate = 60,000 / TARP (AV delay + PVARP)."
+  "aRetenir": "2:1 block rate = 60,000 / TARP (AV delay + PVARP).",
+  "rappel": "The PVARP prevents the atrial channel from tracking a retrograde P wave or a far-field ventricular signal after each ventricular event; it thus protects against PMT. However, any increase in PVARP lengthens the TARP (sensed AV delay + PVARP) and lowers the rate at which 2:1 block appears accordingly. Programming is therefore a compromise: a PVARP just longer than the VA conduction time, an appropriate AV delay, and dynamic features that shorten the AV delay and PVARP as the rate increases. Some devices also transiently extend the PVARP after a PVC, without penalising the usual behaviour during exercise."
  },
  "ecg-stim-044": {
   "question": "DDD: sensed AV delay 150 ms, PVARP 250 ms, MTR 130 bpm (fixed AV delay and PVARP). Describe the ventricular behaviour as the sinus rate gradually rises from 110 to 170 bpm.",
   "reponseAttendue": "Up to 130 bpm: 1:1 tracking. Between 130 and 150 bpm: pacemaker Wenckebach (progressive AS-VP lengthening, with P waves periodically falling in the PVARP). Above 150 bpm (P–P < TARP of 400 ms): pacemaker 2:1 block, with the ventricular rate abruptly halved (≈ 75–85 bpm).",
   "explication": "The MTR (130 bpm, i.e. ~460 ms) sets the minimum interval between two ventricular paced beats, whereas the TARP (150 + 250 = 400 ms) sets the minimum P–P interval at which every P wave can be sensed. As long as the P–P interval is longer than the MTR interval, every P wave is tracked normally. With a P–P interval between 460 and 400 ms, the V spike is delayed and eventually a P wave falls in the PVARP: pacemaker Wenckebach, with a mean ventricular rate close to the MTR. Below 400 ms, every other P wave falls in the PVARP: the ventricular rate abruptly halves (e.g. 160 bpm → 80 bpm), which is often poorly tolerated during exercise. Dynamic AV delays and adaptive PVARP shorten the TARP during exercise and push back the 2:1 block point.",
-  "aRetenir": "MTR = onset of pacemaker Wenckebach; 60,000/TARP = onset of 2:1 block."
+  "aRetenir": "MTR = onset of pacemaker Wenckebach; 60,000/TARP = onset of 2:1 block.",
+  "rappel": "The high-rate behaviour of a DDD pacemaker can be predicted from two intervals: the MTR interval, which sets the shortest interval between two tracked ventricular paced beats, and the TARP, which sets the shortest P-P interval still sensed outside the refractory period. The gap between them determines the width of the pacemaker Wenckebach zone, a gradual and well-tolerated transition. In an active patient who depends on ventricular pacing, the aim is therefore for the 2:1 block rate to be clearly above both the MTR and the sinus rate reached on exercise. An exercise test or a Holter recording can verify this behaviour and clinical tolerance."
  },
  "ecg-stim-045": {
   "question": "If the TARP is longer than the interval corresponding to the maximum tracking rate, the patient goes directly from 1:1 tracking to pacemaker 2:1 block, with no Wenckebach phase.",
@@ -707,7 +721,8 @@
    "Incorrect: with no window between the MTR and 60,000/TARP, P waves fall in the PVARP before the MTR limits pacing: straight to 2:1."
   ],
   "explication": "Pacemaker Wenckebach only exists within the window between the MTR interval and the TARP. If the TARP is longer than the MTR interval (2:1 block rate less than or equal to the MTR), P waves fall in the PVARP before the MTR even limits ventricular pacing: the transition is directly to 2:1 block. For example, with a TARP of 500 ms (2:1 at 120 bpm) and an MTR of 130 bpm, there is no Wenckebach. This abrupt behaviour is particularly poorly tolerated in young, active patients.",
-  "aRetenir": "No window between the MTR and 60,000/TARP = no Wenckebach, straight to 2:1 block."
+  "aRetenir": "No window between the MTR and 60,000/TARP = no Wenckebach, straight to 2:1 block.",
+  "rappel": "Condition for pacemaker Wenckebach to exist: the maximum tracking rate interval must be longer than the TARP. If the reverse is true, the first limiting phenomenon on exercise is P waves falling in the PVARP, hence an abrupt switch to 2:1 block, with the ventricular rate dropping to half the sinus rate. To restore a gradual transition, the TARP can be shortened (shorter sensed AV delay, shorter or adaptive PVARP, dynamic AV delay) or, failing that, the MTR can be lowered. Any shortening of the PVARP must remain compatible with the VA conduction time, or it may promote PMT."
  },
  "ecg-stim-046": {
   "question": "A 35-year-old patient with congenital complete AV block, implanted with a DDD pacemaker, reports sudden dyspnoea during strenuous exercise. The exercise test shows the ventricular rate abruptly dropping from 140 to 70 bpm while the sinus rate is 140 bpm. What is the most appropriate management?",
