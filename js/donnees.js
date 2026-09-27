@@ -106,7 +106,7 @@ export const DOMAINES = [
 // Cadre d'une question : lecture de tracé (ECG, EGM, EEP), cas clinique (situation de la vraie vie) ou connaissance de cours.
 export const cadre = q => (aTrace(q) ? 'trace' : q.cadre === 'clinique' ? 'clinique' : 'cours');
 // Mode compétitif : on joue surtout sur des tracés et des cas cliniques ; les questions de cours y deviennent rares.
-const CADRE_COMPETITIF = { trace: 0, clinique: 0.35, cours: 1.3 };
+const CADRE_COMPETITIF = { trace: 0, clinique: 0.4, cours: 2 }; // pénalité en « crans de difficulté »
 
 // Mode compétitif : question dont la cote est proche du classement du joueur (légèrement au-dessus),
 // jamais vue dans la partie en cours, de préférence jamais vue du tout. Les questions ouvertes
