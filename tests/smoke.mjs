@@ -66,6 +66,10 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     const avant = +(await page.textContent('.tuile[data-nav=competitif] .tuile-elo b'));
     if (avant !== 600) throw new Error(`ELO de départ ${avant} au lieu de 600`);
     await page.click('.tuile[data-nav=competitif]');
+    // première partie : choix de l'ELO de départ au curseur (600 à 2600)
+    await page.waitForSelector('#depart');
+    await page.$eval('#depart', el => { el.value = '1400'; el.dispatchEvent(new Event('input')); });
+    if ((await page.textContent('#depart-valeur')).trim() !== '1400') throw new Error('curseur de départ sans effet');
     await page.click('#jouer');
     for (let i = 0; i < 6; i++) {
       await page.waitForSelector('#zone');
@@ -84,9 +88,11 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await nav('accueil');
     if (await page.$('#reprendre')) throw new Error('le mode compétitif ne doit pas laisser de série à reprendre');
     const apres = +(await page.textContent('.tuile[data-nav=competitif] .tuile-elo b'));
-    if (!Number.isFinite(apres) || apres === avant) throw new Error(`ELO inchangé (${avant} → ${apres})`);
+    // 6 réponses à K = 40 : on reste à moins de 240 points du départ choisi
+    if (!Number.isFinite(apres) || apres === 1400 || Math.abs(apres - 1400) > 240) throw new Error(`ELO ${apres} incohérent avec un départ à 1400`);
     await nav('competitif');
     await page.waitForSelector('#courbe svg');
+    if (await page.$('#depart')) throw new Error('le curseur de départ ne doit plus apparaître après la première partie');
     await capture('competitif');
   });
 

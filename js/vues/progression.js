@@ -50,7 +50,7 @@ export function vueProgression(app, { appliquerApparence }) {
       <button class="btn" id="raz">${t('Réinitialiser', 'Reset')}</button></div>
       <p class="note">${t('Vos données restent sur cet appareil (aucun compte, aucun envoi). Exportez-les pour les transférer sur un autre appareil.', 'Your data stays on this device (no account, nothing is sent). Export it to transfer it to another device.')}</p>
     </section>`;
-  courbeElo(app.querySelector('#courbe'), histo, { depart: stock.ELO_DEPART });
+  courbeElo(app.querySelector('#courbe'), histo, { depart: stock.eloDepart() });
   const sel = app.querySelector('#theme-ui');
   sel.value = stock.apparence();
   sel.onchange = () => { stock.sauverApparence(sel.value); appliquerApparence(); };
