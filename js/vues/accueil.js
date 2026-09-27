@@ -31,10 +31,10 @@ export function vueAccueil(app, ctx) {
     ${invitation}
     ${enCours ? `<button class="reprise" id="reprendre">▶ ${t('Reprendre :', 'Resume:')} ${esc(enCours.titre)} (${enCours.faites}/${enCours.total})</button>` : ''}
     <nav class="menu-principal centre" aria-label="${t('Choisir une activité', 'Choose an activity')}">
+      ${tuile('simulateur', ICONES.simulateur, t('Simulateur', 'Simulator'), t('Baie d\'électrophysiologie, cas mystères', 'EP recording system, mystery cases'))}
       ${tuile('entrainement', ICONES.entrainement, t('Entraînement', 'Training'), t('Stimulation, DAI, télécardio · ECG · Électrophysiologie', 'Pacing, ICD, remote monitoring · ECG · Electrophysiology'))}
       ${tuile('competitif', ICONES.competitif, t('Compétitif', 'Competitive'), t('Questions en continu, classement ELO', 'Non-stop questions, ELO rating'),
         `<span class="tuile-elo"><b>${c.elo}</b> ELO · ${esc(c.titre.nom)}${c.partiesDuJour ? ` · <span class="delta ${c.duJour >= 0 ? 'plus' : 'moins'}">${signe(c.duJour)}</span>` : ''}</span>`)}
-      ${tuile('simulateur', ICONES.simulateur, t('Simulateur', 'Simulator'), t('Baie d\'électrophysiologie, cas mystères', 'EP recording system, mystery cases'))}
       ${tuile('progression', ICONES.progression, t('Progression', 'Progress'), t('ELO jour après jour, badges, points faibles', 'Daily ELO, badges, weak spots'))}
     </nav>
     <p class="pied-accueil"><button class="lien" data-nav="apropos">${t('Sources et informations', 'Sources and information')}</button></p>`;

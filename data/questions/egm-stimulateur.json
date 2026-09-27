@@ -1414,6 +1414,7 @@
     "marque": null,
     "type": "qcu",
     "difficulte": 5,
+    "cadre": "clinique",
     "question": "Pour mesurer l'onde R d'un patient implanté pour BAV complet, vous programmez temporairement VVI 30/min : aucun QRS propre n'apparaît et le patient pâlit. Quelle est la bonne réaction ?",
     "options": [
       "Attendre quelques secondes supplémentaires que l'échappement s'installe",
@@ -1486,6 +1487,7 @@
     "marque": null,
     "type": "qcu",
     "difficulte": 5,
+    "cadre": "clinique",
     "question": "Télésurveillance : l'impédance de stimulation VD est passée de 540 Ω à plus de 2 500 Ω en une semaine ; le seuil n'est plus mesuré par l'algorithme automatique. Patient en BAV complet. Quelle hypothèse et quelle conduite ?",
     "options": [
       "Rupture d'isolant : programmer une sensibilité plus basse et revoir le patient à 3 mois",
@@ -1644,6 +1646,7 @@
     "marque": null,
     "type": "qcm",
     "difficulte": 6,
+    "cadre": "clinique",
     "question": "Un patient porteur d'un stimulateur étiqueté « IRM compatible sous conditions » doit passer une IRM lombaire. Quelles vérifications ou actions sont nécessaires ? (plusieurs réponses)",
     "options": [
       "Vérifier que l'ensemble boîtier et sondes est validé, sans sonde abandonnée",
@@ -1693,6 +1696,7 @@
     "marque": null,
     "type": "qcu",
     "difficulte": 6,
+    "cadre": "clinique",
     "question": "Patient en BAV complet sans rythme d'échappement, stimulateur DDD IRM-compatible sous conditions. Quel mode programmer pendant l'IRM ?",
     "options": [
       "Stimulation asynchrone (DOO) à une fréquence adaptée, supérieure au rythme propre",
@@ -1735,6 +1739,7 @@
     "marque": null,
     "type": "qcu",
     "difficulte": 6,
+    "cadre": "clinique",
     "question": "Homme de 79 ans, stimulateur DDD pour BAV complet il y a 4 ans, stimulation VD à 99 %. Dyspnée NYHA III malgré un traitement optimal, FEVG passée de 60 % à 32 %, sans autre cause retrouvée. Quelle est la conduite recommandée ?",
     "options": [
       "Discuter une mise à niveau en resynchronisation ou en stimulation de conduction",
@@ -1777,6 +1782,7 @@
     "marque": null,
     "type": "qcm",
     "difficulte": 5,
+    "cadre": "clinique",
     "question": "Patient à conduction AV conservée (PR 180 ms) implanté pour dysfonction sinusale : le pourcentage de stimulation VD est à 70 %. Quelles causes rechercher ? (plusieurs réponses)",
     "options": [
       "Délai AV programmé plus court que le PR spontané",
@@ -1822,6 +1828,7 @@
     "marque": null,
     "type": "qcu",
     "difficulte": 6,
+    "cadre": "clinique",
     "question": "Patiente de 74 ans, FA permanente rapide mal contrôlée : stimulateur VVIR implanté puis ablation de la jonction AV réalisée ce jour. Quelle fréquence de base programmer pour les premières semaines ?",
     "options": [
       "40/min, pour favoriser l'apparition d'un rythme d'échappement jonctionnel",
@@ -1863,6 +1870,7 @@
     "marque": null,
     "type": "qcu",
     "difficulte": 5,
+    "cadre": "clinique",
     "question": "Homme de 68 ans, stimulateur DDDR avec capteur accélérométrique. Il signale des palpitations lorsqu'il conduit son tracteur ; la télésurveillance montre des phases de stimulation AP-VP à 110-120/min, sans arythmie atriale. Quelle est l'explication la plus probable ?",
     "options": [
       "Tachycardie par réentrée électronique déclenchée par des ESV à l'effort",
@@ -1935,6 +1943,7 @@
     "marque": null,
     "type": "qcu",
     "difficulte": 5,
+    "cadre": "clinique",
     "question": "Vendredi soir, alerte de télésurveillance : un stimulateur a atteint l'indicateur de remplacement électif (ERI/RRT). Patient de 85 ans en BAV complet, dépendant ; le prochain contrôle est prévu dans 5 mois. Que faites-vous ?",
     "options": [
       "Attendre le contrôle à 5 mois, la pile durant encore longtemps après l'ERI",
@@ -2010,6 +2019,7 @@
     "marque": null,
     "type": "ouverte",
     "difficulte": 8,
+    "cadre": "clinique",
     "question": "Stimulateur DDD : délai AV après détection 180 ms, PVARP 300 ms, fréquence maximale de suivi 140/min. Un patient jeune décrit à l'effort une chute brutale de sa fréquence cardiaque, qui semble se diviser par deux, au lieu d'un plafonnement progressif. Expliquez le mécanisme et la correction.",
     "reponseAttendue": "Période réfractaire atriale totale = délai AV + PVARP = 180 + 300 = 480 ms, soit un point de bloc 2:1 à 60 000 / 480 = 125/min, inférieur à la fréquence maximale de suivi (140/min). Dès que le sinus dépasse 125/min, une P sur deux tombe dans la PVARP : bloc 2:1 brutal (fréquence ventriculaire divisée par deux) sans phase de Wenckebach. Correction : raccourcir la PVARP et/ou activer le raccourcissement dynamique du délai AV pour que le point 2:1 soit au-dessus de la fréquence maximale (en vérifiant la conduction rétrograde et les protections anti-TRE).",
     "explication": "Le comportement d'un DDD aux fréquences élevées dépend de deux limites : la fréquence maximale de suivi, qui produit un Wenckebach électronique, et le point de bloc 2:1, fixé par la période réfractaire atriale totale (délai AV + PVARP). Si le point 2:1 est plus bas que la fréquence maximale, la zone de Wenckebach disparaît et le patient passe brutalement d'un suivi 1:1 à un bloc 2:1, très symptomatique. Ici, 60 000 / 480 = 125/min < 140/min. Réflexe : à chaque réglage de la fréquence maximale, recalculer le point 2:1.",
@@ -2056,6 +2066,7 @@
     "marque": null,
     "type": "ouverte",
     "difficulte": 5,
+    "cadre": "clinique",
     "question": "Au contrôle d'un stimulateur DDD, l'amplitude des P mesurée est de 1,2 mV et la sensibilité atriale est programmée à 1,0 mV. Que pensez-vous de ce réglage et que faites-vous ?",
     "reponseAttendue": "La marge de sécurité est insuffisante (1,2 / 1,0 ≈ 1,2) : les P varient avec la posture, la respiration, l'effort, et les ondes f de FA sont souvent plus petites, d'où un risque de sous-détection (stimulation atriale compétitive, mode switch manqué, charge en FA sous-estimée). Programmer une valeur offrant une marge d'au moins 2 (idéalement 3) : environ 0,4 à 0,6 mV (0,3 mV acceptable si le champ lointain n'est pas détecté), puis vérifier l'absence de détection de l'onde R lointaine (AR couplés au QRS) et de faux mode switch.",
     "explication": "Une sensibilité programmée juste sous l'amplitude mesurée « fonctionne » le jour du contrôle mais ne tolère aucune variation. Or l'amplitude atriale fluctue beaucoup, et la FA génère des signaux plus petits et variables que les P sinusales : une détection atriale trop peu sensible fait manquer la FA, retarde ou empêche le mode switch et fausse les diagnostics. À l'inverse, une valeur trop basse expose au champ lointain, d'où la vérification après modification. Réflexe : marge de détection ×2 à ×3, contrôlée en rythme sinusal et, si possible, sur les EGM d'arythmie.",

@@ -36,6 +36,8 @@ Le fichier `data/questions/index.json` liste les fichiers à charger.
 | `difficulte` | oui | entier 1 à 10 (1 = étudiant/IDE débutant, 5 = interne/technicien confirmé, 8 = rythmologue, 10 = expert pointu) |
 | `question` | oui | énoncé |
 | `ecg` | non | tracé généré par l'application (voir presets ci-dessous) |
+| `cadre` | non | `"clinique"` : situation clinique de la vraie vie (patient, consultation, alerte, bloc…). Sans tracé ni cadre clinique, la question est une question de cours, rarement tirée en mode compétitif |
+| `rappel` | non | rappel de cours affiché sous l'explication (« Rappel de cours ») : la notion précise, les définitions et seuils utiles |
 | `options` | qcu/qcm/vf | pour `vf` : exactement `["Vrai", "Faux"]` |
 | `reponses` | qcu/qcm/vf | indices (base 0) des bonnes options |
 | `reponseAttendue` | ouverte | réponse modèle courte (l'utilisateur s'auto-évalue) |
