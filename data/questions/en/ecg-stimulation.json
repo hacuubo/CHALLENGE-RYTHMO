@@ -1239,7 +1239,8 @@
    "Incorrect: isolated LV pacing is not the usual CRT configuration."
   ],
   "explication": "A conventional CRT system comprises a right atrial lead, an RV lead and an LV lead placed in a lateral or posterolateral coronary sinus vein, to pace both ventricles simultaneously (or with a programmed offset). In patients in permanent AF, the atrial lead may be omitted. The paced QRS is often narrower than the intrinsic LBBB QRS. The NBG code reserves its fifth position for multisite pacing. Conduction system pacing is now an alternative in certain situations.",
-  "aRetenir": "CRT = right atrial + RV + LV (coronary sinus) pacing."
+  "aRetenir": "CRT = right atrial + RV + LV (coronary sinus) pacing.",
+  "rappel": "CRT aims to correct the electrical and mechanical dyssynchrony caused by a left intraventricular conduction disorder in heart failure with reduced LVEF. According to the 2021 ESC guidelines, in symptomatic patients in sinus rhythm with LVEF ≤ 35% despite optimal therapy, it is recommended (class I) for LBBB with QRS ≥ 150 ms, should be considered (IIa) for LBBB with QRS 130–149 ms or non-LBBB with QRS ≥ 150 ms, may be considered (IIb) for non-LBBB with QRS 130–149 ms, and is not recommended when QRS is < 130 ms without a pacing indication. The benefit is clearest with typical LBBB. The device may be a CRT-P or CRT-D depending on the indication for defibrillation."
  },
  "ecg-stim-078": {
   "question": "What is the retrograde limb of the pacemaker-mediated tachycardia circuit?",
@@ -1256,7 +1257,8 @@
    "Incorrect: Bachmann's bundle connects the two atria; it does not connect ventricle and atrium."
   ],
   "explication": "The PMT circuit combines the pacemaker, which conducts the impulse from atrium to ventricle (antegrade limb, via atrial sensing and ventricular pacing), and the patient's retrograde ventriculoatrial conduction, usually via the AV node, occasionally via an accessory pathway. The leads are merely the sensors and effectors of the antegrade limb. Prevention relies on a PVARP covering the VA conduction time and on PMT detection and termination algorithms.",
-  "aRetenir": "PMT: antegrade limb = pacemaker, retrograde limb = patient's VA conduction."
+  "aRetenir": "PMT: antegrade limb = pacemaker, retrograde limb = patient's VA conduction.",
+  "rappel": "Any re-entry requires two connected conduction pathways, unidirectional block in one of them and a transit time long enough for each segment to have recovered excitability when the wavefront arrives. PMT reproduces this pattern between atrium and ventricle: the pacemaker acts as an artificial antegrade pathway (atrial sensing, AV delay, ventricular pacing) and the patient's VA conduction as the retrograde pathway, as in orthodromic AVRT with the device replacing the AV node. Interrupting either limb is enough to stop the tachycardia: suppressing atrial tracking (magnet, PVARP extended for one cycle) or blocking retrograde nodal conduction."
  },
  "ecg-stim-079": {
   "question": "In a patient in DDD, what is the maximum tracking rate?",
@@ -1273,7 +1275,8 @@
    "Correct: the MTR caps the ventricular pacing rate triggered by sensed P waves; above it: Wenckebach, then 2:1."
   ],
   "explication": "The maximum tracking rate (MTR, upper tracking rate) caps the ventricular pacing rate triggered by sensed P waves. Above it, the pacemaker applies upper rate behaviour (pacemaker Wenckebach, then 2:1 block). It is distinct from the maximum sensor rate (the limit of rate response) and from the mode switch detection rate, which is higher. In a young, active patient, the MTR must be high enough to cover the sinus rate on exertion.",
-  "aRetenir": "MTR = maximum ventricular rate during atrial tracking."
+  "aRetenir": "MTR = maximum ventricular rate during atrial tracking.",
+  "rappel": "A dual-chamber pacemaker has several distinct rate limits. The lower rate sets the minimum pacing rate. The maximum tracking rate limits ventricular pacing triggered by sensed P waves. The maximum sensor rate limits sensor-driven pacing; it can be programmed above or below the MTR, and sensor-driven atrial pacing is not subject to Wenckebach behaviour. The mode-switch detection rate is an atrial threshold, generally higher than the MTR. The magnet rate is a fixed asynchronous rate. Identifying which of these limits applies is essential to interpret an observed pacing rate."
  },
  "ecg-stim-080": {
   "question": "In a patient with an ICD, the paced QRS complexes seen on the ECG come from the bradycardia pacing function built into the defibrillator.",
@@ -1286,7 +1289,8 @@
    "Incorrect: paced QRS complexes from a transvenous ICD do come from its bradycardia function; only the subcutaneous ICD lacks one (apart from post-shock pacing)."
   ],
   "explication": "Every transvenous ICD also provides bradycardia pacing (single-chamber, dual-chamber or resynchronisation), in addition to detecting and treating ventricular tachyarrhythmias. Spikes and paced QRS complexes seen outside tachycardia episodes therefore come from this function. The subcutaneous ICD, on the other hand, provides only temporary post-shock bradycardia pacing and no permanent pacing. Pacing malfunctions (loss of capture, oversensing) are therefore analysed on an ICD patient's ECG just as on a pacemaker patient's.",
-  "aRetenir": "A transvenous ICD is also a pacemaker; the subcutaneous ICD is not (except post-shock)."
+  "aRetenir": "A transvenous ICD is also a pacemaker; the subcutaneous ICD is not (except post-shock).",
+  "rappel": "The antibradycardia function of a transvenous ICD is programmed like that of a pacemaker (mode, rates, delays), with the same aim of avoiding unnecessary RV pacing in a patient implanted without a pacing indication, usually through a low lower rate or minimisation algorithms. The ICD also delivers post-shock pacing, often at a higher output, and ATP to treat VT. The subcutaneous ICD, which has no transvenous lead, can provide neither permanent antibradycardia pacing nor ATP; it is therefore reserved for patients without a pacing requirement. In a CRT-D, permanent biventricular pacing is added to the defibrillation functions."
  },
  "ecg-stim-081": {
   "question": "In a CRT patient, lead V1 shows no dominant R wave during biventricular pacing. Which explanations are compatible with LV capture that is nonetheless effective?",
@@ -1305,7 +1309,8 @@
    "Incorrect: mode switching alters atrial tracking, not the paced QRS morphology."
   ],
   "explication": "The dominant R wave in V1 reflects early activation of the LV posterolateral wall. It may be absent despite effective LV capture if V1 is recorded too high, if the LV lead is in an anterior position or close to the septum, or if LV pacing latency (scar tissue) delays left-sided activation, allowing RV activation to predominate. Conversely, LV-only pacing (loss of RV capture) would tend to accentuate the R wave in V1. Mode switching does not alter the paced QRS morphology. Only comparison with the reference ECG and an LV threshold test can settle the question.",
-  "aRetenir": "The absence of a dominant R wave in V1 with CRT is not sufficient to conclude that LV capture has been lost."
+  "aRetenir": "The absence of a dominant R wave in V1 with CRT is not sufficient to conclude that LV capture has been lost.",
+  "rappel": "No single lead is sufficient to assess LV capture during CRT. V1 reflects posterolateral LV activation but depends heavily on the electrode position and the LV lead site. Lead I provides complementary information: with an RV apical lead and a lateral LV lead, biventricular pacing usually produces a Q wave or QS pattern in lead I, and disappearance of this Q wave compared with the reference ECG is an argument for loss of LV capture. The frontal axis, QRS duration and comparison with RV-only and LV-only paced tracings complete the analysis. LV threshold testing remains the confirmatory test."
  },
  "ecg-stim-082": {
   "question": "Which programming measures help prevent or terminate pacemaker-mediated tachycardia?",
@@ -1324,7 +1329,8 @@
    "Incorrect: raising the MTR prevents nothing and would make PMT faster."
   ],
   "explication": "A retrograde P wave falling in the PVARP is not tracked: programming a PVARP that covers the VA conduction time prevents PMT, at the cost of a longer TARP and therefore a lower 2:1 block rate. Automatic PVARP extension after a PVC targets the most common trigger. Manufacturers' algorithms detect stable ventricular pacing followed by atrial sensing at a fixed interval and break the loop (extended PVARP or no tracking for one cycle). A long AV delay, on the contrary, favours retrograde conduction and is one of the triggering factors. Shortening the PVARP promotes PMT, and increasing the MTR would only make it faster.",
-  "aRetenir": "PMT prevention: PVARP > VA time, PVARP extension after a PVC, PMT algorithm."
+  "aRetenir": "PMT prevention: PVARP > VA time, PVARP extension after a PVC, PMT algorithm.",
+  "rappel": "PMT algorithms differ between manufacturers but follow the same logic: detect a sequence of ventricular paced cycles followed by atrial sensing, at a high rate and with a stable VP-AS interval; possibly confirm the mechanism by changing the AV delay to check that the VA interval remains fixed; then break the loop by not tracking one atrial event or by extending the PVARP for one cycle. Their limitations are known: a PMT slower than their detection rate may escape the algorithm, and a tracked sinus tachycardia may be mistaken for PMT. Prevention through PVARP programming remains the cornerstone."
  },
  "ecg-stim-083": {
   "question": "Which mechanisms or settings protect a pacemaker-dependent patient in DDD against the consequences of crosstalk?",
@@ -1343,7 +1349,8 @@
    "Incorrect: the MTR plays no part in crosstalk."
   ],
   "explication": "Post-atrial ventricular blanking makes the V channel blind for a few tens of milliseconds after the atrial spike, the period when crosstalk is most likely. Beyond that, the safety window turns any ventricular sensed event into pacing at a short AV delay rather than inhibition. Reducing ventricular sensitivity or atrial output reduces the amplitude of the spurious signal picked up. The PVARP applies to the atrial channel after a ventricular event, and the MTR plays no part in crosstalk. An excessively long blanking period, however, would predispose to undersensing of early PVCs.",
-  "aRetenir": "Against crosstalk: post-atrial blanking, safety pacing and adjusting V sensitivity/A output."
+  "aRetenir": "Against crosstalk: post-atrial blanking, safety pacing and adjusting V sensitivity/A output.",
+  "rappel": "Crosstalk is particularly dangerous in pacing-dependent patients, in whom inhibition of ventricular pacing results in ventricular asystole. It is looked for at follow-up under the most favourable conditions: atrial pacing at high output, maximum ventricular sensitivity, long AV delay, watching for ventricular inhibition or repeated safety pacing. On the ECG, ventricular pacing consistently delivered at a short AV delay after each atrial spike, in the absence of PVCs, suggests crosstalk controlled by ventricular safety pacing. Bipolar configuration and an atrial output matched to the threshold reduce the risk."
  },
  "ecg-stim-084": {
   "question": "A patient with an ICD receives multiple shocks. Which of the following findings at interrogation point to a defibrillation lead fracture?",
@@ -1362,7 +1369,8 @@
    "Correct: noise reproduced by arm or pocket manoeuvres is highly suggestive of mechanical lead damage."
   ],
   "explication": "Lead fracture noise is chaotic, non-physiological, very high-frequency and intermittent: it produces very short intervals that no arrhythmia can generate. It is often associated with abrupt impedance changes and can be reproduced by arm or pocket manoeuvres. Manufacturers' noise and lead integrity alert algorithms are based on these features. A second marker at a fixed distance from the QRS, in contrast, suggests T-wave oversensing, and a slow decline in R-wave amplitude a change in substrate rather than a fracture. When a fracture is confirmed, therapies must be suspended under monitoring until the lead is revised.",
-  "aRetenir": "Lead fracture: very high-frequency non-physiological noise, very short intervals, abnormal impedance."
+  "aRetenir": "Lead fracture: very high-frequency non-physiological noise, very short intervals, abnormal impedance.",
+  "rappel": "Defibrillation lead failures affect the conductor (fracture, with noise and high or unstable impedance) or the insulation (breach, with low impedance and sometimes noise). They involve the sensing-pacing pathway and the high-voltage pathway: shock impedance, measured periodically and painlessly, must be checked. Remote monitoring and lead integrity alerts often allow the diagnosis to be made before inappropriate shocks occur. When a failure is confirmed, therapies are suspended under monitoring (reprogramming or magnet), then the lead is revised: a new lead is added or the old one extracted depending on the context. Pacing dependency determines the safety of the interim period."
  },
  "ecg-stim-085": {
   "question": "Which of the following ECG findings in a pacemaker patient correspond to NORMAL function?",
@@ -1381,7 +1389,8 @@
    "Incorrect (abnormal): a spike outside the refractory period not followed by a QRS is true loss of capture."
   ],
   "explication": "Pseudofusion, safety pacing, hysteresis and functional non-capture with a magnet are expected behaviours that must be recognised to avoid wrongly concluding that there is a malfunction. Only a spike delivered outside the refractory period and not followed by depolarisation constitutes true loss of capture. A pacemaker ECG should always be analysed with knowledge of the programmed settings (mode, rates, delays, hysteresis, algorithms). Failing that, device interrogation and markers can resolve any doubt.",
-  "aRetenir": "Pseudofusion, safety pacing, hysteresis and functional non-capture are normal; true loss of capture is not."
+  "aRetenir": "Pseudofusion, safety pacing, hysteresis and functional non-capture are normal; true loss of capture is not.",
+  "rappel": "Modern pacemakers run many automatic features that transiently alter the ECG without any malfunction: automatic threshold tests with closely coupled backup pulses (double spikes), beat-to-beat capture verification, VA conduction tests, periodic search for intrinsic conduction, rest or sleep rate, rate smoothing, PVARP extension after a PVC, mode switching and sensor-driven pacing above the lower rate. Before interpreting an ECG or Holter recording as abnormal, the model, the programming and the active features must therefore be known. The interrogation printout and the marker channel are the reference tools for attributing a behaviour to a feature."
  },
  "ecg-stim-086": {
   "question": "In DDD, which parameters determine the sinus rate at which pacemaker 2:1 block occurs?",
@@ -1400,7 +1409,8 @@
    "Incorrect: post-atrial ventricular blanking applies to the V channel after the A spike; it is not part of the TARP."
   ],
   "explication": "The 2:1 block rate equals 60,000 divided by the TARP, the sum of the sensed AV delay and the PVARP. The MTR determines the onset of pacemaker Wenckebach, not of 2:1 block (although the two interact: if the TARP is longer than the MTR interval, 2:1 block occurs before the MTR is reached). The lower rate and post-atrial ventricular blanking play no part. Dynamic AV delays and adaptive PVARP shorten the TARP during exercise and push back the 2:1 block point.",
-  "aRetenir": "Pacemaker 2:1 block: 60,000 / (sensed AV delay + PVARP)."
+  "aRetenir": "Pacemaker 2:1 block: 60,000 / (sensed AV delay + PVARP).",
+  "rappel": "The TARP is the period during which an atrial event cannot trigger ventricular pacing: it covers the AV delay followed by the PVARP. At the start of the PVARP, post-ventricular atrial blanking makes the channel completely blind; during the rest of the PVARP, atrial events are sensed as refractory events, counted for mode switching, but not tracked. Since the TARP depends on the sensed AV delay, any feature that shortens this delay or the PVARP as the rate rises (dynamic AV delay, adaptive PVARP) raises the 2:1 block rate on exercise. The other parameters, including the lower rate, play no part."
  },
  "ecg-stim-087": {
   "question": "Which of the following modes include atrial tracking (ventricular pacing triggered by a sensed P wave)?",
@@ -1421,12 +1431,14 @@
    "Incorrect: AAI does not pace the ventricle."
   ],
   "explication": "Atrial tracking requires atrial sensing and a triggered response (third letter D) with ventricular pacing: this is the case for DDD, DDDR and VDD. DDI senses the atrium but responds only with inhibition. VVI ignores the atrium and AAI does not pace the ventricle. Tracking modes are the ones subject to upper rate behaviour and PMT, and that require mode switching during atrial arrhythmias.",
-  "aRetenir": "Only modes with D in third position and V pacing (DDD, DDDR, VDD) track the atrium."
+  "aRetenir": "Only modes with D in third position and V pacing (DDD, DDDR, VDD) track the atrium.",
+  "rappel": "The choice of mode follows from the underlying condition. In sinus node dysfunction, the 2021 ESC guidelines favour dual-chamber pacing (DDD(R)) with minimisation of unnecessary ventricular pacing. In AV block with sinus rhythm, a tracking mode (DDD or VDD) preserves AV synchrony. In permanent AF, a ventricular mode (VVIR) is appropriate, since there is no atrium to track. Non-tracking modes (DDI, VVI) serve mainly as fallback modes or for particular situations. Any tracking mode requires the MTR, PVARP and mode switching to be programmed, because the ventricle follows the atrium, including during an atrial arrhythmia or a retrograde P wave."
  },
  "ecg-stim-088": {
   "question": "A patient in DDD: sensed AV delay 150 ms, MTR 130 bpm, measured retrograde VA conduction time 350 ms, programmed PVARP 250 ms. A PVC triggers PMT. What will its rate be, and what is the practical consequence?",
   "reponseAttendue": "PMT cycle length = AV delay (150 ms) + VA time (350 ms) = 500 ms, i.e. 120 bpm, slower than the MTR (MTR interval ≈ 462 ms). The PMT therefore does not run at the MTR: an algorithm that only looks for it at the MTR may miss it. The PVARP should be lengthened beyond 350 ms (or enable post-PVC PVARP extension and a PMT algorithm with a suitable detection rate).",
   "explication": "In PMT, each cycle consists of the AV delay after sensing of the retrograde P wave plus the VA conduction time of the paced QRS. If this total is longer than the MTR interval, the tachycardia runs at a rate below the MTR, which can lead to it being mistaken for a tracked sinus tachycardia. Here, the 250 ms PVARP is shorter than the 350 ms VA time: the retrograde P wave falls outside the PVARP and is tracked. Lengthening the PVARP beyond the VA time eliminates the risk but lengthens the TARP (150 + 380 = 530 ms, 2:1 block at about 113 bpm), which may limit an active patient: post-PVC PVARP extension and PMT algorithms should then be preferred.",
-  "aRetenir": "PMT rate = 60,000 / (AV delay + VA time), capped by the MTR."
+  "aRetenir": "PMT rate = 60,000 / (AV delay + VA time), capped by the MTR.",
+  "rappel": "The PMT cycle length is the longer of two intervals: the sum of the sensed AV delay and the VA conduction time, or the MTR interval. PMT can therefore run well below the MTR when retrograde conduction is slow, and then resemble a tracked sinus tachycardia. The VA conduction time is not fixed: it varies with adrenergic tone, drugs and rate; a measurement at rest may not reflect exercise conditions. Programming must therefore take the measured value into account with a margin, and check that the detection rate of the PMT algorithm covers the rates at which PMT can actually occur."
  }
 }

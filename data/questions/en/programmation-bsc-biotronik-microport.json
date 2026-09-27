@@ -484,7 +484,8 @@
    "Correct: V faster than A indicates a ventricular origin; the VT counter is incremented without further testing."
   ],
   "explication": "SMART Detection continuously compares atrial and ventricular intervals, each averaged over 4 intervals. If the ventricular rate exceeds the atrial rate, the ICD increments the VT counter without further testing: dissociation with V faster than A indicates a ventricular origin. If A is faster than V, a supraventricular origin is presumed, with exceptions tested by R-R stability and the A/V ratio. With a 1:1 ratio, specific decision trees use the onset criterion and PP and PR stability. SMART applies only to the VT1 and VT2 zones, never to the VF zone.",
-  "aRetenir": "SMART: V > A = VT with no further test; discrimination applies only in VT zones."
+  "aRetenir": "SMART: V > A = VT with no further test; discrimination applies only in VT zones.",
+  "rappel": "Atrioventricular dissociation with more ventricular complexes than P waves can only be explained by a tachycardia arising below the AV node: it is the most specific criterion for VT, on the surface ECG as on electrograms. Dual-chamber algorithms therefore place it first and compare rates averaged over a few cycles to limit the effect of a single cycle. Its reliability depends entirely on atrial sensing: a P wave falling into a blanking period or atrial undersensing underestimates the atrial rate and may make the criterion falsely true. Reviewing atrial EGMs is therefore part of every episode analysis."
  },
  "prog-bbm-031": {
   "question": "Regarding the SMART Detection and MorphMatch discriminators of Biotronik ICDs, which statements are correct?",
@@ -501,7 +502,8 @@
    "Incorrect: MorphMatch analyses the ventricular signal alone and does not require an atrial lead."
   ],
   "explication": "The Rivacor manual states that either MorphMatch or SMART Detection is programmed, never both. MorphMatch compares the QRS morphology of the tachycardia with a reference of conducted rhythm; it is mainly used for single-chamber detection (notably VR-T DX) but remains available in multi-chamber devices. SMART, which relies on the relationship between atrium and ventricle, is the method of choice in dual-chamber devices and CRT-Ds. Like the other discriminators, MorphMatch does not act in the VF zone. It does not require an atrial lead, since it analyses the ventricular signal alone. The Biotronik implementation of the 2019 consensus recommends MorphMatch in single-chamber devices and SMART in dual-chamber devices/CRT-Ds.",
-  "aRetenir": "Biotronik: MorphMatch (morphology, single-chamber) or SMART (A/V relationship, multi-chamber), never both, and never in the VF zone."
+  "aRetenir": "Biotronik: MorphMatch (morphology, single-chamber) or SMART (A/V relationship, multi-chamber), never both, and never in the VF zone.",
+  "rappel": "The two main approaches to SVT–VT discrimination have complementary strengths. Morphology requires only a ventricular channel, works in single-chamber devices and recognises SVT with normal conduction well, but it is misled by aberrant conduction or an outdated template. Analysis of the atrioventricular relationship requires reliable atrial sensing; it immediately settles dissociation (V > A) and conducted AF, but performs less well in 1:1 tachycardias, where it relies on mode of onset and PR stability. The choice therefore depends on the implanted hardware and the patient's rhythm profile; some platforms require a choice between the two."
  },
  "prog-bbm-032": {
   "question": "With SMART Detection (Biotronik), when an R-R interval in the VT zone is classified as supraventricular in origin, the VT counter is not simply frozen: it is decremented (by 0.25, 0.5, 1 or 4 depending on the case).",
@@ -514,7 +516,8 @@
    "Incorrect: the counter is not frozen; this up/down counting gradually moves the ICD away from the threshold during a prolonged SVT."
   ],
   "explication": "The SMART algorithm classifies each R-R interval in the VT zone as ventricular or supraventricular. An interval of ventricular origin increments the VT counter by 1; an interval of atrial origin decrements it by 0.25, 0.5, 1 or 4 depending on the branch of the decision tree. This \"up/down\" counting explains why a prolonged SVT gradually moves the ICD away from the detection threshold, whereas a clear-cut VT reaches it quickly. The preset SMART values are 20% for onset and 12% for stability. Understanding this counter helps when analysing an episode in which therapy was delayed or withheld.",
-  "aRetenir": "SMART: +1 for a ventricular cycle, decrement (0.25 to 4) for a supraventricular cycle."
+  "aRetenir": "SMART: +1 for a ventricular cycle, decrement (0.25 to 4) for a supraventricular cycle.",
+  "rappel": "In an ICD, detection combines a counter of fast cycles with discriminators. Depending on the platform, a cycle judged supraventricular either simply withholds therapy while the discriminator inhibits it, the counter remaining full, or moves the counter backwards, taking it further from the detection threshold. In the first case, the analysis is repeated on every cycle and therapy is delivered as soon as the inhibition criterion is no longer met; in the second, a return to a ventricular rhythm must first build the counter back up. Knowing each platform's counting logic is essential to explain delayed or absent therapy in a stored episode."
  },
  "prog-bbm-033": {
   "question": "According to the Biotronik implementation of the 2019 ICD programming consensus update, which detection programming is suggested in a patient with no history of VT?",
@@ -531,7 +534,8 @@
    "Correct: VF 231 bpm with 30/40 (otherwise 24/30), VT2 188 bpm with 30 intervals, VT1 as an optional monitor zone."
   ],
   "explication": "The Biotronik appendix of the 2019 update suggests, with no history of VT: VF at 231 bpm with 30/40 intervals if programmable (otherwise 24/30), VT2 at 188 bpm with 30 intervals, and VT1 as an optional monitor zone. VF therapy comprises ATP One Shot (1 burst of 8 pulses at 88% of the cycle length) followed by full-energy shocks. For discriminators: MorphMatch in single-chamber devices, SMART in dual-chamber devices/CRT-Ds, Home Monitoring enabled. For dual-chamber pacing, the appendix suggests DDD with IRS Plus (± CLS) or DDD with Vp Suppression. Each manufacturer has its own implementation (in seconds for Boston Scientific, in cycles with a 6/8 majority for MicroPort). Prolonging detection and raising rate cut-offs reduces inappropriate therapies without increasing mortality, as shown by MADIT-RIT and subsequent studies.",
-  "aRetenir": "Biotronik 2019: VF 231 bpm (30/40), VT2 188 bpm (30 intervals), VT1 monitor zone."
+  "aRetenir": "Biotronik 2019: VF 231 bpm (30/40), VT2 188 bpm (30 intervals), VT1 monitor zone.",
+  "rappel": "The consensus statements express detection duration in seconds or in number of intervals, and each manufacturer translates it into its own units. The conversion is simple: duration ≈ number of intervals × tachycardia cycle length. At 188 bpm (cycle length about 320 ms), 30 intervals represent about 10 s; at 231 bpm (about 260 ms), about 8 s. Probabilistic counters (X out of Y) in the VF zone tolerate intermittent undersensing of VF signals. A monitor zone stores episodes without delivering therapy, which allows slow VT or SVT to be documented without exposing the patient to unnecessary therapy."
  },
  "prog-bbm-034": {
   "question": "With Biotronik Home Monitoring, the daily data transmission only takes place if the patient manually triggers it from the transmitter.",
@@ -544,13 +548,15 @@
    "Correct: the device sends its data automatically every day to the CardioMessenger transmitter, with no action required from the patient."
   ],
   "explication": "This is false. Home Monitoring relies on an automatic daily transmission from the device to the transmitter (CardioMessenger), which relays the data to the secure platform reviewed by the team. It transmits, among other things, ongoing arrhythmias, thresholds, sensing amplitudes and impedances, pacing statistics and EGMs. Event-triggered messages complement the daily transmission. The patient has nothing to do, provided the transmitter is plugged in and placed close enough. Remote monitoring does not replace a clinic visit in the event of new symptoms.",
-  "aRetenir": "Home Monitoring = automatic daily transmission, with no patient involvement."
+  "aRetenir": "Home Monitoring = automatic daily transmission, with no patient involvement.",
+  "rappel": "Remote interrogation, scheduled on fixed dates and equivalent to a follow-up visit, is distinguished from remote monitoring, which automatically transmits alerts when events occur (arrhythmia, lead problem, battery depletion). The most comprehensive systems combine automatic daily transmission with event-triggered messages, requiring no action from the patient. Reliability depends on connectivity: transmitter plugged in, nearby, network available. The team must identify patients whose transmissions stop and organise alert triage according to severity, as detailed in the 2023 HRS/EHRA consensus."
  },
  "prog-bbm-035": {
   "question": "What were the two main results of the TRUST trial (Biotronik ICDs with daily Home Monitoring)?",
   "reponseAttendue": "An approximately 45% reduction in in-hospital ICD evaluations without any increase in morbidity, and much faster detection of arrhythmic events (median delay < 2 days versus 36 days with conventional follow-up).",
   "explication": "TRUST randomised 1,339 ICD patients (2:1) to automatic daily Home Monitoring or conventional in-clinic follow-up. Home Monitoring reduced in-hospital evaluations by 45%, with no excess morbidity: 85.8% of the 6-, 9- and 12-month checks could be carried out remotely only. The median delay between the occurrence of an arrhythmic event and its evaluation by the physician fell from 36 days to less than 2 days. This trial provided strong support for the idea that remote monitoring can replace some routine clinic visits, an idea taken up in the 2023 consensus statement on remote monitoring.",
-  "aRetenir": "TRUST: −45% hospital visits, and events reviewed in < 2 days instead of 36."
+  "aRetenir": "TRUST: −45% hospital visits, and events reviewed in < 2 days instead of 36.",
+  "rappel": "Remote monitoring changes how implantable device follow-up is organised: some routine clinic visits can be replaced by remote checks, and events become known within days instead of at the next visit. This benefit requires suitable organisation: trained staff, alert triage according to urgency, defined response times, a recall pathway, and patient information on what remote monitoring does not do (it does not replace an emergency call). The 2023 HRS/EHRA consensus sets out these requirements, and the safety of this form of follow-up has been established in randomised trials."
  },
  "prog-bbm-036": {
   "question": "In heart failure patients with Biotronik dual-chamber ICDs or CRT-Ds, what did the IN-TIME trial of daily multiparameter remote monitoring show?",
@@ -567,7 +573,8 @@
    "Incorrect: the composite score was improved (p = 0.013), with 10 deaths versus 27."
   ],
   "explication": "IN-TIME randomised 664 patients (NYHA II–III, LVEF ≤ 35%) to automatic daily multiparameter remote monitoring or standard care. The primary endpoint was a composite score combining death, heart failure hospitalisation, change in NYHA class and patient global self-assessment. At 1 year, 18.9% of remotely monitored patients had a worsened score versus 27.2% of controls (p = 0.013), with 10 deaths versus 27. Daily transmission and a structured response to alerts are probably the key ingredients, whereas other, less responsive remote monitoring trials were negative.",
-  "aRetenir": "IN-TIME: daily Biotronik remote monitoring improves the composite clinical score in heart failure patients."
+  "aRetenir": "IN-TIME: daily Biotronik remote monitoring improves the composite clinical score in heart failure patients.",
+  "rappel": "In heart failure patients with a device, remote monitoring transmits parameters that signal deterioration or its causes: AF burden and ventricular rate in AF, percentage of biventricular pacing, PVCs, ventricular arrhythmias, physical activity, resting heart rate and thoracic impedance. Its efficacy depends less on the technology than on the frequency of transmissions and the responsiveness of the team: an alert must rapidly lead to contact and action (treatment adjustment, rhythm control, reprogramming). Trials without daily transmission or a structured response pathway have been less conclusive."
  },
  "prog-bbm-037": {
   "question": "What is a Biotronik \"DX\" ICD system?",
@@ -584,7 +591,8 @@
    "Incorrect: the two-capsule leadless pacemaker is the Aveir DR (Abbott)."
   ],
   "explication": "The DX system combines a dedicated ICD with a ventricular defibrillation lead carrying, at atrial level, two floating electrodes (atrial dipole). Atrial activity is thus recorded with a single lead. This allows detection of atrial arrhythmias (atrial high-rate episodes, subclinical AF), better VT–SVT discrimination and VDD operation. However, because the dipole is floating, it cannot pace the atrium. The MATRIX registry showed that atrial high-rate episodes can be followed on remote monitoring according to the recommended duration thresholds.",
-  "aRetenir": "DX = a single ICD lead with a floating atrial dipole: atrial sensing without atrial pacing."
+  "aRetenir": "DX = a single ICD lead with a floating atrial dipole: atrial sensing without atrial pacing.",
+  "rappel": "A floating atrial dipole records atrial activity through two electrodes lying in the cavity, without wall contact. The signal is smaller and more variable than with a fixed lead, as it depends on lead position, posture and respiration; it is sufficient for sensing, but not for pacing the atrium. Atrial information on a single-lead ICD is useful in two ways: SVT–VT discrimination based on the A/V relationship, and detection of atrial high-rate episodes. Once confirmed on the EGM, these episodes represent subclinical AF, whose duration matters when anticoagulation is being considered."
  },
  "prog-bbm-038": {
   "question": "Regarding Biotronik VR-T DX ICDs, which statements are correct?",
@@ -601,7 +609,8 @@
    "Incorrect: atrial pacing is impossible with a floating dipole."
   ],
   "explication": "The Rivacor manual states that VR-T DX devices, and CRT-Ds using the DX function, are only indicated in patients who do not need atrial pacing. The floating dipole does not touch the wall: the atrial signal is smaller than with a fixed atrial lead. To compensate, the programmed atrial sensitivity is amplified by a factor of 4 in DX devices. The available modes are VDD(R) and VDI(R), in addition to VVI(R); DDD(R) is impossible since the atrium cannot be paced. The system is therefore unsuitable for sinus node dysfunction requiring atrial pacing.",
-  "aRetenir": "DX: ×4 atrial signal amplification, VDD mode possible, never atrial pacing (hence no DDD)."
+  "aRetenir": "DX: ×4 atrial signal amplification, VDD mode possible, never atrial pacing (hence no DDD).",
+  "rappel": "In VDD, the device senses the atrium and ventricle but paces only the ventricle: each sensed P wave is followed by ventricular pacing after the AV delay, up to the maximum tracking rate. This mode suits AV block with normal sinus node function. If the sinus rate falls below the lower rate, the device paces in VVI: AV synchrony is lost, with a risk of pacemaker syndrome. In VDI, there is no atrial tracking. A system that cannot pace the atrium is therefore unsuitable for sinus node dysfunction or chronotropic incompetence. Atrial signal amplitude should be checked in several positions."
  },
  "prog-bbm-039": {
   "question": "In a patient with a Biotronik ProMRI pacemaker, what is the MRI AutoDetect function for?",
@@ -618,7 +627,8 @@
    "Incorrect: MRI AutoDetect does not change the amplitude by itself; it activates a preset MRI programme."
   ],
   "explication": "ProMRI devices have a sensor that recognises the static magnetic field of the MRI scanner. During an interrogation, MRI AutoDetect is enabled for a maximum of 14 days: if the patient undergoes the MRI within this window, the device activates the preset MRI programme, then automatically returns to the permanent program after the scan. This avoids two interrogations on the same day, but does not remove the need to check the eligibility of the complete system (compatible generator and leads, scan conditions) according to the ProMRI manual. Programming tailored to the patient is still required (e.g. asynchronous mode in a pacing-dependent patient).",
-  "aRetenir": "MRI AutoDetect: window of up to 14 days, automatic switch to the MRI program and back."
+  "aRetenir": "MRI AutoDetect: window of up to 14 days, automatic switch to the MRI program and back.",
+  "rappel": "MRI in a device recipient is permitted under MR-conditional labelling only if the complete system (generator and leads) is certified compatible, with no abandoned lead or adaptor, after a minimum interval since implantation, with satisfactory lead parameters and under the scanning conditions specified by the manufacturer. Programming aims to avoid inhibition by interference and inappropriate therapy: asynchronous pacing in pacing-dependent patients, a non-pacing or inhibited mode in non-dependent patients, and tachycardia therapies switched off on an ICD. Monitoring is continuous during the scan, and the usual programme is restored afterwards."
  },
  "prog-bbm-040": {
   "question": "The BIOTRONIK BIOMONITOR III implantable loop recorder, remotely monitored daily via Home Monitoring, can also deliver backup bradycardia pacing in the event of a prolonged pause.",
@@ -631,7 +641,8 @@
    "Correct: it is a purely diagnostic implantable loop recorder, remotely monitored daily via Home Monitoring."
   ],
   "explication": "The BIOMONITOR III is a miniaturised insertable cardiac monitor with a long sensing vector (about 70 mm) to improve signal quality, particularly P-wave visibility. It is inserted in a single step with a dedicated tool (median procedure time of 4 minutes in the study by Deneke et al.) and includes automatic daily Home Monitoring. Like any implantable monitor, it is purely diagnostic: it neither paces nor defibrillates, hence the answer \"False\". It is used for recurrent unexplained syncope, infrequent palpitations or detection of AF after cryptogenic stroke.",
-  "aRetenir": "BIOMONITOR = purely diagnostic implantable loop recorder (no pacing), remotely monitored daily via Home Monitoring."
+  "aRetenir": "BIOMONITOR = purely diagnostic implantable loop recorder (no pacing), remotely monitored daily via Home Monitoring.",
+  "rappel": "An implantable loop recorder continuously records a subcutaneous ECG for several years and automatically stores episodes meeting programmed criteria (pause, bradycardia, tachycardia, AF), as well as those triggered by the patient when symptoms occur. Its diagnostic yield rests on symptom–rhythm correlation. According to the 2018 ESC guidelines, it is recommended in recurrent unexplained syncope without high-risk features requiring immediate management, and in high-risk patients after a non-diagnostic work-up. It is also used for infrequent palpitations and to search for AF after cryptogenic stroke. It delivers no therapy."
  },
  "prog-bbm-041": {
   "question": "What is the principle of the SafeR mode (formerly AAIsafeR) in MicroPort (formerly Sorin/ELA) pacemakers?",
@@ -648,7 +659,8 @@
    "Incorrect: negative AV hysteresis aims for the opposite (more ventricular pacing), in CRT."
   ],
   "explication": "SafeR provides AAI pacing while continuously monitoring AV conduction (ADI operation). When AV block (complete, second-degree or first-degree) or a ventricular pause occurs, the device switches temporarily to DDD with the programmed AV delay. In DDD, it periodically checks whether conduction has returned so that it can revert to AAI. SafeR is aimed mainly at patients with sinus node dysfunction or paroxysmal conduction disorders. It differs from Dplus, which remains in DDD with an extended AV delay, and from Boston Scientific RYTHMIQ, which runs a VVI backup underneath AAI(R). In the ANSWER trial, SafeR reduced ventricular pacing to about 11% versus 94% in DDD.",
-  "aRetenir": "SafeR = AAI with conduction monitoring and a temporary switch to DDD in the event of block or pause."
+  "aRetenir": "SafeR = AAI with conduction monitoring and a temporary switch to DDD in the event of block or pause.",
+  "rappel": "Changeover modes keep the patient in atrial pacing with ventricular monitoring as long as conduction is present, switching to DDD only in the event of block or a pause, and returning after a short time. They reduce ventricular pacing far more than DDD with a fixed AV delay. The trade-off is acceptance of isolated blocked P waves, limited pauses and sometimes long PR intervals: they are best suited to sinus node dysfunction and paroxysmal conduction disorders, and poorly to permanent AV block. Minimising unnecessary ventricular pacing is an accepted goal in patients with preserved AV conduction; each manufacturer has its own version of this principle."
  },
  "prog-bbm-042": {
   "question": "Which of the following criteria temporarily switch SafeR from AAI to DDD?",
@@ -667,7 +679,8 @@
    "Incorrect: an isolated PVC simply restarts the escape interval in AAI."
   ],
   "explication": "SafeR switches from AAI to DDD according to four criteria. Complete AV block: 2 consecutive blocked atrial events. Second-degree AV block: 3 blocked atrial events within the last 12 cycles. First-degree AV block: 6 consecutive PR or AR intervals longer than the programmed value. Ventricular pause: a pause longer than the programmed value (2, 3 or 4 s; 3 s as shipped). A P wave is considered blocked when no ventricular event is sensed within the atrial cycle. The first-degree AV block criterion can be restricted to exercise (\"exercise only\"). Counting slow beats over an 11-cycle window belongs to Boston Scientific RYTHMIQ. An isolated PVC does not trigger a switch: it simply restarts the escape interval in AAI.",
-  "aRetenir": "SafeR switches to DDD on complete AV block (2 blocked P waves), second-degree AV block (3/12), first-degree AV block (6 long PR intervals) or a pause."
+  "aRetenir": "SafeR switches to DDD on complete AV block (2 blocked P waves), second-degree AV block (3/12), first-degree AV block (6 long PR intervals) or a pause.",
+  "rappel": "Changeover algorithms translate the degrees of AV block into counting criteria. First-degree AV block is PR prolongation without blocked P waves; second-degree block involves intermittent blocked P waves (Mobitz I with progressive PR prolongation, Mobitz II without); complete AV block is absence of conduction with dissociation. For a device, a P wave is blocked when no ventricular event is sensed within the atrial cycle; the degree of block is inferred from the number and distribution of these blocked P waves, and a pause is defined by a maximum duration. An isolated PVC is not a block criterion."
  },
  "prog-bbm-043": {
   "question": "After a temporary SafeR switch to DDD, when does the MicroPort device return to AAI?",
@@ -684,7 +697,8 @@
    "Incorrect: tests at doubling intervals up to 16 h are those of Medtronic MVP."
   ],
   "explication": "In DDD, SafeR returns to AAI as soon as it senses 12 consecutive intrinsic ventricular events, proof that conduction has recovered. Otherwise, it automatically reverts to AAI every 100 paced ventricular cycles to test conduction. If the block persists, a switching criterion (often the complete AV block criterion) immediately brings it back to DDD. This is why a Holter may show regular AAI \"attempts\" followed by 2 blocked P waves: this is normal operation, not a malfunction. If blocks are very frequent, a long-term switch mode takes over. Other manufacturers have their own rules: tests at doubling intervals for Medtronic MVP, AV Search+ for Boston Scientific RYTHMIQ, 6 consecutive Vs for Biotronik Vp Suppression.",
-  "aRetenir": "Return to AAI: 12 consecutive intrinsic R waves, or an automatic test every 100 paced cycles."
+  "aRetenir": "Return to AAI: 12 consecutive intrinsic R waves, or an automatic test every 100 paced cycles.",
+  "rappel": "On a Holter recording or EGM from a patient with a ventricular pacing minimisation algorithm, several findings are normal: isolated blocked P waves, long PR intervals, brief pauses below the programmed limit, alternating periods of atrial-only and dual-chamber pacing, and regular conduction tests followed by a return to DDD if block persists. They must not be mistaken for a malfunction. By contrast, a pause exceeding the algorithm's limits, loss of capture or undersensing are abnormal. In a patient whose AV block has become permanent, these repeated tests serve no purpose and the algorithm can be switched off."
  },
  "prog-bbm-044": {
   "question": "In which situations does SafeR remain in DDD until 8 a.m. the next morning, and how can it leave DDD earlier?",
