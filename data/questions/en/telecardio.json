@@ -1204,7 +1204,8 @@
    "Correct: a \"yellow\" alert; replacement to be scheduled, usually within 3 months."
   ],
   "explication": "ERI signals that the battery has reached a level at which replacement should be scheduled; the manufacturer guarantees function for a defined period (typically about 3 months) before end of life. In a non-dependent patient, it is a non-critical alert (\"yellow\" in the 2023 HRS consensus, unlike battery end of life, classified as \"red\") but should not be left to drift: generator replacement is planned. Waiting for end of life leads to degraded function and then cessation of pacing. The value of remote monitoring is precisely that it detects ERI without waiting for the annual check. The time frame should be shortened in a dependent patient or an ICD patient.",
-  "aRetenir": "ERI = replacement to be scheduled within the following weeks, sooner if pacemaker-dependent or ICD."
+  "aRetenir": "ERI = replacement to be scheduled within the following weeks, sooner if pacemaker-dependent or ICD.",
+  "rappel": "The life of a device battery is marked by indicators: BOL (beginning of life), ERI (elective replacement indicator), then EOL or EOS (end of life or end of service). At ERI, the manufacturer guarantees normal or simplified operation for a defined period, allowing replacement to be scheduled; beyond that, function is no longer guaranteed. The timing of replacement takes into account the patient's dependence and the type of device (sooner for an ICD or a pacemaker-dependent patient). Longevity depends on the percentage of pacing, programmed amplitudes, impedances, delivered therapies and transmissions."
  },
  "tele-074": {
   "question": "What consequence may occur when a pacemaker reaches ERI?",
@@ -1221,7 +1222,8 @@
    "Incorrect: DOO corresponds to the magnet mode of some pacemakers, not to ERI in general."
   ],
   "explication": "At ERI, many devices switch to simplified operation: a fallback mode (often VVI or a single-chamber mode), a fixed rate, deactivation of rate response and of some diagnostic features, and sometimes a lower base rate, depending on the manufacturer and model. The patient may experience fatigue or pacemaker syndrome. A switch to DOO corresponds to the magnet mode of some pacemakers, not to ERI in general. The leads are unaffected and are usually retained at generator replacement. The model's manual should be consulted, as behaviours vary.",
-  "aRetenir": "At ERI, the device may switch to a simplified fallback mode: replacement must be planned."
+  "aRetenir": "At ERI, the device may switch to a simplified fallback mode: replacement must be planned.",
+  "rappel": "As they approach end of life, many pacemakers reduce their consumption by simplifying their operation: switching to a single-chamber mode (often VVI), a fixed rate, disabling rate response and some diagnostic functions, sometimes a fall in the pacing rate. In most models the magnet rate also changes at ERI, which helps to identify it. These behaviours vary by manufacturer and model, hence the need to consult the manual. The patient may experience fatigue or pacemaker syndrome. At replacement, functioning leads are retained."
  },
  "tele-075": {
   "question": "True or false: an ERI alert on a pacemaker always requires emergency admission the same day.",
@@ -1234,7 +1236,8 @@
    "Correct: ERI = plan; urgency applies to end of life (EOL), dependence with malfunction or abnormally rapid depletion."
   ],
   "explication": "ERI leaves a margin of several weeks of operation, allowing replacement to be scheduled under good conditions. In most cases there is no same-day urgency. Urgency becomes real if the device is already at end of life (EOL/EOS), if the patient is pacemaker-dependent with deteriorating function, or if the battery is depleting abnormally fast (suspected device fault). The opposite pitfall is to forget the alert and let the battery reach end of life.",
-  "aRetenir": "ERI = plan, not emergency admission."
+  "aRetenir": "ERI = plan, not emergency admission.",
+  "rappel": "ERI is an indicator designed to allow time to schedule generator replacement, not an emergency. The level of urgency increases in three situations: a battery already at end of life (EOL/EOS), when function is no longer guaranteed; a pacemaker-dependent patient with degraded function; and abnormally rapid battery depletion compared with the expected trend, which raises suspicion of a device fault or excess current drain (insulation breach, high outputs). Remote monitoring makes it possible to follow the battery trend and detect such deviations without waiting for the clinic visit."
  },
  "tele-076": {
   "question": "The platform reports that an ICD patient has not transmitted for several weeks. What should be done?",
@@ -1251,7 +1254,8 @@
    "Incorrect (under-reaction): in the meantime, the patient is no longer monitored."
   ],
   "explication": "A disconnected patient is no longer monitored, even though both the clinic and the patient may believe otherwise. The 2023 HRS consensus emphasises active monitoring of connectivity and a protocol for managing loss of connection: calling the patient, helping with reconnection, replacing the transmitter, informing the manufacturer. The causes are often simple: transmitter unplugged or placed far from the bed, smartphone replaced, Bluetooth or app disabled, travel, hospital admission. Removing the patient from the programme or waiting for the next check amounts to accepting a loss of opportunity.",
-  "aRetenir": "Loss of transmission = unmonitored patient: call and reconnect."
+  "aRetenir": "Loss of transmission = unmonitored patient: call and reconnect.",
+  "rappel": "Connectivity monitoring is an integral part of remote monitoring: the platform flags patients who have not transmitted beyond a defined period, and the centre's protocol specifies who contacts them and within what time frame. A disconnected patient is no longer monitored, often without the patient or the team being aware of it. Most causes are practical and are resolved by telephone; the others require replacement of the transmitter or contact with the manufacturer. The proportion of connected patients is a quality indicator for the centre."
  },
  "tele-077": {
   "question": "What are common causes of missing transmissions in remote monitoring?",
@@ -1270,7 +1274,8 @@
    "Correct: without re-pairing, the app no longer transmits."
   ],
   "explication": "Loss of connectivity is usually due to practical issues: transmitter unplugged, moved or far from the bed, patient travelling or in hospital and, for smartphone-connected devices, app uninstalled, Bluetooth switched off, battery-saving restrictions or a change of phone without re-pairing. A battery still far from ERI obviously does not explain missing transmissions. Patient education at enrolment and active monitoring of connectivity reduce these losses. Every clinic must specify who calls, and within what time frame.",
-  "aRetenir": "Most losses of transmission have a practical cause that a phone call can fix."
+  "aRetenir": "Most losses of transmission have a practical cause that a phone call can fix.",
+  "rappel": "Transmission relies either on a bedside transmitter at home, which must stay plugged in and close to the patient during sleep, or on a smartphone app communicating with the device via Bluetooth Low Energy. Each link can break the connection: an unplugged or moved transmitter, no network, travel or hospital admission, and with smartphones, a closed or uninstalled app, Bluetooth switched off, battery-saving settings, an operating system update or a change of phone without re-pairing. Patient education and active connectivity monitoring limit these interruptions."
  },
  "tele-078": {
   "question": "Implantable loop recorder for syncope: \"5 s pause\" alert. On the EGM, the QRS complexes gradually become very low in amplitude and are no longer counted, while small regular complexes remain visible throughout the \"pause\". What is your interpretation?",
@@ -1287,7 +1292,8 @@
    "Incorrect: this is not asystole; implanting a pacemaker on the basis of this tracing would be a mistake."
   ],
   "explication": "False pauses are common on implantable loop recorders: when QRS amplitude falls (posture, movement, poor electrode contact), the complexes drop below the sensing threshold and the device wrongly concludes that there is a pause. Regular complexes visible during the \"pause\" indicate undersensing. A pacemaker must certainly not be indicated on the basis of this type of episode. Sensitivity or sensing filters can be adjusted, and EGMs should always be reviewed. A true pause shows an isoelectric line, possibly with non-conducted P waves in AV block.",
-  "aRetenir": "Complexes visible during a \"pause\" = undersensing, not asystole."
+  "aRetenir": "Complexes visible during a \"pause\" = undersensing, not asystole.",
+  "rappel": "An implantable loop recorder detects QRS complexes on a low-amplitude subcutaneous signal recorded between two closely spaced electrodes, and triggers a recording when no QRS is sensed for a programmed duration (pause) or when the rate rises above or falls below set limits. Signal amplitude varies with posture, movement and device contact, leading to undersensing. A true pause is recognised by an isoelectric line, possibly with non-conducted P waves in AV block. Any indication for pacing rests on a reviewed EGM, ideally correlated with symptoms."
  },
  "tele-079": {
   "question": "Implantable loop recorder: very frequent \"AF\" alerts in a patient in sinus rhythm with frequent premature atrial contractions. The EGMs show P waves before each QRS and irregular RR intervals due to the PACs. What should be done?",
@@ -1304,7 +1310,8 @@
    "Correct: review, classify, adjust sensitivity and minimum duration, while keeping the relevant alerts."
   ],
   "explication": "The AF detection algorithms of implantable loop recorders rely mainly on RR irregularity: frequent PACs, sinus arrhythmia or intermittent undersensing may be wrongly classified as AF. P waves visible before each QRS rule out AF. Good practice is to review the EGMs, classify the false positives and adjust the parameters (algorithm sensitivity, minimum episode duration, ectopy filters) to reduce workload without missing true AF. Disabling all alerts would defeat the purpose of the device. Anticoagulating on the basis of false episodes would be a serious error.",
-  "aRetenir": "False AF on a loop recorder: review, classify, reprogram, without disabling everything."
+  "aRetenir": "False AF on a loop recorder: review, classify, reprogram, without disabling everything.",
+  "rappel": "Implantable loop recorders detect AF mainly from the irregularity and incoherence of RR intervals over a time window, with some algorithms also looking for P waves. Any cause of RR irregularity can therefore produce false AF: frequent PACs or PVCs, sinus arrhythmia, intermittent undersensing or oversensing. The diagnosis relies on the reviewed EGM: P waves visible before every QRS exclude AF. Programming (algorithm sensitivity, minimum episode duration, ectopy filters) is tailored to the indication to reduce false positives without missing true AF."
  },
  "tele-080": {
   "question": "Implantable loop recorder inserted for recurrent unexplained syncope. Transmission: a 7-second pause with several consecutive P waves not followed by QRS complexes, coinciding with a presyncopal episode reported by the patient. What should be done?",
@@ -1321,7 +1328,8 @@
    "Incorrect: a tilt test adds nothing once symptom–rhythm correlation has been documented."
   ],
   "explication": "Non-conducted P waves during a pause coinciding with symptoms document symptomatic paroxysmal AV block, which explains the syncope. The 2018 ESC syncope guidelines and 2021 ESC pacing guidelines give an indication for cardiac pacing in this situation. It is a critical alert (the 2023 HRS consensus classifies a pause of at least 6 seconds on an implantable loop recorder as \"red\"): the patient must be contacted the same day, informed of the risk and referred for prompt implantation, with instructions on what to do in case of recurrence. A tilt test is of no value once symptom–rhythm correlation has been established, and a beta-blocker would worsen the conduction disorder.",
-  "aRetenir": "Pause due to AV block correlated with symptoms on a loop recorder = pacing, same-day contact."
+  "aRetenir": "Pause due to AV block correlated with symptoms on a loop recorder = pacing, same-day contact.",
+  "rappel": "An implantable loop recorder is indicated for recurrent unexplained syncope, particularly when an arrhythmic cause is suspected, once the initial work-up has been inconclusive. Its main value is symptom–rhythm correlation: syncope or presyncope coinciding with significant bradycardia (AV block, pause) establishes the diagnosis and points to pacing. Paroxysmal AV block is recognised by P waves not followed by QRS complexes during the pause, whereas a sinus pause shows an isoelectric line with no P waves. Rate-slowing drugs should be avoided while awaiting pacing."
  },
  "tele-081": {
   "question": "True or false: a large proportion of alerts transmitted by implantable loop recorders are false detections, which justifies systematic EGM review and optimisation of programming.",
@@ -1334,13 +1342,15 @@
    "Incorrect: the proportion of false positives is substantial, as the 2023 HRS consensus highlights."
   ],
   "explication": "Implantable loop recorders generate a substantial proportion of false positives: false pauses from undersensing, false tachycardias from oversensing of noise, myopotentials or T waves, and false AF from PACs or sinus arrhythmia. The 2023 HRS consensus highlights the resulting workload for clinics and recommends programming tailored to the indication, EGM review and false-positive reduction algorithms. No decision (pacemaker, anticoagulant) should rest on an unverified automatic classification.",
-  "aRetenir": "Implantable loop recorder: many false positives, always review the EGM."
+  "aRetenir": "Implantable loop recorder: many false positives, always review the EGM.",
+  "rappel": "Implantable loop recorders generate a large proportion of false positives, because of a low-amplitude subcutaneous signal and algorithms based mainly on RR intervals. The three main families are false pauses (QRS undersensing), false tachycardias (oversensing of noise, myopotentials, large T or P waves) and false AF (PACs, sinus arrhythmia). This creates a heavy workload for clinics. An automatic classification is never a diagnosis: every transmitted episode must be reviewed before any treatment decision."
  },
  "tele-082": {
   "question": "A clinic receives dozens of irrelevant alerts a month from the same implantable loop recorder. What measures do you propose to reduce this burden without compromising safety?",
   "reponseAttendue": "Review the EGMs to identify the type of false positive (undersensing, noise, PACs, T waves). Tailor programming to the indication (disable unnecessary detections, e.g. AF if the indication is syncope and AF is not the goal; adjust pause and tachycardia thresholds, sensitivity and minimum duration). Enable the available false-positive reduction algorithms. Define in the protocol which alerts are transmitted as a priority. Reassess the indication and consider explantation once the goal has been achieved or the battery is depleted.",
   "explication": "The 2023 HRS consensus identifies alert overload as a major problem in remote monitoring, particularly for implantable loop recorders. Programming should be individualised according to the indication (syncope, AF detection after stroke, palpitations) and revised after analysis of false positives. Manufacturers offer filters and algorithms to reduce false detections, which should be enabled and evaluated. Safety is preserved if the alerts relevant to the indication are kept and transmitted episodes continue to be reviewed. The pitfall is to disable all alerts to \"relieve\" the team.",
-  "aRetenir": "Reducing false alerts = programming tailored to the indication, filters and targeted review, never blanket deactivation."
+  "aRetenir": "Reducing false alerts = programming tailored to the indication, filters and targeted review, never blanket deactivation.",
+  "rappel": "Implantable loop recorder programming must match the indication: syncope (detection of pauses and bradycardia, patient-activated recording), AF detection after cryptogenic stroke (AF algorithm, minimum episode duration), palpitations (tachycardias). Detections unrelated to the clinical question can be switched off or made less sensitive, and false-positive reduction filters and algorithms enabled. Programming is revised on the basis of an analysis of the false positives observed. Once the diagnostic goal is reached or the battery is depleted, explantation is considered."
  },
  "tele-083": {
   "question": "Which situations can cause false detections on an implantable loop recorder?",
@@ -1359,7 +1369,8 @@
    "Incorrect: this is a true diagnosis, which may warrant a pacemaker."
   ],
   "explication": "The implantable loop recorder records a low-amplitude subcutaneous signal between two closely spaced electrodes. Undersensing of QRS complexes produces false pauses, oversensing (noise, myopotentials, large T or P waves) produces false tachycardias, and RR irregularity due to PACs or sinus arrhythmia produces false AF. Vagal sinus pause and paroxysmal AV block are not false detections: they are true diagnoses, recognisable by an isoelectric line (with P waves not followed by QRS complexes in AV block), which may explain syncope. Hence the need to review every EGM before drawing conclusions.",
-  "aRetenir": "Implantable loop recorder: undersensing = false pauses; oversensing and PACs = false tachycardias and false AF."
+  "aRetenir": "Implantable loop recorder: undersensing = false pauses; oversensing and PACs = false tachycardias and false AF.",
+  "rappel": "The signal of an implantable loop recorder is a closely spaced bipolar subcutaneous ECG, of low amplitude that varies with device position, posture and movement. False detections follow three mechanisms: undersensing (QRS complexes too small, causing false pauses or false bradycardia), oversensing (myopotentials, contact noise, large T or P waves, causing false tachycardias) and misclassification (RR irregularity without AF, causing false AF). Conversely, sinus pauses and paroxysmal AV block are true events that can explain syncope."
  },
  "tele-084": {
   "question": "Which of the following alerts cannot apply to a leadless pacemaker (ventricular capsule type)?",
@@ -1376,7 +1387,8 @@
    "Incorrect: sensing abnormalities remain possible."
   ],
   "explication": "Leadless pacemakers are implanted directly in the right ventricle: they eliminate complications related to transvenous leads (fracture, insulation breach, pocket infection) and to the subcutaneous generator. They remain exposed, however, to threshold rise, sensing abnormalities, battery depletion and, especially in the first few days, device dislodgement. In the Micra study, the major complication rate was lower than in a historical cohort of conventional pacemakers. Remote monitoring and device checks therefore remain fully relevant.",
-  "aRetenir": "Leadless = no fracture or insulation breach, but threshold, sensing and battery still need monitoring."
+  "aRetenir": "Leadless = no fracture or insulation breach, but threshold, sensing and battery still need monitoring.",
+  "rappel": "A leadless pacemaker is a self-contained capsule implanted via the femoral vein into the right ventricle, combining generator and electrode. It eliminates complications related to the pocket and transvenous leads (fracture, insulation breach, pocket infection, pneumothorax) but has its own complications: pericardial effusion or tamponade at implantation, femoral access-site complications and device dislodgement. Its parameters must be monitored like those of a conventional pacemaker: pacing threshold, R-wave amplitude, impedance and battery."
  },
  "tele-085": {
   "question": "A patient with a leadless pacemaker implanted 5 days ago. The data show a pacing threshold that has risen from 0.5 V to over 3 V, with collapsed R-wave sensing. What do you fear?",
@@ -1393,6 +1405,7 @@
    "Incorrect (under-reaction): maturation does not cause such a collapse in sensing."
   ],
   "explication": "An abrupt, simultaneous deterioration of threshold and sensing in the first few days should raise suspicion of device dislodgement, or even embolisation into the pulmonary artery, a rare but serious complication described with leadless pacemakers. The patient must be assessed urgently (ECG, chest X-ray or echocardiography to locate the device) and, if it has dislodged, percutaneous retrieval and re-implantation are required. Maturation does not cause such a collapse in sensing. A new battery is not at ERI after 5 days.",
-  "aRetenir": "Threshold and sensing collapsing just after leadless pacemaker implantation = dislodgement until proven otherwise."
+  "aRetenir": "Threshold and sensing collapsing just after leadless pacemaker implantation = dislodgement until proven otherwise.",
+  "rappel": "A leadless pacemaker is anchored to the right ventricular endocardium by nitinol tines or a helix, depending on the model; inadequate fixation exposes the patient, especially in the first few days, to dislodgement or even embolisation into the pulmonary artery. Dislodgement causes a simultaneous deterioration in pacing threshold and R-wave amplitude, whereas an inflammatory interface reaction mainly affects the threshold. The device is located by imaging (chest X-ray, fluoroscopy, echocardiography), and management relies on percutaneous retrieval and reimplantation."
  }
 }
