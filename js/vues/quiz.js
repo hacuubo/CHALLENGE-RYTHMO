@@ -258,6 +258,7 @@ export function blocCorrection(q, rep) {
   return `
     ${bonnes}
     <div class="explication">${paragraphes(q.explication)}</div>
+    ${q.rappel ? `<div class="rappel-cours"><b>${t('Rappel de cours', 'Refresher')}</b>${paragraphes(q.rappel)}</div>` : ''}
     ${q.aRetenir ? `<div class="retenir"><b>${t('À retenir :', 'Key point:')}</b> ${esc(q.aRetenir)}</div>` : ''}
     ${q.sources?.length ? `<div class="sources"><b>Sources</b><ul>${q.sources.map(src => `<li>${src.url ? `<a href="${esc(src.url)}" target="_blank" rel="noopener noreferrer">${esc(src.titre)}</a>` : esc(src.titre)}</li>`).join('')}</ul></div>` : ''}
     <div class="pied-question">

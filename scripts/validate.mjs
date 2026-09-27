@@ -45,6 +45,8 @@ for (const f of files) {
     if (!q.question || q.question.length < 10) err(f, id, 'question vide');
     if (!q.explication || q.explication.length < 40) err(f, id, 'explication trop courte');
     if (!q.aRetenir) err(f, id, 'aRetenir manquant');
+    if (q.rappel !== undefined && (typeof q.rappel !== 'string' || q.rappel.length < 40)) err(f, id, 'rappel de cours trop court');
+    if (q.cadre !== undefined && q.cadre !== 'clinique') err(f, id, 'cadre invalide (seule valeur : "clinique")');
     if (!Array.isArray(q.sources) || !q.sources.length) err(f, id, 'source manquante');
     else for (const s of q.sources) {
       if (!s.titre) err(f, id, 'source sans titre');

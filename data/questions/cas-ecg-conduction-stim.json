@@ -1,0 +1,1804 @@
+[
+ {
+  "id": "cas-ecgc-001",
+  "theme": "ecg",
+  "sousTheme": "Dysfonction sinusale et échappements",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 4,
+  "question": "Hôpital de jour gériatrique. Femme de 84 ans, asthénie et deux chutes sans perte de connaissance en un mois. Traitement : bisoprolol 10 mg (introduit pour des palpitations), ivabradine 5 mg × 2 ajoutée par son médecin traitant pour « mieux contrôler le cœur », donépézil. PA 128/70 mmHg. Voici son tracé de repos. Quelle est la conduite la plus adaptée ?",
+  "ecg": {
+   "preset": "sinus",
+   "fc": 38
+  },
+  "options": [
+   "Implanter d'emblée un stimulateur double chambre avec asservissement",
+   "Faire une épreuve d'atropine pour tester la réserve sinusale",
+   "Arrêter l'ivabradine, réduire le bisoprolol et réévaluer par Holter",
+   "Remplacer le bisoprolol par du vérapamil, mieux toléré"
+  ],
+  "reponses": [
+   2
+  ],
+  "commentaires": [
+   "Faux : la stimulation n'est pas indiquée tant qu'une cause réversible (ici médicamenteuse) n'a pas été corrigée, sauf si le médicament est indispensable et sans alternative.",
+   "Faux : l'épreuve pharmacologique n'apporte rien tant que les freinateurs sont en place ; elle ne change pas la conduite immédiate.",
+   "Juste : bradycardie sinusale à 38/min sous trois freinateurs du nœud sinusal (bêtabloquant, ivabradine, anticholinestérasique) : il faut d'abord supprimer la cause iatrogène puis réévaluer.",
+   "Faux : le vérapamil déprime lui aussi l'automatisme sinusal et la conduction nodale ; ce serait remplacer un freinateur par un autre."
+  ],
+  "reponseAttendue": null,
+  "explication": "Le tracé montre des ondes P sinusales, chacune suivie d'un QRS fin après un PR normal, à environ 38/min : bradycardie sinusale, sans trouble de conduction AV. Chez cette patiente, trois médicaments ralentissent le nœud sinusal : le bisoprolol à pleine dose, l'ivabradine (inhibiteur du courant If, dont l'association à un bêtabloquant expose à la bradycardie) et le donépézil, dont l'effet vagal est une cause classique de bradycardie et de chute chez le sujet âgé. La première étape est donc l'arrêt de l'ivabradine et l'allègement du bêtabloquant, puis une réévaluation clinique et par Holter. Si la bradycardie symptomatique persiste sans traitement freinateur, ou si ce traitement est indispensable sans alternative, la stimulation devient légitime. Le vérapamil ou le diltiazem ne sont pas une alternative : ils freinent aussi le nœud sinusal.",
+  "aRetenir": "Bradycardie sinusale sous freinateurs : corriger la cause réversible avant de discuter un stimulateur.",
+  "rappel": "La dysfonction sinusale se définit par une bradycardie sinusale, des pauses ou un bloc sino-atrial, éventuellement associés à une incompétence chronotrope ou à des tachyarythmies atriales. Avant toute décision de stimulation, l'ESC 2021 impose de rechercher et corriger une cause réversible : médicaments (bêtabloquants, ivabradine, inhibiteurs calciques bradycardisants, digoxine, antiarythmiques, anticholinestérasiques), hypothyroïdie, hyperkaliémie, hypothermie. La stimulation est indiquée (classe I) lorsque les symptômes sont clairement attribuables à la bradycardie. Lorsqu'un traitement bradycardisant est indispensable et sans alternative, la stimulation peut être proposée pour permettre de le poursuivre.",
+  "sources": [
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   },
+   {
+    "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+    "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT",
+   "ACC/AHA/HRS 2018 bradycardie"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-002",
+  "theme": "ecg",
+  "sousTheme": "Indications de stimulation et syncope",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 6,
+  "question": "Homme de 71 ans, trois syncopes en un an sans prodromes, dont une avec fracture du poignet. ECG de repos, échocardiographie et Holter de 24 h normaux. En salle d'explorations, le massage sinocarotidien droit reproduit un malaise avec pâleur ; voici l'enregistrement. Quelle décision retenez-vous ?",
+  "ecg": {
+   "preset": "pause-sinusale",
+   "fc": 70,
+   "pause": 4200,
+   "legende": "Massage sinocarotidien droit, décubitus"
+  },
+  "options": [
+   "Proposer une stimulation double chambre",
+   "Prescrire de la midodrine et des manœuvres de contre-pression",
+   "Implanter un Holter pour documenter une syncope spontanée",
+   "Réaliser une étude électrophysiologique avant toute décision"
+  ],
+  "reponses": [
+   0
+  ],
+  "commentaires": [
+   "Juste : pause sinusale > 3 s reproduisant les symptômes lors du massage, syncopes sévères et imprévisibles après 40 ans : syndrome du sinus carotidien cardio-inhibiteur, indication de stimulation.",
+   "Faux : ces mesures visent la composante vasodépressive ou les syncopes à prodromes ; elles ne corrigent pas une asystolie cardio-inhibitrice.",
+   "Faux : le mécanisme est déjà démontré par un massage positif reproduisant les symptômes ; attendre une nouvelle syncope traumatique n'est pas justifié.",
+   "Faux : l'EEP explore la conduction et le nœud sinusal intrinsèque ; elle n'ajoute rien à un syndrome du sinus carotidien documenté."
+  ],
+  "reponseAttendue": null,
+  "explication": "Pendant le massage, les ondes P disparaissent brutalement : aucune onde P ni aucun QRS pendant environ 4 s, puis reprise sinusale. Il s'agit d'une asystolie par arrêt sinusal réflexe, qui reproduit les symptômes : c'est la définition du syndrome du sinus carotidien de forme cardio-inhibitrice (pause > 3 s). Chez un patient de plus de 40 ans dont les syncopes sont sévères, imprévisibles et traumatiques, l'ESC 2021 recommande (classe I, niveau A) une stimulation double chambre pour réduire les récidives. Le Holter implantable serait utile si le mécanisme restait inconnu ; ici il est établi. Les traitements vasoconstricteurs ne corrigent pas l'asystolie. La stimulation ne protège pas de la composante vasodépressive, qu'il faut rechercher (chute tensionnelle pendant le massage).",
+  "aRetenir": "Massage sinocarotidien positif (pause > 3 s avec symptômes) et syncopes sévères après 40 ans : stimulation double chambre.",
+  "rappel": "Le massage sinocarotidien se pratique après 40 ans, 10 s de chaque côté, en décubitus puis en position debout, sous monitorage ECG et tensionnel continu. Il est positif s'il reproduit les symptômes avec une pause ventriculaire > 3 s (forme cardio-inhibitrice) et/ou une chute de la PA systolique > 50 mmHg (forme vasodépressive). Selon l'ESC 2021, la stimulation double chambre est indiquée (classe I, niveau A) chez le patient de plus de 40 ans ayant des syncopes réflexes sévères, imprévisibles et récidivantes associées à une pause asystolique documentée (> 3 s symptomatique ou > 6 s asymptomatique), à un syndrome du sinus carotidien cardio-inhibiteur ou à une syncope asystolique au tilt test. La stimulation ne corrige pas la composante vasodépressive, qui explique une partie des récidives.",
+  "sources": [
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   },
+   {
+    "titre": "Brignole M, et al. 2018 ESC Guidelines for the diagnosis and management of syncope. Eur Heart J 2018;39:1883-1948",
+    "url": "https://doi.org/10.1093/eurheartj/ehy037"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT",
+   "ESC 2018 syncope"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-003",
+  "theme": "ecg",
+  "sousTheme": "Dysfonction sinusale et échappements",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 6,
+  "question": "Soins intensifs de chirurgie cardiaque, J3 d'un triple pontage. Patient de 66 ans, asymptomatique, hémodynamique stable, sous amiodarone depuis un accès de FA à J2 ; des électrodes épicardiques sont en place. La télémétrie enregistre plusieurs épisodes comme celui-ci. Que proposez-vous ?",
+  "ecg": {
+   "preset": "pause-sinusale",
+   "fc": 55,
+   "pause": 3600,
+   "legende": "Télémétrie de soins intensifs"
+  },
+  "options": [
+   "Implanter un stimulateur définitif avant le retrait des électrodes",
+   "Arrêter l'amiodarone et retirer les électrodes épicardiques",
+   "Débuter une perfusion continue d'isoprénaline pour 48 h",
+   "Stimulation épicardique de secours et observation prolongée"
+  ],
+  "reponses": [
+   3
+  ],
+  "commentaires": [
+   "Faux : l'implantation précoce expose à poser un stimulateur inutile ; l'ESC recommande d'observer de 5 jours à quelques semaines.",
+   "Faux : retirer la stimulation de secours pendant une dysfonction sinusale active expose à une asystolie prolongée sans protection.",
+   "Faux : l'isoprénaline est un traitement d'attente de la bradycardie mal tolérée ; elle est pro-arythmogène et inutile chez un patient stable disposant d'électrodes.",
+   "Juste : dysfonction sinusale post-opératoire, souvent transitoire (œdème, péricardite, amiodarone) : une période d'observation est recommandée, sous couvert d'une stimulation de secours."
+  ],
+  "reponseAttendue": null,
+  "explication": "Après quelques cycles sinusaux, l'activité atriale s'interrompt : pause d'environ 3,6 s sans onde P ni QRS, puis reprise sinusale. La pause n'est pas un multiple simple du cycle sinusal : il s'agit d'un arrêt sinusal. Au décours d'une chirurgie cardiaque, cette dysfonction est souvent transitoire, favorisée par l'œdème, la péricardite, les troubles électrolytiques et l'amiodarone. L'ESC 2021 recommande une période d'observation de 5 jours à quelques semaines avant de décider d'une stimulation définitive. Les électrodes épicardiques, programmées en stimulation de secours (par exemple AAI ou DDD à fréquence basse), protègent le patient pendant ce délai. L'isoprénaline ne se justifie qu'en l'absence de stimulation disponible chez un patient mal toléré.",
+  "aRetenir": "Dysfonction sinusale après chirurgie cardiaque : observer 5 jours à quelques semaines sous stimulation de secours avant tout stimulateur définitif.",
+  "rappel": "Arrêt sinusal : absence d'onde P pendant une durée qui n'est pas un multiple du cycle PP de base ; bloc sino-atrial du 2e degré : pause égale à un multiple exact du cycle PP. Après chirurgie cardiaque ou transplantation, l'ESC 2021 recommande (classe I) une période d'observation de 5 jours à plusieurs semaines pour vérifier la régression d'une dysfonction sinusale, et jusqu'à 5 jours pour un BAV de haut degré. Cette période peut être raccourcie en cas de BAV complet sans échappement ou à échappement lent, peu susceptible de régresser. Les électrodes épicardiques voient leur seuil s'élever en quelques jours : il faut le vérifier quotidiennement.",
+  "sources": [
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-004",
+  "theme": "ecg",
+  "sousTheme": "Modes et choix du mode",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 5,
+  "question": "Consultation de rythmologie. Femme de 76 ans, vertiges brefs répétés, sans traitement freinateur ; TSH et kaliémie normales, PR à 170 ms et QRS fins sur l'ECG de repos. Le Holter enregistre cet épisode, contemporain d'un vertige noté sur le carnet. L'indication de stimulation est posée. Quel mode de stimulation choisissez-vous ?",
+  "ecg": {
+   "preset": "pause-sinusale",
+   "fc": 65,
+   "pause": 5000,
+   "legende": "Holter, 15 h 20 : « vertige » noté par la patiente"
+  },
+  "options": [
+   "VVI à 60/min, puisque la conduction AV est normale",
+   "DDD avec réduction de la stimulation ventriculaire",
+   "DDD avec un délai AV court pour garantir la capture",
+   "VDD à sonde unique avec dipôle atrial flottant"
+  ],
+  "reponses": [
+   1
+  ],
+  "commentaires": [
+   "Faux : en dysfonction sinusale, la stimulation ventriculaire seule expose au syndrome du stimulateur et à davantage de FA que la stimulation double chambre.",
+   "Juste : dysfonction sinusale symptomatique : stimulation double chambre, en limitant la stimulation ventriculaire inutile puisque la conduction AV est normale.",
+   "Faux : un délai AV court impose une stimulation ventriculaire permanente et inutile, délétère sur la fonction ventriculaire et le risque de FA.",
+   "Faux : le VDD ne stimule pas l'oreillette ; il ne corrige donc pas une pause sinusale, qui reste une pause ventriculaire."
+  ],
+  "reponseAttendue": null,
+  "explication": "Le Holter montre une pause de 5 s sans onde P ni QRS, puis une reprise sinusale : arrêt sinusal symptomatique, avec corrélation symptôme-rythme. La conduction AV est normale (PR 170 ms, QRS fins). L'indication de stimulation est de classe I. En dysfonction sinusale, la stimulation double chambre est préférée à la stimulation ventriculaire seule, qui expose au syndrome du stimulateur et à la FA. Comme la conduction AV est conservée, il faut programmer un algorithme qui réduit la stimulation ventriculaire (commutation AAI-DDD ou recherche de conduction AV) : la stimulation ventriculaire inutile favorise la FA et l'altération de la fonction ventriculaire. Le VDD ne stimule pas l'oreillette et ne corrige pas une pause sinusale.",
+  "aRetenir": "Dysfonction sinusale symptomatique à conduction AV normale : DDD avec réduction de la stimulation ventriculaire.",
+  "rappel": "Selon l'ESC 2021, la stimulation est indiquée (classe I) dans la dysfonction sinusale lorsque les symptômes sont clairement corrélés à la bradycardie. La stimulation double chambre est recommandée (classe I) plutôt que la stimulation ventriculaire seule pour réduire le risque de FA et d'AVC, éviter le syndrome du stimulateur et améliorer la qualité de vie. Chez les patients stimulés en DDD pour une dysfonction sinusale, la réduction de la stimulation ventriculaire inutile par la programmation est recommandée. Dans l'essai SAVE PACe, une stratégie de réduction de la stimulation ventriculaire a diminué le risque relatif de FA persistante d'environ 40 %.",
+  "sources": [
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   },
+   {
+    "titre": "Sweeney MO et al. Minimizing ventricular pacing to reduce atrial fibrillation in sinus-node disease (SAVE PACe). N Engl J Med 2007;357:1000-1008",
+    "url": "https://doi.org/10.1056/NEJMoa071880"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-005",
+  "theme": "ecg",
+  "sousTheme": "Blocs auriculo-ventriculaires",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 7,
+  "question": "Consultation de cardiologie. Homme de 63 ans, sans traitement, essoufflement et sensation de « coups dans le cou » à l'effort léger depuis six mois. FEVG 60 %, pas de valvulopathie. Voici son tracé de repos ; à l'épreuve d'effort, le PR reste supérieur à 350 ms et reproduit la gêne. Quelle proposition est la plus juste ?",
+  "ecg": {
+   "preset": "bav1",
+   "fc": 72,
+   "pr": 380
+  },
+  "options": [
+   "Un BAV du 1er degré n'est jamais symptomatique",
+   "Une stimulation double chambre peut être envisagée",
+   "Un stimulateur VVI suffirait à corriger ces symptômes",
+   "L'indication de stimulation est de classe I"
+  ],
+  "reponses": [
+   1
+  ],
+  "commentaires": [
+   "Faux : un PR très long place la systole atriale contre la systole ventriculaire précédente, avec perte de la contribution atriale et reflux veineux.",
+   "Juste : BAV du 1er degré marqué (PR > 300 ms) avec symptômes proches d'un syndrome du stimulateur, reproduits à l'effort : la stimulation doit être envisagée (classe IIa).",
+   "Faux : la stimulation VVI ne rétablit pas le synchronisme AV ; elle pourrait même aggraver les symptômes (syndrome du stimulateur).",
+   "Faux : dans le BAV du 1er degré symptomatique, l'ESC 2021 ne retient qu'une classe IIa, niveau de preuve C."
+  ],
+  "reponseAttendue": null,
+  "explication": "Chaque onde P est conduite, avec un PR constant d'environ 380 ms et des QRS fins : BAV du 1er degré marqué. Quand le PR dépasse 300 ms, la contraction atriale survient tôt dans la diastole, parfois pendant la systole ventriculaire précédente : perte de la contribution atriale, reflux dans les veines jugulaires (« coups dans le cou ») et parfois insuffisance mitrale diastolique. Le tableau ressemble à un syndrome du stimulateur, d'où le terme de « pseudo-syndrome du stimulateur ». L'ESC 2021 propose d'envisager la stimulation (classe IIa, niveau C) lorsque les symptômes sont clairement attribuables au BAV du 1er degré, idéalement après les avoir reproduits à l'effort. La stimulation doit préserver le synchronisme AV (double chambre, délai AV adapté), ce que ne fait pas le VVI.",
+  "aRetenir": "PR > 300 ms avec symptômes type syndrome du stimulateur : stimulation double chambre à envisager (IIa).",
+  "rappel": "Le BAV du 1er degré correspond à un PR > 200 ms avec conduction de toutes les ondes P. Il est le plus souvent nodal et bénin. Lorsque le PR dépasse 300 ms, la systole atriale peut tomber pendant ou juste après la systole ventriculaire précédente et reproduire l'hémodynamique d'un syndrome du stimulateur. L'ESC 2021 recommande d'envisager la stimulation (classe IIa, C) chez les patients présentant des symptômes persistants de ce type attribuables à un BAV du 1er degré (PR > 300 ms). En l'absence de symptômes, le BAV du 1er degré isolé n'est pas une indication de stimulation.",
+  "sources": [
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   },
+   {
+    "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+    "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT",
+   "ACC/AHA/HRS 2018 bradycardie"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-006",
+  "theme": "ecg",
+  "sousTheme": "Blocs auriculo-ventriculaires",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 4,
+  "question": "Service d'accueil des urgences. Homme de 79 ans, fatigue croissante et une lipothymie. Il prend depuis trois semaines du bisoprolol 5 mg et du diltiazem 200 mg LP, associés par deux prescripteurs différents pour un angor. PA 118/72 mmHg, pas de douleur, troponine normale. Voici le scope. Quelle est la conduite la plus adaptée ?",
+  "ecg": {
+   "preset": "bav2-m1",
+   "fc": 75,
+   "cycle": 4
+  },
+  "options": [
+   "Poser une sonde de stimulation temporaire en urgence",
+   "Programmer un stimulateur double chambre dans la semaine",
+   "Remplacer le diltiazem par de la digoxine",
+   "Arrêter diltiazem et bêtabloquant, surveiller sous scope"
+  ],
+  "reponses": [
+   3
+  ],
+  "commentaires": [
+   "Faux : le patient est stable et le bloc est nodal ; la stimulation temporaire, invasive et non dénuée de complications, n'est pas indiquée.",
+   "Faux : la stimulation n'est pas indiquée pour un bloc d'origine médicamenteuse avant d'avoir vérifié sa régression à l'arrêt des traitements.",
+   "Faux : la digoxine ralentit elle aussi la conduction nodale et aggraverait le bloc.",
+   "Juste : BAV Wenckebach à QRS fins sous deux freinateurs nodaux associés : cause médicamenteuse réversible, à corriger sous surveillance avant toute stimulation."
+  ],
+  "reponseAttendue": null,
+  "explication": "Le PR s'allonge progressivement d'un battement à l'autre jusqu'à une onde P non conduite, puis le cycle recommence avec un PR plus court : BAV du 2e degré Mobitz I (période de Wenckebach 4:3), à QRS fins. Ce bloc siège presque toujours dans le nœud AV. L'association d'un bêtabloquant et d'un inhibiteur calcique bradycardisant (diltiazem ou vérapamil) est une cause classique de bloc nodal chez le sujet âgé. Le patient étant stable, il faut arrêter les deux freinateurs et surveiller sous scope ; la stimulation temporaire ne se discute qu'en cas de mauvaise tolérance ou d'aggravation. Si le bloc persiste après élimination pharmacologique, ou si ces traitements sont indispensables, la stimulation définitive se discute alors.",
+  "aRetenir": "Wenckebach à QRS fins sous bêtabloquant + diltiazem : arrêter les freinateurs et surveiller avant de parler de stimulateur.",
+  "rappel": "Le BAV du 2e degré Mobitz I se reconnaît à l'allongement progressif du PR jusqu'à une onde P bloquée ; le PR suivant la pause est le plus court. À QRS fins, il est presque toujours nodal ; il peut être physiologique chez le sportif ou la nuit. L'ESC 2021 impose de rechercher et de corriger une cause réversible (médicaments, hyperkaliémie, maladie de Lyme, hypervagotonie) avant de retenir une stimulation définitive ; un bloc qui persiste après correction, ou dont le traitement causal est indispensable, relève en revanche de la stimulation. L'association bêtabloquant + diltiazem ou vérapamil potentialise l'effet dromotrope négatif et doit être évitée chez le sujet âgé.",
+  "sources": [
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   },
+   {
+    "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+    "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT",
+   "ACC/AHA/HRS 2018 bradycardie"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-007",
+  "theme": "ecg",
+  "sousTheme": "Blocs auriculo-ventriculaires",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 5,
+  "question": "Service d'accueil des urgences. Femme de 77 ans, syncope brutale en se levant de table, sans prodrome, avec plaie du cuir chevelu. Aucun traitement freinateur, kaliémie normale. À l'arrivée elle est consciente, PA 135/80 mmHg. Voici le scope. Quelle est la conduite la plus adaptée ?",
+  "ecg": {
+   "preset": "bav2-m2",
+   "fc": 80,
+   "ratio": 3
+  },
+  "options": [
+   "Hospitaliser et implanter un stimulateur sans délai",
+   "Prévoir un Holter de 24 h en ambulatoire avant de décider",
+   "Injecter de l'atropine pour améliorer la conduction",
+   "Réaliser un tilt test pour une syncope réflexe"
+  ],
+  "reponses": [
+   0
+  ],
+  "commentaires": [
+   "Juste : BAV Mobitz II à QRS larges après une syncope : bloc infranodal à haut risque d'asystolie, indication de stimulation définitive sans attendre.",
+   "Faux : le diagnostic est déjà fait et le risque de BAV complet sans échappement interdit un retour à domicile sans protection.",
+   "Faux : l'atropine agit sur le nœud AV ; dans un bloc infranodal, en accélérant le sinus, elle peut augmenter le nombre d'ondes P bloquées.",
+   "Faux : la syncope sans prodrome avec un bloc infranodal documenté oriente vers une cause rythmique, pas réflexe."
+  ],
+  "reponseAttendue": null,
+  "explication": "Les ondes P sont régulières ; une onde P sur trois n'est pas suivie de QRS, alors que le PR des battements conduits reste constant, y compris celui qui suit la pause : BAV du 2e degré Mobitz II, avec des QRS larges. Ce bloc siège sous le nœud AV (hisien ou infrahisien) ; il peut évoluer brutalement vers un BAV complet avec échappement lent ou absent, ce qui explique la syncope sans prodrome. L'indication de stimulation définitive est formelle (classe I), sans période d'observation, en l'absence de cause réversible. En attendant, la patiente doit rester sous scope avec un moyen de stimulation transcutanée disponible. L'atropine est inutile, voire délétère dans un bloc infranodal.",
+  "aRetenir": "Mobitz II à QRS larges et syncope : stimulation définitive sans délai ; l'atropine n'a pas sa place.",
+  "rappel": "Dans le BAV du 2e degré Mobitz II, des ondes P sont bloquées de façon inopinée alors que le PR des battements conduits est constant, y compris après la pause. Le bloc est infranodal, surtout si les QRS sont larges, et évolue volontiers vers un BAV complet. L'ESC 2021 recommande la stimulation (classe I) en cas de BAV du 2e degré Mobitz II, de BAV de haut degré, de BAV 2:1 infranodal ou de BAV complet, permanent ou paroxystique, indépendamment des symptômes, en l'absence de cause réversible. L'atropine, qui agit sur le nœud AV, peut aggraver un bloc infranodal en augmentant la fréquence sinusale.",
+  "sources": [
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   },
+   {
+    "titre": "Brignole M, et al. 2018 ESC Guidelines for the diagnosis and management of syncope. Eur Heart J 2018;39:1883-1948",
+    "url": "https://doi.org/10.1093/eurheartj/ehy037"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT",
+   "ESC 2018 syncope"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-008",
+  "theme": "ecg",
+  "sousTheme": "Blocs auriculo-ventriculaires",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 8,
+  "question": "Unité de soins intensifs cardiologiques. Homme de 69 ans, asymptomatique, découverte fortuite de ce tracé, stable depuis 12 h ; les battements conduits ont un PR de 200 ms et des QRS fins. Vous réalisez une épreuve d'effort sur bicyclette pour préciser le siège du bloc. Quelle réponse est la plus en faveur d'un bloc infranodal ?",
+  "ecg": {
+   "preset": "bav2-21",
+   "fc": 80
+  },
+  "options": [
+   "Le retour à une conduction 1:1 avec un PR de 180 ms",
+   "L'apparition de périodes de Wenckebach 3:2",
+   "Le passage en conduction 3:1 lorsque le sinus s'accélère",
+   "La persistance du 2:1 avec un PR inchangé à l'effort"
+  ],
+  "reponses": [
+   2
+  ],
+  "commentaires": [
+   "Faux : l'amélioration de la conduction sous l'effet adrénergique est typique d'un bloc nodal.",
+   "Faux : un allongement progressif du PR avant l'onde bloquée révèle un bloc nodal.",
+   "Juste : quand la fréquence atriale augmente, un bloc infranodal (tissu de conduction « tout ou rien », insensible au tonus adrénergique) laisse passer moins d'ondes P.",
+   "Faux : cette réponse n'oriente pas ; elle ne permet pas de conclure sur le siège du bloc."
+  ],
+  "reponseAttendue": null,
+  "explication": "Une onde P sur deux est conduite, avec un PR constant et des QRS fins : BAV 2:1. Sur un 2:1, on ne peut pas distinguer un Mobitz I d'un Mobitz II, puisqu'on ne voit jamais deux PR consécutifs. Le siège du bloc se précise en modifiant le tonus autonome. L'effort ou l'atropine accélèrent le sinus et améliorent la conduction nodale : un bloc nodal passe en conduction 1:1 ou en périodes de Wenckebach. Un bloc infranodal n'est pas amélioré par le tonus adrénergique : l'accélération atriale augmente la proportion d'ondes P bloquées (3:1, 4:1). À l'inverse, le massage sinocarotidien aggrave un bloc nodal et peut améliorer un bloc infranodal en ralentissant le sinus. Un bloc infranodal impose la stimulation.",
+  "aRetenir": "BAV 2:1 : l'effort améliore un bloc nodal et aggrave un bloc infranodal ; le massage sinocarotidien fait l'inverse.",
+  "rappel": "Un BAV 2:1 ne peut être classé ni Mobitz I ni Mobitz II sur un tracé de surface. Arguments pour un bloc nodal : QRS fins, PR des battements conduits long, périodes de Wenckebach ailleurs sur l'enregistrement, amélioration par l'effort ou l'atropine. Arguments pour un bloc infranodal : QRS larges, PR normal des battements conduits, aggravation à l'effort, amélioration par le massage sinocarotidien. En cas de doute, l'EEP mesure l'intervalle HV et localise le bloc. L'ESC 2021 recommande la stimulation (classe I) dans le BAV 2:1 infranodal, indépendamment des symptômes.",
+  "sources": [
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   },
+   {
+    "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+    "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT",
+   "ACC/AHA/HRS 2018 bradycardie"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-009",
+  "theme": "ecg",
+  "sousTheme": "Indications de stimulation et syncope",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 5,
+  "question": "Consultation d'anesthésie. Homme de 81 ans, prothèse totale de genou programmée dans dix jours. Il se dit « un peu fatigué » mais n'a jamais fait de malaise ; aucun traitement freinateur, kaliémie normale. Voici le tracé réalisé en consultation. Que décidez-vous ?",
+  "ecg": {
+   "preset": "bav2-21",
+   "fc": 88,
+   "qrs": "large"
+  },
+  "options": [
+   "Opérer sous anesthésie générale avec atropine à disposition",
+   "Opérer sous rachianesthésie, moins bradycardisante",
+   "Reporter la chirurgie et implanter d'abord un stimulateur définitif",
+   "Demander un Holter et opérer si aucune pause > 3 s"
+  ],
+  "reponses": [
+   2
+  ],
+  "commentaires": [
+   "Faux : l'atropine est inefficace sur un bloc infranodal, et l'anesthésie expose au passage en BAV complet sans échappement.",
+   "Faux : la rachianesthésie peut au contraire favoriser bradycardie et hypotension ; surtout, l'indication de stimulation existe indépendamment de la chirurgie.",
+   "Juste : BAV 2:1 à QRS larges, présumé infranodal : indication de stimulation définitive, à réaliser avant une chirurgie programmée.",
+   "Faux : l'absence de pause sur 24 h ne supprime pas le risque d'évolution brutale vers un BAV complet ; l'indication est posée sur le tracé actuel."
+  ],
+  "reponseAttendue": null,
+  "explication": "Une onde P sur deux est bloquée ; les battements conduits ont un PR constant et des QRS larges : BAV 2:1 à QRS larges. Si le siège du bloc ne peut être affirmé sur un 2:1, la largeur des QRS et le PR normal des battements conduits orientent fortement vers un bloc infranodal, à risque de BAV complet avec échappement lent. L'ESC 2021 recommande la stimulation dans le BAV 2:1 infranodal, même en l'absence de symptômes, dès lors qu'aucune cause réversible n'est trouvée. Pour une chirurgie programmée, la bonne stratégie est donc d'implanter d'abord, puis d'opérer. Aucune technique anesthésique ni l'atropine ne protègent d'un bloc infranodal.",
+  "aRetenir": "BAV 2:1 à QRS larges découvert avant une chirurgie programmée : stimuler d'abord, opérer ensuite.",
+  "rappel": "Face à un BAV 2:1, le siège présumé repose sur la largeur des QRS, le PR des battements conduits et la réponse aux manœuvres autonomes. Un QRS large avec un PR normal oriente vers un bloc infranodal, dont l'échappement éventuel est ventriculaire, lent et instable. L'ESC 2021 recommande (classe I) la stimulation dans le BAV 2:1 infranodal, le Mobitz II, le BAV de haut degré et le BAV complet, indépendamment des symptômes. En période périopératoire, une indication de stimulation définitive découverte avant une chirurgie programmée doit être traitée avant l'intervention.",
+  "sources": [
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   },
+   {
+    "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+    "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT",
+   "ACC/AHA/HRS 2018 bradycardie"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-010",
+  "theme": "ecg",
+  "sousTheme": "Blocs auriculo-ventriculaires",
+  "marque": null,
+  "type": "qcm",
+  "difficulte": 5,
+  "question": "Service d'accueil des urgences, 3 h du matin. Femme de 84 ans, malaise, somnolente, marbrures, PA 72/40 mmHg. Aucun traitement freinateur, kaliémie 4,2 mmol/l. Une injection d'atropine n'a rien changé. Le rythmologue d'astreinte arrive dans 45 minutes. Voici le scope. Quelles mesures sont adaptées en attendant ? (plusieurs réponses)",
+  "ecg": {
+   "preset": "bav3",
+   "fc": 80,
+   "fv": 32,
+   "qrs": "large"
+  },
+  "options": [
+   "Lidocaïne pour supprimer le rythme d'échappement",
+   "Perfusion continue d'isoprénaline",
+   "Attendre 48 h pour vérifier la réversibilité du bloc",
+   "Stimulation transcutanée sous analgésie"
+  ],
+  "reponses": [
+   1,
+   3
+  ],
+  "commentaires": [
+   "Faux : supprimer l'échappement ventriculaire, seul rythme de la patiente, provoquerait une asystolie.",
+   "Juste : en attendant la stimulation, l'isoprénaline peut accélérer l'échappement ventriculaire et relever la pression artérielle.",
+   "Faux : la patiente est en état de choc ; aucune attente n'est possible sans stimulation.",
+   "Juste : chez une patiente en bas débit, la stimulation transcutanée est le pont vers la stimulation endocavitaire ; la capture doit être vérifiée au pouls."
+  ],
+  "reponseAttendue": null,
+  "explication": "Les ondes P sont régulières à environ 80/min et totalement dissociées de QRS larges, réguliers et lents, à environ 32/min : BAV complet avec échappement ventriculaire. Chez cette patiente en bas débit, l'atropine est logiquement inefficace, le bloc étant infranodal. Les recommandations proposent alors les catécholamines chronotropes (isoprénaline, ou adrénaline) et la stimulation transcutanée, sous analgésie et sédation légère, en attendant une sonde de stimulation temporaire ou, mieux, un stimulateur définitif rapidement. Il ne faut jamais supprimer un rythme d'échappement par un antiarythmique. Aucune période d'observation n'est envisageable dans un bloc mal toléré.",
+  "aRetenir": "BAV complet mal toléré, atropine inefficace : isoprénaline et stimulation transcutanée comme pont vers une stimulation rapide.",
+  "rappel": "L'algorithme de la bradycardie de l'ERC 2021 recommande, devant des signes de gravité (choc, syncope, ischémie, insuffisance cardiaque), l'atropine 500 µg IV, répétable jusqu'à 3 mg. En cas d'échec : isoprénaline (5 µg/min) ou adrénaline (2 à 10 µg/min), et stimulation transcutanée, puis stimulation endocavitaire par un opérateur expérimenté. L'atropine est volontiers inefficace dans un bloc infranodal à QRS larges et chez le transplanté cardiaque. La stimulation transcutanée est douloureuse : elle impose une analgésie, et la capture mécanique doit être vérifiée au pouls fémoral.",
+  "sources": [
+   {
+    "titre": "Soar J, Böttiger BW, Carli P, et al. European Resuscitation Council Guidelines 2021: Adult advanced life support. Resuscitation 2021;161:115-151",
+    "url": "https://doi.org/10.1016/j.resuscitation.2021.02.010"
+   },
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-011",
+  "theme": "ecg",
+  "sousTheme": "Blocs auriculo-ventriculaires",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 6,
+  "question": "Réanimation de chirurgie cardiaque, J2 d'un remplacement valvulaire aortique chirurgical. Patiente de 72 ans, stable, électrodes épicardiques ventriculaires en place (seuil à 1,5 V). Le rythme est identique depuis la sortie du bloc opératoire. Voici la télémétrie après arrêt temporaire de la stimulation de secours. Quelle est la conduite recommandée ?",
+  "ecg": {
+   "preset": "bav3",
+   "fc": 75,
+   "fv": 45,
+   "qrs": "fin"
+  },
+  "options": [
+   "Observer jusqu'à 5 jours sous stimulation de secours",
+   "Implanter un stimulateur définitif dès aujourd'hui",
+   "Retirer les électrodes et attendre la reprise de conduction",
+   "Attendre au moins six semaines avant toute décision"
+  ],
+  "reponses": [
+   0
+  ],
+  "commentaires": [
+   "Juste : BAV complet post-opératoire, bien toléré avec échappement jonctionnel : l'ESC recommande une observation pouvant aller jusqu'à 5 jours, car une partie de ces blocs régresse.",
+   "Faux : chez une patiente stable avec échappement jonctionnel, l'implantation immédiate risque d'être inutile ; l'observation est recommandée.",
+   "Faux : retirer la protection pendant un BAV complet serait dangereux ; les électrodes sont retirées une fois la décision prise.",
+   "Faux : ce délai correspond à certaines dysfonctions sinusales, pas au BAV post-opératoire, pour lequel l'observation n'excède pas 5 jours."
+  ],
+  "reponseAttendue": null,
+  "explication": "Les ondes P, régulières à environ 75/min, n'ont aucune relation fixe avec des QRS fins et réguliers à environ 45/min : BAV complet avec échappement jonctionnel (QRS fins, fréquence 40-60/min). Après chirurgie valvulaire aortique, le bloc résulte de l'œdème ou d'une lésion du faisceau de His, proche de l'anneau aortique ; il régresse dans une partie des cas. L'ESC 2021 recommande une période d'observation clinique pouvant aller jusqu'à 5 jours pour vérifier la régression d'un BAV de haut degré ou complet post-opératoire. Ce délai peut être raccourci si l'échappement est lent ou absent, rendant la régression improbable. Pendant l'observation, les électrodes épicardiques assurent la sécurité ; leur seuil doit être surveillé car il s'élève en quelques jours.",
+  "aRetenir": "BAV complet après chirurgie cardiaque, bien toléré : observer jusqu'à 5 jours sous stimulation de secours.",
+  "rappel": "Le rythme d'échappement renseigne sur le siège du bloc : jonctionnel (QRS fins, 40 à 60/min, relativement stable) dans les blocs nodaux ou hisiens hauts, ventriculaire (QRS larges, 20 à 40/min, instable) dans les blocs infrahisiens. Après chirurgie cardiaque, l'ESC 2021 recommande (classe I, C) une observation pouvant aller jusqu'à 5 jours en cas de BAV de haut degré ou complet ; elle peut être raccourcie si l'échappement est lent ou absent. Après TAVI, la stimulation est indiquée en cas de BAV complet ou de haut degré persistant 24 à 48 h. Les seuils épicardiques s'élèvent rapidement et ne permettent pas une protection prolongée.",
+  "sources": [
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-012",
+  "theme": "ecg",
+  "sousTheme": "Blocs auriculo-ventriculaires",
+  "marque": null,
+  "type": "qcm",
+  "difficulte": 8,
+  "question": "Consultation de cardiologie congénitale. Femme de 26 ans, BAV complet congénital connu (lupus maternel), totalement asymptomatique, sportive de loisir. Voici son tracé de repos. Elle souhaite savoir si un stimulateur est nécessaire. Parmi les éléments suivants, lesquels constitueraient chez elle une indication de stimulation de classe I selon l'ESC 2021 ? (plusieurs réponses)",
+  "ecg": {
+   "preset": "bav3",
+   "fc": 90,
+   "fv": 52,
+   "qrs": "fin"
+  },
+  "options": [
+   "Un projet de grossesse",
+   "Un échappement à QRS larges",
+   "Des PR variables sur le tracé",
+   "Une fréquence ventriculaire moyenne < 50/min",
+   "Un QTc allongé"
+  ],
+  "reponses": [
+   1,
+   3,
+   4
+  ],
+  "commentaires": [
+   "Faux : la grossesse impose une surveillance rapprochée mais ne constitue pas en soi une indication de classe I.",
+   "Juste : un échappement à QRS larges traduit un foyer plus bas et moins fiable ; c'est un critère de risque.",
+   "Faux : des PR variables sont la simple traduction de la dissociation AV, présente par définition dans tout BAV complet.",
+   "Juste : une fréquence ventriculaire inférieure à 50/min fait partie des critères de risque retenus.",
+   "Juste : l'allongement du QTc expose aux torsades de pointes favorisées par la bradycardie."
+  ],
+  "reponseAttendue": null,
+  "explication": "Les ondes P (environ 90/min) sont dissociées de QRS fins réguliers à environ 52/min : BAV complet avec échappement jonctionnel, aspect typique du BAV congénital. Chez l'adulte asymptomatique, l'ESC 2021 recommande la stimulation (classe I) en présence d'un des critères de risque suivants : dysfonction ventriculaire, QTc allongé, extrasystolie ventriculaire complexe, échappement à QRS larges, fréquence ventriculaire < 50/min, pauses ventriculaires supérieures à trois fois le cycle de l'échappement. Sans aucun de ces critères, la stimulation doit tout de même être envisagée (classe IIa). Les PR variables sont inhérents à la dissociation, et la grossesse n'est pas un critère en soi.",
+  "aRetenir": "BAV complet congénital asymptomatique : classe I si QRS larges, FC < 50/min, QTc long, dysfonction VG, ESV complexes ou pauses > 3 cycles d'échappement.",
+  "rappel": "Le BAV complet congénital, souvent lié aux anticorps maternels anti-SSA/Ro, siège habituellement au-dessus du His, d'où un échappement jonctionnel à QRS fins. L'ESC 2021 recommande la stimulation (classe I) chez les patients symptomatiques et chez les asymptomatiques présentant l'un des critères de risque : dysfonction ventriculaire, QTc allongé, extrasystolie ventriculaire complexe, échappement à QRS larges, fréquence ventriculaire < 50/min, pauses supérieures à trois fois le cycle de l'échappement. En l'absence de ces critères, la stimulation doit être envisagée (classe IIa). Le suivi comporte Holter, épreuve d'effort et échocardiographie réguliers.",
+  "sources": [
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-013",
+  "theme": "ecg",
+  "sousTheme": "Blocs auriculo-ventriculaires",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 7,
+  "question": "Service d'accueil des urgences, fin juillet. Homme de 34 ans, randonneur dans les Vosges, fatigue et fébricule ; une plaque érythémateuse annulaire de la cuisse a disparu il y a dix jours. Il est bien toléré, PA 125/75 mmHg. Voici le scope. Quelle est la stratégie la plus adaptée ?",
+  "ecg": {
+   "preset": "bav3",
+   "fc": 95,
+   "fv": 48,
+   "qrs": "fin"
+  },
+  "options": [
+   "Stimulateur définitif avant la sortie, vu le jeune âge",
+   "Corticothérapie IV à forte dose pour myocardite",
+   "Doxycycline orale à domicile et contrôle à un mois",
+   "Antibiothérapie IV, stimulation temporaire si mauvaise tolérance"
+  ],
+  "reponses": [
+   3
+  ],
+  "commentaires": [
+   "Faux : un bloc dû à une cause réversible ne justifie pas un stimulateur définitif, qui exposerait un homme jeune à des décennies de complications.",
+   "Faux : le traitement de la cardite de Lyme est antibiotique ; les corticoïdes ne sont pas un traitement de première intention.",
+   "Faux : un BAV complet impose une hospitalisation sous monitorage et une antibiothérapie IV initiale.",
+   "Juste : cardite de Lyme probable : le bloc, le plus souvent nodal, régresse sous antibiotiques ; on protège si nécessaire par une stimulation temporaire."
+  ],
+  "reponseAttendue": null,
+  "explication": "Les ondes P sinusales, à environ 95/min, sont dissociées de QRS fins réguliers à environ 48/min : BAV complet avec échappement jonctionnel. Chez un sujet jeune exposé aux tiques, avec un érythème migrant récent, la cardite de Lyme est le premier diagnostic : le bloc, habituellement nodal, peut fluctuer rapidement entre degrés. Le traitement repose sur une antibiothérapie IV (ceftriaxone) chez le patient hospitalisé pour un bloc de haut degré, avec un relais oral ensuite. La conduction se normalise dans la grande majorité des cas en quelques jours à quelques semaines. Une stimulation temporaire (au mieux par sonde à fixation active reliée à un boîtier externe) est posée si le bloc est mal toléré. Les recommandations IDSA/AAN/ACR 2020 privilégient la stimulation temporaire au stimulateur définitif, et l'ESC 2021 range la maladie de Lyme parmi les causes réversibles de BAV.",
+  "aRetenir": "BAV complet chez un sujet jeune exposé aux tiques : penser cardite de Lyme, traiter par antibiotiques et éviter le stimulateur définitif.",
+  "rappel": "La cardite de Lyme se manifeste surtout par des troubles de conduction AV, parfois fluctuants et rapidement évolutifs, le plus souvent nodaux. Elle doit être évoquée devant un BAV de haut degré chez un sujet jeune sans cardiopathie, en zone d'endémie ou après exposition aux tiques. Selon les recommandations IDSA/AAN/ACR 2020, un PR > 300 ms, un BAV de 2e ou 3e degré ou une myopéricardite imposent l'hospitalisation sous monitorage ; le traitement repose sur la ceftriaxone IV jusqu'à l'amélioration, puis un relais oral (doxycycline, amoxicilline), pour une durée totale de 14 à 21 jours. L'ESC 2021 cite la maladie de Lyme parmi les causes réversibles de BAV, pour lesquelles la stimulation définitive n'est pas indiquée ; une stimulation temporaire peut être nécessaire.",
+  "sources": [
+   {
+    "titre": "Yeung C, Baranchuk A. Diagnosis and treatment of Lyme carditis: JACC review topic of the week. J Am Coll Cardiol 2019;73:717-726",
+    "url": "https://doi.org/10.1016/j.jacc.2018.11.035"
+   },
+   {
+    "titre": "Lantos PM, et al. Clinical Practice Guidelines by the Infectious Diseases Society of America (IDSA), American Academy of Neurology (AAN), and American College of Rheumatology (ACR): 2020 Guidelines for the Prevention, Diagnosis and Treatment of Lyme Disease. Clin Infect Dis 2021;72:e1-e48",
+    "url": "https://doi.org/10.1093/cid/ciaa1215"
+   },
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-014",
+  "theme": "ecg",
+  "sousTheme": "Indications de stimulation et syncope",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 7,
+  "question": "Consultation de syncope. Homme de 74 ans, deux syncopes brèves sans prodrome en trois mois. L'ECG 12 dérivations montre un bloc de branche droit associé à un hémibloc antérieur gauche ; voici un tracé de rythme. FEVG 58 %, pas de cardiopathie ischémique, Holter de 48 h sans anomalie. Quelle est l'étape suivante recommandée ?",
+  "ecg": {
+   "preset": "sinus",
+   "fc": 72,
+   "qrs": "large",
+   "pr": 190
+  },
+  "options": [
+   "Un tilt test, la syncope étant probablement réflexe",
+   "Une étude électrophysiologique avec mesure du HV",
+   "Un défibrillateur en prévention primaire",
+   "Une simple surveillance, le Holter étant normal"
+  ],
+  "reponses": [
+   1
+  ],
+  "commentaires": [
+   "Faux : l'absence de prodrome et le bloc bifasciculaire orientent d'abord vers un BAV paroxystique, à éliminer en priorité.",
+   "Juste : syncope inexpliquée avec bloc bifasciculaire : l'EEP doit être envisagée ; un HV ≥ 70 ms ou un bloc infrahisien induit indique la stimulation.",
+   "Faux : la FEVG est normale et il n'y a pas de cardiopathie à risque rythmique ventriculaire : aucune indication de DAI.",
+   "Faux : un Holter court normal n'élimine pas un BAV paroxystique ; les syncopes sans prodrome imposent de poursuivre le bilan."
+  ],
+  "reponseAttendue": null,
+  "explication": "Le tracé de rythme montre un rythme sinusal avec conduction 1:1, PR normal et QRS larges, cohérent avec le bloc bifasciculaire décrit sur l'ECG 12 dérivations. Des syncopes sans prodrome chez ce patient font suspecter un BAV paroxystique infrahisien, non documenté par un Holter de courte durée. L'ESC 2021 recommande d'envisager une EEP (classe IIa) : un HV ≥ 70 ms, un bloc infrahisien de 2e ou 3e degré lors de la stimulation atriale incrémentale ou démasqué par un test pharmacologique (ajmaline, procaïnamide) indique la stimulation. Si l'EEP est normale, un Holter implantable est indiqué. La FEVG normale écarte l'indication d'un DAI.",
+  "aRetenir": "Syncope inexpliquée et bloc bifasciculaire, FEVG normale : EEP, puis stimulation si HV ≥ 70 ms ou Holter implantable si normale.",
+  "rappel": "Le bloc bifasciculaire associe un bloc de branche droit à un hémibloc antérieur ou postérieur gauche, ou correspond à un bloc de branche gauche. Chez un patient ayant une syncope inexpliquée et un bloc bifasciculaire, l'ESC 2021 recommande d'envisager l'EEP (classe IIa) ; la stimulation est indiquée (classe I) si le HV est ≥ 70 ms, si un bloc infrahisien de 2e ou 3e degré apparaît lors de la stimulation atriale incrémentale ou après test pharmacologique. Si l'EEP est normale, le Holter implantable est recommandé. La stimulation empirique peut être envisagée chez un patient âgé et fragile. Si la FEVG est ≤ 35 %, l'indication d'un DAI ou d'une CRT-D doit être discutée.",
+  "sources": [
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   },
+   {
+    "titre": "Brignole M, et al. 2018 ESC Guidelines for the diagnosis and management of syncope. Eur Heart J 2018;39:1883-1948",
+    "url": "https://doi.org/10.1093/eurheartj/ehy037"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT",
+   "ESC 2018 syncope"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-015",
+  "theme": "ecg",
+  "sousTheme": "Blocs auriculo-ventriculaires",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 3,
+  "question": "Service de médecine, 6 h du matin. L'alarme du scope retentit chez un homme de 80 ans hospitalisé pour une pneumopathie ; l'infirmière le trouve inconscient, sans pouls carotidien ni respiration normale. Voici le tracé du scope. Quelle est la première action ?",
+  "ecg": {
+   "preset": "asystolie"
+  },
+  "options": [
+   "Délivrer un choc électrique externe de 150 J biphasique",
+   "RCP immédiate et adrénaline 1 mg dès que possible",
+   "Injecter 3 mg d'atropine avant toute compression",
+   "Installer une stimulation transcutanée avant le massage"
+  ],
+  "reponses": [
+   1
+  ],
+  "commentaires": [
+   "Faux : l'asystolie n'est pas un rythme choquable ; un choc retarderait les compressions sans aucun bénéfice.",
+   "Juste : arrêt cardiaque en rythme non choquable : compressions thoraciques immédiates et adrénaline 1 mg IV le plus tôt possible.",
+   "Faux : l'atropine n'est plus recommandée dans l'arrêt cardiaque, et rien ne doit retarder les compressions.",
+   "Faux : la stimulation peut se discuter secondairement en présence d'ondes P, mais jamais au détriment des compressions immédiates."
+  ],
+  "reponseAttendue": null,
+  "explication": "Le tracé ne montre aucun QRS, seulement quelques ondes P régulières : asystolie ventriculaire avec ondes P (« asystolie à ondes P »), ici chez un patient sans pouls. La prise en charge est celle de l'arrêt cardiaque en rythme non choquable selon l'ERC : RCP immédiate (30:2), adrénaline 1 mg IV le plus tôt possible puis toutes les 3 à 5 minutes, recherche et correction des causes réversibles (hypoxie, hyperkaliémie, hypothermie…). Le choc est inutile. L'atropine n'est plus recommandée dans l'arrêt cardiaque. L'ERC demande de rechercher attentivement des ondes P devant toute asystolie, car une asystolie à ondes P peut répondre à la stimulation, alors que stimuler une asystolie vraie est inutile ; la stimulation ne doit jamais retarder les compressions.",
+  "aRetenir": "Asystolie, même avec ondes P : RCP immédiate et adrénaline ; ni choc ni atropine.",
+  "rappel": "L'asystolie et l'activité électrique sans pouls sont les rythmes non choquables de l'arrêt cardiaque. Selon l'ERC 2021, on débute immédiatement des compressions thoraciques de qualité, on administre 1 mg d'adrénaline IV ou intraosseuse dès que l'accès est obtenu, puis toutes les 3 à 5 minutes, et on recherche les causes réversibles (4 H et 4 T). Avant de conclure à une asystolie, il faut vérifier les électrodes, l'amplitude du signal et une autre dérivation, pour ne pas méconnaître une FV à petites mailles. L'ERC déconseille de stimuler une asystolie sans onde P ; en présence d'ondes P, la stimulation peut être tentée, en complément de la RCP.",
+  "sources": [
+   {
+    "titre": "Soar J, Böttiger BW, Carli P, et al. European Resuscitation Council Guidelines 2021: Adult advanced life support. Resuscitation 2021;161:115-151",
+    "url": "https://doi.org/10.1016/j.resuscitation.2021.02.010"
+   }
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-016",
+  "theme": "ecg",
+  "sousTheme": "Indications de stimulation et syncope",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 5,
+  "question": "Retour de Holter de 48 h. Femme de 78 ans, adressée pour des malaises avec chute ; ECG de repos : rythme sinusal, PR 200 ms, bloc de branche droit. Pendant l'enregistrement, elle a fait une syncope en marchant. Voici la bande correspondante (le rythme sinusal conduit reprend ensuite). Quelle est la conclusion ?",
+  "ecg": {
+   "preset": "asystolie",
+   "legende": "Holter : enregistrement pendant la syncope"
+  },
+  "options": [
+   "Pause sinusale réflexe : conseils hygiéno-diététiques",
+   "Artefact de Holter : répéter l'enregistrement",
+   "Asystolie ventriculaire : EEP préalable à toute décision",
+   "BAV paroxystique symptomatique : stimulation définitive indiquée"
+  ],
+  "reponses": [
+   3
+  ],
+  "commentaires": [
+   "Faux : il ne s'agit pas d'une pause sinusale, puisque les ondes P persistent ; c'est la conduction AV qui est interrompue.",
+   "Faux : les ondes P régulières sont nettement visibles et la syncope est concomitante ; l'artefact n'est pas crédible.",
+   "Faux : la corrélation symptôme-rythme est déjà établie ; une EEP n'apporterait rien et retarderait le traitement.",
+   "Juste : ondes P régulières non conduites avec asystolie ventriculaire pendant la syncope : BAV paroxystique symptomatique, indication de stimulation."
+  ],
+  "reponseAttendue": null,
+  "explication": "Pendant la syncope, le tracé montre des ondes P régulières, à environ 55/min, qui ne sont suivies d'aucun QRS, sans échappement : asystolie ventriculaire par BAV paroxystique. Le terrain (bloc de branche droit, PR limite) est compatible avec une maladie de la conduction infrahisienne. La corrélation entre le symptôme et le rythme est établie, ce qui constitue une indication de stimulation de classe I. Il ne s'agit pas d'une pause sinusale : dans ce cas, les ondes P disparaîtraient elles aussi. L'EEP est inutile lorsque le BAV symptomatique est documenté.",
+  "aRetenir": "Syncope contemporaine d'ondes P non conduites sans échappement : BAV paroxystique, stimulation définitive.",
+  "rappel": "Le BAV paroxystique intrinsèque survient chez des patients porteurs d'une maladie de la conduction (bloc de branche, allongement du HV) : il débute souvent après une extrasystole ou une accélération sinusale, sans échappement pendant plusieurs secondes. Il se distingue du BAV vagal, qui s'accompagne d'un ralentissement sinusal concomitant (allongement des PP) et survient dans un contexte réflexe. L'ESC 2021 recommande la stimulation (classe I) en cas de BAV du 2e degré Mobitz II, de haut degré ou complet, permanent ou paroxystique. La documentation d'un BAV symptomatique suffit à poser l'indication, sans EEP.",
+  "sources": [
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   },
+   {
+    "titre": "Brignole M, et al. 2018 ESC Guidelines for the diagnosis and management of syncope. Eur Heart J 2018;39:1883-1948",
+    "url": "https://doi.org/10.1093/eurheartj/ehy037"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT",
+   "ESC 2018 syncope"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-017",
+  "theme": "ecg",
+  "sousTheme": "Sans sonde, moniteurs implantables et télésurveillance",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 6,
+  "question": "Unité de néphrologie. Homme de 72 ans, hémodialysé par une fistule artério-veineuse au bras gauche ; antécédent d'infection de chambre implantable. FA permanente, aucun freinateur depuis dix jours, deux épisodes de lipothymie en dialyse. Voici le tracé. L'indication de stimulation est retenue. Quelle solution est la plus adaptée ?",
+  "ecg": {
+   "preset": "fa",
+   "fc": 40
+  },
+  "options": [
+   "Un stimulateur sans sonde intracardiaque",
+   "Un stimulateur double chambre par voie sous-clavière gauche",
+   "Une ablation de la jonction AV, puis une surveillance",
+   "Un stimulateur VVI par voie céphalique gauche"
+  ],
+  "reponses": [
+   0
+  ],
+  "commentaires": [
+   "Juste : patient dialysé, à haut risque infectieux, avec un capital veineux à préserver : c'est l'indication type du stimulateur sans sonde, en mode VVI(R).",
+   "Faux : en FA permanente, la sonde atriale est inutile ; et le côté de la fistule doit être évité.",
+   "Faux : l'ablation de la jonction crée une dépendance à la stimulation ; elle n'a aucun sens chez un patient déjà bradycarde.",
+   "Faux : la voie homolatérale à la fistule est à éviter (sténose veineuse, hyperpression), et le risque infectieux d'une loge reste élevé."
+  ],
+  "reponseAttendue": null,
+  "explication": "Le tracé montre une ligne de base fibrillante, sans onde P, avec des QRS fins irréguliers et lents, autour de 40/min : FA à réponse ventriculaire lente, symptomatique, sans traitement freinateur. L'indication de stimulation ventriculaire est posée. Chez l'hémodialysé, le risque d'infection de matériel est élevé, et le capital veineux, déjà sollicité par la fistule, doit être préservé. L'ESC 2021 propose d'envisager un stimulateur sans sonde lorsqu'il n'existe pas d'accès veineux aux membres supérieurs ou lorsque le risque d'infection de loge est particulièrement élevé, notamment en cas d'infection antérieure ou d'hémodialyse. En FA permanente, le mode VVIR est le mode adapté.",
+  "aRetenir": "FA lente symptomatique chez l'hémodialysé ou après infection : penser au stimulateur sans sonde (IIa).",
+  "rappel": "Les stimulateurs sans sonde sont implantés par voie fémorale dans le ventricule droit ; ils évitent la loge et les sondes, sources de la plupart des complications à long terme (infection, fracture, thrombose veineuse). L'ESC 2021 recommande de les envisager (classe IIa) en l'absence d'accès veineux aux membres supérieurs, ou lorsque le risque d'infection de loge est particulièrement élevé (infection antérieure, hémodialyse). Les modèles simple chambre fonctionnent en VVI(R) ; des systèmes assurant une synchronisation AV existent mais restent réservés à des indications choisies. En FA permanente, la stimulation ventriculaire avec asservissement est le mode recommandé.",
+  "sources": [
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-018",
+  "theme": "ecg",
+  "sousTheme": "Asservissement et algorithmes de fréquence",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 4,
+  "question": "Contrôle de stimulateur. Homme de 81 ans, FA permanente, stimulateur VVI implanté il y a deux ans pour une FA lente. Il se plaint d'un essoufflement dès qu'il monte un étage ; FEVG 55 %, pas de surcharge. L'interrogation montre 97 % de stimulation ventriculaire, un histogramme de fréquence concentré à 60/min, des seuils et une détection normaux. Voici le tracé enregistré en consultation. Que faites-vous ?",
+  "ecg": {
+   "preset": "vvi",
+   "fc": 60,
+   "legende": "Enregistré après la montée de deux étages"
+  },
+  "options": [
+   "Remplacer le boîtier, en fin de vie à 60/min",
+   "Ajouter une sonde atriale et passer en DDD",
+   "Activer l'asservissement de fréquence (VVIR)",
+   "Abaisser la fréquence de base à 50/min"
+  ],
+  "reponses": [
+   2
+  ],
+  "commentaires": [
+   "Faux : la fréquence de 60/min est la fréquence programmée ; la fin de vie se traduit par une baisse de fréquence définie par le constructeur, et la batterie est vérifiable à l'interrogation.",
+   "Faux : en FA permanente, l'oreillette ne peut être ni stimulée ni suivie utilement.",
+   "Juste : patient stimulé en permanence à fréquence fixe, sans accélération à l'effort : l'incompétence chronotrope se corrige par l'asservissement.",
+   "Faux : cela réduirait encore le débit cardiaque à l'effort sans corriger le problème."
+  ],
+  "reponseAttendue": null,
+  "explication": "Le tracé montre une ligne de base fibrillante sans onde P et des spikes ventriculaires réguliers, chacun suivi d'un QRS large : stimulation VVI normale à 60/min, sans aucun QRS spontané, même après un effort. Le stimulateur fonctionne correctement, mais le patient, dont la conduction AV propre est insuffisante, reste à 60/min quelle que soit la demande : c'est une incompétence chronotrope iatrogène. L'ESC 2021 recommande, en FA permanente, la stimulation ventriculaire avec asservissement (VVIR). Le capteur (accéléromètre, ventilation-minute…) augmentera la fréquence à l'effort ; il faudra régler la fréquence maximale capteur et la pente selon l'âge et l'activité. Une sonde atriale n'a pas de sens en FA permanente.",
+  "aRetenir": "FA permanente stimulée à 100 % à fréquence fixe et dyspnée d'effort : activer l'asservissement (VVIR).",
+  "rappel": "L'asservissement (4e lettre R du code NBG) module la fréquence de stimulation selon un capteur d'activité (accéléromètre), de ventilation-minute ou de contractilité. En FA permanente, l'ESC 2021 recommande la stimulation ventriculaire avec asservissement (VVIR). Le réglage porte sur la fréquence maximale capteur, le seuil d'activité, la pente, et les temps d'accélération et de décélération ; il se vérifie par l'histogramme de fréquence, un test de marche ou une épreuve d'effort. Un histogramme concentré sur la fréquence de base chez un patient stimulé en permanence évoque une incompétence chronotrope.",
+  "sources": [
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   },
+   {
+    "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+    "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-019",
+  "theme": "ecg",
+  "sousTheme": "Suivi, longévité, IRM et interférences",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 5,
+  "question": "Visite pré-IRM. Femme de 79 ans, stimulateur VVI compatible IRM (système complet validé) pour une FA lente ; une IRM lombaire est prévue. À la programmation temporaire à 30/min, aucun rythme propre n'apparaît en 6 s et elle devient pâle. Voici son tracé habituel. Comment programmez-vous le stimulateur pour l'examen ?",
+  "ecg": {
+   "preset": "vvi",
+   "fc": 70
+  },
+  "options": [
+   "OVO, pour supprimer tout risque de stimulation compétitive",
+   "VVI inchangé, avec une surveillance par oxymétrie de pouls",
+   "VOO à une fréquence adaptée, en mode IRM",
+   "VVIR, pour compenser le stress de l'examen"
+  ],
+  "reponses": [
+   2
+  ],
+  "commentaires": [
+   "Faux : sans stimulation, cette patiente dépendante serait en asystolie pendant l'examen.",
+   "Faux : en mode inhibé, les interférences détectées peuvent inhiber la stimulation chez une patiente dépendante.",
+   "Juste : patiente stimulodépendante : le mode asynchrone évite l'inhibition de la stimulation par les signaux induits par l'IRM.",
+   "Faux : l'asservissement et les fonctions avancées doivent être désactivés pendant l'IRM (vibrations, fausses accélérations)."
+  ],
+  "reponseAttendue": null,
+  "explication": "Le tracé montre une ligne de base fibrillante et une stimulation ventriculaire régulière, sans aucun QRS spontané. Le test à 30/min confirme la dépendance à la stimulation. Pendant l'IRM, les champs radiofréquence et les gradients peuvent être détectés comme une activité cardiaque et inhiber la stimulation. Le consensus HRS 2017 recommande donc, chez le patient stimulodépendant porteur d'un système compatible, une programmation en mode asynchrone (VOO ici, DOO en double chambre), avec désactivation de l'asservissement et des fonctions avancées. La fréquence est choisie au-dessus du rythme propre pour éviter la compétition. Le patient est surveillé (ECG et oxymétrie), avec défibrillateur externe et personnel formé à disposition ; la programmation initiale est restaurée à la fin.",
+  "aRetenir": "IRM chez un stimulodépendant : mode asynchrone (VOO/DOO), asservissement désactivé, surveillance continue.",
+  "rappel": "Avant une IRM, il faut vérifier que l'ensemble du système (boîtier et sondes) est compatible IRM selon les conditions du fabricant, et évaluer la dépendance à la stimulation. Selon le consensus HRS 2017, le patient stimulodépendant est programmé en mode asynchrone (DOO/VOO), avec asservissement et fonctions avancées désactivés ; le patient non dépendant peut être programmé en mode non stimulant (ODO/OVO) ou inhibé (DDI/VVI). La surveillance comporte au minimum ECG et oxymétrie de pouls, avec un défibrillateur et du personnel formé à la réanimation. La programmation initiale est restaurée et le système contrôlé à la fin de l'examen.",
+  "sources": [
+   {
+    "titre": "Indik JH et al. 2017 HRS expert consensus statement on magnetic resonance imaging and radiation exposure in patients with cardiovascular implantable electronic devices. Heart Rhythm 2017;14:e97-e153",
+    "url": "https://doi.org/10.1016/j.hrthm.2017.04.025"
+   }
+  ],
+  "reco": [
+   "HRS 2017 IRM"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-020",
+  "theme": "ecg",
+  "sousTheme": "Réduction de la stimulation ventriculaire",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 5,
+  "question": "Contrôle à J1 d'une implantation. Femme de 70 ans, stimulateur double chambre posé pour une maladie de l'oreillette symptomatique ; avant l'implantation, PR à 160 ms et QRS fins. Le boîtier est en DDD 60/min avec les réglages d'usine. Voici son ECG au repos. Quel réglage modifiez-vous ?",
+  "ecg": {
+   "preset": "ddd",
+   "fc": 60,
+   "av": 180
+  },
+  "options": [
+   "Activer une réduction de la stimulation ventriculaire",
+   "Raccourcir le délai AV à 120 ms pour sécuriser la capture",
+   "Programmer en VVI 40 pour ne stimuler qu'en secours",
+   "Aucun, 100 % de stimulation AV est l'objectif"
+  ],
+  "reponses": [
+   0
+  ],
+  "commentaires": [
+   "Juste : la conduction AV est normale : la stimulation ventriculaire permanente est inutile et délétère ; il faut favoriser la conduction spontanée.",
+   "Faux : cela imposerait encore plus de stimulation ventriculaire, sans aucun bénéfice chez cette patiente.",
+   "Faux : la dysfonction sinusale n'est plus traitée, et l'oreillette n'est ni stimulée ni suivie.",
+   "Faux : l'objectif en dysfonction sinusale est de stimuler l'oreillette et de laisser conduire le ventricule."
+  ],
+  "reponseAttendue": null,
+  "explication": "Chaque cycle comporte un spike atrial suivi d'une onde P, puis un second spike suivi d'un QRS large : stimulation séquentielle AV à 60/min. Le délai AV nominal (ici 180 ms, mesuré entre les deux spikes) est plus court que la conduction propre de la patiente après stimulation atriale, qui est plus longue que le PR spontané de 160 ms : le ventricule est donc stimulé à chaque cycle alors que la conduction est normale. Cette stimulation ventriculaire inutile désynchronise le ventricule gauche et augmente le risque de FA et d'insuffisance cardiaque. L'ESC 2021 recommande, en dysfonction sinusale, de réduire la stimulation ventriculaire par la programmation : algorithme à commutation AAI-DDD ou hystérésis / recherche de conduction AV.",
+  "aRetenir": "Dysfonction sinusale à conduction AV normale : ne pas laisser un DDD stimuler inutilement le ventricule.",
+  "rappel": "Après une stimulation atriale, le temps de conduction AV (AP-VS) est plus long que le PR spontané (AS-VS), de 30 à 60 ms environ, du fait de la latence de capture et du trajet intra-atrial depuis la sonde. Un délai AV nominal de 150 à 200 ms conduit donc souvent à une stimulation ventriculaire permanente, même si la conduction est normale. Deux familles d'algorithmes limitent cette stimulation : la commutation de mode AAI(R)-DDD(R), qui tolère des ondes P non conduites isolées, et l'hystérésis ou la recherche de conduction AV, qui allonge périodiquement le délai AV. L'ESC 2021 recommande de réduire la stimulation ventriculaire inutile chez les patients stimulés en DDD pour une dysfonction sinusale.",
+  "sources": [
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   },
+   {
+    "titre": "Sweeney MO et al. Minimizing ventricular pacing to reduce atrial fibrillation in sinus-node disease (SAVE PACe). N Engl J Med 2007;357:1000-1008",
+    "url": "https://doi.org/10.1056/NEJMoa071880"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-021",
+  "theme": "ecg",
+  "sousTheme": "CRT, stimulation de conduction et insuffisance cardiaque",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 6,
+  "question": "Consultation d'insuffisance cardiaque. Homme de 74 ans, stimulateur double chambre posé il y a six ans pour un BAV complet ; FEVG 60 % avant l'implantation. Dyspnée NYHA III depuis un an, FEVG désormais à 32 % malgré un traitement médical optimal, coronarographie normale. L'interrogation montre 99 % de stimulation ventriculaire. Voici l'ECG. Quelle est la proposition la plus adaptée ?",
+  "ecg": {
+   "preset": "ddd",
+   "fc": 70,
+   "av": 170
+  },
+  "options": [
+   "Allonger le délai AV pour favoriser la conduction",
+   "Programmer en VVI 40 pour réduire la stimulation",
+   "Remplacer par un défibrillateur simple chambre",
+   "Réaliser une mise à niveau vers une resynchronisation"
+  ],
+  "reponses": [
+   3
+  ],
+  "commentaires": [
+   "Faux : le patient est en BAV complet ; aucun allongement du délai AV ne fera apparaître une conduction spontanée.",
+   "Faux : il ne ferait que ralentir un patient en BAV complet, sans supprimer la stimulation VD.",
+   "Faux : il conserverait une stimulation VD à 99 %, qui est la cause de la dysfonction ventriculaire.",
+   "Juste : cardiomyopathie induite par la stimulation VD, FEVG ≤ 35 % malgré le traitement : la mise à niveau vers une CRT (ou une stimulation de conduction) doit être envisagée."
+  ],
+  "reponseAttendue": null,
+  "explication": "L'ECG montre une stimulation séquentielle atriale puis ventriculaire à chaque cycle, avec des QRS larges d'origine VD. Chez ce patient en BAV complet, stimulé à 99 % depuis six ans, la FEVG est passée de 60 % à 32 % sans autre cause : c'est une cardiomyopathie induite par la stimulation VD, liée à l'asynchronisme de contraction. L'ESC 2021 recommande d'envisager (classe IIa) la mise à niveau vers une CRT chez les patients stimulés développant une insuffisance cardiaque à FEVG ≤ 35 % malgré un traitement optimal, avec une proportion importante de stimulation VD. Les recommandations HRS 2023 de stimulation physiologique proposent aussi la stimulation de conduction (branche gauche) comme alternative. Le délai AV n'a aucun effet chez un patient en BAV complet.",
+  "aRetenir": "Stimulation VD quasi permanente et FEVG effondrée : cardiomyopathie induite, envisager CRT ou stimulation de conduction.",
+  "rappel": "La cardiomyopathie induite par la stimulation se définit habituellement par une baisse de FEVG d'au moins 10 points, aboutissant à une FEVG < 50 %, chez un patient stimulé dans le VD, en l'absence d'autre cause ; le risque augmente au-delà de 20 % de stimulation VD. L'ESC 2021 recommande d'envisager (classe IIa) la mise à niveau vers une CRT chez les patients stimulés qui développent une insuffisance cardiaque symptomatique à FEVG ≤ 35 % malgré un traitement optimal, avec une proportion importante de stimulation VD. Chez les patients à FEVG < 40 % devant être stimulés de façon importante pour un BAV, la CRT est préférée d'emblée à la stimulation VD. Les recommandations HRS 2023 placent la stimulation de conduction comme alternative raisonnable.",
+  "sources": [
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   },
+   {
+    "titre": "Chung MK et al. 2023 HRS/APHRS/LAHRS guideline on cardiac physiologic pacing for the avoidance and mitigation of heart failure. Heart Rhythm 2023;20:e17-e91",
+    "url": "https://doi.org/10.1016/j.hrthm.2023.03.1538"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT",
+   "HRS 2023 stimulation physiologique"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-022",
+  "theme": "ecg",
+  "sousTheme": "Suivi, longévité, IRM et interférences",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 6,
+  "question": "Appel de l'anesthésiste la veille d'une colectomie par laparotomie. Patient de 77 ans, stimulateur double chambre posé pour un BAV complet ; lors du dernier contrôle, aucun rythme d'échappement n'est apparu à 30/min. Le chirurgien utilisera un bistouri électrique monopolaire. Voici l'ECG préopératoire. Quelle est la conduite recommandée ?",
+  "ecg": {
+   "preset": "ddd",
+   "fc": 60,
+   "av": 200
+  },
+  "options": [
+   "Désactiver la stimulation pendant l'intervention",
+   "Programmer un mode asynchrone (DOO) avant l'intervention",
+   "Aucune précaution, le stimulateur filtre ces signaux",
+   "Activer l'asservissement pour prévenir la bradycardie"
+  ],
+  "reponses": [
+   1
+  ],
+  "commentaires": [
+   "Faux : chez un patient sans échappement, l'arrêt de la stimulation provoquerait une asystolie.",
+   "Juste : patient stimulodépendant et bistouri monopolaire au-dessus de la crête iliaque : la stimulation asynchrone empêche l'inhibition de la stimulation par les interférences.",
+   "Faux : les signaux du bistouri peuvent être détectés et inhiber la stimulation, ce qui est dangereux chez un patient dépendant.",
+   "Faux : l'asservissement n'apporte aucune protection contre l'inhibition et doit au contraire être désactivé au bloc."
+  ],
+  "reponseAttendue": null,
+  "explication": "L'ECG montre une stimulation séquentielle AV à chaque cycle, cohérente avec un BAV complet appareillé. Le patient est stimulodépendant, puisqu'aucun rythme propre n'apparaît à 30/min. Lors d'une chirurgie abdominale, au-dessus de la crête iliaque, au bistouri monopolaire, les interférences électromagnétiques peuvent être détectées et inhiber la stimulation. Chez le patient dépendant, le consensus EHRA 2022 préconise une stimulation asynchrone (DOO ou VOO) à une fréquence supérieure au rythme propre : par un aimant, privilégié lorsque le boîtier reste accessible et que sa réponse à l'aimant a été vérifiée, ou par une reprogrammation, nécessaire si le champ opératoire est à moins de 15 cm du boîtier ou si l'aimant ne peut être maintenu. Il faut aussi préférer le bistouri bipolaire ou ultrasonique, des applications brèves, une plaque de retour aussi loin que possible du boîtier, surveiller l'ECG et le pouls, et contrôler le stimulateur après l'intervention. Arrêter la stimulation provoquerait une asystolie, et l'asservissement n'offre aucune protection.",
+  "aRetenir": "Stimulodépendant et bistouri monopolaire au-dessus de la crête iliaque : stimulation asynchrone (aimant ou reprogrammation) et contrôle post-opératoire.",
+  "rappel": "Le bistouri monopolaire génère des interférences électromagnétiques d'autant plus probables que le champ opératoire est proche du boîtier ; selon le consensus EHRA 2022, le risque est très faible pour une chirurgie sous la crête iliaque avec une plaque de retour sur la cuisse. Chez un porteur de stimulateur, le risque principal est l'inhibition par surdétection, grave chez le patient dépendant. Le consensus recommande pour ces patients une stimulation asynchrone, par aimant si le boîtier est accessible, ou par reprogrammation si le champ opératoire est à moins de 15 cm du boîtier ou si l'aimant ne peut être maintenu. Chez tous les porteurs : monitorage de l'ECG et du pouls, bistouri bipolaire ou ultrasonique si possible, applications brèves, plaque de retour éloignée du boîtier, pas d'électrode de retour « corps entier ». Le dispositif est contrôlé après l'intervention si sa programmation a été modifiée ou si la procédure exposait à un risque élevé d'interférence.",
+  "sources": [
+   {
+    "titre": "Stühlinger M et al. EHRA consensus on prevention and management of interference due to medical procedures in patients with cardiac implantable electronic devices. Europace 2022;24:1512-1537",
+    "url": "https://doi.org/10.1093/europace/euac040"
+   },
+   {
+    "titre": "Crossley GH et al. The HRS/ASA expert consensus statement on the perioperative management of patients with implantable defibrillators, pacemakers and arrhythmia monitors. Heart Rhythm 2011;8:1114-1154",
+    "url": "https://doi.org/10.1016/j.hrthm.2010.12.023"
+   }
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-023",
+  "theme": "ecg",
+  "sousTheme": "Intervalles, fréquence maximale et mode switch",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 8,
+  "question": "Consultation de rythmologie. Femme de 34 ans, BAV complet congénital appareillé en DDD. Coureuse à pied, elle ressent au-delà d'un certain effort un coup de fatigue brutal, « comme si le cœur divisait sa vitesse par deux ». Réglages : fréquence maximale de suivi 130/min, délai AV détecté 150 ms, PVARP 300 ms. Voici son tracé à l'échauffement. Quelle reprogrammation proposez-vous ?",
+  "ecg": {
+   "preset": "vdd",
+   "fc": 95,
+   "av": 150
+  },
+  "options": [
+   "Allonger le délai AV détecté à 250 ms",
+   "Raccourcir la PVARP et relever la fréquence maximale de suivi",
+   "Programmer en DDIR avec un asservissement agressif",
+   "Activer le repli de mode au-delà de 130/min de fréquence atriale"
+  ],
+  "reponses": [
+   1
+  ],
+  "commentaires": [
+   "Faux : allonger le délai AV allonge la période réfractaire atriale totale et abaisse encore la fréquence du bloc 2:1.",
+   "Juste : la période réfractaire atriale totale (150 + 300 = 450 ms) impose un bloc 2:1 vers 133/min ; il faut la raccourcir et relever la fréquence maximale de suivi.",
+   "Faux : le DDIR ne suit plus l'oreillette ; chez une patiente au sinus normal, on perdrait la synchronisation AV physiologique à l'effort.",
+   "Faux : le repli est destiné aux arythmies atriales ; appliqué à une tachycardie sinusale d'effort, il supprimerait le suivi atrial."
+  ],
+  "reponseAttendue": null,
+  "explication": "Le tracé montre des ondes P sinusales, chacune suivie d'un spike ventriculaire après un délai constant, puis d'un QRS large : suivi atrial normal (fonctionnement de type VDD) à 95/min. Le problème survient à plus haute fréquence. La période réfractaire atriale totale (PRAT = délai AV + PVARP) vaut ici 150 + 300 = 450 ms : toute onde P survenant à un intervalle inférieur à 450 ms, soit au-delà d'environ 133/min, tombe une fois sur deux dans la PVARP et n'est pas suivie. La fréquence ventriculaire est alors brutalement divisée par deux (bloc 2:1 électronique), ce qui explique la sensation décrite. Chez une sportive jeune, il faut raccourcir la PRAT (PVARP plus courte, délai AV dynamique qui raccourcit à l'effort) et relever la fréquence maximale de suivi, tout en gardant la fréquence du bloc 2:1 au-dessus de celle-ci.",
+  "aRetenir": "Bloc 2:1 d'effort chez un stimulé en DDD : la PRAT (délai AV + PVARP) fixe la fréquence du 2:1 ; la raccourcir et relever la FMS.",
+  "rappel": "En DDD, la période réfractaire atriale totale (PRAT) est la somme du délai AV et de la PVARP ; la fréquence du bloc 2:1 est égale à 60 000 / PRAT (en ms). Entre la fréquence maximale de suivi (FMS) et la fréquence du bloc 2:1, le stimulateur a un comportement de pseudo-Wenckebach, progressif et bien toléré. Si la fréquence du 2:1 est proche de la FMS, ou inférieure, le passage en 2:1 est brutal. Chez le patient jeune et actif, on programme une FMS élevée, une PVARP courte (avec extension après ESV pour prévenir la TRE) et un délai AV dynamique, pour que la fréquence du bloc 2:1 reste nettement au-dessus de la FMS.",
+  "sources": [
+   {
+    "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010"
+   },
+   {
+    "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+    "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+   }
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-024",
+  "theme": "ecg",
+  "sousTheme": "Réduction de la stimulation ventriculaire",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 4,
+  "question": "Consultation de contrôle. Homme de 68 ans, stimulateur double chambre posé pour une dysfonction sinusale, programmé avec un algorithme de commutation AAI(R)-DDD(R). L'interne s'inquiète : « le ventricule n'est jamais stimulé alors qu'il y a une sonde VD, il faudrait raccourcir le délai AV ». Voici le tracé. Que lui répondez-vous ?",
+  "ecg": {
+   "preset": "aai",
+   "fc": 70
+  },
+  "options": [
+   "Perte de capture ventriculaire : augmenter l'amplitude VD",
+   "Sous-détection ventriculaire : augmenter la sensibilité",
+   "Sonde VD déplacée : radiographie de thorax urgente",
+   "Fonctionnement attendu : ne rien modifier"
+  ],
+  "reponses": [
+   3
+  ],
+  "commentaires": [
+   "Faux : aucun spike ventriculaire n'est émis ; il ne peut donc pas y avoir de perte de capture ventriculaire.",
+   "Faux : un défaut de détection ventriculaire se traduirait par des spikes V inappropriés, absents ici.",
+   "Faux : l'absence de stimulation ventriculaire est voulue ; rien n'évoque un déplacement de sonde.",
+   "Juste : stimulation atriale suivie d'une conduction AV spontanée, QRS fins : c'est exactement le but de l'algorithme de réduction de la stimulation ventriculaire."
+  ],
+  "reponseAttendue": null,
+  "explication": "Chaque cycle commence par un spike suivi d'une onde P (capture atriale), puis d'un QRS fin conduit après environ 200 ms : stimulation atriale avec conduction AV spontanée. Chez un patient implanté pour une dysfonction sinusale et programmé avec un algorithme de commutation AAI-DDD, c'est le fonctionnement recherché : l'appareil fonctionne en AAI tant que la conduction est présente et ne bascule en DDD qu'en cas de perte de conduction répétée. Raccourcir le délai AV imposerait une stimulation ventriculaire inutile et délétère. Il n'y a pas de spike ventriculaire, donc ni perte de capture ni sous-détection ventriculaire à discuter. Le contrôle de ce type de patient porte surtout sur le pourcentage de stimulation ventriculaire, qui doit rester bas.",
+  "aRetenir": "AP suivi d'un QRS fin conduit sous algorithme de réduction de la stimulation V : fonctionnement normal, ne pas raccourcir le délai AV.",
+  "rappel": "Les algorithmes de commutation AAI(R)-DDD(R) (par exemple MVP chez Medtronic, SafeR chez MicroPort, ou équivalents) fonctionnent en mode atrial avec surveillance ventriculaire et basculent en DDD après la perte de conduction sur un nombre défini de cycles. Ils tolèrent donc des ondes P isolées non conduites et des PR longs. L'essai SAVE PACe a montré qu'une stratégie de réduction de la stimulation ventriculaire diminuait le risque de FA persistante en dysfonction sinusale. L'ESC 2021 recommande de réduire la stimulation ventriculaire inutile chez ces patients ; un PR très long (> 300 ms) sous algorithme doit toutefois être surveillé, car il peut devenir symptomatique.",
+  "sources": [
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   },
+   {
+    "titre": "Sweeney MO et al. Minimizing ventricular pacing to reduce atrial fibrillation in sinus-node disease (SAVE PACe). N Engl J Med 2007;357:1000-1008",
+    "url": "https://doi.org/10.1056/NEJMoa071880"
+   },
+   {
+    "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+    "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-025",
+  "theme": "ecg",
+  "sousTheme": "ECG stimulé : CRT et stimulation de conduction",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 6,
+  "question": "Contrôle à trois mois d'une resynchronisation. Femme de 69 ans, cardiomyopathie dilatée, bloc de branche gauche à 170 ms avant l'implantation ; elle se sent mieux. L'infirmière du service a enregistré ce tracé de rythme et demande si la stimulation du VG est efficace. Quelle est la démarche la plus pertinente ?",
+  "ecg": {
+   "preset": "crt",
+   "fc": 72
+  },
+  "options": [
+   "Enregistrer un ECG 12 dérivations et analyser V1 et DI",
+   "Conclure à une capture VG, le QRS stimulé étant fin",
+   "Réaliser une échocardiographie de dyssynchronie en urgence",
+   "Programmer une stimulation VG seule pour en vérifier l'effet"
+  ],
+  "reponses": [
+   0
+  ],
+  "commentaires": [
+   "Juste : la capture VG se juge sur l'ECG 12 dérivations : onde R dominante en V1 et aspect négatif en DI, sans retour à l'aspect de bloc gauche.",
+   "Faux : une seule dérivation ne suffit pas ; un QRS relativement fin peut aussi résulter d'une fusion avec la conduction spontanée.",
+   "Faux : l'échocardiographie n'est pas l'outil de vérification de la capture VG ; l'ECG et l'interrogation suffisent.",
+   "Faux : modifier le mode de stimulation pour une simple vérification n'est pas la démarche ; on teste le seuil VG à l'interrogation si besoin."
+  ],
+  "reponseAttendue": null,
+  "explication": "Le tracé montre des ondes P sinusales suivies, après un délai court, d'un spike et d'un QRS stimulé relativement fin : stimulation biventriculaire avec suivi atrial. Une seule dérivation ne permet pas d'affirmer la capture du VG : la stimulation VD seule donnerait aussi un QRS stimulé, et une fusion avec la conduction spontanée peut affiner le QRS. La vérification repose sur l'ECG 12 dérivations : en stimulation biventriculaire efficace, on attend une onde R dominante (ou un aspect qR/Rs) en V1 et un aspect négatif (Q, qR ou QS) en DI. Un retour à un aspect de type bloc gauche (QS en V1, R en DI) fait suspecter une perte de capture VG, à confirmer par un test de seuil VG à l'interrogation.",
+  "aRetenir": "Capture VG en CRT : se juge sur l'ECG 12 dérivations (R en V1, négativité en DI), jamais sur un seul tracé de rythme.",
+  "rappel": "En stimulation VD apicale, le QRS a un aspect de retard gauche (QS en V1) avec un axe gauche. En stimulation biventriculaire efficace, l'activation débute aussi par la paroi latérale du VG : onde R dominante en V1 dans la majorité des cas et aspect négatif en DI. La perte de capture VG ramène l'aspect de stimulation VD isolée. Un QRS stimulé plus fin que le QRS spontané est souhaitable mais ne suffit pas à prouver la capture. Il faut aussi vérifier que le pourcentage de stimulation biventriculaire effective reste ≥ 98 %.",
+  "sources": [
+   {
+    "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010"
+   },
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-026",
+  "theme": "ecg",
+  "sousTheme": "ECG stimulé : dysfonctions",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 3,
+  "question": "Service de cardiologie, lendemain de l'implantation d'un stimulateur VVI (sonde à fixation passive) chez une femme de 88 ans en BAV complet, peu mobile (choix d'un VVI en raison de l'âge). L'alarme du scope se déclenche alors qu'elle vient de se lever pour la première fois ; elle est pâle et nauséeuse. Voici le tracé. Quelle est la conduite la plus adaptée ?",
+  "ecg": {
+   "preset": "perte-capture-v",
+   "fc": 60
+  },
+  "options": [
+   "Augmenter la sensibilité ventriculaire",
+   "Poser un aimant sur le boîtier",
+   "Augmenter la sortie, radiographie, reprise de sonde",
+   "Surveiller : phénomène de maturation, qui régresse en un mois"
+  ],
+  "reponses": [
+   2
+  ],
+  "commentaires": [
+   "Faux : le problème n'est pas la détection ; les spikes sont émis au bon moment mais ne capturent pas.",
+   "Faux : l'aimant supprime la détection mais n'améliore pas la capture ; il ne corrige pas les spikes inefficaces.",
+   "Juste : pertes de capture ventriculaire intermittentes au lendemain de l'implantation : déplacement de sonde jusqu'à preuve du contraire ; on sécurise, on confirme, on repositionne.",
+   "Faux : chez une patiente dépendante et symptomatique, on ne peut pas attendre ; l'élévation de seuil de maturation n'explique pas des pertes de capture franches à J1."
+  ],
+  "reponseAttendue": null,
+  "explication": "Les spikes ventriculaires sont émis régulièrement ; la plupart sont suivis d'un QRS large, mais trois ne le sont pas, et aucun échappement ne comble le vide : pertes de capture ventriculaire intermittentes chez une patiente dépendante. En arrière-plan, les ondes P sinusales sont dissociées (BAV complet). Au lendemain d'une implantation, surtout avec une sonde à fixation passive et lors du premier lever, la première hypothèse est un déplacement de sonde (macro ou micro). La conduite consiste à sécuriser (augmenter amplitude et durée d'impulsion, stimulation transcutanée disponible), à confirmer par interrogation (seuil, impédance) et radiographie, puis à repositionner la sonde. L'aimant n'améliore pas la capture.",
+  "aRetenir": "Perte de capture dans les jours suivant l'implantation : déplacement de sonde jusqu'à preuve du contraire ; sécuriser, confirmer, repositionner.",
+  "rappel": "La perte de capture se reconnaît à un spike émis au moment attendu mais non suivi de dépolarisation. Ses causes varient selon le délai : déplacement de sonde ou perforation dans les premiers jours ou semaines, élévation de seuil (inflammation, fibrose, bloc de sortie), troubles métaboliques (hyperkaliémie, acidose), médicaments (antiarythmiques de classe IC), défaillance du conducteur ou de l'isolant, programmation d'une sortie insuffisante. La marge de sécurité usuelle est de deux fois le seuil en amplitude, ou trois fois en durée d'impulsion. Chez un patient dépendant, on augmente la sortie en urgence avant de rechercher la cause.",
+  "sources": [
+   {
+    "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+    "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+   },
+   {
+    "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010"
+   }
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-027",
+  "theme": "ecg",
+  "sousTheme": "ECG stimulé : dysfonctions",
+  "marque": null,
+  "type": "qcm",
+  "difficulte": 6,
+  "question": "Unité de dialyse. Homme de 67 ans, hémodialysé, stimulateur VVI pour un BAV complet ; il a manqué sa séance d'avant-hier. Il se plaint de faiblesse, PA 95/60 mmHg ; kaliémie 7,6 mmol/l. Seuil ventriculaire à 0,75 V lors du dernier contrôle, sortie programmée à 2,5 V. Voici le scope. Quelles mesures sont adaptées ? (plusieurs réponses)",
+  "ecg": {
+   "preset": "perte-capture-v",
+   "fc": 70
+  },
+  "options": [
+   "Injecter du gluconate de calcium IV et abaisser la kaliémie",
+   "Programmer une meilleure sensibilité ventriculaire",
+   "Augmenter temporairement l'amplitude et la durée d'impulsion",
+   "Prévoir un changement de sonde en urgence"
+  ],
+  "reponses": [
+   0,
+   2
+  ],
+  "commentaires": [
+   "Juste : l'hyperkaliémie élève le seuil de stimulation ; la stabilisation membranaire par le calcium, puis la baisse de la kaliémie (insuline-glucose, dialyse), restaurent la capture.",
+   "Faux : il s'agit d'une perte de capture, pas d'un défaut de détection.",
+   "Juste : dans l'attente de la correction métabolique, l'augmentation de la sortie peut restaurer la capture chez ce patient dépendant.",
+   "Faux : la sonde est vraisemblablement intacte ; la cause est métabolique et réversible."
+  ],
+  "reponseAttendue": null,
+  "explication": "Le tracé montre des spikes ventriculaires réguliers dont trois ne sont suivis d'aucun QRS, sans échappement, sur un fond d'ondes P dissociées : pertes de capture ventriculaire chez un patient dépendant. Le contexte, séance de dialyse manquée et kaliémie à 7,6 mmol/l, désigne l'hyperkaliémie, qui élève le seuil de stimulation (en général au-delà de 7 mmol/l) et peut aussi ralentir la conduction et élargir les QRS stimulés. Le traitement associe la protection myocardique par gluconate ou chlorure de calcium, la baisse rapide de la kaliémie (insuline-glucose, puis dialyse) et, en attendant, l'augmentation de la sortie du stimulateur. La sonde n'est pas en cause et la sensibilité est hors sujet ; un contrôle du seuil est réalisé après la correction.",
+  "aRetenir": "Perte de capture chez un dialysé : penser hyperkaliémie ; calcium, baisse de la kaliémie et augmentation temporaire de la sortie.",
+  "rappel": "L'hyperkaliémie diminue le potentiel de repos membranaire et l'excitabilité myocardique : elle élève les seuils de stimulation, surtout au-delà de 7 mmol/l, et peut entraîner une perte de capture, un retard de capture (latence) et un élargissement des QRS stimulés. Elle peut aussi réduire l'amplitude des signaux et gêner la détection. Le traitement repose sur le calcium IV, l'insuline-glucose, les agonistes β2 et l'épuration (dialyse). Les seuils se normalisent après correction ; chez le patient dépendant, la sortie est augmentée en attendant.",
+  "sources": [
+   {
+    "titre": "Barold SS, Herweg B. The effect of hyperkalaemia on cardiac rhythm devices. Europace 2014;16:467-476",
+    "url": "https://doi.org/10.1093/europace/eut383"
+   },
+   {
+    "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+    "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+   }
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-028",
+  "theme": "ecg",
+  "sousTheme": "ECG stimulé : dysfonctions",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 6,
+  "question": "Salle de cardioversion. Homme de 75 ans, stimulateur VVI pour un BAV complet ; un choc externe de 200 J (palettes antéro-latérales, la palette antérieure à 5 cm du boîtier) vient de réduire une FA persistante. Le patient est conscient mais le rythme a changé. Voici le scope. Quelle est la conduite immédiate ?",
+  "ecg": {
+   "preset": "perte-capture-v",
+   "fc": 60
+  },
+  "options": [
+   "Délivrer un second choc pour « resynchroniser » le boîtier",
+   "Programmer une meilleure sensibilité ventriculaire",
+   "Augmenter la sortie ventriculaire, puis interroger et mesurer le seuil",
+   "Injecter de l'amiodarone pour stabiliser le rythme sinusal"
+  ],
+  "reponses": [
+   2
+  ],
+  "commentaires": [
+   "Faux : un nouveau choc aggraverait la souffrance de l'interface électrode-myocarde sans aucun bénéfice.",
+   "Faux : les spikes sont émis au bon moment ; ils ne capturent pas, ce n'est pas un problème de détection.",
+   "Juste : le choc a transitoirement élevé le seuil au contact de la sonde ; on augmente la sortie, on mesure le seuil et on contrôle le système.",
+   "Faux : l'amiodarone peut encore élever les seuils et ne traite pas l'absence de capture."
+  ],
+  "reponseAttendue": null,
+  "explication": "Après la cardioversion, les ondes P sinusales sont visibles et dissociées (BAV complet), tandis que plusieurs spikes ventriculaires ne sont suivis d'aucun QRS : perte de capture ventriculaire intermittente, sans échappement. Le courant du choc peut circuler le long de la sonde et léser l'interface électrode-myocarde, avec une élévation transitoire du seuil ; plus rarement, il provoque une réinitialisation électrique du boîtier. Le risque est d'autant plus grand que la palette est proche du boîtier. Il faut immédiatement augmenter la sortie (ou recourir à la stimulation transcutanée), interroger l'appareil et mesurer seuil et impédance, puis surveiller jusqu'à normalisation. Le consensus EHRA 2022 recommande de placer les électrodes de préférence en position antéro-postérieure, l'électrode antérieure aussi loin que possible du boîtier (au moins 15 cm), et d'interroger le dispositif après la cardioversion.",
+  "aRetenir": "Perte de capture après cardioversion : élévation transitoire du seuil ; augmenter la sortie, interroger, et à l'avenir placer les électrodes loin du boîtier (≥ 15 cm).",
+  "rappel": "Un choc externe chez un porteur de stimulateur peut entraîner une élévation transitoire des seuils de stimulation, une réinitialisation électrique (mode de secours) ou, exceptionnellement, une défaillance du circuit. Le consensus EHRA 2022 recommande une position antéro-postérieure des électrodes, l'électrode antérieure à au moins 15 cm du boîtier, un choix de l'énergie et de la position limitant le courant qui traverse le boîtier et les sondes, un moyen de stimulation externe disponible chez le patient dépendant, et l'interrogation du dispositif après la cardioversion ou avant la sortie. Une programmation de la sortie avec une marge de sécurité suffisante limite les conséquences d'une élévation de seuil.",
+  "sources": [
+   {
+    "titre": "Stühlinger M et al. EHRA consensus on prevention and management of interference due to medical procedures in patients with cardiac implantable electronic devices. Europace 2022;24:1512-1537",
+    "url": "https://doi.org/10.1093/europace/euac040"
+   },
+   {
+    "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+    "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+   }
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-029",
+  "theme": "ecg",
+  "sousTheme": "ECG stimulé : dysfonctions",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 6,
+  "question": "Consultation de rythmologie. Femme de 71 ans, maladie de l'oreillette avec accès de FA paroxystique, stimulateur programmé en AAIR (conduction AV normale, seuil atrial 1,0 V lors du dernier contrôle, sortie 2,0 V). La flécaïnide a été augmentée de 100 à 200 mg/j il y a dix jours ; depuis, elle décrit des « trous » et des vertiges. Voici le tracé. Quelle est l'explication la plus probable ?",
+  "ecg": {
+   "preset": "perte-capture-a",
+   "fc": 70
+  },
+  "options": [
+   "Élévation du seuil atrial sous flécaïnide",
+   "BAV paroxystique induit par la flécaïnide",
+   "Surdétection atriale de myopotentiels",
+   "Flutter atrial lent organisé par la flécaïnide"
+  ],
+  "reponses": [
+   0
+  ],
+  "commentaires": [
+   "Juste : les antiarythmiques de classe IC élèvent les seuils de stimulation ; avec une marge étroite, la capture atriale devient intermittente.",
+   "Faux : un BAV se traduirait par une onde P stimulée non suivie de QRS ; ici, c'est l'onde P elle-même qui manque après le spike.",
+   "Faux : une surdétection inhiberait l'émission du spike ; ici les spikes sont émis au bon moment.",
+   "Faux : aucune activité atriale organisée rapide n'est visible ; les cycles sont réguliers en dehors des spikes inefficaces."
+  ],
+  "reponseAttendue": null,
+  "explication": "La plupart des spikes sont suivis d'une onde P puis d'un QRS fin conduit ; deux spikes ne sont suivis ni d'onde P ni de QRS, créant une pause : perte de capture atriale intermittente, sans relais ventriculaire puisque le mode est AAI. Les antiarythmiques de classe IC (flécaïnide, propafénone), par leur effet sur le courant sodique, élèvent les seuils de stimulation de façon dose-dépendante. Avec une sortie à 2,0 V pour un seuil initial de 1,0 V, la marge de sécurité est faible. La conduite est de mesurer le seuil atrial, d'augmenter la sortie avec une marge suffisante et de réévaluer la posologie ; le passage à un mode double chambre avec réduction de la stimulation ventriculaire offrirait en outre une protection ventriculaire.",
+  "aRetenir": "Perte de capture après augmentation d'un antiarythmique IC : penser à l'élévation de seuil et vérifier la marge de sécurité.",
+  "rappel": "Plusieurs médicaments élèvent les seuils de stimulation : surtout les antiarythmiques de classe IC (flécaïnide, propafénone), plus modestement l'amiodarone et le sotalol à forte dose. Les troubles métaboliques (hyperkaliémie, acidose, hypoxie) ont le même effet. Après introduction ou augmentation d'un tel traitement chez un porteur de stimulateur, il est prudent de vérifier le seuil et de maintenir une marge de sécurité d'au moins deux fois le seuil en amplitude. En mode AAI, une perte de capture atriale entraîne une pause sans relais ventriculaire.",
+  "sources": [
+   {
+    "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+    "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+   },
+   {
+    "titre": "Ellenbogen KA, Wilkoff BL, Kay GN, Lau CP, Auricchio A (eds). Clinical Cardiac Pacing, Defibrillation and Resynchronization Therapy. 5th ed. Elsevier; 2017"
+   }
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-030",
+  "theme": "ecg",
+  "sousTheme": "Suivi, longévité, IRM et interférences",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 5,
+  "question": "Salle d'endoscopie digestive. Homme de 82 ans, stimulateur simple chambre ventriculaire pour une FA lente, revenu en rythme sinusal sous amiodarone. Pour une résection de polype à l'anse diathermique, l'anesthésiste a posé un aimant sur le boîtier. L'infirmière vous appelle car « le stimulateur est déréglé ». Voici le scope. Que répondez-vous ?",
+  "ecg": {
+   "preset": "sous-detection",
+   "fc": 85
+  },
+  "options": [
+   "Perte de capture : retirer l'aimant et augmenter l'amplitude",
+   "Fin de vie de la pile : remplacement du boîtier en urgence",
+   "Tachycardie ventriculaire : préparer le défibrillateur",
+   "Réponse attendue à l'aimant : stimulation asynchrone"
+  ],
+  "reponses": [
+   3
+  ],
+  "commentaires": [
+   "Faux : les spikes non suivis de QRS tombent en période réfractaire du ventricule, juste après un QRS spontané ; ce n'est pas une perte de capture.",
+   "Faux : la fréquence aimant renseigne sur l'état de la pile, mais la compétition avec le sinus est ici simplement liée à l'aimant.",
+   "Faux : les QRS larges sont précédés d'un spike et entrecoupés de QRS sinusaux fins ; il n'y a pas de tachycardie ventriculaire.",
+   "Juste : sous aimant, le stimulateur stimule à fréquence fixe sans détection ; la compétition avec le rythme sinusal est attendue et transitoire."
+  ],
+  "reponseAttendue": null,
+  "explication": "Le rythme sinusal, à environ 78/min, coexiste avec des spikes ventriculaires réguliers, un peu plus rapides, émis sans tenir compte des QRS spontanés : certains capturent (QRS large), d'autres tombent juste après un QRS spontané, en période réfractaire, et restent sans effet. C'est une stimulation asynchrone (VOO). Chez un stimulateur, l'aimant supprime la détection et impose une stimulation asynchrone à la fréquence aimant, propre à chaque fabricant et à l'état de la pile. Ce comportement est voulu ici pour protéger des interférences du bistouri. La compétition avec le rythme sinusal est habituellement sans conséquence. Au retrait de l'aimant, le fonctionnement programmé reprend automatiquement.",
+  "aRetenir": "Aimant sur un stimulateur = stimulation asynchrone à la fréquence aimant ; la compétition avec le rythme propre est attendue.",
+  "rappel": "Sur un stimulateur, l'application d'un aimant fait passer l'appareil en mode asynchrone (VOO, AOO ou DOO) à une fréquence aimant propre au fabricant, de 85 à 100/min en début de vie selon le consensus EHRA 2022, qui diminue à l'approche de la fin de vie de la pile. La réponse n'est pas universelle : certains appareils peuvent être programmés sans réponse à l'aimant, certains stimulateurs Biotronik en mode « AUTO » ne stimulent en asynchrone que pendant 10 cycles, et le stimulateur sans sonde Micra n'a pas de réponse à l'aimant. Le retrait de l'aimant rétablit le fonctionnement programmé. Sur un défibrillateur, l'aimant suspend en revanche la détection ou les thérapies antitachycardiques sans modifier la stimulation antibradycardique.",
+  "sources": [
+   {
+    "titre": "Jacob S et al. Clinical applications of magnets on cardiac rhythm management devices. Europace 2011;13:1222-1230",
+    "url": "https://doi.org/10.1093/europace/eur137"
+   },
+   {
+    "titre": "Stühlinger M et al. EHRA consensus on prevention and management of interference due to medical procedures in patients with cardiac implantable electronic devices. Europace 2022;24:1512-1537",
+    "url": "https://doi.org/10.1093/europace/euac040"
+   }
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-031",
+  "theme": "ecg",
+  "sousTheme": "ECG stimulé : dysfonctions",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 5,
+  "question": "Unité de soins intensifs cardiologiques, J2 d'un infarctus antérieur étendu revascularisé. Homme de 70 ans, porteur d'un stimulateur VVI 60/min implanté l'an dernier pour une FA lente, aujourd'hui en rythme sinusal. L'interrogation montre une onde R spontanée passée de 9 à 2 mV, une sensibilité programmée à 2,5 mV et un seuil de capture stable. Voici le scope. Quelle programmation corrige l'anomalie ?",
+  "ecg": {
+   "preset": "sous-detection",
+   "fc": 60
+  },
+  "options": [
+   "Porter la sensibilité à 4 mV pour filtrer les parasites",
+   "Programmer une sensibilité plus fine, à 0,9 mV environ",
+   "Augmenter l'amplitude de stimulation à 5 V",
+   "Programmer en VOO pour éviter les pauses"
+  ],
+  "reponses": [
+   1
+  ],
+  "commentaires": [
+   "Faux : relever la valeur en mV rendrait l'appareil encore moins sensible et aggraverait la sous-détection.",
+   "Juste : l'onde R (2 mV) est inférieure à la valeur de sensibilité programmée (2,5 mV) ; il faut abaisser la valeur en mV pour la détecter avec une marge d'environ deux fois.",
+   "Faux : la capture est préservée ; l'amplitude de stimulation ne modifie pas la détection.",
+   "Faux : le VOO généraliserait la stimulation asynchrone, c'est-à-dire exactement le problème observé."
+  ],
+  "reponseAttendue": null,
+  "explication": "Le rythme sinusal conduit, à environ 78/min, coexiste avec des spikes ventriculaires émis à intervalles fixes (60/min), sans tenir compte des QRS spontanés : certains capturent, d'autres tombent en période réfractaire. Le stimulateur ne « voit » pas les QRS : c'est une sous-détection ventriculaire. L'infarctus a réduit l'amplitude du signal local, désormais inférieure à la valeur de sensibilité programmée. Il faut rendre le stimulateur plus sensible, c'est-à-dire abaisser la valeur en millivolts (environ la moitié de l'amplitude de l'onde R), puis vérifier l'absence de surdétection. Un spike tombant sur l'onde T expose, rarement, à une arythmie ventriculaire, d'où l'intérêt d'une correction rapide dans ce contexte ischémique.",
+  "aRetenir": "Sous-détection : rendre l'appareil plus sensible en abaissant la valeur en mV (environ la moitié de l'onde R).",
+  "rappel": "La sensibilité est le seuil d'amplitude au-dessus duquel un signal est détecté : plus la valeur en mV est basse, plus l'appareil est sensible. On recommande une marge d'environ deux (sensibilité ≤ la moitié de l'amplitude mesurée). Les causes de sous-détection comprennent la baisse d'amplitude du signal (infarctus, fibrose, cardiomyopathie, déplacement de sonde), les troubles métaboliques, une défaillance de sonde, une programmation inadaptée ou la chute d'un signal dans une période réfractaire ou de blanking. La sous-détection conduit à une stimulation compétitive, rarement arythmogène.",
+  "sources": [
+   {
+    "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+    "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+   },
+   {
+    "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010"
+   }
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-032",
+  "theme": "ecg",
+  "sousTheme": "Suivi, longévité, IRM et interférences",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 5,
+  "question": "Bloc opératoire, prothèse totale d'épaule gauche. Femme de 80 ans, stimulateur VVI pectoral gauche pour un BAV complet, sans rythme d'échappement connu ; le stimulateur n'a pas été reprogrammé. Le chirurgien utilise le bistouri monopolaire ; l'anesthésiste signale une chute tensionnelle à chaque application. Voici le scope. Quelle est la conduite immédiate ?",
+  "ecg": {
+   "preset": "sur-detection",
+   "fc": 60,
+   "legende": "Bloc opératoire, scope de l'anesthésiste"
+  },
+  "options": [
+   "Injecter de l'atropine à chaque application",
+   "Aimant sur le boîtier, applications brèves",
+   "Augmenter l'amplitude de stimulation",
+   "Poursuivre : le boîtier bascule seul en mode bruit"
+  ],
+  "reponses": [
+   1
+  ],
+  "commentaires": [
+   "Faux : l'atropine n'a aucun effet sur un BAV complet sans échappement ni sur l'inhibition du stimulateur.",
+   "Juste : surdétection des interférences avec inhibition chez une patiente dépendante : l'aimant impose une stimulation asynchrone, et des applications courtes limitent l'inhibition.",
+   "Faux : il n'y a pas de spike pendant la pause ; ce n'est pas un défaut de capture mais une inhibition.",
+   "Faux : la réversion au bruit n'est pas fiable pour toutes les interférences, et la pause est déjà symptomatique."
+  ],
+  "reponseAttendue": null,
+  "explication": "Les ondes P sont dissociées de QRS stimulés réguliers (BAV complet appareillé en VVI) ; pendant une période où la ligne de base est parasitée, aucun spike n'est émis et aucun QRS n'apparaît pendant près de 3 s. Le stimulateur interprète le signal parasite comme une activité ventriculaire et s'inhibe : surdétection d'interférences électromagnétiques, due au bistouri monopolaire utilisé près du boîtier. Chez cette patiente dépendante, il faut immédiatement poser un aimant sur le boîtier (stimulation asynchrone) et demander au chirurgien des applications brèves, idéalement au bistouri bipolaire. Le champ opératoire étant à moins de 15 cm du boîtier, le consensus EHRA 2022 préconisait ici une reprogrammation préopératoire en mode asynchrone, un aimant étant difficile à maintenir si près du champ ; si l'aimant ne peut être placé, le bistouri doit être suspendu jusqu'à la reprogrammation. Le stimulateur sera contrôlé après l'intervention.",
+  "aRetenir": "Pause sans spike pendant le bistouri chez un stimulodépendant : inhibition par interférences ; aimant immédiat et applications brèves.",
+  "rappel": "Les interférences électromagnétiques peuvent être détectées comme une activité cardiaque : en mode inhibé, elles suspendent la stimulation ; en DDD, une détection atriale parasite peut déclencher une stimulation ventriculaire rapide. Les stimulateurs disposent d'une réversion au bruit (stimulation asynchrone si le bruit est continu dans une fenêtre dédiée), mais elle n'est pas fiable pour toutes les interférences. Chez le patient dépendant exposé au bistouri monopolaire près du boîtier, le consensus EHRA 2022 recommande une stimulation asynchrone : aimant si le boîtier est accessible, reprogrammation si le champ opératoire est à moins de 15 cm du boîtier. Toute pause par surdétection chez un patient dépendant est une urgence.",
+  "sources": [
+   {
+    "titre": "Stühlinger M et al. EHRA consensus on prevention and management of interference due to medical procedures in patients with cardiac implantable electronic devices. Europace 2022;24:1512-1537",
+    "url": "https://doi.org/10.1093/europace/euac040"
+   },
+   {
+    "titre": "Crossley GH et al. The HRS/ASA expert consensus statement on the perioperative management of patients with implantable defibrillators, pacemakers and arrhythmia monitors. Heart Rhythm 2011;8:1114-1154",
+    "url": "https://doi.org/10.1016/j.hrthm.2010.12.023"
+   }
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-033",
+  "theme": "ecg",
+  "sousTheme": "ECG stimulé : dysfonctions",
+  "marque": null,
+  "type": "qcm",
+  "difficulte": 6,
+  "question": "Relecture de Holter. Homme de 76 ans, stimulateur VVI implanté il y a neuf ans pour un BAV complet (sonde en configuration unipolaire), adressé pour des malaises brefs survenant en bricolant. Voici la bande contemporaine d'un malaise. Quels mécanismes peuvent expliquer cette anomalie ? (plusieurs réponses)",
+  "ecg": {
+   "preset": "sur-detection",
+   "fc": 60,
+   "legende": "Holter, 10 h 05 : « malaise » noté"
+  },
+  "options": [
+   "Hystérésis de fréquence programmée",
+   "Surdétection de myopotentiels pectoraux",
+   "Épuisement de la pile du boîtier",
+   "Fracture partielle du conducteur de la sonde",
+   "Perte de capture ventriculaire"
+  ],
+  "reponses": [
+   1,
+   3
+  ],
+  "commentaires": [
+   "Faux : l'hystérésis allonge l'intervalle d'échappement seulement après un QRS détecté, et jamais de près de 3 s.",
+   "Juste : en détection unipolaire, l'activité des muscles pectoraux est captée entre l'électrode distale et le boîtier et inhibe la stimulation.",
+   "Faux : l'usure de la pile abaisse progressivement la fréquence de stimulation mais ne crée pas une pause isolée avec parasites.",
+   "Juste : une fracture produit des signaux de contact intermittents (« make-break ») détectés comme des QRS, avec inhibition.",
+   "Faux : une perte de capture laisserait des spikes visibles non suivis de QRS ; ici aucun spike n'est émis pendant la pause."
+  ],
+  "reponseAttendue": null,
+  "explication": "Le tracé montre des QRS stimulés réguliers, dissociés des ondes P (BAV complet), puis une pause d'environ 3 s sans aucun spike, pendant laquelle la ligne de base est parasitée par une activité de haute fréquence, avant la reprise de la stimulation. L'absence de spike signe une inhibition, donc une surdétection. En configuration unipolaire, lors d'efforts des membres supérieurs, les myopotentiels pectoraux sont une cause classique ; une fracture de conducteur, plausible sur une sonde de neuf ans, produit des signaux intermittents de même effet. On les distingue par l'interrogation (impédance, électrogrammes, manœuvres de provocation). La perte de capture laisserait des spikes visibles ; l'hystérésis et l'usure de pile ne donnent pas une telle pause parasitée.",
+  "aRetenir": "Pause sans spike chez un stimulé = surdétection (myopotentiels, fracture, interférences) jusqu'à preuve du contraire.",
+  "rappel": "Devant une pause chez un porteur de stimulateur, la présence ou l'absence de spike oriente : un spike non suivi de dépolarisation traduit une perte de capture ; l'absence de spike au-delà de l'intervalle d'échappement traduit une surdétection (ou, plus rarement, une panne d'émission). Les signaux surdétectés peuvent être physiologiques (myopotentiels, onde T, onde P lointaine) ou non physiologiques (fracture, défaut d'isolant, connexion desserrée, interférences externes). La programmation d'une détection bipolaire ou une sensibilité moins fine corrige les myopotentiels ; une fracture impose le remplacement de la sonde.",
+  "sources": [
+   {
+    "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+    "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+   },
+   {
+    "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010"
+   }
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-034",
+  "theme": "ecg",
+  "sousTheme": "ECG stimulé : modes et fonctionnement",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 5,
+  "question": "Contrôle de stimulateur. Homme de 73 ans, stimulateur double chambre pour une maladie de l'oreillette, PR spontané à 200 ms, délai AV détecté programmé à 170 ms. Le technicien vous montre ce tracé : « certains spikes tombent dans le QRS sans le modifier, on a sûrement une perte de capture, j'augmente l'amplitude ? ». Que décidez-vous ?",
+  "ecg": {
+   "preset": "fusion",
+   "fc": 70
+  },
+  "options": [
+   "Augmenter l'amplitude à 5 V pour restaurer la capture",
+   "Programmer une sensibilité ventriculaire plus fine",
+   "Raccourcir le délai AV à 120 ms",
+   "Ne pas toucher à l'amplitude et allonger le délai AV"
+  ],
+  "reponses": [
+   3
+  ],
+  "commentaires": [
+   "Faux : le spike tombe dans un QRS déjà en cours, en période réfractaire ; plus d'énergie ne changerait rien et userait la pile.",
+   "Faux : le QRS n'est pas encore détectable sur la sonde VD quand le délai AV expire ; ce n'est pas un défaut de sensibilité.",
+   "Faux : cela supprimerait les fusions au prix d'une stimulation ventriculaire permanente, inutile chez ce patient.",
+   "Juste : ce sont des pseudo-fusions liées à un délai AV proche du PR spontané ; il faut favoriser la conduction propre, pas augmenter la sortie."
+  ],
+  "reponseAttendue": null,
+  "explication": "Chaque onde P sinusale est suivie soit d'un QRS stimulé large, soit d'un QRS spontané fin, soit d'un complexe de morphologie intermédiaire précédé d'un spike (fusion), soit d'un QRS spontané inchangé contenant un spike (pseudo-fusion). Le délai AV (170 ms) est proche du PR spontané (200 ms) : le spike ventriculaire est émis alors que la dépolarisation spontanée a déjà commencé mais n'a pas encore atteint la sonde VD. En pseudo-fusion, le spike tombe dans un myocarde déjà en cours de dépolarisation et n'a aucun effet : ce n'est pas une perte de capture. Chez un patient implanté pour une dysfonction sinusale, la bonne réponse est de favoriser la conduction spontanée (délai AV plus long, hystérésis ou algorithme de réduction de la stimulation ventriculaire).",
+  "aRetenir": "Spike dans un QRS spontané inchangé = pseudo-fusion, pas perte de capture ; ajuster le délai AV, pas l'amplitude.",
+  "rappel": "La fusion correspond à une dépolarisation ventriculaire due pour partie au stimulus et pour partie à l'activation spontanée : le QRS a une morphologie intermédiaire. La pseudo-fusion est un spike délivré dans un QRS spontané qu'il ne modifie pas, parce que le myocarde voisin de l'électrode est déjà dépolarisé. Ces phénomènes surviennent quand le délai AV ou l'intervalle d'échappement est proche du temps de conduction spontané ; ils sont physiologiques et n'imposent aucune correction de sortie. Pour affirmer une perte de capture, le spike doit tomber hors de la période réfractaire et ne pas être suivi de dépolarisation.",
+  "sources": [
+   {
+    "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010"
+   },
+   {
+    "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+    "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+   }
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-035",
+  "theme": "ecg",
+  "sousTheme": "ECG stimulé : dysfonctions",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 5,
+  "question": "Relecture de Holter. Femme de 79 ans, stimulateur double chambre pour un BAV paroxystique. Réglages : fréquence de base 70/min, fréquence maximale de suivi 110/min, fréquence maximale capteur 130/min, PVARP 250 ms. Elle signale des palpitations au coucher. Voici la bande correspondante. Quelle est l'interprétation ?",
+  "ecg": {
+   "preset": "ttre",
+   "fc": 110,
+   "legende": "Holter, 23 h 40 : « palpitations au coucher »"
+  },
+  "options": [
+   "TRE déclenchée par une ESV",
+   "Tachycardie sinusale suivie par le stimulateur",
+   "Accélération par l'asservissement de fréquence",
+   "Tachycardie ventriculaire lente"
+  ],
+  "reponses": [
+   0
+  ],
+  "commentaires": [
+   "Juste : ESV, onde P rétrograde suivie d'une stimulation ventriculaire, fréquence bloquée à la fréquence maximale de suivi : boucle de TRE.",
+   "Faux : la tachycardie débute brutalement après une ESV, et l'onde atriale est rétrograde, négative en DII, à intervalle fixe après chaque QRS stimulé.",
+   "Faux : la patiente se couche, et l'asservissement pourrait monter jusqu'à 130/min ; la fréquence bloquée à 110/min correspond au suivi atrial.",
+   "Faux : chaque QRS est précédé d'un spike ; il s'agit de QRS stimulés et non d'une TV."
+  ],
+  "reponseAttendue": null,
+  "explication": "Le tracé débute par deux cycles de stimulation séquentielle AV à 70/min, puis survient une ESV. Elle est suivie d'une onde P rétrograde (négative en DII) qui est détectée et suivie d'une stimulation ventriculaire ; chaque QRS stimulé est à nouveau conduit de façon rétrograde vers l'oreillette, et la boucle s'entretient. La fréquence est fixe à 110/min, exactement la fréquence maximale de suivi, car l'intervalle VA rétrograde plus le délai AV est plus court que le cycle de la FMS : c'est une tachycardie par réentrée électronique. Le déclenchement par une ESV, la fréquence plafonnée à la FMS et l'onde P rétrograde sont caractéristiques. L'asservissement est plafonné à 130/min et n'expliquerait pas une accélération au coucher.",
+  "aRetenir": "Tachycardie stimulée à la FMS, déclenchée par une ESV avec P rétrograde : TRE.",
+  "rappel": "La TRE est une tachycardie en boucle : le stimulateur est la branche antérograde (suivi de l'onde P détectée) et la conduction VA rétrograde du patient la branche rétrograde. Elle est typiquement déclenchée par une ESV, une perte de capture atriale ou une onde P non suivie, qui dissocient oreillette et ventricule. Elle survient à la fréquence maximale de suivi ou juste en dessous. Elle suppose une conduction VA préservée et une onde P rétrograde tombant hors de la PVARP. On l'interrompt par un aimant (mode asynchrone) ou par l'algorithme dédié du boîtier ; on la prévient par une PVARP plus longue que la conduction VA, une extension de PVARP après ESV ou un algorithme de TRE.",
+  "sources": [
+   {
+    "titre": "Alasti M et al. Pacemaker-mediated arrhythmias. J Arrhythm 2018;34:485-492",
+    "url": "https://doi.org/10.1002/joa3.12098"
+   },
+   {
+    "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010"
+   }
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-036",
+  "theme": "ecg",
+  "sousTheme": "Intervalles, fréquence maximale et mode switch",
+  "marque": null,
+  "type": "qcu",
+  "difficulte": 9,
+  "question": "Consultation de rythmologie. Homme de 70 ans, stimulateur double chambre pour un BAV complet. Il y a deux semaines, il a consulté aux urgences pour des palpitations ; ce tracé y a été enregistré et l'épisode a été réduit par un aimant. Réglages : fréquence maximale de suivi 120/min, délai AV détecté 150 ms, PVARP 250 ms, sans extension après ESV. Le test de conduction rétrograde mesure un intervalle VP-P rétrograde de 330 ms. Quelle programmation prévient au mieux la récidive tout en préservant le suivi atrial à l'effort ?",
+  "ecg": {
+   "preset": "ttre",
+   "fc": 120
+  },
+  "options": [
+   "Porter la PVARP fixe à 450 ms en permanence",
+   "Abaisser la fréquence maximale de suivi à 100/min",
+   "Activer l'extension de PVARP post-ESV et l'algorithme TRE",
+   "Programmer une sensibilité atriale moins fine"
+  ],
+  "reponses": [
+   2
+  ],
+  "commentaires": [
+   "Faux : cette PVARP couvre bien la conduction VA, mais avec un délai AV de 150 ms elle impose un bloc 2:1 dès 100/min, sous la fréquence maximale de suivi.",
+   "Faux : la TRE serait seulement plus lente ; la boucle persisterait et l'effort serait limité.",
+   "Juste : la PVARP n'est allongée qu'après une ESV, cycle où la boucle s'amorce, et l'algorithme rompt une boucle installée : le suivi d'effort est préservé.",
+   "Faux : cela exposerait à la sous-détection des ondes P sinusales, sans garantie de ne plus détecter l'onde rétrograde."
+  ],
+  "reponseAttendue": null,
+  "explication": "Le tracé montre le déclenchement typique : deux cycles AP-VP, une ESV, une onde P rétrograde détectée hors PVARP, puis une stimulation ventriculaire à 120/min, la fréquence maximale de suivi, entretenue par la conduction VA. L'intervalle VP-P rétrograde mesuré (330 ms) dépasse la PVARP programmée (250 ms), ce qui explique que l'onde rétrograde soit suivie. Allonger la PVARP fixe au-delà de 330 ms (avec une marge, environ 400 à 450 ms) préviendrait la boucle, mais la période réfractaire atriale totale (délai AV + PVARP ≈ 600 ms) limiterait le suivi atrial vers 100/min, sous la FMS. La meilleure option est ciblée : extension automatique de la PVARP après une ESV (principal déclencheur) et algorithme de détection et d'interruption de TRE, qui allonge ponctuellement la PVARP lorsqu'une stimulation soutenue à la FMS est reconnue.",
+  "aRetenir": "Prévention de la TRE : extension de PVARP après ESV et algorithme de TRE plutôt qu'une PVARP fixe longue qui limite le suivi d'effort.",
+  "rappel": "Pour qu'une TRE s'installe, l'onde P rétrograde doit tomber en dehors de la PVARP. Une PVARP fixe plus longue que la conduction VA la prévient, mais allonge la période réfractaire atriale totale (délai AV + PVARP) et abaisse la fréquence du bloc 2:1 (60 000 / PRAT). Les boîtiers proposent donc une extension de la PVARP (souvent à 400 ms ou plus) sur le seul cycle suivant une ESV, et des algorithmes qui reconnaissent une stimulation soutenue à la FMS avec un intervalle VP-AS stable, puis allongent la PVARP ou suppriment une stimulation ventriculaire pour rompre la boucle. La conduction VA se mesure au programmateur par un test de conduction rétrograde.",
+  "sources": [
+   {
+    "titre": "Alasti M et al. Pacemaker-mediated arrhythmias. J Arrhythm 2018;34:485-492",
+    "url": "https://doi.org/10.1002/joa3.12098"
+   },
+   {
+    "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010"
+   },
+   {
+    "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+    "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+   }
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-037",
+  "theme": "ecg",
+  "sousTheme": "Blocs auriculo-ventriculaires",
+  "marque": null,
+  "type": "vf",
+  "difficulte": 5,
+  "question": "Télémétrie de nuit. Homme de 45 ans, hospitalisé pour une pneumopathie, asymptomatique, sans traitement freinateur ; les battements conduits ont un PR de 200 ms et des QRS fins. Affirmation : ce tracé ne permet pas, à lui seul, de dire si le bloc est nodal ou infranodal.",
+  "ecg": {
+   "preset": "bav2-21",
+   "fc": 76
+  },
+  "options": [
+   "Vrai",
+   "Faux"
+  ],
+  "reponses": [
+   0
+  ],
+  "commentaires": [
+   "Juste : sur un BAV 2:1, on ne voit jamais deux PR consécutifs ; ni la largeur des QRS ni le PR ne suffisent à affirmer le siège.",
+   "Faux : un QRS fin rend le bloc nodal plus probable, notamment la nuit chez un sujet jeune, mais un bloc intrahisien reste possible ; le siège doit être précisé par d'autres éléments."
+  ],
+  "reponseAttendue": null,
+  "explication": "Une onde P sur deux est conduite, avec un PR constant et des QRS fins : BAV 2:1. Ce rythme ne peut être classé ni Mobitz I ni Mobitz II, puisqu'aucun allongement progressif du PR n'est observable. Les QRS fins, la survenue nocturne et le terrain (sujet jeune, fièvre, hypervagotonie possible) orientent vers un bloc nodal fonctionnel, mais un bloc intrahisien à QRS fins existe. La localisation repose sur d'autres éléments : périodes de Wenckebach ailleurs sur l'enregistrement, réponse à l'effort ou à l'atropine, et, si le doute persiste, EEP.",
+  "aRetenir": "BAV 2:1 : le siège ne se lit pas sur un seul tracé ; chercher des périodes de Wenckebach et tester la réponse à l'effort.",
+  "rappel": "Dans le BAV 2:1, la conduction alternée empêche d'analyser l'évolution du PR. Arguments pour un siège nodal : QRS fins, PR long des battements conduits, périodes de Wenckebach sur le même enregistrement, survenue nocturne ou vagale, amélioration par l'effort ou l'atropine. Arguments pour un siège infranodal : QRS larges, PR normal, aggravation à l'effort, amélioration par le massage sinocarotidien. Un BAV 2:1 nocturne isolé à QRS fins chez un sujet jeune asymptomatique relève en général de la surveillance.",
+  "sources": [
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   },
+   {
+    "titre": "Kusumoto FM, et al. 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay. J Am Coll Cardiol 2019;74:e51-e156",
+    "url": "https://doi.org/10.1016/j.jacc.2018.10.044"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT",
+   "ACC/AHA/HRS 2018 bradycardie"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-038",
+  "theme": "ecg",
+  "sousTheme": "Blocs auriculo-ventriculaires",
+  "marque": null,
+  "type": "vf",
+  "difficulte": 4,
+  "question": "Unité de soins intensifs cardiologiques, J3 d'un infarctus inférieur revascularisé. Homme de 62 ans, stable, FEVG 45 %. Le tracé de sortie est le suivant. Affirmation : ce tracé contre-indique l'introduction d'un bêtabloquant.",
+  "ecg": {
+   "preset": "bav1",
+   "fc": 60,
+   "pr": 280
+  },
+  "options": [
+   "Vrai",
+   "Faux"
+  ],
+  "reponses": [
+   1
+  ],
+  "commentaires": [
+   "Faux : un BAV du 1er degré isolé et stable n'est pas une contre-indication ; le bêtabloquant peut être introduit à faible dose avec une surveillance du PR.",
+   "Juste : seuls les BAV du 2e ou 3e degré non appareillés contre-indiquent le bêtabloquant ; le BAV du 1er degré impose une simple prudence."
+  ],
+  "reponseAttendue": null,
+  "explication": "Toutes les ondes P sont conduites avec un PR constant d'environ 280 ms et des QRS fins : BAV du 1er degré. Après un infarctus inférieur, un allongement nodal du PR est fréquent (ischémie ou tonus vagal) et souvent transitoire. Les contre-indications aux bêtabloquants concernent les BAV du 2e et du 3e degré en l'absence de stimulateur, la bradycardie symptomatique et l'insuffisance cardiaque décompensée. Ici, si un bêtabloquant est indiqué après cet infarctus, il peut être introduit à faible dose, avec un ECG de contrôle pour surveiller le PR et dépister une progression du bloc.",
+  "aRetenir": "BAV du 1er degré isolé : pas une contre-indication au bêtabloquant, mais une surveillance du PR.",
+  "rappel": "Le BAV du 1er degré (PR > 200 ms, toutes les P conduites) est le plus souvent nodal, surtout avec des QRS fins. Au décours d'un infarctus inférieur, les troubles conductifs nodaux sont fréquents et régressent habituellement. Les bêtabloquants sont contre-indiqués dans les BAV du 2e et du 3e degré non appareillés, pas dans le BAV du 1er degré isolé, qui justifie une introduction prudente et un contrôle ECG. Un PR qui s'allonge nettement sous traitement, ou l'apparition d'ondes P bloquées, impose de réévaluer.",
+  "sources": [
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT"
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-039",
+  "theme": "ecg",
+  "sousTheme": "ECG stimulé : dysfonctions",
+  "marque": null,
+  "type": "vf",
+  "difficulte": 5,
+  "question": "Service des urgences. Femme de 84 ans, stimulateur VVI pour un BAV complet, malaise en étendant du linge ; la détection est unipolaire. Voici le tracé enregistré pendant le malaise. Affirmation : un aimant posé sur le boîtier pendant cet épisode aurait empêché la pause.",
+  "ecg": {
+   "preset": "sur-detection",
+   "fc": 60
+  },
+  "options": [
+   "Vrai",
+   "Faux"
+  ],
+  "reponses": [
+   0
+  ],
+  "commentaires": [
+   "Juste : sous aimant, le stimulateur stimule en VOO sans détection ; les signaux parasites ne peuvent plus inhiber la stimulation.",
+   "Faux : la pause est due à une inhibition par surdétection, précisément ce que l'aimant supprime en désactivant la détection."
+  ],
+  "reponseAttendue": null,
+  "explication": "Pendant la pause, la ligne de base est parasitée et aucun spike n'est émis, alors que les ondes P continuent : inhibition du stimulateur par surdétection, ici vraisemblablement de myopotentiels pectoraux lors de l'élévation des bras en détection unipolaire. Un aimant supprime la détection et impose une stimulation asynchrone : la pause n'aurait pas eu lieu. C'est une solution temporaire (transport, surveillance, intervention) ; la correction définitive passe par la programmation d'une détection bipolaire si la sonde le permet, ou une sensibilité moins fine avec une marge suffisante vis-à-vis de l'onde R. Les manœuvres de provocation (mouvements des bras) sous enregistrement des électrogrammes confirment le diagnostic.",
+  "aRetenir": "Pause par surdétection : l'aimant la supprime transitoirement ; la correction définitive est la détection bipolaire ou une sensibilité moins fine.",
+  "rappel": "La surdétection de myopotentiels touche surtout les sondes programmées en détection unipolaire, dont le champ d'écoute inclut les muscles pectoraux voisins du boîtier. Elle se reproduit par des manœuvres de provocation (pressions des mains, adduction contrariée des bras) sous enregistrement. Le traitement repose sur la programmation bipolaire de la détection ou sur une sensibilité moins fine, en conservant une marge vis-à-vis du signal cardiaque. L'aimant supprime la détection sur un stimulateur et constitue une mesure d'attente chez le patient dépendant.",
+  "sources": [
+   {
+    "titre": "Jacob S et al. Clinical applications of magnets on cardiac rhythm management devices. Europace 2011;13:1222-1230",
+    "url": "https://doi.org/10.1093/europace/eur137"
+   },
+   {
+    "titre": "Mulpuru SK et al. Cardiac pacemakers: function, troubleshooting, and management: part 1 of a 2-part series. J Am Coll Cardiol 2017;69:189-210",
+    "url": "https://doi.org/10.1016/j.jacc.2016.10.061"
+   }
+  ],
+  "revise": "2026-09"
+ },
+ {
+  "id": "cas-ecgc-040",
+  "theme": "ecg",
+  "sousTheme": "Asservissement et algorithmes de fréquence",
+  "marque": null,
+  "type": "vf",
+  "difficulte": 6,
+  "question": "Épreuve d'effort. Femme de 73 ans, stimulateur programmé en AAIR (fréquence de base 60/min, fréquence maximale capteur 140/min) pour une dysfonction sinusale avec incompétence chronotrope. Voici le tracé au palier de 50 W. Affirmation : ce tracé suffit à garantir que la conduction AV restera 1:1 jusqu'à la fréquence maximale capteur.",
+  "ecg": {
+   "preset": "aai",
+   "fc": 85,
+   "legende": "Épreuve d'effort, palier de 50 W"
+  },
+  "options": [
+   "Vrai",
+   "Faux"
+  ],
+  "reponses": [
+   1
+  ],
+  "commentaires": [
+   "Faux : la conduction 1:1 à 85/min ne préjuge pas de la conduction à 140/min ; le point de Wenckebach peut être atteint avant.",
+   "Juste : en AAIR, l'asservissement accélère l'oreillette sans protéger le ventricule ; si le point de Wenckebach est plus bas que la fréquence maximale capteur, un BAV fonctionnel apparaîtra à l'effort."
+  ],
+  "reponseAttendue": null,
+  "explication": "Chaque spike est suivi d'une onde P puis d'un QRS fin conduit : stimulation atriale à 85/min pilotée par le capteur, avec conduction AV 1:1 à ce palier. Cela ne garantit rien pour des fréquences plus élevées : à mesure que la fréquence de stimulation atriale augmente, la conduction nodale peut atteindre son point de Wenckebach, surtout chez le sujet âgé ou sous traitement freinateur. En AAIR, il n'existe aucune stimulation ventriculaire de secours : le patient passerait en Wenckebach ou en 2:1, avec chute brutale de fréquence ventriculaire en plein effort. Il faut donc vérifier la conduction à la fréquence maximale capteur (test de stimulation atriale incrémentale au programmateur ou effort maximal) et, si besoin, abaisser cette fréquence ou passer en DDDR avec réduction de la stimulation ventriculaire.",
+  "aRetenir": "En AAIR, vérifier la conduction AV à la fréquence maximale capteur : le point de Wenckebach peut être dépassé à l'effort.",
+  "rappel": "Le mode AAI(R) stimule et détecte l'oreillette seule : il suppose une conduction AV fiable, puisque rien ne protège le ventricule. Avec l'asservissement, la fréquence de stimulation atriale peut atteindre des valeurs où la conduction nodale n'est plus 1:1 (point de Wenckebach). La fréquence maximale capteur doit donc rester inférieure au point de Wenckebach, mesuré par stimulation atriale incrémentale. Du fait du risque de BAV secondaire en dysfonction sinusale, les stimulateurs double chambre avec algorithme de réduction de la stimulation ventriculaire sont aujourd'hui préférés au mode AAI pur.",
+  "sources": [
+   {
+    "titre": "Glikson M, et al. 2021 ESC Guidelines on cardiac pacing and cardiac resynchronization therapy. Eur Heart J 2021;42:3427-3520",
+    "url": "https://doi.org/10.1093/eurheartj/ehab364"
+   },
+   {
+    "titre": "Barold SS, Stroobandt RX, Sinnaeve AF. Cardiac Pacemakers and Resynchronization Step by Step: An Illustrated Guide. 2nd ed. Wiley-Blackwell; 2010"
+   }
+  ],
+  "reco": [
+   "ESC 2021 stimulation et CRT"
+  ],
+  "revise": "2026-09"
+ }
+]

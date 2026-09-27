@@ -1,0 +1,708 @@
+{
+ "cas-egmp-001": {
+  "question": "The anaesthetist calls the day before a total hip replacement in a 78-year-old man with a DDD pacemaker (left pectoral can) implanted for complete AV block. Monopolar diathermy is planned, with the return pad on the operated thigh. Lead parameters are normal at today's interrogation, whose tracing is shown. What do you recommend?",
+  "options": [
+   "No reprogramming: short bursts, continuous monitoring, magnet at hand",
+   "Set ventricular sensitivity to its least sensitive value before surgery",
+   "Insert a precautionary temporary transvenous pacing wire",
+   "Program an asynchronous DOO mode for the whole procedure"
+  ],
+  "commentaires": [
+   "Correct: the surgical field and current path are far from the can; general precautions suffice in this pacing-dependent patient.",
+   "Incorrect: very low sensitivity risks undersensing and would not reliably protect against nearby interference.",
+   "Incorrect: invasive temporary pacing has no indication when the pacemaker is working normally.",
+   "Incorrect: below the iliac crest, with the pad on the thigh, the risk of interference is very low; routine asynchronous pacing is unnecessary and competes with sinus rhythm."
+  ],
+  "explication": "The tracing shows a sensed P wave (AS) on every cycle followed by a VP 160 ms later, at 833 ms (72 bpm): normal atrial tracking in a patient with complete AV block, who is therefore dependent on ventricular pacing. The risk of inhibition by monopolar diathermy depends on the distance between the surgical field and the can and on the current path between the diathermy tip and the return pad. For hip surgery with the pad on the thigh, the current flows far from the chest: the 2022 EHRA consensus accepts surgery below the iliac crest, with the return pad on the thigh, without a magnet or reprogramming, even in a pacing-dependent patient. General precautions apply: short bursts, bipolar diathermy when possible, continuous ECG and pulse oximetry monitoring, a magnet and a means of external pacing at hand. Asynchronous pacing is considered in a pacing-dependent patient when the surgical field is close to the can (chest, neck, upper limb). Good habit: reason on the patient's dependency and on the location of the surgical field, not merely on the presence of a pacemaker.",
+  "aRetenir": "Surgery below the iliac crest with the return pad on the thigh: no routine reprogramming, even in a pacing-dependent patient; general precautions and monitoring.",
+  "rappel": "2022 EHRA consensus: the risk of interference from monopolar diathermy is very low for surgery below the iliac crest with the return pad on the thigh, which can be performed without a magnet or reprogramming, even in a pacing-dependent patient; the 2011 HRS/ASA consensus used the umbilicus as its landmark. In a pacing-dependent patient operated on close to the can (chest, neck, upper limb), the pacemaker is made asynchronous: EHRA favours a magnet when the can is accessible and the magnet response has been checked, otherwise VOO/DOO mode is programmed. In all cases: return pad as far as possible from the can, short bursts, bipolar or ultrasonic diathermy if possible, ECG and pulse monitoring (pulse oximetry or arterial pressure), a defibrillator with external pacing available. A device check is required after the procedure if the device was reprogrammed or if significant interference occurred."
+ },
+ "cas-egmp-002": {
+  "question": "A 74-year-old woman had a DDD pacemaker implanted 4 years ago for complete AV block (LVEF 60% at implantation). Annual visit: NYHA class III exertional dyspnoea for 6 months, 99% ventricular pacing, LVEF 33% despite 3 months of optimised medical therapy; normal coronary angiogram, no valve disease. Tracing below. What strategy do you choose?",
+  "options": [
+   "Lower the base rate to 50 bpm to reduce pacing",
+   "Upgrade to CRT or to conduction system pacing",
+   "Lengthen the AV delay to 300 ms to allow intrinsic conduction",
+   "Enable a ventricular pacing reduction algorithm"
+  ],
+  "commentaires": [
+   "Incorrect: she is in sinus rhythm at 80 bpm, tracked by the device; the base rate does not change the pacing percentage.",
+   "Correct: RV pacing-induced cardiomyopathy with LVEF ≤ 35%: an upgrade is the recommended option.",
+   "Incorrect: no AV conduction will appear in complete AV block, and a very long AV delay desynchronises atrium and ventricle.",
+   "Incorrect: in complete AV block the algorithm would switch straight back to DDD; there is no conduction to preserve."
+  ],
+  "explication": "The tracing confirms permanent ventricular pacing: every P wave sensed at 750 ms (80 bpm) is followed by a VP 150 ms later, with no possible intrinsic conduction since the AV block is complete. A fall in LVEF from 60 to 33% under almost exclusive RV pacing, with no other cause, defines pacing-induced cardiomyopathy. RV pacing reduction algorithms, AV delay lengthening or lowering the base rate make no sense when there is no AV conduction. The 2021 ESC guidelines recommend an upgrade to CRT in a paced patient who develops heart failure with LVEF ≤ 35% despite medical therapy; the 2023 HRS guideline also considers conduction system pacing (His bundle or left bundle branch area pacing) as an alternative. Good habit: monitor LVEF in patients with a high RV pacing burden.",
+  "aRetenir": "LVEF collapse under permanent RV pacing with no other cause: think pacing-induced cardiomyopathy and upgrade (CRT or conduction system pacing).",
+  "rappel": "RV pacing-induced cardiomyopathy is usually defined as an LVEF drop of at least 10 points to below 50% in a patient paced at least 20% of the time, with no other identified cause. Risk factors are a high RV pacing burden, a wide paced QRS and a low LVEF before implantation. ESC 2021: in a pacemaker or ICD recipient who develops symptomatic heart failure with LVEF ≤ 35% despite optimal therapy and a significant proportion of RV pacing, an upgrade to CRT should be considered (class IIa). The 2023 HRS guideline on physiological pacing considers conduction system pacing as an alternative to biventricular pacing in this setting."
+ },
+ "cas-egmp-003": {
+  "question": "A 69-year-old man had a dual-chamber pacemaker implanted 2 years ago for complete AV block; can and leads form an MR-conditional system, and all conditions have been checked. He attends for a lumbar MRI and the radiologist asks you to program the device. Resting tracing below. Which mode do you choose for the scan?",
+  "options": [
+   "DDD mode kept, with sensitivities set to their lowest",
+   "VVI mode at 40 bpm to limit the number of pulses during the scan",
+   "Asynchronous DOO mode, slightly faster than the intrinsic rhythm",
+   "Non-pacing ODO mode, since sinus rhythm is present"
+  ],
+  "commentaires": [
+   "Incorrect: an inhibited or triggered mode can be disturbed by gradients and radiofrequency (inhibition, tracking of spurious signals).",
+   "Incorrect: VVI can still be inhibited by oversensing, and 40 bpm is inappropriate in a pacing-dependent patient.",
+   "Correct: pacing-dependent patient; asynchronous pacing protects against inhibition by the fields, and a rate above the intrinsic rhythm avoids competition.",
+   "Incorrect: without pacing, this patient with complete AV block would rely on his escape rhythm, or even be asystolic."
+  ],
+  "explication": "Every cycle on the tracing combines a sensed P wave and a VP: no intrinsic QRS is visible, and the indication (complete AV block) makes this patient dependent on ventricular pacing. During MRI, gradients and radiofrequency energy can be sensed as events: an inhibited or atrial-tracking mode exposes the patient to pauses or inappropriate pacing. The 2017 HRS consensus recommends an asynchronous mode (VOO or DOO) for pacing-dependent patients; the rate is set slightly above the intrinsic rhythm (here sinus at 70 bpm, e.g. 80-85 bpm) to avoid competition. Non-dependent patients are usually programmed to a non-pacing or inhibited mode. The MRI mode also disables rate response and automatic algorithms. Good habit: decide the MRI mode from the patient's dependency, then restore the initial settings after the scan.",
+  "aRetenir": "MRI in a pacing-dependent patient: asynchronous mode (VOO/DOO) at a rate above the intrinsic rhythm.",
+  "rappel": "2017 HRS consensus on MRI: in a patient with an MR-conditional system, the scan follows the manufacturer's conditions (time since implantation, no abandoned lead, permitted body region and power). Programming: asynchronous mode (VOO/DOO) in the pacing-dependent patient, non-pacing or inhibited mode in the non-dependent patient; rate response, automatic algorithms and, for an ICD, tachycardia therapies are switched off. ECG and oximetry monitoring during the scan, with someone able to reprogram the device. Non-MR-conditional systems can also be scanned within a structured protocol (class IIa in both the 2017 HRS consensus and the 2021 ESC guidelines). Device check and restoration of the initial programming at the end of the scan."
+ },
+ "cas-egmp-004": {
+  "question": "Emergency department: a 71-year-old woman with a DDD pacemaker for complete AV block (maximum tracking rate 130 bpm) is admitted with acute dyspnoea; SpO2 89%, raised D-dimer. The emergency physician is worried about a \"pacemaker tachycardia\" at 110 bpm and is considering applying a magnet. You interrogate the device. What do you tell him?",
+  "options": [
+   "Sensor-driven runaway: switch off rate response",
+   "Pacemaker-mediated tachycardia: apply the magnet to terminate it",
+   "Tracking of atrial flutter: mode switching must be enabled urgently",
+   "Normal sinus tachycardia tracking: find its cause (embolism?)"
+  ],
+  "commentaires": [
+   "Incorrect: sensor-driven pacing would begin with an AP, not with a sensed P wave.",
+   "Incorrect: there are no retrograde P waves at a fixed VA interval and the rate remains below the maximum tracking rate.",
+   "Incorrect: there is a single atrial event per cycle, at 545 ms, with a sinus P-wave morphology.",
+   "Correct: every sinus P wave is sensed and followed by a VP at 130 ms; the device simply reflects the sinus rate."
+  ],
+  "explication": "On every cycle the tracing shows a sensed P wave (AS) without an atrial spike, followed by a VP 130 ms later, at 545 ms, i.e. 110 bpm: this is 1:1 atrial tracking of sinus tachycardia, below the maximum tracking rate. There is no onset with a PVC, no retrograde P wave at a fixed VA interval and no pacing at the maximum tracking rate as in pacemaker-mediated tachycardia. A magnet would switch to asynchronous pacing at the magnet rate and suppress an appropriate rate increase. Here the sinus tachycardia is a symptom: hypoxaemia and a raised D-dimer call for a search for pulmonary embolism. Good habit: a patient with complete AV block paced in DDD has the ventricular rate of his atrium; a paced sinus tachycardia is treated by treating its cause.",
+  "aRetenir": "Paced tachycardia in DDD: if every VP follows a sensed sinus P wave, this is normal tracking; treat the cause of the sinus tachycardia.",
+  "rappel": "In DDD mode, any P wave sensed outside the refractory period starts an AV delay followed by a VP, up to the maximum tracking rate. A paced tachycardia can therefore be: sinus tracking (sinus P waves, gradual acceleration), tracking of an atrial arrhythmia before or without mode switching, pacemaker-mediated tachycardia (retrograde P waves, fixed VA interval, maximum tracking rate) or sensor-driven pacing (AP-VP). The markers and the atrial EGM settle the question. A magnet makes the pacemaker asynchronous: it terminates pacemaker-mediated tachycardia but has no role in an appropriate sinus tachycardia."
+ },
+ "cas-egmp-005": {
+  "question": "An 86-year-old woman had a DDD pacemaker implanted 11 years ago for syncope with documented second-degree Mobitz II AV block; the device has reached the elective replacement indicator (ERI). Since the last check, 2% ventricular pacing; resting tracing below. Statement: this tracing and this low pacing percentage allow the generator replacement to be dropped.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: resting conduction says nothing about paroxysmal block episodes, which are precisely what the 2% pacing reflects.",
+   "Correct: the indication (Mobitz II) persists; intermittent block can recur abruptly, with syncope."
+  ],
+  "explication": "The tracing shows intrinsic AV conduction: every sensed P wave is followed by a VS at 190 ms, at 882 ms (68 bpm). This describes the moment of recording, not the course of the conduction disease. Second-degree Mobitz II AV block reflects infra-Hisian disease, paroxysmal and progressive by nature; the 2% pacing most likely corresponds to episodes of block during which the pacemaker prevented syncope. The pacing indication remains class I and the generator must be replaced. Replacement is an opportunity to review stored episodes and programming (conduction preservation), not to remove a safeguard. Good habit: a low pacing percentage is no proof that a paroxysmal block has resolved.",
+  "aRetenir": "Paroxysmal AV block: a conducted resting tracing and a low pacing percentage do not justify forgoing generator replacement.",
+  "rappel": "ESC 2021: second-degree Mobitz II, high-grade and complete AV block are indications for pacing (class I) irrespective of symptoms, in the absence of a reversible cause. A paroxysmal pattern does not alter the indication. At elective replacement the indication is reassessed (stored episodes, histograms, pacing percentage, intrinsic conduction), but stopping pacing is considered only if the original indication was doubtful or its cause has resolved. ERI usually leaves about 3 months before the device reaches end of service, depending on the manufacturer."
+ },
+ "cas-egmp-006": {
+  "question": "A 76-year-old man has a DDD pacemaker for sinus node dysfunction, with known first-degree AV block; a conduction search algorithm allows AV delays up to 350 ms. For 3 months he has had exertional dyspnoea and fatigue. LVEF 55%; echocardiography shows E/A fusion and diastolic mitral regurgitation. Resting tracing below. What change do you propose?",
+  "options": [
+   "Shorten the AV delay (≈ 200 ms), accepting RV pacing",
+   "Allow an even longer AV delay (400 ms) to preserve conduction",
+   "Program pure AAI mode to eliminate all ventricular pacing",
+   "Enable rate response to raise the rate on exertion"
+  ],
+  "commentaires": [
+   "Correct: it restores physiological AV coupling; RV pacing is the lesser evil here and must be monitored.",
+   "Incorrect: the AV dyssynchrony causing the symptoms would get worse.",
+   "Incorrect: AAI leaves the PR at 320 ms, or longer on exertion, with no protection if block occurs.",
+   "Incorrect: the sinus rate is present and the problem is AV coupling, not rate."
+  ],
+  "explication": "The tracing shows P waves sensed at 923 ms (65 bpm) followed by a VS 320 ms later: the conduction preservation algorithm lets the patient conduct with a very long PR interval. Atrial contraction then occurs early, just after the previous systole: E/A fusion, diastolic mitral regurgitation and loss of the atrial contribution, a picture close to pacemaker syndrome. Reducing RV pacing is not an absolute goal: when the PR exceeds 300 ms and symptoms relate to it, a shorter AV delay with ventricular pacing is preferable. If the expected pacing percentage becomes high, conduction system pacing is an option to preserve ventricular synchrony. Good habit: in a symptomatic patient on a conduction preservation algorithm, measure the PR interval actually being tolerated.",
+  "aRetenir": "A PR > 300 ms tolerated by a conduction preservation algorithm can cause symptoms: a shorter AV delay is then preferable.",
+  "rappel": "Very long first-degree AV block (PR > 300 ms) can cause AV dyssynchrony: atrial contraction close to the previous systole, E/A fusion, diastolic mitral regurgitation and symptoms resembling pacemaker syndrome. Conduction preservation algorithms (AV hysteresis, conduction search, AAI↔DDD modes) can tolerate such PR intervals. ESC 2021: pacing should be considered (class IIa) for persistent symptoms attributable to first-degree AV block with PR > 300 ms; in pacemaker recipients, unnecessary RV pacing should be limited, not banned. The 2023 HRS guideline discusses conduction system pacing when a high pacing percentage is expected."
+ },
+ "cas-egmp-007": {
+  "question": "An 82-year-old man underwent TAVI 6 weeks ago, complicated on day 2 by complete AV block with persistent left bundle branch block; a DDD pacemaker was implanted (AV delay 150 ms, RV pacing reduction algorithm not enabled). At follow-up, 97% ventricular pacing; he concludes that he has \"become dependent\". You temporarily lengthen the AV delay to 300 ms: here is the resulting tracing. What do you do?",
+  "options": [
+   "Switch pacing off (ODO), since conduction has recovered",
+   "Keep pacing and enable AV conduction preservation",
+   "Program VVI at 40 bpm, simply as protection against asystole",
+   "Shorten the AV delay to 100 ms to pace on every cycle"
+  ],
+  "commentaires": [
+   "Incorrect: post-TAVI AV block can recur, especially with persistent LBBB; removing the safeguard would be dangerous.",
+   "Correct: intrinsic conduction is present; unnecessary RV pacing is avoided while the safeguard is kept.",
+   "Incorrect: AV synchrony would be lost during recurrent block, with no benefit over a conduction preservation algorithm.",
+   "Incorrect: routinely pacing a patient who conducts exposes him needlessly to the harmful effects of RV pacing."
+  ],
+  "explication": "With the AV delay lengthened, the tracing shows intrinsic AV conduction: every sensed P wave is followed by a VS at 210 ms (72 bpm). Six weeks after complete AV block following TAVI, conduction has partly recovered, but the persistent left bundle branch block reflects damage to the conduction system and the block may recur. The 97% pacing therefore does not reflect dependency: it reflects a programmed AV delay (150 ms) shorter than the intrinsic PR (210 ms). The logical approach is to keep pacing and enable a conduction preservation algorithm, or lengthen the AV delay, so that intrinsic conduction can express itself. Switching pacing off or a low backup VVI would remove the safeguard or AV synchrony. Good habit: after post-TAVI AV block, reassess dependency but keep the safeguard.",
+  "aRetenir": "Recovered post-TAVI AV block: keep pacing and program AV conduction preservation.",
+  "rappel": "ESC 2021: after TAVI, pacing is recommended (class I) for complete or high-grade AV block persisting 24 to 48 hours after the procedure; the block may be transient or recurrent, especially with new LBBB. In a paced patient who conducts, unnecessary RV pacing should be reduced by an AV delay suited to the intrinsic PR or by a conduction preservation algorithm (AV hysteresis, conduction search, AAI↔DDD modes). The ventricular pacing percentage must always be read in the light of the programmed AV delay: an AV delay shorter than the PR forces pacing."
+ },
+ "cas-egmp-008": {
+  "question": "Intensive care: an 81-year-old woman in septic shock from a urinary source, on noradrenaline, lactate 4 mmol/L, sedated and ventilated. She has a DDDR pacemaker (base rate 60 bpm) for sinus node dysfunction and AV block; accelerometer rate response is on. Despite a temperature of 39.5 °C, the rate stays fixed at 60 bpm. Here is the interrogation. What do you suggest?",
+  "options": [
+   "Increase the rate response slope to raise the rate",
+   "Replace the generator, which fails to respond to septic stress",
+   "Temporarily raise the base rate, under monitoring",
+   "Apply a magnet to obtain faster pacing"
+  ],
+  "commentaires": [
+   "Incorrect: an accelerometer responds to movement; in a sedated, immobile patient it will stay silent.",
+   "Incorrect: the device is working normally; it is the sinus node that fails to respond.",
+   "Correct: heart rate contributes to cardiac output; it is raised under monitoring, with thresholds checked.",
+   "Incorrect: a magnet gives asynchronous pacing at a fixed rate that cannot be adjusted and varies with battery status."
+  ],
+  "explication": "The tracing shows sequential AP-VP pacing at 1,000 ms (60 bpm) with an AV delay of 180 ms: no sinus activity exceeds the base rate despite sepsis, confirming chronotropic incompetence, and the AV block makes ventricular pacing necessary. A fixed rate of 60 bpm limits cardiac output in a shock state where sinus tachycardia is normally compensatory. The activity sensor cannot help in an immobile, sedated patient. The simplest measure is to temporarily raise the base rate (for example to 80-90 bpm) while monitoring haemodynamics and signs of ischaemia, and to reassess it daily; this is a common-sense measure, not one codified in guidelines. As acidosis and hyperkalaemia can raise thresholds, capture must be checked and a margin kept. Good habit: in a paced patient with low cardiac output, ask whether the programmed rate is appropriate.",
+  "aRetenir": "Paced patient in shock: chronotropic incompetence is corrected by temporarily raising the base rate, not with a magnet.",
+  "rappel": "In sinus node dysfunction, the rate exceeds the base rate only with rate response. Activity sensors (accelerometers) respond to movement and stay silent in a bedridden or sedated patient; minute ventilation sensors (thoracic impedance) can be misled by mechanical ventilation and some monitors, and are often switched off in intensive care. In low-output states, the base rate can be temporarily raised by reprogramming. Acidosis, hyperkalaemia and hypoxia raise capture thresholds: they must be checked and a safety margin kept."
+ },
+ "cas-egmp-009": {
+  "question": "A 73-year-old man has a DDD pacemaker for symptomatic sinus bradycardia; ECG before implantation: PR 260 ms, QRS 110 ms. To reduce the 85% ventricular pacing, you program a paced AV delay of 300 ms in clinic. Here is the resulting tracing. What do you decide?",
+  "options": [
+   "Lengthen the paced AV delay to 400 ms to unmask conduction",
+   "Program AAIR mode, since conduction is masked by the AV delay",
+   "Lower the base rate to 45 bpm to give way to sinus rhythm",
+   "Return to a physiological AV delay and accept ventricular pacing"
+  ],
+  "commentaires": [
+   "Incorrect: AV coupling beyond 300 ms no longer has any haemodynamic benefit.",
+   "Incorrect: no conduction appears within 300 ms; AAIR would expose him to extreme PR intervals or block.",
+   "Incorrect: the sinus bradycardia is symptomatic; lowering the base rate simply lets it reappear.",
+   "Correct: conduction after AP exceeds 300 ms; a reasonable AV delay with pacing is the best compromise."
+  ],
+  "explication": "The tracing shows atrial pacing at 1,000 ms followed by a VP 300 ms later, with no VS at all: even with 300 ms, intrinsic conduction does not reach the ventricle after atrial pacing. This is expected: the paced PR is longer than the intrinsic PR (capture latency, interatrial conduction from the right atrial appendage), which was already 260 ms before implantation. Beyond 300 ms, AV coupling becomes harmful, and AAIR would expose him to extreme PR intervals on exertion. Ventricular pacing is justified here: return to a physiological AV delay, monitor LVEF and discuss conduction system pacing if ventricular function deteriorates. Good habit: an RV pacing reduction algorithm only makes sense if intrinsic conduction is reasonable.",
+  "aRetenir": "The paced PR is longer than the intrinsic PR: beyond 300 ms, a physiological AV delay with pacing is better.",
+  "rappel": "The paced AV delay is usually programmed 30 to 50 ms longer than the sensed AV delay: capture latency, interatrial conduction and rate effects lengthen the paced PR. A paced PR > 300 ms is rarely physiological; a reasonable AV delay with ventricular pacing is then better than extreme AV delays that create AV dyssynchrony. RV pacing reduction algorithms are mainly useful when intrinsic conduction is normal or moderately prolonged. The 2023 HRS guideline recommends monitoring LVEF in heavily paced patients and considering physiological pacing when a high burden is expected."
+ },
+ "cas-egmp-010": {
+  "question": "Day hospital: a 70-year-old man with a DDD pacemaker (right pectoral can) for paroxysmal AV block, and symptomatic persistent AF on well-managed anticoagulation for 5 weeks. Interrogation retrieves the onset of the episode, shown below, which is still ongoing. External electrical cardioversion is planned. Which precaution regarding the pacemaker is appropriate?",
+  "options": [
+   "Antero-posterior pads away from the can, then interrogation",
+   "Program OOO mode during the shock, then return to DDD",
+   "None: current pacemakers are not affected by an external shock",
+   "Place a magnet over the can during the shock to protect its circuitry"
+  ],
+  "commentaires": [
+   "Correct: the current is kept away from the can and leads, and the system is checked afterwards.",
+   "Incorrect: with no pacing, bradycardia or block after the shock would not be covered.",
+   "Incorrect: the shock can transiently raise thresholds or reset the device.",
+   "Incorrect: a magnet makes pacing asynchronous; it does not protect the circuitry."
+  ],
+  "explication": "The tracing shows sinus tracking (AS-VP at 833 ms), then rapid, disorganised atrial activity being sensed (AS and AR), an MS marker and irregular VS: onset of AF with appropriate mode switching, the device no longer tracking the atrium. For cardioversion, the pads are placed in the antero-posterior position, with the anterior pad as far as possible from the can (at least 15 cm according to the 2022 EHRA consensus), to limit the current flowing through the can and the electrode-tissue interface. An external shock can transiently raise thresholds, impair sensing or reset the device. Interrogation after the shock checks thresholds, sensing and programming. A magnet protects nothing, and OOO mode would deprive this patient with fragile conduction of any pacing. Good habit: pads away from the can, device check after the procedure.",
+  "aRetenir": "Cardioversion in a pacemaker recipient: antero-posterior pads away from the can, then a device check.",
+  "rappel": "External cardioversion in a pacemaker or ICD recipient (EHRA 2022 consensus): pads preferably antero-posterior, with the anterior pad as far as possible from the can (at least 15 cm), biphasic shock; device interrogation after the procedure (capture thresholds, sensing, impedances, check for an electrical reset). The current can transiently raise the threshold at the electrode-tissue interface. A magnet does not protect the circuit: it only makes pacing asynchronous. Mode switching during AF is the expected behaviour: switch to a non-tracking mode (DDI or VDI depending on the manufacturer)."
+ },
+ "cas-egmp-011": {
+  "question": "Device clinic: a resident shows you this stored episode from a patient with a DDD pacemaker and is surprised by the many AR markers within the rapid atrial activity. Statement: these AR events, sensed in the atrial refractory period, are taken into account by the atrial arrhythmia detection algorithm and do not indicate a sensing problem.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: sensed in the PVARP, they do not start an AV delay but are used to calculate the atrial rate and for mode switching.",
+   "Incorrect: an AR is not an ignored signal; only events falling in the blanking period are invisible to the device."
+  ],
+  "explication": "After a few cycles of sinus tracking (AS-VP), the atrial EGM becomes rapid and disorganised: the AF electrograms are sensed and marked AS or AR depending on whether they fall outside or inside the post-ventricular atrial refractory period (PVARP). An AR event is seen by the device: it does not start an AV delay, which prevents tracking of the arrhythmia, but it is counted to estimate the atrial rate. This counting led to the MS marker and the switch to a non-tracking mode; the irregularly conducted QRS complexes are marked VS. Conversely, a signal falling in a blanking period is neither sensed nor marked, which can lead to underestimation of the atrial rate. Good reading habit: AR = sensed but not tracked; no marker = not seen (blanking or undersensing).",
+  "aRetenir": "AR = atrial event sensed in the refractory period: not tracked, but counted for the atrial rate and mode switching.",
+  "rappel": "Blanking period: the channel is blind, no event is seen or marked. Refractory period (PVARP): the event is sensed and marked (AR); it does not start an AV delay but is used to calculate the atrial rate and for mode switching. Post-ventricular atrial blanking (PVAB) protects against far-field ventricular sensing but can hide every other flutter wave in 2:1 flutter. Mode switching relies on the measured atrial rate, with manufacturer-specific rate and duration criteria, and switches to a non-tracking mode (DDI(R) or VDI(R))."
+ },
+ "cas-egmp-012": {
+  "question": "Remote monitoring: a 76-year-old hypertensive woman with a DDD pacemaker for sinus node dysfunction, with no known AF and no history of stroke. Over 2 months, 9 rapid atrial arrhythmia episodes lasting 2 to 5 minutes each, all similar to the EGM below; total burden < 0.1%. She is asymptomatic. What do you propose?",
+  "options": [
+   "Classify the alert as an artefact and switch off mode switching",
+   "Withhold anticoagulation and follow the duration of episodes",
+   "Start a direct oral anticoagulant, as the EGM confirms true AF",
+   "Prescribe aspirin while waiting for any longer episodes"
+  ],
+  "commentaires": [
+   "Incorrect: the EGM shows true AF; switching off mode switching would expose her to rapid tracking of it.",
+   "Correct: very brief subclinical AF; the burden is monitored and risk factors are managed.",
+   "Incorrect: episodes under 6 minutes fall below the durations studied in the anticoagulation trials.",
+   "Incorrect: aspirin is not recommended for stroke prevention in AF."
+  ],
+  "explication": "The EGM confirms a genuine atrial arrhythmia: rapid, disorganised atrial activity, irregular VS and appropriate mode switching. This is device-detected subclinical AF, but the episodes are very short (2 to 5 minutes) and the burden minimal. In ASSERT, stroke risk was increased only for episodes longer than 6 minutes, and ARTESiA enrolled only episodes lasting 6 minutes to 24 hours; the benefit of apixaban was modest, at the cost of more bleeding. The 2024 ESC guidelines allow a DOAC to be considered in subclinical AF with high thromboembolic risk (class IIb), which does not apply to such brief episodes. Aspirin has no role. Progression is monitored (longer episodes, clinical AF) and hypertension is managed. Good habit: confirm the EGM, then reason on episode duration and the patient's risk profile.",
+  "aRetenir": "Confirmed AHREs lasting < 6 minutes: no anticoagulation, monitoring of duration and burden.",
+  "rappel": "Atrial high-rate episodes (AHREs) are detected by a device above a programmed atrial rate (often > 175-190 bpm); once the EGM is verified, they are called subclinical AF. ASSERT: episodes > 6 minutes were associated with a roughly 2.5-fold increase in stroke risk, though lower than with clinical AF. NOAH-AFNET 6 and ARTESiA (episodes of 6 minutes to 24 hours) showed a modest reduction in stroke with anticoagulation, with more bleeding. ESC 2024: a DOAC may be considered in subclinical AF with high thromboembolic risk, excluding patients at high bleeding risk (class IIb); aspirin is not recommended for stroke prevention in AF (class III)."
+ },
+ "cas-egmp-013": {
+  "question": "Emergency department: a 67-year-old man with a DDD pacemaker for AV block (maximum tracking rate 130 bpm) has had palpitations since the previous day, with a regular paced tachycardia at 125 bpm and blood pressure 115/70 mmHg. Suspecting pacemaker-mediated tachycardia, the emergency physician applies a magnet: the rate drops to 85 bpm with regular pacing. The next day, interrogation retrieves this stored episode. What should be concluded?",
+  "options": [
+   "The magnet rate of 85 bpm indicated advanced battery depletion",
+   "The magnet confirmed pacemaker-mediated tachycardia and terminated it",
+   "Tracked 2:1 flutter, slowed by the magnet but neither terminated nor diagnosed",
+   "The fall in rate with the magnet ruled out an underlying atrial arrhythmia"
+  ],
+  "commentaires": [
+   "Incorrect: the magnet rate depends on the manufacturer; 85 bpm can be the beginning-of-life value.",
+   "Incorrect: the EGM shows flutter, not retrograde P waves at a fixed VA interval.",
+   "Correct: the EGM shows tracked 2:1 flutter; a magnet suppresses all atrial tracking, so it slows pacemaker-mediated tachycardia and tracked flutter alike, and the flutter persists.",
+   "Incorrect: with the magnet on, the flutter continues; only the ventricular response changes."
+  ],
+  "explication": "The atrial EGM shows regular flutter waves every 240 ms (250 bpm). Every other wave falls just after the VP, in the post-ventricular atrial blanking period, and is not seen: the device measures an A-A interval of 480 ms (125 bpm), below the mode-switch criterion, and tracks this 2:1 flutter with a VP 150 ms after each sensed wave. A magnet makes the pacemaker pace asynchronously at its magnet rate: it suppresses all atrial tracking and therefore lowers the rate in pacemaker-mediated tachycardia and in a tracked atrial arrhythmia alike. It therefore has no diagnostic value regarding the mechanism, and the flutter persists with the magnet on. Only the EGM, the markers or an ECG with the magnet removed allow a conclusion. Good habit: faced with a paced tachycardia, interrogate the device before drawing conclusions.",
+  "aRetenir": "A magnet stops all atrial tracking: it slows a paced tachycardia without revealing its mechanism.",
+  "rappel": "A magnet applied over a pacemaker triggers asynchronous pacing (VOO or DOO) at a manufacturer-specific rate (at beginning of life, for example 85 bpm for Medtronic and 100 bpm for Abbott and Boston Scientific), which falls as ERI approaches. While it is in place no atrial tracking is possible: pacemaker-mediated tachycardia is terminated, but a tracked atrial arrhythmia is merely masked and is tracked again when the magnet is removed. In 2:1 flutter, every other F wave can fall in the post-ventricular atrial blanking period: the measured atrial rate is halved and mode switching is not triggered."
+ },
+ "cas-egmp-014": {
+  "question": "Unscheduled visit: a 72-year-old woman with a DDD pacemaker for AV block, on apixaban for 3 years for paroxysmal AF, with confirmed adherence. Breathlessness and palpitations since the previous day; the ECG shows typical atrial flutter. Interrogation gives the tracing below. What is the simplest option to restore sinus rhythm?",
+  "options": [
+   "Rapid adenosine bolus to interrupt the flutter circuit",
+   "Maximum tracking rate lowered to 90 bpm, then wait",
+   "Magnet over the can to pace the atrium asynchronously",
+   "Rapid atrial burst pacing via the atrial lead"
+  ],
+  "commentaires": [
+   "Incorrect: adenosine merely unmasks the F waves, without interrupting an atrial circuit.",
+   "Incorrect: this slows the ventricular response without treating the flutter.",
+   "Incorrect: the magnet rate (≈ 85-100 bpm) is far too slow to enter a circuit running at 230 bpm.",
+   "Correct: high-rate atrial pacing often terminates typical flutter, without anaesthesia."
+  ],
+  "explication": "The atrial EGM shows regular flutter at 260 ms (230 bpm). Every other wave falls in the post-ventricular atrial blanking period: the device sees an A-A interval of 520 ms, does not mode switch and paces the ventricle at 115 bpm. The patient has been anticoagulated for more than 3 weeks, which allows cardioversion. In a pacemaker recipient, the programmer can deliver through the atrial lead a burst of pacing faster than the flutter (cycle length slightly shorter than the flutter cycle, shortened step by step if needed), with backup ventricular pacing; this is a class I recommendation in the 2019 ESC guidelines. The risk is degeneration of flutter into AF, which is often easier to control or self-terminating. Adenosine, a magnet or simply lowering the maximum tracking rate do not terminate the flutter. Cavotricuspid isthmus ablation is then discussed.",
+  "aRetenir": "Flutter in an anticoagulated pacemaker recipient: rapid atrial pacing via the programmer is the first option.",
+  "rappel": "ESC 2019 (SVT): in a pacemaker or ICD recipient, high-rate atrial pacing is recommended to terminate atrial flutter (class I). The burst is delivered by the programmer through the atrial lead, at a cycle length shorter than the flutter cycle, with backup ventricular pacing. The anticoagulation rules before cardioversion are those of AF: effective anticoagulation for at least 3 weeks or transoesophageal echocardiography if the arrhythmia has lasted more than 24 hours. Post-ventricular atrial blanking explains why 2:1 flutter can be tracked without mode switching."
+ },
+ "cas-egmp-015": {
+  "question": "One-month check of a DDD pacemaker implanted in a 63-year-old man for syncope with paroxysmal AV block. The counters report 180 \"atrial tachyarrhythmia episodes\" lasting a few seconds. Which features of this tracing point to far-field ventricular sensing rather than genuine atrial activity? (select all that apply)",
+  "options": [
+   "The AR-marked signal occurs at a fixed interval, about 35 ms after each VS",
+   "This signal is much smaller than the sinus P wave on the atrial EGM",
+   "The AR signals are irregular and disorganised, as in AF",
+   "Each cycle keeps a single sinus P wave, followed by a VS at 180 ms",
+   "The AR signals precede the QRS, like an ectopic P wave"
+  ],
+  "commentaires": [
+   "Correct: a fixed, very short coupling to the QRS is the hallmark of far-field sensing.",
+   "Correct: the R wave seen at a distance has a low amplitude on the bipolar atrial EGM.",
+   "Incorrect: the AR events are regular, one per cycle, locked to the QRS.",
+   "Correct: the underlying rhythm is regular sinus rhythm, with no atrial arrhythmia.",
+   "Incorrect: they follow the VS; they do not precede it."
+  ],
+  "explication": "The tracing shows regular sinus rhythm at 857 ms: each P wave (AS) is conducted with a VS at 180 ms. About 35 ms after each VS, a small signal appears on the atrial EGM and is marked AR: its fixed relationship to the QRS, its low amplitude and its regularity indicate that the atrial lead is sensing the ventricular R wave at a distance. The device then counts two atrial events per cycle, which doubles the perceived atrial rate and can trigger spurious \"atrial tachyarrhythmia\" episodes and inappropriate mode switches. True AF would produce rapid, irregular atrial activity unrelated to the QRS complexes. Correction: lengthen the post-ventricular atrial blanking, reduce atrial sensitivity while checking P-wave sensing, or use a far-field rejection algorithm. Good habit: an atrial event locked to every QRS is far-field until proven otherwise.",
+  "aRetenir": "A small, regular atrial signal at a fixed coupling after each QRS: far-field ventricular sensing, a source of false atrial episodes.",
+  "rappel": "Far-field R-wave sensing is detection of the ventricular R wave by the atrial lead, typically 20 to 60 ms after QRS onset. It is favoured by an atrial lead close to the tricuspid annulus, high atrial sensitivity and a short post-ventricular atrial blanking period. Consequences: atrial double counting, false atrial tachyarrhythmia episodes, inappropriate mode switching and false AHRE alerts. Corrections: lengthen post-ventricular atrial blanking (at the risk of masking 2:1 flutter), reduce atrial sensitivity if the P-wave amplitude allows, manufacturer far-field rejection algorithms, and lead repositioning as a last resort."
+ },
+ "cas-egmp-016": {
+  "question": "Remote monitoring alert on a Tuesday morning: an 84-year-old man with a single-chamber VVI pacemaker at 60 bpm implanted 9 years ago for complete AV block. The impedance of the bipolar ventricular lead has fallen from 620 to 240 Ω in 10 days; several \"noise\" episodes have been recorded, including this one. Reached by phone, he reports two brief dizzy spells this week. What is the most appropriate course of action?",
+  "options": [
+   "Same-day visit, protective reprogramming, then lead revision",
+   "Request a new transmission in 1 month to confirm the trend",
+   "Lower the pacing amplitude to limit current leakage",
+   "Reassure him: these are harmless pectoral myopotentials"
+  ],
+  "commentaires": [
+   "Correct: probable insulation breach with inhibition in a symptomatic, pacing-dependent patient: a same-day emergency.",
+   "Incorrect: waiting a month exposes him to prolonged asystole; the trend is already clear.",
+   "Incorrect: this reduces the capture margin without changing the oversensing.",
+   "Incorrect: the abrupt impedance fall and symptomatic pause are not those of simple myopotentials."
+  ],
+  "explication": "The tracing shows regular ventricular pacing (VP at 1,000 ms), then low-amplitude non-physiological signals, mainly on the RV EGM, that are sensed (VS): the device is inhibited and a 3-s pause occurs. Meanwhile, the sinus P waves visible on the far-field EGM are followed by no QRS: the patient has no escape rhythm and is pacing-dependent. Together with an abrupt fall in impedance (240 Ω, a change of more than 30%), this oversensing suggests an insulation breach of the lead, causing noise and current leakage. The patient is symptomatic: he must be seen the same day for protective reprogramming (sensitivity, configuration, or even asynchronous pacing under monitoring) and then lead revision. Good habit: noise + abnormal impedance + dependency = emergency.",
+  "aRetenir": "Noise with inhibition and a fall in impedance in a pacing-dependent patient: probable insulation breach, same-day management.",
+  "rappel": "Lead integrity: usual pacing impedance lies between about 200-300 and 1,000-1,500 Ω depending on the model; an abrupt change (> 30%) or an out-of-range value is abnormal. Low impedance: insulation breach (current leakage, noise, premature battery depletion). High impedance: conductor fracture (noise, loss of capture). In a pacing-dependent patient, oversensing causes pauses: immediate protective reprogramming is needed, followed by lead replacement, with extraction or abandonment of the old lead discussed according to the 2017 HRS consensus. The 2023 HRS remote monitoring consensus places lead abnormalities among high-priority alerts (response expected within one business day at most); in a symptomatic, pacing-dependent patient, management takes place the same day."
+ },
+ "cas-egmp-017": {
+  "question": "Operating theatre, thyroidectomy in a 79-year-old woman with a VVI pacemaker for complete AV block; no reprogramming was done before surgery. Each time monopolar diathermy is used, the monitor shows a pause; programmer telemetry records this tracing. Which measures are appropriate? (select all that apply)",
+  "options": [
+   "Stop the diathermy until pacing resumes",
+   "Magnet over the can or VOO mode for the rest of the procedure",
+   "Raise the ventricular pacing amplitude to its maximum",
+   "Short bursts and bipolar diathermy whenever possible",
+   "Lower the base rate to 40 bpm during the procedure"
+  ],
+  "commentaires": [
+   "Correct: stopping the diathermy immediately removes the inhibition.",
+   "Correct: asynchronous pacing makes the pacemaker insensitive to spurious signals.",
+   "Incorrect: the problem is inhibition by oversensing, not a capture failure.",
+   "Correct: this reduces the duration and intensity of the interference.",
+   "Incorrect: a lower rate worsens the consequences of pauses in a pacing-dependent patient."
+  ],
+  "explication": "The tracing shows regular ventricular pacing, then spurious signals on the ventricular and far-field EGMs that are sensed (VS): the pacemaker is inhibited and a 3-s pause occurs, during which the sinus P waves are not conducted. In this pacing-dependent patient operated on in the neck, a few centimetres from the can, monopolar diathermy is a classic source of electromagnetic interference. An asynchronous mode should have been planned before surgery; in theatre, the diathermy is stopped, then a magnet is applied (asynchronous response of the pacemaker) or VOO mode is programmed, and short bursts or bipolar diathermy are preferred. Pacing amplitude makes no difference. A device check is required after the procedure. Good habit: pacing-dependent patient + monopolar diathermy close to the can = asynchronous mode.",
+  "aRetenir": "Diathermy-induced inhibition in a pacing-dependent patient: stop the diathermy, then a magnet or asynchronous mode.",
+  "rappel": "2022 EHRA consensus: in a pacing-dependent patient undergoing surgery with monopolar diathermy close to the can, an asynchronous mode is needed; for a pacemaker, a magnet (asynchronous while it is in place) is favoured when the can is accessible, otherwise VOO/DOO mode is programmed. On an ICD, a magnet only suspends tachycardia therapies, without making pacing asynchronous. General measures: return pad positioned so that the current path runs away from the can, short bursts, bipolar diathermy if possible, monitoring by pulse oximetry or invasive arterial pressure, external pacing available, device check after the procedure."
+ },
+ "cas-egmp-018": {
+  "question": "Emergency department, 6 a.m.: a 71-year-old man on chronic haemodialysis who missed his session the day before. Dual-chamber pacemaker programmed DDI 60 bpm for complete AV block and paroxysmal AF; dizziness and bradycardia. Potassium 7.6 mmol/L. The RV lead, implanted 8 years ago, had a stable threshold of 0.75 V. Here is the interrogation. What is the priority?",
+  "options": [
+   "Raise the base rate to 90 bpm to compensate for lost cycles",
+   "Treat the hyperkalaemia and raise ventricular output meanwhile",
+   "Schedule surgical revision of the RV lead later today",
+   "Program VOO mode to eliminate any inhibition of pacing"
+  ],
+  "commentaires": [
+   "Incorrect: more pulses below threshold will not capture any better.",
+   "Correct: the loss of capture is functional; the cause is corrected and the patient protected in the meantime.",
+   "Incorrect: an old lead with a stable threshold is not at fault in this metabolic setting.",
+   "Incorrect: there is no oversensing; the pulses are delivered but fail to capture."
+  ],
+  "explication": "The tracing shows sinus P waves sensed at 750 ms (80 bpm), not tracked in DDI mode, and ventricular pacing at 1,000 ms. Three ventricular pulses are followed by no evoked response on the RV or far-field EGMs: this is intermittent loss of capture, with a 3-s pause because the patient has no escape rhythm. In a dialysis patient with potassium at 7.6 mmol/L and an old lead that had been stable, the rise in threshold is metabolic. The priority is to treat the hyperkalaemia (calcium gluconate, insulin-glucose, urgent dialysis) and meanwhile increase ventricular amplitude and pulse width, with external pacing available. The threshold will be rechecked after correction. Good habit: in late loss of capture, look first for a metabolic or drug-related cause.",
+  "aRetenir": "Loss of capture in a hyperkalaemic dialysis patient: correct the potassium and raise output in the meantime.",
+  "rappel": "Causes of loss of capture: early (lead dislodgement or perforation), late (fibrosis, exit block, fracture or insulation breach), functional (hyperkalaemia, acidosis, hypoxia, class IC antiarrhythmic drugs) and programming-related (output too low, failure of an automatic algorithm). Hyperkalaemia, usually above 7 mmol/L, raises capture thresholds, widens the paced QRS and can prolong the latency between the pulse and the response. Usual safety margin: twice the threshold in amplitude or three times in pulse width."
+ },
+ "cas-egmp-019": {
+  "question": "Scheduled check: a 68-year-old woman with a dual-chamber pacemaker in DDI 60 bpm for complete AV block and paroxysmal AF; flecainide 200 mg/day started 3 weeks ago by a colleague (normal LVEF, normal coronary arteries). Ventricular threshold 3.0 V/0.4 ms (0.8 V one month earlier); impedance, R-wave amplitude and chest X-ray unchanged; battery longevity 8 years. Tracing below. What is your interpretation and management?",
+  "options": [
+   "Ventricular undersensing: ventricular sensitivity to be increased",
+   "Lead dislodgement: surgical revision without delay",
+   "Flecainide effect: raise output and review the drug",
+   "Battery depletion: generator replacement to be scheduled soon"
+  ],
+  "commentaires": [
+   "Incorrect: the problem is the absence of an evoked response after the pulse, not sensing.",
+   "Incorrect: impedance, R wave and X-ray are unchanged and the lead is chronic.",
+   "Correct: class IC antiarrhythmic drugs raise thresholds; output is secured and the drug reconsidered.",
+   "Incorrect: the battery has 8 years' longevity, and depletion does not cause loss of capture at a constant output."
+  ],
+  "explication": "The tracing shows ventricular pacing at 1,000 ms in DDI, with sensed P waves not tracked; three pulses are followed by no evoked response, with a 3-s pause in this patient without an escape rhythm. The threshold has almost quadrupled in a month although the lead is chronic and impedance, R wave and X-ray are stable: the most likely cause is drug-related. Flecainide, like other class IC antiarrhythmic drugs, raises pacing thresholds, especially at high doses. Management is to secure a safety margin immediately (increased output) and to discuss with the prescriber a dose reduction or another strategy, then recheck the threshold. Good habit: starting an antiarrhythmic drug in a paced patient warrants a threshold check.",
+  "aRetenir": "Recent threshold rise on a stable chronic lead: think of drugs (class IC) or a metabolic cause.",
+  "rappel": "Class IC antiarrhythmic drugs (flecainide, propafenone) raise pacing thresholds in a dose-dependent way; other functional causes are hyperkalaemia, acidosis, hypoxia and myocardial ischaemia. A late rise with unchanged impedance, R-wave amplitude and X-ray points to a functional rather than mechanical cause. In a pacing-dependent patient, the safety margin must be restored without delay: twice the threshold in amplitude or three times in pulse width. Automatic capture management algorithms adjust the output but do not remove the need to identify the cause."
+ },
+ "cas-egmp-020": {
+  "question": "Friday 5 p.m., remote monitoring alert \"high ventricular capture threshold\" in an 88-year-old woman with a dual-chamber pacemaker in DDI 60 bpm for complete AV block; RV lead implanted 5 weeks ago. Transmitted episode below. Reached by phone, she says she feels \"a bit tired\". What is the appropriate course of action?",
+  "options": [
+   "Wait for Monday's transmission, as fatigue is non-specific",
+   "Advise her to have an ECG done by her GP within the week",
+   "Order a 24-hour Holter ECG to quantify the capture failures",
+   "See her today: thresholds, X-ray and revision if needed"
+  ],
+  "commentaires": [
+   "Incorrect: waiting three days exposes her to prolonged asystole.",
+   "Incorrect: the diagnosis is already made; the correction is what is urgent.",
+   "Incorrect: quantifying is pointless; capture must be restored.",
+   "Correct: loss of capture with pauses in a pacing-dependent patient with a recent lead: urgent assessment."
+  ],
+  "explication": "The EGM shows P waves sensed at 750 ms, not tracked in DDI, and ventricular pacing at 1,000 ms, with three pulses followed by no evoked response. Two consecutive capture failures produce a 3-s pause, with no escape rhythm: the patient is pacing-dependent. Five weeks after implantation, the most likely cause is dislodgement or micro-dislodgement of the RV lead. This kind of alert in a pacing-dependent patient is handled the same day: a clinic visit to measure thresholds, maximum output programmed meanwhile, chest X-ray and lead revision if it has moved. Good habit: remote monitoring is only valuable if the organisation allows same-day action on critical alerts.",
+  "aRetenir": "Loss of capture in a pacing-dependent patient on remote monitoring: a critical alert, managed the same day.",
+  "rappel": "2023 HRS consensus on remote monitoring: each clinic defines a pathway for triaging alerts by severity; high-priority alerts (lead malfunction, ICD therapies, battery end of service) call for a response within one business day at most. The actual timeframe depends on the clinical context: loss of capture in a pacing-dependent patient, all the more so if symptomatic, requires contact and action the same day, without waiting for the weekend to pass. Lead dislodgement occurs mainly in the first weeks (more often for the atrial lead); it combines a rise in threshold, sometimes a fall in sensed amplitude or a change in impedance, and is confirmed by chest X-ray."
+ },
+ "cas-egmp-021": {
+  "question": "The day after implantation of a DDD pacemaker in a 58-year-old athletic man with paroxysmal AV block and known retrograde VA conduction. Programming: sensed AV delay 150 ms, PVARP 200 ms without post-PVC extension, maximum tracking rate 120 bpm. This episode occurred overnight. Which programming corrects the mechanism while preserving atrial tracking on exertion?",
+  "options": [
+   "PVARP of 300 ms, giving a total atrial refractory period of 450 ms",
+   "PVARP of 400 ms, for maximum margin against retrograde conduction",
+   "Maximum tracking rate lowered to 100 bpm, PVARP unchanged",
+   "Sensed AV delay shortened to 100 ms, PVARP unchanged"
+  ],
+  "commentaires": [
+   "Correct: the PVARP exceeds the measured VA interval (240 ms) with a margin, and 2:1 block stays above 120 bpm (133 bpm).",
+   "Incorrect: with a 550-ms total refractory period, 2:1 block would occur from 109 bpm, below the maximum tracking rate.",
+   "Incorrect: the loop would persist, simply at 100 bpm.",
+   "Incorrect: the AV delay does not change sensing of the retrograde P wave, which falls after the PVARP."
+  ],
+  "explication": "The tracing starts with a normal AS-VP cycle, then a PVC (VS with no preceding P wave) is conducted retrogradely: a retrograde P wave with a different morphology is sensed (AS) 240 ms later, thus beyond a 200-ms PVARP. It triggers a VP, limited by the maximum tracking rate (V-V at 500 ms, i.e. 120 bpm), which is itself conducted retrogradely, and the loop sustains itself with a fixed VA interval of 240 ms: this is pacemaker-mediated tachycardia. The correction is a PVARP longer than the VA interval with a margin of about 50 ms, i.e. 300 ms. The total atrial refractory period must be checked: 150 + 300 = 450 ms, i.e. 2:1 block at 133 bpm, above the maximum tracking rate; a PVARP of 400 ms would create 2:1 block at 109 bpm in this athlete. Post-PVC PVARP extension and the PMT algorithm are also enabled. Good habit: measure the VA interval on the EGM before choosing the PVARP.",
+  "aRetenir": "Pacemaker-mediated tachycardia: PVARP > measured VA interval with a margin, checking that the 2:1 block point stays above the maximum tracking rate.",
+  "rappel": "Pacemaker-mediated tachycardia requires retrograde VA conduction, an event that dissociates atrium and ventricle (PVC, loss of atrial capture or atrial undersensing, noise) and a retrograde P wave sensed outside the PVARP. It runs at the maximum tracking rate, or below it if the VA interval is long, with a fixed VA interval. Prevention: PVARP longer than the VA interval (margin of about 50 ms), post-PVC PVARP extension, PMT algorithms that recognise a few cycles at the maximum tracking rate with a stable VA interval and then extend the PVARP or withhold a VP. The total atrial refractory period (AV delay + PVARP) sets the 2:1 block point: 60,000 / TARP."
+ },
+ "cas-egmp-022": {
+  "question": "Remote monitoring: \"prolonged ventricular pacing at the maximum rate\" alert in an 80-year-old woman with a DDD pacemaker (maximum tracking rate 120 bpm), with no PMT algorithm enabled. Which features of this EGM point to pacemaker-mediated tachycardia rather than tracking of sinus tachycardia? (select all that apply)",
+  "options": [
+   "Onset with a sensed ventricular event not preceded by a P wave",
+   "A fixed VP-AS interval from cycle to cycle, of about 240 ms",
+   "A P wave whose morphology differs from the initial sinus P wave on the A EGM",
+   "A gradual acceleration of the atrial rate before the plateau",
+   "P waves sensed in the refractory period (AR) between paced beats"
+  ],
+  "commentaires": [
+   "Correct: a PVC is the classic trigger of the loop.",
+   "Correct: a fixed VA interval reflects retrograde conduction, whereas sinus tracking has no fixed link to the preceding VP.",
+   "Correct: the retrograde P wave has a different polarity from the sinus P wave on the atrial EGM.",
+   "Incorrect: a gradual onset suggests sinus tachycardia instead; here the onset is abrupt.",
+   "Incorrect: there is no AR on this tracing; every P wave is sensed and tracked."
+  ],
+  "explication": "Reading the EGM: a first sinus AS-VP cycle, then a PVC marked VS with no preceding P wave. 240 ms later, a P wave of inverted polarity is sensed (AS): this is a retrograde P wave. It triggers a VP delayed by the maximum tracking rate (V-V 500 ms), and each VP is followed, again 240 ms later, by a new retrograde P wave. Abrupt onset with a PVC, a fixed VA interval, retrograde P-wave morphology and pacing at the maximum rate characterise pacemaker-mediated tachycardia. Tracked sinus tachycardia would start gradually, with sinus P waves bearing no fixed relationship to the preceding VP. Management: extend the PVARP beyond the VA interval, enable post-PVC PVARP extension and the PMT algorithm, then check for recurrence at the next transmission.",
+  "aRetenir": "Pacemaker-mediated tachycardia: onset with a PVC, fixed VA interval, retrograde P wave and pacing at the maximum tracking rate.",
+  "rappel": "When the ventricle is paced at the maximum tracking rate, three diagnoses must be distinguished: tracking of sinus tachycardia (gradual onset, sinus P waves), tracking of an atrial arrhythmia before or without mode switching (rapid, often irregular atrial activity) and pacemaker-mediated tachycardia (onset with a PVC or loss of AV synchrony, retrograde P waves, fixed VA interval). Manufacturers' PMT algorithms test the hypothesis by changing the AV delay or extending the PVARP after a few suspicious cycles: an unchanged VA interval confirms retrograde conduction."
+ },
+ "cas-egmp-023": {
+  "question": "Annual check of a DDD pacemaker in a 69-year-old man; the ventricular safety pacing counter is abnormally high. You record this tracing. Which of the following can trigger ventricular safety pacing? (select all that apply)",
+  "options": [
+   "Sensing of the atrial pacing artefact by the ventricular channel",
+   "A PVC occurring just after atrial pacing, within the safety window",
+   "A sinus P wave sensed during the post-ventricular atrial refractory period",
+   "Loss of ventricular capture after the preceding VP",
+   "A QRS conducted after an intrinsic PR interval of 200 ms"
+  ],
+  "commentaires": [
+   "Correct: this is the crosstalk seen here, 25 ms after the AP, on one cycle in three.",
+   "Correct: the device cannot tell a true early PVC from crosstalk; it paces at a short AV delay for safety.",
+   "Incorrect: an atrial event in the PVARP is marked AR and does not act on the ventricular channel.",
+   "Incorrect: safety pacing follows ventricular sensing after an AP, not loss of capture.",
+   "Incorrect: a QRS at 200 ms falls well after the safety window (about 100-110 ms) and simply inhibits the VP."
+  ],
+  "explication": "The tracing shows sequential AP-VP pacing at 1,000 ms with an AV delay of 180 ms. On one cycle in three, a small signal appears on the RV EGM 25 ms after the AP and is marked VS: the VP is then delivered at 110 ms, with the SV marker. Any ventricular event sensed in the window following the AP (after ventricular blanking) triggers this short-AV-delay pacing. Two causes are possible: crosstalk (the atrial artefact seen by the V channel, as here with fixed coupling and no intrinsic QRS) or a true early PVC. In the first case, safety pacing prevents ventricular inhibition that could lead to asystole; in the second, the VP falls in the refractory period of the QRS harmlessly. Good habit: frequent VSP calls for a search for crosstalk and its correction (atrial output, polarity, ventricular sensitivity, blanking).",
+  "aRetenir": "Any ventricular sensing in the window after the AP triggers a safety VP at a short AV delay: crosstalk or an early PVC.",
+  "rappel": "Crosstalk is sensing of atrial pacing by the ventricular channel. It is favoured by high atrial output, unipolar atrial pacing, high ventricular sensitivity, a short ventricular blanking period and close lead proximity. In a pacing-dependent patient it inhibits ventricular pacing and can cause asystole. Safeguards: ventricular blanking after the AP (about 20 to 50 ms), then a safety pacing window (about 100 to 110 ms) in which any sensed event triggers a VP at a short AV delay (100 to 120 ms). Corrections: lower atrial output, bipolar pacing, reduced ventricular sensitivity, longer blanking."
+ },
+ "cas-egmp-024": {
+  "question": "Remote monitoring: a 66-year-old woman with a DDD pacemaker implanted 6 weeks ago for complete AV block (atrial sensitivity 1.0 mV). The automatically measured P-wave amplitude has fallen from 2.8 mV at implantation to 0.6 mV, and the atrial threshold has risen from 0.7 to 2.5 V. Transmitted EGM below. What do you propose?",
+  "options": [
+   "Program atrial sensitivity to 0.3 mV and leave it at that",
+   "Prompt visit and chest X-ray: suspected lead dislodgement",
+   "Permanently program VVI mode at 60 bpm, without atrial tracking",
+   "Wait for the interface to mature until the 3-month check"
+  ],
+  "commentaires": [
+   "Incorrect: this treats a symptom without investigating a probable mechanical cause.",
+   "Correct: a fall in P-wave amplitude and rising threshold at 6 weeks: the lead position must be checked.",
+   "Incorrect: this abandons AV synchrony without identifying the cause.",
+   "Incorrect: maturation does not explain such a marked fall at 6 weeks, and competitive pacing exposes her to AF."
+  ],
+  "explication": "The tracing shows sinus rhythm faster than the base rate, of which only about one P wave in three is sensed (AS followed by a VP); the other, low-amplitude P waves carry no marker. The device does not reset its atrial timing and delivers competitive APs at the base rate, sometimes without capture because the atrium has just depolarised. Every atrial event is followed by a VP, since the patient has complete AV block. Six weeks after implantation, the fall in P-wave amplitude and the rise in atrial threshold suggest atrial lead dislodgement. A prompt clinic visit with chest X-ray is needed and, if the lead has moved, a revision; meanwhile, atrial sensitivity and output can be increased. Good habit: simultaneous deterioration of sensing and threshold in the first weeks is mechanical until proven otherwise.",
+  "aRetenir": "Atrial undersensing with a rising threshold in the first weeks: suspect lead dislodgement and check for it.",
+  "rappel": "At implantation, a P-wave amplitude of at least 1.5 to 2 mV is sought; bipolar atrial sensitivity is usually programmed between 0.3 and 0.5 mV, with a margin relative to the smallest measured P wave. Atrial undersensing causes competitive atrial pacing (risk of triggering AF when the AP falls in the vulnerable period) and loss of AV synchrony. Lead dislodgement occurs mainly in the first weeks, more often for the atrial lead; it combines a fall in sensed amplitude, a rise in threshold and sometimes a change in impedance, and is confirmed by chest X-ray."
+ },
+ "cas-egmp-025": {
+  "question": "Day hospital: a 74-year-old man with a DDD pacemaker (atrial sensitivity 1.0 mV) for complete AV block, with a chronic atrial lead. Electrical cardioversion of persistent AF 20 minutes ago restored sinus rhythm. Interrogation shows this tracing; thresholds unchanged, P-wave amplitude measured at 0.7 mV (1.8 mV before the AF episode). What do you do?",
+  "options": [
+   "Increase atrial output to capture the atrium more reliably",
+   "Deliver another shock, since competitive pacing indicates persistent AF",
+   "Atrial sensitivity to 0.3-0.5 mV, checking for far-field sensing",
+   "Program VVI mode at 60 bpm until the next annual check"
+  ],
+  "commentaires": [
+   "Incorrect: better-captured competitive APs would be more likely to restart AF.",
+   "Incorrect: the patient is in sinus rhythm; the APs fall amid poorly sensed sinus rhythm.",
+   "Correct: this restores sensing of the small P waves without sensing the R wave at a distance.",
+   "Incorrect: AV synchrony would be lost in a patient with complete AV block for a correctable problem."
+  ],
+  "explication": "The tracing shows sinus rhythm whose low-amplitude P waves are sensed only one time in three: the device delivers competitive APs at the base rate, some of which fail to capture because they fall just after a P wave. After prolonged AF and cardioversion, P-wave amplitude can be transiently reduced (atrial stunning, remodelling). With a 0.7-mV P wave and a sensitivity of 1.0 mV, undersensing is expected. Competitive APs can fall in the atrial vulnerable period and restart AF: sensing must be made more sensitive, for example 0.3 to 0.5 mV, checking that no far-field ventricular signal is then sensed, and the P-wave amplitude reviewed later. Increasing atrial output or switching to VVI does not correct the problem. Good habit: after cardioversion, check atrial sensing before the patient goes home.",
+  "aRetenir": "Reduced P waves after cardioversion: adjust atrial sensitivity to avoid proarrhythmic competitive pacing.",
+  "rappel": "Sensitivity (in mV) is the threshold above which a signal is sensed: a lower value makes the channel more sensitive. It is programmed with a margin of about 2 to 3 relative to the smallest measured amplitude. With atrial undersensing in DDD, atrial timing is not reset: APs are delivered at the base rate regardless of sinus rhythm, sometimes without capture (refractory atrium), sometimes in the vulnerable period with a risk of AF. Making the channel more sensitive exposes it to far-field ventricular sensing, which must be looked for after any change."
+ },
+ "cas-egmp-026": {
+  "question": "Cardiac rehabilitation exercise test: a 55-year-old man with a DDD pacemaker for post-surgical complete AV block; maximum tracking rate 120 bpm, fixed (non-dynamic) sensed AV delay 150 ms, PVARP 150 ms. The tracing is recorded as the sinus rate reaches 135 bpm, and exercise continues. What will happen if the sinus rate reaches 160 bpm?",
+  "options": [
+   "Abrupt 2:1 block, with a ventricular rate of about 80 bpm",
+   "Mode switch to a non-tracking mode, at the sensor rate",
+   "1:1 tracking at 160 bpm, the maximum tracking rate being exceeded on exertion",
+   "Continued pacemaker Wenckebach, ventricle capped at 120 bpm"
+  ],
+  "commentaires": [
+   "Incorrect: the TARP is 150 + 150 = 300 ms, giving a 2:1 block point of 200 bpm, well above 160 bpm (375 ms).",
+   "Incorrect: sinus tachycardia at 160 bpm remains below usual mode-switch criteria, which target rapid atrial arrhythmias.",
+   "Incorrect: the device never paces the ventricle faster than the maximum tracking rate.",
+   "Correct: between the maximum tracking rate (120 bpm) and the 2:1 block point (200 bpm), the ventricle stays capped at 120 bpm, with P waves periodically not tracked."
+  ],
+  "explication": "On the tracing, the sinus P waves arrive every 444 ms (135 bpm) but the VPs cannot be closer than 500 ms (120 bpm): the AS-VP interval lengthens from cycle to cycle (150, 206, 261, then 317 ms) until a P wave falls in the PVARP (AR) and is not tracked. This is pacemaker Wenckebach. It persists as long as the sinus rate stays between the maximum tracking rate and the 2:1 block point, set by the total atrial refractory period (TARP): 150 + 150 = 300 ms, i.e. 200 bpm. At 160 bpm (375 ms), the rate is still within this zone: the ventricle stays at 120 bpm and the proportion of untracked P waves increases. Atrium and ventricle become increasingly dyssynchronous, which limits exercise capacity; in this active patient, the maximum tracking rate is raised according to age and tolerance and a dynamic AV delay is enabled. Mode switching does not target sinus tachycardia, and the device never exceeds the maximum tracking rate. Good habit: calculate the 2:1 block point (60,000 / TARP) and compare it with the highest expected sinus rate.",
+  "aRetenir": "Between the maximum tracking rate and the 2:1 block point (60,000 / TARP), pacemaker Wenckebach caps the ventricle at the maximum tracking rate.",
+  "rappel": "Upper rate behaviour in DDD: the total atrial refractory period (TARP = AV delay + PVARP) sets the 2:1 block point (60,000 / TARP). If the maximum tracking rate interval is longer than the TARP, a pacemaker Wenckebach zone exists between the maximum tracking rate and the 2:1 block point; beyond it, block becomes 2:1. If the TARP is equal to or longer than that interval, 2:1 block occurs straight away. A dynamic AV delay and adaptive PVARP shorten the TARP on exertion and push the 2:1 block point higher. Example: AV delay 150 ms + PVARP 150 ms = 300 ms, 2:1 block point at 200 bpm; with a maximum tracking rate of 120 bpm, the Wenckebach zone extends from 120 to 200 bpm."
+ },
+ "cas-egmp-027": {
+  "question": "A 41-year-old female cyclist with a DDD pacemaker for congenital complete AV block; maximum tracking rate 120 bpm, sensed AV delay 150 ms, PVARP 150 ms. Tracing recorded on a home trainer. After an episode of pacemaker-mediated tachycardia, a colleague proposes increasing the PVARP to 350 ms. Statement: this change will not alter her behaviour on exertion.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: the PVARP is part of the total atrial refractory period, which sets the 2:1 block point.",
+   "Correct: the TARP goes from 300 to 500 ms, 2:1 block occurs from 120 bpm and the Wenckebach zone disappears."
+  ],
+  "explication": "The tracing shows pacemaker Wenckebach: sinus at 444 ms (135 bpm), VPs capped at 500 ms (120 bpm), progressive lengthening of AS-VP and then an untracked P wave (AR). With 150 + 150 ms, the total atrial refractory period is 300 ms (2:1 block point at 200 bpm): between 120 and 200 bpm, the ventricle stays at 120 bpm. With a 350-ms PVARP it would become 500 ms, i.e. a 2:1 block point at 120 bpm, identical to the maximum tracking rate: as soon as the sinus rate exceeds 120 bpm, every other P wave falls in the PVARP and the ventricular rate drops to 60-70 bpm at peak exercise. To prevent pacemaker-mediated tachycardia in this athlete, post-PVC PVARP extension, the PMT algorithm and a PVARP just longer than the measured VA interval are preferable, combined with a dynamic AV delay. Good habit: check every PVARP change against the 2:1 block point.",
+  "aRetenir": "Lengthening the PVARP lowers the 2:1 block point and can abolish the Wenckebach zone in an active patient.",
+  "rappel": "2:1 block point = 60,000 / (AV delay + PVARP). Example: 150 + 150 = 300 ms → 200 bpm; 150 + 350 = 500 ms → 120 bpm. When this point meets the maximum tracking rate, the pacemaker Wenckebach zone disappears and 2:1 block occurs abruptly as soon as the sinus rate exceeds the maximum tracking rate. In young, active patients, a high maximum tracking rate, a dynamic AV delay and a short or adaptive PVARP are programmed, and pacemaker-mediated tachycardia is prevented by post-PVC PVARP extension and dedicated algorithms rather than by a permanently long PVARP."
+ },
+ "cas-egmp-028": {
+  "question": "CRT-P in a 68-year-old man (dilated cardiomyopathy, LBBB). Biventricular pacing 84%; Holter shows 16% monomorphic PVCs. The field engineer suggests enabling the feature that delivers LV (or BiV) pacing triggered immediately by each sensed ventricular event. What can be expected?",
+  "options": [
+   "A higher displayed BiV percentage, without resynchronising the PVCs",
+   "Suppression of the PVCs through faster pacing",
+   "A risk of pacemaker-mediated tachycardia at the maximum tracking rate",
+   "Full resynchronisation of the PVCs, making their treatment unnecessary"
+  ],
+  "commentaires": [
+   "Correct: triggered pulses are counted as paced, without correcting the PVC's ventricular activation.",
+   "Incorrect: triggered pacing does not change the rate and does not suppress ectopy.",
+   "Incorrect: this triggered mode, limited by the maximum rate, does not create a retrograde loop.",
+   "Incorrect: the pulse arrives when ectopic activation is already under way; the effect is partial at best."
+  ],
+  "explication": "The tracing shows sensed sinus P waves followed by biventricular pacing (BV) 120 ms later; on one cycle in three, a PVC occurs 90 ms after the P wave, with a different morphology on the RV and far-field EGMs, and is marked VS: this cycle is not resynchronised. Ventricular sense-triggered pacing features deliver an LV or BiV pulse a few milliseconds after the VS. By then the PVC's activation is already under way: pacing can at best modify part of it, while the device counts these cycles as paced, inflating the displayed percentage. The real aim is to reduce the PVCs (correction of precipitating factors, antiarrhythmic drug, ablation) to exceed 98% effective BiV pacing. Good habit: a BiV pacing percentage is a pulse counter, not a measure of resynchronisation.",
+  "aRetenir": "Ventricular sense-triggered pacing inflates the BiV % without resynchronising the PVCs: the PVCs must be treated.",
+  "rappel": "The benefit of CRT depends on almost permanent biventricular pacing: in the Hayes analysis (2011), the lowest mortality was seen above 98% BiV pacing. Causes of loss: conducted AF, PVCs, an AV delay longer than intrinsic conduction, atrial undersensing, a sinus rate above the maximum tracking rate, loss of LV capture. Counters count pulses, not effective capture: fusion, pseudofusion and triggered pacing overestimate it. ESC 2022 (ventricular arrhythmias): in a CRT non-responder whose optimal BiV pacing is limited by frequent, predominantly monomorphic PVCs despite pharmacological therapy, catheter ablation or an antiarrhythmic drug should be considered (class IIa)."
+ },
+ "cas-egmp-029": {
+  "question": "A 72-year-old woman with a CRT-P (LVEF 30%) calls the remote monitoring nurse: 3 kg weight gain in 10 days and ankle oedema. The transmission she sends shows 70% biventricular pacing (98% three months earlier) and this EGM. What management do you propose?",
+  "options": [
+   "Shorten the AV delay so that BiV pacing pre-empts the PVCs",
+   "Adjust diuretics and look for the cause of the PVCs in order to treat them",
+   "Schedule a routine visit in 6 months for reassessment",
+   "Reassure her: BiV pacing remains predominant and is enough to resynchronise"
+  ],
+  "commentaires": [
+   "Incorrect: the PVCs do not depend on AV conduction; a very short AV delay would impair filling.",
+   "Correct: congestion is treated along with the cause of lost resynchronisation (potassium, magnesium, ischaemia, drugs).",
+   "Incorrect: decompensation with loss of resynchronisation cannot wait 6 months.",
+   "Incorrect: 70% BiV pacing is far too low and the patient is decompensating."
+  ],
+  "explication": "The EGM shows sinus rhythm with biventricular pacing 120 ms after each P wave, except on one cycle in three where a PVC occurs 90 ms after the P wave, with a different morphology, and inhibits pacing (VS): about a third of cycles are no longer resynchronised, consistent with the 70% displayed. The clinical decompensation is probably a consequence and itself promotes PVCs. Management combines diuretic adjustment, a search for precipitating factors (hypokalaemia, hypomagnesaemia, ischaemia, drugs) and a plan to reduce the PVCs: therapy optimisation, an antiarrhythmic drug (amiodarone), or ablation if they persist. Close follow-up checks the return to BiV pacing close to 100%. Good habit: any fall in BiV percentage in a decompensating patient is an alert to act on.",
+  "aRetenir": "Decompensation with loss of BiV pacing due to PVCs: treat the congestion and the PVCs, not just the programming.",
+  "rappel": "Remote monitoring of CRT follows the biventricular pacing percentage, arrhythmia burden, heart rate and, depending on the device, heart failure indices (thoracic impedance, activity, composite scores). A fall in BiV percentage (target > 98%) should prompt a search for its cause on the EGM: PVCs, conducted AF, AV conduction faster than the AV delay, loss of LV capture. The 2023 HRS consensus stresses that these alerts should be managed in coordination with the team caring for the patient's heart failure."
+ },
+ "cas-egmp-030": {
+  "question": "CRT-P clinic: a 74-year-old man in sinus rhythm, sensed AV delay 120 ms, biventricular pacing 66%. The resident proposes shortening the AV delay to 80 ms. Statement: on this tracing, the cycles marked VS are premature ventricular contractions and not intrinsically conducted beats; shortening the AV delay would not restore biventricular pacing.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: a VS 90 ms after the P wave, with a different morphology and on only one cycle in three, is a PVC, not AV conduction.",
+   "Incorrect: AV conduction faster than the AV delay would give a VS on every cycle, with a conducted morphology."
+  ],
+  "explication": "The tracing shows regular sinus P waves followed by BiV pacing at 120 ms. On one cycle in three, the ventricular event occurs only 90 ms after the P wave, with a different electrogram morphology on the RV and far-field EGMs: this is a PVC. Intrinsic AV conduction faster than the AV delay would be seen on every cycle, with a constant PR and a conducted morphology. Shortening the AV delay to 80 ms would not suppress a PVC that is independent of conduction and would impair the atrial contribution. The solution lies in reducing the PVCs. Good reading habit: when a VS inhibits BiV pacing, look at its coupling to the P wave, its regularity and its morphology.",
+  "aRetenir": "An irregular, early VS with a different morphology is a PVC: the AV delay cannot fix it.",
+  "rappel": "Loss of BiV pacing in sinus rhythm: if the VS occurs on every cycle with a constant PR and a conducted morphology, AV conduction is pre-empting the programmed AV delay and a shorter AV delay (or an adaptive algorithm) corrects it. If the VS is intermittent, early and of different morphology, these are PVCs, to be treated by correcting precipitating factors, an antiarrhythmic drug or ablation. The optimal AV delay in CRT remains a compromise between complete BiV capture and left ventricular filling."
+ },
+ "cas-egmp-031": {
+  "question": "A 77-year-old man with a CRT-P for ischaemic cardiomyopathy (LVEF 28%) and permanent AF. Despite bisoprolol 10 mg and digoxin, biventricular pacing plateaus at 86% and he remains in NYHA class III. Here is an EGM from the latest transmission. Which strategy is most relevant?",
+  "options": [
+   "Electrical cardioversion to restore sinus rhythm",
+   "Base rate raised to 90 bpm to pace more often",
+   "AV junction ablation to achieve almost permanent BiV pacing",
+   "BiV pacing triggered by every sensed ventricular event"
+  ],
+  "commentaires": [
+   "Incorrect: the AF is permanent; an isolated cardioversion has no chance of a lasting result.",
+   "Incorrect: faster pacing does not suppress short conducted cycles and needlessly speeds up the heart.",
+   "Correct: this is the only way to achieve BiV pacing close to 100% in poorly controlled permanent AF.",
+   "Incorrect: it inflates the counter without truly resynchronising the conducted cycles."
+  ],
+  "explication": "The atrial EGM shows AF (rapid, disorganised activity); ventricular cycles are irregular and short, sensed (VS) and conducted by the AV node. BiV pacing appears only after the longest cycles, when the device has time to pace. Despite maximal rate-control therapy, 86% BiV pacing remains well below the 98% target, and the patient is not responding. The 2021 ESC guidelines propose AV junction ablation in a CRT patient with AF when BiV pacing remains incomplete (< 90-95%) despite medical therapy; it makes the patient pacing-dependent but guarantees permanent resynchronisation. Cardioversion makes no sense in permanent AF, and triggered pacing is merely a counting artefact. Good habit: in AF, a BiV percentage < 98% deserves to be explained and corrected.",
+  "aRetenir": "CRT in permanent AF with incomplete BiV pacing despite medical therapy: AV junction ablation.",
+  "rappel": "ESC 2021: in a CRT patient with permanent AF, AV junction ablation should be considered (class IIa) when biventricular pacing remains incomplete (< 90-95%) despite rate-control therapy. The benefit of CRT is greatest above 98% BiV pacing (Hayes 2011). In AF, counters overestimate effective resynchronisation, because fusion and pseudofusion with conducted cycles are counted as paced. After junction ablation the patient is pacing-dependent: the base rate is often temporarily programmed higher (for example 80-90 bpm) for the first weeks."
+ },
+ "cas-egmp-032": {
+  "question": "CRT-P in an 80-year-old woman with permanent AF, still in NYHA class III six months after implantation. The counter shows 93% biventricular pacing and her GP concludes that \"resynchronisation is working\". You analyse this EGM. Which statements are correct? (select all that apply)",
+  "options": [
+   "Some BiV paced events may be fusion or pseudofusion with conducted cycles",
+   "A BiV counter > 90% guarantees effective resynchronisation in AF",
+   "A Holter ECG allows better quantification of true BiV capture",
+   "Ventricular rate regularisation removes the need for rate control in AF"
+  ],
+  "commentaires": [
+   "Correct: in AF, a pulse may fall while a conducted QRS is already under way and still be counted as BiV.",
+   "Incorrect: the counter counts pulses, not effective capture; in AF it overestimates resynchronisation.",
+   "Correct: QRS morphology analysis on a Holter reveals fusion and pseudofusion.",
+   "Incorrect: these algorithms increase pacing slightly but replace neither rate control nor junction ablation."
+  ],
+  "explication": "The EGM shows AF with irregular ventricular cycles: the shortest are conducted and sensed (VS), with BiV pacing appearing only after the longest cycles. Even when the counter shows a high percentage, some \"BiV\" cycles occur just as AV conduction reaches the ventricle: this produces fusion (shared activation) or pseudofusion (a pulse with no effect on an already formed QRS), counted as paced. In a non-responder, effective capture must be checked, for example with a Holter ECG analysing QRS morphology, and AV junction ablation considered if true resynchronisation is insufficient. Ventricular rate regularisation algorithms modestly increase pacing but do not remove the need for rate control. Good habit: in AF, be wary of a good percentage in a non-responder.",
+  "aRetenir": "In AF, the BiV counter overestimates resynchronisation: check true capture in a non-responder.",
+  "rappel": "The BiV pacing percentage displayed by the device counts delivered pulses, not effective capture. In conducted AF, some pulses produce fusion or pseudofusion with conducted cycles, so a counter at 90-95% can correspond to much lower effective resynchronisation. The 12-lead ECG and Holter monitoring (analysis of paced QRS complexes) allow capture to be checked. ESC 2021: AV junction ablation should be considered (class IIa) in CRT recipients with AF whose BiV pacing remains incomplete despite medical therapy."
+ },
+ "cas-egmp-033": {
+  "question": "The GP calls you: the Holter ECG of an 81-year-old woman with a dual-chamber pacemaker (AAI↔DDD-type ventricular pacing reduction algorithm, implanted for sinus node dysfunction, known first-degree AV block) shows about ten asymptomatic 1.5-s \"pauses\" per day. Interrogation retrieves this tracing. Statement: this is a pacemaker malfunction and the algorithm must be switched off.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Incorrect: the algorithm deliberately tolerates one non-conducted P wave before delivering a backup VP.",
+   "Correct: this is the intended behaviour; an asymptomatic pause does not justify abandoning the algorithm."
+  ],
+  "explication": "The tracing shows P waves sensed at 857 ms (70 bpm) conducted with a long PR of 240 ms (VS), the algorithm allowing intrinsic conduction to express itself. One P wave is not conducted, with no ventricular pacing: the algorithm tolerates this isolated block. On the next P wave, a backup VP is delivered 80 ms after the AS, giving a ventricular pause of about 1,550 ms, which matches the Holter \"pauses\". This is normal behaviour of AAI↔DDD-type algorithms: they switch to DDD only after several blocked P waves within a short window (for example 2 out of 4 for Medtronic's MVP algorithm). In an asymptomatic patient, the benefit of reducing RV pacing prevails. The algorithm is reconsidered if symptoms, longer pauses occur, or in an ICD recipient with a history of VT triggered by short-long sequences. Good habit: read the markers before calling programmed behaviour a \"pause\".",
+  "aRetenir": "AAI↔DDD algorithm: an isolated blocked P wave followed by a backup VP is normal behaviour.",
+  "rappel": "AAI(R)↔DDD(R) switching algorithms operate in AAI with ventricular monitoring. In Medtronic's MVP algorithm, a P wave not followed by a ventricular event triggers a backup VP 80 ms after the next atrial event; the switch to DDD(R) occurs if 2 of the last 4 A-A intervals lack a ventricular event, with periodic conduction checks to return to AAI. Other manufacturers offer similar algorithms with their own criteria. These algorithms create expected short pauses; in ICD recipients, short-long sequences have been associated with VT, which may lead to them being switched off."
+ },
+ "cas-egmp-034": {
+  "question": "Cardiology ward: the nurse reports intermittent \"double spikes\" on the telemetry of an 83-year-old man paced for complete AV block. Interrogation of the pacemaker, which has beat-to-beat ventricular capture verification enabled, shows this tracing. Statement: the second pulse is a backup pulse delivered after loss of capture detected by the algorithm; this is expected behaviour.",
+  "options": [
+   "True",
+   "False"
+  ],
+  "commentaires": [
+   "Correct: the first pulse fails to capture, the algorithm detects it and 100 ms later delivers a backup pulse that captures.",
+   "Incorrect: this is neither noise nor inappropriate double pacing; the backup marker clearly identifies it."
+  ],
+  "explication": "The tracing shows regular atrial tracking (AS then VP at 150 ms). On two occasions, the VP is followed by no evoked response on the RV EGM; 100 ms later, a larger pulse is delivered, marked \"Backup\", and it captures. This is the principle of beat-to-beat capture verification algorithms (AutoCapture type): the device paces just above threshold, analyses the evoked response after each pulse and, if it is absent, delivers a high-energy backup pulse; repeated losses trigger a new threshold search. On an ECG or telemetry this appears as \"double spikes\". The patient is protected; it is still worth reviewing the threshold trend to detect a rise. Good habit: identify which feature is enabled before talking about malfunction.",
+  "aRetenir": "A double spike with a backup marker: loss of capture detected and corrected beat by beat, normal behaviour.",
+  "rappel": "Beat-to-beat capture verification (for example Abbott's AutoCapture) analyses the evoked response after each ventricular pulse. If there is no response, a high-energy backup pulse is delivered about a hundred milliseconds later (100 ms on this tracing); after consecutive losses, the algorithm starts a new threshold search and adjusts the output. Other algorithms (Medtronic's Capture Management, for example) measure the threshold periodically without checking every beat. Fusion can disturb evoked response analysis."
+ },
+ "cas-egmp-035": {
+  "question": "Remote monitoring: a 77-year-old man with a dual-chamber pacemaker with beat-to-beat ventricular capture verification; RV lead implanted 4 years ago. The threshold measured by the algorithm has risen from 0.75 to 2.25 V in 3 weeks and backup pulses are increasingly frequent; EGM below. Which steps are relevant? (select all that apply)",
+  "options": [
+   "Check the manual threshold in clinic and rule out fusion misleading the algorithm",
+   "Look for a cause of the threshold rise (drug, potassium, lead)",
+   "Switch off backup pulses to preserve the battery",
+   "Conclude that there is lead noise and reduce ventricular sensitivity"
+  ],
+  "commentaires": [
+   "Correct: fusion can mimic loss of capture; the manual threshold confirms or refutes the rise.",
+   "Correct: a recent rise on a chronic lead calls for a search for a functional or mechanical cause.",
+   "Incorrect: backup pulses are what protect the patient from loss of capture.",
+   "Incorrect: the tracing shows pulses without an evoked response, not sensed spurious signals."
+  ],
+  "explication": "The EGM shows two VPs without an evoked response, each followed 100 ms later by a backup pulse that captures: the algorithm is working and protecting the patient. The question is the cause of the threshold rise, from 0.75 to 2.25 V in 3 weeks on a 4-year-old lead. First, the manual threshold must be checked in clinic and fusion with conducted QRS complexes looked for, as it can wrongly suggest loss of capture. If the rise is confirmed, a functional cause (recent antiarrhythmic drug, hyperkalaemia, ischaemia) or a mechanical cause (fracture, insulation breach, with impedance and chest X-ray) is sought, and a fixed output with an adequate safety margin programmed if needed. Good habit: a capture algorithm working overtime is an alert about the threshold, not an algorithm failure.",
+  "aRetenir": "Increasingly frequent backup pulses: confirm the threshold manually and look for the cause of its rise.",
+  "rappel": "Automatic capture management algorithms adapt the output to the measured threshold and record its trend, which allows a threshold rise to be detected remotely. Their reliability depends on the quality of the evoked response: fusion, pseudofusion or polarisation artefact can distort the measurement. A confirmed rise calls for a search for a functional cause (class IC antiarrhythmic drugs, hyperkalaemia, ischaemia) or a mechanical cause (dislodgement, fracture, insulation breach). If the algorithm is unreliable, a fixed output with a margin of twice the threshold in amplitude is programmed."
+ },
+ "cas-egmp-036": {
+  "question": "A 62-year-old man with a DDD pacemaker for complete AV block, atrial lead implanted 7 years ago. Palpitations and fatigue; at interrogation, atrial lead impedance > 3,000 Ω in both bipolar and unipolar configurations, repeated episodes like this one, reproduced by manipulating the can. Reintervention is planned in 10 days. Which interim programming is safest?",
+  "options": [
+   "DDD mode kept, with less sensitive atrial sensing (4 mV)",
+   "Atrial sensing switched to a unipolar configuration",
+   "DDD mode unchanged, since mode switching already prevents tracking",
+   "VVIR mode with a base rate suited to his activity"
+  ],
+  "commentaires": [
+   "Incorrect: fracture noise is large and variable; P-wave sensing would be lost without removing the risk.",
+   "Incorrect: the impedance is also abnormal in unipolar: the tip conductor is affected.",
+   "Incorrect: tracking of noise precedes mode switching, which in any case loses AV synchrony.",
+   "Correct: the faulty atrial channel is ignored and ventricular pacing is guaranteed in this patient with complete AV block."
+  ],
+  "explication": "The tracing shows normal sinus tracking (AS-VP), then bursts of very rapid, non-physiological signals of variable amplitude on the atrial EGM only, sensed as AS and AR. The device mode switches (MS) and paces the ventricle at 1,000 ms without atrial tracking. An impedance > 3,000 Ω in both configurations and reproduction by manoeuvres indicate a conductor fracture of the atrial lead. Keeping the atrial channel active exposes him to transient tracking of noise, repeated mode switches and inhibition of atrial pacing. Less sensitive settings or switching to unipolar do not solve a fracture affecting the tip conductor. VVIR mode, which ignores the atrium, is the safest interim programming in this patient with complete AV block, at the cost of a temporary loss of AV synchrony. Good habit: when a channel is faulty, program a mode that no longer uses it.",
+  "aRetenir": "Atrial lead fracture in a patient with complete AV block: program a mode that ignores the atrium (VVIR) until revision.",
+  "rappel": "Signs of lead fracture: non-physiological signals (very short intervals, variable amplitude, saturation), reproduced by manipulating the can or by arm movements, high impedance (above 1,500-2,000 Ω or an abrupt rise), sometimes loss of capture. An insulation breach gives low impedance instead. On an atrial lead, noise causes false atrial arrhythmia episodes, mode switches and transient rapid tracking. Management: program a mode that neutralises the affected channel, then replace the lead, with extraction or abandonment discussed according to the 2017 HRS consensus."
+ },
+ "cas-egmp-037": {
+  "question": "Remote monitoring: a 70-year-old woman with a DDD pacemaker for paroxysmal AV block. Over 4 days, 60 \"AT/AF\" episodes lasting a few seconds with mode switching. When called back, she mentions a fall onto the shoulder on the side of the can the week before. Representative EGM below. Which actions are appropriate? (select all that apply)",
+  "options": [
+   "Do not start anticoagulation on the basis of these episodes",
+   "Analyse the transmitted atrial lead impedance trend",
+   "Arrange a clinic visit with chest X-ray and provocative manoeuvres",
+   "Make atrial sensing more sensitive to count the episodes better",
+   "Start an antiarrhythmic drug to reduce the AF burden"
+  ],
+  "commentaires": [
+   "Correct: the episodes are noise artefacts, not AF.",
+   "Correct: a rise in impedance would point to a fracture, a fall to an insulation breach.",
+   "Correct: lead damage must be looked for after this trauma.",
+   "Incorrect: even more noise would be sensed.",
+   "Incorrect: there is no AF to treat."
+  ],
+  "explication": "The EGM shows tracked sinus rhythm (AS-VP) interrupted by bursts of non-physiological signals on the atrial channel only: very closely spaced spikes of variable amplitude, with no organised activity and no effect on the ventricle. The device counts them as an atrial arrhythmia (very closely spaced AS/AR) and mode switches (MS), hence the \"AT/AF\" alerts. These are not AF episodes: neither anticoagulation nor an antiarrhythmic drug should be started on this basis. The fall onto the shoulder suggests lead trauma: the impedance trend is analysed, then a clinic visit is arranged with chest X-ray and provocative manoeuvres (arm movements, manipulation of the can). Good habit: review the EGM of every atrial arrhythmia alert before any therapeutic decision.",
+  "aRetenir": "\"AF\" episodes made of atrial noise: no anticoagulation, assess the atrial lead.",
+  "rappel": "In remote monitoring, the EGM of every arrhythmia episode must be reviewed before any decision: false positives (noise, far-field sensing, interference) are common. Lead noise consists of non-physiological signals, often on a single channel, unrelated to cardiac activity, sometimes triggered by movement. Assessment includes impedance and sensed amplitude trends, chest X-ray (looking for a fracture, particularly near the clavicle) and provocative manoeuvres during recording."
+ },
+ "cas-egmp-038": {
+  "question": "The coordinating physician of a nursing home calls you: a 90-year-old resident in permanent AF has a VVI pacemaker set at 60 bpm according to his device card. Today's ECG shows AF at 52 bpm with no spikes; he fears a malfunction or battery depletion. The patient is asymptomatic. You review the latest transmission, an extract of which is shown. What do you tell him?",
+  "options": [
+   "Normal function: hysteresis programmed at 50 bpm",
+   "Intermittent oversensing causing inhibition: admit to hospital",
+   "Battery depletion lowering the base rate: replacement to be planned",
+   "Ventricular undersensing: increase ventricular sensitivity"
+  ],
+  "commentaires": [
+   "Correct: the first VP occurs after 1,200 ms (50 bpm), then pacing continues at 1,000 ms (60 bpm).",
+   "Incorrect: no spurious signal is sensed; the 1,200-ms interval is programmed.",
+   "Incorrect: pacing then resumes at 1,000 ms, proof that the base rate is intact.",
+   "Incorrect: undersensing would produce inappropriate spikes, not their absence."
+  ],
+  "explication": "The tracing shows AF with intrinsic QRS complexes sensed (VS) at 950 ms. When the rhythm slows, the first VP arrives only after 1,200 ms (50 bpm), then pacing continues at 1,000 ms (60 bpm), before the intrinsic rhythm resumes at 750 ms. This is rate hysteresis: after an intrinsic event, the device waits for a longer interval (hysteresis rate) before pacing, to let the intrinsic rhythm express itself and to save battery. AF at 52 bpm with no spikes is therefore expected; the device card simply does not mention this parameter. There is no undersensing, no oversensing and no battery depletion. Good habit: when the rate is below the base rate, think of hysteresis first, then check the programming.",
+  "aRetenir": "Intrinsic rate below the base rate with no spikes: think of hysteresis before concluding there is a malfunction.",
+  "rappel": "Rate hysteresis lengthens the escape interval after an intrinsic event: the device paces only below the hysteresis rate, then paces at the base rate for as long as the intrinsic rhythm does not reappear. It favours intrinsic rhythm and saves battery. Some devices add a periodic search for the intrinsic rhythm. Battery depletion appears as replacement indicators (ERI) and, depending on the manufacturer, as a change in mode or rate, visible at interrogation."
+ },
+ "cas-egmp-039": {
+  "question": "Three-month check of a 70-year-old woman with a DDD pacemaker (base rate 60 bpm, paced AV delay 250 ms) for sick sinus syndrome, with normal AV conduction. The resident asks why some cycles on this tracing end with ventricular pacing although conduction is normal. What do you answer?",
+  "options": [
+   "The V channel senses the atrial artefact and triggers safety pacing",
+   "No atrial capture after the AP, so nothing is conducted by 250 ms",
+   "The conduction search algorithm periodically tests the ventricle",
+   "Intermittent 2:1 AV block has appeared and requires ventricular pacing"
+  ],
+  "commentaires": [
+   "Incorrect: a safety VP would occur at about 110 ms, not 250 ms, with a dedicated marker.",
+   "Correct: APs without an atrial response are followed by no conduction; the VP arrives at the end of the AV delay.",
+   "Incorrect: no test produces this pattern; the VP follows precisely the non-capturing APs.",
+   "Incorrect: there is no blocked P wave; these cycles simply have no P wave."
+  ],
+  "explication": "The tracing shows atrial pacing at 1,000 ms. When the AP captures, a paced P wave appears on the atrial EGM and is conducted: VS 200 ms later. Three APs are followed by no atrial response: there is therefore no activation to conduct, and the device, sensing nothing on the V channel, paces the ventricle at the end of the 250-ms AV delay. This is intermittent loss of atrial capture, and the VP is merely its consequence. The correction concerns the atrium: atrial threshold measurement, output increased with an adequate margin, and a search for dislodgement if the lead is recent. For the patient, these cycles mean loss of atrial contraction and unnecessary RV pacing. Good reading habit: an unexpected VP at the end of the AV delay invites a look at what happened in the atrium.",
+  "aRetenir": "Loss of atrial capture in DDD: no P wave, therefore no conduction, and a VP at the end of the AV delay.",
+  "rappel": "In DDD, an AP starts the paced AV delay: if no ventricular event is sensed before it ends, a VP is delivered. With loss of atrial capture, the atrium does not depolarise, no conduction reaches the ventricle and the VP always occurs at the end of the AV delay. It is recognised on the atrial EGM (spike without response) and on the ECG (spike without a P wave). Atrial outputs are programmed with a twofold amplitude margin; some devices offer automatic atrial capture management."
+ },
+ "cas-egmp-040": {
+  "question": "Check of a DDD pacemaker in a 66-year-old man (sinus node dysfunction, intrinsic PR varying from 180 to 240 ms). During the ventricular threshold test performed in DDD with the programmed AV delay of 200 ms, \"capture\" appears to persist down to 0.25 V. Here is a resting tracing with this programming. Which method should be used to measure the threshold?",
+  "options": [
+   "Rely on the automatic threshold measurement, made under the same conditions",
+   "Accept 0.25 V and program 0.5 V, i.e. twice the threshold",
+   "Repeat the test with a short AV delay or in VVI above the intrinsic rate",
+   "Repeat the test with the AV delay lengthened to 300 ms to see the response better"
+  ],
+  "commentaires": [
+   "Incorrect: fusion and pseudofusion also mislead algorithms based on the evoked response.",
+   "Incorrect: the observed \"capture\" is actually intrinsic conduction; the margin would be illusory.",
+   "Correct: pacing must control the ventricle for loss of capture to become visible.",
+   "Incorrect: with a longer AV delay, intrinsic conduction would take over on every cycle."
+  ],
+  "explication": "With an AV delay of 200 ms close to the intrinsic PR, the tracing shows a mixture of cycles: VS when conduction arrives before 200 ms, capturing VPs when it arrives later, and above all spikes falling within an intrinsic QRS already under way (pseudofusion). During a threshold test under these conditions, loss of capture is masked by the conducted QRS arriving at the same moment: capture appears to persist down to 0.25 V while the ventricle is actually depolarised by intrinsic conduction. To measure a reliable threshold, pacing must dominate: a short AV delay (for example 80-100 ms) or VVI mode at a rate above the intrinsic rhythm, while watching the EGM and ECG. A safety margin is then programmed on the true threshold. Good habit: no threshold test without making sure that pacing controls the chamber being tested.",
+  "aRetenir": "Ventricular threshold: shorten the AV delay or pace faster than the intrinsic rhythm to avoid false capture from pseudofusion.",
+  "rappel": "Fusion: ventricular depolarisation shared between pacing and intrinsic conduction (intermediate QRS). Pseudofusion: a spike delivered within an already formed intrinsic QRS, with no effect on depolarisation. Both occur when the AV delay is close to the intrinsic PR. For a threshold test, pacing must control the chamber: a short AV delay or a mode at a rate above the intrinsic rhythm; loss of capture is sought at decreasing amplitude, then a margin of twice the threshold in amplitude or three times in pulse width is programmed."
+ }
+}
