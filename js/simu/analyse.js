@@ -41,8 +41,10 @@ export function mesures(coeur, t = coeur.t) {
 // Tachycardie soutenue : ≥ 6 complexes ventriculaires ou atriaux réguliers à cycle < 460 ms sur les 3 dernières secondes.
 export function tachycardie(coeur, t = coeur.t, duree = 3000) {
   const j = coeur.journal;
-  const sansStim = coeur.stims.filter(s => s.t > t - duree).length === 0;
-  const V = battementsV(j, t - duree, t), A = activations(j, 'hra', t - duree, t);
+  // un choc remet les compteurs à zéro : ce qui précède le dernier choc ne compte plus
+  const t0 = Math.max(t - duree, ...(coeur.chocs || []).filter(x => x <= t));
+  const sansStim = coeur.stims.filter(s => s.t > t0).length === 0;
+  const V = battementsV(j, t0, t), A = activations(j, 'hra', t0, t);
   const cv = mediane(ecarts(V)), ca = mediane(ecarts(A));
   const rapide = c => c != null && c < 460;
   return { active: sansStim && (rapide(cv) || rapide(ca)), cycleV: cv, cycleA: ca };
@@ -118,7 +120,9 @@ export function bilanESV(coeur, te, tcl) {
   const j = coeur.journal, st = coeur.stims.find(s => Math.abs(s.t - te) < 0.5);
   const cA = cycleSite(j, 'hra', te - 3000, te), cV = mediane(ecarts(battementsV(j, te - 3000, te - 1)));
   const acl = cA ?? tcl;
-  const r = { capture: !!st?.capture, hisCapte: j.some(x => x.s === 'his' && x.r === `stim:${te}`), unUn: cA != null && cV != null && Math.abs(cA - cV) < 0.1 * cA,
+  // His activé par l'ESV elle-même (rétrograde, avant tout atrium issu du même stimulus) : elle n'était pas His-réfractaire
+  const racine = `stim:${te}`, premierA = j.find(x => x.r === racine && SITES_A.includes(x.s))?.t ?? Infinity;
+  const r = { capture: !!st?.capture, hisCapte: j.some(x => x.s === 'his' && x.r === racine && x.t < premierA && x.t < te + 150), unUn: cA != null && cV != null && Math.abs(cA - cV) < 0.1 * cA,
     avance: null, arret: false, arretSansA: false };
   const Aprev = activations(j, 'hra', te - 1.5 * acl, te).at(-1);
   if (Aprev == null || !acl) return r;
@@ -174,14 +178,15 @@ export function recuperationSinusale(coeur, tDer) {
   return Math.round((hra?.t ?? sa.t) - tDer);
 }
 
-// Pression artérielle (mmHg) par un modèle de Windkessel : chaque battement éjecte un volume qui dépend du remplissage
-// (RR précédent) et de la contraction atriale (onde A 80 à 260 ms avant le QRS). Échantillons toutes les 4 ms sur [t0, t1].
+// Pression artérielle (mmHg) par un modèle de Windkessel (constante de temps ≈ 1,15 s) : chaque battement éjecte un volume
+// qui dépend du remplissage (RR précédent, loi de Starling saturante : un cycle long éjecte davantage) et de la contraction
+// atriale (onde A 80 à 260 ms avant le QRS). Échantillons toutes les 4 ms sur [t0, t1].
 export function pressionArterielle(journal, t0, t1) {
-  const pas = 4, tau = 850, debut = t0 - 6000;
+  const pas = 4, tau = 1150, debut = t0 - 6000;
   const V = battementsV(journal, debut - 2000, t1), A = activations(journal, 'hra', debut - 2000, t1);
   const ejections = V.map((v, i) => {
     const rr = i ? v - V[i - 1] : 800;
-    const remplissage = Math.max(0.2, Math.min(1, (rr - 150) / 450));
+    const remplissage = Math.max(0.15, 1.3 * (1 - Math.exp(-(rr - 150) / 600)));
     const kick = A.some(a => v - a > 80 && v - a < 260) ? 1.18 : 0.85;
     return { t: v + 60, d: Math.min(300, 0.38 * rr + 60), vol: remplissage * kick };
   });
@@ -196,7 +201,7 @@ export function pressionArterielle(journal, t0, t1) {
       const e = ejections[j], u = (t - e.t) / e.d;
       if (u >= 0 && u <= 1) q += e.vol * Math.sin(Math.PI * u) * (Math.PI / 2) / e.d;
     }
-    P += pas * (-(P - 8) / tau + 63 * q);
+    P += pas * (-(P - 8) / tau + 62 * q);
     if (t >= t0) out.push([t, P]);
   }
   return out;
