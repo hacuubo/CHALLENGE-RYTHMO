@@ -747,3 +747,7 @@ main:has(.simu-baie) > :not(.simu-poste) { max-width: 860px; margin-left: auto; 
 .simu-ordre li { display: inline-flex; align-items: center; gap: 4px; border: 1px solid #2c3e50; background: #16212c; color: #e8eef3; border-radius: 999px; padding: 2px 10px 2px 2px; font-size: .78rem; font-weight: 600; }
 .simu-ordre li button { border: 0; background: #23384a; color: #fff; border-radius: 50%; width: 26px; height: 26px; font-size: .7rem; cursor: pointer; }
 .simu-ordre li button:disabled { opacity: .3; cursor: default; }
+
+/* Compétitif : choix de l'ELO de départ avant la première partie */
+.curseur-depart { width: 100%; margin: .75rem 0 .1rem; accent-color: var(--primaire); min-height: 44px; }
+.curseur-bornes { display: flex; justify-content: space-between; margin: 0 0 .5rem; font-variant-numeric: tabular-nums; }
