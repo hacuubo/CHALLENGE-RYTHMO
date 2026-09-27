@@ -273,7 +273,7 @@
     "marque": null,
     "type": "qcu",
     "difficulte": 7,
-    "question": "Tachycardie orthodromique (cycle 337 ms, SC distal activé en premier). Une ESV est délivrée à l'apex du VD 30 ms avant le His attendu, quand le His est réfractaire : le His suivant n'est pas modifié (tracé). L'A suivant est avancé de 25 ms avec la même séquence. Que prouve cette réponse ?",
+    "question": "Tachycardie orthodromique (cycle 346 ms, SC distal activé en premier). Une ESV est délivrée à l'apex du VD 30 ms avant le His attendu, quand le His est réfractaire : le His suivant n'est pas modifié (tracé). L'A suivant est avancé de 25 ms avec la même séquence. Que prouve cette réponse ?",
     "simu": {
       "scenario": "trav",
       "graine": 7,
@@ -294,14 +294,14 @@
         {
           "stim": {
             "site": "rva",
-            "delai": 199
+            "delai": 303
           }
         },
         {
           "attendre": 3100
         }
       ],
-      "fin": 12684,
+      "fin": 12788,
       "vitesse": 50,
       "montage": "standard",
       "legende": ""
@@ -344,7 +344,7 @@
     "marque": null,
     "type": "qcu",
     "difficulte": 8,
-    "question": "Stimulation para-hisienne en rythme sinusal : 15 mA (capture du His et du myocarde septal) puis 5 mA (myocarde seul, QRS élargi). L'intervalle stimulus-A mesuré sur l'ostium du SC, site atrial le plus précoce, est de 80 ms à 15 mA et de 80 ms à 5 mA, avec la même séquence atriale. Quelle est la conclusion ?",
+    "question": "Stimulation para-hisienne en rythme sinusal : 15 mA (capture du His et du myocarde septal) puis 5 mA (myocarde seul, QRS élargi). L'intervalle stimulus-A mesuré sur l'ostium du SC, site atrial le plus précoce, est de 93 ms à 15 mA et de 95 ms à 5 mA, avec la même séquence atriale. Quelle est la conclusion ?",
     "simu": {
       "scenario": "septale",
       "graine": 7,
@@ -394,11 +394,11 @@
     ],
     "commentaires": [
       "Faux : si l'oreillette était activée par le nœud AV, perdre la capture du His allongerait le stimulus-A (l'influx doit d'abord rejoindre le His).",
-      "Juste : le stimulus-A reste à 80 ms que le His soit capturé ou non : l'oreillette est activée par le myocarde ventriculaire, via une voie septale.",
+      "Juste : le stimulus-A reste à 95 ms que le His soit capturé ou non : l'oreillette est activée par le myocarde ventriculaire, via une voie septale.",
       "Faux : une fusion modifie la séquence ou le stimulus-A d'un site à l'autre ; ici tout est inchangé.",
       "Faux : chaque stimulation est suivie d'une activation atriale, la conduction rétrograde existe."
     ],
-    "explication": "La stimulation para-hisienne compare deux situations : sortie haute (His et myocarde capturés) et sortie basse (myocarde seul). Si la conduction rétrograde est nodale, la perte de capture du His allonge le stimulus-A d'autant que le temps nécessaire à l'influx pour rejoindre le His par le myocarde et les branches, sans changer la séquence. Si elle passe par une voie septale, le stimulus-A au site de sortie ne change pas, car l'oreillette est activée depuis le myocarde ventriculaire proche. Ici il reste stable (80 puis 80 ms) : conduction extranodale. Mesurez le stimulus-A à chaque site atrial, pas seulement au plus précoce, pour dépister une fusion.",
+    "explication": "La stimulation para-hisienne compare deux situations : sortie haute (His et myocarde capturés) et sortie basse (myocarde seul). Si la conduction rétrograde est nodale, la perte de capture du His allonge le stimulus-A d'autant que le temps nécessaire à l'influx pour rejoindre le His par le myocarde et les branches, sans changer la séquence. Si elle passe par une voie septale, le stimulus-A au site de sortie ne change pas, car l'oreillette est activée depuis le myocarde ventriculaire proche. Ici il reste stable (93 puis 95 ms) : conduction extranodale. Mesurez le stimulus-A à chaque site atrial, pas seulement au plus précoce, pour dépister une fusion.",
     "aRetenir": "Para-hisien : stimulus-A allongé sans capture du His = conduction nodale ; inchangé au site de sortie = voie accessoire septale.",
     "rappel": "La stimulation para-hisienne se fait depuis le cathéter placé sur le His proximal, en alternant sortie haute et sortie basse. La perte de capture du His se reconnaît à l'élargissement du QRS, avec une activation retardée de l'apex du VD, et à l'apparition d'un His rétrograde séparé du stimulus. Outre le stimulus-A, on compare l'intervalle His-A : constant en conduction nodale (l'oreillette dépend du His), il raccourcit en conduction extranodale. Pièges : capture atriale directe à haute énergie (stimulus-A très court), capture de la branche droite sans le His, voies éloignées du septum (latérales gauches) ou lentes et décrémentielles, qui peuvent donner un faux aspect nodal.",
     "sources": [
@@ -704,7 +704,7 @@
     "marque": null,
     "type": "qcu",
     "difficulte": 7,
-    "question": "Tachycardie orthodromique : avec un QRS de type retard gauche (tracé), le VA mesure 178 ms et le cycle 361 ms ; quand le QRS redevient fin, le VA revient à 133 ms et le cycle à 337 ms. Quelle est la conclusion ?",
+    "question": "Tachycardie orthodromique : avec un QRS de type retard gauche (tracé), le VA mesure 203 ms et le cycle 373 ms ; quand le QRS redevient fin, le VA revient à 158 ms et le cycle à 346 ms. Quelle est la conclusion ?",
     "simu": {
       "scenario": "coumel",
       "graine": 7,
@@ -940,7 +940,7 @@
     "marque": null,
     "type": "qcu",
     "difficulte": 8,
-    "question": "Garçon de 14 ans, cardiomyopathie dilatée. Tachycardie incessante à 404 ms, RP long, activation atriale la plus précoce à l'ostium du SC (tracé). Une ESV His-réfractaire avance l'A suivant de 43 ms. Quel est le diagnostic ?",
+    "question": "Garçon de 14 ans, cardiomyopathie dilatée. Tachycardie incessante à 403 ms, RP long, activation atriale la plus précoce à l'ostium du SC (tracé). Une ESV His-réfractaire retarde l'A suivant de 21 ms. Quel est le diagnostic ?",
     "simu": {
       "scenario": "pjrt",
       "graine": 7,
@@ -966,7 +966,7 @@
     "commentaires": [
       "Faux : la TRIN atypique a le même aspect, mais une ESV His-réfractaire ne peut pas atteindre son circuit, intranodal.",
       "Faux : une ESV His-réfractaire ne peut atteindre l'oreillette que par une voie accessoire : son effet prouve une voie accessoire, ce qui rend une TA très improbable.",
-      "Juste : l'ESV His-réfractaire avance l'A suivant de 43 ms : preuve d'une voie accessoire rétrograde ; avec le caractère incessant, le RP long et la sortie à l'ostium du SC, c'est une PJRT.",
+      "Juste : l'ESV His-réfractaire retarde l'A suivant de 21 ms : preuve d'une voie accessoire rétrograde ; avec le caractère incessant, le RP long et la sortie à l'ostium du SC, c'est une PJRT.",
       "Faux : la TRIN typique a un RP très court, A et V quasi simultanés."
     ],
     "explication": "La tachycardie jonctionnelle réciprocante permanente (maladie de Coumel) est une réentrée orthodromique utilisant une voie accessoire postéro-septale à conduction rétrograde lente et décrémentielle. Elle est incessante, à RP long, avec des P négatives en inférieur et une activation la plus précoce à l'ostium du SC. Le diagnostic différentiel est la TRIN atypique et la TA basse. L'ESV His-réfractaire tranche : si elle retarde l'atrium ou arrête la tachycardie sans l'atteindre, la voie participe au circuit ; si elle l'avance avec la même séquence, une voie accessoire existe, et sa participation est très probable si toute la tachycardie est recalée. Son caractère incessant expose à la cardiomyopathie rythmique, réversible après ablation.",
@@ -1054,7 +1054,7 @@
     "marque": null,
     "type": "qcu",
     "difficulte": 7,
-    "question": "Voie accessoire latérale gauche manifeste. Une salve atriale rapide déclenche une fibrillation atriale préexcitée (tracé, 25 mm/s). Le plus court intervalle RR entre deux QRS préexcités mesure 361 ms. Comment interpréter cette valeur ?",
+    "question": "Voie accessoire latérale gauche manifeste. Une salve atriale rapide déclenche une fibrillation atriale préexcitée (tracé, 25 mm/s). Le plus court intervalle RR entre deux QRS préexcités mesure 358 ms. Comment interpréter cette valeur ?",
     "simu": {
       "scenario": "wpw",
       "graine": 7,
@@ -1088,8 +1088,8 @@
       1
     ],
     "commentaires": [
-      "Faux : le plus court RR préexcité mesure 361 ms, au-dessus du seuil de 250 ms.",
-      "Juste : 361 ms (> 250 ms) est un critère de voie à moindre risque ; l'ablation reste indiquée chez un patient symptomatique.",
+      "Faux : le plus court RR préexcité mesure 358 ms, au-dessus du seuil de 250 ms.",
+      "Juste : 358 ms (> 250 ms) est un critère de voie à moindre risque ; l'ablation reste indiquée chez un patient symptomatique.",
       "Faux : le plus court RR préexcité en FA est justement la mesure de référence du risque.",
       "Faux : la voie conduit dans le sens antérograde, puisque les QRS sont préexcités."
     ],

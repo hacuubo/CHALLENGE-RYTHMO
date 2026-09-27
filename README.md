@@ -43,13 +43,18 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
     depuis un cathéter dont une voie est affichée ; l'électrogramme capturé suit le spike de quelques millisecondes.
   - **Protocoles automatiques** : extrastimulus atrial ou ventriculaire décrémental (PR atriale, nodale, ventriculaire,
     rétrograde, saut d'AH, induction), rampe jusqu'au Wenckebach antérograde ou rétrograde, temps de récupération sinusale,
-    seuil de capture, stimulation para-hisienne interprétée, ESV His-réfractaire, entraînement à arrêt automatique.
+    seuil de capture, stimulation para-hisienne interprétée (site atrial le plus précoce, capture réelle du His : réponse
+    nodale, extranodale ou fusion), ESV His-réfractaire (couplée au cycle du His ; contrôle de la capture, de la
+    non-capture du His et de la relation VA 1:1 ; avance, retard ou arrêt sans atteindre l'atrium), entraînement à arrêt
+    automatique (réponse V-A-V ou V-A-A-V lue avec le His, PPI − TCL, SA − VA ; déclaré non interprétable en cas de
+    perte de capture, d'atrium non entraîné ou d'arrêt de la tachycardie). Les protocoles qui s'interprètent en rythme
+    sinusal (extrastimulus, rampes, TRS, para-hisien) sont refusés tant qu'une tachycardie est en cours.
   - **Sonde d'ablation** placée sur une **carte schématique** (activation locale colorée pendant la tachycardie) ; contact
     du cathéter (extrasystoles mécaniques, bloc transitoire d'une voie accessoire) ; générateur de **radiofréquence**
     (puissance, température, impédance, lésion progressive selon l'appui) ou cryothérapie ; rythme jonctionnel sur la voie
     lente et alerte en cas de perte de la conduction VA ; allongement de l'AH puis bloc AV près du His.
   - Isoprénaline, atropine, adénosine, choc ; alerte d'hypotension ; **compte rendu d'EEP** généré (copiable).
-  - Physiologie : conduction décrémentielle avec Wenckebach nodal, freinage sinusal (TRS), branches droite et gauche
+  - Physiologie : conduction décrémentielle avec Wenckebach nodal, pénétration rétrograde cachée de la voie lente, freinage sinusal (TRS), branches droite et gauche
     (aberration, saut V-H, signe de Coumel), réfractarité dépendante du cycle, variabilité.
   - 17 scénarios : conduction normale, double voie nodale, TRIN typique, atypique et avec 2:1 infra-hisien, TRAV sur voie
     latérale gauche ou postéro-septale, Coumel, PJRT, WPW (et FA préexcitée), Mahaim, TA focale, tachycardie jonctionnelle,

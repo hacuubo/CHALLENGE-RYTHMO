@@ -4,7 +4,7 @@
 import { Coeur, SITES_ATRIAUX, seuilCapture } from '../simu/moteur.js';
 import { SCENARIOS, MYSTERES, ARRIVEES, scenario, SITES_STIM, SITES_DETECTION, POSITIONS } from '../simu/scenarios.js';
 import { dessinerSimu, MONTAGES, VITESSES, CANAUX, VOIES_SITE, fenetreMs, marges, evenementsCanal } from '../simu/trace.js';
-import { mesures, tachycardie, analyserEntrainement, analyserESV, reponseStim, recuperationSinusale, constantes, tempsLocal,
+import { mesures, tachycardie, analyserEntrainement, bilanESV, analyserParaHis, cycleSite, reponseStim, recuperationSinusale, constantes, tempsLocal,
   activations, battementsV, sitePlusPrecoce, induireTachycardie } from '../simu/analyse.js';
 import { esc, melanger } from '../util.js';
 import { t } from '../i18n.js';
@@ -404,7 +404,9 @@ export function vueSimulateur(app) {
       // la tachycardie est là dès l'ouverture : l'induction ne fait pas partie de la démarche à noter
       const tach = tachycardie(st.coeur);
       st.faites.add('induction'); st.tachyAvant = true;
-      st.cr.inductions.push({ cycleA: tach.cycleA, cycleV: tach.cycleV, VA: mesures(st.coeur).VA, precoce: t('tachycardie présente à l\'arrivée', 'tachycardia present on arrival') });
+      st.cr.base = { ...mesures(st.coeur), pa: constantes(st.coeur.journal, st.coeur.t) }; // rythme à l'arrivée : la tachycardie
+      const V = battementsV(st.coeur.journal, st.coeur.t - 1500, st.coeur.t).at(-2);
+      st.cr.inductions.push({ cycleA: tach.cycleA, cycleV: tach.cycleV, VA: mesures(st.coeur).VA, precoce: V != null ? NOMS_PRECOCE()[sitePlusPrecoce(st.coeur.journal, V, V + 400)] : null, arrivee: true });
     }
     st.enquete = st.mystere || !!arrivee;
     $('#diagnostic').hidden = !st.enquete; $('#verdict').innerHTML = ''; $('#reponse').value = '';
@@ -528,7 +530,8 @@ export function vueSimulateur(app) {
     vibrer();
     const c = st.coeur, site = siteReel();
     const type = classer(site, { detection: p.detection, n: p.n, s2: p.s2 });
-    const tcl = tachycardie(c).cycleV;
+    // ESV His-réfractaire : cycle du His (égal au cycle atrial, même en cas de bloc 2:1 sous le His)
+    const tcl = cycleSite(c.journal, 'his', c.t - 3000, c.t) ?? tachycardie(c).cycleV;
     let e = null;
     const lancer = t0 => {
       const liste = programmer(t0, site, e, p);
@@ -536,9 +539,7 @@ export function vueSimulateur(app) {
         const te = liste.at(-1);
         setTimeout(() => {
           if (!canvas.isConnected) return; // simulateur quitté entre-temps
-          const av = analyserESV(c, te, tcl);
-          if (av != null) resultat(t(`ESV His-réfractaire : ${av > 5 ? `atrium avancé de ${av} ms` : av < -5 ? `atrium retardé de ${-av} ms` : 'atrium inchangé'}${tachycardie(c).active ? '' : ', tachycardie arrêtée'}`,
-            `His-refractory PVC: ${av > 5 ? `atrium advanced by ${av} ms` : av < -5 ? `atrium delayed by ${-av} ms` : 'atrium unchanged'}${tachycardie(c).active ? '' : ', tachycardia terminated'}`), { manoeuvre: true });
+          resultat(texteESV(bilanESV(c, te, tcl)), { manoeuvre: true });
         }, 3500);
       }
     };
@@ -557,6 +558,18 @@ export function vueSimulateur(app) {
     majBoutonStim();
   }
 
+  // conclusion d'une ESV His-réfractaire : non interprétable si elle n'a pas capturé, si elle a capturé le His, ou sans conduction VA 1:1
+  function texteESV(b) {
+    const pre = t('ESV His-réfractaire : ', 'His-refractory PVC: ');
+    if (!b.capture) return pre + t('pas de capture (myocarde réfractaire), manœuvre à refaire un peu plus tard dans le cycle', 'no capture (refractory myocardium); repeat slightly later in the cycle');
+    if (b.hisCapte) return pre + t('le His a été activé par l\'ESV (trop précoce) : elle n\'était pas His-réfractaire, non interprétable', 'the His was activated by the PVC (too early): it was not His-refractory, uninterpretable');
+    if (!b.unUn) return pre + t('pas de relation VA 1:1 pendant la tachycardie (bloc 2:1 ou dissociation) : manœuvre non interprétable', 'no 1:1 VA relationship during the tachycardia (2:1 block or dissociation): uninterpretable');
+    if (b.arretSansA) return pre + t('arrêt de la tachycardie sans atteindre l\'atrium : voie accessoire participant au circuit', 'termination without reaching the atrium: accessory pathway participating in the circuit');
+    const av = b.avance;
+    const effet = av == null ? t('atrium non mesurable', 'atrium not measurable') : av > 5 ? t(`atrium avancé de ${av} ms`, `atrium advanced by ${av} ms`) : av < -5 ? t(`atrium retardé de ${-av} ms`, `atrium delayed by ${-av} ms`) : t('atrium inchangé', 'atrium unchanged');
+    return pre + effet + (b.arret ? t(', tachycardie arrêtée', ', tachycardia terminated') : '');
+  }
+
   // résultat d'une manœuvre : journal, débriefing du cas et compte rendu (manoeuvre : ESV ou entraînement, rubrique « Manœuvres »)
   function resultat(texte, { manoeuvre = false } = {}) {
     st.analyses.push(texte); if (manoeuvre) st.cr.manoeuvres.push(texte);
@@ -564,11 +577,13 @@ export function vueSimulateur(app) {
     noter(null, texte, { debut: st.t - 8000, capture: st.t + 500, finStim: true }); if ($('#proto-etat')) $('#proto-etat').textContent = texte;
   }
 
+  // cycle de la tachycardie à entraîner : le plus court des deux étages (un bloc 2:1, nodal ou sous le His, double l'autre)
+  const cycleTachy = tach => Math.min(...[tach.cycleA, tach.cycleV].filter(x => x != null));
   // salve à cycle fixe ; duree (ms) : arrêt automatique, sinon continue jusqu'à « Stop »
   function demarrerSalve(site, cl, { nom = nomSite(), type, duree = 0, continu = false } = {}) {
     const tach = tachycardie(st.coeur), debut = st.coeur.t + 100;
     st.salve = { site, cl, continu, prochain: debut, debut, fin: duree ? debut + duree : null, sortie: r.sortie, largeur: r.largeur, tachy: tach.active,
-      tcl: VENTRICULAIRES.has(site) ? tach.cycleV : (tach.cycleA ?? tach.cycleV), nom };
+      tcl: cycleTachy(tach), nom };
     if (continu) noter(type ?? classer(site, { salve: true }), t(`Stimulation continue : ${nom} à ${cl} ms, ${virgule(r.sortie)} mA (jusqu'à Stop)`, `Continuous pacing: ${nom} at ${cl} ms, ${virgule(r.sortie)} mA (until Stop)`));
     else noter(type ?? classer(site, { salve: true }), t(`Salve : ${nom} à ${cl} ms${duree ? ` pendant ${duree / 1000} s` : ''}, ${virgule(r.sortie)} mA`, `Burst: ${nom} at ${cl} ms${duree ? ` for ${duree / 1000} s` : ''}, ${virgule(r.sortie)} mA`));
     majBoutonStim();
@@ -583,9 +598,12 @@ export function vueSimulateur(app) {
     if (s.tachy && der != null) {
       setTimeout(() => {
         if (!canvas.isConnected) return; // simulateur quitté entre-temps
-        const a = analyserEntrainement(c, { der, site: s.site, tcl: s.tcl, ventriculaire: VENTRICULAIRES.has(s.site) });
-        resultat(t(`Entraînement depuis ${s.nom} à ${s.cl} ms (TCL ${Math.round(s.tcl)}) : ${tachycardie(c).active ? '' : 'tachycardie arrêtée ; '}${a.reponse ? `réponse ${a.reponse}, ` : ''}PPI ${a.ppi ?? '—'} ms, PPI − TCL ${a.pptcl ?? '—'} ms`,
-          `Entrainment from ${s.nom} at ${s.cl} ms (TCL ${Math.round(s.tcl)}): ${tachycardie(c).active ? '' : 'tachycardia terminated; '}${a.reponse ? (a.reponse.startsWith('V') ? `${a.reponse} response, ` : `${a.reponse}, `) : ''}PPI ${a.ppi ?? '—'} ms, PPI − TCL ${a.pptcl ?? '—'} ms`), { manoeuvre: true });
+        const a = analyserEntrainement(c, { der, site: s.site, tcl: s.tcl, ventriculaire: VENTRICULAIRES.has(s.site), debut: s.debut });
+        const tete = t(`Entraînement depuis ${s.nom} à ${s.cl} ms (TCL ${Math.round(s.tcl)}) : `, `Entrainment from ${s.nom} at ${s.cl} ms (TCL ${Math.round(s.tcl)}): `);
+        const rep = !a.reponse ? '' : a.reponse.startsWith('V') ? t(`réponse ${a.reponse}${a.pseudo ? ' (A-H-A : bloc sous le His, pas de V-A-A-V vraie)' : ''}, `, `${a.reponse} response${a.pseudo ? ' (A-H-A: block below the His, not a true V-A-A-V)' : ''}, `) : `${a.reponse}, `;
+        const sava = a.savA != null ? t(`, SA − VA ${a.savA} ms`, `, SA − VA ${a.savA} ms`) : '';
+        resultat(a.interpretable ? `${tete}${rep}PPI ${a.ppi ?? '—'} ms, PPI − TCL ${a.pptcl ?? '—'} ms${sava}`
+          : `${tete}${t('non interprétable', 'uninterpretable')} (${a.motif})${a.arret ? '' : t(`, PPI ${a.ppi ?? '—'} ms`, `, PPI ${a.ppi ?? '—'} ms`)}`, { manoeuvre: true });
       }, 3200);
     }
   }
@@ -632,9 +650,11 @@ export function vueSimulateur(app) {
         res.saut = t(`saut d'AH de ${prec.AH} à ${rep.AH} ms à S2 = ${attente.s2} ms (double voie nodale)`, `AH jump from ${prec.AH} to ${rep.AH} ms at S2 = ${attente.s2} ms (dual AV nodal physiology)`);
       }
       const suite = () => `${res.prConduction ? t(` ; ${libPR()} = ${res.prConduction} ms`, `; ${libPR()} = ${res.prConduction} ms`) : ''}${res.saut ? t(` ; ${res.saut}`, `; ${res.saut}`) : ''}`;
+      // induction : activité ventriculaire ou atriale rapide et soutenue après l'extrastimulus (flutter ou TRIN avec bloc 2:1 compris)
       const Vapres = battementsV(c.journal, attente.ts + 150, tc).filter(v => !c.stims.some(s => Math.abs(s.t - v) < 5));
-      const gaps = Vapres.slice(1).map((x, i) => x - Vapres[i]);
-      if (Vapres.length >= 4 && gaps.every(g => g < 470)) {
+      const Aapres = activations(c.journal, 'hra', attente.ts + 150, tc);
+      const rapide = l => l.length >= 4 && l.slice(1).every((x, i) => x - l[i] < 470);
+      if (rapide(Vapres) || rapide(Aapres)) {
         res.induction = attente.s2; faire('induction');
         return conclure(`${t(`tachycardie induite à S2 = ${attente.s2} ms`, `tachycardia induced at S2 = ${attente.s2} ms`)}${res.saut ? t(` ; ${res.saut}`, `; ${res.saut}`) : ''}`);
       }
@@ -740,7 +760,6 @@ export function vueSimulateur(app) {
   function protoParaHis() {
     reglages();
     const c = st.coeur;
-    if (tachycardie(c).active) message(t('La stimulation para-hisienne s\'interprète en rythme sinusal : arrêtez d\'abord la tachycardie.', 'Para-Hisian pacing is interpreted in sinus rhythm: terminate the tachycardia first.'));
     choisirSite('parahis');
     const cl = arrondi10(Math.min(600, cycleSinusal() - 100)), liste = [];
     let tp = c.t + 150;
@@ -748,22 +767,16 @@ export function vueSimulateur(app) {
     noter('parahis', t(`Protocole : stimulation para-hisienne à ${cl} ms, 15 et 5 mA alternés`, `Protocol: para-Hisian pacing at ${cl} ms, alternating 15 and 5 mA`), { debut: liste[0] - 1000, capture: tp + 800, focus: liste.at(-1), finStim: true }); // centré sur le dernier complexe stimulé
     return { nom: t('Para-hisien', 'Para-Hisian'), etape(tc) {
       if (tc < tp + 600) return true;
-      // intervalle stimulus-A mesuré sur l'atrium du His et sur l'ostium du SC (sortie d'une voie septale postérieure)
-      const sa = { haut: { ras: [], cs9: [] }, bas: { ras: [], cs9: [] } };
-      for (const ts of liste.slice(2)) {
-        const rep = reponseStim(c, ts), g = rep.his ? sa.haut : sa.bas;
-        for (const site of ['ras', 'cs9']) { const a = c.journal.find(x => x.r === `stim:${ts}` && x.s === site)?.t; if (a != null) g[site].push(a - ts); }
-      }
-      const moy = l => (l.length ? Math.round(l.reduce((a, b) => a + b, 0) / l.length) : null);
-      const hH = moy(sa.haut.ras), bH = moy(sa.bas.ras), hS = moy(sa.haut.cs9), bS = moy(sa.bas.cs9);
-      if (hH == null || bH == null) { resultat(t('Stimulation para-hisienne : pas de conduction rétrograde mesurable', 'Para-Hisian pacing: no measurable retrograde conduction')); return false; }
-      const dH = bH - hH, dS = hS != null && bS != null ? bS - hS : null, signe = d => `${d > 0 ? '+' : ''}${d}`;
-      const verdict = dS != null && Math.abs(dS) <= 10
-        ? (dH >= 25 ? t('voie accessoire septale avec fusion nodale (S-A constant à l\'ostium du SC, allongé au His)', 'septal accessory pathway with nodal fusion (S-A unchanged at the CS ostium, prolonged at the His)')
-          : t('conduction rétrograde extranodale (voie accessoire septale)', 'extranodal retrograde conduction (septal accessory pathway)'))
-        : dH >= 25 ? t('conduction rétrograde nodale', 'nodal retrograde conduction') : t('réponse intermédiaire', 'intermediate response');
-      const texte = t(`S-A au His ${hH} → ${bH} ms (Δ ${signe(dH)}), à l'ostium du SC ${hS ?? '—'} → ${bS ?? '—'} ms${dS != null ? ` (Δ ${signe(dS)})` : ''} en perdant la capture du His → ${verdict}`,
-        `S-A at the His ${hH} → ${bH} ms (Δ ${signe(dH)}), at the CS ostium ${hS ?? '—'} → ${bS ?? '—'} ms${dS != null ? ` (Δ ${signe(dS)})` : ''} with loss of His capture → ${verdict}`);
+      // intervalle stimulus-A à chaque site atrial, avec et sans capture réelle du His ; lecture au site le plus précoce
+      const p = analyserParaHis(c, liste.slice(2));
+      if (!p.type) { resultat(t('Stimulation para-hisienne : pas de conduction rétrograde mesurable, ou capture du His jamais obtenue (ou jamais perdue)', 'Para-Hisian pacing: no measurable retrograde conduction, or His capture never obtained (or never lost)')); return false; }
+      const NOMS = NOMS_PRECOCE(), signe = d => `${d > 0 ? '+' : ''}${d}`;
+      const verdict = { nodal: t('conduction rétrograde nodale', 'nodal retrograde conduction'),
+        extranodal: t('conduction rétrograde extranodale (voie accessoire)', 'extranodal retrograde conduction (accessory pathway)'),
+        fusion: t('voie accessoire avec fusion nodale (S-A constant au site le plus précoce, séquence qui change sans capture du His)', 'accessory pathway with nodal fusion (S-A unchanged at the earliest site, sequence changing without His capture)'),
+        intermediaire: t('réponse intermédiaire (voie accessoire lente ou éloignée ?)', 'intermediate response (slow or remote accessory pathway?)') }[p.type];
+      const texte = t(`S-A au His ${p.H.ras ?? '—'} → ${p.B.ras ?? '—'} ms${p.dHis != null ? ` (Δ ${signe(p.dHis)})` : ''} ; site le plus précoce : ${NOMS[p.pH] ?? p.pH} avec capture du His, ${NOMS[p.pB] ?? p.pB} sans (S-A ${p.H[p.pB] ?? '—'} → ${p.B[p.pB]} ms, Δ ${signe(p.d)}) → ${verdict}`,
+        `S-A at the His ${p.H.ras ?? '—'} → ${p.B.ras ?? '—'} ms${p.dHis != null ? ` (Δ ${signe(p.dHis)})` : ''}; earliest site: ${NOMS[p.pH] ?? p.pH} with His capture, ${NOMS[p.pB] ?? p.pB} without (S-A ${p.H[p.pB] ?? '—'} → ${p.B[p.pB]} ms, Δ ${signe(p.d)}) → ${verdict}`);
       st.cr.parahis = texte;
       resultat(t(`Stimulation para-hisienne : ${texte}`, `Para-Hisian pacing: ${texte}`));
       return false;
@@ -774,16 +787,17 @@ export function vueSimulateur(app) {
     const c = st.coeur, t0 = tachycardie(c);
     if (!t0.active) { message(t('Pas de tachycardie en cours : induisez-la d\'abord.', 'No ongoing tachycardia: induce it first.')); return null; }
     const avant = { site: r.site, detection: r.detection, n: r.n, s2: r.s2, s3: r.s3, s4: r.s4, extras: r.extras, continu: r.continu };
+    const cH = cycleSite(c.journal, 'his', c.t - 3000, c.t) ?? t0.cycleV; // couplé au His : cycle du His, pas du V (bloc 2:1 sous le His)
     $('#extras').checked = true; $('#continu').checked = false;
     choisirSite('rva'); choisirPuce('detection', 'his');
-    fixer('#n', 0); fixer('#s2', arrondi10(t0.cycleV - 30)); fixer('#s3', 0); fixer('#s4', 0);
+    fixer('#n', 0); fixer('#s2', arrondi10(cH - 30)); fixer('#s3', 0); fixer('#s4', 0);
     stimuler();
     // la console retrouve ses réglages : l'ESV programmée garde les siens
     choisirPuce('detection', avant.detection); choisirSite(avant.site);
     for (const k of ['n', 's2', 's3', 's4']) fixer(`#${k}`, avant[k]);
     $('#extras').checked = avant.extras; $('#continu').checked = avant.continu;
     reglages();
-    $('#proto-etat').textContent = t(`▶ ESV His-réfractaire à ${arrondi10(t0.cycleV - 30)} ms (TCL ${Math.round(t0.cycleV)} ms) : résultat dans 3 s`, `▶ His-refractory PVC at ${arrondi10(t0.cycleV - 30)} ms (TCL ${Math.round(t0.cycleV)} ms): result in 3 s`);
+    $('#proto-etat').textContent = t(`▶ ESV His-réfractaire à ${arrondi10(cH - 30)} ms du His (cycle H ${Math.round(cH)} ms) : résultat dans 3 s`, `▶ His-refractory PVC ${arrondi10(cH - 30)} ms after the His (H cycle ${Math.round(cH)} ms): result in 3 s`);
     return null;
   }
 
@@ -793,8 +807,8 @@ export function vueSimulateur(app) {
     if (!t0.active) { message(t('Pas de tachycardie en cours : induisez-la d\'abord.', 'No ongoing tachycardia: induce it first.')); return null; }
     if (siteForce) choisirSite(siteForce);
     const site = siteReel(), ventr = VENTRICULAIRES.has(site);
-    const tcl = ventr ? t0.cycleV : (t0.cycleA ?? t0.cycleV), cl = arrondi10(tcl - (ventr ? 30 : 20));
-    const suivis = (ventr ? ['hra'] : ['hra', 'cs1', 'cs9', 'rva']).filter(s => s !== site);
+    const tcl = cycleTachy(t0), cl = arrondi10(tcl - (ventr ? 30 : 20));
+    const suivis = (ventr ? ['hra'] : ['hra', 'cs1', 'cs9']).filter(s => s !== site);
     demarrerSalve(site, cl, { nom: nomSite() });
     const debut = st.salve.debut;
     let entraine = null;
@@ -814,8 +828,13 @@ export function vueSimulateur(app) {
   const PROTOCOLES = { decA: () => protoDecremental(true), decV: () => protoDecremental(false), wenck: () => protoRampe(true), retro: () => protoRampe(false),
     trs: protoTRS, seuil: protoSeuil, parahis: protoParaHis, esv: protoESV, entrV: () => protoEntrainement('rva'), entrSite: () => protoEntrainement(null) };
   const SITE_PROTO = { decA: 'hra', wenck: 'hra', trs: 'hra', decV: 'rva', retro: 'rva', esv: 'rva', entrV: 'rva', parahis: 'parahis' };
+  const SINUSAL = new Set(['decA', 'decV', 'wenck', 'retro', 'trs', 'parahis']); // protocoles qui s'interprètent en rythme sinusal
   function lancerProtocole(id) {
     if (siteInterdit(SITE_PROTO[id] ?? r.site)) return;
+    if (SINUSAL.has(id) && tachycardie(st.coeur).active) {
+      message(t('Tachycardie en cours : ce protocole s\'interprète en rythme sinusal. Arrêtez-la d\'abord (salve, adénosine ou choc).', 'Tachycardia ongoing: this protocol is interpreted in sinus rhythm. Terminate it first (burst, adenosine or DC shock).'));
+      return;
+    }
     toutArreter({ silencieux: true });
     vibrer();
     const p = PROTOCOLES[id]();
@@ -856,7 +875,8 @@ export function vueSimulateur(app) {
     // contact : qualité d'appui de la sonde, tirée à chaque tir (impédance de départ plus basse quand l'appui est bon)
     const contact = 0.55 + 0.45 * Math.random();
     st.rf = { debut: st.t, pos, cryo, contact, imp0: Math.round(120 - 25 * contact + 6 * Math.random()), lesion: 0, applique: false, junct: false, alerteVA: false,
-      temp: 37, imp: 0, tMax: 37, derive: pos.id === 'koch' ? 25000 + 20000 * Math.random() : Infinity };
+      // voie lente : au fil d'un tir prolongé, la sonde dérive parfois vers le nœud compact (une fois sur trois environ)
+      temp: 37, imp: 0, tMax: 37, derive: pos.id === 'koch' && Math.random() < 0.35 ? 25000 + 20000 * Math.random() : Infinity };
     libRF(true, cryo);
     noter(null, t(`Radiofréquence : ${cryo ? 'cryothérapie' : `tir ${r.puissance} W`}, ${pos.nom}`, cryo ? `Cryoablation: ${pos.nom}` : `RF application ${r.puissance} W: ${pos.nom}`), { debut: st.t - 3000, capture: st.t + 8000, rf: true });
   }
@@ -882,7 +902,12 @@ export function vueSimulateur(app) {
       rf.applique = true;
       const touchees = c.ablater(rf.pos.cibles);
       st.historique.push({ type: 'tir', t: st.t, tachy: tachycardie(c).active, efficace: touchees.length > 0 });
-      if (touchees.includes('nav') || touchees.includes('rapide')) message(t('Bloc AV : la voie nodale rapide a été détruite.', 'AV block: the fast pathway has been ablated.'));
+      if (touchees.includes('nav') || touchees.includes('rapide')) {
+        // il reste une voie nodale antérograde (voie lente) : PR allongé ; sinon bloc AV complet
+        const reste = c.voies.some(v => v.nodale && !v.coupee && v.ab && !v.ab.bloc);
+        message(reste ? t('Voie nodale rapide détruite : la conduction AV ne passe plus que par la voie lente (AH allongé).', 'Fast pathway ablated: AV conduction now relies on the slow pathway only (prolonged AH).')
+          : t('Bloc AV complet : la conduction nodale a été détruite.', 'Complete AV block: nodal conduction has been ablated.'));
+      }
     }
     if (!rf.cryo && ['koch', 'his'].includes(rf.pos.id)) {
       if (!rf.junct && el > 2000) { rf.junct = true; c.jonction(rf.pos.id === 'his' ? 420 : 560 + Math.round(120 * Math.random())); }
@@ -946,6 +971,13 @@ export function vueSimulateur(app) {
     majCarte(); st.sale = true;
   }
 
+  // lésion iatrogène du nœud AV : 'bavc' (plus aucune voie nodale antérograde), 'rapide' (voie rapide détruite, voie lente conservée), ou null
+  function lesionNodale(c, cible = []) {
+    const detruite = c.voies.some(v => v.nodale && v.coupee && v.id !== 'lente');
+    if (!detruite || cible.includes('rapide')) return null;
+    return c.voies.some(v => v.nodale && !v.coupee && v.ab && !v.ab.bloc) ? 'rapide' : 'bavc';
+  }
+
   // ---------- compte rendu ----------
   function compteRendu() {
     const sc = scenario(st.scenario), cr = st.cr, c = st.coeur, b = cr.base;
@@ -955,7 +987,7 @@ export function vueSimulateur(app) {
     const ext = (x, atrial) => x && [`${x.n} × ${x.s1} ms`, x.pr ? t(`PR ${atrial ? 'atriale' : 'ventriculaire'} ${x.pr} ms`, `${atrial ? 'atrial' : 'ventricular'} ERP ${x.pr} ms`) : '',
       x.prConduction ? t(`PR ${atrial ? 'nodale' : 'rétrograde'} ${x.prConduction} ms`, `${atrial ? 'AV nodal' : 'retrograde'} ERP ${x.prConduction} ms`) : '',
       x.saut || '', x.induction ? t(`induction à S2 = ${x.induction} ms`, `induction at S2 = ${x.induction} ms`) : ''].filter(Boolean).join(sep);
-    const blocAV = c.voies.some(v => v.nodale && v.coupee && v.id !== 'lente') && !(sc.cible && [].concat(sc.cible).includes('rapide'));
+    const lesion = lesionNodale(c, sc.cible ? [].concat(sc.cible) : []);
     const conclusion = st.enquete ? ($('#verdict').textContent ? t(`Diagnostic proposé : ${$('#reponse').selectedOptions[0]?.text}`, `Proposed diagnosis: ${$('#reponse').selectedOptions[0]?.text}`)
       : t('Diagnostic non encore proposé', 'No diagnosis proposed yet')) : sc.nom;
     const rows = [
@@ -965,13 +997,13 @@ export function vueSimulateur(app) {
       ligne(t('Conduction AV (rampe)', 'AV conduction (ramp)'), cr.wenck), ligne(t('Conduction VA (rampe)', 'VA conduction (ramp)'), cr.wenckRetro),
       ligne(t('Extrastimulus atrial', 'Atrial extrastimulus testing'), ext(cr.extraA, true)), ligne(t('Extrastimulus ventriculaire', 'Ventricular extrastimulus testing'), ext(cr.extraV, false)),
       ligne(t('Fonction sinusale', 'Sinus node function'), cr.trs), ligne(t('Seuils de capture', 'Capture thresholds'), cr.seuils.join(sep)), ligne(t('Para-hisien', 'Para-Hisian pacing'), cr.parahis),
-      ligne(t('Inductibilité', 'Inducibility'), cr.inductions.map(i => t(`tachycardie à ${f0(i.cycleV)} ms (A ${f0(i.cycleA)}), VA ${f0(i.VA)} ms, activation atriale la plus précoce : ${i.precoce ?? '—'}`,
-        `tachycardia CL ${f0(i.cycleV)} ms (A ${f0(i.cycleA)}), VA ${f0(i.VA)} ms, earliest atrial activation: ${i.precoce ?? '—'}`)).join(sep)
+      ligne(t('Inductibilité', 'Inducibility'), cr.inductions.map(i => t(`tachycardie ${i.arrivee ? 'présente à l\'arrivée,' : 'induite,'} à ${f0(i.cycleV)} ms (A ${f0(i.cycleA)}), VA ${f0(i.VA)} ms, activation atriale la plus précoce : ${i.precoce ?? '—'}`,
+        `tachycardia ${i.arrivee ? 'present on arrival,' : 'induced,'} CL ${f0(i.cycleV)} ms (A ${f0(i.cycleA)}), VA ${f0(i.VA)} ms, earliest atrial activation: ${i.precoce ?? '—'}`)).join(sep)
         || (st.faites.has('extraA') || st.faites.has('extraV') ? t('non inductible', 'non-inducible') : '')),
       ligne(t('Manœuvres', 'Manoeuvres'), cr.manoeuvres.join(sep)),
       ligne(t('Cartographie', 'Mapping'), Object.keys(st.carte).length ? Object.entries(st.carte).sort((x, y) => x[1].lat - y[1].lat).map(([id, p]) => `${POSITIONS.find(q => q.id === id).nom} ${p.lat} ms`).join(', ') : ''),
       ligne(t('Ablation', 'Ablation'), cr.tirs.map(x => `${x.pos}${t(' : ', ': ')}${x.puissance}, ${x.duree} s, ${x.tMax} °C${x.efficace ? t(', lésion constituée', ', lesion formed') : ''}`).join(sep)),
-      ligne(t('Complications', 'Complications'), [blocAV ? t('bloc AV complet', 'complete AV block') : '', cr.hypotension ? t('tachycardie mal tolérée (hypotension)', 'poorly tolerated tachycardia (hypotension)') : ''].filter(Boolean).join(', ') || t('aucune', 'none')),
+      ligne(t('Complications', 'Complications'), [lesion === 'bavc' ? t('bloc AV complet', 'complete AV block') : lesion === 'rapide' ? t('lésion de la voie nodale rapide (AH allongé, conduction par la voie lente)', 'fast pathway injury (prolonged AH, conduction over the slow pathway)') : '', cr.hypotension ? t('tachycardie mal tolérée (hypotension)', 'poorly tolerated tachycardia (hypotension)') : ''].filter(Boolean).join(', ') || t('aucune', 'none')),
       ligne(t('Conclusion', 'Conclusion'), conclusion),
     ];
     const texte = () => [...$('#compte-rendu').querySelectorAll('tr')].map(tr => `${tr.cells[0].textContent}${t(' : ', ': ')}${tr.cells[1].textContent}`).join('\n');
@@ -1375,13 +1407,19 @@ export function vueSimulateur(app) {
       const m = mesures(c, st.t), pa = constantes(c.journal, st.t);
       // rythme jonctionnel accéléré pendant un tir : ce n'est pas une tachycardie induite
       const jonctionnel = !!st.rf?.junct, tach = jonctionnel ? { active: false } : tachycardie(c, st.t);
-      if (!st.cr.base && st.t > 7000) st.cr.base = { ...m, pa };
-      if (tach.active && !st.tachyAvant) {
-        noter('induction', `${t('Tachycardie', 'Tachycardia')} (A ${Math.round(tach.cycleA ?? 0)} / V ${Math.round(tach.cycleV ?? 0)} ms)`);
-        const V = battementsV(c.journal, st.t - 1500, st.t).at(-2);
-        st.cr.inductions.push({ cycleA: tach.cycleA, cycleV: tach.cycleV, VA: m.VA, precoce: V != null ? NOMS_PRECOCE()[sitePlusPrecoce(c.journal, V, V + 400)] : null });
+      const enStim = c.stims.some(x => x.t > st.t - 3000);
+      // intervalles de base : en rythme spontané, hors stimulation et hors tachycardie
+      const sousAdenosine = c.adenosine && st.t < c.adenosine.fin + 8000;
+      if (!st.cr.base && st.t > 4000 && !enStim && !tach.active && !sousAdenosine && m.AH != null) st.cr.base = { ...m, pa };
+      // une manœuvre pendant la tachycardie (ESV, entraînement) n'est pas une nouvelle induction : l'état n'est relu qu'hors stimulation
+      if (!enStim) {
+        if (tach.active && !st.tachyAvant) {
+          noter('induction', `${t('Tachycardie', 'Tachycardia')} (A ${Math.round(tach.cycleA ?? 0)} / V ${Math.round(tach.cycleV ?? 0)} ms)`);
+          const V = battementsV(c.journal, st.t - 1500, st.t).at(-2);
+          st.cr.inductions.push({ cycleA: tach.cycleA, cycleV: tach.cycleV, VA: m.VA, precoce: V != null ? NOMS_PRECOCE()[sitePlusPrecoce(c.journal, V, V + 400)] : null });
+        }
+        st.tachyAvant = tach.active;
       }
-      st.tachyAvant = tach.active;
       if (c.evenements.some(e => !e.vu)) majJournal();
       zoneMesures.innerHTML = htmlMesures(m);
       // constantes : alerte si la pression moyenne reste < 60 mmHg plus de 8 s
@@ -1458,7 +1496,7 @@ export function vueSimulateur(app) {
     const tirs = h.filter(x => x.type === 'tir'), premierTir = tirs[0]?.t ?? Infinity, dernierEfficace = tirs.filter(x => x.efficace).at(-1)?.t;
     const tire = st.actions.some(a => a.rf);
     const ablOk = !cible.length || c.voies.some(v => v.coupee && cible.includes(v.id)) || cible.some(x => c.sites[x]?.supprime) || (sc.ablationOptionnelle && !tire);
-    const blocAV = c.voies.some(v => v.coupee && (v.id === 'nav' || v.id === 'rapide')) && !cible.includes('rapide');
+    const lesion = lesionNodale(c, cible), blocAV = !!lesion;
     const ablInutile = !cible.length && tire;
     const disc = (sc.manoeuvres || []).filter(m => !ETUDE.has(m) || (base === 'fa' && m === 'salveA'));
     // une manœuvre discriminante compte si elle a été faite dans le bon contexte (en tachycardie, ou en rythme sinusal pour le para-hisien)
@@ -1488,10 +1526,10 @@ export function vueSimulateur(app) {
     ajoute(cible.length ? (dernierEfficace != null && h.some(x => STIMULATION.has(x.type) && x.t > dernierEfficace) ? 1 : 0) : (tire ? 0 : 1), 1,
       cible.length ? t('Contrôle après ablation (tentative de réinduction, conduction)', 'Post-ablation check (re-induction attempt, conduction)') : t('Aucune lésion inutile', 'No unnecessary lesion'));
     let noteDemarche = lignes.reduce((a, l) => a + l.pts, 0);
-    if (blocAV) noteDemarche -= 2;
+    if (blocAV) noteDemarche -= lesion === 'bavc' ? 2 : 1;
     if (tirs.filter(x => !x.efficace).length > 3) noteDemarche -= 0.5;
     noteDemarche = Math.max(0, Math.round(noteDemarche * 2) / 2);
-    return { base, noteDiag, noteDemarche, lignes, blocAV, ablOk, ablInutile, tire, cible };
+    return { base, noteDiag, noteDemarche, lignes, blocAV, lesion, ablOk, ablInutile, tire, cible };
   }
 
   $('#valider').onclick = () => {
@@ -1517,12 +1555,12 @@ export function vueSimulateur(app) {
       <p>${t('Il s\'agissait de :', 'The diagnosis was:')} <b>${esc(nomDiag)}</b>.</p>
       <h4>${t('Votre démarche', 'Your work-up')}</h4>
       <ul class="simu-check">${ev.lignes.map(l => `<li class="${l.pts >= l.max ? 'fait' : l.pts ? 'partiel' : 'manque'}">${l.pts >= l.max ? '✓' : l.pts ? '◐' : '✗'} ${esc(l.texte)} <span class="note">(${pts(l.pts)}/${l.max})</span></li>`).join('')}
-        ${ev.blocAV ? `<li class="manque">✗ ${t('Bloc AV iatrogène (− 2)', 'Iatrogenic AV block (− 2)')}</li>` : ''}</ul>
+        ${ev.blocAV ? `<li class="manque">✗ ${ev.lesion === 'bavc' ? t('Bloc AV complet iatrogène (− 2)', 'Iatrogenic complete AV block (− 2)') : t('Lésion iatrogène de la voie rapide, PR allongé (− 1)', 'Iatrogenic fast pathway injury, prolonged PR (− 1)')}</li>` : ''}</ul>
       <h4>${t('Explication', 'Explanation')}</h4><p>${esc(sc.explication)}</p>
       <h4>${t('Démarche idéale', 'Ideal work-up')}</h4><ol class="simu-ideal">${demarcheIdeale(sc, st.scenario).map(e => `<li>${esc(e)}</li>`).join('')}</ol>
       ${st.analyses.length ? `<h4>${t('Vos mesures', 'Your measurements')}</h4><ul>${st.analyses.map(a => `<li>${esc(a)}</li>`).join('')}</ul>` : ''}
       ${st.bump ? `<p class="note">${t('Un contact de la sonde a pu bloquer transitoirement la voie accessoire (« bump ») : la préexcitation disparaît sans tir, puis revient.', 'Catheter contact may have transiently blocked the accessory pathway ("bump"): pre-excitation disappears without any RF delivery, then returns.')}</p>` : ''}
-      <h4>${t('Traitement', 'Treatment')}</h4><p>${traitement}${ev.blocAV ? t(' <b>✗ Bloc AV iatrogène.</b>', ' <b>✗ Iatrogenic AV block.</b>') : ''}</p>
+      <h4>${t('Traitement', 'Treatment')}</h4><p>${traitement}${ev.blocAV ? (ev.lesion === 'bavc' ? t(' <b>✗ Bloc AV complet iatrogène.</b>', ' <b>✗ Iatrogenic complete AV block.</b>') : t(' <b>✗ Lésion iatrogène de la voie rapide.</b>', ' <b>✗ Iatrogenic fast pathway injury.</b>')) : ''}</p>
       <div class="actions serre gauche">${st.mystere ? `<button class="btn btn-primaire" id="autre">${t('Nouveau cas', 'New case')}</button>` : ''}<button class="btn" id="cr-verdict">${t('Compte rendu', 'Report')}</button></div></div>`;
     if (st.mystere) $('#autre').onclick = () => { choisir(); window.scrollTo({ top: 0, behavior: 'smooth' }); };
     $('#cr-verdict').onclick = compteRendu;
