@@ -10,6 +10,8 @@ const racine = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dirFr = path.join(racine, 'data', 'questions'), dirEn = path.join(dirFr, 'en');
 const nom = f => path.basename(f).replace(/\.json$/, '') + '.json';
 const lire = p => JSON.parse(fs.readFileSync(p, 'utf8'));
+// Conserve l'indentation du fichier existant (1 ou 2 espaces selon les fichiers).
+const indent = p => (fs.readFileSync(p, 'utf8').match(/^\[?\{?\n( +)/) || [, '  '])[1].length;
 // insère la clé « rappel » après « aRetenir » (ou en fin d'objet) en gardant l'ordre des autres clés
 const inserer = (o, texte) => {
   const r = {};
@@ -35,7 +37,7 @@ if (cmd === 'manquants') {
   });
   for (const id of Object.keys(L)) if (!fr.some(q => q.id === id)) erreurs.push(id + ' (id inconnu)');
   if (erreurs.length) { console.error('✗ rappels refusés : ' + erreurs.join(', ')); process.exit(1); }
-  fs.writeFileSync(pFr, JSON.stringify(qs, null, 2) + '\n');
-  fs.writeFileSync(pEn, JSON.stringify(en, null, 1) + '\n');
+  fs.writeFileSync(pFr, JSON.stringify(qs, null, indent(pFr)) + '\n');
+  fs.writeFileSync(pEn, JSON.stringify(en, null, indent(pEn)) + '\n');
   console.log(`${n} rappel(s) appliqué(s) à ${nom(f)} ; restent ${qs.filter(q => !q.rappel).length} question(s) sans rappel.`);
 } else { console.error('usage : manquants <fichier> | appliquer <fichier> <lot.json>'); process.exit(2); }
