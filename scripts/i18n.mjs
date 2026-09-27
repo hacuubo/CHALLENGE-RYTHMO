@@ -1,7 +1,7 @@
 // Version anglaise de la base de questions.
 // La base française (data/questions/*.json) reste la référence de structure ; la version anglaise est une
 // SURCOUCHE de textes (data/questions/en/<même nom>.json) : { "<id>": { question, options, commentaires,
-// reponseAttendue, explication, aRetenir, legende } }. Réponses, difficulté, tracés et sources ne sont jamais
+// reponseAttendue, explication, aRetenir, rappel, legende } }. Réponses, difficulté, tracés et sources ne sont jamais
 // dupliqués et ne peuvent donc pas diverger. Sous-thèmes et recommandations : data/questions/en/libelles.json.
 //
 //   node scripts/i18n.mjs extraire <fichier.json> [sortie]   textes français à traduire (même format que la surcouche)
@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 const racine = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dirFr = path.join(racine, 'data', 'questions');
 const dirEn = path.join(dirFr, 'en');
-export const CHAMPS = ['question', 'options', 'commentaires', 'reponseAttendue', 'explication', 'aRetenir'];
+export const CHAMPS = ['question', 'options', 'commentaires', 'reponseAttendue', 'explication', 'aRetenir', 'rappel'];
 export const TRACES = ['ecg', 'egm', 'simu'];
 
 const nom = f => path.basename(f).replace(/\.json$/, '') + '.json';

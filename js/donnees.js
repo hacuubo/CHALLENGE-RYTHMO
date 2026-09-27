@@ -35,7 +35,7 @@ export const libReco = r => (enAnglais() && libelles.reco?.[r]) || r;
 export const libMarque = m => (m === 'Générique' ? t('Générique', 'Generic') : m);
 
 // Surcouche anglaise : mêmes champs que scripts/i18n.mjs (appliquer), recopiés ici pour ne pas dépendre des scripts.
-const CHAMPS = ['question', 'options', 'commentaires', 'reponseAttendue', 'explication', 'aRetenir'];
+const CHAMPS = ['question', 'options', 'commentaires', 'reponseAttendue', 'explication', 'aRetenir', 'rappel'];
 const TRACES = ['ecg', 'egm', 'simu'];
 function appliquer(q, s) {
   if (!s) return q;
@@ -103,6 +103,11 @@ export const DOMAINES = [
   { id: 'tout', get nom() { return t('Tout venant', 'Mixed'); }, ico: '🎲', themes: ['ecg', 'programmation', 'telecardio', 'electrophysio'], get desc() { return t('Un peu de tout, au hasard', 'A bit of everything, at random'); } },
 ];
 
+// Cadre d'une question : lecture de tracé (ECG, EGM, EEP), cas clinique (situation de la vraie vie) ou connaissance de cours.
+export const cadre = q => (aTrace(q) ? 'trace' : q.cadre === 'clinique' ? 'clinique' : 'cours');
+// Mode compétitif : on joue surtout sur des tracés et des cas cliniques ; les questions de cours y deviennent rares.
+const CADRE_COMPETITIF = { trace: 0, clinique: 0.35, cours: 1.3 };
+
 // Mode compétitif : question dont la cote est proche du classement du joueur (légèrement au-dessus),
 // jamais vue dans la partie en cours, de préférence jamais vue du tout. Les questions ouvertes
 // (auto-évaluées) sont exclues : elles ne peuvent pas compter pour un classement.
@@ -118,7 +123,7 @@ export function questionCompetitive(dejaPosees) {
   const score = q => {
     const e = p.q[q.id];
     const ecart = Math.abs(stock.eloQuestion(q.difficulte) - cible) / 200; // 1 = un cran de difficulté
-    return ecart + (e ? (e.dernierOk ? 0.8 : 0.3) : 0) + Math.random() * 0.9;
+    return ecart + CADRE_COMPETITIF[cadre(q)] + (e ? (e.dernierOk ? 0.8 : 0.3) : 0) + Math.random() * 0.9;
   };
   return pool.reduce((m, q) => { const v = score(q); return v < m.v ? { q, v } : m; }, { q: null, v: Infinity }).q;
 }
