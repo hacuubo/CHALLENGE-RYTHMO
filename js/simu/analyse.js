@@ -56,30 +56,101 @@ export function sitePlusPrecoce(journal, t0, t1) {
   return best?.s ?? null;
 }
 
+// Cycle médian d'un site sur une fenêtre (activations non stimulées).
+export function cycleSite(journal, site, t0, t1) {
+  const l = journal.filter(x => x.s === site && x.t >= t0 && x.t <= t1 && x.o !== 'stim').map(x => x.t);
+  return mediane(ecarts(l));
+}
+
 // Analyse d'un entraînement (salve arrêtée à l'instant der, au cycle cl, depuis le site stimulé) :
-// réponse (V-A-V ou V-A-A-V pour un entraînement ventriculaire), PPI mesuré sur le site stimulé, PPI − TCL.
-export function analyserEntrainement(coeur, { der, site, tcl, ventriculaire }) {
-  const j = coeur.journal;
+// réponse (V-A-V ou V-A-A-V pour un entraînement ventriculaire), PPI mesuré sur le site stimulé, PPI − TCL, SA − VA.
+// La manœuvre n'est interprétable que si le dernier stimulus a capturé, si l'atrium suivait la stimulation (entraînement
+// ventriculaire) et si la tachycardie a persisté après l'arrêt : sinon interpretable est faux et motif dit pourquoi.
+// Réponse lue avec le His (A-A-H contre A-H-A) : un bloc sous le His (TRIN 2:1) ne doit pas faire conclure à une V-A-A-V.
+export function analyserEntrainement(coeur, { der, site, tcl, ventriculaire, debut = null }) {
+  const j = coeur.journal, stims = coeur.stims.filter(s => s.s === site && s.t <= der);
+  const dernier = stims.at(-1), cl = stims.length > 1 ? der - stims.at(-2).t : null;
   const ppiT = activations(j, site === 'parahis' ? 'vbd' : site, der + 1, der + 3000)[0];
-  const r = { ppi: ppiT != null ? Math.round(ppiT - der) : null, pptcl: ppiT != null && tcl ? Math.round(ppiT - der - tcl) : null, reponse: null };
+  const r = { ppi: ppiT != null ? Math.round(ppiT - der) : null, pptcl: ppiT != null && tcl ? Math.round(ppiT - der - tcl) : null, reponse: null,
+    interpretable: true, motif: null, arret: false, sa: null, va: null, savA: null, pseudo: false };
+  // tachycardie persistante après l'arrêt : battements réguliers au voisinage du cycle initial
+  const ref = ventriculaire ? battementsV(j, der + 1, der + 4000).filter(v => !coeur.stims.some(s => Math.abs(s.t - v) < 5)) : activations(j, 'hra', der + 1, der + 4000);
+  const apres = ecarts(ref), c0 = mediane(apres.slice(1));
+  r.arret = !tcl || apres.length < 3 || c0 == null || Math.abs(c0 - tcl) > Math.max(40, 0.15 * tcl);
+  if (!dernier?.capture) { r.interpretable = false; r.motif = trad('perte de capture au dernier stimulus', 'loss of capture on the last stimulus'); }
+  else if (r.arret) { r.interpretable = false; r.motif = trad('tachycardie arrêtée par la stimulation', 'tachycardia terminated by pacing'); }
   if (ventriculaire) {
     const Aent = j.find(x => x.s === 'hra' && x.r === `stim:${der}`)?.t;
-    if (Aent != null) {
+    const Aavant = activations(j, 'hra', der - 4 * (cl ?? tcl) - 50, Aent ?? der);
+    const suit = Aent != null && cl != null && Aavant.length >= 3 && ecarts(Aavant).slice(-2).every(d => Math.abs(d - cl) <= 12);
+    if (!suit) {
+      r.reponse = trad('atrium non entraîné (pas de conduction rétrograde 1:1)', 'atrium not entrained (no 1:1 retrograde conduction)');
+      if (r.interpretable) { r.interpretable = false; r.motif = r.reponse; }
+    } else {
+      r.sa = Math.round(Aent - der);
+      if (debut != null) { // VA de la tachycardie avant la stimulation : QRS → OD haute
+        const V = battementsV(j, debut - 3 * tcl, debut).filter(v => !coeur.stims.some(s => Math.abs(s.t - v) < 5));
+        const va = V.map(v => activations(j, 'hra', v + 1, v + tcl)[0] - v).filter(x => !Number.isNaN(x));
+        if (va.length) { r.va = Math.round(mediane(va)); r.savA = r.sa - r.va; }
+      }
       const V = battementsV(j, Aent + 1, Aent + 1500).filter(v => !coeur.stims.some(s => Math.abs(s.t - v) < 5));
       const A = activations(j, 'hra', Aent + 5, Aent + 1500);
-      if (A.length && V.length) r.reponse = A[0] < V[0] ? 'V-A-A-V' : 'V-A-V';
-    } else r.reponse = trad('atrium non entraîné (pas de conduction rétrograde 1:1)', 'atrium not entrained (no 1:1 retrograde conduction)');
+      const H = j.filter(x => x.s === 'his' && x.t > Aent - 30 && x.t < Aent + 1500 && x.r !== `stim:${der}` && !coeur.stims.some(s => x.r === `stim:${s.t}`)).map(x => x.t);
+      if (A.length && V.length) {
+        const parV = A[0] < V[0], parH = H.length ? A[0] < H[0] : parV;
+        r.pseudo = parV && !parH; // A avant le V, mais H avant le second A : bloc sous le His, pas de V-A-A-V vraie
+        r.reponse = parV && parH ? 'V-A-A-V' : 'V-A-V';
+      }
+    }
   }
+  if (!r.interpretable) { r.ppi = r.arret || !dernier?.capture ? null : r.ppi; r.pptcl = r.ppi == null ? null : r.pptcl; if (r.arret) r.reponse = null; }
   return r;
 }
 
 // Effet d'une ESV délivrée à l'instant te pendant une tachycardie de cycle tcl : avance (> 0) ou retard de l'atrium suivant.
 export function analyserESV(coeur, te, tcl) {
-  const A = activations(coeur.journal, 'hra', te - tcl - 50, te + 1.5 * tcl);
-  if (A.length < 2) return null;
-  const ecartsA = A.slice(1).map((x, i) => x - A[i]);
-  const avance = tcl - Math.min(...ecartsA), retard = Math.max(...ecartsA) - tcl;
-  return Math.round(avance > 5 || avance >= retard ? avance : -retard);
+  const b = bilanESV(coeur, te, tcl);
+  return b.avance;
+}
+// Bilan complet d'une ESV His-réfractaire : capture, His réellement réfractaire, conduction VA 1:1 avant l'ESV,
+// avance (> 0) ou retard (< 0) de l'A suivant par rapport à l'A attendu, arrêt de la tachycardie (avec ou sans atteindre l'atrium).
+export function bilanESV(coeur, te, tcl) {
+  const j = coeur.journal, st = coeur.stims.find(s => Math.abs(s.t - te) < 0.5);
+  const cA = cycleSite(j, 'hra', te - 3000, te), cV = mediane(ecarts(battementsV(j, te - 3000, te - 1)));
+  const acl = cA ?? tcl;
+  const r = { capture: !!st?.capture, hisCapte: j.some(x => x.s === 'his' && x.r === `stim:${te}`), unUn: cA != null && cV != null && Math.abs(cA - cV) < 0.1 * cA,
+    avance: null, arret: false, arretSansA: false };
+  const Aprev = activations(j, 'hra', te - 1.5 * acl, te).at(-1);
+  if (Aprev == null || !acl) return r;
+  const attendu = Aprev + acl, Asuiv = activations(j, 'hra', te + 1, te + 3 * acl);
+  const Anext = Asuiv[0];
+  if (Anext != null && Anext < attendu + 0.6 * acl) r.avance = Math.round(attendu - Anext);
+  const V = battementsV(j, te + 1, te + 4 * acl).filter(v => Math.abs(v - te) > 5);
+  const reg = ecarts(Asuiv).slice(0, 3), soutenue = reg.length >= 2 && reg.every(d => Math.abs(d - acl) < 0.2 * acl);
+  r.arret = !soutenue && V.length < 3;
+  r.arretSansA = r.arret && (Anext == null || Anext > attendu + 0.6 * acl);
+  return r;
+}
+
+// Stimulation para-hisienne : intervalle stimulus-A à chaque site atrial, avec et sans capture (réelle) du His.
+// Réponse nodale : le S-A s'allonge partout, séquence inchangée ; extranodale : S-A constant au site le plus précoce ;
+// les deux (fusion) : la séquence d'activation change quand on perd la capture du His.
+export const SITES_A = ['hra', 'ras', 'cs9', 'cs7', 'cs5', 'cs3', 'cs1'];
+export function analyserParaHis(coeur, temps) {
+  const g = { haut: {}, bas: {} };
+  for (const ts of temps) {
+    const st = coeur.stims.find(s => Math.abs(s.t - ts) < 0.5); if (!st?.capture) continue;
+    const m = st.his ? g.haut : g.bas;
+    for (const s of SITES_A) { const a = coeur.journal.find(x => x.r === `stim:${ts}` && x.s === s)?.t; if (a != null) (m[s] ??= []).push(a - ts); }
+  }
+  const moy = l => (l?.length ? Math.round(l.reduce((a, b) => a + b, 0) / l.length) : null);
+  const H = Object.fromEntries(SITES_A.map(s => [s, moy(g.haut[s])])), B = Object.fromEntries(SITES_A.map(s => [s, moy(g.bas[s])]));
+  const premier = M => SITES_A.filter(s => M[s] != null).sort((a, b) => M[a] - M[b])[0] ?? null;
+  const pH = premier(H), pB = premier(B);
+  if (!pH || !pB) return { H, B, pH, pB, type: null };
+  const d = B[pB] - (H[pB] ?? B[pB]), dHis = B.ras != null && H.ras != null ? B.ras - H.ras : null;
+  const type = Math.abs(d) <= 10 ? (pH !== pB || (dHis != null && dHis >= 25) ? 'fusion' : 'extranodal') : d >= 25 && pH === pB ? 'nodal' : 'intermediaire';
+  return { H, B, pH, pB, d, dHis, type };
 }
 
 // Réponse à un stimulus délivré à l'instant ts : capture, activations qu'il a produites (même événement racine)

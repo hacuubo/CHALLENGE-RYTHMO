@@ -79,7 +79,7 @@ export const SCENARIOS = {
     get court() { return t('Double voie nodale, pas de tachycardie', `Dual AV nodal physiology, no tachycardia`); },
     def: () => avec(sans(base(), 'nav'),
       { id: 'rapide', a: 'ras', b: 'his', nodale: true, ab: nod(75, 60, 80, 330), ba: null },
-      { id: 'lente', a: 'cs9', b: 'his', nodale: true, ab: nod(190, 120, 90, 240), ba: null }),
+      { id: 'lente', a: 'cs9', b: 'his', nodale: true, ab: nod(190, 120, 90, 240), ba: { bloc: true, erp: 240 } }),
     get explication() { return t(`Double voie nodale : quand l'extrastimulus atrial tombe dans la période réfractaire de la voie rapide, la conduction bascule sur la voie lente avec un saut de l'AH (≥ 50 ms pour 10 ms de raccourcissement du couplage). Sans conduction rétrograde nodale (dissociation VA en stimulation ventriculaire), aucune réentrée n'est possible : ni écho ni tachycardie. Cette physiologie isolée ne justifie pas d'ablation.`, `Dual AV nodal physiology: when the atrial extrastimulus falls within the fast pathway refractory period, conduction switches to the slow pathway with an AH jump (≥ 50 ms for a 10 ms decrement in coupling interval). Without retrograde nodal conduction (VA dissociation during ventricular pacing), re-entry is impossible: neither echo beats nor tachycardia. This isolated finding does not warrant ablation.`); },
   },
   trin: {
@@ -90,7 +90,7 @@ export const SCENARIOS = {
     get court() { return t('Tachycardie par réentrée intranodale typique', `Typical AV nodal re-entrant tachycardia`); },
     def: () => avec(sans(base(), 'nav'),
       { id: 'rapide', a: 'ras', b: 'his', nodale: true, ab: nod(70, 60, 80, 330), ba: nod(45, 40, 80, 250) },
-      { id: 'lente', a: 'cs9', b: 'his', nodale: true, ab: nod(190, 120, 90, 240), ba: null }),
+      { id: 'lente', a: 'cs9', b: 'his', nodale: true, ab: nod(190, 120, 90, 240), ba: { bloc: true, erp: 240 } }),
     cible: 'lente',
     get explication() { return t(`Réentrée intranodale typique : descente par la voie lente (saut d'AH à l'induction), remontée par la voie rapide. VA très court (A et V quasi simultanés, VA < 70 ms (du début du QRS à l'A le plus précoce, ici au His)), activation atriale rétrograde concentrique, la plus précoce sur le His. Une ESV délivrée quand le His est réfractaire ne modifie pas l'atrium. Après entraînement ventriculaire : réponse V-A-V, PPI − TCL > 115 ms et SA − VA > 85 ms. L'adénosine l'arrête. Traitement : ablation de la voie lente.`, `Typical AV nodal re-entry: anterograde conduction over the slow pathway (AH jump at induction), retrograde over the fast pathway. Very short VA (A and V almost simultaneous; VA < 70 ms, measured from QRS onset to the earliest A, here at the His), concentric retrograde atrial activation, earliest at the His. A PVC delivered when the His is refractory does not affect the atrium. After ventricular entrainment: V-A-V response, PPI − TCL > 115 ms and SA − VA > 85 ms. Adenosine terminates it. Treatment: slow pathway ablation.`); },
   },
@@ -112,7 +112,8 @@ export const SCENARIOS = {
     manoeuvres: ['extraA', 'induction', 'esvHis', 'entrainementV', 'cartographie'],
     get nom() { return t('TRAV orthodromique (voie accessoire latérale gauche cachée)', `Orthodromic AVRT (concealed left lateral accessory pathway)`); },
     get court() { return t('Tachycardie orthodromique sur voie accessoire cachée', `Orthodromic tachycardia over a concealed accessory pathway`); },
-    def: () => avec(base(), { id: 'vacc-lat', a: 'cs1', b: 'lvl', ab: { bloc: true, erp: 150 }, ba: { d: 30, erp: 150 } }),
+    // sujet jeune : nœud AV performant, qui conduit 1:1 pendant l'entraînement ventriculaire à TCL − 10 à 40 ms
+    def: () => regler(avec(base(), { id: 'vacc-lat', a: 'cs1', b: 'lvl', ab: { bloc: true, erp: 150 }, ba: { d: 55, erp: 150 } }), 'nav', { ab: nod(80, 110, 110, 270, 0.35) }),
     cible: 'vacc-lat',
     get explication() { return t(`Voie accessoire latérale gauche à conduction exclusivement rétrograde (cachée) : pas de préexcitation. Tachycardie orthodromique : descente par le nœud AV, remontée par la voie accessoire. Activation atriale excentrique, la plus précoce en SC distal (1-2), VA > 70 ms. Une ESV délivrée quand le His est réfractaire avance l'atrium : preuve d'une voie accessoire. Entraînement ventriculaire : V-A-V ; ici PPI − TCL < 115 ms, mais ce critère est validé pour les voies septales : une voie latérale gauche, loin du site de stimulation, peut donner un PPI − TCL > 115 ms. Ablation de la voie accessoire sur l'anneau mitral latéral.`, `Left lateral accessory pathway with exclusively retrograde (concealed) conduction: no pre-excitation. Orthodromic tachycardia: anterograde conduction over the AV node, retrograde over the accessory pathway. Eccentric atrial activation, earliest at the distal CS (1-2), VA > 70 ms. A PVC delivered when the His is refractory advances the atrium: proof of an accessory pathway. Ventricular entrainment: V-A-V; here PPI − TCL < 115 ms, but this criterion was validated for septal pathways: a left lateral pathway, far from the pacing site, can give a PPI − TCL > 115 ms. Ablation of the accessory pathway at the lateral mitral annulus.`); },
   },
@@ -122,7 +123,7 @@ export const SCENARIOS = {
     manoeuvres: ['extraA', 'induction', 'cartographie'],
     get nom() { return t('Syndrome de Wolff-Parkinson-White (voie latérale gauche)', `Wolff-Parkinson-White syndrome (left lateral pathway)`); },
     get court() { return t('Voie accessoire manifeste (préexcitation)', `Manifest accessory pathway (pre-excitation)`); },
-    def: () => { const d = avec(base(), { id: 'vacc-lat', a: 'cs1', b: 'lvl', ab: { d: 15, erp: 320 }, ba: { d: 30, erp: 260 } }); d.sites.hra.fibrillable = true; return d; },
+    def: () => { const d = avec(base(), { id: 'vacc-lat', a: 'cs1', b: 'lvl', ab: { d: 15, erp: 320 }, ba: { d: 55, erp: 260 } }); regler(d, 'nav', { ab: nod(80, 110, 110, 270, 0.35) }); d.sites.hra.fibrillable = true; return d; },
     cible: 'vacc-lat',
     get explication() { return t(`Voie accessoire latérale gauche bidirectionnelle : préexcitation en rythme sinusal (onde delta, HV court ou négatif), majorée par la stimulation du SC distal, proche de la voie. Quand un extrastimulus atrial bloque dans la voie accessoire (période réfractaire plus longue que celle du nœud AV), le QRS s'affine et une tachycardie orthodromique peut démarrer : activation atriale excentrique, SC distal en premier. Ablation de la voie accessoire.`, `Bidirectional left lateral accessory pathway: pre-excitation in sinus rhythm (delta wave, short or negative HV), accentuated by pacing from the distal CS, close to the pathway. When an atrial extrastimulus blocks in the accessory pathway (whose refractory period is longer than that of the AV node), the QRS narrows and an orthodromic tachycardia may start: eccentric atrial activation, distal CS first. Accessory pathway ablation.`); },
   },
@@ -167,7 +168,7 @@ export const SCENARIOS = {
     manoeuvres: ['induction', 'esvHis', 'entrainementV', 'parahis', 'cartographie'],
     get nom() { return t('TRAV orthodromique (voie accessoire postéro-septale cachée)', `Orthodromic AVRT (concealed posteroseptal accessory pathway)`); },
     get court() { return t('Tachycardie orthodromique sur voie accessoire septale', `Orthodromic tachycardia over a septal accessory pathway`); },
-    def: () => regler(avec(base(), { id: 'vacc-sept', a: 'cs9', b: 'vps', ab: { bloc: true, erp: 150 }, ba: { d: 55, erp: 150 } }), 'nav', { ab: nod(75, 100, 110, 230, 0.45), ba: nod(60, 70, 100, 320) }),
+    def: () => regler(avec(base(), { id: 'vacc-sept', a: 'cs9', b: 'vps', ab: { bloc: true, erp: 150 }, ba: { d: 70, erp: 150 } }), 'nav', { ab: nod(75, 100, 110, 230, 0.3), ba: nod(60, 70, 100, 320) }),
     cible: 'vacc-sept',
     get explication() { return t(`Voie accessoire postéro-septale à conduction rétrograde exclusive. Pendant la tachycardie, l'activation atriale la plus précoce est à l'ostium du SC, comme dans une TRIN atypique : le piège classique. Ce qui tranche : VA > 70 ms mais RP court ; l'ESV His-réfractaire avance l'atrium (ou arrête la tachycardie sans l'atteindre) ; après entraînement ventriculaire, V-A-V avec PPI − TCL < 115 ms et SA − VA < 85 ms ; en stimulation para-hisienne, l'intervalle stimulus-A ne change pas quand on perd la capture du His (conduction rétrograde extranodale). Ablation de la voie accessoire à l'ostium du SC.`, `Posteroseptal accessory pathway with exclusively retrograde conduction. During tachycardia, earliest atrial activation is at the CS ostium, as in atypical AVNRT: the classic pitfall. The discriminators: VA > 70 ms but short RP; the His-refractory PVC advances the atrium (or terminates the tachycardia without reaching it); after ventricular entrainment, V-A-V with PPI − TCL < 115 ms and SA − VA < 85 ms; during para-Hisian pacing, the stimulus-to-A interval does not change when His capture is lost (extranodal retrograde conduction). Accessory pathway ablation at the CS ostium.`); },
   },
@@ -177,7 +178,8 @@ export const SCENARIOS = {
     manoeuvres: ['induction', 'esvHis', 'entrainementV', 'cartographie'],
     get nom() { return t('Tachycardie jonctionnelle réciprocante permanente (Coumel)', `Permanent junctional reciprocating tachycardia (Coumel)`); },
     get court() { return t('Tachycardie jonctionnelle réciprocante permanente (PJRT)', `Permanent junctional reciprocating tachycardia (PJRT)`); },
-    def: () => avec(base(), { id: 'vacc-sept', a: 'cs9', b: 'vps', ab: { bloc: true, erp: 150 }, ba: nod(190, 90, 110, 90) }),
+    // voie rétrograde exclusive, lente et très décrémentielle, sans pénétration antérograde : elle reste disponible après chaque battement sinusal (tachycardie incessante)
+    def: () => avec(base(), { id: 'vacc-sept', a: 'cs9', b: 'vps', ab: null, ba: nod(150, 180, 50, 320) }),
     cible: 'vacc-sept',
     get explication() { return t(`Voie accessoire postéro-septale cachée à conduction rétrograde lente et décrémentielle. La tachycardie est incessante : elle redémarre spontanément après quelques battements sinusaux. RP long (RP > PR), ondes P négatives en DII, activation atriale la plus précoce à l'ostium du SC. L'ESV His-réfractaire retarde l'atrium (conduction décrémentielle) ou arrête la tachycardie sans l'atteindre. Diagnostic différentiel : TRIN atypique et tachycardie atriale basse. Cause de cardiomyopathie rythmique chez l'enfant et l'adulte jeune. Ablation de la voie à l'ostium du SC.`, `Concealed posteroseptal accessory pathway with slow, decremental retrograde conduction. The tachycardia is incessant: it restarts spontaneously after a few sinus beats. Long RP (RP > PR), negative P waves in lead II, earliest atrial activation at the CS ostium. The His-refractory PVC delays the atrium (decremental conduction) or terminates the tachycardia without reaching it. Differential diagnosis: atypical AVNRT and low atrial tachycardia. A cause of tachycardia-induced cardiomyopathy in children and young adults. Ablation of the pathway at the CS ostium.`); },
   },
@@ -200,7 +202,7 @@ export const SCENARIOS = {
     def: () => {
       const d = avec(sans(base(), 'nav'),
         { id: 'rapide', a: 'ras', b: 'his', nodale: true, ab: nod(70, 60, 80, 330), ba: nod(45, 40, 80, 250) },
-        { id: 'lente', a: 'cs9', b: 'his', nodale: true, ab: nod(190, 120, 90, 240), ba: null });
+        { id: 'lente', a: 'cs9', b: 'his', nodale: true, ab: nod(190, 120, 90, 240), ba: { bloc: true, erp: 240 } });
       d.sites.bbd.erp = 480; d.sites.bbg.erp = 470;
       return d;
     },
@@ -215,7 +217,7 @@ export const SCENARIOS = {
     variation: 0.02, // fenêtre d'entretien du bloc de branche étroite
     get court() { return t('TRAV avec bloc de branche homolatéral (signe de Coumel)', `AVRT with ipsilateral bundle branch block (Coumel's sign)`); },
     def: () => {
-      const d = avec(base(), { id: 'vacc-lat', a: 'cs1', b: 'lvl', ab: { bloc: true, erp: 150 }, ba: { d: 30, erp: 150 } });
+      const d = regler(avec(base(), { id: 'vacc-lat', a: 'cs1', b: 'lvl', ab: { bloc: true, erp: 150 }, ba: { d: 55, erp: 150 } }), 'nav', { ab: nod(80, 110, 110, 270, 0.35) });
       d.sites.bbg.erp = 410; d.sites.bbg.restit = 0.5; d.sites.bbd.erp = 330;
       regler(d, 'transseptal', { ab: myo(55), ba: myo(55) }); regler(d, 'vd-vg', { ab: myo(95), ba: myo(95) }); // cardiopathie : conduction myocardique plus lente
       return d;

@@ -4,7 +4,7 @@
 import { Coeur, SITES_ATRIAUX, seuilCapture } from '../simu/moteur.js';
 import { SCENARIOS, MYSTERES, ARRIVEES, scenario, SITES_STIM, SITES_DETECTION, POSITIONS } from '../simu/scenarios.js';
 import { dessinerSimu, MONTAGES, VITESSES, CANAUX, VOIES_SITE, fenetreMs, marges, evenementsCanal } from '../simu/trace.js';
-import { mesures, tachycardie, analyserEntrainement, analyserESV, reponseStim, recuperationSinusale, constantes, tempsLocal,
+import { mesures, tachycardie, analyserEntrainement, bilanESV, analyserParaHis, cycleSite, reponseStim, recuperationSinusale, constantes, tempsLocal,
   activations, battementsV, sitePlusPrecoce, induireTachycardie } from '../simu/analyse.js';
 import { esc, melanger } from '../util.js';
 import { t } from '../i18n.js';
@@ -528,7 +528,8 @@ export function vueSimulateur(app) {
     vibrer();
     const c = st.coeur, site = siteReel();
     const type = classer(site, { detection: p.detection, n: p.n, s2: p.s2 });
-    const tcl = tachycardie(c).cycleV;
+    // ESV His-réfractaire : cycle du His (égal au cycle atrial, même en cas de bloc 2:1 sous le His)
+    const tcl = cycleSite(c.journal, 'his', c.t - 3000, c.t) ?? tachycardie(c).cycleV;
     let e = null;
     const lancer = t0 => {
       const liste = programmer(t0, site, e, p);
@@ -536,9 +537,7 @@ export function vueSimulateur(app) {
         const te = liste.at(-1);
         setTimeout(() => {
           if (!canvas.isConnected) return; // simulateur quitté entre-temps
-          const av = analyserESV(c, te, tcl);
-          if (av != null) resultat(t(`ESV His-réfractaire : ${av > 5 ? `atrium avancé de ${av} ms` : av < -5 ? `atrium retardé de ${-av} ms` : 'atrium inchangé'}${tachycardie(c).active ? '' : ', tachycardie arrêtée'}`,
-            `His-refractory PVC: ${av > 5 ? `atrium advanced by ${av} ms` : av < -5 ? `atrium delayed by ${-av} ms` : 'atrium unchanged'}${tachycardie(c).active ? '' : ', tachycardia terminated'}`), { manoeuvre: true });
+          resultat(texteESV(bilanESV(c, te, tcl)), { manoeuvre: true });
         }, 3500);
       }
     };
@@ -555,6 +554,18 @@ export function vueSimulateur(app) {
     } else lancer(c.t + 150);
     if (p.decrement && p.s2) { $('#s2').value = Math.max(150, p.s2 - 10); reglages(); }
     majBoutonStim();
+  }
+
+  // conclusion d'une ESV His-réfractaire : non interprétable si elle n'a pas capturé, si elle a capturé le His, ou sans conduction VA 1:1
+  function texteESV(b) {
+    const pre = t('ESV His-réfractaire : ', 'His-refractory PVC: ');
+    if (!b.capture) return pre + t('pas de capture (myocarde réfractaire), manœuvre à refaire un peu plus tard dans le cycle', 'no capture (refractory myocardium); repeat slightly later in the cycle');
+    if (b.hisCapte) return pre + t('le His a été activé par l\'ESV (trop précoce) : elle n\'était pas His-réfractaire, non interprétable', 'the His was activated by the PVC (too early): it was not His-refractory, uninterpretable');
+    if (!b.unUn) return pre + t('pas de relation VA 1:1 pendant la tachycardie : l\'atrium n\'est pas lié au ventricule, manœuvre non interprétable', 'no 1:1 VA relationship during the tachycardia: the atrium is not linked to the ventricle, uninterpretable');
+    if (b.arretSansA) return pre + t('arrêt de la tachycardie sans atteindre l\'atrium : voie accessoire participant au circuit', 'termination without reaching the atrium: accessory pathway participating in the circuit');
+    const av = b.avance;
+    const effet = av == null ? t('atrium non mesurable', 'atrium not measurable') : av > 5 ? t(`atrium avancé de ${av} ms`, `atrium advanced by ${av} ms`) : av < -5 ? t(`atrium retardé de ${-av} ms`, `atrium delayed by ${-av} ms`) : t('atrium inchangé', 'atrium unchanged');
+    return pre + effet + (b.arret ? t(', tachycardie arrêtée', ', tachycardia terminated') : '');
   }
 
   // résultat d'une manœuvre : journal, débriefing du cas et compte rendu (manoeuvre : ESV ou entraînement, rubrique « Manœuvres »)
@@ -583,9 +594,12 @@ export function vueSimulateur(app) {
     if (s.tachy && der != null) {
       setTimeout(() => {
         if (!canvas.isConnected) return; // simulateur quitté entre-temps
-        const a = analyserEntrainement(c, { der, site: s.site, tcl: s.tcl, ventriculaire: VENTRICULAIRES.has(s.site) });
-        resultat(t(`Entraînement depuis ${s.nom} à ${s.cl} ms (TCL ${Math.round(s.tcl)}) : ${tachycardie(c).active ? '' : 'tachycardie arrêtée ; '}${a.reponse ? `réponse ${a.reponse}, ` : ''}PPI ${a.ppi ?? '—'} ms, PPI − TCL ${a.pptcl ?? '—'} ms`,
-          `Entrainment from ${s.nom} at ${s.cl} ms (TCL ${Math.round(s.tcl)}): ${tachycardie(c).active ? '' : 'tachycardia terminated; '}${a.reponse ? (a.reponse.startsWith('V') ? `${a.reponse} response, ` : `${a.reponse}, `) : ''}PPI ${a.ppi ?? '—'} ms, PPI − TCL ${a.pptcl ?? '—'} ms`), { manoeuvre: true });
+        const a = analyserEntrainement(c, { der, site: s.site, tcl: s.tcl, ventriculaire: VENTRICULAIRES.has(s.site), debut: s.debut });
+        const tete = t(`Entraînement depuis ${s.nom} à ${s.cl} ms (TCL ${Math.round(s.tcl)}) : `, `Entrainment from ${s.nom} at ${s.cl} ms (TCL ${Math.round(s.tcl)}): `);
+        const rep = a.reponse?.startsWith('V') ? t(`réponse ${a.reponse}${a.pseudo ? ' (A-H-A : bloc sous le His, pas de V-A-A-V vraie)' : ''}, `, `${a.reponse} response${a.pseudo ? ' (A-H-A: block below the His, not a true V-A-A-V)' : ''}, `) : '';
+        const sava = a.savA != null ? t(`, SA − VA ${a.savA} ms`, `, SA − VA ${a.savA} ms`) : '';
+        resultat(a.interpretable ? `${tete}${rep}PPI ${a.ppi ?? '—'} ms, PPI − TCL ${a.pptcl ?? '—'} ms${sava}`
+          : `${tete}${t('non interprétable', 'uninterpretable')} (${a.motif})${a.arret ? '' : t(`, PPI ${a.ppi ?? '—'} ms`, `, PPI ${a.ppi ?? '—'} ms`)}`, { manoeuvre: true });
       }, 3200);
     }
   }
@@ -632,9 +646,11 @@ export function vueSimulateur(app) {
         res.saut = t(`saut d'AH de ${prec.AH} à ${rep.AH} ms à S2 = ${attente.s2} ms (double voie nodale)`, `AH jump from ${prec.AH} to ${rep.AH} ms at S2 = ${attente.s2} ms (dual AV nodal physiology)`);
       }
       const suite = () => `${res.prConduction ? t(` ; ${libPR()} = ${res.prConduction} ms`, `; ${libPR()} = ${res.prConduction} ms`) : ''}${res.saut ? t(` ; ${res.saut}`, `; ${res.saut}`) : ''}`;
+      // induction : activité ventriculaire ou atriale rapide et soutenue après l'extrastimulus (flutter ou TRIN avec bloc 2:1 compris)
       const Vapres = battementsV(c.journal, attente.ts + 150, tc).filter(v => !c.stims.some(s => Math.abs(s.t - v) < 5));
-      const gaps = Vapres.slice(1).map((x, i) => x - Vapres[i]);
-      if (Vapres.length >= 4 && gaps.every(g => g < 470)) {
+      const Aapres = activations(c.journal, 'hra', attente.ts + 150, tc);
+      const rapide = l => l.length >= 4 && l.slice(1).every((x, i) => x - l[i] < 470);
+      if (rapide(Vapres) || rapide(Aapres)) {
         res.induction = attente.s2; faire('induction');
         return conclure(`${t(`tachycardie induite à S2 = ${attente.s2} ms`, `tachycardia induced at S2 = ${attente.s2} ms`)}${res.saut ? t(` ; ${res.saut}`, `; ${res.saut}`) : ''}`);
       }
@@ -748,22 +764,16 @@ export function vueSimulateur(app) {
     noter('parahis', t(`Protocole : stimulation para-hisienne à ${cl} ms, 15 et 5 mA alternés`, `Protocol: para-Hisian pacing at ${cl} ms, alternating 15 and 5 mA`), { debut: liste[0] - 1000, capture: tp + 800, focus: liste.at(-1), finStim: true }); // centré sur le dernier complexe stimulé
     return { nom: t('Para-hisien', 'Para-Hisian'), etape(tc) {
       if (tc < tp + 600) return true;
-      // intervalle stimulus-A mesuré sur l'atrium du His et sur l'ostium du SC (sortie d'une voie septale postérieure)
-      const sa = { haut: { ras: [], cs9: [] }, bas: { ras: [], cs9: [] } };
-      for (const ts of liste.slice(2)) {
-        const rep = reponseStim(c, ts), g = rep.his ? sa.haut : sa.bas;
-        for (const site of ['ras', 'cs9']) { const a = c.journal.find(x => x.r === `stim:${ts}` && x.s === site)?.t; if (a != null) g[site].push(a - ts); }
-      }
-      const moy = l => (l.length ? Math.round(l.reduce((a, b) => a + b, 0) / l.length) : null);
-      const hH = moy(sa.haut.ras), bH = moy(sa.bas.ras), hS = moy(sa.haut.cs9), bS = moy(sa.bas.cs9);
-      if (hH == null || bH == null) { resultat(t('Stimulation para-hisienne : pas de conduction rétrograde mesurable', 'Para-Hisian pacing: no measurable retrograde conduction')); return false; }
-      const dH = bH - hH, dS = hS != null && bS != null ? bS - hS : null, signe = d => `${d > 0 ? '+' : ''}${d}`;
-      const verdict = dS != null && Math.abs(dS) <= 10
-        ? (dH >= 25 ? t('voie accessoire septale avec fusion nodale (S-A constant à l\'ostium du SC, allongé au His)', 'septal accessory pathway with nodal fusion (S-A unchanged at the CS ostium, prolonged at the His)')
-          : t('conduction rétrograde extranodale (voie accessoire septale)', 'extranodal retrograde conduction (septal accessory pathway)'))
-        : dH >= 25 ? t('conduction rétrograde nodale', 'nodal retrograde conduction') : t('réponse intermédiaire', 'intermediate response');
-      const texte = t(`S-A au His ${hH} → ${bH} ms (Δ ${signe(dH)}), à l'ostium du SC ${hS ?? '—'} → ${bS ?? '—'} ms${dS != null ? ` (Δ ${signe(dS)})` : ''} en perdant la capture du His → ${verdict}`,
-        `S-A at the His ${hH} → ${bH} ms (Δ ${signe(dH)}), at the CS ostium ${hS ?? '—'} → ${bS ?? '—'} ms${dS != null ? ` (Δ ${signe(dS)})` : ''} with loss of His capture → ${verdict}`);
+      // intervalle stimulus-A à chaque site atrial, avec et sans capture réelle du His ; lecture au site le plus précoce
+      const p = analyserParaHis(c, liste.slice(2));
+      if (!p.type) { resultat(t('Stimulation para-hisienne : pas de conduction rétrograde mesurable, ou capture du His jamais obtenue (ou jamais perdue)', 'Para-Hisian pacing: no measurable retrograde conduction, or His capture never obtained (or never lost)')); return false; }
+      const NOMS = NOMS_PRECOCE(), signe = d => `${d > 0 ? '+' : ''}${d}`;
+      const verdict = { nodal: t('conduction rétrograde nodale', 'nodal retrograde conduction'),
+        extranodal: t('conduction rétrograde extranodale (voie accessoire)', 'extranodal retrograde conduction (accessory pathway)'),
+        fusion: t('voie accessoire avec fusion nodale (S-A constant au site le plus précoce, séquence qui change sans capture du His)', 'accessory pathway with nodal fusion (S-A unchanged at the earliest site, sequence changing without His capture)'),
+        intermediaire: t('réponse intermédiaire (voie accessoire lente ou éloignée ?)', 'intermediate response (slow or remote accessory pathway?)') }[p.type];
+      const texte = t(`S-A au His ${p.H.ras ?? '—'} → ${p.B.ras ?? '—'} ms${p.dHis != null ? ` (Δ ${signe(p.dHis)})` : ''} ; site le plus précoce : ${NOMS[p.pH] ?? p.pH} avec capture du His, ${NOMS[p.pB] ?? p.pB} sans (S-A ${p.H[p.pB] ?? '—'} → ${p.B[p.pB]} ms, Δ ${signe(p.d)}) → ${verdict}`,
+        `S-A at the His ${p.H.ras ?? '—'} → ${p.B.ras ?? '—'} ms${p.dHis != null ? ` (Δ ${signe(p.dHis)})` : ''}; earliest site: ${NOMS[p.pH] ?? p.pH} with His capture, ${NOMS[p.pB] ?? p.pB} without (S-A ${p.H[p.pB] ?? '—'} → ${p.B[p.pB]} ms, Δ ${signe(p.d)}) → ${verdict}`);
       st.cr.parahis = texte;
       resultat(t(`Stimulation para-hisienne : ${texte}`, `Para-Hisian pacing: ${texte}`));
       return false;
@@ -774,16 +784,17 @@ export function vueSimulateur(app) {
     const c = st.coeur, t0 = tachycardie(c);
     if (!t0.active) { message(t('Pas de tachycardie en cours : induisez-la d\'abord.', 'No ongoing tachycardia: induce it first.')); return null; }
     const avant = { site: r.site, detection: r.detection, n: r.n, s2: r.s2, s3: r.s3, s4: r.s4, extras: r.extras, continu: r.continu };
+    const cH = cycleSite(c.journal, 'his', c.t - 3000, c.t) ?? t0.cycleV; // couplé au His : cycle du His, pas du V (bloc 2:1 sous le His)
     $('#extras').checked = true; $('#continu').checked = false;
     choisirSite('rva'); choisirPuce('detection', 'his');
-    fixer('#n', 0); fixer('#s2', arrondi10(t0.cycleV - 30)); fixer('#s3', 0); fixer('#s4', 0);
+    fixer('#n', 0); fixer('#s2', arrondi10(cH - 30)); fixer('#s3', 0); fixer('#s4', 0);
     stimuler();
     // la console retrouve ses réglages : l'ESV programmée garde les siens
     choisirPuce('detection', avant.detection); choisirSite(avant.site);
     for (const k of ['n', 's2', 's3', 's4']) fixer(`#${k}`, avant[k]);
     $('#extras').checked = avant.extras; $('#continu').checked = avant.continu;
     reglages();
-    $('#proto-etat').textContent = t(`▶ ESV His-réfractaire à ${arrondi10(t0.cycleV - 30)} ms (TCL ${Math.round(t0.cycleV)} ms) : résultat dans 3 s`, `▶ His-refractory PVC at ${arrondi10(t0.cycleV - 30)} ms (TCL ${Math.round(t0.cycleV)} ms): result in 3 s`);
+    $('#proto-etat').textContent = t(`▶ ESV His-réfractaire à ${arrondi10(cH - 30)} ms du His (cycle H ${Math.round(cH)} ms) : résultat dans 3 s`, `▶ His-refractory PVC ${arrondi10(cH - 30)} ms after the His (H cycle ${Math.round(cH)} ms): result in 3 s`);
     return null;
   }
 

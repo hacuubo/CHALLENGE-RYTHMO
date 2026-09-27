@@ -224,13 +224,15 @@ export class Coeur {
         if (!this.activer(e.s, e.t, 'auto')) this.programmer(s, Math.max(20, s.erp - (e.t - s.der)) + s.cl * 0.25);
       } else if (e.type === 'stim') {
         const r = `stim:${e.t}`, sortie = e.sortie ?? 5;
-        let capture = false;
+        let capture = false, his = false;
         if (e.s === 'parahis') {
           // stimulation para-hisienne : myocarde septal basal du VD, plus le His si la sortie dépasse son seuil
-          if (sortie >= SEUILS.his && this.sites.his) capture = this.activer('his', e.t, 'stim', r) || capture;
+          // (his : capture réelle du His, qui peut manquer s'il est encore réfractaire)
+          if (sortie >= SEUILS.his && this.sites.his) his = this.activer('his', e.t, 'stim', r);
           if (sortie >= SEUILS.defaut) capture = this.activer('vbd', e.t, 'stim', r) || capture;
+          capture ||= his;
         } else if (this.capte(e.s, sortie, e.largeur)) capture = this.activer(e.s, e.t, 'stim', r);
-        this.stims.push({ t: e.t, s: e.s, capture, sortie, his: e.s === 'parahis' && sortie >= SEUILS.his, lib: e.lib ?? null, canal: e.canal ?? null });
+        this.stims.push({ t: e.t, s: e.s, capture, sortie, his, lib: e.lib ?? null, canal: e.canal ?? null });
         this.suivreTrainAtrial(e.s, e.t, capture);
       } else if (e.type === 'fa') this.ondeFA(e);
     }
