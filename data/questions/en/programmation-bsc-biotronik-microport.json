@@ -704,7 +704,8 @@
   "question": "In which situations does SafeR remain in DDD until 8 a.m. the next morning, and how can it leave DDD earlier?",
   "reponseAttendue": "Long-term switch if: 45 or more AV block episodes in the last 24 h, or 15 or more episodes per 24 h for 3 consecutive days, or at least 50% DDD pacing over one hour. The automatic tests every 100 cycles are then suspended; only 12 consecutive intrinsic R waves bring it back to AAI before 8 a.m., otherwise it retests AAI at 8 a.m.",
   "explication": "When blocks are frequent, constantly switching between AAI and DDD serves no purpose and may cause symptoms. SafeR therefore defines a long-term switch: at least 45 AV block episodes in 24 h, at least 15 episodes per 24 h for 3 consecutive days, or at least 50% DDD over one hour. It then stays in DDD until 8 a.m. the next day, suspending the periodic tests every 100 cycles. It only reverts to AAI before 8 a.m. if it senses 12 consecutive intrinsic R waves. Similarly, during exercise, after 3 switches it stays in DDD until the end of exercise. Knowing these rules avoids wrongly concluding that the algorithm has failed when faced with prolonged DDD pacing.",
-  "aRetenir": "Frequent blocks: SafeR stays in DDD until 8 a.m. the next day, unless 12 intrinsic R waves return."
+  "aRetenir": "Frequent blocks: SafeR stays in DDD until 8 a.m. the next day, unless 12 intrinsic R waves return.",
+  "rappel": "Not all paroxysmal AV block has the same significance. Nocturnal vagal AV block, often of Wenckebach type and accompanied by sinus slowing, is generally benign. Paroxysmal infranodal AV block, sometimes triggered by exertion or a rise in heart rate, carries a risk of prolonged pauses. Changeover algorithms must therefore adapt: when switches become very frequent, constant alternation between atrial pacing and DDD produces repeated pauses and an irregular rhythm, sometimes symptomatic. A prolonged period in DDD, followed by reassessment, is then more logical. Persistent reliance on DDD should prompt reconsideration of whether the algorithm is worthwhile."
  },
  "prog-bbm-045": {
   "question": "What did the randomised ANSWER trial (SafeR versus DDD, 650 patients enrolled, 3-year follow-up) show?",
@@ -721,7 +722,8 @@
    "Correct: 11.5% vs 93.6% V pacing at 3 years, with no significant difference in the composite primary endpoint."
   ],
   "explication": "ANSWER compared SafeR with standard DDD in patients with sinus node dysfunction or AV block. Ventricular pacing was massively reduced (11.5% vs 93.6% at 3 years). However, the composite co-primary endpoint (hospitalisation for heart failure, AF or cardioversion) did not differ significantly (HR 0.78, p = 0.30). On secondary endpoints, SafeR reduced the risk of cardiac death or heart failure hospitalisation by 51% and cardiovascular hospitalisations by 30%. There was no excess of deaths or of syncope. The reduction of about 40% in persistent AF is the result of SAVE PACe, a different trial. A distinction must therefore be made between the proven benefit on RV pacing and the benefit on clinical events, which is only suggested by secondary endpoints.",
-  "aRetenir": "ANSWER: SafeR markedly reduces RV pacing, with no significant effect on the composite primary endpoint."
+  "aRetenir": "ANSWER: SafeR markedly reduces RV pacing, with no significant effect on the composite primary endpoint.",
+  "rappel": "In a randomised trial, only the result for the primary endpoint, on which the sample size was based, allows a firm conclusion. A non-significant primary endpoint does not prove absence of effect, but it does not allow a benefit to be claimed; favourable secondary endpoints are then hypothesis-generating rather than conclusive. A surrogate endpoint (percentage of ventricular pacing) must also be distinguished from a clinical endpoint (death, hospitalisation, AF). For ventricular pacing minimisation, the effect on pacing percentage is consistent, whereas clinical effects vary between trials and populations."
  },
  "prog-bbm-046": {
   "question": "At a follow-up visit, the Holter of a MicroPort patient programmed in SafeR shows an isolated sinus P wave not followed by a QRS, with no ventricular spike, after which 1:1 conduction resumes with a normal PR interval. The patient is asymptomatic. How should this be interpreted?",
@@ -738,7 +740,8 @@
    "Incorrect: no QRS was missed; the absence of a V spike is expected in AAI."
   ],
   "explication": "In AAI, SafeR does not pace the ventricle after every P wave: it only monitors conduction. An isolated blocked P wave does not meet any switching criterion (complete AV block: 2 consecutive blocked P waves; second-degree AV block: 3 within 12 cycles). The absence of a ventricular spike is therefore normal and suggests neither undersensing nor loss of capture: with loss of capture, a V spike not followed by a QRS would be seen. This behaviour must be recognised to avoid wrongly diagnosing a malfunction. If the patient becomes symptomatic or blocks recur, the switching criteria take over.",
-  "aRetenir": "In SafeR, an isolated blocked P wave with no V spike is normal function."
+  "aRetenir": "In SafeR, an isolated blocked P wave with no V spike is normal function.",
+  "rappel": "On a Holter recording from a patient with a device, four situations are distinguished by the presence or absence of a pacing spike. Loss of capture produces a spike not followed by the expected depolarisation. Undersensing produces a spike delivered when intrinsic activity should have inhibited it, sometimes on the T wave or just after a QRS. Oversensing produces a pause without a spike, the device having been inhibited by a spurious signal; markers or magnet application demonstrate it. A blocked P wave without a ventricular spike is expected behaviour in an atrial-based mode: the programmed mode must be known before diagnosing a malfunction."
  },
  "prog-bbm-047": {
   "question": "In SafeR, while an atrial arrhythmia is suspected, the three AV block criteria are suspended and only a ventricular pause can trigger a switch to DDD; the pause value is then automatically reduced to 2 seconds (except in REPLY).",
@@ -751,7 +754,8 @@
    "Incorrect: counting blocked P waves makes no sense during an atrial arrhythmia; the three AV block criteria are indeed suspended."
   ],
   "explication": "During an atrial arrhythmia, counting \"blocked P waves\" makes no sense: conduction is inevitably irregular or partial. As soon as an atrial arrhythmia is suspected (WARAD), SafeR therefore suspends the complete, second-degree and first-degree AV block criteria. Only the ventricular pause criterion remains active, and its value is reduced to 2 s (except in REPLY). If the arrhythmia is conducted, the device switches directly from AAI to DDI via the Fallback Mode Switch. If it is not conducted, it first switches to DDD on the pause criterion, then to DDI once fallback is confirmed.",
-  "aRetenir": "SafeR during atrial arrhythmia: only the pause criterion (2 s) remains active, followed by fallback to DDI."
+  "aRetenir": "SafeR during atrial arrhythmia: only the pause criterion (2 s) remains active, followed by fallback to DDI.",
+  "rappel": "During an atrial arrhythmia, AV conduction is irregular and the notion of a blocked P wave loses its meaning: the block criteria of ventricular pacing minimisation algorithms become inapplicable. Only an overlong ventricular pause then justifies ventricular pacing. Mode switching moves the device to a non-tracking mode, usually DDI(R): both chambers are sensed and paced at the lower or sensor-indicated rate, but no atrial event is tracked, which prevents rapid ventricular pacing. The device returns to its initial mode when the atrial rate becomes normal again."
  },
  "prog-bbm-048": {
   "question": "What is the principle of Dplus mode in MicroPort pacemakers?",
@@ -768,7 +772,8 @@
    "Incorrect: reduced-rate backup VVI underneath AAI(R) is RYTHMIQ (Boston Scientific)."
   ],
   "explication": "MicroPort presents Dplus as an automatic AV delay hysteresis algorithm designed to promote intrinsic AV conduction. Unlike SafeR, Dplus does not rely on a true AAI mode: the device remains in DDD, with an extended AV delay (the so-called pseudo-AAI phase) automatically adjusted from the last 8 measured PR or AR intervals, so that the intrinsic QRS can occur before ventricular pacing. If ventricular pacing becomes necessary again, it returns to an appropriate AV delay. As with any long AV delay, attention must be paid to unfavourable AV timing if the PR interval is very long.",
-  "aRetenir": "Dplus = DDD with automatic AV delay hysteresis (pseudo-AAI) to promote intrinsic conduction."
+  "aRetenir": "Dplus = DDD with automatic AV delay hysteresis (pseudo-AAI) to promote intrinsic conduction.",
+  "rappel": "A moderately long PR interval is generally well tolerated, but a very prolonged PR interval mechanically dissociates atrium and ventricle: atrial contraction occurs too early, sometimes during the previous systole, ventricular filling is shortened and diastolic mitral regurgitation may appear, with symptoms resembling pacemaker syndrome. Algorithms that favour intrinsic conduction by extending the AV delay in DDD can perpetuate this situation. In a patient with a very long PR interval and symptoms, a more physiological AV delay, at the cost of ventricular pacing, may be preferable; the choice is made case by case."
  },
  "prog-bbm-049": {
   "question": "According to the PARAD decision tree (MicroPort dual-chamber ICDs), which criteria → conclusion pairings are correct?",
@@ -785,7 +790,8 @@
    "Incorrect: with 1:1 association, acceleration of atrial origin points to SVT, not VT."
   ],
   "explication": "PARAD (P And R based Arrhythmia Detection) analyses the last 8 cycles on every beat once a majority of cycles fall within the tachycardia zone. It first tests R-R stability: an unstable rhythm is classified as AF and not treated. A stable rhythm without P-R association is classified as VT and treated. A stable rhythm with N:1 association is classified as atrial flutter and not treated. With 1:1 association, the decisive criterion is the origin of the acceleration: atrial (SVT) or gradual with no acceleration (sinus tachycardia), no therapy; ventricular, VT and therapy. Mistaking N:1 association for dissociation, or reversing the origin of the acceleration, are the two classic errors.",
-  "aRetenir": "PARAD: unstable = AF; stable and dissociated = VT; N:1 = flutter; 1:1 = look at the origin of the acceleration."
+  "aRetenir": "PARAD: unstable = AF; stable and dissociated = VT; N:1 = flutter; 1:1 = look at the origin of the acceleration.",
+  "rappel": "Dual-chamber decision trees combine the regularity of ventricular cycles with the relationship between P waves and QRS complexes. Stable dissociation with more QRS complexes than P waves indicates VT. N:1 association (several atrial waves per QRS, fixed ratio) suggests atrial flutter or atrial tachycardia conducted with block. In 1:1 association, the most useful criterion is the chamber in which acceleration starts: if the first short cycle is atrial, the origin is supraventricular; if it is ventricular, it is VT with retrograde conduction; gradual acceleration suggests sinus tachycardia. These criteria mirror those used to analyse a tachycardia in the EP laboratory."
  },
  "prog-bbm-050": {
   "question": "What is the only difference between PARAD and PARAD+ in MicroPort ICDs?",
@@ -802,7 +808,8 @@
    "Incorrect: the origin of the acceleration with 1:1 association is already analysed by PARAD; that is not the difference."
   ],
   "explication": "With PARAD, some patients in AF received inappropriate therapies: the ventricular response appeared stable and, in the absence of a stable P-R association, the rhythm was classified as VT. Yet these AF episodes regularly included longer ventricular cycles, at least every 20 cycles. PARAD+ looks for these long cycles when the rhythm is stable but not associated: a cycle longer than the mean of the last 4 cycles plus a programmable gap (Long Cycle Gap) raises suspicion of AF and delays therapy by 24 cycles. If no long cycle appears within 24 cycles, VT is confirmed and treated. The MicroPort implementation of the 2019 consensus uses a gap of 170 ms.",
-  "aRetenir": "PARAD+ = PARAD + a search for long cycles, to avoid treating AF with a pseudo-regular response."
+  "aRetenir": "PARAD+ = PARAD + a search for long cycles, to avoid treating AF with a pseudo-regular response.",
+  "rappel": "The irregularity of the ventricular response in AF decreases as the rate rises: at high rates, conducted AF can appear pseudo-regular and satisfy a stability criterion based on R-R variability. It nevertheless retains intermittent long cycles, which can be sought over a longer window. Conversely, imperfect atrial sensing (small fibrillatory waves, blanking) can make AF appear dissociated from the ventricular rhythm and lead to a diagnosis of VT. AF with a rapid ventricular response remains a major cause of inappropriate therapy; ventricular rate control is part of its prevention."
  },
  "prog-bbm-051": {
   "question": "According to the MicroPort implementation of the 2019 ICD programming consensus update, which detection programming is suggested in a patient with no history of VT?",
@@ -819,7 +826,8 @@
    "Incorrect: 250 bpm (5 s) and 185 bpm (12 s) are the settings of the Boston Scientific implementation."
   ],
   "explication": "The MicroPort appendix of the 2019 update suggests: VF above 255 bpm (20 cycles and 6/8 majority), fast VT at 230 bpm, VT at 185 bpm (20 or 30 cycles and 6/8 majority), and an optional slow VT monitor zone. Shocks in the VF zone are set at 42 J (6 shocks). In dual-chamber devices and CRT-Ds, discrimination relies on PARAD+ (onset 25%, stability 65 ms, long cycle extension 10 cycles, long cycle gap 170 ms). For dual-chamber pacing, the appendix suggests SafeR; in CRT, weekly SonR optimisation if a SonRtip lead is implanted. The common principle remains raising rate cut-offs and prolonging detection.",
-  "aRetenir": "MicroPort 2019: VF > 255 bpm, fast VT 230 bpm, VT 185 bpm, PARAD+ in dual-chamber devices."
+  "aRetenir": "MicroPort 2019: VF > 255 bpm, fast VT 230 bpm, VT 185 bpm, PARAD+ in dual-chamber devices.",
+  "rappel": "ICDs allow up to three or four detection zones. The VF zone treats the fastest rhythms, in principle with a shock, possibly preceded by ATP. A fast VT zone, between the VT and VF zones, allows ATP, which is often effective, to be delivered first for fast monomorphic VT before shocking. The VT zone treats slower VT with ATP then shocks, and a monitor zone documents slower rhythms without therapy. A majority criterion (for example 6 cycles out of 8) requires a given proportion of the latest cycles to lie within the zone, which tolerates a few out-of-zone cycles without restarting the count."
  },
  "prog-bbm-052": {
   "question": "What is MicroPort's SonR optimisation of cardiac resynchronisation based on?",
@@ -836,7 +844,8 @@
    "Correct: the micro-accelerometer in the SonRtip lead measures endocardial acceleration, correlated with dP/dt max, to optimise AV and VV delays."
   ],
   "explication": "The SonR sensor is a micro-accelerometer located in the tip of the SonRtip atrial lead. It measures the vibrations produced by contraction (peak endocardial acceleration), which correlate well with LV dP/dt max, an index of contractility. The device varies the AV and VV delays and selects those that give the best SonR signal. This optimisation is automatic and repeated every week without echocardiography: the VV delay is optimised at rest, the AV delays at rest and during exercise. It is only possible with the SonRtip lead. Other manufacturers proceed differently: SmartDelay (Boston Scientific) from EGMs, SyncAV (Abbott) from the intrinsic AV interval; the intracardiac impedance of CLS (Biotronik) is used for rate response.",
-  "aRetenir": "SonR = accelerometer in the SonRtip atrial lead, weekly automatic optimisation of AV/VV delays."
+  "aRetenir": "SonR = accelerometer in the SonRtip atrial lead, weekly automatic optimisation of AV/VV delays.",
+  "rappel": "LV dP/dt max, the maximum rate of rise of ventricular pressure during isovolumic contraction, is an index of contractility used as a reference for the acute effect of CRT: effective resynchronisation increases it. It can be measured directly only invasively. Peak endocardial acceleration, recorded by an accelerometer sensor, reflects the vibrations of contraction and varies with dP/dt max, so that its changes can be tracked without a catheter. A sensor of this kind allows repeated, automatic haemodynamic optimisation, whereas EGM-based methods measure only electrical intervals."
  },
  "prog-bbm-053": {
   "question": "What was the result of the RESPOND-CRT trial (SonR optimisation versus echocardiographic optimisation)?",
@@ -853,7 +862,8 @@
    "Correct: non-inferiority (75.0% vs 70.4%) and a 35% reduction in the risk of HF hospitalisation (HR 0.65)."
   ],
   "explication": "RESPOND-CRT randomised 998 patients (2:1) to weekly automatic AV/VV delay optimisation by SonR or echocardiographic optimisation. The primary endpoint was the clinical responder rate at 12 months: alive, free of adjudicated heart failure events, with improvement in NYHA class or quality of life. SonR achieved non-inferiority (75.0% vs 70.4%). Over a mean follow-up of about 18 months, it was associated with a 35% reduction in the risk of heart failure hospitalisation (HR 0.65). No mortality benefit was demonstrated.",
-  "aRetenir": "RESPOND-CRT: SonR non-inferior to echocardiography, with fewer heart failure hospitalisations."
+  "aRetenir": "RESPOND-CRT: SonR non-inferior to echocardiography, with fewer heart failure hospitalisations.",
+  "rappel": "Response to CRT is defined in two ways. Clinical response is often assessed with a composite score combining survival, freedom from heart failure events, NYHA class and quality of life. Echocardiographic response rests on reverse remodelling, measured as a reduction in LV end-systolic volume beyond a predefined threshold. The two do not always coincide. A non-inferiority trial compares a new method with a reference within a predefined margin: it allows the conclusion that it is not worse, not that it is better, except for specifically tested endpoints. Favourable secondary endpoints still need confirmation."
  },
  "prog-bbm-054": {
   "question": "A SonR-compatible MicroPort CRT-D can perform weekly automatic SonR optimisation of AV and VV delays whatever atrial lead is implanted, including a standard atrial lead.",
@@ -866,7 +876,8 @@
    "Correct: SonR optimisation requires the SonRtip atrial lead; a standard atrial lead does not allow it."
   ],
   "explication": "This is false: the SonR algorithm is only available with the SonRtip atrial lead, whose tip contains the micro-accelerometer; without it, there is no SonR signal. When programmed to \"AV+VV\", automatic SonR optimisation calculates the optimal VV delay at rest and the optimal AV delays at rest and during exercise, every week. The first optimisation starts at midnight on the day of activation, then every Monday at midnight. Resting measurements require stable conditions: rate below 90 bpm, no ectopic beats and no tachyarrhythmia. This weekly schedule makes it possible to follow ventricular remodelling without repeated echocardiograms.",
-  "aRetenir": "No SonRtip lead, no SonR; with it, weekly optimisation of the VV delay at rest and of the AV delay at rest and during exercise."
+  "aRetenir": "No SonRtip lead, no SonR; with it, weekly optimisation of the VV delay at rest and of the AV delay at rest and during exercise.",
+  "rappel": "Optimal AV and VV delays in CRT are not fixed: the optimal AV interval shortens as the rate rises, and both delays change with ventricular remodelling, medication and any progression of conduction disease. A single optimisation, for example by echocardiography at rest, therefore reflects only one moment. Automatic algorithms repeat the measurement periodically, at rest and sometimes on exertion, but only under reliable measurement conditions: stable rhythm, no premature beats and no tachyarrhythmia. They also depend on the hardware: a sensor-based feature exists only if the lead carrying the sensor is implanted."
  },
  "prog-bbm-055": {
   "question": "In a MicroPort pacemaker, how does the Fallback Mode Switch (FMS) work?",
@@ -883,7 +894,8 @@
    "Incorrect: an entry counter with a gradual decrease in rate is the logic of Boston Scientific ATR."
   ],
   "explication": "FMS avoids high-rate ventricular pacing during a tracked atrial arrhythmia. A premature atrial event falling within the WARAD (Window of Atrial Rate Acceleration Detection) puts the device into the suspicion phase; the paced ventricular rate is then capped at 120 bpm (or at the programmed maximum rate if lower) and the AV delay is shortened to improve atrial sensing. Main confirmation criterion: at least 28 suspect cycles out of 32 ventricular cycles (about 15 s). A secondary criterion (18 of 32, twice in a row) deals with atrial undersensing. Fallback is to DDI(R), independently of the programmed maximum rate, and the device returns to the initial mode when the arrhythmia stops. Boston Scientific ATR is based on a different logic (entry and duration counters).",
-  "aRetenir": "MicroPort FMS: suspicion via the WARAD, 28/32 confirmation, fallback to DDI(R)."
+  "aRetenir": "MicroPort FMS: suspicion via the WARAD, 28/32 confirmation, fallback to DDI(R).",
+  "rappel": "A mode-switching algorithm must recognise an atrial arrhythmia despite imperfect sensing: during AF, some fibrillatory waves fall into blanking periods or escape the programmed sensitivity. The criteria therefore rely on a proportion of fast cycles within a window rather than on consecutive cycles, sometimes with a more tolerant secondary criterion. Many algorithms limit the ventricular rate as soon as the suspicion phase begins, before confirmation. The fallback mode, without atrial tracking (DDI(R) or VDI(R)), provides a stable ventricular rate, and the device returns to the tracking mode when the arrhythmia ends."
  },
  "prog-bbm-056": {
   "question": "In some MicroPort pacemakers (notably REPLY, KORA, ENO and TEO), programming SafeR mode automatically disables ventricular Autothreshold.",
@@ -896,7 +908,8 @@
    "Incorrect: this is well documented; the threshold must then be checked and the ventricular amplitude set manually with an adequate margin."
   ],
   "explication": "MicroPort's SafeR technical documentation states that when SafeR is programmed, ventricular Autothreshold is automatically set to OFF in REPLY, KORA, ENO, TEO, PARADYM RF, INTENSIA and PLATINIUM, and that FMS is automatically set to ON. The documentation does not explain the reason for this constraint; remember the practical consequence: in these models, the threshold must be checked and the ventricular amplitude programmed manually, with an adequate safety margin, since the ventricle will be paced during switches to DDD. Otherwise, Autothreshold (ventricular RVAT and atrial RAAT) remains a way of maintaining capture while preserving the battery.",
-  "aRetenir": "In several MicroPort models, SafeR disables ventricular Autothreshold: set the V amplitude manually."
+  "aRetenir": "In several MicroPort models, SafeR disables ventricular Autothreshold: set the V amplitude manually.",
+  "rappel": "Without automatic capture management, the ventricular output is programmed from a threshold measured at follow-up, with a classic safety margin: at least twice the threshold amplitude, or three times the pulse width. This margin covers threshold variations over time and with medication, metabolic disturbances or exertion. Some features are mutually incompatible on a given platform: enabling one algorithm may automatically disable another, without a blocking message. After any reprogramming of a mode or algorithm, the parameter summary must be checked, particularly the output amplitudes."
  },
  "prog-bbm-057": {
   "question": "What is the name of MicroPort's remote monitoring solution for pacemakers and defibrillators?",
@@ -913,6 +926,7 @@
    "Incorrect: LATITUDE is Boston Scientific's remote monitoring system."
   ],
   "explication": "SmartView is MicroPort CRM's remote monitoring solution: a bedside monitor (SmartView, then SmartView Connect) and, for Bluetooth-compatible devices, the SmartView Connect mobile app on the patient's smartphone. It transmits device data and alerts to the platform reviewed by the team. LATITUDE is the Boston Scientific solution, Home Monitoring the Biotronik one and CareLink the Medtronic one. Knowing each manufacturer's system is useful for organising follow-up and transmissions after implantation. The 2023 HRS consensus statement recommends remote monitoring for all device recipients, whatever the manufacturer.",
-  "aRetenir": "MicroPort remote monitoring = SmartView (monitor or SmartView Connect app)."
+  "aRetenir": "MicroPort remote monitoring = SmartView (monitor or SmartView Connect app).",
+  "rappel": "Each manufacturer has its own remote monitoring platform, based either on a bedside transmitter or, for devices communicating via Bluetooth, on a smartphone app. Transmitted data (arrhythmias, lead parameters, battery status, EGMs, alerts) are reviewed by the team on a secure, manufacturer-specific website. A centre following several brands must therefore manage several platforms and harmonise alert triage. Remote monitoring should be set up from implantation, and continuity of transmissions checked regularly, as recommended by the 2023 HRS/EHRA consensus."
  }
 }
