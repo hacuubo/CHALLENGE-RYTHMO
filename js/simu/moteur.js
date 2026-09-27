@@ -67,7 +67,7 @@ export class Coeur {
     this.sites = {};
     for (const [id, d] of Object.entries(def.sites)) {
       this.sites[id] = { id, erp: Math.round(d.erp * f(0.5)), cl: d.cl ? Math.round(d.cl * f()) : null, der: -1e9, prec: 1e9, gen: 0,
-        actif: !d.declenchable, declenchable: !!d.declenchable, supprime: false,
+        actif: !d.declenchable, declenchable: !!d.declenchable, catecholaminergique: !!d.catecholaminergique, supprime: false,
         // freinage (suppression par surcharge) : chaque activation imposée à cadence rapide allonge la reprise
         restit: d.restit ?? 0.15, freinK: d.freinK || 0, freinMax: d.freinMax || 0, frein: 0, arythmie: !!d.arythmie, fibrillable: !!d.fibrillable };
     }
@@ -105,7 +105,7 @@ export class Coeur {
   // Effets combinés : cycle des automatismes, réfractarité et décrément nodaux, réfractarité myocardique.
   effets(t) {
     const iso = this.niveau('iso', t), atr = this.niveau('atropine', t);
-    return { cl: 1 - 0.35 * iso - 0.22 * atr, nodErp: 1 - 0.14 * iso - 0.1 * atr, nodDec: 1 - 0.3 * iso - 0.15 * atr, myoErp: 1 - 0.07 * iso, iso };
+    return { cl: 1 - 0.35 * iso - 0.22 * atr, nodErp: 1 - 0.14 * iso - 0.1 * atr, nodDec: 1 - 0.3 * iso - 0.15 * atr, nodD: 1 - 0.12 * iso - 0.06 * atr, myoErp: 1 - 0.07 * iso, iso };
   }
   cycle(s, t) {
     const e = this.effets(t);
@@ -145,7 +145,7 @@ export class Coeur {
       if (c.bloc) { v.surplus = 0; continue; } // pénétration cachée : la voie devient réfractaire sans conduire
       const surplus = c.dec ? c.dec * (v.nodale ? ef.nodDec : 1) * Math.exp(-(ci - cerp) / c.tau) : 0;
       v.surplus = surplus;
-      const d = c.d + surplus + (v.nodale ? 2 * (this.alea() - 0.5) : 0);
+      const d = c.d * (v.nodale ? ef.nodD : 1) + surplus + (v.nodale ? 2 * (this.alea() - 0.5) : 0);
       this.tas.pousser({ t: t + d, type: 'arr', s: vers, v: v.id, r: racine });
     }
     for (const f of this.ecouteurs) f(id, t);
@@ -224,13 +224,15 @@ export class Coeur {
         if (!this.activer(e.s, e.t, 'auto')) this.programmer(s, Math.max(20, s.erp - (e.t - s.der)) + s.cl * 0.25);
       } else if (e.type === 'stim') {
         const r = `stim:${e.t}`, sortie = e.sortie ?? 5;
-        let capture = false;
+        let capture = false, his = false;
         if (e.s === 'parahis') {
           // stimulation para-hisienne : myocarde septal basal du VD, plus le His si la sortie dépasse son seuil
-          if (sortie >= SEUILS.his && this.sites.his) capture = this.activer('his', e.t, 'stim', r) || capture;
+          // (his : capture réelle du His, qui peut manquer s'il est encore réfractaire)
+          if (sortie >= SEUILS.his && this.sites.his) his = this.activer('his', e.t, 'stim', r);
           if (sortie >= SEUILS.defaut) capture = this.activer('vbd', e.t, 'stim', r) || capture;
+          capture ||= his;
         } else if (this.capte(e.s, sortie, e.largeur)) capture = this.activer(e.s, e.t, 'stim', r);
-        this.stims.push({ t: e.t, s: e.s, capture, sortie, his: e.s === 'parahis' && sortie >= SEUILS.his, lib: e.lib ?? null, canal: e.canal ?? null });
+        this.stims.push({ t: e.t, s: e.s, capture, sortie, his, lib: e.lib ?? null, canal: e.canal ?? null });
         this.suivreTrainAtrial(e.s, e.t, capture);
       } else if (e.type === 'fa') this.ondeFA(e);
     }
@@ -251,7 +253,8 @@ export class Coeur {
     if (tr.rapide >= 8 && Object.values(this.sites).some(x => x.fibrillable)) { this.demarrerFA(t + 5); tr.rapide = 0; }
     if (tr.n < (this.effets(t).iso > 0.5 ? 3 : 6)) return;
     for (const s of Object.values(this.sites)) {
-      if (s.declenchable && !s.actif && !s.supprime) {
+      // un foyer catécholaminergique (jonction AV) ne s'allume que sous isoprénaline
+      if (s.declenchable && !s.actif && !s.supprime && (!s.catecholaminergique || this.effets(t).iso >= 0.3)) {
         s.actif = true; s.gen++;
         this.tas.pousser({ t: t + s.cl, type: 'auto', s: s.id, gen: s.gen });
         this.evenements.push({ t, type: 'declenchee', texte: trad('Activité déclenchée', 'Triggered activity') });
