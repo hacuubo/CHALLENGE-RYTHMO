@@ -1,7 +1,6 @@
 // Base de questions : chargement (et surcouche anglaise), filtres, construction des séries.
 // Les libellés affichés sont relus à chaque accès (accesseurs) : ils suivent la langue courante.
 import * as stock from './store.js';
-import { melanger } from './util.js';
 import { t, enAnglais, langue } from './i18n.js';
 
 export const THEMES = {
@@ -89,7 +88,7 @@ export function filtrer(cfg) {
 
 export function construireSerie(liste, n, priorite) {
   const p = stock.progres();
-  const ordre = melanger(liste);
+  const ordre = tirageClinique(liste);
   if (priorite === 'nouvelles') ordre.sort((a, b) => (p.q[a.id] ? 1 : 0) - (p.q[b.id] ? 1 : 0));
   if (priorite === 'faibles') ordre.sort((a, b) => stock.poidsRevision(p.q[b.id]) - stock.poidsRevision(p.q[a.id]));
   return ordre.slice(0, n);
@@ -107,6 +106,12 @@ export const DOMAINES = [
 export const cadre = q => (aTrace(q) ? 'trace' : q.cadre === 'clinique' ? 'clinique' : 'cours');
 // Mode compétitif : on joue surtout sur des tracés et des cas cliniques ; les questions de cours y deviennent rares.
 const CADRE_COMPETITIF = { trace: 0, clinique: 0.4, cours: 2 }; // pénalité en « crans de difficulté »
+// Entraînement : même priorité aux tracés (ECG, EGM, EEP) et aux cas cliniques, plus douce qu'en compétitif pour garder
+// quelques questions de cours. Tirage pondéré sans remise (Efraimidis-Spirakis) : clé = aléa^(1/poids), triée décroissante.
+const POIDS_ENTRAINEMENT = { trace: 6, clinique: 4, cours: 1 };
+export function tirageClinique(liste) {
+  return liste.map(q => ({ q, k: Math.random() ** (1 / POIDS_ENTRAINEMENT[cadre(q)]) })).sort((a, b) => b.k - a.k).map(x => x.q);
+}
 
 // Mode compétitif : question dont la cote est proche du classement du joueur (légèrement au-dessus),
 // jamais vue dans la partie en cours, de préférence jamais vue du tout. Les questions ouvertes
