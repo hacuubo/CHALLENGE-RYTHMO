@@ -213,8 +213,14 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.click('#stimuler');
     await page.waitForTimeout(2500);
     if (await page.textContent('#stimuler') !== 'Stop') throw new Error('la stimulation continue s\'arrête seule');
+    // S1 réglé en direct pendant la stimulation continue (« + » de S1), sans l'interrompre
+    await page.click('.btn-pas[data-cible=s1][data-delta="10"]');
+    if (await page.textContent('#stimuler') !== 'Stop') throw new Error('changer S1 interrompt la stimulation continue');
     await page.click('#stimuler');
     if (await page.textContent('#stimuler') === 'Stop') throw new Error('Stop n\'arrête pas la stimulation continue');
+    await page.waitForFunction(() => /continue \(.* à 610 ms\)/.test(document.querySelector('#journal')?.textContent || ''), null, { timeout: 5000 })
+      .catch(() => { throw new Error('le cycle S1 modifié en direct n\'est pas appliqué'); });
+    await page.click('.btn-pas[data-cible=s1][data-delta="-10"]');
     await page.uncheck('#continu');
     // scénario rechargé : l'induction part d'un cœur au repos, indépendamment de la stimulation continue qui précède
     // (selon l'instant du Stop, elle peut laisser une tachycardie déjà induite ou des oreillettes encore réfractaires)
