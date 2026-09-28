@@ -46,7 +46,7 @@ const THEMES = {
 const FAQ = {
   fr: (n, nbScenarios) => [
     ['Qu\'est-ce que Shock & Pace ?',
-      `Shock & Pace est une application web gratuite, en français et en anglais, pour apprendre et entretenir ses connaissances en rythmologie : lecture d'ECG, programmation et suivi des stimulateurs cardiaques (pacemakers) et défibrillateurs implantables (DAI), resynchronisation (CRT), télésurveillance des prothèses et électrophysiologie. Elle propose ${nombre(n)} questions corrigées et un simulateur d'électrophysiologie.`],
+      `Shock & Pace est un simulateur d'électrophysiologie et un quiz de rythmologie, en français et en anglais : baie d'EEP en temps réel avec cas mystères, et ${nombre(n)} questions corrigées sur la lecture d'ECG, la programmation et le suivi des stimulateurs cardiaques (pacemakers) et défibrillateurs implantables (DAI), la resynchronisation (CRT), la télésurveillance des prothèses et l'électrophysiologie.`],
     ['À qui s\'adresse l\'application ?',
       'Aux professionnels et étudiants de la rythmologie : cardiologues et internes de cardiologie, infirmiers et techniciens de rythmologie ou de télésurveillance, et plus largement à toute personne qui suit des porteurs de stimulateur ou de défibrillateur.'],
     ['Faut-il créer un compte ?',
@@ -66,7 +66,7 @@ const FAQ = {
   ],
   en: (n, nbScenarios) => [
     ['What is Shock & Pace?',
-      `Shock & Pace is a free web app, in English and French, for learning and maintaining knowledge in cardiac rhythm management: ECG interpretation, programming and follow-up of pacemakers and implantable cardioverter-defibrillators (ICDs), cardiac resynchronisation therapy (CRT), remote monitoring and electrophysiology. It offers ${nombre(n, 'en')} questions with detailed answers and an electrophysiology simulator.`],
+      `Shock & Pace is an electrophysiology simulator and cardiac rhythm quiz, in English and French: a real-time EP lab with mystery cases, and ${nombre(n, 'en')} questions with detailed answers on ECG interpretation, programming and follow-up of pacemakers and implantable cardioverter-defibrillators (ICDs), cardiac resynchronisation therapy (CRT), remote monitoring and electrophysiology.`],
     ['Who is it for?',
       'Clinicians and students in cardiac electrophysiology and devices: cardiologists and cardiology trainees, cardiac physiologists, device and EP nurses, allied professionals and industry specialists, remote monitoring teams, and anyone who follows patients with a pacemaker or ICD.'],
     ['Do I need an account?',
@@ -90,12 +90,12 @@ const FAQ = {
 const L = {
   fr: {
     lang: 'fr', ogLocale: 'fr_FR', app: '', pres: 'presentation.html', racine: '',
-    titre: 'Présentation de Shock & Pace, quiz de rythmologie',
-    description: n => `Shock & Pace : ${nombre(n)} questions de rythmologie corrigées (ECG, pacemaker, DAI, CRT, télécardio, EEP), simulateur d'électrophysiologie, sources ESC/EHRA/HRS.`,
-    ogTitre: 'Shock & Pace : quiz de rythmologie et simulateur d\'électrophysiologie',
+    titre: 'Présentation de Shock & Pace, simulateur d\'électrophysiologie et quiz de rythmologie',
+    description: n => `Shock & Pace : simulateur d'électrophysiologie et ${nombre(n)} questions de rythmologie corrigées (ECG, pacemaker, DAI, CRT, télécardio, EEP), sources ESC/EHRA/HRS.`,
+    ogTitre: 'Shock & Pace : simulateur d\'électrophysiologie, quiz de rythmologie',
     ogAlt: 'Shock & Pace, quiz de rythmologie', llms: 'Résumé pour les assistants IA', fil: 'Présentation',
-    h1: 'Shock & Pace : quiz de rythmologie, ECG, pacemaker, DAI et électrophysiologie',
-    chapo: 'Application web gratuite, en français et en anglais, pour apprendre et entretenir ses connaissances en rythmologie cardiaque, sans compte ni inscription.',
+    h1: 'Shock & Pace : simulateur d\'électrophysiologie, quiz de rythmologie (ECG, pacemaker, DAI)',
+    chapo: 'Simulateur d\'électrophysiologie et quiz de rythmologie, en français et en anglais, pour apprendre et entretenir ses connaissances en rythmologie cardiaque.',
     ouvrir: 'Ouvrir l\'application', ouvrir2: 'Ouvrir Shock & Pace', autre: 'English version',
     enBref: 'En bref',
     bref: '<b>Shock &amp; Pace</b> est une application d\'entraînement en <b>rythmologie</b> : lecture d\'<b>ECG</b>, programmation et suivi des <b>stimulateurs cardiaques (pacemakers)</b> et des <b>défibrillateurs automatiques implantables (DAI)</b>, <b>resynchronisation cardiaque (CRT)</b> et stimulation de conduction, <b>télésurveillance</b> des prothèses et <b>électrophysiologie</b> (EEP, manœuvres, ablation). Chaque question est corrigée, avec un commentaire pour chaque proposition et des sources cliquables.',
@@ -126,16 +126,16 @@ const L = {
     recos: 'Recommandations de référence', sourcesTitre: 'Principales sources citées',
     faq: 'Questions fréquentes', avert: 'Avertissement',
     avertTexte: 'Outil pédagogique : les questions visent l\'apprentissage et l\'entretien des connaissances. Elles ne remplacent ni les recommandations officielles, ni les manuels des fabricants, ni le jugement clinique.',
-    pied: 'application gratuite, sans compte', code: 'code source',
+    pied: 'simulateur d\'électrophysiologie, quiz de rythmologie', code: 'code source',
   },
   en: {
     lang: 'en', ogLocale: 'en_GB', app: 'en/', pres: 'en/presentation.html', racine: '../',
-    titre: 'About Shock & Pace, the cardiac rhythm quiz',
-    description: n => `Shock & Pace: ${nombre(n, 'en')} cardiac rhythm questions with referenced answers (ECG, pacemakers, ICDs, CRT, remote monitoring, EP) and an electrophysiology simulator, based on ESC/EHRA/HRS guidelines.`,
-    ogTitre: 'Shock & Pace: cardiac rhythm quiz and electrophysiology simulator',
+    titre: 'About Shock & Pace, electrophysiology simulator and cardiac rhythm quiz',
+    description: n => `Shock & Pace: an electrophysiology simulator and ${nombre(n, 'en')} cardiac rhythm questions with referenced answers (ECG, pacemakers, ICDs, CRT, remote monitoring, EP), based on ESC/EHRA/HRS guidelines.`,
+    ogTitre: 'Shock & Pace: electrophysiology simulator, cardiac rhythm quiz',
     ogAlt: 'Shock & Pace, cardiac rhythm quiz', llms: 'Summary for AI assistants', fil: 'About',
-    h1: 'Shock & Pace: quiz on ECG, pacemakers, ICDs and electrophysiology',
-    chapo: 'A free web app, in English and French, for learning and maintaining your knowledge of cardiac rhythm management, with no account or sign-up.',
+    h1: 'Shock & Pace: electrophysiology simulator, cardiac rhythm quiz (ECG, pacemakers, ICDs)',
+    chapo: 'Electrophysiology simulator and cardiac rhythm quiz, in English and French, for learning and maintaining your knowledge of cardiac rhythm management.',
     ouvrir: 'Open the app', ouvrir2: 'Open Shock & Pace', autre: 'Version française',
     enBref: 'At a glance',
     bref: '<b>Shock &amp; Pace</b> is a training app for <b>cardiac rhythm management</b>: <b>ECG</b> interpretation, programming and follow-up of <b>pacemakers</b> and <b>implantable cardioverter-defibrillators (ICDs)</b>, <b>cardiac resynchronisation therapy (CRT)</b> and conduction system pacing, <b>remote monitoring</b> and <b>electrophysiology</b> (EP studies, pacing manoeuvres, ablation). Every question comes with a detailed answer, a comment on each option and clickable references.',
@@ -166,7 +166,7 @@ const L = {
     recos: 'Reference guidelines', sourcesTitre: 'Most cited sources',
     faq: 'Frequently asked questions', avert: 'Disclaimer',
     avertTexte: 'Educational tool: the questions are designed for learning and maintaining knowledge. They do not replace official guidelines, manufacturers\' manuals or clinical judgement.',
-    pied: 'free app, no account', code: 'source code',
+    pied: 'electrophysiology simulator, cardiac rhythm quiz', code: 'source code',
   },
 };
 
@@ -343,7 +343,7 @@ function presentation(l, d) {
 
 // Page d'accueil anglaise : même application que index.html, avec balises et contenu statique en anglais.
 function accueilAnglais(d) {
-  const desc = 'Free cardiac rhythm quiz, no account needed: ECG, pacemakers, ICDs, CRT, remote monitoring and electrophysiology. Referenced answers, competitive ELO mode and an EP simulator.';
+  const desc = 'Electrophysiology simulator and cardiac rhythm quiz. Mystery cases in the EP lab, referenced answers, competitive ELO mode.';
   const url = SITE + 'en/';
   const ld = { '@context': 'https://schema.org', '@graph': [
     { '@type': 'WebSite', '@id': SITE + '#site', url: SITE, name: 'Shock & Pace', inLanguage: ['fr', 'en'], description: desc, publisher: { '@id': SITE + '#editeur' } },
@@ -357,11 +357,11 @@ function accueilAnglais(d) {
       audience: { '@type': 'Audience', audienceType: 'Cardiologists, cardiology trainees, cardiac physiologists, device and EP nurses, remote monitoring teams' },
       teaches: ['ECG interpretation', 'Pacemaker programming', 'Implantable cardioverter-defibrillator programming', 'Cardiac resynchronisation therapy (CRT)', 'Remote monitoring of cardiac devices', 'Electrophysiology and catheter ablation'],
       about: ['Cardiac electrophysiology', 'Pacemaker', 'Implantable cardioverter-defibrillator', 'Electrocardiography', 'Cardiac arrhythmia'].map(name => ({ '@type': 'Thing', name })),
-      featureList: ['Questions with referenced answers (ESC, EHRA, HRS, ACC/AHA)', 'Adaptive competitive mode with ELO rating', 'Real-time EP recording system simulator', 'Real 12-lead ECGs (PTB-XL)', 'Works offline, no account'],
+      featureList: ['Real-time EP recording system simulator', 'Questions with referenced answers (ESC, EHRA, HRS, ACC/AHA)', 'Adaptive competitive mode with ELO rating', 'Real 12-lead ECGs (PTB-XL)', 'Works offline'],
       image: SITE + 'icons/og.png', screenshot: SITE + 'icons/og.png', subjectOf: { '@type': 'WebPage', url: SITE + 'en/presentation.html' },
       publisher: { '@id': SITE + '#editeur' } }] };
   const tete = `  <!--seo-->
-  <title>Shock &amp; Pace · Cardiac rhythm quiz: ECG, pacemaker, ICD</title>
+  <title>Shock &amp; Pace · Electrophysiology simulator, cardiac rhythm quiz</title>
   <meta name="description" content="${esc(desc)}">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="${url}">
@@ -371,7 +371,7 @@ function accueilAnglais(d) {
   <meta property="og:locale" content="en_GB">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:site_name" content="Shock &amp; Pace">
-  <meta property="og:title" content="Shock &amp; Pace · Cardiac rhythm quiz and electrophysiology simulator">
+  <meta property="og:title" content="Shock &amp; Pace · Electrophysiology simulator, cardiac rhythm quiz">
   <meta property="og:description" content="${esc(desc)}">
   <meta property="og:url" content="${url}">
   <meta property="og:image" content="${SITE}icons/og.png">
@@ -386,11 +386,11 @@ function accueilAnglais(d) {
   const statique = `    <!--statique-->
     <div class="statique">
       <h1>Shock &amp; Pace</h1>
-      <p>A free <strong>cardiac rhythm</strong> quiz, no account needed: ${nombre(d.n, 'en')} questions with referenced answers on <strong>ECG</strong> interpretation, <strong>pacemaker</strong> and <strong>implantable cardioverter-defibrillator (ICD)</strong> programming, <strong>CRT</strong>, <strong>remote monitoring</strong> and <strong>electrophysiology</strong>.</p>
+      <p><strong>Electrophysiology simulator</strong> and <strong>cardiac rhythm</strong> quiz: ${nombre(d.n, 'en')} questions with referenced answers on <strong>ECG</strong> interpretation, <strong>pacemaker</strong> and <strong>implantable cardioverter-defibrillator (ICD)</strong> programming, <strong>CRT</strong>, <strong>remote monitoring</strong> and <strong>electrophysiology</strong>.</p>
       <ul>
+        <li>Real-time electrophysiology (EP) recording system simulator and mystery cases.</li>
         <li>Training by domain, from beginner to expert, with detailed answers and references (ESC, EHRA, HRS, ACC/AHA).</li>
         <li>Adaptive competitive mode with an ELO rating.</li>
-        <li>Real-time electrophysiology (EP) recording system simulator and mystery cases.</li>
         <li>Works offline; no data leaves your device.</li>
       </ul>
       <p><a href="en/presentation.html">About the app: topics, sources and frequently asked questions</a></p>
@@ -471,7 +471,7 @@ Sitemap: ${SITE}sitemap.xml
   const th = { fr: d.themes('fr'), en: d.themes('en') };
   fs.writeFileSync(path.join(racine, 'llms.txt'), `# Shock & Pace
 
-> Free web app, in English and French, with no account, for learning cardiac rhythm management: ${nombre(n, 'en')} questions with detailed, referenced answers on ECG interpretation, pacemaker and implantable cardioverter-defibrillator (ICD) programming, cardiac resynchronisation therapy (CRT), remote monitoring and electrophysiology, plus a real-time electrophysiology (EP) recording system simulator.
+> Electrophysiology simulator and cardiac rhythm quiz, in English and French, for learning cardiac rhythm management: ${nombre(n, 'en')} questions with detailed, referenced answers on ECG interpretation, pacemaker and implantable cardioverter-defibrillator (ICD) programming, cardiac resynchronisation therapy (CRT), remote monitoring and electrophysiology, plus a real-time electrophysiology (EP) recording system simulator.
 
 Key facts:
 
