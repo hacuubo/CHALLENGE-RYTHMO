@@ -450,6 +450,55 @@ await verifier('invitation à la version anglaise', async () => {
   await ctx.close();
 });
 
+// Encart « Installer l'application » sur l'accueil : absent sur ordinateur, démarche expliquée sur iPhone,
+// bouton Installer sur Android dès que le navigateur propose l'installation (événement beforeinstallprompt).
+await verifier('encart d\'installation de l\'application', async () => {
+  const contexte = async ua => {
+    const ctx = await navigateur.newContext({ locale: 'fr-FR', viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, ...(ua ? { userAgent: ua } : {}) });
+    const page = await ctx.newPage();
+    await page.addInitScript(() => localStorage.setItem('rythmo.langue', 'fr'));
+    page.on('pageerror', e => erreurs.push(`installation : ${e.message}`));
+    await page.goto(url);
+    await page.waitForSelector('.menu-principal.centre');
+    return [ctx, page];
+  };
+  // ordinateur : rien
+  let [ctx, page] = await contexte();
+  if (await page.$('.installation')) throw new Error('encart affiché sur ordinateur');
+  await ctx.close();
+  // iPhone : démarche pas à pas, refermable et mémorisée
+  [ctx, page] = await contexte('Mozilla/5.0 (iPhone; CPU iPhone OS 26_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1');
+  await page.waitForSelector('.installation[data-mode=ios]');
+  if (await page.isVisible('#installation-etapes')) throw new Error('étapes iPhone visibles avant la demande');
+  await page.click('#installer');
+  if (!(await page.isVisible('#installation-etapes')) || !/Partager/.test(await page.textContent('#installation-etapes'))) throw new Error('étapes iPhone absentes');
+  await page.click('.fermer-installation');
+  if (await page.$('.installation')) throw new Error('encart non refermé');
+  await page.reload();
+  await page.waitForSelector('.menu-principal.centre');
+  if (await page.$('.installation')) throw new Error('encart réaffiché après refus');
+  await ctx.close();
+  // Android : pas d'encart sans proposition du navigateur ; bouton Installer dès qu'elle arrive, qui ouvre la boîte du système
+  [ctx, page] = await contexte('Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36');
+  if (await page.$('.installation')) throw new Error('encart Android affiché sans proposition du navigateur');
+  await page.evaluate(() => {
+    const e = new Event('beforeinstallprompt', { cancelable: true });
+    e.prompt = () => { window.__promptAppele = true; return Promise.resolve(); };
+    e.userChoice = Promise.resolve({ outcome: 'accepted' });
+    window.dispatchEvent(e);
+  });
+  await page.waitForSelector('.installation[data-mode=android] #installer');
+  await page.click('#installer');
+  await page.waitForSelector('.installation', { state: 'detached' });
+  if (!(await page.evaluate(() => window.__promptAppele))) throw new Error('boîte d\'installation non ouverte');
+  await page.evaluate(() => window.dispatchEvent(new Event('appinstalled')));
+  await page.reload();
+  await page.waitForSelector('.menu-principal.centre');
+  await page.evaluate(() => { const e = new Event('beforeinstallprompt', { cancelable: true }); e.prompt = () => Promise.resolve(); e.userChoice = Promise.resolve({ outcome: 'accepted' }); window.dispatchEvent(e); });
+  if (await page.$('.installation')) throw new Error('encart réaffiché après installation');
+  await ctx.close();
+});
+
 // Référencement : balises essentielles, données structurées valides, contenu lisible sans JavaScript.
 await verifier('référencement (SEO / GEO)', async () => {
   const ctx = await navigateur.newContext({ javaScriptEnabled: false });
