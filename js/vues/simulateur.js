@@ -118,11 +118,12 @@ export function vueSimulateur(app) {
         <label class="simu-mini">${t('Affichage', 'Display')} <select id="mode"><option value="balayage" ${r.mode === 'balayage' ? 'selected' : ''}>${t('Balayage (standard)', 'Sweep (standard)')}</option><option value="defilement" ${r.mode === 'defilement' ? 'selected' : ''}>${t('Défilement', 'Scrolling')}</option></select></label>
         <label class="simu-mini">${t('Montage', 'Montage')} <select id="montage">${Object.entries(MONTAGES).map(([id, m]) => `<option value="${id}" ${id === r.montage ? 'selected' : ''}>${esc(m.nom)}</option>`).join('')}
           <option value="perso" ${r.montage === 'perso' ? 'selected' : ''}>${t('Personnalisé', 'Custom')}</option></select></label>
-        <details class="simu-filtres"><summary>${t('Réglages', 'Settings')}</summary><div>
-          ${case_('bruit', t('Bruit', 'Noise'), r.bruit)}${case_('etiquettes', 'A-H-V', r.etiquettes)}
-          ${case_('filtre50', t('Filtre secteur 50 Hz', '50 Hz notch filter'), r.filtre50)}${case_('passe-haut', t('Passe-haut 30 Hz (EGM)', '30 Hz high-pass (EGM)'), r.passeHaut)}
-        </div></details>
       </div>
+      <!-- réglages de la baie sur leur propre ligne, au-dessus des voies affichées : accessibles sans faire défiler la barre sur téléphone -->
+      <details class="simu-filtres"><summary>${t('Réglages de la baie', 'Recording settings')}</summary><div>
+        ${case_('bruit', t('Bruit', 'Noise'), r.bruit)}${case_('etiquettes', 'A-H-V', r.etiquettes)}
+        ${case_('filtre50', t('Filtre secteur 50 Hz', '50 Hz notch filter'), r.filtre50)}${case_('passe-haut', t('Passe-haut 30 Hz (EGM)', '30 Hz high-pass (EGM)'), r.passeHaut)}
+      </div></details>
       <details class="simu-voies" id="voies-bloc"><summary>${t('Voies affichées', 'Displayed channels')} (<span id="voies-nb"></span>)${t(' : toucher pour ajouter ou enlever', ': tap to add or remove')}</summary>
         <div class="simu-voies-grille">${GROUPES_VOIES().map(([g, ids]) => `<div class="simu-voies-groupe"><span>${g}</span>${ids.map(id => {
           const c = CANAUX.find(x => x.id === id);
@@ -1107,6 +1108,17 @@ export function vueSimulateur(app) {
   console_.addEventListener('keydown', e => { const b = e.target.closest('.btn-pas'); if (b && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); pasSuivant(b); } });
   for (const id of ['#sortie', '#largeur', '#s1', '#n', '#s2', '#s3', '#s4', '#decrement', '#salve-cl', '#salve-duree', '#rampe-debut', '#rampe-fin', '#rampe-pas', '#puissance', '#duree-rf',
     '#vitesse', '#mode', '#bruit', '#etiquettes', '#filtre50', '#passe-haut']) $(id).addEventListener('change', reglages);
+  // stimulation en cours (« ∞ » ou burst continu) : le cycle et la sortie se règlent en direct, sans l'interrompre
+  function reglerSalveEnDirect() {
+    const sv = st.salve, c = st.coeur; if (!sv || st.proto) return; // un protocole garde ses propres réglages
+    const cl = sv.continu ? r.s1 : r.modeStim === 'salve' && r.salveType === 'burst' ? r.salveCl : sv.cl;
+    if (cl === sv.cl && r.sortie === sv.sortie && r.largeur === sv.largeur) return;
+    c.annulerStims(c.t); // stimulus déjà programmés à l'ancien cycle
+    const der = c.stims.filter(x => x.s === sv.site).at(-1)?.t ?? c.t;
+    Object.assign(sv, { cl, sortie: r.sortie, largeur: r.largeur, prochain: Math.max(c.t + 20, der + cl) });
+    $('#proto-etat').textContent = t(`▶ Stimulation en cours : ${cl} ms, ${virgule(r.sortie)} mA`, `▶ Pacing in progress: ${cl} ms, ${virgule(r.sortie)} mA`);
+  }
+  for (const id of ['#s1', '#salve-cl', '#sortie', '#largeur']) $(id).addEventListener('change', reglerSalveEnDirect);
   // montage : jeu de voies prédéfini ; chaque voie peut ensuite être ajoutée ou enlevée (montage personnalisé)
   // montage prédéfini reconnu seulement si mêmes voies dans le même ordre
   const reconnaitreMontage = () => { r.montage = Object.entries(MONTAGES).find(([, m]) => m.voies.join() === r.voies.join())?.[0] ?? 'perso'; };
