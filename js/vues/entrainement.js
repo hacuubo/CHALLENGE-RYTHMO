@@ -1,8 +1,8 @@
 // Écran de choix de l'entraînement : par domaine, personnalisé, révisions, nouveautés.
 import * as stock from '../store.js';
-import { DOMAINES, base } from '../donnees.js';
+import { DOMAINES, base, tirageClinique } from '../donnees.js';
 import { resumeSauve } from '../session.js';
-import { esc, melanger } from '../util.js';
+import { esc } from '../util.js';
 import { ICONES } from '../icones.js';
 import { t } from '../i18n.js';
 
@@ -30,7 +30,7 @@ export function vueEntrainement(app, ctx) {
   const $ = s => app.querySelector(s);
   app.querySelectorAll('[data-domaine]').forEach(b => b.onclick = () => {
     const d = DOMAINES.find(x => x.id === b.dataset.domaine);
-    demarrer(melanger(base.questions.filter(q => d.themes.includes(q.theme))).slice(0, 10), `${t('Entraînement', 'Training')} · ${d.nom}`);
+    demarrer(tirageClinique(base.questions.filter(q => d.themes.includes(q.theme))).slice(0, 10), `${t('Entraînement', 'Training')} · ${d.nom}`);
   });
   if (aRevoir) $('#go-rev').onclick = () => demarrer(stock.aReviser(base.questions).slice(0, 15), t('Révisions', 'Review'));
   if (enCours) {
@@ -38,7 +38,7 @@ export function vueEntrainement(app, ctx) {
     $('#abandon').onclick = () => { if (confirm(t('Abandonner la série en cours ?', 'Discard the quiz in progress?'))) { stock.oublierSession(); vueEntrainement(app, ctx); } };
   }
   if (nouvelles.length) {
-    $('#go-nouv').onclick = () => { stock.marquerConnues(base.questions); demarrer(melanger(nouvelles).slice(0, 20), t('Nouveautés', 'New questions')); };
+    $('#go-nouv').onclick = () => { stock.marquerConnues(base.questions); demarrer(tirageClinique(nouvelles).slice(0, 20), t('Nouveautés', 'New questions')); };
     $('#plus-tard').onclick = () => { stock.marquerConnues(base.questions); vueEntrainement(app, ctx); };
   }
 }
