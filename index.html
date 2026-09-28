@@ -59,7 +59,7 @@
         <li>Simulateur de baie d'électrophysiologie (EEP) en temps réel et cas mystères.</li>
         <li>Entraînement par domaine, de débutant à expert, avec correction détaillée et sources (ESC, EHRA, HRS, ACC/AHA).</li>
         <li>Mode compétitif adaptatif avec classement ELO.</li>
-        <li>Fonctionne hors ligne ; aucune donnée transmise.</li>
+        <li>Fonctionne hors ligne ; aucun compte, progression conservée sur l'appareil.</li>
       </ul>
       <p><a href="presentation.html">Présentation détaillée, thèmes, sources et questions fréquentes</a></p>
       <p class="chargement">Chargement de la base de questions…</p>
@@ -67,6 +67,9 @@
     </div>
     <!--/statique-->
   </main>
+  <!-- mesure d'audience anonyme, sans cookie (GoatCounter) ; chaque écran de l'application est compté par js/app.js -->
+  <script data-goatcounter="https://shockandpace.goatcounter.com/count" data-goatcounter-settings='{"no_onload": true}'
+    onload="if (window.__vueEnAttente) window.goatcounter.count({ path: window.__vueEnAttente })" async src="https://gc.zgo.at/count.js"></script>
   <script type="module" src="js/app.js"></script>
 </body>
 </html>
