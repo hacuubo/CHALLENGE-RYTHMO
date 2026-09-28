@@ -450,8 +450,8 @@ await verifier('invitation à la version anglaise', async () => {
   await ctx.close();
 });
 
-// Encart « Installer l'application » sur l'accueil : démarche expliquée sur iPhone ; bouton Installer sur Android
-// et sur ordinateur dès que le navigateur propose l'installation (événement beforeinstallprompt), rien sinon.
+// Encart « Installer l'application » sur l'accueil : jamais sur ordinateur, démarche expliquée sur iPhone,
+// bouton Installer sur Android dès que le navigateur propose l'installation (événement beforeinstallprompt).
 await verifier('encart d\'installation de l\'application', async () => {
   const contexte = async ua => {
     const ctx = await navigateur.newContext({ locale: 'fr-FR', viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, ...(ua ? { userAgent: ua } : {}) });
@@ -468,12 +468,11 @@ await verifier('encart d\'installation de l\'application', async () => {
     e.userChoice = Promise.resolve({ outcome: 'accepted' });
     window.dispatchEvent(e);
   });
-  // ordinateur : rien tant que le navigateur ne propose pas l'installation ; encart « sur cet ordinateur » ensuite
+  // ordinateur : rien, même quand le navigateur propose l'installation
   let [ctx, page] = await contexte();
-  if (await page.$('.installation')) throw new Error('encart affiché sans proposition du navigateur');
   await proposer();
-  await page.waitForSelector('.installation[data-mode=bouton] #installer');
-  if (!/ordinateur/.test(await page.textContent('.installation'))) throw new Error('libellé ordinateur absent');
+  await page.waitForTimeout(200);
+  if (await page.$('.installation')) throw new Error('encart affiché sur ordinateur');
   await ctx.close();
   // iPhone : démarche pas à pas, refermable et mémorisée
   [ctx, page] = await contexte('Mozilla/5.0 (iPhone; CPU iPhone OS 26_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1');
