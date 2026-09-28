@@ -92,23 +92,23 @@ export function vueSimulateur(app) {
   app.innerHTML = `
     <h1 class="simu-h1">${t('Simulateur d\'électrophysiologie', 'Electrophysiology simulator')}</h1>
     <section class="simu-sombre simu-tete">
-      <div class="simu-modes" role="tablist" aria-label="${t('Mode du simulateur', 'Simulator mode')}">
-        <button type="button" role="tab" data-mode="libre" aria-selected="${r.modeSimu !== 'quiz'}"><b>${t('Entraînement libre', 'Free training')}</b></button>
-        <button type="button" role="tab" data-mode="quiz" aria-selected="${r.modeSimu === 'quiz'}"><b>${t('Quiz', 'Quiz')}</b></button>
-      </div>
+      <!-- une seule ligne : mode (entraînement, quiz), scénario ou nouveau cas ; le contexte du cas juste en dessous -->
       <div class="simu-cas-ligne">
-        <label class="simu-champ large" id="choix-scenario"><span>${t('Scénario', 'Scenario')}</span>
-          <select id="scenario">
+        <div class="simu-modes" role="tablist" aria-label="${t('Mode du simulateur', 'Simulator mode')}">
+          <button type="button" role="tab" data-mode="libre" aria-selected="${r.modeSimu !== 'quiz'}"><span class="long">${t('Entraînement libre', 'Free training')}</span><span class="court">${t('Entraînement', 'Training')}</span></button>
+          <button type="button" role="tab" data-mode="quiz" aria-selected="${r.modeSimu === 'quiz'}">${t('Quiz', 'Quiz')}</button>
+        </div>
+        <label class="simu-champ large" id="choix-scenario"><span class="simu-cache">${t('Scénario', 'Scenario')}</span>
+          <select id="scenario" aria-label="${t('Scénario', 'Scenario')}">
             <optgroup label="${t('Patient en tachycardie à l\'arrivée (diagnostic à confirmer)', 'Patient in tachycardia on arrival (diagnosis to confirm)')}">
               ${Object.entries(ARRIVEES).map(([id, s]) => `<option value="${id}">${esc(s.nom)}</option>`).join('')}</optgroup>
             <optgroup label="${t('Scénarios d\'apprentissage', 'Teaching scenarios')}">
               ${Object.entries(SCENARIOS).map(([id, s]) => `<option value="${id}" ${id === 'normal' ? 'selected' : ''}>${esc(s.nom)}</option>`).join('')}</optgroup>
           </select></label>
         <button type="button" class="btn btn-primaire" id="quiz-nouveau" hidden>${t('Nouveau cas', 'New case')}</button>
-        <span class="simu-badge" id="cas-badge"></span>
       </div>
+      <div class="simu-contexte-ligne"><span class="simu-badge" id="cas-badge"></span><p class="simu-contexte" id="contexte"></p></div>
       <p class="note simu-quiz-stats" id="quiz-stats" hidden></p>
-      <p class="simu-contexte" id="contexte"></p>
     </section>
 
     <div class="simu-poste">
@@ -299,6 +299,14 @@ export function vueSimulateur(app) {
   const $ = s => app.querySelector(s);
   const canvas = $('#ecran'), canvasR = $('#ecran-rappel'), canvasMini = $('#ecran-mini'), canvasRef = $('#ecran-ref'), baie = $('.simu-baie');
   const compact = () => matchMedia(MEDIA_COMPACT).matches;
+  // téléphone tourné en paysage : la baie (les tracés) vient directement au centre de l'écran, sans avoir à faire défiler
+  const centrerBaie = () => requestAnimationFrame(() => requestAnimationFrame(() => {
+    if (canvas.isConnected && compact()) $('.simu-ecrans').scrollIntoView({ block: 'center', behavior: 'auto' });
+  }));
+  const mqCompact = matchMedia(MEDIA_COMPACT);
+  const auPaysage = e => { if (!canvas.isConnected) { mqCompact.removeEventListener('change', auPaysage); return; } if (e.matches) centrerBaie(); };
+  mqCompact.addEventListener('change', auPaysage);
+  if (compact()) centrerBaie();
 
   // ---------- journal et écran de rappel ----------
   // Chaque entrée du journal couvre une fenêtre de tracé [debut, capture] ; à l'instant « capture », le tracé de cette
