@@ -595,8 +595,8 @@ main:has(.simu-baie) > :not(.simu-poste) { max-width: 860px; margin-left: auto; 
 @media (prefers-reduced-motion: reduce) { .simu-rf-btn[aria-pressed="true"] { animation: none; } }
 .simu-rf-etat { font-variant-numeric: tabular-nums; font-size: .85rem; color: #ffd24a; }
 /* baie : réglages repliables, constantes, référence de comparaison */
-.simu-filtres { font-size: .82rem; color: var(--simu-texte); }
-.simu-filtres summary { cursor: pointer; }
+.simu-filtres { font-size: .8rem; color: var(--simu-texte); margin: 2px 0; }
+.simu-filtres summary { cursor: pointer; padding: 2px 0; }
 .simu-filtres > div { display: flex; flex-wrap: wrap; gap: 4px 12px; padding: 4px 0; }
 .simu-vitaux { font-size: .8rem; color: var(--simu-texte); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .simu-vitaux b { color: var(--simu-pa); margin-right: 6px; }
