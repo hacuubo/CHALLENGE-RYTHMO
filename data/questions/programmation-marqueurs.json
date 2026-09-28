@@ -24,7 +24,7 @@
       "Juste : FS marque chaque cycle en zone FV, FD la détection de FV, CE la fin de charge et CD la cardioversion ou défibrillation délivrée.",
       "Faux : la zone TV se marque TS/TD et l'ATP TP ; aucun de ces marqueurs n'apparaît ici.",
       "Faux : l'ordre est inversé, CE (fin de charge) précède forcément CD (choc délivré).",
-      "Faux : le bruit n'a pas de marqueur FS/FD dédié ; CE ne signifie pas une interruption de charge."
+      "Faux : le bruit n'a pas de marqueur FS/FD propre ; CE ne signifie pas une interruption de charge."
     ],
     "explication": "Sur le canal de marqueurs Medtronic, chaque cycle ventriculaire est étiqueté selon sa zone : TS pour la zone TV, FS pour la zone FV (et TF pour la TV rapide). Quand le compteur de la zone est atteint, un marqueur de détection apparaît : TD pour une TV, FD pour une FV. La charge des condensateurs n'est pas marquée à son début mais à sa fin, par CE (charge end), puis le choc délivré est marqué CD. Le temps qui sépare FD de CE correspond donc à la durée de charge, utile à relever lors d'un contrôle. Savoir lire cette séquence permet de reconstituer rapidement l'histoire d'un épisode traité.",
     "aRetenir": "Medtronic : FS (cycle en zone FV) → FD (FV détectée) → CE (fin de charge) → CD (choc délivré).",
@@ -268,7 +268,7 @@
       "Faux : une conduction spontanée se lirait A puis R.",
       "Juste : chez MicroPort, P = stimulation atriale et V = stimulation ventriculaire ; la séquence P – V est donc une double stimulation."
     ],
-    "explication": "MicroPort (ex-Sorin/ELA) utilise une convention qui piège les habitués des autres marques. A signifie détection atriale, P stimulation atriale (« pace »), R détection ventriculaire et V stimulation ventriculaire. Les minuscules p et r signalent une détection en période réfractaire, et Ab ou Vb une stimulation délivrée en période réfractaire relative ou absolue. Une séquence « P – V » correspond donc à ce que d'autres fabricants notent AP – VP, et « A – R » à AS – VS. Lire P comme « onde P » conduit à une erreur complète sur le fonctionnement du boîtier.",
+    "explication": "MicroPort (ex-Sorin/ELA) utilise une convention qui piège les habitués des autres marques. A signifie détection atriale, P stimulation atriale (« pace »), R détection ventriculaire et V stimulation ventriculaire. Les minuscules p et r signalent une détection en période réfractaire, et Ab ou Vb une stimulation délivrée en période réfractaire relative ou absolue. Une séquence « P – V » correspond donc à ce que d'autres fabricants notent AP – VP, et « A – R » à AS – VS. Lire P comme « onde P » entraîne une erreur complète sur le fonctionnement du boîtier.",
     "aRetenir": "MicroPort : A = détection atriale, P = stimulation atriale, R = détection ventriculaire, V = stimulation ventriculaire.",
     "sources": [
       {
@@ -303,7 +303,7 @@
       "Faux : la détection elle-même apparaît, sous la forme r, avant le marqueur Vb."
     ],
     "explication": "Chez MicroPort, un court blanking ventriculaire suit l'événement atrial, puis s'ouvre une fenêtre de sécurité qui est une période réfractaire relative. Un signal détecté dans cette fenêtre peut être du crosstalk ou une vraie ESV : il est marqué « r » (détection ventriculaire en période réfractaire) et le boîtier délivre une stimulation ventriculaire à la fin de la fenêtre de sécurité, marquée « Vb » (stimulation en période réfractaire). Si c'était une ESV, l'impulsion tombe dans sa période réfractaire et reste sans effet ; si c'était du crosstalk, le patient dépendant est protégé d'une asystolie. C'est l'équivalent MicroPort du VSP d'Abbott.",
-    "aRetenir": "MicroPort : détection dans la fenêtre de sécurité = « r », puis stimulation « Vb » en fin de fenêtre (équivalent du safety pacing).",
+    "aRetenir": "MicroPort : détection dans la fenêtre de sécurité = « r », puis stimulation « Vb » en fin de fenêtre (stimulation ventriculaire de sécurité).",
     "sources": [
       {
         "titre": "MicroPort CRM. Périodes réfractaires et marqueurs – gammes brady et tachy (support de formation)"
@@ -344,7 +344,7 @@
       "Juste : l'annotation XX.X J donne l'énergie du choc délivré.",
       "Faux : ATP1/ATP2 TV concernent la zone de TV lente ou de TV ; en zone TV rapide/FV, l'annotation est « ATP TV rapide »."
     ],
-    "explication": "Chez MicroPort, le diagnostic est annoté au-dessus des marqueurs : TVCL indique qu'au moins 6 des 8 derniers cycles sont en zone de TV avec le critère de TV stable et dissociée, confirmé par l'analyse du cycle long qui écarte une FA. Les impulsions d'ATP n'ont pas de marqueur dédié : elles apparaissent comme V puis une suite de Vb, puisqu'elles tombent en période réfractaire. L'annotation ATP1 TV ou ATP2 TV désigne les programmes de la zone de TV lente ou de TV, et ATP TV rapide celui de la zone de TV rapide/FV. La charge est signalée par la lettre C sous chaque cycle, et le choc par son énergie en joules. Connaître ces conventions évite de prendre une série de Vb pour une stimulation anormale.",
+    "explication": "Chez MicroPort, le diagnostic est annoté au-dessus des marqueurs : TVCL indique qu'au moins 6 des 8 derniers cycles sont en zone de TV avec le critère de TV stable et dissociée, confirmé par l'analyse du cycle long qui écarte une FA. Les impulsions d'ATP n'ont pas de marqueur propre : elles apparaissent comme V puis une suite de Vb, puisqu'elles tombent en période réfractaire. L'annotation ATP1 TV ou ATP2 TV désigne les programmes de la zone de TV lente ou de TV, et ATP TV rapide celui de la zone de TV rapide/FV. La charge est signalée par la lettre C sous chaque cycle, et le choc par son énergie en joules. Connaître ces conventions évite de prendre une série de Vb pour une stimulation anormale.",
     "aRetenir": "MicroPort : ATP = V puis Vb en série, charge = « C », choc = énergie en joules ; TVCL = TV à cycle long.",
     "sources": [
       {

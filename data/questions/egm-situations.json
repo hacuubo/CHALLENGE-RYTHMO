@@ -556,7 +556,7 @@
       "Faux : aucune détection intermédiaire n'apparaît sur le canal de marqueurs pendant la pause."
     ],
     "reponseAttendue": null,
-    "explication": "L'hystérésis de fréquence allonge l'intervalle d'échappement après un battement spontané pour laisser s'exprimer le rythme propre du patient. Ici, le dernier VS est suivi d'un échappement à 1 200 ms (50/min), puis la stimulation se poursuit à la fréquence de base (1 000 ms). Quand le rythme spontané réapparaît plus rapide (750 ms), le boîtier s'inhibe. Une pause apparente plus longue que l'intervalle de base n'est donc pas une dysfonction : il faut connaître la programmation avant de conclure à une sur-détection.",
+    "explication": "L'hystérésis de fréquence allonge l'intervalle d'échappement après un battement spontané pour laisser s'exprimer le rythme propre du patient. Ici, le dernier VS est suivi d'un échappement à 1 200 ms (50/min), puis la stimulation se poursuit à la fréquence de base (1 000 ms). Quand le rythme spontané réapparaît plus rapide (750 ms), le boîtier s'inhibe. Une pause apparente plus longue que l'intervalle de base n'est donc pas une dysfonction : il faut connaître la programmation avant de conclure à une surdétection.",
     "aRetenir": "Échappement plus long que la fréquence de base après un VS, puis stimulation à la fréquence de base : hystérésis.",
     "sources": [
       {
@@ -597,7 +597,7 @@
       "Faux : la FA peut être lente ou normocarde ; la fréquence ne fait pas le diagnostic."
     ],
     "reponseAttendue": null,
-    "explication": "Les Holters implantables détectent la FA sur l'irrégularité des RR (et parfois l'absence d'onde P), avec une valeur prédictive positive imparfaite : ESA, bruit et sous-détection génèrent de faux épisodes. Le médecin doit relire l'ECG sous-cutané. Ici, les RR sont irrégulièrement irréguliers, aucune onde P ne précède les QRS et la ligne de base est fibrillante : c'est une vraie FA. Chez un patient ayant fait un AVC, sa confirmation conduit à discuter l'anticoagulation selon l'ESC 2024.",
+    "explication": "Les Holters implantables détectent la FA sur l'irrégularité des RR (et parfois l'absence d'onde P), avec une valeur prédictive positive imparfaite : ESA, bruit et sous-détection génèrent de faux épisodes. Le médecin doit relire l'ECG sous-cutané. Ici, les RR sont irrégulièrement irréguliers, aucune onde P ne précède les QRS et la ligne de base est fibrillante : c'est une vraie FA. Chez un patient ayant fait un AVC, sa confirmation fait discuter l'anticoagulation selon l'ESC 2024.",
     "aRetenir": "FA sur Holter implantable : RR irrégulièrement irréguliers, pas de P, ligne de base fibrillante ; toujours relire l'EGM avant de décider.",
     "sources": [
       {
@@ -658,7 +658,7 @@
     "marque": null,
     "type": "qcu",
     "difficulte": 5,
-    "question": "Stimulateur double chambre pour dysfonction sinusale avec conduction AV normale (PR 180-240 ms). Délai AV détecté programmé à 200 ms, sans algorithme de préservation de la conduction. Pourcentage de stimulation ventriculaire affiché : 78 %. Sur plusieurs cycles, le spike ventriculaire est inscrit dans un QRS spontané dont l'aspect n'est pas modifié. Comment interprétez-vous ces cycles ?",
+    "question": "Stimulateur double chambre pour dysfonction sinusale avec conduction AV normale (PR 180-240 ms). Délai AV détecté programmé à 200 ms, sans algorithme de préservation de la conduction. Pourcentage de stimulation ventriculaire affiché : 78 %. Sur plusieurs cycles, un spike ventriculaire est inscrit dans un QRS spontané. Comment interprétez-vous ces cycles ?",
     "egm": {
       "preset": "pseudo-fusion"
     },
@@ -717,8 +717,8 @@
       "Faux : les discriminateurs TSV/TV ne s'appliquent pas dans la zone FV, et un parasite présent aussi sur l'EGM de choc met en défaut les algorithmes de bruit de sonde."
     ],
     "reponseAttendue": null,
-    "explication": "Le signal parasite, régulier et de haute fréquence, apparaît simultanément sur l'EGM A, l'EGM VD et l'EGM de choc, avec un début et une fin brusques : c'est une interférence électromagnétique externe. Le boîtier le compte comme une activité ventriculaire très rapide (FS) ; l'épisode, bref (environ 3 secondes), n'a pas satisfait le critère de durée programmé. Une exposition plus longue (poste de soudure à l'arc, outil défectueux, conducteur de forte intensité) peut le satisfaire et conduire à la charge puis à un choc inapproprié : dans la zone FV, les discriminateurs ne s'appliquent pas, et les algorithmes anti-bruit qui comparent l'EGM VD à un EGM de champ lointain sont mis en défaut quand ce dernier est lui aussi parasité. Chez un travailleur exposé, on évalue le poste de travail (distance, mise à la terre, mesure des champs avec la médecine du travail ou le constructeur) et on apprend au patient à s'éloigner de la source au moindre symptôme.",
-    "aRetenir": "Une interférence électromagnétique prolongée est comptée comme une FV : elle peut conduire à un choc inapproprié ; évaluer l'exposition professionnelle.",
+    "explication": "Le signal parasite, régulier et de haute fréquence, apparaît simultanément sur l'EGM A, l'EGM VD et l'EGM de choc, avec un début et une fin brusques : c'est une interférence électromagnétique externe. Le boîtier le compte comme une activité ventriculaire très rapide (FS) ; l'épisode, bref (environ 3 secondes), n'a pas satisfait le critère de durée programmé. Une exposition plus longue (poste de soudure à l'arc, outil défectueux, conducteur de forte intensité) peut le satisfaire et entraîner la charge puis un choc inapproprié : dans la zone FV, les discriminateurs ne s'appliquent pas, et les algorithmes anti-bruit qui comparent l'EGM VD à un EGM de champ lointain sont mis en défaut quand ce dernier est lui aussi parasité. Chez un travailleur exposé, on évalue le poste de travail (distance, mise à la terre, mesure des champs avec la médecine du travail ou le constructeur) et on apprend au patient à s'éloigner de la source au moindre symptôme.",
+    "aRetenir": "Une interférence électromagnétique prolongée est comptée comme une FV : elle peut entraîner un choc inapproprié ; évaluer l'exposition professionnelle.",
     "sources": [
       {
         "titre": "Swerdlow CD, Asirvatham SJ, Ellenbogen KA, Friedman PA. Troubleshooting implanted cardioverter defibrillator sensing problems I. Circ Arrhythm Electrophysiol 2014;7:1237-1261",

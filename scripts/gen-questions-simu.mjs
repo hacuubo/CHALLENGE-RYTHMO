@@ -257,10 +257,10 @@ for (const [scenario, site] of [['septale', 'cs9'], ['normal', 'ras']]) {
   const saH = R(activations(j, site, sHaut + 1, sHaut + 400)[0] - sHaut), saB = R(activations(j, site, sBas + 1, sBas + 400)[0] - sBas);
   const extra = scenario === 'septale';
   affirmer(extra ? Math.abs(saB - saH) < 15 : saB - saH >= 40, `para-hisien ${scenario}`);
-  const nomSite = extra ? 'l\'ostium du SC' : 'le His (A)';
+  const nomSite = extra ? 'à l\'ostium du SC' : 'sur la sonde His (A)';
   ajouter({
     difficulte: 8,
-    question: `Stimulation para-hisienne en rythme sinusal : 15 mA (capture du His et du myocarde septal) puis 5 mA (myocarde seul, QRS élargi). L'intervalle stimulus-A mesuré sur ${nomSite}, site atrial le plus précoce, est de ${saH} ms à 15 mA et de ${saB} ms à 5 mA, avec la même séquence atriale. Quelle est la conclusion ?`,
+    question: `Stimulation para-hisienne en rythme sinusal : 15 mA (capture du His et du myocarde septal) puis 5 mA (myocarde seul, QRS élargi). L'intervalle stimulus-A mesuré ${nomSite}, site atrial le plus précoce, est de ${saH} ms à 15 mA et de ${saB} ms à 5 mA, avec la même séquence atriale. Quelle est la conclusion ?`,
     simu: simu(scenario, etapes, sBas + 600, { vitesse: 25, legende: '15 mA puis 5 mA' }),
     options: extra
       ? ['Conduction rétrograde exclusivement par le nœud AV', 'Conduction rétrograde extranodale : voie septale', 'Conduction rétrograde nodale et extranodale (fusion)', 'Absence de conduction rétrograde ventriculo-atriale']
@@ -277,7 +277,7 @@ for (const [scenario, site] of [['septale', 'cs9'], ['normal', 'ras']]) {
       'Faux : une fusion modifierait la séquence d\'activation atriale entre les deux sorties.',
       'Faux : chaque stimulation est suivie d\'une activation atriale, la conduction rétrograde existe.',
     ],
-    explication: `La stimulation para-hisienne compare deux situations : sortie haute (His et myocarde capturés) et sortie basse (myocarde seul). Si la conduction rétrograde est nodale, la perte de capture du His allonge le stimulus-A d'autant que le temps nécessaire à l'influx pour rejoindre le His par le myocarde et les branches, sans changer la séquence. Si elle passe par une voie septale, le stimulus-A au site de sortie ne change pas, car l'oreillette est activée depuis le myocarde ventriculaire proche. ${extra ? `Ici il reste stable (${saH} puis ${saB} ms) : conduction extranodale.` : `Ici il passe de ${saH} à ${saB} ms : conduction nodale.`} Mesurez le stimulus-A à chaque site atrial, pas seulement au plus précoce, pour dépister une fusion.`,
+    explication: `La stimulation para-hisienne compare deux situations : sortie haute (His et myocarde capturés) et sortie basse (myocarde seul). Si la conduction rétrograde est nodale, la perte de capture du His allonge le stimulus-A du temps que met l'influx à rejoindre le His par le myocarde et les branches, sans changer la séquence. Si elle passe par une voie septale, le stimulus-A au site de sortie ne change pas, car l'oreillette est activée depuis le myocarde ventriculaire proche. ${extra ? `Ici il reste stable (${saH} puis ${saB} ms) : conduction extranodale.` : `Ici il passe de ${saH} à ${saB} ms : conduction nodale.`} Mesurez le stimulus-A à chaque site atrial, pas seulement au plus précoce, pour dépister une fusion.`,
     aRetenir: 'Para-hisien : stimulus-A allongé sans capture du His = conduction nodale ; inchangé au site de sortie = voie accessoire septale.',
     sources: [SRC.hirao, SRC.josephson],
     en: {
@@ -315,7 +315,7 @@ for (const [scenario, site] of [['septale', 'cs9'], ['normal', 'ras']]) {
     difficulte: 6,
     question: `Flutter atrial à cycle ${R(tcl)} ms, ondes F négatives en inférieur. Entraînement depuis l'isthme cavo-tricuspide (Halo 1-2) à ${cl} ms : le PPI mesuré sur le site de stimulation est de ${a.ppi} ms (tracé, montage Halo). Quelle est la conclusion ?`,
     simu: simu('flutter', etapes, r.marques.dernierStim + 1200, { vitesse: 50, montage: 'flutter' }),
-    options: ['L\'isthme est hors du circuit : flutter non isthme-dépendant', 'L\'isthme est dans le circuit : flutter isthme-dépendant', 'Le flutter a été transformé en fibrillation atriale', 'Le PPI n\'est pas interprétable au niveau de l\'isthme'],
+    options: ['L\'isthme est hors du circuit : flutter non isthme-dépendant', 'L\'isthme est dans le circuit : flutter isthme-dépendant', 'Le flutter a été transformé en fibrillation atriale', 'Le PPI n\'est pas interprétable à l\'isthme'],
     reponses: [1],
     commentaires: [
       `Faux : un site hors du circuit donnerait un PPI nettement plus long que le cycle ; ici PPI − TCL = ${a.pptcl} ms.`,
