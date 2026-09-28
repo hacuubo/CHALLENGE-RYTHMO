@@ -101,7 +101,7 @@
       1
     ],
     "commentaires": [
-      "L'affirmation est fausse : chez le coronarien c'est une classe I, mais dans la CMD non ischémique l'ESC 2022 (comme l'ESC 2026 IC) ne retient qu'une classe IIa.",
+      "Faux : chez le coronarien c'est une classe I, mais dans la CMD non ischémique l'ESC 2022 (comme l'ESC 2026 IC) ne retient qu'une classe IIa.",
       "Juste : CMD non ischémique, FEVG ≤ 35 % = classe IIa, notamment depuis DANISH (pas de baisse de la mortalité globale)."
     ],
     "reponseAttendue": null,
@@ -459,7 +459,7 @@
     "commentaires": [
       "Faux : le DAI ne traite pas la FA en routine ; celle-ci est même une cause fréquente de chocs inappropriés.",
       "Juste : le DAI surveille le rythme ventriculaire et traite TV et FV par ATP ou choc.",
-      "Faux : c'est le rôle de capteurs dédiés (type CardioMEMS), pas d'un DAI.",
+      "Faux : c'est le rôle de capteurs spécifiques (type CardioMEMS), pas d'un DAI.",
       "Faux : le traitement médical reste indispensable, notamment pour limiter le nombre d'épisodes."
     ],
     "reponseAttendue": null,
@@ -1453,11 +1453,11 @@
       "Faux : c'est l'hyperkaliémie qui majore l'onde T ; l'hypokaliémie l'aplatit.",
       "Juste : un QRS peu ample rapproche son amplitude de celle de l'onde T.",
       "Juste : c'est possible, mais il faut s'assurer que la FV, de faible amplitude, reste détectée.",
-      "Juste : certains constructeurs proposent des algorithmes dédiés de rejet de l'onde T.",
+      "Juste : certains constructeurs proposent des algorithmes spécifiques de rejet de l'onde T.",
       "Faux : elle est plus fréquente avec le S-ICD, mais existe aussi avec les DAI endocavitaires."
     ],
     "reponseAttendue": null,
-    "explication": "La surdétection de l'onde T est favorisée par tout ce qui augmente l'onde T (hyperkaliémie, syndrome du QT long, certaines cardiomyopathies) ou réduit l'onde R (sonde en zone cicatricielle, maturation de l'interface sonde-myocarde). L'hypokaliémie, elle, aplatit l'onde T et fait apparaître des ondes U. Rendre la détection moins sensible peut régler le problème, mais comme le DAI doit détecter une FV de faible amplitude, toute baisse de sensibilité impose de s'assurer que la FV restera détectée. Certains constructeurs proposent des algorithmes dédiés de rejet de l'onde T, et le repositionnement de sonde reste parfois nécessaire. Le phénomène est plus fréquent avec le S-ICD, mais il existe aussi avec les DAI endocavitaires.",
+    "explication": "La surdétection de l'onde T est favorisée par tout ce qui augmente l'onde T (hyperkaliémie, syndrome du QT long, certaines cardiomyopathies) ou réduit l'onde R (sonde en zone cicatricielle, maturation de l'interface sonde-myocarde). L'hypokaliémie, elle, aplatit l'onde T et fait apparaître des ondes U. Rendre la détection moins sensible peut régler le problème, mais comme le DAI doit détecter une FV de faible amplitude, toute baisse de sensibilité impose de s'assurer que la FV restera détectée. Certains constructeurs proposent des algorithmes spécifiques de rejet de l'onde T, et le repositionnement de sonde reste parfois nécessaire. Le phénomène est plus fréquent avec le S-ICD, mais il existe aussi avec les DAI endocavitaires.",
     "aRetenir": "Surdétection de l'onde T : chercher la cause (kaliémie, onde R basse) et ne jamais sacrifier la détection de la FV.",
     "rappel": "Le réglage de la détection d'un DAI obéit à une contrainte asymétrique : il faut ne pas compter l'onde T, mais ne jamais manquer la FV, dont les signaux sont petits et variables. Toute action sur la sensibilité doit donc être suivie d'une vérification de la détection de la FV (induction, ou marge sur l'amplitude de l'onde R). Les solutions se classent de la plus ciblée à la plus invasive : corriger une cause métabolique, activer un filtre ou un algorithme dédié, modifier le seuil ou la décroissance de la sensibilité, puis repositionner ou ajouter une sonde.",
     "sources": [
@@ -1484,7 +1484,7 @@
       "Intervalles réguliers à 350 ms, EGM identiques à ceux du rythme sinusal",
       "Baisse progressive de la tension de pile sur plusieurs mois de suivi",
       "Fréquence atriale supérieure à la fréquence ventriculaire",
-      "Intervalles non physiologiques, sur le near-field mais absents du far-field"
+      "Intervalles non physiologiques sur l'EGM de champ proche, absents du champ lointain"
     ],
     "reponses": [
       3
@@ -1493,11 +1493,11 @@
       "Faux : un rythme régulier à EGM sinusaux évoque une tachycardie sinusale ou une TSV, pas un bruit.",
       "Faux : c'est l'usure normale de la pile, sans rapport avec l'intégrité de la sonde.",
       "Faux : A > V oriente vers une TSV (flutter, tachycardie atriale), pas vers un bruit de sonde.",
-      "Juste : le bruit produit des intervalles trop courts pour être physiologiques, absents du canal far-field qui montre le rythme réel."
+      "Juste : le bruit produit des intervalles trop courts pour être physiologiques, absents du canal de champ lointain, qui montre le rythme réel."
     ],
     "reponseAttendue": null,
-    "explication": "Le bruit de sonde (fracture de conducteur, défaut d'isolant, connexion défectueuse) produit des signaux de haute fréquence, irréguliers et intermittents, qui génèrent des intervalles beaucoup trop courts pour être physiologiques. Il apparaît sur le canal de détection (near-field) mais pas sur le canal far-field (boîtier-bobine), qui montre le rythme sous-jacent normal. Le bruit est souvent favorisé par les mouvements du bras ou de la posture. L'impédance de stimulation peut être anormale (très élevée en cas de fracture) mais aussi rester normale entre les épisodes. Un rythme régulier à 350 ms avec des EGM sinusaux évoque une tachycardie sinusale ou une TSV, pas un bruit.",
-    "aRetenir": "Bruit de sonde : intervalles non physiologiques, sur l'EGM near-field seulement, souvent positionnels.",
+    "explication": "Le bruit de sonde (fracture de conducteur, défaut d'isolant, connexion défectueuse) produit des signaux de haute fréquence, irréguliers et intermittents, qui génèrent des intervalles beaucoup trop courts pour être physiologiques. Il apparaît sur le canal de détection (champ proche, near-field) mais pas sur le canal de champ lointain (far-field, boîtier-bobine), qui montre le rythme sous-jacent normal. Le bruit est souvent favorisé par les mouvements du bras ou de la posture. L'impédance de stimulation peut être anormale (très élevée en cas de fracture) mais aussi rester normale entre les épisodes. Un rythme régulier à 350 ms avec des EGM sinusaux évoque une tachycardie sinusale ou une TSV, pas un bruit.",
+    "aRetenir": "Bruit de sonde : intervalles non physiologiques, sur l'EGM de champ proche seulement, souvent positionnels.",
     "rappel": "Un électrogramme de DAI endocavitaire se lit sur plusieurs canaux. Le canal near-field (bipolaire, entre pointe et anneau ou bobine distale) sert à la détection et au comptage des cycles ; le canal far-field (boîtier-bobine) reflète l'activité ventriculaire globale, comme un ECG interne. Un signal vrai (TV, FV) apparaît sur les deux canaux ; un signal limité au near-field et sans traduction sur le far-field est suspect d'artefact. Des intervalles plus courts que la période réfractaire du myocarde ventriculaire ne peuvent pas correspondre à des dépolarisations successives : ils ne sont pas physiologiques.",
     "sources": [
       {
@@ -1557,9 +1557,9 @@
     "question": "Citez au moins quatre éléments de l'interrogation d'un DAI qui orientent vers une fracture de sonde de défibrillation.",
     "options": null,
     "reponses": null,
-    "reponseAttendue": "Intervalles très courts non physiologiques (compteurs de cycles courts), bruit intermittent sur l'EGM near-field et absent du far-field, variation brutale ou valeur anormale de l'impédance de stimulation et/ou de choc, épisodes non soutenus « rapides » répétés, bruit reproduit par les manœuvres (bras, posture), alerte d'intégrité de sonde déclenchée.",
-    "explication": "Le diagnostic de fracture de sonde repose sur un faisceau d'arguments, car aucun n'est parfait isolément. Les compteurs d'intervalles courts non physiologiques et les nombreux épisodes non soutenus très rapides sont des signaux précoces. L'impédance de stimulation ou de choc peut varier brutalement (souvent à la hausse en cas de fracture de conducteur), mais peut rester normale lorsque la fracture est intermittente. La comparaison near-field et far-field est clé : le bruit est absent du far-field. Les manœuvres de provocation (mouvements du bras, respiration profonde) reproduisent souvent le bruit. Les alertes d'intégrité de sonde, à activer systématiquement, combinent ces paramètres.",
-    "aRetenir": "Fracture de sonde : intervalles non physiologiques, bruit near-field seul, impédance anormale, bruit provoqué.",
+    "reponseAttendue": "Intervalles très courts non physiologiques (compteurs de cycles courts), bruit intermittent sur l'EGM de champ proche et absent du champ lointain, variation brutale ou valeur anormale de l'impédance de stimulation et/ou de choc, épisodes non soutenus « rapides » répétés, bruit reproduit par les manœuvres (bras, posture), alerte d'intégrité de sonde déclenchée.",
+    "explication": "Le diagnostic de fracture de sonde repose sur un faisceau d'arguments, car aucun n'est parfait isolément. Les compteurs d'intervalles courts non physiologiques et les nombreux épisodes non soutenus très rapides sont des signaux précoces. L'impédance de stimulation ou de choc peut varier brutalement (souvent à la hausse en cas de fracture de conducteur), mais peut rester normale lorsque la fracture est intermittente. La comparaison des EGM de champ proche et de champ lointain est déterminante : le bruit est absent du champ lointain. Les manœuvres de provocation (mouvements du bras, respiration profonde) reproduisent souvent le bruit. Les alertes d'intégrité de sonde, à activer systématiquement, combinent ces paramètres.",
+    "aRetenir": "Fracture de sonde : intervalles non physiologiques, bruit sur le champ proche seul, impédance anormale, bruit provoqué.",
     "rappel": "Une sonde de DAI comporte plusieurs conducteurs (pointe, anneau, bobines) isolés les uns des autres ; une fracture de conducteur ou une rupture d'isolant produit des signaux parasites intermittents et fait varier les impédances. La mesure d'impédance n'est qu'instantanée et peut rester normale entre deux épisodes, d'où l'intérêt des alertes automatiques qui surveillent quotidiennement impédances, intervalles courts et épisodes non soutenus. Certaines familles de sondes sont connues pour un risque accru de défaillance et justifient une surveillance renforcée.",
     "sources": [
       {
@@ -2388,7 +2388,7 @@
       "Faux : l'ESC 2021 recommande bien d'envisager l'upgrade (IIa), confirmé par l'ESC 2026 IC, en pesant le risque procédural."
     ],
     "reponseAttendue": null,
-    "explication": "C'est vrai : l'ESC 2021 recommande d'envisager l'upgrade vers une CRT (classe IIa) dans ce contexte de cardiomyopathie induite par la stimulation VD. Les recommandations ESC 2026 sur l'insuffisance cardiaque confirment la classe IIa (niveau B1) chez les patients avec FEVG ≤ 35 % et une proportion significative de stimulation VD dont l'IC s'aggrave malgré un traitement optimal. Elles s'appuient sur BUDAPEST-CRT Upgrade, premier essai randomisé sur ce sujet : avec ≥ 20 % de stimulation VD et un QRS stimulé ≥ 150 ms, l'upgrade vers un CRT-D a réduit le critère principal associant décès, hospitalisation pour IC et absence de remodelage inverse (HR 0,27). L'ESC 2026 recommande aussi de vérifier la proportion de stimulation VD chez tout porteur de prothèse présentant une ICFEr de novo ou qui s'aggrave (classe IIa). L'upgrade (ou une stimulation du système de conduction) restaure une activation ventriculaire plus physiologique. Il faut mettre en balance le risque procédural, plus élevé qu'en primo-implantation.",
+    "explication": "C'est vrai : l'ESC 2021 recommande d'envisager l'upgrade vers une CRT (classe IIa) dans ce contexte de cardiomyopathie induite par la stimulation VD. Les recommandations ESC 2026 sur l'insuffisance cardiaque confirment la classe IIa (niveau B1) chez les patients avec FEVG ≤ 35 % et une proportion significative de stimulation VD dont l'IC s'aggrave malgré un traitement optimal. Elles s'appuient sur BUDAPEST-CRT Upgrade, premier essai randomisé sur ce sujet : avec ≥ 20 % de stimulation VD et un QRS stimulé ≥ 150 ms, l'upgrade vers un CRT-D a réduit le critère principal associant décès, hospitalisation pour IC et absence de remodelage inverse (odds ratio 0,11), ainsi que le critère décès ou hospitalisation pour IC (HR 0,27). L'ESC 2026 recommande aussi de vérifier la proportion de stimulation VD chez tout porteur de prothèse présentant une ICFEr de novo ou qui s'aggrave (classe IIa). L'upgrade (ou une stimulation du système de conduction) restaure une activation ventriculaire plus physiologique. Il faut mettre en balance le risque procédural, plus élevé qu'en primo-implantation.",
     "aRetenir": "Cardiomyopathie induite par la stimulation VD avec FEVG ≤ 35 % : upgrade CRT (IIa, BUDAPEST-CRT Upgrade) ; toujours vérifier le % de stimulation VD.",
     "rappel": "La cardiomyopathie induite par la stimulation VD correspond à une altération de la FEVG attribuable à une stimulation ventriculaire droite fréquente, après exclusion d'une autre cause. Elle résulte de l'asynchronisme de type bloc de branche gauche créé par l'activation lente, de cellule à cellule, à partir du VD. Le risque augmente avec la proportion de stimulation VD et quand la FEVG de départ est déjà altérée. Le dépistage repose sur la surveillance du pourcentage de stimulation et sur une évaluation de la FEVG devant tout symptôme d'insuffisance cardiaque.",
     "sources": [
@@ -2577,7 +2577,7 @@
     "marque": null,
     "type": "qcu",
     "difficulte": 8,
-    "question": "Selon le guideline HRS/APHRS/LAHRS 2023, chez un patient avec FEVG entre 36 et 50 % qui a besoin d'une stimulation ventriculaire et chez qui on prévoit plus de 40 % de stimulation, quelle stratégie est préférable ?",
+    "question": "Selon les recommandations HRS/APHRS/LAHRS 2023, chez un patient avec FEVG entre 36 et 50 % qui a besoin d'une stimulation ventriculaire et chez qui on prévoit plus de 40 % de stimulation, quelle stratégie est préférable ?",
     "options": [
       "Stimulation VD conventionnelle, apicale ou septale",
       "Stimulation du système de conduction ou stimulation biventriculaire",
@@ -2594,7 +2594,7 @@
       "Faux : la question porte sur le mode de stimulation, pas sur une indication de défibrillateur."
     ],
     "reponseAttendue": null,
-    "explication": "Le guideline HRS 2023 sur la stimulation physiologique considère raisonnable (classe 2a) de préférer une stimulation plus physiologique (hissienne, LBBAP ou biventriculaire) à la stimulation VD, apicale ou septale, chez les patients avec FEVG de 36 à 50 % qui ont besoin d'une stimulation ventriculaire fréquente (> 40 %). Ces patients sont à risque de cardiomyopathie induite par la stimulation VD ; renoncer à la stimulation n'est pas une option puisqu'elle est indiquée. En Europe, l'ESC 2026 sur l'insuffisance cardiaque inclut désormais ces FEVG dans l'ICFEr (< 50 %) et recommande la CRT plutôt que la stimulation VD en cas de BAV de haut degré (classe IIa), sans formuler de recommandation sur la stimulation de conduction faute d'essai randomisé. Le consensus ESC 2025 la juge envisageable en cas de BAV quelle que soit la FEVG. Le DAI n'est pas en question ici, seule la stimulation l'est.",
+    "explication": "Les recommandations HRS 2023 sur la stimulation physiologique considèrent raisonnable (classe 2a) de préférer une stimulation plus physiologique (hissienne, LBBAP ou biventriculaire) à la stimulation VD, apicale ou septale, chez les patients avec FEVG de 36 à 50 % qui ont besoin d'une stimulation ventriculaire fréquente (> 40 %). Ces patients sont à risque de cardiomyopathie induite par la stimulation VD ; renoncer à la stimulation n'est pas une option puisqu'elle est indiquée. En Europe, l'ESC 2026 sur l'insuffisance cardiaque inclut désormais ces FEVG dans l'ICFEr (< 50 %) et recommande la CRT plutôt que la stimulation VD en cas de BAV de haut degré (classe IIa), sans formuler de recommandation sur la stimulation de conduction faute d'essai randomisé. Le consensus ESC 2025 la juge envisageable en cas de BAV quelle que soit la FEVG. Le DAI n'est pas en question ici, seule la stimulation l'est.",
     "aRetenir": "FEVG 36-50 % et stimulation V > 40 % : préférer une stimulation physiologique à la stimulation VD.",
     "rappel": "La stimulation physiologique regroupe les modes qui limitent l'asynchronisme ventriculaire : stimulation biventriculaire et stimulation du système de conduction (hissienne ou LBBAP). Le choix entre stimulation VD et stimulation physiologique repose sur deux variables : la FEVG de départ et le pourcentage prévisible de stimulation ventriculaire. Plus la FEVG est basse et la stimulation fréquente, plus le risque de cardiomyopathie induite par la stimulation VD est élevé. À l'inverse, un patient à FEVG normale peu stimulé tire peu de bénéfice d'une stratégie plus complexe.",
     "sources": [
@@ -2685,7 +2685,7 @@
       "Faux : l'ESC 2021 aborde explicitement la stimulation hissienne."
     ],
     "reponseAttendue": null,
-    "explication": "L'ESC 2021 place la stimulation hissienne en classe IIa comme option de sauvetage chez un candidat à la CRT en cas d'échec de pose de la sonde VG dans le sinus coronaire, parmi d'autres options comme la sonde épicardique chirurgicale. Dans ce texte, elle n'est pas recommandée en première intention à la place de la CRT biventriculaire, faute d'essais randomisés suffisants à l'époque. Le guideline HRS 2023 va dans le même sens pour la stimulation du système de conduction (hissienne ou LBBAP) en cas d'échec ou d'inefficacité de la CRT biventriculaire. Le consensus ESC 2025 sur les indications de la stimulation du système de conduction la conseille aussi en sauvetage après un échec de sonde VG, la LBBAP étant aujourd'hui la plus utilisée. Les recommandations ESC 2026 sur l'insuffisance cardiaque, elles, ne formulent aucune recommandation sur la stimulation de conduction, faute d'essai randomisé sur des critères cliniques.",
+    "explication": "L'ESC 2021 place la stimulation hissienne en classe IIa comme option de sauvetage chez un candidat à la CRT en cas d'échec de pose de la sonde VG dans le sinus coronaire, parmi d'autres options comme la sonde épicardique chirurgicale. Dans ce texte, elle n'est pas recommandée en première intention à la place de la CRT biventriculaire, faute d'essais randomisés suffisants à l'époque. Les recommandations HRS 2023 vont dans le même sens pour la stimulation du système de conduction (hissienne ou LBBAP) en cas d'échec ou d'inefficacité de la CRT biventriculaire. Le consensus ESC 2025 sur les indications de la stimulation du système de conduction la conseille aussi en sauvetage après un échec de sonde VG, la LBBAP étant aujourd'hui la plus utilisée. Les recommandations ESC 2026 sur l'insuffisance cardiaque, elles, ne formulent aucune recommandation sur la stimulation de conduction, faute d'essai randomisé sur des critères cliniques.",
     "aRetenir": "Échec de pose de la sonde VG : stimulation du système de conduction en sauvetage (His IIa dans l'ESC 2021 ; consensus ESC 2025).",
     "rappel": "La CRT biventriculaire conventionnelle repose sur une sonde VG posée dans une veine latérale ou postérolatérale du sinus coronaire. Cette pose peut échouer ou donner un résultat insuffisant : canulation impossible, absence de veine cible, seuil élevé, stimulation phrénique. Les alternatives sont la sonde VG épicardique chirurgicale et la stimulation du système de conduction, qui corrige le trouble de conduction en recrutant directement le réseau His-Purkinje. Le choix dépend de l'anatomie, du niveau du bloc et de l'expérience du centre.",
     "sources": [

@@ -660,9 +660,9 @@
    "Incorrect: the aim is haemodynamic (left-sided AV synchrony), not battery saving.",
    "Incorrect: crosstalk is managed by blanking and safety pacing, not by the paced AV delay.",
    "Incorrect: PVARP does not depend on the type of atrial event and does not justify this setting.",
-   "Correct: after an A spike, the LA activates later; a spontaneous P, by contrast, is sensed late: the paced AV delay is lengthened by 30 to 50 ms."
+   "Correct: after an A spike, the LA activates later; an intrinsic P, by contrast, is sensed late: the paced AV delay is lengthened by 30 to 50 ms."
   ],
-  "explication": "A spontaneous P wave is sensed only when the activation wavefront reaches the atrial lead, i.e. with some delay after P-wave onset. Conversely, after atrial pacing (often from the high right atrium), left atrial activation is delayed by interatrial conduction. To achieve comparable left-sided AV synchrony, the paced AV delay is therefore lengthened by about 30 to 50 ms relative to the sensed AV delay. This setting is unrelated to crosstalk or battery.",
+  "explication": "An intrinsic P wave is sensed only when the activation wavefront reaches the atrial lead, i.e. with some delay after P-wave onset. Conversely, after atrial pacing (often from the high right atrium), left atrial activation is delayed by interatrial conduction. To achieve comparable left-sided AV synchrony, the paced AV delay is therefore lengthened by about 30 to 50 ms relative to the sensed AV delay. This setting is unrelated to crosstalk or battery.",
   "aRetenir": "Paced AV delay > sensed AV delay, to preserve equivalent left-sided AV synchrony.",
   "rappel": "The programmed AV delay aims to achieve complete left atrial systole before left ventricular contraction, while avoiding an overly short diastole or diastolic mitral regurgitation. The programmed delay must be distinguished from the effective left-sided electrical delay, which depends on the atrial lead site and interatrial conduction. Marked interatrial conduction delay may require longer AV delays, or even echocardiographic optimisation. In a patient with preserved conduction, delays that allow intrinsic conduction are preferred instead."
  },
@@ -746,7 +746,7 @@
   "options": [
    "To avoid tracking AF or rapid flutter",
    "To raise the lower rate during exercise",
-   "To go asynchronous in case of interference",
+   "To go asynchronous during interference",
    "To reduce unnecessary atrial pacing at rest"
   ],
   "commentaires": [
@@ -800,7 +800,7 @@
    "Systematic interference with device telemetry"
   ],
   "commentaires": [
-   "Correct: the accelerometer measures movement, which is poorly proportional to metabolic demand: cycling, isometric effort or emotion fool it.",
+   "Correct: the accelerometer measures movement, which is poorly proportional to metabolic demand: cycling, isometric exercise or emotion fool it.",
    "Incorrect: the accelerometer responds quickly at exercise onset; it is minute ventilation that is slower.",
    "Incorrect: accelerometer-based rate response is used in DDDR as well as VVIR.",
    "Incorrect: the activity sensor does not interfere with telemetry."
@@ -863,13 +863,13 @@
   "question": "Which of the following strategies aim to reduce unnecessary ventricular pacing in a patient with preserved AV conduction?",
   "options": [
    "AV delay hysteresis / periodic search for intrinsic conduction",
-   "AAI(R)-type operation with conduction monitoring and switch to DDD(R) in case of AV block",
+   "AAI(R)-type operation with conduction monitoring and switch to DDD(R) if AV block develops",
    "Routine shortening of the AV delay to 100 ms",
    "Lowering the maximum tracking rate"
   ],
   "commentaires": [
    "Correct: periodic AV delay extension allows intrinsic conduction to emerge.",
-   "Correct: these modes pace the atrium while monitoring the ventricle, and switch back to DDD in case of AV block.",
+   "Correct: these modes pace the atrium while monitoring the ventricle, and switch back to DDD if AV block develops.",
    "Incorrect: shortening the AV delay, on the contrary, increases ventricular pacing.",
    "Incorrect: the maximum tracking rate plays no role in minimising V pacing."
   ],
@@ -1197,7 +1197,7 @@
  "prog-fond-073": {
   "question": "A pacemaker-dependent patient is undergoing thoracic surgery with monopolar diathermy above the umbilicus. What perioperative strategy would you propose?",
   "reponseAttendue": "Preoperative device check; programming to an asynchronous mode (DOO/VOO) at a rate above the intrinsic rhythm (or a magnet if the generator is accessible); rate response switched off (especially minute ventilation); continuous monitoring with a defibrillator available; postoperative device check and reprogramming.",
-  "explication": "In a dependent patient, inhibition by diathermy can cause asystole: sensing must be suspended during the procedure. An asynchronous mode is programmed at an appropriate rate, or a magnet is used if the operative field allows and the magnet response of this particular device is known. Sensors that may be disturbed (minute ventilation) are switched off. The patient is monitored by means that do not rely solely on the disturbed ECG (pulse oximetry, arterial pressure). After the procedure, the device is checked and the original programming restored.",
+  "explication": "In a dependent patient, inhibition by diathermy can cause asystole: sensing must be suspended during the procedure. An asynchronous mode is programmed at an appropriate rate, or a magnet is used if the operative field allows and the magnet response of this particular device is known. Sensors that may be disturbed (minute ventilation) are switched off. The patient is monitored by means that do not rely solely on the disturbed ECG (pulse oximetry, blood pressure). After the procedure, the device is checked and the original programming restored.",
   "aRetenir": "Dependent patient + diathermy above the umbilicus = asynchronous mode, sensors off, monitoring, postoperative check.",
   "rappel": "Perioperative strategy for a pacemaker patient is prepared before surgery: identification of the device and its magnet response, assessment of pacing dependence, date of the last check, surgical site and type of energy used. In a pacemaker-dependent patient with a high risk of interference, pacing must be guaranteed by an asynchronous mode (programmed or via a magnet). Monitoring must include a signal independent of the ECG (pulse, blood pressure). After surgery, restoring the original programming and checking the system are essential before continuous monitoring is stopped."
  },

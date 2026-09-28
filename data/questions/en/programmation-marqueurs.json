@@ -8,7 +8,7 @@
    "Noise detected, charge interrupted, then detection confirmed"
   ],
   "commentaires": [
-   "Correct: FS marks each cycle in the VF zone, FD VF detection, CE the end of charge and CD the delivered cardioversion or defibrillation shock.",
+   "Correct: FS marks each cycle in the VF zone, FD the detection of VF, CE the end of charge and CD the delivered cardioversion or defibrillation shock.",
    "Incorrect: the VT zone is marked TS/TD and ATP TP; none of these markers appears here.",
    "Incorrect: the order is reversed; CE (end of charge) necessarily precedes CD (shock delivered).",
    "Incorrect: noise has no dedicated FS/FD marker; CE does not mean the charge was interrupted."
@@ -63,7 +63,7 @@
    "Correct: VSP denotes ventricular safety pacing, delivered at a short AV interval when a signal (crosstalk or PVC) is sensed just after the atrial pulse.",
    "Incorrect: a refractory atrial sensed event (AR) does not trigger ventricular pacing."
   ],
-  "explication": "Just after atrial pacing, the ventricular channel is blind during a short blanking period, then enters a safety window. Any signal sensed in this window may be crosstalk (the atrial pulse seen by the V lead) or a genuine PVC. In case of doubt, the device delivers ventricular pacing at a shortened AV interval: harmless if it is a PVC (the pulse falls in its refractory period), life-saving if it is crosstalk in a pacemaker-dependent patient. In Abbott devices this behaviour is marked VSP; Medtronic and MicroPort have their own markers. Frequent VSP markers should prompt a search for crosstalk (high atrial output, overly sensitive V channel, blanking too short) or repeated PVCs.",
+  "explication": "Just after atrial pacing, the ventricular channel is blind during a short blanking period, then enters a safety window. Any signal sensed in this window may be crosstalk (the atrial pulse seen by the V lead) or a genuine PVC. If in doubt, the device delivers ventricular pacing at a shortened AV interval: harmless if it is a PVC (the pulse falls in its refractory period), life-saving if it is crosstalk in a pacemaker-dependent patient. In Abbott devices this behaviour is marked VSP; Medtronic and MicroPort have their own markers. Frequent VSP markers should prompt a search for crosstalk (high atrial output, overly sensitive V channel, blanking too short) or repeated PVCs.",
   "aRetenir": "Abbott: VSP = ventricular safety pacing (protection against crosstalk), recognisable by a very short AV interval after AP.",
   "rappel": "After atrial pacing, the ventricular channel is first blind during the post-atrial ventricular blanking period, then a short safety window opens. A signal sensed in this window cannot be attributed with certainty to a PVC or to crosstalk; rather than inhibiting pacing, the device delivers a VP at a shortened AV delay. Each manufacturer has its own marker for this safety pacing; in Abbott devices it is VSP. Repeated occurrences should prompt a search for crosstalk, promoted by high atrial output, excessive ventricular sensitivity or a short post-atrial blanking period, or for frequent PVCs."
  },
@@ -150,7 +150,7 @@
    "\"Vb\" alone, with no ventricular sensing marker"
   ],
   "commentaires": [
-   "Incorrect: a sensed event in the safety window cannot inhibit: the device cannot rule out crosstalk.",
+   "Incorrect: a sensed event in the safety window cannot inhibit pacing: the device cannot rule out crosstalk.",
    "Correct: the sensed event in the safety window is marked r, then V pacing is delivered at the end of the window and marked Vb.",
    "Incorrect: pacing is not immediate; it is delivered at the end of the safety window.",
    "Incorrect: the sensed event itself appears, as r, before the Vb marker."
@@ -290,19 +290,19 @@
  "prog-mq-022": {
   "question": "In an episode from a MicroPort ICD during rapid AF, the annotation above the markers alternates between \"SVT/ST\", \"No majority\" and \"Slow rhythm\". What rule are these annotations based on?",
   "options": [
-   "Analysis of the last 8 sliding cycles: at least 6 in the same category",
+   "Analysis of a sliding window of the last 8 cycles: at least 6 in the same category",
    "Analysis of the last 12 cycles: at least 8 in the same category",
    "Mean of the last 4 R–R intervals compared with the zones",
    "Cumulative counter of 18 out of 24 cycles in the zone"
   ],
   "commentaires": [
-   "Correct: each annotation reflects the majority over the last 8 sliding cycles (at least 6 in the same category).",
+   "Correct: each annotation reflects the majority over a sliding window of the last 8 cycles (at least 6 in the same category).",
    "Incorrect: the window used by MicroPort is 8 cycles, not 12.",
    "Incorrect: this is not an interval average but a majority rule.",
    "Incorrect: the 18-out-of-24 counter is Medtronic's VF detection rule, not MicroPort's."
   ],
-  "explication": "MicroPort ICDs annotate the rhythm continuously using a majority rule over the last 8 sliding cycles. If at least 6 are in the VF zone, the annotation is VF; if at least 6 are in the slow VT or VT zone, the decision tree adds its diagnosis (VT, VTLC, SVT/ST); if at least 6 are slow or paced, \"Slow rhythm\". When no category reaches 6 out of 8 cycles, the annotation is \"No majority\", which is common during AF with an irregular ventricular response around a zone boundary. This reading helps explain why a therapy was delivered or delayed.",
-  "aRetenir": "MicroPort: rhythm annotated by a majority of 6 of the last 8 sliding cycles; otherwise \"No majority\".",
+  "explication": "MicroPort ICDs annotate the rhythm continuously using a majority rule over a sliding window of the last 8 cycles. If at least 6 are in the VF zone, the annotation is VF; if at least 6 are in the slow VT or VT zone, the decision tree adds its diagnosis (VT, VTLC, SVT/ST); if at least 6 are slow or paced, \"Slow rhythm\". When no category reaches 6 out of 8 cycles, the annotation is \"No majority\", which is common during AF with an irregular ventricular response around a zone boundary. This reading helps explain why a therapy was delivered or delayed.",
+  "aRetenir": "MicroPort: rhythm annotated by a majority of 6 of the last 8 cycles (sliding window); otherwise \"No majority\".",
   "rappel": "Tachycardia detection by an ICD relies on a cycle counter whose rule varies between manufacturers: a consecutive counter, a cumulative counter over a window of cycles (X of Y) or a sliding majority rule. A sliding window with a majority rule tolerates a few out-of-zone cycles, which is useful for VF with variable cycle lengths, but it can also delay or prevent detection when cycles oscillate either side of a zone boundary, as in fast, irregular AF. In MicroPort devices, this majority rule is applied continuously and its result is annotated on the episode, making it possible to follow the device's reasoning step by step."
  }
 }
