@@ -14,7 +14,8 @@
    "Incorrect: 200 ms is the duration of one large square (5 mm), not a small one."
   ],
   "explication": "At 25 mm/s, 1 second covers 25 mm, so one 1 mm small square equals 1/25 s, i.e. 40 ms. One large square (5 mm) equals 200 ms, and 5 large squares make 1 second. A value of 20 ms would apply at a paper speed of 50 mm/s, which is sometimes used to analyse P waves or pacing spikes more closely. 200 ms is the duration of a large square, not a small one. Routinely checking the paper speed avoids gross errors in interval measurement.",
-  "aRetenir": "At 25 mm/s: 1 small square = 40 ms, 1 large square = 200 ms."
+  "aRetenir": "At 25 mm/s: 1 small square = 40 ms, 1 large square = 200 ms.",
+  "rappel": "ECG paper is ruled in small 1 mm squares, grouped in fives into large 5 mm squares. The horizontal axis represents time, so the value of a square depends directly on the paper speed (duration = length / speed). At 25 mm/s, 1 mm equals 40 ms and 5 mm equal 200 ms; at 50 mm/s these values are halved (20 ms and 100 ms). The vertical axis represents amplitude, set by the calibration (10 mm/mV as standard). Any interval measurement (PR, QRS, QT) first requires identifying the paper speed actually used."
  },
  "ecg-cond-002": {
   "question": "On this regular rhythm recorded at 25 mm/s, measure the RR interval in large squares. What is the heart rate?",
@@ -31,7 +32,8 @@
    "Incorrect: 100 bpm would correspond to 3 large squares (600 ms)."
   ],
   "explication": "In a regular rhythm, the rate is 300 divided by the number of large squares between two QRS complexes. On this tracing, the RR interval measures 4 large squares (800 ms): 300/4 = 75 bpm. The rule follows from the fact that one minute contains 300 large squares at 25 mm/s. 60 bpm would correspond to 5 large squares, 100 bpm to 3 and 50 bpm to 6. This method only holds if the rhythm is regular; otherwise, count the QRS complexes over a known duration.",
-  "aRetenir": "HR = 300 / number of large squares between two QRS complexes (regular rhythm, 25 mm/s)."
+  "aRetenir": "HR = 300 / number of large squares between two QRS complexes (regular rhythm, 25 mm/s).",
+  "rappel": "Heart rate is the reciprocal of the cycle length: HR (bpm) = 60,000 / RR (ms). At 25 mm/s, one minute occupies 1500 mm, i.e. 300 large squares or 1500 small squares, hence the quick rules 300/number of large squares and 1500/number of small squares. The mnemonic sequence 300-150-100-75-60-50 gives the rate for an RR of 1 to 6 large squares. These shortcuts apply only to a regular rhythm at standard paper speed; at 50 mm/s the numerators double (600 and 3000)."
  },
  "ecg-cond-003": {
   "question": "At 25 mm/s, the RR interval measures 25 small squares. What is the ventricular rate?",
@@ -48,7 +50,8 @@
    "Incorrect: 75 bpm would correspond to 20 small squares (800 ms), not 25."
   ],
   "explication": "The most accurate method in a regular rhythm is 1500 divided by the number of small squares: 1500/25 = 60 bpm. Alternatively, convert to time: 25 × 40 ms = 1000 ms, i.e. one second, hence 60 beats per minute. 75 bpm would correspond to 20 small squares (800 ms) and 50 bpm to 30 small squares (1200 ms). The classic pitfall is mixing up small and large squares in the formula.",
-  "aRetenir": "HR = 1500 / number of small squares, or 60,000 / RR in ms."
+  "aRetenir": "HR = 1500 / number of small squares, or 60,000 / RR in ms.",
+  "rappel": "Rate is derived from the RR interval by HR = 60,000 / RR (in ms), valid at any paper speed once the RR is converted into time. At 25 mm/s each small square is 40 ms, giving the formula 1500 / small squares, more precise than the large-square rule because it takes fractions of a square into account. Useful landmarks: RR 1000 ms = 60 bpm, 800 ms = 75 bpm, 600 ms = 100 bpm, 1200 ms = 50 bpm, 1500 ms = 40 bpm. The relationship is not linear: at short RR intervals, a small measurement error changes the calculated rate considerably."
  },
  "ecg-cond-004": {
   "question": "In adults, what are the usual limits of a normal PR interval?",
@@ -65,7 +68,8 @@
    "Incorrect: on the contrary, these values define first-degree AV block (PR > 200 ms)."
   ],
   "explication": "The PR interval is measured from the onset of the P wave to the onset of the QRS complex and reflects overall atrioventricular conduction (atria, AV node, His bundle and bundle branches). It normally lies between 120 and 200 ms, i.e. 3 to 5 small squares. Above 200 ms, this is first-degree AV block; below 120 ms, pre-excitation or a low atrial rhythm should be considered. The tracing shown has a PR interval of 160 ms, which is therefore normal. Note that a normal PR interval says nothing about the HV interval, which may be prolonged in isolation.",
-  "aRetenir": "Normal PR: 120–200 ms; > 200 ms = first-degree AV block."
+  "aRetenir": "Normal PR: 120–200 ms; > 200 ms = first-degree AV block.",
+  "rappel": "The PR interval comprises intra-atrial conduction, AV nodal delay (its main and most variable component) and conduction through the His bundle and bundle branches. It is measured from the onset of the P wave to the onset of the QRS, ideally in the lead where it is longest. It physiologically shortens with heart rate and adrenergic tone and lengthens with vagal tone or AV nodal blocking drugs. A short PR with a narrow QRS suggests a low ectopic atrial rhythm or enhanced AV nodal conduction; a short PR with a delta wave suggests pre-excitation."
  },
  "ecg-cond-005": {
   "question": "In an adult, a QRS duration of 3 small squares (120 ms) at 25 mm/s is compatible with complete bundle branch block.",
@@ -78,7 +82,8 @@
    "Incorrect: the statement is true; 110–119 ms defines incomplete block, and 120 ms meets the criterion for complete block."
   ],
   "explication": "3 small squares × 40 ms = 120 ms. According to the 2009 AHA/ACCF/HRS recommendations, a QRS duration ≥ 120 ms in adults is one of the criteria for complete bundle branch block (right or left), together with typical morphology. Between 110 and 119 ms, the terms incomplete block or non-specific intraventricular conduction delay are used, depending on the morphology. Duration alone is not enough: the morphology in V1 and V6 must always be analysed. A broad QRS may also reflect pre-excitation, a ventricular rhythm or hyperkalaemia.",
-  "aRetenir": "Complete bundle branch block: QRS ≥ 120 ms in adults with typical morphology."
+  "aRetenir": "Complete bundle branch block: QRS ≥ 120 ms in adults with typical morphology.",
+  "rappel": "QRS duration reflects ventricular activation time; normally it remains below 110 ms in adults thanks to rapid impulse spread through the His-Purkinje network. When a bundle branch is blocked, the corresponding ventricle is activated slowly, cell to cell through the myocardium, hence QRS widening and a characteristic pattern in V1 and V6. The 2009 AHA/ACCF/HRS classification distinguishes incomplete block (110 to 119 ms) and complete block (≥ 120 ms), morphology being essential for the diagnosis. Duration is measured in the lead where the QRS is widest, ideally on a simultaneous multi-lead recording."
  },
  "ecg-cond-006": {
   "question": "The measured QT is 400 ms, with a regular heart rate of 100 bpm. What is the QTc using Bazett's formula?",
@@ -95,7 +100,8 @@
    "Incorrect: this is the classic error of dividing by RR (400/0.6) rather than by its square root."
   ],
   "explication": "At 100 bpm, the RR interval is 0.6 s. Bazett: QTc = QT / √RR = 400 / √0.6 = 400 / 0.775 ≈ 516 ms. The value of 667 ms results from the common error of dividing by RR instead of its square root. More importantly, Bazett overcorrects at high heart rates: Fridericia (cube root of RR) gives approximately 474 ms. At rates > 90–100 bpm, a linear formula or Fridericia is therefore preferable, or the QT should be measured once the rate slows, before diagnosing a long QT.",
-  "aRetenir": "Bazett QTc = QT/√RR (in s); it overcorrects during tachycardia, so prefer Fridericia at high heart rates."
+  "aRetenir": "Bazett QTc = QT/√RR (in s); it overcorrects during tachycardia, so prefer Fridericia at high heart rates.",
+  "rappel": "The QT interval physiologically shortens as heart rate increases; the QTc expresses it at a reference rate of 60 bpm (RR = 1 s). Bazett divides the QT by the square root of the RR in seconds, Fridericia by its cube root; linear formulae (Framingham, Hodges) also exist. All give the same result at 60 bpm and diverge increasingly as the rate moves away from it. Bazett overcorrects at fast rates and undercorrects at slow rates, which makes Fridericia or linear formulae more reliable at extreme rates. The calculation requires converting the RR into seconds before taking the root."
  },
  "ecg-cond-007": {
   "question": "In adults, what are the limits of the normal frontal-plane QRS axis (AHA/ACC/HRS recommendations)?",
@@ -112,7 +118,8 @@
    "Incorrect: this range is shifted to the right and would include marked right axis deviation."
   ],
   "explication": "The normal adult frontal axis lies between −30° and +90°. Beyond −30° is left axis deviation (primarily left anterior fascicular block, but also old inferior infarction, pre-excitation…). Beyond +90° is right axis deviation (left posterior fascicular block, right ventricular overload, slender body habitus). An axis between 0° and −30° remains physiological and is common in elderly or obese individuals. The ranges extending to +120° or +150° would wrongly include marked right axis deviation.",
-  "aRetenir": "Normal adult axis: −30° to +90°."
+  "aRetenir": "Normal adult axis: −30° to +90°.",
+  "rappel": "The QRS axis is the mean direction of ventricular depolarisation in the frontal plane, located using Bailey's hexaxial reference system (lead I at 0°, II at +60°, III at +120°, aVF at +90°, aVL at −30°, aVR at −150°). By convention, angles are negative above the horizontal and positive below. In adults, the normal axis ranges from −30° to +90°; below −30° is left axis deviation, beyond +90° right axis deviation, and between −90° and ±180° an indeterminate (\"northwest\") axis. The axis physiologically shifts leftwards with age."
  },
  "ecg-cond-008": {
   "question": "The QRS is positive in lead I, negative in aVF and predominantly positive in lead II. What do you conclude about the axis?",
@@ -129,7 +136,8 @@
    "Incorrect: an indeterminate axis requires both lead I and aVF to be negative."
   ],
   "explication": "A positive lead I and negative aVF place the axis between 0° and −90°. To decide, look at lead II (oriented at +60°, perpendicular to −30°): if it is positive, the axis has not gone beyond −30° and lies between 0° and −30°, which remains normal. If lead II is negative, the axis is beyond −30° (between −30° and −90°): left axis deviation, suggestive of left anterior fascicular block. Right axis deviation would require a negative lead I. An indeterminate axis (−90° to ±180°) corresponds to both lead I and aVF being negative.",
-  "aRetenir": "Lead I+ / aVF−: look at lead II; lead II positive = normal axis, lead II negative = left axis deviation < −30°."
+  "aRetenir": "Lead I+ / aVF−: look at lead II; lead II positive = normal axis, lead II negative = left axis deviation < −30°.",
+  "rappel": "Rapid axis determination relies on the net QRS polarity in two orthogonal leads: I (0°) and aVF (+90°) define the quadrant. I+/aVF+: axis between 0° and +90°; I−/aVF+: right axis deviation; I+/aVF−: axis between 0° and −90°; I−/aVF−: indeterminate axis. A lead is positive when the axis lies within 90° of its direction, and isoelectric (equiphasic) when the axis is perpendicular to it. Lead II, perpendicular to −30°, therefore separates a physiological leftward axis from pathological left axis deviation; the equiphasic lead then refines the estimate."
  },
  "ecg-cond-009": {
   "question": "According to the 2009 AHA/ACCF/HRS recommendations, at what value is the QTc considered prolonged in an adult woman?",
@@ -146,13 +154,15 @@
    "Incorrect: 500 ms is a threshold for a high risk of torsades, not the upper limit of normal."
   ],
   "explication": "The ECG standardisation recommendations define a prolonged QTc as ≥ 450 ms in men and ≥ 460 ms in women. The value of 440 ms, used for many years, generates too many false positives. The 500 ms threshold is not the upper limit of normal but a threshold of markedly increased risk of torsades de pointes, at which QT-prolonging drugs should be stopped. Conversely, the threshold for a short QT is debated at around 360–390 ms. The correction formula used should always be stated.",
-  "aRetenir": "Prolonged QTc: ≥ 450 ms in men, ≥ 460 ms in women; > 500 ms = high risk."
+  "aRetenir": "Prolonged QTc: ≥ 450 ms in men, ≥ 460 ms in women; > 500 ms = high risk.",
+  "rappel": "The normal QTc differs by sex: after puberty the QT is physiologically longer in women, hence separate thresholds. According to the 2009 AHA/ACCF/HRS recommendations, the QTc is considered prolonged from 450 ms in men and 460 ms in women, and short below about 390 ms. Above 500 ms, the risk of torsades de pointes rises markedly. The result depends on the correction formula and the measurement lead, which should be stated."
  },
  "ecg-cond-010": {
   "question": "How can you quickly estimate the mean ventricular rate on a 10-second tracing with an irregular rhythm (e.g. AF)?",
   "reponseAttendue": "Count the number of QRS complexes over the 10 seconds of the tracing (50 large squares at 25 mm/s) and multiply by 6.",
   "explication": "The 300/large squares and 1500/small squares formulas assume a regular rhythm: applied to a single RR interval of an irregular rhythm, they give a misleading value. On a standard 10-second ECG, count the QRS complexes across the whole strip and multiply by 6 to obtain a mean rate per minute. At 25 mm/s, 10 seconds correspond to 250 mm, i.e. 50 large squares. For a more reliable assessment of the ventricular response, Holter monitoring is still needed, since the rate varies with activity.",
-  "aRetenir": "Irregular rhythm: number of QRS complexes over 10 s × 6."
+  "aRetenir": "Irregular rhythm: number of QRS complexes over 10 s × 6.",
+  "rappel": "A standard ECG records 10 seconds, i.e. 250 mm at 25 mm/s. In an irregular rhythm (AF, atrial flutter with variable conduction, frequent ectopic beats), the rate derived from a single RR interval does not represent the mean rate: complexes are therefore counted over a known duration and scaled to one minute (× 6 for 10 s, × 10 for 6 s). This mean rate is a snapshot and depends on recording conditions (rest, stress, exertion). Assessment of rate control in AF relies on repeated measurements, Holter monitoring or exercise testing, which explore the rate during daily activities."
  },
  "ecg-cond-011": {
   "question": "On a standard ECG, the reference calibration is 10 mm per 1 mV and the paper speed is 50 mm/s.",
@@ -165,7 +175,8 @@
    "Correct: 10 mm/mV yes, but 25 mm/s; at 50 mm/s, every interval would look twice as long."
   ],
   "explication": "False. The standard amplitude calibration is indeed 10 mm/mV, displayed as a calibration pulse at the start or end of the tracing, but the standard paper speed is 25 mm/s. A speed of 50 mm/s is sometimes used for detailed analysis of P waves or pacing spikes: all durations then look twice as long. The calibration may also be reduced to 5 mm/mV (half standard) when QRS complexes are very large, which distorts the assessment of voltages if it goes unnoticed. Checking these two settings is the first step before any interpretation.",
-  "aRetenir": "Standard ECG: 10 mm/mV and 25 mm/s — always check the calibration pulse."
+  "aRetenir": "Standard ECG: 10 mm/mV and 25 mm/s — always check the calibration pulse.",
+  "rappel": "A standard ECG is recorded at 25 mm/s with a calibration of 10 mm/mV, shown as a 1 mV calibration pulse 10 mm high. Half calibration (5 mm/mV) halves all amplitudes and may mask ventricular hypertrophy or lead to underestimation of ST elevation; double calibration (20 mm/mV) exaggerates them. A paper speed of 50 mm/s doubles all apparent durations and leads to overestimation of PR, QRS and QT if it goes unnoticed. These settings, together with the filters, are printed at the bottom of the tracing and should be checked before any measurement."
  },
  "ecg-cond-012": {
   "question": "Regarding QT measurement and correction, which statements are correct?",
@@ -184,7 +195,8 @@
    "Incorrect: in AF, RR intervals vary; several cycles must be averaged before drawing conclusions."
   ],
   "explication": "The QT is measured from QRS onset to the end of the T wave, ideally in the lead where it is longest (often lead II or V2–V3); starting from P-wave onset is wrong. Bazett (QT/√RR) overcorrects during tachycardia and undercorrects during bradycardia, hence the value of Fridericia, which uses the cube root of RR (QT/∛RR) rather than the square root, or of linear formulas. A broad QRS (bundle branch block, ventricular pacing) mechanically lengthens the QT without reflecting prolonged repolarisation: the JT interval can be used instead, or an appropriate correction applied. In AF, variable RR intervals mean several cycles must be averaged; a calculation based on a single RR interval is unreliable.",
-  "aRetenir": "QT = QRS onset → end of T; beware of Bazett at extreme heart rates, in AF and with a broad QRS."
+  "aRetenir": "QT = QRS onset → end of T; beware of Bazett at extreme heart rates, in AF and with a broad QRS.",
+  "rappel": "The QT interval represents the total duration of ventricular depolarisation and repolarisation: it is measured from the onset of the QRS to the end of the T wave, defined by the return to baseline or by the tangent method on the downslope. Distinct U waves must be excluded. Rate correction is reliable only when the rhythm is stable: in AF or an irregular rhythm, several cycles are averaged. When the QRS is wide (bundle branch block, ventricular pacing), part of the QT reflects depolarisation: the JT interval (QT − QRS) or a dedicated correction formula better assesses repolarisation."
  },
  "ecg-cond-013": {
   "question": "A 28-year-old asymptomatic cyclist has this ECG recorded at a pre-participation sports screening. What is your diagnosis?",
@@ -201,7 +213,8 @@
    "Correct: a sinus P wave precedes each QRS with a fixed, normal PR interval at 45 bpm: vagal bradycardia in an athlete."
   ],
   "explication": "On this tracing, a sinus P wave (positive in lead II) precedes each narrow QRS with a constant, normal PR interval, at about 45 bpm: the rhythm is sinus and slow (< 50–60 bpm depending on the definition), i.e. sinus bradycardia. In endurance athletes, it reflects physiological high vagal tone. 2:1 AV block would require non-conducted P waves between the QRS complexes, often hidden in the T wave; a junctional rhythm would not have a P wave preceding the QRS with a normal PR interval; complete AV block would show P–QRS dissociation. Asymptomatic sinus bradycardia does not warrant pacing (class III, ESC 2021).",
-  "aRetenir": "Asymptomatic sinus bradycardia in athletes: physiological, no pacing."
+  "aRetenir": "Asymptomatic sinus bradycardia in athletes: physiological, no pacing.",
+  "rappel": "Sinus bradycardia is defined as sinus rhythm (P waves positive in leads I and II, constant PR) below 50 or 60 bpm depending on the definition. It is physiological during sleep and in endurance athletes, owing to high vagal tone and intrinsic adaptation of the sinus node. Sinus node dysfunction becomes an indication for pacing only when a correlation between bradycardia and symptoms has been established; without symptoms, pacing is not indicated, even at a low rate. In athletes, the rate should rise normally on exertion, reflecting preserved chronotropic reserve."
  },
  "ecg-cond-014": {
   "question": "A 74-year-old woman presents with presyncope. What is the diagnosis on this tracing?",
@@ -218,7 +231,8 @@
    "Incorrect: AV block requires a P wave not followed by a QRS; here, no P wave appears during the pause."
   ],
   "explication": "On this tracing, sinus rhythm (about 70 bpm) is abruptly interrupted by a pause of about 3.2 s with no P waves at all. The absence of P waves during the pause indicates a failure of atrial activity rather than an AV conduction disturbance: this is therefore not AV block, which would show a P wave not followed by a QRS. A pause that is not an exact multiple of the PP interval points to sinus arrest (failure of automaticity) rather than type II sinoatrial block, in which the pause equals exactly 2 (or n) PP intervals. A blocked PAC is recognised by a premature P wave, often hidden in the T wave preceding the pause. A symptomatic pause > 3 s warrants discussion of pacing.",
-  "aRetenir": "Pause with no P wave, not a multiple of PP = sinus arrest; pause of exactly 2 PP = type II SA block."
+  "aRetenir": "Pause with no P wave, not a multiple of PP = sinus arrest; pause of exactly 2 PP = type II SA block.",
+  "rappel": "Sinus node activity is not visible on the surface ECG; only the atrial depolarisation it triggers (the P wave) is. A pause without a P wave may therefore reflect either failure of impulse formation (sinus arrest or pause) or failure of exit to the atrium (SA block), distinguished by the relationship between the pause and the baseline PP interval. A blocked PAC (premature P in the T wave) and AV block (P wave not followed by a QRS) must also be excluded. Sinus arrest and SA block are manifestations of sinus node dysfunction, for which pacing is indicated on the basis of correlation with symptoms."
  },
  "ecg-cond-015": {
   "question": "A 68-year-old man reports \"skipped beats\". Analyse the pause on this tracing. What is the most likely diagnosis?",
@@ -235,7 +249,8 @@
    "Correct: the pause equals exactly 2 PP intervals (≈ 1600 ms for a PP of 800 ms): the sinus impulse failed to exit to the atrium."
   ],
   "explication": "On this tracing, the baseline PP interval is about 800 ms (75 bpm) and the pause, with no P wave, measures exactly two cycles (1600 ms): the sinus impulse was generated but failed to exit to the atrium. This is type II second-degree sinoatrial block (sinoatrial Mobitz II). Sinus node activity itself is not visible on the surface ECG; the block is inferred from this arithmetical relationship. Sinus arrest would produce a pause that is not a multiple of the PP interval. Mobitz I AV block would show a non-conducted P wave. Respiratory sinus arrhythmia produces gradual, cyclical variations without an abrupt pause.",
-  "aRetenir": "Type II second-degree SA block: pause equal to an exact multiple of the baseline PP cycle."
+  "aRetenir": "Type II second-degree SA block: pause equal to an exact multiple of the baseline PP cycle.",
+  "rappel": "SA block is a failure of the sinus impulse to exit into the atrial myocardium, while sinus automaticity is preserved. As with AV block, three degrees are recognised: first-degree is invisible on the surface ECG; second-degree type I (Wenckebach) produces progressive shortening of the PP intervals before a pause of less than two PP intervals; second-degree type II produces a pause equal to an exact multiple of the baseline PP; third-degree cannot be distinguished from sinus arrest. This arithmetic reasoning assumes a regular underlying sinus rhythm, which respiratory sinus arrhythmia may undermine."
  },
  "ecg-cond-016": {
   "question": "A Holter recording repeatedly shows progressive shortening of the PP intervals, followed by a pause with no P wave lasting less than two PP intervals. The PR interval is constant. What is the most likely mechanism?",
@@ -252,13 +267,15 @@
    "Incorrect: constant PR and no non-conducted P wave: the block is not atrioventricular."
   ],
   "explication": "Type I SA block reproduces Wenckebach periodicity at the sinoatrial junction: sinoatrial conduction time lengthens progressively, with decreasing increments, which shortens successive PP intervals until an impulse is blocked. The pause is then less than 2 PP. The constant PR interval and absence of a non-conducted P wave rule out Mobitz I AV block. Type II SA block would produce a pause equal to 2 PP without preceding shortening. Sinus arrest does not show this repetitive sequence. This is an indirect surface diagnosis with no specific therapeutic implication: correlation with symptoms guides the decision.",
-  "aRetenir": "Type I SA block: shortening PP intervals then a pause < 2 PP, like Wenckebach at atrial level."
+  "aRetenir": "Type I SA block: shortening PP intervals then a pause < 2 PP, like Wenckebach at atrial level.",
+  "rappel": "Wenckebach periodicity, at any level (sinoatrial or AV), relies on a progressive lengthening of conduction time with decreasing increments, until the impulse is blocked. Since the interval between two visible activations equals the basic cycle plus the increment, decreasing increments progressively shorten the cycles (PP for SA block, RR for AV block). The pause containing the blocked impulse is shorter than two basic cycles. At sinoatrial level, as conduction time is not visible on the surface ECG, only this PP signature allows the diagnosis, which remains presumptive."
  },
  "ecg-cond-017": {
   "question": "With a pause during sinus rhythm, which sign should you look for that would suggest a blocked premature atrial contraction rather than a sinus pause?",
   "reponseAttendue": "A premature P wave, often hidden in the T wave preceding the pause and deforming it (a T wave that is more peaked, notched or taller than the other T waves).",
   "explication": "A very early PAC arrives while the AV node is still refractory: it is not conducted, and it resets the sinus node, hence a pause. Its P wave is often hidden in the preceding T wave, which it deforms (peaked, notched or taller than the others). This is the first benign cause of a \"pause\" to exclude, by carefully comparing all the T waves. A pause equal to two PP intervals would instead suggest type II SA block, and progressive PR prolongation AV Wenckebach. Blocked PACs in bigeminy can mimic severe sinus bradycardia.",
-  "aRetenir": "Before calling it a sinus pause, look for a premature P wave hidden in the T wave."
+  "aRetenir": "Before calling it a sinus pause, look for a premature P wave hidden in the T wave.",
+  "rappel": "A premature atrial contraction is conducted to the ventricles only if the AV node and conducting tissue have recovered from their refractory period. The earlier it occurs, the more likely it is to be conducted with a long PR, with aberrancy (wide QRS), or to be blocked. When blocked, it nevertheless resets the sinus node and creates a pause without a QRS. Its P wave, superimposed on the preceding repolarisation, alters the T-wave morphology: comparing all T waves on the tracing, in several leads, is therefore essential whenever an apparent pause is seen."
  },
  "ecg-cond-018": {
   "question": "A 45-year-old woman reports occasional \"ectopic beats\". What is the diagnosis on this tracing?",
@@ -275,7 +292,8 @@
    "Correct: premature beats with an identical narrow QRS, preceded by a P wave whose morphology differs from the sinus P."
   ],
   "explication": "On this tracing, a few premature narrow-QRS beats are preceded by a P wave whose morphology differs from the sinus P wave. A premature beat preceded by an abnormal P wave (morphology or axis different from the sinus P wave) with a narrow QRS identical to the baseline QRS is a premature atrial contraction. The pause that follows is usually non-compensatory, because the PAC resets the sinus node. A PVC would produce a broad QRS without a premature P wave. Mobitz II manifests as a blocked sinus P wave, not a premature beat. A PAC conducted with aberration may, however, have a broad QRS: the premature P wave remains the key.",
-  "aRetenir": "Premature beat + different P wave + narrow QRS = premature atrial contraction."
+  "aRetenir": "Premature beat + different P wave + narrow QRS = premature atrial contraction.",
+  "rappel": "An ectopic beat is defined as a beat premature relative to the basic cycle; its origin is inferred from the presence of a premature P wave and from QRS morphology. A PAC arises in the atrial myocardium outside the sinus node: its P' wave differs in morphology or axis from the sinus P wave, and it is conducted over the normal pathways, hence a narrow QRS identical to the baseline QRS. By penetrating the sinus node, it resets it, typically producing a non-compensatory pause. A PVC arises in the ventricle: wide QRS, no premature P wave, usually followed by a compensatory pause."
  },
  "ecg-cond-019": {
   "question": "A 76-year-old woman with known paroxysmal AF has syncope during Holter monitoring: abrupt termination of an AF episode followed by a 5 s pause before the first sinus beat. What is the diagnosis?",
@@ -292,7 +310,8 @@
    "Incorrect: there is no triggering by head rotation or neck pressure."
   ],
   "explication": "A post-conversion pause after an AF episode reflects an abnormally long sinus node recovery time: this is the typical form of tachycardia–bradycardia syndrome, a manifestation of sick sinus syndrome (sinus node dysfunction). The mechanism is suppression of sinus node automaticity by the tachycardia (overdrive suppression). This is not AV block, since no non-conducted P wave is visible. The context fits neither typical vasovagal syncope (prodrome, trigger) nor carotid sinus hypersensitivity (triggered by head rotation). Here, the documented symptom–rhythm correlation is ideal.",
-  "aRetenir": "Pause on termination of AF = tachycardia–bradycardia syndrome."
+  "aRetenir": "Pause on termination of AF = tachycardia–bradycardia syndrome.",
+  "rappel": "Sinus node recovery time measures the ability of the sinus node to resume activity after suppression by a rapid rate (overdrive suppression). In sinus node dysfunction, this recovery is abnormally slow: when an atrial tachyarrhythmia stops abruptly, the pause may last several seconds before the first sinus beat or an escape beat. Tachy-brady syndrome thus combines episodes of AF, atrial flutter or atrial tachycardia with bradycardia or pauses, often at termination. It differs from reflex syncope, in which bradycardia follows a trigger and prodromal symptoms rather than the end of a tachycardia."
  },
  "ecg-cond-020": {
   "question": "In the same patient (tachycardia–bradycardia syndrome with syncope due to a post-conversion pause), which approach is consistent with the 2021 ESC guidelines?",
@@ -309,7 +328,8 @@
    "Correct: pacing is class I (ESC 2021); AF ablation (IIa) may avoid it in selected patients."
   ],
   "explication": "The 2021 ESC guidelines recommend pacing (class I) in the symptomatic tachycardia–bradycardia form of sinus node dysfunction, to correct the pauses and allow rate-slowing or antiarrhythmic treatment of AF, unless ablation of the tachyarrhythmia is preferred. AF ablation should be considered (class IIa) in selected patients to avoid implantation when the bradycardia is related to AF. Uptitrating the beta-blocker alone could worsen the pauses. An ICD has no role in the absence of ventricular arrhythmia. Observation alone is inappropriate after documented syncope.",
-  "aRetenir": "Symptomatic tachycardia–bradycardia: pacing (class I) or, in selected patients, AF ablation (IIa)."
+  "aRetenir": "Symptomatic tachycardia–bradycardia: pacing (class I) or, in selected patients, AF ablation (IIa).",
+  "rappel": "In sinus node dysfunction, the 2021 ESC guidelines support pacing when symptoms are clearly attributable to bradycardia, including in the tachy-brady form, where pacing also allows rate-slowing or antiarrhythmic drugs to be used safely. When bradycardia is mainly related to AF (post-conversion pauses), AF ablation may be considered in selected patients to avoid implantation. The preferred mode in sinus node dysfunction is dual-chamber, with algorithms minimising unnecessary ventricular pacing. Anticoagulation for AF is decided independently, according to thromboembolic risk."
  },
  "ecg-cond-021": {
   "question": "Asymptomatic sinus bradycardia at 40 bpm during sleep warrants permanent pacing.",
@@ -322,7 +342,8 @@
    "Correct: pacing is for bradycardia correlated with symptoms, not an isolated nocturnal rate; consider sleep apnoea."
   ],
   "explication": "False. Pacing is not recommended (class III, ESC 2021) in asymptomatic sinus node dysfunction or when bradycardia is due to a transient or reversible cause. Nocturnal rates of 35–40 bpm are common, particularly in young people or athletes, owing to vagal predominance. The key decision criterion in sinus node dysfunction is the correlation between symptoms and bradycardia, not an isolated heart rate value. Nocturnal bradycardia should, however, prompt a search for sleep apnoea syndrome.",
-  "aRetenir": "Sinus node dysfunction: pace bradycardia correlated with symptoms, not a heart rate figure."
+  "aRetenir": "Sinus node dysfunction: pace bradycardia correlated with symptoms, not a heart rate figure.",
+  "rappel": "During sleep, vagal predominance physiologically lowers the sinus rate; rates of 35-40 bpm, or even short pauses, are common in young or trained individuals. Sinus node dysfunction is an indication for pacing only when a correlation between symptoms and bradycardia has been demonstrated; asymptomatic dysfunction and bradycardia due to a transient or reversible cause are not indications (class III, 2021 ESC). Repeated nocturnal bradycardia or pauses should prompt a search for sleep apnoea, whose treatment may make them regress."
  },
  "ecg-cond-022": {
   "question": "Before accepting a pacing indication for bradycardia (sinus node dysfunction or AV block), which reversible or extrinsic causes should be sought?",
@@ -341,7 +362,8 @@
    "Incorrect: hyperthyroidism causes sinus tachycardia or AF, not bradycardia."
   ],
   "explication": "The 2021 ESC guidelines stress the search for potentially reversible causes before any implantation: drugs (beta-blockers including eye drops, ivabradine, verapamil/diltiazem, digoxin, antiarrhythmic drugs), electrolyte disturbances (mainly hyperkalaemia), hypothyroidism, sleep apnoea, hypothermia, acute myocardial infarction and Lyme disease. Hypokalaemia, if anything, promotes ectopic beats, tachyarrhythmias and torsades; it is hyperkalaemia that slows automaticity and conduction. Hyperthyroidism, by contrast, causes sinus tachycardia or AF, not bradycardia. Note, however, that if the rate-slowing drug is essential (e.g. a beta-blocker after myocardial infarction), symptomatic bradycardia may justify pacing without stopping the drug.",
-  "aRetenir": "Always exclude a reversible cause (drug, K+, thyroid, sleep apnoea, Lyme disease, ischaemia) before pacing."
+  "aRetenir": "Always exclude a reversible cause (drug, K+, thyroid, sleep apnoea, Lyme disease, ischaemia) before pacing.",
+  "rappel": "Bradycardia may be intrinsic (degeneration of the sinus node or conducting tissue) or extrinsic, related to a potentially correctable factor. The main extrinsic causes are drugs (beta-blockers including eye drops, rate-slowing calcium channel blockers, ivabradine, digoxin, antiarrhythmic drugs), hyperkalaemia, hypothyroidism, hypothermia, sleep apnoea, acute ischaemia (particularly inferior myocardial infarction) and certain infections such as Lyme disease. Correcting them may make pacing unnecessary. If the drug responsible is essential, however, the symptomatic bradycardia it causes may justify pacing."
  },
  "ecg-cond-023": {
   "question": "In a patient with suspected sinus node dysfunction who complains of exertional dyspnoea and fatigue, exercise testing is useful to look for chronotropic incompetence.",
@@ -354,13 +376,15 @@
    "Incorrect: the statement is true; exercise allows dyspnoea to be correlated with an inadequate rate and guides rate response."
   ],
   "explication": "True. Chronotropic incompetence, i.e. the inability to increase heart rate appropriately during exercise, is a form of sinus node dysfunction that the resting ECG and Holter monitoring can miss. Exercise testing documents it and correlates breathlessness with an inadequate rate. It informs the choice of rate response (R mode) if a device is implanted. The result must be interpreted taking into account rate-slowing drugs and the level of exercise achieved.",
-  "aRetenir": "Exertional symptoms + suspected sinus node dysfunction: exercise test for chronotropic incompetence."
+  "aRetenir": "Exertional symptoms + suspected sinus node dysfunction: exercise test for chronotropic incompetence.",
+  "rappel": "Chronotropic incompetence is the inability of the sinus node to increase heart rate in proportion to metabolic demand; it is assessed on exertion from the peak rate achieved relative to the age-predicted maximum or to the chronotropic reserve. It presents as exertional dyspnoea or fatigue while the resting rate may be normal. It must be interpreted in the light of rate-slowing drugs and the quality of the effort achieved. If a device is implanted, it justifies activating rate response, which increases the pacing rate using an activity or physiological sensor."
  },
  "ecg-cond-024": {
   "question": "Define tachycardia–bradycardia syndrome and explain why drug management is often difficult without pacing.",
   "reponseAttendue": "A form of sinus node dysfunction combining atrial tachyarrhythmias (mainly AF/flutter) and bradycardia (sinus bradycardia, pauses, especially post-conversion pauses). The rate-slowing or antiarrhythmic drugs needed for the tachycardia worsen the bradycardia and pauses: pacing protects against bradycardia and allows these drugs to be used (alternatively: AF ablation in selected patients).",
   "explication": "Tachycardia–bradycardia syndrome is a manifestation of sick sinus syndrome: diseased atrial tissue promotes AF and the diseased sinus node recovers poorly after episodes, hence pauses on termination that are sometimes syncopal. The therapeutic dilemma is classic: beta-blockers, digoxin or antiarrhythmic drugs control the tachycardia but worsen the pauses. The 2021 ESC guidelines recommend pacing (class I) to allow these treatments, unless ablation of the tachyarrhythmia is preferred; AF ablation should be considered (IIa) in selected patients to avoid implantation. Do not forget anticoagulation according to the thromboembolic risk score.",
-  "aRetenir": "Tachycardia–bradycardia: rate-slowing drugs worsen pauses, hence pacing or AF ablation."
+  "aRetenir": "Tachycardia–bradycardia: rate-slowing drugs worsen pauses, hence pacing or AF ablation.",
+  "rappel": "Atrial disease (sick sinus syndrome) is a degenerative or fibrotic disorder of atrial tissue and the sinus node. It combines a substrate favouring atrial tachyarrhythmias (AF, atrial flutter, atrial tachycardia) with failing sinus automaticity, which recovers poorly after suppression by the tachycardia. The two sides interact: the tachycardia worsens the pause at its termination, and bradycardia may promote the onset of AF. Rate-slowing and antiarrhythmic drugs act in the same direction on the sinus node and the AV node, hence pacing as a \"safety net\", or ablation of the tachyarrhythmia. The thromboembolic risk related to AF still needs to be assessed."
  },
  "ecg-cond-025": {
   "question": "A 70-year-old asymptomatic man has this pre-operative ECG. What is the diagnosis?",
@@ -377,7 +401,8 @@
    "Incorrect: the PR interval is constant and each P wave is followed by a QRS: there is no AV dissociation."
   ],
   "explication": "On this tracing, every P wave is conducted (1:1 ratio) with a constant PR interval of about 280 ms, above 200 ms: this is first-degree AV block, which is really just conduction delay rather than true \"block\". In Mobitz I, the PR interval would lengthen progressively until a P wave is blocked. Complete AV block would show dissociation between P waves and QRS complexes. The site is most often nodal, especially with narrow QRS complexes. Isolated and asymptomatic, it does not warrant pacing.",
-  "aRetenir": "First-degree AV block: PR > 200 ms, constant, every P wave conducted."
+  "aRetenir": "First-degree AV block: PR > 200 ms, constant, every P wave conducted.",
+  "rappel": "First-degree AV block corresponds to a prolongation of AV conduction time beyond 200 ms, with 1:1 conduction preserved. The delay is most often located in the AV node, particularly when the QRS is narrow; it may also be intra-atrial or His-Purkinje, notably when it coexists with bundle branch block. It may be physiological (vagal tone, athletes) or drug-induced. When isolated and asymptomatic, it does not warrant pacing; only a very long PR causing symptoms through loss of atrioventricular synchrony may be discussed."
  },
  "ecg-cond-026": {
   "question": "In first-degree AV block, an isolated P wave may fail to conduct, provided the PR interval of the other beats remains above 200 ms.",
@@ -390,7 +415,8 @@
    "Correct: first-degree AV block maintains 1:1 conduction; any blocked P wave means second-degree block."
   ],
   "explication": "False. First-degree AV block corresponds to prolonged AV conduction time (PR > 200 ms) without any blocked P wave: conduction remains 1:1. As soon as a single P wave is not conducted, this is second-degree AV block (Mobitz I, Mobitz II, 2:1 or high-grade), whatever the PR interval of the other beats. Beware of false blocked P waves: a blocked PAC, which is premature, does not constitute AV block. A very long PR interval (> 300 ms) may, however, cause atrial contraction against a closed mitral valve and symptoms resembling pacemaker syndrome.",
-  "aRetenir": "First-degree AV block = slowed 1:1 conduction; a single blocked sinus P wave means second-degree block."
+  "aRetenir": "First-degree AV block = slowed 1:1 conduction; a single blocked sinus P wave means second-degree block.",
+  "rappel": "The classification of AV block is based on the fate of the sinus P waves: first-degree, all conducted with a prolonged PR; second-degree, some blocked (Mobitz I with progressive PR prolongation, Mobitz II with a constant PR, 2:1, or high-grade when several consecutive P waves are blocked); third-degree, none conducted, with AV dissociation. Only sinus P waves occurring \"on time\" count: a blocked premature P wave is a blocked PAC, a physiological refractoriness phenomenon. A very long PR may place atrial systole during the preceding ventricular systole and cause symptoms similar to pacemaker syndrome."
  },
  "ecg-cond-027": {
   "question": "A 62-year-old woman is being investigated for fatigue. What is the diagnosis on this tracing?",
@@ -407,7 +433,8 @@
    "Incorrect: a P wave is blocked in every cycle: this is at least second-degree block."
   ],
   "explication": "On this tracing, the PR interval lengthens progressively until a P wave is not followed by a QRS, then the cycle restarts with a shorter PR interval: this is Luciani–Wenckebach periodicity, second-degree Mobitz I AV block. A 4:3 ratio means 4 P waves for 3 conducted QRS complexes. Mobitz II would have a constant PR interval before and after the blocked P wave. Type I SA block has no visible blocked P wave. First-degree AV block has no blocked P wave. With narrow QRS complexes, the site is usually nodal and the prognosis generally good.",
-  "aRetenir": "Lengthening PR then a blocked P wave = Mobitz I (Wenckebach)."
+  "aRetenir": "Lengthening PR then a blocked P wave = Mobitz I (Wenckebach).",
+  "rappel": "In Mobitz I AV block, AV conduction time lengthens from beat to beat until a P wave is blocked; the PR following the pause is the shortest of the sequence. In the typical form, the PR increment decreases, so the RR intervals shorten before the pause, which is shorter than two PP intervals. The conduction ratio (n:n−1) gives the number of P waves for the number of QRS complexes. The level of block is usually nodal, particularly with a narrow QRS, and it is often seen at night or in athletes, owing to vagal tone. It may however be infranodal, notably with a wide QRS."
  },
  "ecg-cond-028": {
   "question": "A 76-year-old man presents with exertional presyncope. What is the diagnosis on this tracing?",
@@ -424,7 +451,8 @@
    "Incorrect: three out of four P waves are conducted; it is not every other P wave."
   ],
   "explication": "On this tracing, the PR interval is constant and, unexpectedly, a sinus P wave is not followed by a QRS, with an identical PR interval on the next beat. This is the definition of Mobitz II: an unexpected blocked P wave, with constant PR intervals before and after and no preceding prolongation. The blocked P wave arrives on time (constant PP interval), which rules out a blocked PAC, whose P wave would be premature. The site is almost always infranodal (His–Purkinje), often with broad QRS complexes, and the risk of sudden progression to complete AV block is high. This is why the 2021 ESC guidelines give a class I indication for pacing, even in asymptomatic patients, in the absence of a reversible cause.",
-  "aRetenir": "Mobitz II: constant PR, unexpected blocked P wave, infranodal site, pacing indicated."
+  "aRetenir": "Mobitz II: constant PR, unexpected blocked P wave, infranodal site, pacing indicated.",
+  "rappel": "Mobitz II AV block is characterised by a blocked sinus P wave without prior PR prolongation, the PR being identical before and after the blocked P wave. It reflects \"all-or-nothing\" block in the His-Purkinje system, which explains its frequent association with a wide QRS and its risk of sudden progression to high-grade or complete AV block, with a slow and unreliable ventricular escape rhythm. The diagnosis requires a stable sinus rhythm: the blocked P wave must occur on time. The 2021 ESC guidelines recommend pacing in second-degree type II AV block, even when asymptomatic, in the absence of a reversible cause."
  },
  "ecg-cond-029": {
   "question": "An 80-year-old woman is referred for a slow pulse. What are the diagnosis and ventricular rate on this tracing?",
@@ -441,7 +469,8 @@
    "Correct: every other P wave is conducted; ventricular rate = 80/2 = 40 bpm."
   ],
   "explication": "On this tracing, every other P wave is not conducted, with an atrial rate of 80 bpm: this is 2:1 AV block, and the ventricular rate is half the atrial rate, i.e. 40 bpm. The trap is to miss the blocked P wave, often hidden in the T wave, and wrongly diagnose sinus bradycardia. In complete AV block, the PR interval would vary (dissociation), whereas here the PR interval of the conducted beats is fixed. 2:1 AV block cannot be classified as Mobitz I or II since two consecutive PR intervals are never seen: its site has to be inferred from other clues.",
-  "aRetenir": "2:1 AV block: every other P wave blocked; by definition neither Mobitz I nor Mobitz II."
+  "aRetenir": "2:1 AV block: every other P wave blocked; by definition neither Mobitz I nor Mobitz II.",
+  "rappel": "In 2:1 AV block, every other P wave is not conducted, with a fixed PR for the conducted beats; the ventricular rate is half the atrial rate. Since two consecutive P waves are never conducted, PR behaviour cannot be assessed: 2:1 block is a separate category, neither Mobitz I nor Mobitz II. Its level may be nodal or infranodal; it is estimated from the conducted PR, QRS width, the response to exercise or atropine, and the appearance of Wenckebach or Mobitz II sequences on prolonged recording. The blocked P wave, often superimposed on the T wave, must be sought systematically in any regular bradycardia."
  },
  "ecg-cond-030": {
   "question": "2:1 AV block with an atrial rate of 90 bpm (tracing below). On the 12-lead ECG, the conducted beats have a constant PR interval of 200 ms and broad QRS complexes with a right bundle branch block and left anterior fascicular block pattern. What is the most likely site of block?",
@@ -458,7 +487,8 @@
    "Incorrect: SA block does not produce blocked P waves; here, visible P waves are not conducted."
   ],
   "explication": "In 2:1 AV block, a normal conducted PR interval combined with broad QRS complexes (bifascicular block) strongly suggests an infranodal site: the AV node conducts normally and the block lies in the diseased distal conduction system. Conversely, a long conducted PR interval with narrow QRS complexes suggests a nodal site. These are only probabilities (intra-Hisian block can have narrow QRS complexes), but they are not equally likely. An infranodal site carries a poor prognosis and requires pacing. SA block does not involve blocked P waves.",
-  "aRetenir": "2:1 AV block: normal PR + broad QRS = infranodal; long PR + narrow QRS = more likely nodal."
+  "aRetenir": "2:1 AV block: normal PR + broad QRS = infranodal; long PR + narrow QRS = more likely nodal.",
+  "rappel": "The level of AV block (nodal or infranodal) determines its prognosis: the AV node blocks progressively and responds to autonomic tone, whereas the His-Purkinje system blocks abruptly, with slow and unstable escape rhythms. On the ECG, a long conducted PR and a narrow QRS suggest a nodal level, a normal conducted PR and a wide QRS an infranodal level; these clues are probabilistic. Manoeuvres help: atropine and exercise improve nodal conduction but worsen infranodal block (by increasing the atrial rate), whereas carotid sinus massage has the opposite effect. An EP study localises the block precisely by recording the His bundle potential (AH and HV intervals)."
  },
  "ecg-cond-031": {
   "question": "To localise 2:1 AV block (nodal or infranodal), which statements are correct?",
@@ -477,7 +507,8 @@
    "Incorrect: adenosine depresses the AV node and therefore worsens nodal block."
   ],
   "explication": "The AV node is very sensitive to the autonomic nervous system: atropine or exercise (reduced vagal tone, increased sympathetic tone) improve nodal conduction, whereas carotid sinus massage worsens it. The His–Purkinje system is little influenced by the autonomic nervous system but is rate-dependent: atrial acceleration (atropine, exercise) can worsen infra-Hisian block, whereas sinus slowing by carotid massage may improve conduction. Seeing Wenckebach sequences alongside 2:1 conduction is a strong argument for a nodal site. Adenosine depresses the AV node and therefore worsens nodal block. When in doubt, an electrophysiological study settles the question.",
-  "aRetenir": "Nodal block: improved by atropine/exercise, worsened by carotid massage; the reverse for infra-Hisian block."
+  "aRetenir": "Nodal block: improved by atropine/exercise, worsened by carotid massage; the reverse for infra-Hisian block.",
+  "rappel": "The AV node and the His-Purkinje system have opposite properties. The AV node has slow, decremental conduction and rich autonomic innervation: vagal tone slows it, sympathetic tone speeds it, and adenosine, beta-blockers and calcium channel blockers depress it. The His-Purkinje system conducts rapidly, in an \"all-or-nothing\" manner, is little affected by the autonomic nervous system and blocks mainly when the rate exceeds its recovery capacity. Pharmacological tests and vagal manoeuvres exploit this difference, but the EP study remains the reference when the level of block is in doubt."
  },
  "ecg-cond-032": {
   "question": "An 82-year-old woman presents with syncope. What is the diagnosis on this tracing?",
@@ -494,7 +525,8 @@
    "Incorrect: AIVR is faster (> 40–50 bpm); here, the P waves are faster than the QRS complexes."
   ],
   "explication": "On this tracing, the P waves (≈ 80 bpm) and broad QRS complexes (≈ 35 bpm) are completely independent, with variable PR intervals. Complete dissociation between faster P waves and slower QRS complexes indicates third-degree (complete) AV block. The broad QRS complexes at 35 bpm reflect a ventricular (or infra-Hisian) escape rhythm, which is slow and unreliable, exposing the patient to asystole and syncope. In 2:1 AV block, the PR interval of conducted beats would be constant. Accelerated idioventricular rhythm is faster (> 40–50 bpm) and typically occurs in the setting of reperfusion. The indication for pacing is class I.",
-  "aRetenir": "Dissociated P waves and QRS complexes, with P waves faster than QRS = complete AV block."
+  "aRetenir": "Dissociated P waves and QRS complexes, with P waves faster than QRS = complete AV block.",
+  "rappel": "Complete AV block is defined by the absence of any atrioventricular conduction: atria and ventricles are driven by independent pacemakers, with P waves faster than the QRS complexes and variable PR intervals. The escape rhythm depends on the level of block: junctional with a narrow QRS (often 40-60 bpm, relatively stable) with nodal or high His block, ventricular with a wide QRS (often < 40 bpm, unstable) with infra-Hisian block. It must be distinguished from AV dissociation due to acceleration of a ventricular or junctional focus, where the QRS rate exceeds the P-wave rate. Outside reversible causes, complete AV block warrants pacing (class I, 2021 ESC)."
  },
  "ecg-cond-033": {
   "question": "This tracing shows an atrioventricular conduction disturbance. Which statements about this type of block are correct?",
@@ -513,7 +545,8 @@
    "Incorrect: the QRS complexes are usually narrow, as the site is most often nodal."
   ],
   "explication": "This tracing shows Wenckebach periodicity (5:4 second-degree Mobitz I AV block). The PR interval lengthens progressively until the blocked P wave; the first PR interval after the pause is the shortest, because the AV node has recovered. Because the increment in prolongation decreases from one cycle to the next, the RR intervals classically shorten, and the pause remains shorter than two PP cycles. A constant PR interval before the blocked P wave is, on the contrary, the definition of Mobitz II. The QRS complexes are usually narrow, as the site is most often nodal. Beware of atypical Wenckebach (which is common), in which the increments are irregular: comparing the PR interval before and after the pause remains the most reliable clue.",
-  "aRetenir": "Wenckebach: lengthening PR, pause < 2 PP, shortest PR after the pause; constant PR before the blocked P wave = Mobitz II."
+  "aRetenir": "Wenckebach: lengthening PR, pause < 2 PP, shortest PR after the pause; constant PR before the blocked P wave = Mobitz II.",
+  "rappel": "Wenckebach periodicity relies on decremental conduction: the earlier an impulse arrives after the previous one, the slower it is conducted. As each P wave arrives before the AV node has fully recovered, the PR lengthens until a P wave falls within the refractory period and is blocked; the pause allows recovery and the cycle resumes with the shortest PR. In the typical form, the largest increment occurs at the second beat and then decreases, which shortens the RR intervals. Atypical forms, common particularly in long sequences, show irregular increments, or even an RR interval that lengthens before the pause."
  },
  "ecg-cond-034": {
   "question": "The narrow-QRS conduction disturbance seen on this tracing is most often located in the AV node.",
@@ -526,7 +559,8 @@
    "Incorrect: the statement is true; an intra- or infra-Hisian site is the exception, especially with a broad QRS."
   ],
   "explication": "True. This tracing shows second-degree Mobitz I AV block (3:2 Wenckebach). Narrow-QRS Mobitz I is located in the AV node in the vast majority of cases, a tissue with decremental conduction, which explains the progressive PR prolongation. It is common in young people, athletes and at night (high vagal tone), and its prognosis is generally good. There are exceptions: intra- or infra-Hisian Wenckebach is possible, especially with a broad QRS. When such a site is demonstrated at EP study, the 2021 ESC guidelines consider pacing (IIa) even in the absence of symptoms.",
-  "aRetenir": "Mobitz I + narrow QRS = nodal in the vast majority of cases."
+  "aRetenir": "Mobitz I + narrow QRS = nodal in the vast majority of cases.",
+  "rappel": "Mobitz I AV block is most often nodal, as the AV node is the decremental conducting tissue par excellence. It is common in young people, athletes and during sleep, owing to vagal tone, and its prognosis is then generally good; it often disappears on exertion. It is an indication for pacing only when symptomatic, or when an intra- or infra-Hisian level is demonstrated at EP study. An associated wide QRS, no improvement on exertion or coexisting Mobitz II sequences should raise suspicion of a more distal level."
  },
  "ecg-cond-035": {
   "question": "How is high-grade (or \"advanced\") AV block defined?",
@@ -543,7 +577,8 @@
    "Incorrect: a very long PR interval with 1:1 conduction is still first-degree AV block."
   ],
   "explication": "High-grade AV block corresponds to block of at least two consecutive P waves (3:1, 4:1… conduction), while some P waves are still conducted, which distinguishes it from complete AV block. It reflects severe disease, most often infranodal, and shares the class I pacing indication of complete AV block in the 2021 ESC guidelines (in the absence of a reversible cause). 2:1 AV block is excluded by definition. A PR interval > 300 ms is still first-degree AV block, however marked.",
-  "aRetenir": "High-grade AV block: ≥ 2 consecutive blocked P waves with residual conduction; class I pacing."
+  "aRetenir": "High-grade AV block: ≥ 2 consecutive blocked P waves with residual conduction; class I pacing.",
+  "rappel": "Second-degree AV block is subdivided into Mobitz I, Mobitz II, 2:1 and high-grade (advanced) block. High-grade AV block is defined by at least two consecutive non-conducted sinus P waves while other P waves are still conducted (3:1, 4:1 ratios…): it lies between second-degree and complete AV block, whose severity and pacing indication it shares. The blocked P waves must be checked to occur at a non-excessive atrial rate: during atrial tachycardia or atrial flutter, 2:1, 3:1 or 4:1 conduction may be physiological and does not represent AV block."
  },
  "ecg-cond-036": {
   "question": "Overnight Holter: the PR interval appears constant over the 3 beats preceding a blocked P wave, but the PR interval of the first beat after the pause is 40 ms shorter. Narrow QRS. What is your interpretation?",
@@ -560,7 +595,8 @@
    "Correct: the PR shortening after the pause reflects nodal recovery in atypical Wenckebach."
   ],
   "explication": "In many atypical Wenckebach sequences, most of the PR prolongation occurs over the first few beats, after which the increments become minimal, creating the illusion of a constant PR interval before the blocked P wave. The most discriminating sign is PR shortening after the pause: it reflects recovery of the AV node and indicates Mobitz I. In true Mobitz II, the PR intervals before and after the blocked P wave are strictly identical. The context (night-time, narrow QRS) also points to vagally mediated nodal block. Confusing the two leads to unnecessary implantations.",
-  "aRetenir": "Post-pause PR shorter than pre-pause PR = Wenckebach, even if the increments seem to be zero."
+  "aRetenir": "Post-pause PR shorter than pre-pause PR = Wenckebach, even if the increments seem to be zero.",
+  "rappel": "In Mobitz I block, PR prolongation is greatest at the second conducted beat after the pause and then decreases; in long sequences, the last increments may shrink to a few milliseconds and escape measurement. Mobitz II requires a strictly identical PR before and after the blocked P wave, in a stable sinus rhythm. Comparing the last PR before the pause with the first PR after it is therefore the most reliable criterion to distinguish the two. Sinus slowing concomitant with the block, common at night, also suggests a vagal nodal mechanism rather than true Mobitz II."
  },
  "ecg-cond-037": {
   "question": "A patient with syncope has paroxysmal AV block with several consecutive blocked P waves on Holter monitoring. Which finding points to intrinsic paroxysmal AV block (His–Purkinje disease) rather than vagal block?",
@@ -577,7 +613,8 @@
    "Incorrect: nocturnal occurrence during sleep suggests high vagal tone, not intrinsic disease."
   ],
   "explication": "Intrinsic paroxysmal AV block results from disease of the conduction system: it is typically triggered by a premature atrial or ventricular beat (or a change in rate), occurs without any change in sinus cycle length and is often associated with baseline bundle branch block; it requires pacing. Vagally mediated (extrinsic) AV block, by contrast, is accompanied by simultaneous sinus slowing and PR prolongation, and often occurs at night or in a reflex setting. A third entity, idiopathic paroxysmal AV block (associated with low adenosine levels), occurs without bundle branch block or a vagal trigger. Recognising the mechanism avoids implanting devices for vasovagal episodes and missing serious block.",
-  "aRetenir": "Intrinsic paroxysmal AV block: triggered by an ectopic beat, stable PP, baseline bundle branch block."
+  "aRetenir": "Intrinsic paroxysmal AV block: triggered by an ectopic beat, stable PP, baseline bundle branch block.",
+  "rappel": "Paroxysmal AV block is the sudden onset of a series of blocked P waves, with ventricular asystole because no escape rhythm emerges immediately. Three mechanisms are recognised: intrinsic (His-Purkinje disease, phase 4-dependent, triggered by a change in rate), extrinsic vagal (reflex, with concomitant sinus slowing and PR prolongation) and extrinsic idiopathic related to endogenous adenosine (without bundle branch block or vagal signs). The distinction relies on analysis of the PP and PR intervals around the episode and on the baseline ECG. The mechanism determines prognosis and the indication for pacing, the link with symptoms needing to be established."
  },
  "ecg-cond-038": {
   "question": "Acute inferior myocardial infarction. The monitor records the tracing below, which is well tolerated. Which statement is correct?",
@@ -594,7 +631,8 @@
    "Correct: nodal block (AV nodal artery, vagal reflex) that often regresses after reperfusion."
   ],
   "explication": "This tracing shows dissociation between P waves at 85 bpm and narrow QRS complexes at 50 bpm: complete AV block with a junctional escape rhythm. In inferior infarction, AV block is generally nodal (blood supply to the AV node via the AV nodal artery, most often arising from the right coronary artery, and vagal reflex). The escape rhythm is junctional with narrow QRS complexes, and the block usually regresses after reperfusion: a permanent pacemaker is not implanted upfront. In anterior infarction, AV block reflects extensive necrosis of the septum and the infra-Hisian conduction system, with a broad-QRS escape rhythm and a far worse prognosis. A narrow-QRS escape rhythm is junctional, not ventricular, in origin.",
-  "aRetenir": "AV block in inferior MI: nodal, narrow QRS, often transient; in anterior MI: infra-Hisian, serious."
+  "aRetenir": "AV block in inferior MI: nodal, narrow QRS, often transient; in anterior MI: infra-Hisian, serious.",
+  "rappel": "During myocardial infarction, the level of AV block depends on the territory. The AV node is supplied by the AV nodal artery, most often arising from the right coronary artery, and the inferior wall is rich in vagal afferents: inferior infarction produces nodal block, progressive (first-degree, Wenckebach), with a narrow junctional escape, often atropine-responsive and regressing after reperfusion. The septum and bundle branches are supplied mainly by the septal branches of the LAD: anterior infarction produces infra-Hisian block, abrupt, with a wide and unstable escape, reflecting extensive necrosis and a poor prognosis."
  },
  "ecg-cond-039": {
   "question": "According to the 2021 ESC guidelines, in a patient who developed high-grade AV block in the acute phase of myocardial infarction, when can a permanent pacing indication be accepted?",
@@ -611,7 +649,8 @@
    "Incorrect: some blocks persist, particularly in extensive anterior infarction."
   ],
   "explication": "AV block complicating myocardial infarction often regresses after reperfusion, especially with inferior infarction. The 2021 ESC guidelines recommend applying the usual indications for permanent pacing when AV block has not resolved after a waiting period of at least 5 days after the infarction; in the meantime, temporary pacing is used if needed. Pacing upfront would lead to unnecessary implantations, and routinely waiting six weeks would needlessly prolong temporary pacing and its complications. Conversely, claiming that these blocks are always reversible is wrong, particularly in extensive anterior infarction.",
-  "aRetenir": "Post-infarction AV block: permanent pacing if it persists after at least 5 days."
+  "aRetenir": "Post-infarction AV block: permanent pacing if it persists after at least 5 days.",
+  "rappel": "Bradycardia and AV block occurring in the acute phase of myocardial infarction are often transient, particularly after reperfusion. Initial management relies on reperfusion, atropine or catecholamines if poorly tolerated, and temporary pacing when needed. The decision on permanent pacing is deferred to give the block time to regress; it then follows the usual indications. Prognosis and the likelihood of persistence are worse in anterior infarction, where the block reflects extensive damage to the conducting tissue."
  },
  "ecg-cond-040": {
   "question": "Complete AV block due to Lyme carditis is often reversible with antibiotic therapy: temporary pacing is initially preferred over permanent implantation.",
@@ -624,7 +663,8 @@
    "Incorrect: the statement is true; the block usually regresses within days to weeks of antibiotic therapy."
   ],
   "explication": "True. Lyme disease is one of the reversible causes of AV block listed in the 2021 ESC guidelines. The block, often nodal and fluctuating, usually regresses within days to weeks with appropriate antibiotic therapy. If pacing is needed, temporary pacing is preferred (possibly using an active-fixation lead connected to an externalised generator) while awaiting recovery. This aetiology should be considered in a young patient with unexplained AV block and a history of tick exposure.",
-  "aRetenir": "AV block + history of tick bite: think Lyme disease, block reversible with antibiotics."
+  "aRetenir": "AV block + history of tick bite: think Lyme disease, block reversible with antibiotics.",
+  "rappel": "Before any permanent pacing for AV block, the 2021 ESC guidelines require a search for reversible causes: drugs, electrolyte disturbances, acute ischaemia, hypothyroidism, and certain infections such as Lyme disease. Lyme carditis, caused by Borrelia burgdorferi, can affect the conducting tissue and produce AV block of varying degree, often fluctuating, in a young person exposed to ticks. Treatment relies on antibiotics, with temporary pacing if the block is poorly tolerated. Permanent implantation is considered only if the block persists despite treatment."
  },
  "ecg-cond-041": {
   "question": "A patient on dialysis presents with fatigue: bradycardia at 38 bpm, broad QRS complexes, tall peaked T waves, no visible P waves. What is the priority?",
@@ -641,7 +681,8 @@
    "Incorrect: isoprenaline does not treat the cause; delaying treatment of hyperkalaemia is dangerous."
   ],
   "explication": "This picture combines the classic signs of severe hyperkalaemia: tall peaked T waves, flattening then disappearance of P waves, QRS widening and bradycardia (sinoventricular rhythm or AV block). The priority is to stabilise the myocardial membrane with IV calcium salts, then lower serum potassium (insulin–glucose, potassium removal, dialysis). Temporary pacing may be needed, but capture is sometimes difficult in hyperkalaemia. Permanent implantation is not indicated, since the cause is reversible (ESC 2021). Atropine or isoprenaline alone do little to address the mechanism.",
-  "aRetenir": "Broad-QRS bradycardia with peaked T waves in a dialysis patient: hyperkalaemia until proven otherwise."
+  "aRetenir": "Broad-QRS bradycardia with peaked T waves in a dialysis patient: hyperkalaemia until proven otherwise.",
+  "rappel": "Hyperkalaemia reduces the resting membrane potential and slows conduction throughout the heart. Its ECG signs appear roughly in this order: tall, peaked, symmetrical T waves, then PR prolongation, flattening and loss of P waves, QRS widening, bradycardia or AV block, progressing to a sine-wave pattern, VF or asystole. Correlation with serum potassium is imperfect, hence the importance of recognising these signs. IV calcium stabilises the membrane without lowering potassium; insulin-glucose and beta-2 agonists shift potassium into cells, dialysis removes it. Hyperkalaemia also raises pacing thresholds."
  },
  "ecg-cond-042": {
   "question": "QRS 130 ms, rSR' pattern in V1, broad slurred S wave in leads I and V6. What is the diagnosis?",
@@ -658,7 +699,8 @@
    "Incorrect: there is no short PR interval or delta wave in this description."
   ],
   "explication": "Complete RBBB combines a QRS ≥ 120 ms, an rsr', rsR' or rSR' pattern in V1–V2 (R' usually taller than r) and a broad S wave (> 40 ms or longer than the R wave) in leads I and V6. These abnormalities reflect delayed activation of the right ventricle. LBBB, by contrast, produces broad notched or slurred R waves in I, aVL and V5–V6, with QS or rS in V1. Left anterior fascicular block does not on its own produce a QRS ≥ 120 ms. Pre-excitation combines a short PR interval and a delta wave.",
-  "aRetenir": "RBBB: rSR' in V1 and broad S in I/V6, QRS ≥ 120 ms."
+  "aRetenir": "RBBB: rSR' in V1 and broad S in I/V6, QRS ≥ 120 ms.",
+  "rappel": "In right bundle branch block, the septum and left ventricle are activated normally via the left bundle branch; the right ventricle is activated late, cell to cell across the septum. This slow terminal activation, directed rightwards and anteriorly, produces a late R' wave in V1-V2 and a broad, slurred S wave in the left-sided leads (I, aVL, V5-V6). The physiological septal q wave is preserved in leads I and V6, and the frontal axis is not altered by isolated RBBB. Repolarisation is secondarily inverted in V1-V3 (negative T waves), which is expected."
  },
  "ecg-cond-043": {
   "question": "Which criterion is part of the definition of complete left bundle branch block (AHA/ACCF/HRS 2009)?",
@@ -675,7 +717,8 @@
    "Incorrect: complete LBBB requires a QRS ≥ 120 ms in adults."
   ],
   "explication": "In LBBB, septal depolarisation occurs from right to left: the physiological septal q wave disappears in I, V5 and V6, and the R waves are broad, notched or slurred in the lateral leads. V1 shows a QS or rS pattern. QRS duration must be ≥ 120 ms in adults. The rSR' pattern in V1 is that of RBBB. A persistent lateral septal q wave should cast doubt on the diagnosis (non-specific conduction delay, old infarction).",
-  "aRetenir": "LBBB: QRS ≥ 120 ms, broad notched lateral R waves, no septal q wave in I/V5/V6."
+  "aRetenir": "LBBB: QRS ≥ 120 ms, broad notched lateral R waves, no septal q wave in I/V5/V6.",
+  "rappel": "In left bundle branch block, ventricular activation begins via the right bundle branch: the septum is depolarised from right to left, then the left ventricle is activated slowly, cell to cell. Hence the loss of the septal q wave in the lateral leads, broad, notched or slurred R waves in I, aVL, V5-V6, a QS or rS pattern in V1 and a QRS ≥ 120 ms in adults. The R-peak time is prolonged in V5-V6. Repolarisation is secondarily discordant (ST and T opposite in direction to the QRS). LBBB is more often associated with underlying heart disease than RBBB."
  },
  "ecg-cond-044": {
   "question": "Which criteria are part of the definition of left anterior fascicular block according to the 2009 AHA/ACCF/HRS recommendations?",
@@ -694,7 +737,8 @@
    "Incorrect: qR in III and aVF belongs to left posterior fascicular block."
   ],
   "explication": "Left anterior fascicular block is the most common fascicular conduction disturbance: activation starts in the inferoposterior region and then spreads upwards and to the left. It combines left axis deviation between −45° and −90°, a qR pattern in aVL (R-wave peak time in aVL ≥ 45 ms), an rS pattern in II, III and aVF, and a QRS < 120 ms: a QRS ≥ 120 ms suggests an associated bundle branch block. The qR pattern in III and aVF belongs to left posterior fascicular block. An axis between −30° and −45° is not sufficient according to the 2009 AHA criteria and warrants a search for another cause.",
-  "aRetenir": "LAFB: axis −45° to −90°, qR in aVL, rS in the inferior leads, QRS < 120 ms."
+  "aRetenir": "LAFB: axis −45° to −90°, qR in aVL, rS in the inferior leads, QRS < 120 ms.",
+  "rappel": "The left bundle branch divides into an anterior fascicle, long and thin, supplied mainly by the LAD, and a posterior fascicle, short and thick, with a dual blood supply. In left anterior fascicular block, the inferoposterior wall is activated first (initial vector downwards: q in aVL, r in the inferior leads), then activation proceeds upwards and leftwards (terminal vector: R in aVL, deep S waves in II, III, aVF). The QRS is only slightly widened, as the Purkinje network remains functional. LAFB may also mask or mimic inferior or anterior infarction."
  },
  "ecg-cond-045": {
   "question": "ECG: axis +120°, rS pattern in I and aVL, qR in III and aVF, QRS 100 ms. Before diagnosing left posterior fascicular block, which diagnosis must be excluded first?",
@@ -711,7 +755,8 @@
    "Incorrect: pericarditis alters the ST and PR segments, not the QRS axis."
   ],
   "explication": "Left posterior fascicular block is rare, as the posterior fascicle is short, thick and has a dual blood supply. It is a diagnosis of exclusion: other causes of right axis deviation must be ruled out, in particular right ventricular hypertrophy or overload, a slender body habitus, extensive lateral infarction and pulmonary embolism. The AHA criteria combine an axis of +90° to +180°, rS in I and aVL, qR in III and aVF and a QRS < 120 ms. Combined with RBBB, it forms bifascicular block with a poor prognosis. Inferior infarction, by contrast, shifts the axis to the left, and neither hyperkalaemia nor pericarditis produces this picture with a QRS of 100 ms.",
-  "aRetenir": "LPFB = diagnosis of exclusion: rule out right ventricular overload or a slender body habitus."
+  "aRetenir": "LPFB = diagnosis of exclusion: rule out right ventricular overload or a slender body habitus.",
+  "rappel": "In left posterior fascicular block, the anterosuperior wall is activated first (r in I and aVL, q in the inferior leads), then activation proceeds downwards and rightwards, giving an axis between +90° and +180°, an rS pattern in I and aVL and qR in III and aVF, with a QRS < 120 ms. These criteria are not specific: any right axis deviation (RV hypertrophy or overload, cor pulmonale, pulmonary embolism, slender body habitus, lateral infarction, limb lead reversal) can reproduce them. New-onset right axis deviation without another cause, particularly with RBBB, is the most convincing argument."
  },
  "ecg-cond-046": {
   "question": "In an adult, a QRS of 115 ms with an rsR' pattern in V1 and a broad S wave in I and V6 corresponds to complete right bundle branch block.",
@@ -724,7 +769,8 @@
    "Correct: RBBB morphology with a QRS between 110 and 119 ms = incomplete RBBB (AHA/ACCF/HRS 2009)."
   ],
   "explication": "False. According to the 2009 AHA/ACCF/HRS recommendations, an RBBB morphology (rsR' in V1–V2, broad S in I and V6) with a QRS between 110 and 119 ms in an adult defines incomplete RBBB. Complete RBBB requires a QRS ≥ 120 ms. An rSr' pattern with a QRS < 110 ms is often a normal variant, common in young people and athletes. Incomplete RBBB should nevertheless raise the possibility of an atrial septal defect or, with ST elevation in V1–V2, Brugada syndrome.",
-  "aRetenir": "RBBB: incomplete if QRS 110–119 ms, complete from 120 ms in adults."
+  "aRetenir": "RBBB: incomplete if QRS 110–119 ms, complete from 120 ms in adults.",
+  "rappel": "The 2009 AHA/ACCF/HRS classification of intraventricular conduction disturbances combines QRS morphology and duration, with adult-specific thresholds (they are lower in children). In adults, a QRS ≥ 120 ms with typical morphology defines complete bundle branch block; 110 to 119 ms, incomplete block; a QRS ≥ 110 ms without bundle branch block morphology defines a non-specific intraventricular conduction delay. Incomplete RBBB is common and often benign, but may reflect RV volume overload. Duration is measured in the lead where the QRS is widest."
  },
  "ecg-cond-047": {
   "question": "Which criteria belong to Strauss's strict definition of left bundle branch block, used to predict response to cardiac resynchronisation?",
@@ -743,13 +789,15 @@
    "Incorrect: the axis is not part of the Strauss definition."
   ],
   "explication": "Strauss et al. (2011) proposed strict criteria because about a third of \"conventional\" LBBB actually corresponds to LV hypertrophy combined with non-specific conduction delay. True LBBB requires a QRS ≥ 140 ms (men) or ≥ 130 ms (women), a QS or rS pattern in V1–V2, and mid-QRS notching in at least two of V1, V2, V5, V6, I and aVL: it is not required in all of them. A septal q wave in V6 is incompatible with true LBBB. The axis is not part of the definition. These criteria identify the patients who respond best to CRT.",
-  "aRetenir": "Strauss LBBB: QRS ≥ 140/130 ms, QS/rS in V1–V2, mid-QRS notching in ≥ 2 leads."
+  "aRetenir": "Strauss LBBB: QRS ≥ 140/130 ms, QS/rS in V1–V2, mid-QRS notching in ≥ 2 leads.",
+  "rappel": "The Strauss criteria aim to identify true left bundle branch block, that is, LV activation that is entirely delayed and passes through the septum, the substrate for the dyssynchrony corrected by CRT. As the septum is activated from right to left, then the lateral wall last, the QRS is longer than in the conventional definition, with sex-specific thresholds (smaller heart in women). Mid-QRS notching corresponds to activation crossing the septum and then reaching the lateral wall. LV hypertrophy with a non-specific conduction delay can reproduce \"conventional\" LBBB without offering the same benefit from resynchronisation."
  },
  "ecg-cond-048": {
   "question": "With a broad QRS (≥ 120 ms) of supraventricular origin, how can you quickly distinguish RBBB from LBBB by looking at V1?",
   "reponseAttendue": "In V1: a predominantly positive QRS with an rsR'/rSR' (\"M\") pattern = RBBB; a predominantly negative QRS (QS or rS) = LBBB. Confirm in the lateral leads: broad S in I/V6 for RBBB, broad notched R with no q wave in I/V6 for LBBB.",
   "explication": "V1 faces the right ventricle. In RBBB, the RV is activated late, producing a positive terminal wave (R') in V1. In LBBB, delayed LV activation moves away from V1, which is therefore negative (QS or rS). The lateral leads confirm: a broad terminal S wave in I and V6 for RBBB, a broad notched R wave with no septal q wave for LBBB. Bear in mind that a broad QRS may also be VT, pre-excitation or a paced rhythm.",
-  "aRetenir": "Terminal positivity in V1 = RBBB; negative V1 = LBBB."
+  "aRetenir": "Terminal positivity in V1 = RBBB; negative V1 = LBBB.",
+  "rappel": "The terminal polarity of the QRS indicates the last region activated. V1, a right precordial lead, faces the right ventricle and the anterior wall: if the RV is activated last (RBBB), the terminal deflection is directed towards V1, which is positive at the end of the QRS; if the LV is activated last (LBBB), terminal activation moves away from it and V1 is negative. The lateral leads (I, aVL, V6) show the mirror image. In both cases, repolarisation is secondary and discordant with the terminal deflection. A wide QRS matching neither typical pattern should raise the possibility of VT, pre-excitation or a paced rhythm."
  },
  "ecg-cond-049": {
   "question": "Which combination defines bifascicular block?",
@@ -766,7 +814,8 @@
    "Correct: disease of two of the three fascicles, RBBB + LAFB (common) or RBBB + LPFB (rarer, more serious)."
   ],
   "explication": "The intraventricular conduction system classically comprises three fascicles: the right bundle branch, the left anterior fascicle and the left posterior fascicle. Bifascicular block involves two of them: RBBB + LAFB (the most common) or RBBB + LPFB (rarer, more serious). Complete LBBB is sometimes considered bifascicular. First-degree AV block is not a fascicular block: it may be nodal. Two consecutive blocked P waves define high-grade AV block.",
-  "aRetenir": "Bifascicular block = RBBB + LAFB or RBBB + LPFB."
+  "aRetenir": "Bifascicular block = RBBB + LAFB or RBBB + LPFB.",
+  "rappel": "Intraventricular conduction is classically described with a trifascicular model: right bundle branch, left anterior fascicle and left posterior fascicle. Unifascicular block affects one of them (isolated RBBB, LAFB or LPFB); bifascicular block combines two, and AV conduction then depends only on the remaining fascicle. RBBB + LAFB is the most common combination, as the anterior fascicle and the right bundle branch share a septal blood supply. The risk of bifascicular block is progression to paroxysmal or complete AV block, which presents mainly as syncope."
  },
  "ecg-cond-050": {
   "question": "The term \"trifascicular block\" applied to the combination of RBBB + LAFB + first-degree AV block is a misnomer, because the PR prolongation may be nodal in origin.",
@@ -779,7 +828,8 @@
    "Incorrect: the statement is true; the true ECG equivalent of trifascicular block is alternating bundle branch block."
   ],
   "explication": "True. PR prolongation in bifascicular block may reflect nodal delay (prolonged AH interval) with a normal HV interval, rather than disease of the third fascicle. Only measurement of the HV interval at electrophysiological study can localise the delay. Guidelines therefore prefer to describe the combination (bifascicular block with first-degree AV block). The true ECG equivalent of trifascicular block is alternating bundle branch block, which is a class I indication for pacing.",
-  "aRetenir": "RBBB + LAFB + long PR is not necessarily trifascicular: only the HV interval localises the delay."
+  "aRetenir": "RBBB + LAFB + long PR is not necessarily trifascicular: only the HV interval localises the delay.",
+  "rappel": "The surface PR interval adds several segments that only an EP study can separate, by recording the His bundle potential: PA (intra-atrial conduction), AH (nodal conduction, normally around 50 to 120 ms and highly dependent on autonomic tone) and HV (His-Purkinje conduction, normally 35 to 55 ms). A long PR may therefore result from a prolonged AH with a normal HV. The HV interval reflects conduction through the remaining fascicle in bifascicular block; marked prolongation indicates diffuse distal disease. On the ECG, only alternating bundle branch block proves involvement of all three fascicles."
  },
  "ecg-cond-051": {
   "question": "A 70-year-old asymptomatic patient is found incidentally to have RBBB + LAFB with a PR interval of 180 ms. According to the 2021 ESC guidelines, what is the pacing indication?",
@@ -796,7 +846,8 @@
    "Incorrect: no heart disease with a high risk of ventricular arrhythmia is described; an ICD has no role."
   ],
   "explication": "The 2021 ESC guidelines do not recommend pacing (class III) in asymptomatic patients with bundle branch block or bifascicular block. The annual risk of progression to complete AV block is low. Clinical and ECG follow-up is sufficient, with advice to the patient about symptoms that should prompt review (syncope, presyncope). Assessment of LV function is useful, as bundle branch block may reveal underlying heart disease. An ICD has no role in the absence of high-risk heart disease.",
-  "aRetenir": "Asymptomatic bifascicular block: no pacing (class III)."
+  "aRetenir": "Asymptomatic bifascicular block: no pacing (class III).",
+  "rappel": "In intraventricular conduction disturbances, the indication for pacing depends on symptoms and on evidence of AV conduction disease. Asymptomatic bundle branch or bifascicular block, even with a prolonged PR, does not warrant pacing (class III, 2021 ESC): progression to complete AV block is slow and benefit has not been demonstrated. Class I covers second-degree type II, high-grade or complete AV block, and alternating bundle branch block. The finding of bundle branch block does, however, call for cardiac evaluation, particularly of LV function, and for informing the patient about warning symptoms."
  },
  "ecg-cond-052": {
   "question": "A 72-year-old man has unexplained syncope without prodrome, RBBB + LAFB, LVEF 60%, and a non-diagnostic initial work-up. What is the next step recommended by the 2021 ESC guidelines?",
@@ -813,7 +864,8 @@
    "Incorrect: syncope with bifascicular block raises concern for paroxysmal AV block; investigation is warranted."
   ],
   "explication": "In a patient with unexplained syncope and bifascicular block, the 2021 ESC guidelines advise considering an EP study (class IIa): an HV interval ≥ 70 ms, or second- or third-degree infra-Hisian AV block during incremental atrial pacing or pharmacological challenge (ajmaline, procainamide…), leads to a class I pacing indication. If the EP study is negative, an implantable loop recorder can document any paroxysmal AV block. Empirical pacing without an EP study is only a class IIb option in elderly, frail patients. Tilt testing does not answer the question of conduction.",
-  "aRetenir": "Syncope + bifascicular block: EP study, pacing if HV ≥ 70 ms; if negative, an implantable loop recorder."
+  "aRetenir": "Syncope + bifascicular block: EP study, pacing if HV ≥ 70 ms; if negative, an implantable loop recorder.",
+  "rappel": "In a patient with bifascicular block, unexplained syncope raises concern for paroxysmal AV block, but other mechanisms (reflex, ventricular arrhythmia) are possible. The 2021 ESC strategy is stepwise: when LVEF is preserved, the EP study looks for a prolonged HV interval or infra-Hisian block induced by incremental atrial pacing or a pharmacological challenge; if positive, pacing is indicated; if negative, an implantable loop recorder documents the mechanism of a recurrence. Empirical pacing is reserved for elderly, frail patients. Reduced LVEF points towards considering an ICD or CRT-D."
  },
  "ecg-cond-053": {
   "question": "During an electrophysiological study in a patient with syncope and bifascicular block, which result leads to a class I pacing indication (ESC 2021)?",
@@ -830,7 +882,8 @@
    "Incorrect: a nodal Wenckebach point at 140 bpm reflects normal nodal conduction."
   ],
   "explication": "The HV interval measures conduction time through the His–Purkinje system; its normal value is about 35 to 55 ms. In a patient with syncope and bundle branch block, an HV ≥ 70 ms is considered positive and warrants class I pacing. An HV of 62 ms is prolonged but below the decision threshold. The AH interval assesses the AV node and depends heavily on autonomic tone. A nodal Wenckebach point at 140 bpm is normal. An HV ≥ 100 ms identifies a particularly high risk of complete AV block.",
-  "aRetenir": "Syncope + bundle branch block: HV ≥ 70 ms at EP study = pacing (class I)."
+  "aRetenir": "Syncope + bundle branch block: HV ≥ 70 ms at EP study = pacing (class I).",
+  "rappel": "The EP study measures conduction intervals from the His bundle electrogram: AH for the AV node (varying with autonomic tone) and HV for the His-Purkinje system (normally 35 to 55 ms). The HV interval is little affected by the autonomic nervous system, making it a reliable marker of the state of distal conducting tissue. In a syncopal patient with bundle branch block, the decision threshold is HV ≥ 70 ms; induction of infra-Hisian block by incremental atrial pacing or a pharmacological challenge is also a positive criterion. The Wenckebach cycle length explores nodal conduction, not distal conduction."
  },
  "ecg-cond-054": {
   "question": "Two successive ECGs from the same patient show complete RBBB and then complete LBBB. What is the management according to the 2021 ESC guidelines?",
@@ -847,7 +900,8 @@
    "Correct: alternating bundle branch block is equivalent to trifascicular disease; class I pacing, with or without symptoms."
   ],
   "explication": "Alternating bundle branch block (RBBB and LBBB on different tracings, or RBBB alternating with LAFB then LPFB) reflects disease of all three fascicles: it is the ECG equivalent of trifascicular block, with a high risk of sudden complete AV block. The 2021 ESC guidelines recommend pacing as class I, with or without symptoms. An EP study is not needed to decide. Waiting to document complete AV block on Holter exposes the patient to injurious syncope or sudden death.",
-  "aRetenir": "Alternating bundle branch block = class I pacing, even if asymptomatic."
+  "aRetenir": "Alternating bundle branch block = class I pacing, even if asymptomatic.",
+  "rappel": "Alternating bundle branch block is defined by the presence, on successive ECGs or the same tracing, of RBBB and LBBB, or of RBBB associated alternately with LAFB and LPFB. It demonstrates that each branch is capable of blocking, hence diffuse disease of the His-Purkinje system in which AV conduction relies only on a precarious reserve. It is the ECG equivalent of trifascicular disease, exposing the patient to sudden complete AV block with a slow or absent escape rhythm. Together with second-degree type II, high-grade and complete AV block, it is a class I indication for pacing regardless of symptoms."
  },
  "ecg-cond-055": {
   "question": "An 86-year-old frail woman has recurrent unexplained injurious syncope, bifascicular block (RBBB + LAFB) and normal LVEF. An EP study is not feasible. What option do the 2021 ESC guidelines offer?",
@@ -864,13 +918,15 @@
    "Incorrect: with a normal LVEF, an ICD is not an option."
   ],
   "explication": "In elderly, frail patients with unexplained syncope and bifascicular block and a high risk of injurious recurrence, the 2021 ESC guidelines allow empirical pacing to be considered without an EP study (class IIb). This option acknowledges that a large proportion of such syncope is due to paroxysmal AV block, while recognising that the evidence remains indirect. It is not class I: in a patient who can be investigated, an EP study followed by an implantable loop recorder remains the rule. An ICD is only considered if LVEF is reduced.",
-  "aRetenir": "Frail elderly patient, unexplained syncope + bifascicular block: empirical pacing possible (IIb)."
+  "aRetenir": "Frail elderly patient, unexplained syncope + bifascicular block: empirical pacing possible (IIb).",
+  "rappel": "In unexplained syncope with bifascicular block, paroxysmal AV block is a frequent cause but is rarely documented at the time of assessment. The 2021 ESC guidelines put the EP study followed by an implantable loop recorder at the centre of the work-up in patients who can be investigated. In elderly, frail patients at high risk of traumatic recurrence, the risk-benefit balance may justify empirical pacing, with a weak level of recommendation, to avoid investigation delays. The choice should take into account life expectancy, comorbidities and patient preference; LVEF determines whether a pacemaker or a device with defibrillation is appropriate."
  },
  "ecg-cond-056": {
   "question": "A patient has unexplained syncope, left bundle branch block and an LVEF of 30% despite optimal medical therapy. What type of device should be discussed, and why?",
   "reponseAttendue": "A CRT defibrillator (CRT-D) according to the heart failure guidelines, rather than a pacemaker alone: the syncope may be due to a ventricular arrhythmia rather than AV block; LBBB with LVEF ≤ 35% is also an indication for CRT.",
   "explication": "In a patient with bundle branch block and LVEF ≤ 35%, unexplained syncope may be due to ventricular tachycardia as much as to paroxysmal AV block. In this situation, the 2021 ESC guidelines recommend considering an ICD or CRT-D according to the guidelines on heart failure and ventricular arrhythmias, rather than a pacemaker alone, which does not protect against sudden cardiac death. LBBB combined with reduced LVEF adds an indication for resynchronisation. An EP study alone is not sufficient to exclude ventricular arrhythmic risk in this setting.",
-  "aRetenir": "Syncope + bundle branch block + LVEF ≤ 35%: think ICD/CRT-D, not a pacemaker alone."
+  "aRetenir": "Syncope + bundle branch block + LVEF ≤ 35%: think ICD/CRT-D, not a pacemaker alone.",
+  "rappel": "Reduced LVEF changes the reasoning in syncope with a conduction disturbance: the myocardial substrate predisposes to ventricular arrhythmias, whose risk of sudden cardiac death is not covered by a simple pacemaker. The 2021 ESC guidelines then point towards an ICD or CRT-D according to the heart failure and ventricular arrhythmia guidelines. Resynchronisation is added when the QRS is wide with LBBB morphology and LVEF remains ≤ 35% despite optimal medical therapy, LBBB being the morphology that derives most benefit. A normal EP study does not exclude ventricular arrhythmic risk in this setting."
  },
  "ecg-cond-057": {
   "question": "What is the usual rate of a junctional escape rhythm?",
@@ -887,7 +943,8 @@
    "Incorrect: a tachycardic rate, unrelated to an escape rhythm."
   ],
   "explication": "In the hierarchy of cardiac pacemakers, the sinus node comes first (60–100 bpm), then the AV junction (40–60 bpm), then ventricular or Purkinje cells (20–40 bpm). When the dominant pacemaker fails, the next one takes over: this is an escape rhythm. A narrow-QRS junctional rhythm between 40 and 60 bpm is therefore an escape rhythm; above 60 bpm, it is called an accelerated junctional rhythm. A ventricular escape rhythm is slower, with broad QRS complexes, and less reliable.",
-  "aRetenir": "Junctional escape: 40–60 bpm, narrow QRS; ventricular escape: 20–40 bpm, broad QRS."
+  "aRetenir": "Junctional escape: 40–60 bpm, narrow QRS; ventricular escape: 20–40 bpm, broad QRS.",
+  "rappel": "Several cardiac structures have intrinsic automaticity, owing to spontaneous diastolic depolarisation (phase 4) whose slope decreases from the sinus node towards the periphery. The fastest focus drives the rhythm and suppresses the others (overdrive suppression). When it fails, a subsidiary focus takes over after a pause: this is escape, which by definition occurs at a rate below the basic rhythm. A junctional rhythm faster than its intrinsic rate (above 60 bpm) is no longer an escape rhythm but an accelerated junctional rhythm, reflecting abnormal automaticity; above 100 bpm it is termed junctional tachycardia."
  },
  "ecg-cond-058": {
   "question": "A 45-year-old asymptomatic woman has this screening ECG. What is the diagnosis on this tracing, and what can be said about the site of the conduction disturbance?",
@@ -904,7 +961,8 @@
    "Correct: P waves (≈ 75 bpm) dissociated from regular narrow QRS complexes (≈ 50 bpm): an escape rhythm arising above the His bifurcation."
   ],
   "explication": "On this tracing, the P waves (≈ 75 bpm) are dissociated from regular narrow QRS complexes at ≈ 50 bpm: this is complete AV block (P waves faster than QRS complexes, with no fixed relationship). The narrow-QRS escape rhythm at 50 bpm arises above the His bifurcation: the block is therefore probably nodal (or high in the His bundle). This type of escape rhythm is faster and more stable than a ventricular escape rhythm, hence better tolerated. Sinoatrial block would leave no visible P waves. Congenital AV block, a drug cause or inferior infarction should be considered. Even if well tolerated, persistent complete AV block in an adult warrants pacing (class I, ESC 2021) once a reversible cause has been excluded.",
-  "aRetenir": "Complete AV block with a narrow-QRS escape at 40–60 bpm = high-level block, junctional escape."
+  "aRetenir": "Complete AV block with a narrow-QRS escape at 40–60 bpm = high-level block, junctional escape.",
+  "rappel": "In complete AV block, the morphology and rate of the escape rhythm indicate the level of block. An escape rhythm with a narrow QRS, identical to the baseline QRS, at 40-60 bpm arises above the His bifurcation: the block is nodal or high in the His bundle, and the escape is more stable and responsive to autonomic tone. An escape rhythm with a wide QRS, slow (20-40 bpm), indicates infra-Hisian block and a risk of asystole. Complete AV block in adults warrants pacing once reversible causes are excluded, whatever its tolerance. In a young adult, a congenital (often linked to maternal lupus) or inflammatory origin should be considered."
  },
  "ecg-cond-059": {
   "question": "In complete AV block, P waves and QRS complexes are dissociated, with the atrial rate higher than the ventricular rate.",
@@ -917,7 +975,8 @@
    "Incorrect: the statement is true; if the QRS complexes are faster than the P waves, this is AV dissociation without complete AV block."
   ],
   "explication": "True. In third-degree AV block, no P wave is conducted: the atria beat at their own rate (most often sinus) and the ventricles at the slower rate of the escape rhythm. The atrial rate is therefore higher than the ventricular rate. If the reverse is true (QRS complexes faster than P waves), this is AV dissociation due to acceleration of a subsidiary focus or sinus slowing, not complete AV block. The PR interval varies from beat to beat.",
-  "aRetenir": "Complete AV block: AV dissociation with atrial rate > ventricular rate."
+  "aRetenir": "Complete AV block: AV dissociation with atrial rate > ventricular rate.",
+  "rappel": "AV dissociation refers to independent activation of the atria and ventricles; it is a finding, not a diagnosis. It has three mechanisms: complete AV block (atrial rate > ventricular rate, with P waves falling at times when they should be conducted), slowing of the sinus rhythm allowing an escape rhythm to emerge, or acceleration of a junctional or ventricular focus (ventricular rate > atrial rate). In the last two cases, non-conducted P waves fall in the refractory period and capture beats may occur. Comparing the two rates is therefore the first step of the analysis."
  },
  "ecg-cond-060": {
   "question": "Tracing: sinus P waves at 55 bpm, regular narrow QRS complexes at 70 bpm, with no fixed relationship to the P waves; some P waves fall just before or within the QRS complexes. What is the interpretation?",
@@ -933,14 +992,16 @@
    "Incorrect: in 2:1 AV block, the P waves would be twice as fast as the QRS complexes, with a fixed conducted PR.",
    "Incorrect: the sinus P waves are visible and regular; atrial activity is not blocked."
   ],
-  "explication": "Here, the QRS complexes are faster than the P waves: an accelerated junctional focus (70 bpm) takes over from a slower sinus rhythm. The P waves are not conducted because they arrive when the junction is already refractory (P waves within or just before the QRS complexes): this is AV dissociation \"by interference\", not AV block. Complete AV block requires P waves faster than the QRS complexes, some of which fall at a time when they ought to be conducted. Causes: digoxin toxicity, hypokalaemia, after cardiac surgery, ischaemia, high vagal tone slowing the sinus node. Confusing the two leads to unnecessary implantations.",
-  "aRetenir": "AV dissociation with QRS faster than P waves = accelerated junctional rhythm, not complete AV block."
+  "explication": "Here, the QRS complexes are faster than the P waves: an accelerated junctional focus (70 bpm) takes over from a slower sinus rhythm. The P waves are not conducted because they arrive when the junction is already refractory (P waves within or just before the QRS complexes): this is AV dissociation \"by interference\", not AV block. Complete AV block requires P waves faster than the QRS complexes, some of which fall at a time when they ought to be conducted. Causes of accelerated junctional rhythm: digoxin toxicity, hypokalaemia, after cardiac surgery, ischaemia; sinus slowing (high vagal tone) also promotes the dissociation. Confusing the two leads to unnecessary implantations.",
+  "aRetenir": "AV dissociation with QRS faster than P waves = accelerated junctional rhythm, not complete AV block.",
+  "rappel": "AV dissociation by interference occurs when a junctional or ventricular focus beats faster than the sinus node: each P wave arrives just after the junction has been depolarised by the ectopic focus and is still refractory. AV conduction is intact, as shown by capture beats when a P wave falls far enough from the preceding QRS. Accelerated junctional rhythm (60 to 100 bpm) results from abnormal automaticity promoted by digitalis toxicity, hypokalaemia, ischaemia, myocarditis or cardiac surgery; treatment is that of the cause, without pacing."
  },
  "ecg-cond-061": {
   "question": "Describe the hierarchy of cardiac pacemakers and the ECG features of the corresponding escape rhythms.",
   "reponseAttendue": "Sinus node 60–100 bpm (sinus P wave, narrow QRS); AV junction 40–60 bpm (narrow QRS, P wave absent, retrograde or dissociated); ventricle/Purkinje 20–40 bpm (broad QRS). The lower the escape focus, the slower, broader and more unstable the rhythm.",
   "explication": "Pacemaker cells are organised in a hierarchy: the sinus node, the fastest, normally sets the rhythm and suppresses subsidiary foci (overdrive suppression). If the sinus node fails or block occurs, the AV junction takes over at 40–60 bpm with narrow QRS complexes; P waves are absent, retrograde (negative in the inferior leads) or dissociated. Below this, ventricular or Purkinje foci produce broad QRS complexes at 20–40 bpm, which are unreliable and expose the patient to asystole. This hierarchy helps localise complete AV block from the appearance of the escape rhythm.",
-  "aRetenir": "Sinus 60–100, junction 40–60 (narrow QRS), ventricle 20–40 (broad QRS)."
+  "aRetenir": "Sinus 60–100, junction 40–60 (narrow QRS), ventricle 20–40 (broad QRS).",
+  "rappel": "Cardiac automaticity relies on spontaneous diastolic depolarisation (phase 4) of specialised cells, driven notably by the If current; its slope, and therefore the intrinsic rate, decreases from the sinus node to the AV junction and then to the Purkinje network. The autonomic nervous system mainly modulates the higher pacemakers: ventricular foci are little affected, which explains their unreliability. A junctional escape rhythm may be accompanied by retrograde atrial activation, with a negative P wave in II, III and aVF, before, within or after the QRS. The morphology of the escape QRS locates its origin relative to the His bifurcation."
  },
  "ecg-cond-062": {
   "question": "In the absence of a reversible cause, which situations are a class I indication for pacing according to the 2021 ESC guidelines?",
@@ -959,7 +1020,8 @@
    "Incorrect: nocturnal narrow-QRS Mobitz I of vagal origin: no indication in an asymptomatic patient."
   ],
   "explication": "The 2021 ESC guidelines recommend pacing (class I) for second-degree Mobitz II AV block, high-grade AV block or complete AV block, with or without symptoms, once a reversible or transient cause has been excluded. These blocks are usually located below the AV node and carry a risk of unpredictable progression to asystole. Alternating bundle branch block, the equivalent of trifascicular disease, is also a class I indication even without symptoms. Conversely, asymptomatic bifascicular block is class III, and asymptomatic nocturnal narrow-QRS Mobitz I of vagal origin is not an indication.",
-  "aRetenir": "Mobitz II, high-grade or complete AV block, alternating block: class I pacing even without symptoms."
+  "aRetenir": "Mobitz II, high-grade or complete AV block, alternating block: class I pacing even without symptoms.",
+  "rappel": "Pacing indications in conduction disturbances rest on two criteria: the likely level of block and the correlation with symptoms. Blocks reflecting His-Purkinje disease (Mobitz II, high-grade, complete AV block, alternating bundle branch block) carry a risk of sudden progression to asystole with an unreliable escape rhythm: they are paced even without symptoms, once a reversible or transient cause has been excluded. Conduction disturbances that are usually nodal or carry a low risk of progression (narrow-QRS Mobitz I, first-degree AV block, bundle branch or bifascicular block) are paced only if symptomatic or if an EP study demonstrates distal disease."
  },
  "ecg-cond-063": {
   "question": "In an asymptomatic adult in whom the conduction disturbance shown on this tracing is permanent and has no reversible cause, pacing is not justified as long as the patient remains asymptomatic.",
@@ -972,7 +1034,8 @@
    "Correct: the escape rhythm may slow or stop suddenly; pacing is indicated without waiting for symptoms."
   ],
   "explication": "False. This tracing shows complete AV block with a narrow-QRS escape rhythm (≈ 55 bpm). In adults, third-degree AV block is a class I indication for pacing in the 2021 ESC guidelines, regardless of symptoms, once a reversible cause has been excluded. Apparent tolerance is misleading: the escape rhythm may slow or stop suddenly, and the absence of symptoms often reflects gradual adaptation (many patients find they feel better after implantation). Isolated congenital AV block in children follows specific criteria.",
-  "aRetenir": "Complete AV block in adults with no reversible cause: class I pacing, even if asymptomatic."
+  "aRetenir": "Complete AV block in adults with no reversible cause: class I pacing, even if asymptomatic.",
+  "rappel": "Acquired complete AV block in adults carries a risk of asystole and sudden cardiac death, because the escape rhythm, even if well tolerated at a given moment, may slow down or stop without warning. The absence of symptoms is often relative: fatigue, reduced exercise tolerance or cognitive impairment are frequently attributed to age and improve after implantation. The indication for pacing therefore does not wait for symptoms, once reversible causes (drugs, hyperkalaemia, acute ischaemia, Lyme disease…) have been excluded. Isolated congenital complete heart block follows specific criteria (escape rate, QRS width, ventricular function, symptoms)."
  },
  "ecg-cond-064": {
   "question": "A 45-year-old asymptomatic man has this tracing recorded at night on Holter monitoring. According to the 2021 ESC guidelines, which statement is correct?",
@@ -989,7 +1052,8 @@
    "Incorrect: an EP study is only considered if the site is uncertain (broad QRS, bundle branch block)."
   ],
   "explication": "This nocturnal tracing shows narrow-QRS second-degree Mobitz I AV block (4:3 Wenckebach), typically nodal and vagal, common in young people and athletes, and with a good prognosis. The 2021 ESC guidelines consider pacing (IIa) for Mobitz I that causes symptoms, or whose intra- or infra-Hisian site is demonstrated at EP study. An asymptomatic patient with this profile therefore has no indication, whatever their age. An EP study is not routine: it is reserved for situations where the site is uncertain (broad QRS, associated bundle branch block). Sleep apnoea should, however, be sought.",
-  "aRetenir": "Asymptomatic narrow-QRS Mobitz I: no pacing; IIa if symptomatic or infra-Hisian."
+  "aRetenir": "Asymptomatic narrow-QRS Mobitz I: no pacing; IIa if symptomatic or infra-Hisian.",
+  "rappel": "Narrow-QRS Mobitz I is a nodal block that is usually functional, driven by vagal tone: it is often seen at night, in young people or athletes, and disappears on exertion. Its risk of progression to high-grade block is low, and it does not warrant pacing when asymptomatic. The 2021 ESC guidelines consider pacing (IIa) when it causes symptoms, or when an EP study demonstrates an intra- or infra-Hisian level. An EP study is reserved for situations in which the level is in doubt (wide QRS, associated bundle branch block). Repeated nocturnal block should prompt a search for sleep apnoea."
  },
  "ecg-cond-065": {
   "question": "A 60-year-old patient has dyspnoea and a sensation of neck pulsation, a constant PR interval of 340 ms with 1:1 conduction, and no other cause found. What do the 2021 ESC guidelines say?",
@@ -1006,13 +1070,15 @@
    "Incorrect: the conduction disturbance is permanent and already documented; a loop recorder adds nothing here."
   ],
   "explication": "A very long PR interval (> 300 ms) can cause atrial contraction against a closed mitral valve, loss of the atrial contribution and symptoms resembling pacemaker syndrome (neck pulsation, dyspnoea, fatigue). The 2021 ESC guidelines consider pacing (IIa) in these patients when symptoms are clearly attributable to first-degree AV block; there is no class I indication for first-degree AV block. Asymptomatic first-degree AV block, however, does not warrant pacing. Demonstrating that symptoms are attributable is key: echocardiography may show fusion of the E and A waves or diastolic mitral regurgitation.",
-  "aRetenir": "First-degree AV block with PR > 300 ms and clearly attributable symptoms: pacing IIa."
+  "aRetenir": "First-degree AV block with PR > 300 ms and clearly attributable symptoms: pacing IIa.",
+  "rappel": "A markedly prolonged PR interval shifts atrial systole towards the end of the preceding ventricular systole or the beginning of diastole: the atrium contracts against closed or partially closed AV valves. This leads to loss of the atrial contribution to filling, diastolic mitral regurgitation and raised venous pressures (cannon \"a\" waves, neck pulsations), producing a pseudo-pacemaker syndrome. Echocardiography helps demonstrate these consequences (fusion of E and A waves). In this situation, and only if the symptoms are clearly attributable to the long PR, pacing may be considered to restore a physiological AV delay."
  },
  "ecg-cond-066": {
   "question": "A patient in permanent AF has symptomatic complete AV block. Which pacing mode should be chosen, and why?",
   "reponseAttendue": "VVIR (single-chamber ventricular pacemaker with rate response): in permanent AF, an atrial lead is pointless (there is no organised atrial activity to sense or pace).",
   "explication": "In permanent AF, the atria can be neither usefully sensed nor effectively paced: an atrial lead is pointless. VVIR mode (rate-responsive ventricular pacing) is recommended; rate response compensates for the absence of sinus tracking. AAI is impossible without organised atrial activity and in the presence of AV block. DDD and VDD modes depend on organised atrial activity: in AF, they would require permanent mode switching. In a patient with reduced LVEF or a high expected pacing percentage, physiological pacing (CRT or conduction system pacing) should be discussed.",
-  "aRetenir": "Permanent AF + AV block: VVIR (no atrial lead)."
+  "aRetenir": "Permanent AF + AV block: VVIR (no atrial lead).",
+  "rappel": "The choice of pacing mode depends on atrial activity and on the state of AV conduction. A dual-chamber mode (DDD) is useful only if the atria can be sensed and paced in an organised way; in permanent AF, an atrial lead is pointless. VVIR mode paces and senses the ventricle, with rate response compensating for the absence of tracking of sinus activity. When the burden of ventricular pacing will be high, its dyssynchronising effect calls for consideration of more physiological pacing (CRT or conduction system pacing), particularly if LVEF is reduced."
  },
  "ecg-cond-067": {
   "question": "A patient has high-grade AV block and an LVEF of 32% (heart failure with reduced ejection fraction). Which type of pacing do the 2021 ESC guidelines recommend?",
@@ -1029,7 +1095,8 @@
    "Incorrect: high-grade AV block does not allow pacing to be deferred to optimise treatment."
   ],
   "explication": "Right ventricular pacing induces dyssynchrony comparable to LBBB and may worsen LV function, especially when it is near-permanent, as in high-grade AV block. The 2021 ESC guidelines (pacing and CRT) recommend CRT rather than RV pacing in patients with reduced LVEF (< 40%) who have an indication for ventricular pacing for high-grade AV block, regardless of NYHA class (class I, level A). The 2026 ESC heart failure guidelines retain this choice, but as class IIa (level B1), for all HFrEF, now defined as LVEF < 50%. A dual-chamber mode with a conventional RV lead has the same drawback of dyssynchrony, and delaying implantation for high-grade AV block to optimise medical therapy is not reasonable. Conduction system pacing (His bundle or left bundle branch area pacing) is an increasingly used alternative, supported by the 2023 HRS guideline and the 2025 ESC consensus statement; the 2026 ESC HF guidelines, however, make no recommendation on it in the absence of randomised trials with clinical endpoints.",
-  "aRetenir": "High-grade AV block + reduced LVEF: CRT rather than RV pacing (class I in ESC 2021, IIa in the 2026 ESC HF guidelines)."
+  "aRetenir": "High-grade AV block + reduced LVEF: CRT rather than RV pacing (class I in ESC 2021, IIa in the 2026 ESC HF guidelines).",
+  "rappel": "Right ventricular pacing activates the LV from the apex or right septum, cell to cell, bypassing the His-Purkinje network: activation resembles LBBB and creates mechanical dyssynchrony. When the pacing burden is high, it may induce or worsen LV dysfunction (pacing-induced cardiomyopathy), particularly if LVEF is already reduced. Hence the value of biventricular pacing, which corrects dyssynchrony, or conduction system pacing (His bundle or left bundle branch area pacing), which preserves physiological activation. The choice is based on LVEF and the expected percentage of ventricular pacing."
  },
  "ecg-cond-068": {
   "question": "After transcatheter aortic valve implantation (TAVI), the conduction disturbance shown on this tracing persists. According to the 2021 ESC guidelines, when is permanent pacing recommended?",
@@ -1046,7 +1113,8 @@
    "Incorrect: an EP study helps in borderline situations, not in persistent complete AV block."
   ],
   "explication": "This tracing shows complete AV block with a broad-QRS escape rhythm. Conduction disorders after TAVI are common, because of the proximity between the aortic annulus and the His bundle. The 2021 ESC guidelines recommend permanent pacing (class I) for complete or high-grade AV block persisting 24–48 hours after the procedure. New-onset alternating bundle branch block after TAVI is also a class I indication. The delay of at least 5 days applies to post-infarction AV block, not TAVI, and waiting for symptoms to appear exposes the patient to serious events. An EP study may help in borderline situations (new LBBB with a very broad QRS, progressive PR prolongation), but is not a prerequisite in persistent complete AV block.",
-  "aRetenir": "Post-TAVI: complete/high-grade AV block persisting 24–48 h = class I pacing."
+  "aRetenir": "Post-TAVI: complete/high-grade AV block persisting 24–48 h = class I pacing.",
+  "rappel": "The His bundle runs through the membranous septum, just below the aortic annulus, between the non-coronary and right coronary cusps: deployment of a transcatheter aortic valve may compress or injure it. Conduction disturbances after TAVI (new LBBB, high-grade or complete AV block) are common, promoted notably by pre-existing RBBB, deep implantation and certain types of prosthesis. They may be delayed or transient, hence rhythm monitoring after the procedure. Pacing is indicated for persistent complete or high-grade AV block; in intermediate situations, prolonged monitoring or an EP study help with the decision."
  },
  "ecg-cond-069": {
   "question": "A 55-year-old asymptomatic man has the tracing below (narrow QRS). An EP study performed for another reason shows that the block is located within the His bundle (intra-Hisian block). What do the 2021 ESC guidelines recommend?",
@@ -1063,7 +1131,8 @@
    "Correct: Mobitz I with an intra- or infra-Hisian site demonstrated at EP study: pacing IIa, even without symptoms."
   ],
   "explication": "Wenckebach can occasionally be located within or below the His bundle, even with narrow QRS complexes (intra-Hisian block). Its prognosis is then that of infranodal block, with a risk of progression to high-grade AV block. The 2021 ESC guidelines consider pacing (IIa) in patients with Mobitz I that is symptomatic or whose intra- or infra-Hisian site is demonstrated at EP study, even if asymptomatic. This is the \"Mobitz I is always benign\" trap: it is the site of block, and not only its ECG appearance, that determines the prognosis. A narrow QRS does not exclude intra-Hisian block.",
-  "aRetenir": "The prognosis of AV block depends on its site: intra/infra-Hisian Mobitz I = pacing IIa."
+  "aRetenir": "The prognosis of AV block depends on its site: intra/infra-Hisian Mobitz I = pacing IIa.",
+  "rappel": "An EP study localises the block relative to the His bundle potential: supra-Hisian (nodal) block if the A wave is not followed by H, intra-Hisian if the His potential is split (H-H') or blocked within the His bundle, infra-Hisian if H is not followed by V. Prognosis depends on this level, not on the ECG pattern: a rare intra- or infra-Hisian Wenckebach carries the same risk of progression as other distal blocks. Intra-Hisian block may be associated with a narrow QRS, since conduction through the bundle branches downstream is normal. Surface clues (QRS width, response to exercise) are only probabilistic."
  },
  "ecg-cond-070": {
   "question": "On Holter monitoring, isolated non-conducted P waves occurring unexpectedly with a constant PR interval suggest Mobitz II; but there are also occasional abruptly prolonged PR intervals with no apparent cause. Narrow QRS. Which rare mechanism should be considered before establishing the indication?",
@@ -1080,7 +1149,8 @@
    "Incorrect: it modulates the PP interval around the QRS complexes, without blocked P waves or abruptly prolonged PR."
   ],
   "explication": "An extrasystole arising in the His bundle may propagate neither to the ventricles nor to the atria (a \"concealed\" extrasystole), while still rendering the junction refractory: the next P wave is then blocked (pseudo-Mobitz II) or conducted with an abruptly prolonged PR interval (pseudo-first-degree AV block). The unexplained combination of these two abnormalities with narrow QRS complexes, sometimes with manifest junctional extrasystoles elsewhere on the recording, should raise this mechanism. An intracardiac His recording confirms the diagnosis. The aim is to avoid unnecessary pacing and to treat the cause (the ectopy). The other options do not produce blocked P waves or suddenly prolonged PR intervals.",
-  "aRetenir": "Unexpected blocked P waves + abruptly prolonged PR with narrow QRS: think concealed His extrasystoles (pseudo-AV block)."
+  "aRetenir": "Unexpected blocked P waves + abruptly prolonged PR with narrow QRS: think concealed His extrasystoles (pseudo-AV block).",
+  "rappel": "Concealed conduction refers to an impulse that partially penetrates the conducting tissue without being visible on the ECG, but alters its refractoriness and therefore the conduction of the next impulse. A His extrasystole that propagates neither to the ventricles nor to the atria has no direct surface expression: it is revealed only by its effects on the following P wave (block or abruptly prolonged PR). This mechanism can mimic Mobitz II or intermittent first-degree AV block. Only an intracardiac recording of the His potential demonstrates it; the presence of manifest junctional ectopic beats is a clue."
  },
  "ecg-cond-071": {
   "question": "According to the 2018 ESC syncope guidelines, which ECG abnormalities are on their own sufficient to diagnose arrhythmic syncope?",
@@ -1099,7 +1169,8 @@
    "Incorrect: isolated fascicular block may guide investigation but does not explain syncope."
   ],
   "explication": "The 2018 ESC guidelines list diagnostic ECG criteria for arrhythmic syncope: persistent sinus bradycardia < 40 bpm, repetitive sinoatrial block or sinus pauses > 3 s while awake in the absence of physical training, second-degree Mobitz II or third-degree AV block, alternating bundle branch block, VT or rapid SVT, non-sustained polymorphic VT with long or short QT, and pacemaker malfunction with pauses. Moderate first-degree AV block or isolated fascicular block is not sufficient to explain syncope; at most, they may guide investigation. Bifascicular block is a risk criterion, not a diagnostic one.",
-  "aRetenir": "Mobitz II, complete AV block, alternating block, bradycardia < 40 bpm or pauses > 3 s while awake: arrhythmic syncope."
+  "aRetenir": "Mobitz II, complete AV block, alternating block, bradycardia < 40 bpm or pauses > 3 s while awake: arrhythmic syncope.",
+  "rappel": "In the evaluation of syncope, the 2018 ESC guidelines distinguish ECG abnormalities that are sufficient to diagnose arrhythmic syncope from those that are merely risk factors requiring further investigation. The former are rhythm or conduction disorders severe enough to explain loss of consciousness on their own (profound bradycardia or prolonged pauses while awake, advanced AV block, alternating bundle branch block, rapid tachycardias, pacemaker malfunction with pauses). The latter (intraventricular conduction disturbances, first-degree AV block, etc.) point to a possible mechanism but require documentation by EP study or an implantable loop recorder."
  },
  "ecg-cond-072": {
   "question": "A 58-year-old woman has recurrent, severe, unpredictable reflex syncope. The implantable loop recorder captures this tracing during a syncopal episode. What do the 2021 ESC guidelines recommend?",
@@ -1117,6 +1188,7 @@
   ],
   "explication": "This tracing shows about 8 s of asystole due to sinus arrest (no P waves). In patients over 40 with severe, recurrent, unpredictable reflex syncope, documentation of a symptomatic asystolic pause > 3 s (or asymptomatic > 6 s) due to sinus arrest or AV block leads to a recommendation for dual-chamber pacing (class I, level A in the 2021 ESC guidelines, whereas the 2018 ESC syncope guidelines placed it at IIa), so as to preserve AV synchrony. Pacing treats the cardioinhibitory component but not the vasodepressor component: the patient should be informed of this. There is no indication for an ICD.",
   "aRetenir": "Reflex syncope, age > 40, with a documented symptomatic asystolic pause > 3 s: dual-chamber pacing (class I).",
+  "rappel": "Reflex (vasovagal) syncope has two components: cardioinhibitory (bradycardia, sinus pause or AV block) and vasodepressor (vasodilatation and fall in blood pressure). Pacing corrects only the former: it is therefore useful only if asystole is the dominant component, ideally documented by an implantable loop recorder during a spontaneous syncope. The 2021 ESC guidelines reserve pacing for patients over 40 years of age with severe, recurrent and unpredictable reflex syncope and documented asystolic pauses. Dual-chamber pacing is preferred, some devices offering specific algorithms responding to a sudden rate drop or closed-loop stimulation.",
   "legende": "Implantable loop recorder: recording during syncope"
  },
  "ecg-cond-073": {
@@ -1134,7 +1206,8 @@
    "Incorrect: without neurological clues, EEG and MRI do not document the rhythm during syncope."
   ],
   "explication": "When syncope is infrequent and the initial work-up is negative, the probability of a 24–48 h Holter capturing an episode is very low. The 2018 ESC guidelines recommend an implantable loop recorder early in the evaluation of recurrent unexplained syncope in the absence of high-risk features. It allows monitoring over several years and symptom–rhythm correlation, often combined with remote monitoring. Coronary angiography or brain MRI do not answer the question of a paroxysmal bradyarrhythmia.",
-  "aRetenir": "Recurrent unexplained syncope, negative work-up: implantable loop recorder."
+  "aRetenir": "Recurrent unexplained syncope, negative work-up: implantable loop recorder.",
+  "rappel": "The diagnostic yield of ECG monitoring depends on how often symptoms occur: a 24- to 48-hour Holter suits daily symptoms, prolonged external or event recorders weekly or monthly symptoms, and an implantable loop recorder rare episodes. The latter, placed subcutaneously, records continuously for several years, automatically stores bradycardia, pauses and tachycardia as well as patient-activated episodes, and is coupled with remote monitoring. The aim is to obtain a symptom-rhythm correlation, which allows an arrhythmic cause to be confirmed or excluded and guides treatment."
  },
  "ecg-cond-074": {
   "question": "In an asymptomatic patient, a 3.5 s sinus pause during sleep on Holter monitoring is on its own sufficient to justify pacemaker implantation.",
@@ -1148,6 +1221,7 @@
   ],
   "explication": "False. Nocturnal pauses of a few seconds are common, particularly in young people, athletes and patients with sleep apnoea syndrome, and usually reflect high vagal tone. In the absence of correlation with symptoms, they are not an indication for pacing. The 2018 ESC diagnostic criteria refer to pauses > 3 s while awake. Sleep apnoea syndrome should, however, be sought, as its treatment often abolishes these pauses.",
   "aRetenir": "Asymptomatic nocturnal pause: no pacemaker, think sleep apnoea.",
+  "rappel": "The interpretation of bradycardia or a pause on a Holter recording depends on context: during sleep, vagal predominance physiologically lowers the rate and may produce sinus pauses or transient nodal block, common in young or trained individuals. Sleep apnoea also causes nocturnal bradycardia and pauses through a vagal reflex triggered by hypoxia; treating it may make them disappear. The indication for pacing in sinus node dysfunction rests on symptom-rhythm correlation, and the severity criteria for pauses refer to the waking state.",
   "legende": "Holter: overnight recording"
  },
  "ecg-cond-075": {
@@ -1167,7 +1241,8 @@
    "Incorrect: isolated early repolarisation in an athlete is usually benign."
   ],
   "explication": "The 2018 ESC guidelines distinguish major and minor high-risk ECG features. Major features include: bundle branch block or other intraventricular conduction delay (including bifascicular block), Mobitz II or complete AV block, sinus bradycardia < 40 bpm or pauses > 3 s while awake, slow AF, sustained or non-sustained VT, QTc > 460 ms on repeated ECGs, type 1 Brugada pattern, Q waves suggestive of ischaemic heart disease, and implanted device malfunction. Minor features (Mobitz I or first-degree AV block with a very long PR, pre-excitation, short QT, atypical Brugada pattern…) only count if the history suggests arrhythmic syncope. Bifascicular block raises concern for paroxysmal AV block and requires prompt evaluation (EP study, or even an implantable loop recorder). Respiratory sinus arrhythmia is physiological, and isolated early repolarisation in an athlete is usually benign.",
-  "aRetenir": "Syncope + bifascicular block, long QT or type 1 Brugada = high-risk features."
+  "aRetenir": "Syncope + bifascicular block, long QT or type 1 Brugada = high-risk features.",
+  "rappel": "The initial evaluation of syncope aims to identify patients at high risk of a serious event, who warrant prompt management, possibly in hospital. The 2018 ESC guidelines list high-risk features drawn from the history (syncope during exertion or when supine, sudden palpitations, family history of sudden cardiac death), examination, underlying heart disease and the ECG. Major ECG abnormalities indicate a substrate for bradyarrhythmia (conduction disturbances, profound bradycardia) or ventricular tachyarrhythmia (long QT, type 1 Brugada pattern, previous infarction). Minor criteria are relevant only if the history is consistent with arrhythmic syncope."
  },
  "ecg-cond-076": {
   "question": "In a patient with syncope and bundle branch block, which features point to paroxysmal AV block rather than reflex syncope?",
@@ -1186,6 +1261,7 @@
    "Incorrect: syncope recovers quickly and completely; prolonged confusion suggests an epileptic seizure instead."
   ],
   "explication": "Arrhythmic syncope due to paroxysmal AV block is typically abrupt, without prodrome, possible in any position (including seated or supine), and therefore often causes injury. Advanced age and structural heart disease increase the probability of a conduction disturbance. Conversely, prolonged standing, autonomic prodromal symptoms (nausea, sweating, warmth) and an emotional trigger such as the sight of blood point to reflex syncope. Slow recovery with prolonged confusion is not typical of syncope, from which recovery is rapid and complete: it should raise the possibility of an epileptic seizure. These are pointers only: a patient with bundle branch block may also have vasovagal syncope, hence the value of the EP study and the implantable loop recorder.",
-  "aRetenir": "Abrupt syncope without prodrome, when supine, causing injury = think paroxysmal AV block."
+  "aRetenir": "Abrupt syncope without prodrome, when supine, causing injury = think paroxysmal AV block.",
+  "rappel": "Syncope is transient loss of consciousness due to global cerebral hypoperfusion, with rapid onset, short duration and spontaneous, complete recovery. Its mechanism is first inferred from the history: circumstances, posture, prodrome, triggers, recovery. Reflex syncope typically occurs when standing, after a trigger (prolonged standing, emotion, pain) and autonomic prodromal symptoms. Arrhythmic syncope is abrupt, without prodrome, possible in any position or on exertion, and often causes injury; it is more likely with structural heart disease or a conduction disturbance. These clinical clues remain probabilistic and are confirmed by documenting the rhythm."
  }
 }

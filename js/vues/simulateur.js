@@ -67,7 +67,7 @@ export function vueSimulateur(app) {
   if (Array.isArray(r.voies)) r.voies = r.voies.filter(id => CANAUX.some(c => c.id === id));
   if (!r.voies?.length || MONTAGES[r.montage]) r.voies = [...(MONTAGES[r.montage] ?? MONTAGES.standard).voies]; // montage prédéfini : toujours sa version à jour
   if (!SITES_STIM.some(s => s.id === r.site)) r.site = 'hra';
-  if (!SITES_DETECTION.some(s => s.id === r.detection)) r.detection = '';
+  r.detection = ''; // couplage à la détection : réservé au protocole « ESV His-réfractaire »
   // rappel : entrée du journal affichée sur l'écran de rappel (instantané du tracé), avec sa relecture et ses compas
   // enquete : diagnostic à trouver (cas mystère ou patient arrivé en tachycardie), explication cachée jusqu'à la conclusion
   // historique : manœuvres dans l'ordre où elles ont été faites (type, instant, en tachycardie ou non) pour noter la démarche
@@ -92,23 +92,23 @@ export function vueSimulateur(app) {
   app.innerHTML = `
     <h1 class="simu-h1">${t('Simulateur d\'électrophysiologie', 'Electrophysiology simulator')}</h1>
     <section class="simu-sombre simu-tete">
-      <div class="simu-modes" role="tablist" aria-label="${t('Mode du simulateur', 'Simulator mode')}">
-        <button type="button" role="tab" data-mode="libre" aria-selected="${r.modeSimu !== 'quiz'}"><b>${t('Entraînement libre', 'Free training')}</b><small>${t('Scénario au choix, explications visibles', 'Pick a scenario, explanations shown')}</small></button>
-        <button type="button" role="tab" data-mode="quiz" aria-selected="${r.modeSimu === 'quiz'}"><b>${t('Quiz', 'Quiz')}</b><small>${t('Cas clinique tiré au sort, diagnostic et démarche notés', 'Random clinical case, diagnosis and work-up scored')}</small></button>
-      </div>
+      <!-- une seule ligne : mode (entraînement, quiz), scénario ou nouveau cas ; le contexte du cas juste en dessous -->
       <div class="simu-cas-ligne">
-        <label class="simu-champ large" id="choix-scenario"><span>${t('Scénario', 'Scenario')}</span>
-          <select id="scenario">
+        <div class="simu-modes" role="tablist" aria-label="${t('Mode du simulateur', 'Simulator mode')}">
+          <button type="button" role="tab" data-mode="libre" aria-selected="${r.modeSimu !== 'quiz'}"><span class="long">${t('Entraînement libre', 'Free training')}</span><span class="court">${t('Entraînement', 'Training')}</span></button>
+          <button type="button" role="tab" data-mode="quiz" aria-selected="${r.modeSimu === 'quiz'}">${t('Quiz', 'Quiz')}</button>
+        </div>
+        <label class="simu-champ large" id="choix-scenario"><span class="simu-cache">${t('Scénario', 'Scenario')}</span>
+          <select id="scenario" aria-label="${t('Scénario', 'Scenario')}">
             <optgroup label="${t('Patient en tachycardie à l\'arrivée (diagnostic à confirmer)', 'Patient in tachycardia on arrival (diagnosis to confirm)')}">
               ${Object.entries(ARRIVEES).map(([id, s]) => `<option value="${id}">${esc(s.nom)}</option>`).join('')}</optgroup>
             <optgroup label="${t('Scénarios d\'apprentissage', 'Teaching scenarios')}">
               ${Object.entries(SCENARIOS).map(([id, s]) => `<option value="${id}" ${id === 'normal' ? 'selected' : ''}>${esc(s.nom)}</option>`).join('')}</optgroup>
           </select></label>
         <button type="button" class="btn btn-primaire" id="quiz-nouveau" hidden>${t('Nouveau cas', 'New case')}</button>
-        <span class="simu-badge" id="cas-badge"></span>
       </div>
+      <div class="simu-contexte-ligne"><span class="simu-badge" id="cas-badge"></span><p class="simu-contexte" id="contexte"></p></div>
       <p class="note simu-quiz-stats" id="quiz-stats" hidden></p>
-      <p class="simu-contexte" id="contexte"></p>
     </section>
 
     <div class="simu-poste">
@@ -118,11 +118,12 @@ export function vueSimulateur(app) {
         <label class="simu-mini">${t('Affichage', 'Display')} <select id="mode"><option value="balayage" ${r.mode === 'balayage' ? 'selected' : ''}>${t('Balayage (standard)', 'Sweep (standard)')}</option><option value="defilement" ${r.mode === 'defilement' ? 'selected' : ''}>${t('Défilement', 'Scrolling')}</option></select></label>
         <label class="simu-mini">${t('Montage', 'Montage')} <select id="montage">${Object.entries(MONTAGES).map(([id, m]) => `<option value="${id}" ${id === r.montage ? 'selected' : ''}>${esc(m.nom)}</option>`).join('')}
           <option value="perso" ${r.montage === 'perso' ? 'selected' : ''}>${t('Personnalisé', 'Custom')}</option></select></label>
-        <details class="simu-filtres"><summary>${t('Réglages', 'Settings')}</summary><div>
-          ${case_('bruit', t('Bruit', 'Noise'), r.bruit)}${case_('etiquettes', 'A-H-V', r.etiquettes)}
-          ${case_('filtre50', t('Filtre secteur 50 Hz', '50 Hz notch filter'), r.filtre50)}${case_('passe-haut', t('Passe-haut 30 Hz (EGM)', '30 Hz high-pass (EGM)'), r.passeHaut)}
-        </div></details>
       </div>
+      <!-- réglages de la baie sur leur propre ligne, au-dessus des voies affichées : accessibles sans faire défiler la barre sur téléphone -->
+      <details class="simu-filtres"><summary>${t('Réglages de la baie', 'Recording settings')}</summary><div>
+        ${case_('bruit', t('Bruit', 'Noise'), r.bruit)}${case_('etiquettes', 'A-H-V', r.etiquettes)}
+        ${case_('filtre50', t('Filtre secteur 50 Hz', '50 Hz notch filter'), r.filtre50)}${case_('passe-haut', t('Passe-haut 30 Hz (EGM)', '30 Hz high-pass (EGM)'), r.passeHaut)}
+      </div></details>
       <details class="simu-voies" id="voies-bloc"><summary>${t('Voies affichées', 'Displayed channels')} (<span id="voies-nb"></span>)${t(' : toucher pour ajouter ou enlever', ': tap to add or remove')}</summary>
         <div class="simu-voies-grille">${GROUPES_VOIES().map(([g, ids]) => `<div class="simu-voies-groupe"><span>${g}</span>${ids.map(id => {
           const c = CANAUX.find(x => x.id === id);
@@ -204,7 +205,6 @@ export function vueSimulateur(app) {
             <div class="simu-grille-pas">${pas('s2', 'S2 (ms)', r.s2, 10, 0, 1000)}${pas('s3', 'S3', r.s3, 10, 0, 1000)}${pas('s4', 'S4', r.s4, 10, 0, 1000)}</div>
             <label class="simu-case"><input type="checkbox" id="decrement" ${r.decrement ? 'checked' : ''}> ${t('Décrément automatique : S2 − 10 ms après chaque train', 'Automatic decrement: S2 − 10 ms after each drive train')}</label>
           </div>
-          <div class="simu-ligne-puces"><span class="simu-pas-lib">${t('Couplé à la détection', 'Synchronised to sensing')}</span>${puces('detection', SITES_DETECTION, r.detection, COURTS_DETECTION(), t('Couplage à la détection', 'Synchronisation to sensing'))}</div>
 `)}
         ${panneau('proto', `
           <div class="simu-protos">
@@ -299,6 +299,14 @@ export function vueSimulateur(app) {
   const $ = s => app.querySelector(s);
   const canvas = $('#ecran'), canvasR = $('#ecran-rappel'), canvasMini = $('#ecran-mini'), canvasRef = $('#ecran-ref'), baie = $('.simu-baie');
   const compact = () => matchMedia(MEDIA_COMPACT).matches;
+  // téléphone tourné en paysage : la baie (les tracés) vient directement au centre de l'écran, sans avoir à faire défiler
+  const centrerBaie = () => requestAnimationFrame(() => requestAnimationFrame(() => {
+    if (canvas.isConnected && compact()) $('.simu-ecrans').scrollIntoView({ block: 'center', behavior: 'auto' });
+  }));
+  const mqCompact = matchMedia(MEDIA_COMPACT);
+  const auPaysage = e => { if (!canvas.isConnected) { mqCompact.removeEventListener('change', auPaysage); return; } if (e.matches) centrerBaie(); };
+  mqCompact.addEventListener('change', auPaysage);
+  if (compact()) centrerBaie();
 
   // ---------- journal et écran de rappel ----------
   // Chaque entrée du journal couvre une fenêtre de tracé [debut, capture] ; à l'instant « capture », le tracé de cette
@@ -487,7 +495,7 @@ export function vueSimulateur(app) {
         + `${r.detection ? t(` · couplé ${COURTS_DETECTION()[r.detection]}`, ` · synced ${COURTS_DETECTION()[r.detection]}`) : ''}`;
   }
   function choisirPuce(groupe, v) {
-    for (const b of $(`#${groupe}`).querySelectorAll('[data-v]')) b.setAttribute('aria-checked', String(b.dataset.v === v));
+    for (const b of $(`#${groupe}`)?.querySelectorAll('[data-v]') ?? []) b.setAttribute('aria-checked', String(b.dataset.v === v));
     r[groupe] = v; reglages();
   }
   function message(m) { $('#message').textContent = m; setTimeout(() => { if ($('#message')?.textContent === m) $('#message').textContent = ''; }, 5000); }
@@ -1076,7 +1084,6 @@ export function vueSimulateur(app) {
   $('#cr-generer').onclick = compteRendu;
   for (const b of app.querySelectorAll('[data-proto]')) b.onclick = () => lancerProtocole(b.dataset.proto);
   $('#site').addEventListener('click', e => { const b = e.target.closest('[data-v]'); if (b) choisirPuce('site', b.dataset.v); });
-  $('#detection').addEventListener('click', e => { const b = e.target.closest('[data-v]'); if (b) choisirPuce('detection', b.dataset.v); });
   // onglets : toucher l'onglet ouvert replie la console (le tracé garde toute la place)
   const console_ = $('#console');
   const replier = v => { console_.classList.toggle('repliee', v); $('#replier').setAttribute('aria-expanded', String(!v)); $('#replier').textContent = v ? '▴' : '▾'; };
@@ -1109,6 +1116,17 @@ export function vueSimulateur(app) {
   console_.addEventListener('keydown', e => { const b = e.target.closest('.btn-pas'); if (b && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); pasSuivant(b); } });
   for (const id of ['#sortie', '#largeur', '#s1', '#n', '#s2', '#s3', '#s4', '#decrement', '#salve-cl', '#salve-duree', '#rampe-debut', '#rampe-fin', '#rampe-pas', '#puissance', '#duree-rf',
     '#vitesse', '#mode', '#bruit', '#etiquettes', '#filtre50', '#passe-haut']) $(id).addEventListener('change', reglages);
+  // stimulation en cours (« ∞ » ou burst continu) : le cycle et la sortie se règlent en direct, sans l'interrompre
+  function reglerSalveEnDirect() {
+    const sv = st.salve, c = st.coeur; if (!sv || st.proto) return; // un protocole garde ses propres réglages
+    const cl = sv.continu ? r.s1 : r.modeStim === 'salve' && r.salveType === 'burst' ? r.salveCl : sv.cl;
+    if (cl === sv.cl && r.sortie === sv.sortie && r.largeur === sv.largeur) return;
+    c.annulerStims(c.t); // stimulus déjà programmés à l'ancien cycle
+    const der = c.stims.filter(x => x.s === sv.site).at(-1)?.t ?? c.t;
+    Object.assign(sv, { cl, sortie: r.sortie, largeur: r.largeur, prochain: Math.max(c.t + 20, der + cl) });
+    $('#proto-etat').textContent = t(`▶ Stimulation en cours : ${cl} ms, ${virgule(r.sortie)} mA`, `▶ Pacing in progress: ${cl} ms, ${virgule(r.sortie)} mA`);
+  }
+  for (const id of ['#s1', '#salve-cl', '#sortie', '#largeur']) $(id).addEventListener('change', reglerSalveEnDirect);
   // montage : jeu de voies prédéfini ; chaque voie peut ensuite être ajoutée ou enlevée (montage personnalisé)
   // montage prédéfini reconnu seulement si mêmes voies dans le même ordre
   const reconnaitreMontage = () => { r.montage = Object.entries(MONTAGES).find(([, m]) => m.voies.join() === r.voies.join())?.[0] ?? 'perso'; };
@@ -1178,6 +1196,19 @@ export function vueSimulateur(app) {
     message(t('Référence gardée : rappelez un autre événement pour comparer.', 'Reference kept: recall another event to compare.'));
   };
   $('#reference-fermer').onclick = () => { st.reference = null; $('#reference').hidden = true; };
+
+  // téléphone tenu en portrait : plein écran invitant à passer en paysage ; se ferme au toucher, seul après 3 s, ou dès la rotation
+  if (matchMedia('(orientation: portrait) and (max-width: 699px)').matches) {
+    app.insertAdjacentHTML('beforeend', `<div class="simu-tourner" id="tourner" role="dialog" aria-modal="true" aria-labelledby="tourner-titre" tabindex="-1">
+      <span class="simu-tourner-tel" aria-hidden="true"></span>
+      <p id="tourner-titre"><b>${t('Tournez votre téléphone en paysage', 'Turn your phone to landscape')}</b></p>
+      <p class="note">${t('La baie et la console tiennent côte à côte. Toucher pour fermer.', 'The recording system and the console fit side by side. Tap to dismiss.')}</p></div>`);
+    const voile = $('#tourner'), paysage = matchMedia('(orientation: landscape)');
+    const fermer = () => { voile.remove(); clearTimeout(minuterie); paysage.removeEventListener('change', fermer); };
+    const minuterie = setTimeout(fermer, 3000);
+    voile.onclick = fermer; paysage.addEventListener('change', fermer);
+    voile.focus({ preventScroll: true });
+  }
 
   // ---------- téléphone : paysage, un écran à la fois, glisser pour changer d'écran ----------
   $('#btn-paysage').onclick = async () => {

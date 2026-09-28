@@ -74,7 +74,7 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
 - **Mode compétitif** : classement **ELO des échecs** (départ 600 pour tout débutant, formule FIDE, K = 40 puis 20, 10 au-delà de 2400).
   Chaque question a une cote tirée de sa difficulté (niveau 1 = 800 … niveau 10 = 2600). Flux sans limite de questions :
   on joue quand on veut, pause à tout moment, l'ELO est enregistré après chaque réponse. Adaptatif dans les deux sens :
-  questions plus dures quand l'ELO monte, plus simples quand il baisse. Titres de « Débutant » à « Grand maître ».
+  questions plus dures quand l'ELO monte, plus simples quand il baisse. Titres calqués sur le cursus de cardiologie, d'« Externe » à « Professeur de rythmologie ».
 - **Autres modes** : **mode examen** chronométré (correction à la fin), entraînement ciblé (thèmes, marques, types,
   sous-thèmes, niveau, tracés uniquement), révisions de ses erreurs (répétition espacée), nouveautés.
   (Le module de fiches, `js/vues/fiches.js`, reste dans le dépôt mais n'est plus proposé dans l'application.)
@@ -83,7 +83,8 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
 - **Progression** : **courbe de l'ELO jour après jour** (avec tableau des valeurs), badges, réussite par thème et par niveau, jours consécutifs,
   historique, export/import ; une série interrompue se reprend. Tout reste sur l'appareil.
 - Raccourcis clavier (1–4 / A–D, V/F, Entrée).
-- Mode clair / sombre, affichage adapté au mobile.
+- Mode clair / sombre, affichage adapté au mobile ; **installation sur le téléphone** proposée en haut de l'accueil
+  (bouton sur Android, démarche expliquée sur iPhone et iPad ; rien sur ordinateur).
 
 ## Utilisation
 
@@ -97,7 +98,11 @@ python3 -m http.server 8000     # puis ouvrir http://localhost:8000
 
 Le workflow `.github/workflows/pages.yml` valide la base de questions à chaque push et publie le site
 à chaque push sur `main`. À activer une fois dans **Settings → Pages → Source : GitHub Actions**.
-Sur mobile, ouvrir l'adresse du site puis « Ajouter à l'écran d'accueil » pour l'installer.
+Sur téléphone, l'accueil propose d'installer l'application dans un encart : sur Android, le bouton « Installer »
+ouvre la boîte d'installation du navigateur (`beforeinstallprompt`, retenu dès l'en-tête de `index.html`) ; sur iPhone
+et iPad, la démarche est expliquée pas à pas (Partager → Sur l'écran d'accueil). Rien n'est proposé sur ordinateur.
+L'encart disparaît une fois l'application installée ou lancée en plein écran, et pour 30 jours quand on le referme
+(`js/installation.js`).
 
 ### Référencement (SEO et moteurs génératifs)
 

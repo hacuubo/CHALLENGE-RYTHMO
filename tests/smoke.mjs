@@ -66,6 +66,10 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     const avant = +(await page.textContent('.tuile[data-nav=competitif] .tuile-elo b'));
     if (avant !== 600) throw new Error(`ELO de départ ${avant} au lieu de 600`);
     await page.click('.tuile[data-nav=competitif]');
+    // première partie : choix de l'ELO de départ au curseur (600 à 2600)
+    await page.waitForSelector('#depart');
+    await page.$eval('#depart', el => { el.value = '1400'; el.dispatchEvent(new Event('input')); });
+    if ((await page.textContent('#depart-valeur')).trim() !== '1400') throw new Error('curseur de départ sans effet');
     await page.click('#jouer');
     for (let i = 0; i < 6; i++) {
       await page.waitForSelector('#zone');
@@ -84,10 +88,18 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await nav('accueil');
     if (await page.$('#reprendre')) throw new Error('le mode compétitif ne doit pas laisser de série à reprendre');
     const apres = +(await page.textContent('.tuile[data-nav=competitif] .tuile-elo b'));
-    if (!Number.isFinite(apres) || apres === avant) throw new Error(`ELO inchangé (${avant} → ${apres})`);
+    // 6 réponses à K = 40 : on reste à moins de 240 points du départ choisi
+    if (!Number.isFinite(apres) || apres === 1400 || Math.abs(apres - 1400) > 240) throw new Error(`ELO ${apres} incohérent avec un départ à 1400`);
     await nav('competitif');
-    await page.waitForSelector('#courbe svg');
+    await page.waitForSelector('#jouer');
+    if (await page.$('#courbe') || await page.$$eval('#app .carte', l => l.length) !== 1) throw new Error('l\'écran compétitif ne doit garder que la carte du classement');
+    if (await page.$('#depart')) throw new Error('le curseur de départ ne doit plus apparaître après la première partie');
     await capture('competitif');
+    await page.click('[data-nav=reglement]');
+    await page.waitForSelector('.tableau-cotes');
+    if (!/Rythmologue|Electrophysiologist/.test(await page.textContent('#app'))) throw new Error('titres du cursus de cardiologie absents du règlement');
+    await page.click('.retour-accueil');
+    await page.waitForSelector('#jouer');
   });
 
   await verifier(`${appareil} : entraînement par domaine`, async () => {
@@ -188,6 +200,12 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await nav('accueil');
     await page.click('.tuile[data-nav=simulateur]');
     await page.waitForSelector('#ecran'); // l'accueil mène directement à la baie
+    if (largeur < 700) { // téléphone en portrait : invitation plein écran à tourner le téléphone, fermée au toucher
+      await page.waitForSelector('#tourner');
+      await page.click('#tourner');
+      if (await page.$('#tourner')) throw new Error('l\'invitation à passer en paysage ne se ferme pas au toucher');
+    }
+    if (await page.$('#detection')) throw new Error('le couplage à la détection est encore proposé dans Programme');
     await page.selectOption('#scenario', 'trin');
     // nombre de S1 infini : stimulation continue jusqu'à Stop, sans nombre de S1 ni extrastimulus
     await page.check('#continu');
@@ -195,8 +213,14 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await page.click('#stimuler');
     await page.waitForTimeout(2500);
     if (await page.textContent('#stimuler') !== 'Stop') throw new Error('la stimulation continue s\'arrête seule');
+    // S1 réglé en direct pendant la stimulation continue (« + » de S1), sans l'interrompre
+    await page.click('.btn-pas[data-cible=s1][data-delta="10"]');
+    if (await page.textContent('#stimuler') !== 'Stop') throw new Error('changer S1 interrompt la stimulation continue');
     await page.click('#stimuler');
     if (await page.textContent('#stimuler') === 'Stop') throw new Error('Stop n\'arrête pas la stimulation continue');
+    await page.waitForFunction(() => /continue \(.* à 610 ms\)/.test(document.querySelector('#journal')?.textContent || ''), null, { timeout: 5000 })
+      .catch(() => { throw new Error('le cycle S1 modifié en direct n\'est pas appliqué'); });
+    await page.click('.btn-pas[data-cible=s1][data-delta="-10"]');
     await page.uncheck('#continu');
     // scénario rechargé : l'induction part d'un cœur au repos, indépendamment de la stimulation continue qui précède
     // (selon l'instant du Stop, elle peut laisser une tachycardie déjà induite ou des oreillettes encore réfractaires)
@@ -423,6 +447,59 @@ await verifier('invitation à la version anglaise', async () => {
   await page.waitForSelector('.fermer-invitation');
   await page.click('.fermer-invitation');
   if (await page.$('.invitation-langue') || await page.evaluate(() => localStorage.getItem('rythmo.langue')) !== 'fr') throw new Error('invitation non refermée');
+  await ctx.close();
+});
+
+// Encart « Installer l'application » sur l'accueil : jamais sur ordinateur, démarche expliquée sur iPhone,
+// bouton Installer sur Android dès que le navigateur propose l'installation (événement beforeinstallprompt).
+await verifier('encart d\'installation de l\'application', async () => {
+  const contexte = async ua => {
+    const ctx = await navigateur.newContext({ locale: 'fr-FR', viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, ...(ua ? { userAgent: ua } : {}) });
+    const page = await ctx.newPage();
+    await page.addInitScript(() => localStorage.setItem('rythmo.langue', 'fr'));
+    page.on('pageerror', e => erreurs.push(`installation : ${e.message}`));
+    await page.goto(url);
+    await page.waitForSelector('.menu-principal.centre');
+    return [ctx, page];
+  };
+  const proposer = () => page.evaluate(() => {
+    const e = new Event('beforeinstallprompt', { cancelable: true });
+    e.prompt = () => { window.__promptAppele = true; return Promise.resolve(); };
+    e.userChoice = Promise.resolve({ outcome: 'accepted' });
+    window.dispatchEvent(e);
+  });
+  // ordinateur : rien, même quand le navigateur propose l'installation
+  let [ctx, page] = await contexte();
+  await proposer();
+  await page.waitForTimeout(200);
+  if (await page.$('.installation')) throw new Error('encart affiché sur ordinateur');
+  await ctx.close();
+  // iPhone : démarche pas à pas, refermable et mémorisée
+  [ctx, page] = await contexte('Mozilla/5.0 (iPhone; CPU iPhone OS 26_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1');
+  await page.waitForSelector('.installation[data-mode=ios]');
+  if (await page.isVisible('#installation-etapes')) throw new Error('étapes iPhone visibles avant la demande');
+  await page.click('#installer');
+  if (!(await page.isVisible('#installation-etapes')) || !/Partager/.test(await page.textContent('#installation-etapes'))) throw new Error('étapes iPhone absentes');
+  await page.click('.fermer-installation');
+  if (await page.$('.installation')) throw new Error('encart non refermé');
+  await page.reload();
+  await page.waitForSelector('.menu-principal.centre');
+  if (await page.$('.installation')) throw new Error('encart réaffiché après refus');
+  await ctx.close();
+  // Android : pas d'encart sans proposition du navigateur ; bouton Installer dès qu'elle arrive, qui ouvre la boîte du système
+  [ctx, page] = await contexte('Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36');
+  if (await page.$('.installation')) throw new Error('encart Android affiché sans proposition du navigateur');
+  await proposer();
+  await page.waitForSelector('.installation[data-mode=bouton] #installer');
+  if (!/téléphone/.test(await page.textContent('.installation'))) throw new Error('libellé téléphone absent');
+  await page.click('#installer');
+  await page.waitForSelector('.installation', { state: 'detached' });
+  if (!(await page.evaluate(() => window.__promptAppele))) throw new Error('boîte d\'installation non ouverte');
+  await page.evaluate(() => window.dispatchEvent(new Event('appinstalled')));
+  await page.reload();
+  await page.waitForSelector('.menu-principal.centre');
+  await proposer();
+  if (await page.$('.installation')) throw new Error('encart réaffiché après installation');
   await ctx.close();
 });
 

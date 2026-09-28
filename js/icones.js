@@ -13,6 +13,8 @@ export const ICONES = {
   simulateur: svg('<rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M5 11h3l1.5-3 2.5 6 2-4.5 1 1.5h4"/><path d="M9 21h6"/><path d="M12 17v4"/>'),
   // fiches empilées : fiches
   fiches: svg('<rect x="6" y="3" width="13" height="16" rx="2"/><path d="M4 7v12a2 2 0 0 0 2 2h10"/><path d="M9.5 8h6"/><path d="M9.5 11.5h6"/><path d="M9.5 15h4"/>'),
+  // téléphone avec flèche vers le bas : installation de l'application
+  installation: svg('<rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M12 7v7"/><path d="m9.5 11.5 2.5 2.5 2.5-2.5"/><path d="M11 18h2"/>'),
   // courbe ascendante : progression
   progression: svg('<path d="M3 20h18"/><path d="M4 16l5-5 4 3 6-7"/><path d="M15 7h4v4"/>'),
   // domaines d'entraînement

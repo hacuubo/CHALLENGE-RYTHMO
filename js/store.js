@@ -1,6 +1,6 @@
 // Persistance locale (localStorage) : progression, niveau estimé, réglages, série en cours.
 // - Répétition espacée simple par boîtes de Leitner (1 à 5).
-// - Classement ELO du mode compétitif, sur l'échelle des échecs (départ 600, K = 40 / 20 / 10).
+// - Classement ELO du mode compétitif, sur l'échelle des échecs (départ choisi par le joueur de 600 à 2600, K = 40 / 20 / 10).
 
 import { t } from './i18n.js';
 
@@ -26,8 +26,8 @@ export function progres() {
     const brut = lire(CLE_PROGRES, {});
     const v = vide();
     cache = { ...v, ...brut, serie: { ...v.serie, ...brut.serie }, classement: { ...v.classement, ...brut.classement }, compteurs: { ...v.compteurs, ...brut.compteurs } };
-    // départ abaissé à 600 : un joueur qui n'a encore joué aucune partie classée repart de 600
-    if (!cache.classement.n) Object.assign(cache.classement, { elo: 600, pic: 600 });
+    // un joueur qui n'a encore joué aucune partie classée repart de son niveau de départ (600 par défaut)
+    if (!cache.classement.n) { const d = cache.classement.depart ?? ELO_DEPART; Object.assign(cache.classement, { elo: d, pic: d }); }
   }
   return cache;
 }
@@ -37,15 +37,27 @@ const aujourdhui = () => new Date().toLocaleDateString('sv'); // AAAA-MM-JJ loca
 // ----- Classement ELO (mode compétitif) -----
 // Chaque question a une cote fixe tirée de sa difficulté : 1 → 800 (débutant) … 10 → 2600 (grand maître).
 // Répondre revient à jouer une partie contre la question : gain = 1, réponse fausse = 0.
-export const ELO_DEPART = 600;
+export const ELO_DEPART = 600;   // départ par défaut et minimum du curseur
+export const ELO_DEPART_MAX = 2600; // cote de la question la plus difficile
+// Niveau de départ : choisi par le joueur avant sa première partie classée, puis figé.
+export const eloDepart = () => progres().classement.depart ?? ELO_DEPART;
+export function fixerDepart(elo) {
+  const c = progres().classement;
+  if (c.n) return; // déjà classé : le départ ne se change plus
+  const d = Math.max(ELO_DEPART, Math.min(ELO_DEPART_MAX, Math.round(elo)));
+  Object.assign(c, { depart: d, elo: d, pic: d });
+  sauver();
+}
 export const eloQuestion = difficulte => 800 + (difficulte - 1) * 200;
 export const niveauDepuisElo = r => Math.max(1, Math.min(10, Math.round((r - 800) / 200) + 1));
 // titres : libellé relu à chaque accès (suit la langue courante)
 const titreElo = (min, fr, en) => ({ min, get nom() { return t(fr, en); } });
+// Titres calqués sur le cursus de cardiologie et de rythmologie (de l'externat au professorat)
 export const TITRES = [
-  titreElo(0, 'Débutant', 'Beginner'), titreElo(1000, 'Amateur', 'Amateur'), titreElo(1400, 'Joueur de club', 'Club player'),
-  titreElo(1800, 'Expert', 'Expert'), titreElo(2000, 'Candidat maître', 'Candidate Master'), titreElo(2200, 'Maître', 'Master'),
-  titreElo(2400, 'Maître international', 'International Master'), titreElo(2500, 'Grand maître', 'Grandmaster'),
+  titreElo(0, 'Externe', 'Medical student'), titreElo(1000, 'Interne en phase socle', 'Junior resident'),
+  titreElo(1400, 'Interne en approfondissement', 'Senior resident'), titreElo(1800, 'Docteur junior', 'Final-year resident'),
+  titreElo(2000, 'Chef de clinique', 'Clinical fellow'), titreElo(2200, 'Rythmologue', 'Electrophysiologist'),
+  titreElo(2400, 'Rythmologue expert', 'Senior electrophysiologist'), titreElo(2500, 'Professeur de rythmologie', 'Professor of electrophysiology'),
 ];
 export function titre(elo) {
   let i = 0;
@@ -56,7 +68,7 @@ export function classement() {
   const c = progres().classement;
   const jour = c.jours[aujourdhui()];
   const hier = Object.keys(c.jours).filter(j => j < aujourdhui()).sort().pop();
-  const reference = hier ? c.jours[hier].elo : ELO_DEPART;
+  const reference = hier ? c.jours[hier].elo : (c.depart ?? ELO_DEPART);
   return { elo: Math.round(c.elo), n: c.n, pic: Math.round(c.pic), titre: titre(c.elo), niveau: niveauDepuisElo(c.elo),
     duJour: jour ? Math.round(c.elo - reference) : 0, partiesDuJour: jour ? jour.n : 0 };
 }
@@ -127,8 +139,8 @@ export const BADGES = [
   badge('cinqcents', '🏅', ['Marathonien', 'Marathon runner'], ['500 questions différentes vues', '500 different questions seen']),
   badge('ecg50', '📈', ['Œil d\'ECG', 'Eagle eye'], ['50 bonnes réponses sur des tracés', '50 correct answers on tracings']),
   badge('examen', '⏱️', ['Examen réussi', 'Exam passed'], ['Au moins 80 % en mode examen (10 questions ou plus)', 'At least 80% in exam mode (10 questions or more)']),
-  badge('club', '♞', ['Joueur de club', 'Club player'], ['Atteindre 1400 ELO en mode compétitif', 'Reach 1400 ELO in competitive mode']),
-  badge('expert', '♛', ['Expert', 'Expert'], ['Atteindre 1800 ELO en mode compétitif', 'Reach 1800 ELO in competitive mode']),
+  badge('club', '🩺', ['Interne en approfondissement', 'Senior resident'], ['Atteindre 1400 ELO en mode compétitif', 'Reach 1400 ELO in competitive mode']),
+  badge('expert', '🎓', ['Docteur junior', 'Final-year resident'], ['Atteindre 1800 ELO en mode compétitif', 'Reach 1800 ELO in competitive mode']),
 ];
 function verifierBadges(s) {
   const p = progres(), b = p.badges, nouveaux = [];
@@ -143,8 +155,12 @@ function verifierBadges(s) {
   if (vus >= 500) gagner('cinqcents');
   if (p.compteurs.ecgJustes >= 50) gagner('ecg50');
   if (s.examen && rep.length >= 10 && ok / rep.length >= 0.8) gagner('examen');
-  if (p.classement.pic >= 1400) gagner('club');
-  if (p.classement.pic >= 1800) gagner('expert');
+  // un titre se gagne en jeu : parti sous le seuil, il suffit de l'atteindre ; parti au-dessus,
+  // il faut s'y maintenir au terme des 30 questions de calibrage (K = 40)
+  const c = p.classement, dep = c.depart ?? ELO_DEPART;
+  const atteint = seuil => (dep < seuil ? c.pic >= seuil : c.n >= 30 && c.elo >= seuil);
+  if (atteint(1400)) gagner('club');
+  if (atteint(1800)) gagner('expert');
   return nouveaux;
 }
 
