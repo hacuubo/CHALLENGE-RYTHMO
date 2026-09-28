@@ -74,7 +74,7 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
 - **Mode compétitif** : classement **ELO des échecs** (départ 600 pour tout débutant, formule FIDE, K = 40 puis 20, 10 au-delà de 2400).
   Chaque question a une cote tirée de sa difficulté (niveau 1 = 800 … niveau 10 = 2600). Flux sans limite de questions :
   on joue quand on veut, pause à tout moment, l'ELO est enregistré après chaque réponse. Adaptatif dans les deux sens :
-  questions plus dures quand l'ELO monte, plus simples quand il baisse. Titres de « Débutant » à « Grand maître ».
+  questions plus dures quand l'ELO monte, plus simples quand il baisse. Titres calqués sur le cursus de cardiologie, d'« Externe » à « Professeur de rythmologie ».
 - **Autres modes** : **mode examen** chronométré (correction à la fin), entraînement ciblé (thèmes, marques, types,
   sous-thèmes, niveau, tracés uniquement), révisions de ses erreurs (répétition espacée), nouveautés.
   (Le module de fiches, `js/vues/fiches.js`, reste dans le dépôt mais n'est plus proposé dans l'application.)

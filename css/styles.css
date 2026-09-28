@@ -637,7 +637,8 @@ main:has(.simu-baie) > :not(.simu-poste) { max-width: 860px; margin-left: auto; 
 }
 /* téléphone en paysage : baie plein écran à gauche (un écran à la fois, glisser pour changer), console à droite */
 @media (orientation: landscape) and (max-height: 520px) {
-  .simu-h1, .simu-tete .simu-contexte { display: none; }
+  .simu-h1 { display: none; }
+  .simu-tete .simu-contexte { margin-top: 4px; padding: 6px 10px; font-size: .82rem; line-height: 1.4; } /* contexte du cas gardé en paysage (quiz) */
   .simu-poste { display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, 36%); gap: 6px; align-items: start; }
   .simu-poste .simu-baie { margin: 0; }
   .simu-console { position: sticky; top: 0; bottom: auto; margin: 0; max-height: 100dvh; overflow-y: auto; border-radius: 10px; padding: 6px; }
@@ -751,3 +752,13 @@ main:has(.simu-baie) > :not(.simu-poste) { max-width: 860px; margin-left: auto; 
 /* Compétitif : choix de l'ELO de départ avant la première partie */
 .curseur-depart { width: 100%; margin: .75rem 0 .1rem; accent-color: var(--primaire); min-height: 44px; }
 .curseur-bornes { display: flex; justify-content: space-between; margin: 0 0 .5rem; font-variant-numeric: tabular-nums; }
+
+/* Simulateur ouvert sur un téléphone en portrait : invitation plein écran à passer en paysage (disparaît au toucher ou après 3 s) */
+.simu-tourner { position: fixed; inset: 0; z-index: 1000; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  padding: 24px; text-align: center; background: rgba(8, 14, 20, .96); color: #e8eef3; cursor: pointer; animation: simu-voile 3s ease-in forwards; }
+.simu-tourner p { margin: 0; max-width: 28ch; }
+.simu-tourner b { font-size: 1.25rem; }
+.simu-tourner .note { color: #9fb3c3; }
+.simu-tourner-tel { width: 54px; height: 92px; margin-bottom: 18px; border: 4px solid var(--simu-his, #f5c542); border-radius: 12px; animation: simu-tourner 1.6s ease-in-out infinite alternate; }
+@keyframes simu-voile { 0%, 85% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .simu-tourner, .simu-tourner-tel { animation: none; } }

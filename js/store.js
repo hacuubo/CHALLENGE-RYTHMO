@@ -52,10 +52,12 @@ export const eloQuestion = difficulte => 800 + (difficulte - 1) * 200;
 export const niveauDepuisElo = r => Math.max(1, Math.min(10, Math.round((r - 800) / 200) + 1));
 // titres : libellé relu à chaque accès (suit la langue courante)
 const titreElo = (min, fr, en) => ({ min, get nom() { return t(fr, en); } });
+// Titres calqués sur le cursus de cardiologie et de rythmologie (de l'externat au professorat)
 export const TITRES = [
-  titreElo(0, 'Débutant', 'Beginner'), titreElo(1000, 'Amateur', 'Amateur'), titreElo(1400, 'Joueur de club', 'Club player'),
-  titreElo(1800, 'Expert', 'Expert'), titreElo(2000, 'Candidat maître', 'Candidate Master'), titreElo(2200, 'Maître', 'Master'),
-  titreElo(2400, 'Maître international', 'International Master'), titreElo(2500, 'Grand maître', 'Grandmaster'),
+  titreElo(0, 'Externe', 'Medical student'), titreElo(1000, 'Interne en phase socle', 'Junior resident'),
+  titreElo(1400, 'Interne en approfondissement', 'Senior resident'), titreElo(1800, 'Docteur junior', 'Final-year resident'),
+  titreElo(2000, 'Chef de clinique', 'Clinical fellow'), titreElo(2200, 'Rythmologue', 'Electrophysiologist'),
+  titreElo(2400, 'Rythmologue expert', 'Senior electrophysiologist'), titreElo(2500, 'Professeur de rythmologie', 'Professor of electrophysiology'),
 ];
 export function titre(elo) {
   let i = 0;
@@ -137,8 +139,8 @@ export const BADGES = [
   badge('cinqcents', '🏅', ['Marathonien', 'Marathon runner'], ['500 questions différentes vues', '500 different questions seen']),
   badge('ecg50', '📈', ['Œil d\'ECG', 'Eagle eye'], ['50 bonnes réponses sur des tracés', '50 correct answers on tracings']),
   badge('examen', '⏱️', ['Examen réussi', 'Exam passed'], ['Au moins 80 % en mode examen (10 questions ou plus)', 'At least 80% in exam mode (10 questions or more)']),
-  badge('club', '♞', ['Joueur de club', 'Club player'], ['Atteindre 1400 ELO en mode compétitif', 'Reach 1400 ELO in competitive mode']),
-  badge('expert', '♛', ['Expert', 'Expert'], ['Atteindre 1800 ELO en mode compétitif', 'Reach 1800 ELO in competitive mode']),
+  badge('club', '🩺', ['Interne en approfondissement', 'Senior resident'], ['Atteindre 1400 ELO en mode compétitif', 'Reach 1400 ELO in competitive mode']),
+  badge('expert', '🎓', ['Docteur junior', 'Final-year resident'], ['Atteindre 1800 ELO en mode compétitif', 'Reach 1800 ELO in competitive mode']),
 ];
 function verifierBadges(s) {
   const p = progres(), b = p.badges, nouveaux = [];

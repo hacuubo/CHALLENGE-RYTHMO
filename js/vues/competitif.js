@@ -1,13 +1,11 @@
 // Mode compétitif : classement ELO sur l'échelle des échecs, questions enchaînées selon le niveau.
 import * as stock from '../store.js';
 import { esc, pct } from '../util.js';
-import { courbeElo } from '../courbe.js';
-import { t, locale } from '../i18n.js';
+import { t } from '../i18n.js';
 
 export function vueCompetitif(app, { demarrer }) {
   const c = stock.classement();
   const ti = c.titre;
-  const parties = stock.progres().sessions.filter(h => h.elo).slice(-5).reverse();
   const signe = n => (n > 0 ? '+' : '') + n;
   // Première partie : le joueur choisit son ELO de départ (600 à 2600) ; les questions partent de ce niveau.
   const premiere = !c.n;
@@ -37,10 +35,24 @@ export function vueCompetitif(app, { demarrer }) {
       <button class="btn btn-primaire btn-bloc" id="jouer">${t('Jouer', 'Play')}</button>
       <p class="note">${t(`${c.n} question(s) classée(s)`, `${c.n} rated question${c.n === 1 ? '' : 's'}`)}${c.partiesDuJour ? ` · ${t('aujourd\'hui :', 'today:')} <span class="delta ${c.duJour >= 0 ? 'plus' : 'moins'}">${signe(c.duJour)}</span>` : ''} · ${t('départ', 'start')} ${stock.eloDepart()}</p>`}
     </section>
-    <section class="carte"><h2>${t('Évolution', 'Rating history')}</h2><div id="courbe"></div></section>
-    ${parties.length ? `<section class="carte"><h2>${t('Dernières sessions de jeu', 'Recent sessions')}</h2><ul class="liste-erreurs">${parties.map(h => `<li>${new Date(h.date).toLocaleDateString(locale(), { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })} — ${h.ok}/${h.n} ${t('justes', 'correct')} · ${h.elo.debut} → <b>${h.elo.fin}</b> <span class="delta ${h.elo.fin - h.elo.debut >= 0 ? 'plus' : 'moins'}">${signe(h.elo.fin - h.elo.debut)}</span></li>`).join('')}</ul></section>` : ''}
+    <p class="pied-accueil"><button class="lien" data-nav="reglement">${t('Règlement', 'Rules')}</button></p>`;
+
+  const curseur = app.querySelector('#depart');
+  if (curseur) curseur.oninput = () => {
+    app.querySelector('#depart-valeur').textContent = curseur.value;
+    app.querySelector('#depart-legende').innerHTML = libelleDepart(+curseur.value);
+  };
+  app.querySelector('#jouer').onclick = () => {
+    if (curseur) stock.fixerDepart(+curseur.value);
+    demarrer([], t('Compétitif', 'Competitive'), { competitif: true });
+  };
+}
+
+// Règlement du mode compétitif (lien en bas de l'écran compétitif)
+export function vueReglement(app) {
+  app.innerHTML = `
+    <h1>${t('Règlement', 'Rules')}</h1>
     <section class="carte">
-      <h2>${t('Comment ça marche', 'How it works')}</h2>
       <p>${t('Chaque réponse est une partie d\'échecs contre la question. Les questions ont une cote fixe, tirée de leur difficulté :', 'Each answer counts as a chess game played against the question. Every question has a fixed rating, based on its difficulty:')}</p>
       <div class="defile-x"><table class="tableau-cotes">
         <thead><tr><th>${t('Difficulté', 'Difficulty')}</th>${[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(d => `<th>${d}</th>`).join('')}</tr></thead>
@@ -58,17 +70,7 @@ export function vueCompetitif(app, { demarrer }) {
         <li>It is adaptive: each question is drawn at random from those rated close to your own rating. As your ELO rises, the questions get harder; when it falls, they get easier again.</li>
         <li>Open questions (self-assessed) are not included. Only this mode changes your ELO: training does not count towards your rating.</li>`)}
       </ul>
-      <p class="note">${t('Titres :', 'Titles:')} ${stock.TITRES.map(x => `${esc(x.nom)} (${x.min ? '≥ ' + x.min : '< 1000'})`).join(' · ')}.</p>
+      <h2>${t('Titres', 'Titles')}</h2>
+      <ul class="liste-regles">${stock.TITRES.map((x, i) => `<li><b>${esc(x.nom)}</b> · ${x.min ? `${x.min}${stock.TITRES[i + 1] ? `–${stock.TITRES[i + 1].min - 1}` : '+'}` : `< ${stock.TITRES[1].min}`}</li>`).join('')}</ul>
     </section>`;
-
-  courbeElo(app.querySelector('#courbe'), stock.historiqueElo(), { depart: stock.eloDepart() });
-  const curseur = app.querySelector('#depart');
-  if (curseur) curseur.oninput = () => {
-    app.querySelector('#depart-valeur').textContent = curseur.value;
-    app.querySelector('#depart-legende').innerHTML = libelleDepart(+curseur.value);
-  };
-  app.querySelector('#jouer').onclick = () => {
-    if (curseur) stock.fixerDepart(+curseur.value);
-    demarrer([], t('Compétitif', 'Competitive'), { competitif: true });
-  };
 }
