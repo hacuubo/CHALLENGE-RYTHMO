@@ -343,7 +343,7 @@ function presentation(l, d) {
 
 // Page d'accueil anglaise : même application que index.html, avec balises et contenu statique en anglais.
 function accueilAnglais(d) {
-  const desc = 'Electrophysiology simulator and cardiac rhythm quiz: ECG, pacemakers, ICDs, CRT, remote monitoring. Mystery cases in the EP lab, referenced answers, competitive ELO mode.';
+  const desc = 'Electrophysiology simulator and cardiac rhythm quiz. Mystery cases in the EP lab, referenced answers, competitive ELO mode.';
   const url = SITE + 'en/';
   const ld = { '@context': 'https://schema.org', '@graph': [
     { '@type': 'WebSite', '@id': SITE + '#site', url: SITE, name: 'Shock & Pace', inLanguage: ['fr', 'en'], description: desc, publisher: { '@id': SITE + '#editeur' } },
