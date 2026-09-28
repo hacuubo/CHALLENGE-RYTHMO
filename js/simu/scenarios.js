@@ -336,7 +336,7 @@ export const SITES_DETECTION = [{ id: '', get nom() { return t('Aucune', `None`)
 export const POSITIONS = [
   { id: 'od-haute', get nom() { return t('OD haute', `High RA`); }, a: 'hra', v: null, stim: 'hra', cibles: [] },
   { id: 'od-lat', get nom() { return t('Anneau tricuspide latéral', `Lateral tricuspid annulus`); }, a: 'latb', v: 'rva', stim: 'latb', cibles: ['vacc-atf'] },
-  { id: 'isthme', get nom() { return t('Isthme cavo-tricuspide', `Cavotricuspid isthmus`); }, a: 'cti', v: 'rva', stim: 'cti', cibles: ['isthme'] },
+  { id: 'isthme', get nom() { return t('Isthme cavo-tricuspide', `Cavotricuspid isthmus`); }, a: 'cti', a2: 'cs9', v: 'rva', stim: 'cti', cibles: ['isthme'] }, // a2 : bord septal de la ligne (doubles potentiels)
   { id: 'koch', get nom() { return t('Triangle de Koch, partie basse (voie lente)', `Inferior Koch's triangle (slow pathway)`); }, a: 'cs9', v: 'vps', stim: 'cs9', cibles: ['lente'] },
   { id: 'ostium', get nom() { return t('Ostium du SC, postéro-septal', `CS ostium, posteroseptal`); }, a: 'cs9', v: 'vps', stim: 'cs9', cibles: ['vacc-sept'] },
   { id: 'his', get nom() { return t('Région antéro-septale, près du His (radiofréquence)', `Anteroseptal region, near the His (radiofrequency)`); }, a: 'ras', v: 'vbd', stim: 'parahis', cibles: ['rapide', 'nav', 'jet'] },

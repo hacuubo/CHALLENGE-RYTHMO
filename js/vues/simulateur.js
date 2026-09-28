@@ -356,7 +356,9 @@ export function vueSimulateur(app) {
     return e;
   }
   const positionActuelle = () => POSITIONS.find(p => p.id === st.position);
-  const ablationVue = () => { const pos = positionActuelle(); return pos ? { a: pos.a, v: pos.v } : null; };
+  // sites vus par la sonde ; sur une ligne (isthme), bord opposé et état de la lésion : doubles potentiels
+  const lesionLigne = pos => { const v = pos?.a2 && st.coeur.voies.find(x => pos.cibles.includes(x.id)); return !v ? 0 : v.coupee ? 1 : Math.min(1, st.lesions?.[v.id] ?? 0); };
+  const ablationVue = () => { const pos = positionActuelle(); return pos ? { a: pos.a, v: pos.v, a2: pos.a2, dp: lesionLigne(pos) } : null; };
   function capturer(e) {
     const c = st.coeur, t0 = Math.max(e.debut, e.capture - 60000, 0);
     e.instantane = { t: e.capture, debut: t0, journal: c.journal.filter(x => x.t >= t0 - 8000 && x.t <= e.capture + 5),
@@ -403,7 +405,7 @@ export function vueSimulateur(app) {
     const c0 = st.coeur, brut = c0.stimuler.bind(c0);
     c0.stimuler = (site, tt, sortie, largeur, lib) => brut(site, tt, sortie, largeur, lib, r.site === 'abl' && site === siteReel() ? 'abl' : null);
     Object.assign(st, { t: st.coeur.t, salve: null, actions: [], faites: new Set(), analyses: [], positionsTachy: new Set(), tachyAvant: false,
-      rappel: null, recul: 0, curseurs: [], nouveauCompas: false, finOuverte: false, demande: null, sale: true, reference: null, proto: null, rf: null, carte: {}, cr: nouveauCR(), hypo: 0, bump: null, train: null, historique: [] });
+      rappel: null, recul: 0, curseurs: [], nouveauCompas: false, finOuverte: false, demande: null, sale: true, reference: null, proto: null, rf: null, lesions: {}, carte: {}, cr: nouveauCR(), hypo: 0, bump: null, train: null, historique: [] });
     for (const id of ['#iso', '#atropine']) { $(id).setAttribute('aria-pressed', 'false'); $(id).classList.remove('actif'); }
     $('#rappel-titre').textContent = ''; $('#rappel-vide').hidden = false; $('#paysage-nouveau').textContent = ''; $('#reference').hidden = true;
     $('#proto-etat').textContent = ''; $('#compte-rendu').hidden = true; $('#rf-etat').textContent = t('Générateur prêt', 'Generator ready');
@@ -882,7 +884,8 @@ export function vueSimulateur(app) {
     const pos = positionActuelle(), cryo = pos.id === 'cryo-his';
     // contact : qualité d'appui de la sonde, tirée à chaque tir (impédance de départ plus basse quand l'appui est bon)
     const contact = 0.55 + 0.45 * Math.random();
-    st.rf = { debut: st.t, pos, cryo, contact, imp0: Math.round(120 - 25 * contact + 6 * Math.random()), lesion: 0, applique: false, junct: false, alerteVA: false,
+    st.rf = { debut: st.t, pos, cryo, contact, imp0: Math.round(120 - 25 * contact + 6 * Math.random()),
+      lesion: pos.a2 ? Math.max(0, ...pos.cibles.map(id => st.lesions[id] ?? 0)) : 0, // ligne : un nouveau tir complète la lésion partielle applique: false, junct: false, alerteVA: false,
       // voie lente : au fil d'un tir prolongé, la sonde dérive parfois vers le nœud compact (une fois sur trois environ)
       temp: 37, imp: 0, tMax: 37, derive: pos.id === 'koch' && Math.random() < 0.35 ? 25000 + 20000 * Math.random() : Infinity };
     libRF(true, cryo);
@@ -906,6 +909,13 @@ export function vueSimulateur(app) {
     rf.imp = Math.round(rf.cryo ? rf.imp0 + 60 * (1 - Math.exp(-el / 6000)) : rf.imp0 - 12 * Math.min(1, rf.lesion));
     // la lésion se constitue en ≈ 9 s à 30 W avec un bon appui (plus lentement en cryothérapie)
     rf.lesion += dt / ((rf.cryo ? 30000 : 9000 * 30 / Math.max(5, r.puissance)) / rf.contact);
+    // ligne (isthme cavo-tricuspide) : la conduction à travers la lésion ralentit à mesure qu'elle se constitue, jusqu'au bloc ;
+    // la lésion partielle persiste après le tir (doubles potentiels de plus en plus espacés sur la sonde)
+    if (rf.pos.a2) for (const v of c.voies) if (rf.pos.cibles.includes(v.id) && !v.coupee) {
+      const l = Math.min(1, Math.max(st.lesions[v.id] ?? 0, rf.lesion));
+      st.lesions[v.id] = l;
+      for (const k of ['ab', 'ba']) if (v[k]) { v[k].dBase ??= v[k].d; v[k].d = v[k].dBase + Math.round(70 * l); }
+    }
     if (rf.lesion >= 1 && !rf.applique) {
       rf.applique = true;
       const touchees = c.ablater(rf.pos.cibles);
