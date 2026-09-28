@@ -6,6 +6,8 @@
   <base href="../">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <script>try { var l = localStorage.getItem('rythmo.langue'); document.documentElement.lang = l === 'fr' || l === 'en' ? l : /\/en\/(index\.html)?$/.test(location.pathname) ? 'en' : 'fr'; } catch (e) {}</script>
+  <!-- Android : la proposition d'installation du navigateur est retenue pour l'encart de l'accueil (js/installation.js) -->
+  <script>addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); window.__installationPwa = e; });</script>
   <!--seo-->
   <title>Shock &amp; Pace · Electrophysiology simulator, cardiac rhythm quiz</title>
   <meta name="description" content="Electrophysiology simulator and cardiac rhythm quiz. Mystery cases in the EP lab, referenced answers, competitive ELO mode.">

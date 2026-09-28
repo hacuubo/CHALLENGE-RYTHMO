@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <script>try { var l = localStorage.getItem('rythmo.langue'); document.documentElement.lang = l === 'fr' || l === 'en' ? l : /\/en\/(index\.html)?$/.test(location.pathname) ? 'en' : 'fr'; } catch (e) {}</script>
+  <!-- Android : la proposition d'installation du navigateur est retenue pour l'encart de l'accueil (js/installation.js) -->
+  <script>addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); window.__installationPwa = e; });</script>
   <!--seo-->
   <title>Shock &amp; Pace · Simulateur d'électrophysiologie, quiz de rythmologie</title>
   <meta name="description" content="Simulateur d'électrophysiologie et quiz de rythmologie. Cas mystères en baie d'EEP, corrections sourcées, mode ELO.">
