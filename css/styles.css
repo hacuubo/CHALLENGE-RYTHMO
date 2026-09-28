@@ -738,7 +738,7 @@ main:has(.simu-baie) > :not(.simu-poste) { max-width: 860px; margin-left: auto; 
 .simu-ideal { padding-left: 1.3em; }
 .simu-ideal li { margin: 5px 0; }
 .simu-ideal li::marker { color: var(--simu-curseur); font-weight: 700; }
-/* sites de stimulation absents de la baie ; vignette du temps réel retirée ; bague de l'appui long (compas au doigt) */
+/* sites de stimulation absents de la baie ; vignette du temps réel retirée */
 .simu-puces button[hidden] { display: none; }
 /* « Vignette direct » : masque le temps réel à côté du rappel (le rappel prend toute la largeur) ; en paysage sur téléphone,
    la vignette du temps réel posée sur le rappel. Sans objet en portrait sur téléphone (pas d'écran de rappel). */
@@ -753,14 +753,6 @@ main:has(.simu-baie) > :not(.simu-poste) { max-width: 860px; margin-left: auto; 
   .simu-baie[data-mini="non"][data-vue="direct"] .simu-direct { display: block; }
   .simu-baie[data-vue="rappel"][data-mini="non"] .simu-ecran canvas.simu-mini-direct { display: none; }
 }
-.simu-appui { position: absolute; width: 46px; height: 46px; margin: -23px 0 0 -23px; border-radius: 50%; pointer-events: none; z-index: 2;
-  --p: 0%; background: conic-gradient(var(--simu-curseur) var(--p), rgba(255, 255, 255, .15) 0);
-  -webkit-mask: radial-gradient(circle, transparent 15px, #000 16px); mask: radial-gradient(circle, transparent 15px, #000 16px); }
-.simu-appui.fin { background: conic-gradient(var(--simu-stim) var(--p), rgba(255, 255, 255, .15) 0); }
-.simu-appui[hidden] { display: none; }
-@property --p { syntax: '<percentage>'; inherits: false; initial-value: 0%; }
-.simu-appui.charge { animation: simu-appui var(--duree, 2000ms) linear forwards; }
-@keyframes simu-appui { from { --p: 0%; } to { --p: 100%; } }
 /* ordre des voies à l'écran */
 .simu-ordre { padding: 4px 0 8px; }
 .simu-ordre > span { display: block; font-size: .72rem; margin-bottom: 4px; }
