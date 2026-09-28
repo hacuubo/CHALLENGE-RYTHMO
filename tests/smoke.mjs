@@ -91,9 +91,15 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     // 6 réponses à K = 40 : on reste à moins de 240 points du départ choisi
     if (!Number.isFinite(apres) || apres === 1400 || Math.abs(apres - 1400) > 240) throw new Error(`ELO ${apres} incohérent avec un départ à 1400`);
     await nav('competitif');
-    await page.waitForSelector('#courbe svg');
+    await page.waitForSelector('#jouer');
+    if (await page.$('#courbe') || await page.$$eval('#app .carte', l => l.length) !== 1) throw new Error('l\'écran compétitif ne doit garder que la carte du classement');
     if (await page.$('#depart')) throw new Error('le curseur de départ ne doit plus apparaître après la première partie');
     await capture('competitif');
+    await page.click('[data-nav=reglement]');
+    await page.waitForSelector('.tableau-cotes');
+    if (!/Rythmologue|Electrophysiologist/.test(await page.textContent('#app'))) throw new Error('titres du cursus de cardiologie absents du règlement');
+    await page.click('.retour-accueil');
+    await page.waitForSelector('#jouer');
   });
 
   await verifier(`${appareil} : entraînement par domaine`, async () => {
@@ -194,6 +200,12 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
     await nav('accueil');
     await page.click('.tuile[data-nav=simulateur]');
     await page.waitForSelector('#ecran'); // l'accueil mène directement à la baie
+    if (largeur < 700) { // téléphone en portrait : invitation plein écran à tourner le téléphone, fermée au toucher
+      await page.waitForSelector('#tourner');
+      await page.click('#tourner');
+      if (await page.$('#tourner')) throw new Error('l\'invitation à passer en paysage ne se ferme pas au toucher');
+    }
+    if (await page.$('#detection')) throw new Error('le couplage à la détection est encore proposé dans Programme');
     await page.selectOption('#scenario', 'trin');
     // nombre de S1 infini : stimulation continue jusqu'à Stop, sans nombre de S1 ni extrastimulus
     await page.check('#continu');

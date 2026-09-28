@@ -10,7 +10,7 @@ import { vueQuiz, toucheQuiz, arreterQuiz } from './vues/quiz.js';
 import { vueResultats } from './vues/resultats.js';
 import { vueProgression } from './vues/progression.js';
 import { vueAPropos } from './vues/apropos.js';
-import { vueCompetitif } from './vues/competitif.js';
+import { vueCompetitif, vueReglement } from './vues/competitif.js';
 import { vueSimulateur, arreterSimulateur } from './vues/simulateur.js';
 import { vueEntrainement } from './vues/entrainement.js';
 import { vueSimuMenu } from './vues/simu-menu.js';
@@ -62,6 +62,7 @@ const vues = {
   progression: () => vueProgression(app, ctx),
   apropos: () => vueAPropos(app),
   competitif: () => vueCompetitif(app, ctx),
+  reglement: () => vueReglement(app),
   simulateur: () => vueSimulateur(app),
   entrainement: () => vueEntrainement(app, ctx),
   'simu-menu': () => vueSimuMenu(app, ctx),
@@ -83,7 +84,7 @@ function rendre(vue) {
   // pas de barre de navigation : chaque écran a son retour vers l'écran parent (accueil épuré → écrans de choix → activité)
   const accueil = ['accueil', t('Accueil', 'Home')];
   const parent = { entrainement: accueil, 'simu-menu': accueil, competitif: accueil,
-    progression: accueil, config: ['entrainement', t('Entraînement', 'Training')], simulateur: accueil }[vue];
+    progression: accueil, reglement: ['competitif', t('Compétitif', 'Competitive')], config: ['entrainement', t('Entraînement', 'Training')], simulateur: accueil }[vue];
   if (parent) app.insertAdjacentHTML('afterbegin', `<button class="retour-accueil" data-nav="${parent[0]}">‹ ${parent[1]}</button>`);
   if (vue === 'apropos') app.insertAdjacentHTML('afterbegin', `<button class="retour-fleche" data-nav="accueil" aria-label="${t('Retour à l\'accueil', 'Back to home')}" title="${t('Accueil', 'Home')}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg></button>`);
   app.focus({ preventScroll: true });

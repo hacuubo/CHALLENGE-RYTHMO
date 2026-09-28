@@ -189,6 +189,21 @@ function presentation(l, d) {
     ],
   };
   const themes = d.themes(l), recos = d.recos(l), scenarios = d.scenarios[l];
+  const lien = `<a href="${r}${T.app}">shockandpace.com</a>`;
+  const INSTALLER = {
+    fr: { titre: 'Installer l\'application sur votre téléphone',
+      intro: 'Shock &amp; Pace s\'installe comme une application, sans passer par un store : icône sur l\'écran d\'accueil, plein écran, et fonctionnement hors connexion.',
+      android: ['Android (Chrome)', [`Ouvrez ${lien} dans Chrome.`, 'Chrome propose automatiquement <b>« Installer l\'application »</b> en bas de l\'écran : touchez-le puis confirmez.',
+        'Pas de proposition ? Menu <b>⋮</b> en haut à droite → <b>Installer l\'application</b> (ou <b>Ajouter à l\'écran d\'accueil</b>).']],
+      iphone: ['iPhone (Safari)', [`Ouvrez ${lien} dans Safari.`, 'Touchez le bouton <b>Partager</b> (carré avec une flèche vers le haut ; sous iOS 26, il est dans le menu <b>⋯</b>).',
+        'Faites défiler et choisissez <b>Sur l\'écran d\'accueil</b>.', 'Touchez <b>Ajouter</b> : l\'icône Shock &amp; Pace apparaît sur l\'écran d\'accueil.']] },
+    en: { titre: 'Install the app on your phone',
+      intro: 'Shock &amp; Pace installs like an app, without any app store: an icon on your home screen, full screen, and offline use.',
+      android: ['Android (Chrome)', [`Open ${lien} in Chrome.`, 'Chrome automatically offers <b>“Install app”</b> at the bottom of the screen: tap it and confirm.',
+        'No prompt? Open the <b>⋮</b> menu at the top right → <b>Install app</b> (or <b>Add to Home screen</b>).']],
+      iphone: ['iPhone (Safari)', [`Open ${lien} in Safari.`, 'Tap the <b>Share</b> button (a square with an upward arrow; on iOS 26 it is in the <b>⋯</b> menu).',
+        'Scroll down and choose <b>Add to Home Screen</b>.', 'Tap <b>Add</b>: the Shock &amp; Pace icon appears on your home screen.']] },
+  }[l];
   return `<!doctype html>
 <html lang="${l}">
 <head>
@@ -237,6 +252,9 @@ function presentation(l, d) {
     .chiffres { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 14px 0; padding: 0; list-style: none; }
     .chiffres li { border: 1px solid var(--bord); border-radius: 12px; padding: 10px 12px; margin: 0; } .chiffres b { display: block; font-size: 1.5rem; }
     details { border-top: 1px solid var(--bord); padding: 8px 0; } summary { font-weight: 600; cursor: pointer; }
+    .installer { border-color: #0b5fa5; border-width: 2px; }
+    .installer .plateformes { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 4px 24px; }
+    .installer ol { padding-left: 1.3em; margin: 4px 0 8px; } .installer ol li { margin: 5px 0; }
     footer { text-align: center; color: var(--texte-2); padding: 0 16px 32px; font-size: .9rem; }
   </style>
 </head>
@@ -248,6 +266,13 @@ function presentation(l, d) {
     <a class="cta" href="${r}${T.app}">${esc(T.ouvrir)}</a>
   </div></header>
   <main>
+    <section class="installer" id="installer">
+      <h2>${INSTALLER.titre}</h2>
+      <p>${INSTALLER.intro}</p>
+      <div class="plateformes">${[INSTALLER.android, INSTALLER.iphone].map(([nom, etapes]) => `
+        <div><h3>${nom}</h3><ol>${etapes.map(e => `<li>${e}</li>`).join('')}</ol></div>`).join('')}
+      </div>
+    </section>
     <section>
       <h2>${esc(T.enBref)}</h2>
       <p>${T.bref}</p>
