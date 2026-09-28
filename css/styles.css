@@ -516,17 +516,21 @@ main:has(.simu-baie) { max-width: 1680px; }
 .invitation-langue .btn { padding: 6px 12px; font-size: .88rem; }
 .fermer-invitation { border: 0; background: none; color: rgba(255, 255, 255, .8); font-size: 1rem; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; }
 .fermer-invitation:hover, .fermer-invitation:focus-visible { background: rgba(255, 255, 255, .14); color: #fff; }
-/* ---------- Installer l'application (accueil, téléphone) ---------- */
-.installation { position: relative; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; max-width: 560px; margin: -8px auto 14px; padding: 10px 40px 10px 12px;
-  border-radius: 12px; border: 1px solid rgba(255, 255, 255, .28); background: rgba(255, 255, 255, .1); color: #fff; font-size: .92rem; }
-.fermer-installation { position: absolute; top: 4px; right: 4px; }
-.installation-ico { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 10px; background: rgba(255, 255, 255, .12); flex: none; }
-.installation-ico .icone { width: 24px; height: 24px; }
-.installation-texte { flex: 1; min-width: 10em; display: flex; flex-direction: column; gap: 2px; }
-.installation-texte span { color: rgba(255, 255, 255, .8); font-size: .86rem; }
-.installation .btn { padding: 6px 12px; font-size: .88rem; }
-.installation-etapes { flex-basis: 100%; margin: 4px -28px 0 0; padding: 8px 0 0 1.3em; border-top: 1px solid rgba(255, 255, 255, .2); }
-.installation-etapes li { margin: 5px 0; }
+/* ---------- Installer l'application (accueil, téléphone) : bandeau compact rouge orangé, distinct des tuiles ---------- */
+.installation { position: relative; display: flex; flex-wrap: wrap; align-items: center; max-width: 560px; margin: -10px auto 12px; padding-right: 30px;
+  border-radius: 10px; border: 1px solid rgba(255, 122, 92, .75); background: rgba(214, 58, 40, .38); color: #fff; font-size: .84rem; }
+.installation-action { flex: 1 1 auto; display: flex; align-items: center; gap: 8px; min-height: 36px; min-width: 0; padding: 5px 4px 5px 10px; border: 0; border-radius: 10px;
+  background: none; color: inherit; font: inherit; font-weight: 700; text-align: left; cursor: pointer; }
+.installation-action:hover, .installation-action:focus-visible { background: rgba(255, 255, 255, .08); }
+.installation-action:active { background: rgba(255, 255, 255, .14); }
+.installation-ico { display: grid; place-items: center; flex: none; }
+.installation-ico .icone { width: 18px; height: 18px; }
+.installation-texte { flex: 1; min-width: 0; }
+.installation-fleche { flex: none; font-size: 1.05rem; line-height: 1; opacity: .85; transition: transform .15s; }
+.installation-action[aria-expanded="true"] .installation-fleche { transform: rotate(180deg); }
+.fermer-installation { position: absolute; top: 4px; right: 2px; width: 28px; height: 28px; font-size: .9rem; }
+.installation-etapes { flex-basis: 100%; margin: 0 -22px 0 0; padding: 6px 8px 8px 2em; border-top: 1px solid rgba(255, 255, 255, .25); font-size: .86rem; }
+.installation-etapes li { margin: 4px 0; }
 main:has(.simu-baie) > :not(.simu-poste) { max-width: 860px; margin-left: auto; margin-right: auto; }
 
 /* ---------- console de stimulation : toujours à portée du pouce ---------- */
