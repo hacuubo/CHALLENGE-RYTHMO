@@ -762,3 +762,11 @@ main:has(.simu-baie) > :not(.simu-poste) { max-width: 860px; margin-left: auto; 
 .simu-tourner-tel { width: 54px; height: 92px; margin-bottom: 18px; border: 4px solid var(--simu-his, #f5c542); border-radius: 12px; animation: simu-tourner 1.6s ease-in-out infinite alternate; }
 @keyframes simu-voile { 0%, 85% { opacity: 1; } 100% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .simu-tourner, .simu-tourner-tel { animation: none; } }
+
+/* Accueil : titre et tuiles centrés verticalement dans l'écran (langue en haut, lien Sources en bas) */
+body.sur-accueil { padding-bottom: 0; }
+body.sur-accueil #app { display: flex; flex-direction: column; min-height: 100dvh; box-sizing: border-box; padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+body.sur-accueil #app > .menu-principal.centre, body.sur-accueil #app > .reprise, body.sur-accueil #app > .invitation-langue { width: 100%; }
+body.sur-accueil .titre-accueil { margin-top: auto; margin-bottom: 28px; }
+body.sur-accueil .menu-principal.centre { gap: 16px; }
+body.sur-accueil .pied-accueil { margin-top: auto; padding-top: 32px; }
