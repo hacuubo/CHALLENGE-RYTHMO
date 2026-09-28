@@ -73,7 +73,7 @@ export function vueSimulateur(app) {
   // historique : manœuvres dans l'ordre où elles ont été faites (type, instant, en tachycardie ou non) pour noter la démarche
   const st = { historique: [], scenario: 'normal', mystere: false, enquete: false, coeur: null, t: 0, gains: {}, salve: null, position: 'od-haute', actions: [], faites: new Set(), analyses: [],
     positionsTachy: new Set(), tachyAvant: false, dernierMaj: 0, numero: 0,
-    rappel: null, recul: 0, curseurs: [], nouveauCompas: false, report: false, demande: null, sale: true, reference: null,
+    rappel: null, recul: 0, curseurs: [], report: false, demande: null, sale: true, reference: null,
     proto: null, rf: null, carte: {}, cr: null, vue: 'direct', hypo: 0, bump: null, train: null };
 
   const opt = (liste, v) => liste.map(o => `<option value="${o.id}" ${o.id === v ? 'selected' : ''}>${esc(o.nom)}</option>`).join('');
@@ -154,7 +154,6 @@ export function vueSimulateur(app) {
           <div class="simu-ecran">
             <canvas id="ecran-rappel" role="img" aria-label="${t('Écran de rappel : tracé de l\'événement sélectionné dans le journal, mesurable au compas', 'Review screen: tracing of the event selected in the log, measurable with callipers')}"></canvas>
             <p class="simu-rappel-vide" id="rappel-vide">${t('Aucun événement rappelé. Faites une manœuvre ou « Enregistrer », ou touchez un événement du journal.', 'No event recalled. Perform a manoeuvre or press "Record", or tap an event in the log.')}</p>
-            <span class="simu-appui" id="appui" hidden aria-hidden="true"></span>
             <canvas id="ecran-mini" class="simu-mini-direct" aria-label="${t('Vignette du tracé en temps réel (toucher pour y revenir)', 'Real-time tracing thumbnail (tap to return to it)')}" role="button" tabindex="0"></canvas>
           </div>
           <div class="simu-revue">
@@ -162,7 +161,6 @@ export function vueSimulateur(app) {
             <input type="range" id="recul" min="0" max="0" step="50" value="0" aria-label="${t('Se déplacer dans l\'enregistrement rappelé', 'Move through the recalled recording')}">
             <button class="btn btn-mini" id="avant" aria-label="${t('Page suivante', 'Next page')}">▶</button>
             <span id="recul-val" class="note"></span>
-            <button class="btn btn-mini" id="compas-plus">${t('+ compas', '+ calliper')}</button>
             <button class="btn btn-mini" id="compas-report">${t('Report', 'March out')}</button>
             <button class="btn btn-mini" id="compas-effacer">${t('Effacer', 'Clear')}</button>
             <button class="btn btn-mini ${r.aimant ? 'actif' : ''}" id="aimant" aria-pressed="${r.aimant}" title="${t('Les compas s\'accrochent aux activations', 'Callipers snap to activations')}">${t('Aimant', 'Snap')}</button>
@@ -281,7 +279,7 @@ export function vueSimulateur(app) {
       <summary><b>${t('Mode d\'emploi et manœuvres clés', 'User guide and key manoeuvres')}</b></summary>
       <ul>
         <li>${t(`<b>Console</b> : sous la baie (à droite en paysage sur téléphone). « Stimuler » délivre le programme (onglet Programme) ou la salve (onglet Salve : burst de durée choisie, 0 = continu, ou rampe), selon le dernier des deux onglets ouvert. Stimuler (qui devient Stop pendant une stimulation, une salve ou un protocole) et Enregistrer restent visibles ; « + extrastimulus » affiche S2, S3 et S4 ; les pastilles choisissent le site ; les onglets donnent les réglages (± : appui long pour aller vite). Touchez l'onglet ouvert pour replier la console.`, `<b>Console</b>: below the recording screen (on the right in landscape on a phone). "Pace" delivers the programme (Programme tab) or the burst (Burst tab: burst of chosen duration, 0 = continuous, or ramp), whichever of the two tabs was opened last. Pace (which becomes Stop during pacing, a burst or a protocol) and Record always remain visible; "+ extrastimuli" shows S2, S3 and S4; the chips select the pacing site; the tabs hold the settings (±: press and hold to go faster). Tap the open tab to collapse the console.`)}</li>
-        <li>${t(`<b>Baie</b> : vitesse en mm/s (25 mm/s pour une vue d'ensemble, 100 à 200 mm/s pour mesurer). L'écran en temps réel est en balayage (défilement en option) et ne se fige jamais. Choisissez un montage, puis ajoutez ou enlevez chaque voie dans « Voies affichées » ; changez leur ordre avec ▲ ou en faisant glisser le nom de la voie sur le tracé (toucher un nom change son gain). L'<b>écran de rappel</b> affiche chaque manœuvre ou enregistrement, centré sur le dernier complexe stimulé à chaque fin de stimulation, programmée ou arrêtée par Stop ; tout événement du journal peut y être rappelé. Faites glisser pour poser un compas (aimanté aux activations) ; au doigt, appui long (2 s) sur le début, puis appui maintenu sur la fin (elle suit le doigt, validée après 1 s immobile). Pincez pour changer de vitesse, « Comparer » garde un rappel en référence (avant / après adénosine, avant / après ablation). Sur téléphone en paysage, un seul écran à la fois : glissez horizontalement pour passer du temps réel au rappel ; « Vignette direct » retire le temps réel à côté du rappel (sur ordinateur, le rappel prend alors toute la largeur ; sur téléphone en paysage, la vignette posée sur le rappel). On ne stimule que depuis un cathéter dont une voie est affichée : le spike et l'électrogramme capturé, juste après lui, doivent être visibles.`, `<b>Recording system</b>: sweep speed in mm/s (25 mm/s for an overview, 100 to 200 mm/s for measurements). The real-time screen uses sweep mode (scrolling as an option) and never freezes. Choose a montage, then add or remove individual channels under "Displayed channels"; reorder them with ▲ or by dragging the channel name on the tracing (tapping a name changes its gain). The <b>review screen</b> shows each manoeuvre or recording, centred on the last paced complex at every end of pacing, programmed or stopped with Stop; any event in the log can be recalled there. Drag to place a calliper (it snaps to activations); with a finger, press and hold (2 s) on the start, then press and hold on the end (it follows your finger and is set after 1 s without moving). Pinch to change the sweep speed; "Compare" keeps a recording as a reference (before / after adenosine, before / after ablation). On a phone in landscape, one screen at a time: swipe horizontally to switch between real time and review; "Live thumbnail" hides the real-time screen next to the review (on a computer the review then uses the full width; on a phone in landscape, the thumbnail sits over the review). You can only pace from a catheter whose channel is displayed: the spike and the captured electrogram just after it must be visible.`)}</li>
+        <li>${t(`<b>Baie</b> : vitesse en mm/s (25 mm/s pour une vue d'ensemble, 100 à 200 mm/s pour mesurer). L'écran en temps réel est en balayage (défilement en option) et ne se fige jamais. Choisissez un montage, puis ajoutez ou enlevez chaque voie dans « Voies affichées » ; changez leur ordre avec ▲ ou en faisant glisser le nom de la voie sur le tracé (toucher un nom change son gain). L'<b>écran de rappel</b> affiche chaque manœuvre ou enregistrement, centré sur le dernier complexe stimulé à chaque fin de stimulation, programmée ou arrêtée par Stop ; tout événement du journal peut y être rappelé. Posez le doigt (ou la souris) au début de l'intervalle et faites glisser : la mesure s'affiche en continu et reste en place quand vous lâchez (aimantée aux activations, trois compas au plus) ; touchez un compas une fois pour l'enlever. Pincez pour changer de vitesse, « Comparer » garde un rappel en référence (avant / après adénosine, avant / après ablation). Sur téléphone en paysage, un seul écran à la fois : glissez horizontalement pour passer du temps réel au rappel ; « Vignette direct » retire le temps réel à côté du rappel (sur ordinateur, le rappel prend alors toute la largeur ; sur téléphone en paysage, la vignette posée sur le rappel). On ne stimule que depuis un cathéter dont une voie est affichée : le spike et l'électrogramme capturé, juste après lui, doivent être visibles.`, `<b>Recording system</b>: sweep speed in mm/s (25 mm/s for an overview, 100 to 200 mm/s for measurements). The real-time screen uses sweep mode (scrolling as an option) and never freezes. Choose a montage, then add or remove individual channels under "Displayed channels"; reorder them with ▲ or by dragging the channel name on the tracing (tapping a name changes its gain). The <b>review screen</b> shows each manoeuvre or recording, centred on the last paced complex at every end of pacing, programmed or stopped with Stop; any event in the log can be recalled there. Put your finger (or the mouse) on the start of the interval and drag: the measurement updates as you go and stays in place when you let go (it snaps to activations, up to three callipers); tap a calliper once to remove it. Pinch to change the sweep speed; "Compare" keeps a recording as a reference (before / after adenosine, before / after ablation). On a phone in landscape, one screen at a time: swipe horizontally to switch between real time and review; "Live thumbnail" hides the real-time screen next to the review (on a computer the review then uses the full width; on a phone in landscape, the thumbnail sits over the review). You can only pace from a catheter whose channel is displayed: the spike and the captured electrogram just after it must be visible.`)}</li>
         <li>${t(`<b>Protocoles</b> : extrastimulus décrémental automatique (PRE, saut d'AH, induction), rampe jusqu'au Wenckebach antérograde ou rétrograde, temps de récupération sinusale, seuil de capture, para-hisien, ESV His-réfractaire et entraînement avec arrêt automatique. Les résultats vont dans le journal et le compte rendu.`, `<b>Protocols</b>: automatic decremental extrastimulus testing (ERP, AH jump, induction), ramp to anterograde or retrograde Wenckebach, sinus node recovery time, capture threshold, para-Hisian pacing, His-refractory PVC and entrainment with automatic stop. The results go into the log and the report.`)}</li>
         <li>${t(`<b>Extrastimulus</b> : train de S1 (ex. 8 × 600 ms) puis, en cochant « + extrastimulus », S2, S3, S4 (0 = désactivé) ; diminuez S2 par pas de 10 ms (boutons ± ou décrément automatique). Saut de l'AH ≥ 50 ms pour 10 ms de raccourcissement du couplage = double voie nodale. Période réfractaire effective : du tissu stimulé quand S2 ne capture plus ; du nœud AV quand S2 capture sans être suivi d'un H.`, `<b>Extrastimulus testing</b>: S1 drive train (e.g. 8 × 600 ms) then, after ticking "+ extrastimuli", S2, S3, S4 (0 = off); decrease S2 in 10 ms steps (± buttons or automatic decrement). AH jump ≥ 50 ms for a 10 ms decrement in coupling interval = dual AV nodal physiology. Effective refractory period: of the paced tissue when S2 no longer captures; of the AV node when S2 captures but is not followed by an H.`)}</li>
         <li>${t(`<b>Stimulateur</b> : chaque site a son seuil (isthme, SC distal et cicatrice plus élevés) ; près du seuil, la capture devient intermittente ; une impulsion plus courte exige plus d'intensité (loi intensité-durée). Un stimulus sans capture est marqué « · ».`, `<b>Stimulator</b>: each site has its own threshold (higher at the isthmus, distal CS and scar); near threshold, capture becomes intermittent; a shorter pulse width requires a higher output (strength–duration relationship). A non-capturing stimulus is marked "·".`)}</li>
@@ -373,7 +371,7 @@ export function vueSimulateur(app) {
     if (!e) return;
     if (!e.instantane) { st.demande = e; message(t('Enregistrement en cours : il s\'affichera sur l\'écran de rappel dans un instant.', 'Recording in progress: it will appear on the review screen in a moment.')); return; }
     st.rappel = e; st.curseurs = [];
-    st.recul = e.focus != null ? Math.max(0, e.instantane.t - e.focus - 0.5 * fenetreMs(canvasR.clientWidth || 300, r.vitesseRappel)) : 0; st.nouveauCompas = false; st.demande = null; st.sale = true; st.finOuverte = false;
+    st.recul = e.focus != null ? Math.max(0, e.instantane.t - e.focus - 0.5 * fenetreMs(canvasR.clientWidth || 300, r.vitesseRappel)) : 0; st.demande = null; st.sale = true;
     $('#rappel-titre').textContent = `${hms(e.t)} · ${e.texte}`;
     $('#rappel-vide').hidden = true;
     $('#paysage-nouveau').textContent = t(` Dernier rappel : ${e.texte}.`, ` Last recalled: ${e.texte}.`);
@@ -405,7 +403,7 @@ export function vueSimulateur(app) {
     const c0 = st.coeur, brut = c0.stimuler.bind(c0);
     c0.stimuler = (site, tt, sortie, largeur, lib) => brut(site, tt, sortie, largeur, lib, r.site === 'abl' && site === siteReel() ? 'abl' : null);
     Object.assign(st, { t: st.coeur.t, salve: null, actions: [], faites: new Set(), analyses: [], positionsTachy: new Set(), tachyAvant: false,
-      rappel: null, recul: 0, curseurs: [], nouveauCompas: false, finOuverte: false, demande: null, sale: true, reference: null, proto: null, rf: null, lesions: {}, carte: {}, cr: nouveauCR(), hypo: 0, bump: null, train: null, historique: [] });
+      rappel: null, recul: 0, curseurs: [], demande: null, sale: true, reference: null, proto: null, rf: null, lesions: {}, carte: {}, cr: nouveauCR(), hypo: 0, bump: null, train: null, historique: [] });
     for (const id of ['#iso', '#atropine']) { $(id).setAttribute('aria-pressed', 'false'); $(id).classList.remove('actif'); }
     $('#rappel-titre').textContent = ''; $('#rappel-vide').hidden = false; $('#paysage-nouveau').textContent = ''; $('#reference').hidden = true;
     $('#proto-etat').textContent = ''; $('#compte-rendu').hidden = true; $('#rf-etat').textContent = t('Générateur prêt', 'Generator ready');
@@ -1196,9 +1194,8 @@ export function vueSimulateur(app) {
   $('#evt-prec').onclick = () => rappelVoisin(-1);
   $('#evt-suiv').onclick = () => rappelVoisin(1);
   $('#journal').onclick = e => { const b = e.target.closest('[data-evt]'); if (b) { rappeler(st.actions.find(a => a.id === +b.dataset.evt)); if (compact()) montrer('rappel'); } };
-  $('#compas-plus').onclick = () => { st.nouveauCompas = true; st.finOuverte = false; message(t('Faites glisser sur l\'écran de rappel (au doigt : appui long sur le début, puis sur la fin) pour poser le nouveau compas.', 'Drag across the review screen (with a finger: press and hold on the start, then on the end) to place the new calliper.')); };
   $('#compas-report').onclick = () => { st.report = !st.report; st.sale = true; $('#compas-report').classList.toggle('actif', st.report); };
-  $('#compas-effacer').onclick = () => { st.curseurs = []; st.finOuverte = false; st.sale = true; };
+  $('#compas-effacer').onclick = () => { st.curseurs = []; st.sale = true; };
   $('#aimant').onclick = () => { r.aimant = !r.aimant; ecrire(r); $('#aimant').classList.toggle('actif', r.aimant); $('#aimant').setAttribute('aria-pressed', String(r.aimant)); };
   $('#comparer').onclick = () => {
     if (!st.rappel?.instantane) { message(t('Rappelez d\'abord un événement.', 'Recall an event first.')); return; }
@@ -1251,7 +1248,7 @@ export function vueSimulateur(app) {
 
   // ---------- gains, pincement (vitesse) et compas aimantés ----------
   // Toucher le tracé en temps réel ne l'arrête pas : les mesures se font sur l'écran de rappel.
-  let geo = null, geoR = null, glisse = false, aimants = [];
+  let geo = null, geoR = null, aimants = [];
   // marge des noms de voies : toucher = gain suivant ; glisser verticalement = déplacer la voie dans l'ordre d'affichage
   let deplace = null;
   const gain = (cv, g, e) => {
@@ -1303,7 +1300,7 @@ export function vueSimulateur(app) {
   };
   canvas.addEventListener('pointerdown', e => gain(canvas, geo, e));
   pincer(canvas, 'vitesse');
-  const nbDoigtsR = pincer(canvasR, 'vitesseRappel', () => { glisse = false; const d = st.curseurs.at(-1); if (d && d[1] == null) st.curseurs.pop(); st.sale = true; });
+  const nbDoigtsR = pincer(canvasR, 'vitesseRappel', () => { if (geste?.trace) st.curseurs.pop(); geste = null; st.sale = true; });
   const temps = e => { const b = canvasR.getBoundingClientRect(); return geoR?.t0 != null ? geoR.t0 + (e.clientX - b.left - geoR.marge) / geoR.pxms : null; };
   const aimanter = t => {
     if (!r.aimant || t == null || !aimants.length || !geoR) return t;
@@ -1316,68 +1313,45 @@ export function vueSimulateur(app) {
     const rangee = (geoR?.rangees || []).find(x => y >= x.y0 && y < x.y1)?.id;
     aimants = rangee ? evenementsCanal(rangee, st.rappel.instantane, st.rappel.instantane.ablation) : [];
   };
-  const poserDebut = ta => {
-    if (st.nouveauCompas || !st.curseurs.length) { st.curseurs.push([ta, null]); if (st.curseurs.length > 3) st.curseurs.shift(); st.nouveauCompas = false; }
-    else st.curseurs[st.curseurs.length - 1] = [ta, null];
-    st.sale = true;
-  };
   const mesureFaite = () => { if (st.curseurs.at(-1)?.[1] != null && st.historique.at(-1)?.type !== 'mesure') faire('mesure'); };
-  // Souris : glisser du début à la fin. Doigt : appui long (2 s) sur le début, puis nouvel appui maintenu (1 s) sur la fin ;
-  // pendant ce second appui, la fin suit le doigt. Un appui bref ou un glissement ne pose rien.
-  const APPUI_DEBUT = 2000, APPUI_FIN = 1000, bague = $('#appui');
-  let appui = null;
-  const annulerAppui = () => { if (!appui) return; clearTimeout(appui.minuteur); appui = null; bague.hidden = true; };
-  const armerAppui = e => {
-    clearTimeout(appui?.minuteur);
-    const b = canvasR.getBoundingClientRect(), duree = st.finOuverte ? APPUI_FIN : APPUI_DEBUT;
-    appui = { id: e.pointerId, x: e.clientX, y: e.clientY, minuteur: setTimeout(validerAppui, duree) };
-    bague.hidden = false; bague.style.left = `${e.clientX - b.left}px`; bague.style.top = `${e.clientY - b.top}px`;
-    bague.style.setProperty('--duree', `${duree}ms`); bague.classList.toggle('fin', st.finOuverte);
-    bague.classList.remove('charge'); void bague.offsetWidth; bague.classList.add('charge'); // relance l'animation de la bague
+  // Compas (doigt ou souris) : poser le doigt marque le début, glisser affiche la mesure en continu, lâcher la laisse en
+  // place (trois compas au plus). Toucher une fois un compas (un de ses traits ou son étiquette) sans glisser l'enlève.
+  let geste = null;
+  const compasTouche = e => {
+    if (!geoR || geoR.t0 == null) return -1;
+    const b = canvasR.getBoundingClientRect(), x = e.clientX - b.left, y = e.clientY - b.top, X = v => geoR.marge + (v - geoR.t0) * geoR.pxms;
+    for (let n = st.curseurs.length - 1; n >= 0; n--) {
+      const [a, z] = st.curseurs[n]; if (a == null || z == null) continue;
+      const surEtiquette = Math.abs(x - (X(a) + X(z)) / 2) < 40 && y >= 10 + n * 20 && y <= 36 + n * 20;
+      if (surEtiquette || Math.abs(x - X(a)) < 12 || Math.abs(x - X(z)) < 12) return n;
+    }
+    return -1;
   };
-  function validerAppui() {
-    if (!appui || !st.rappel) return;
-    const ta = aimanter(temps({ clientX: appui.x }));
-    if (ta == null) { annulerAppui(); return; }
-    if (!st.finOuverte) { poserDebut(ta); st.finOuverte = true; message(t('Début posé : appuyez longuement sur la fin de l\'intervalle.', 'Start set: press and hold on the end of the interval.')); }
-    else { st.curseurs.at(-1)[1] = ta; st.finOuverte = false; mesureFaite(); }
-    st.sale = true; vibrer(); annulerAppui();
-  }
   canvasR.addEventListener('pointerdown', e => {
-    if (gain(canvasR, geoR, e) || !st.rappel) return;
-    if (nbDoigtsR() > 1) { annulerAppui(); return; }
+    if (gain(canvasR, geoR, e) || !st.rappel || nbDoigtsR() > 1) return;
     const t = temps(e); if (t == null) return;
     aimantsSous(e);
-    if (e.pointerType === 'touch') {
-      try { canvasR.setPointerCapture(e.pointerId); } catch { /* pointeur déjà relâché */ }
-      armerAppui(e);
-      if (st.finOuverte && st.curseurs.length) { st.curseurs.at(-1)[1] = aimanter(t); st.sale = true; }
-      return;
-    }
-    poserDebut(aimanter(t));
-    glisse = true; canvasR.setPointerCapture(e.pointerId);
+    geste = { id: e.pointerId, x: e.clientX, debut: aimanter(t), cible: compasTouche(e), trace: false };
+    try { canvasR.setPointerCapture(e.pointerId); } catch { /* pointeur déjà relâché */ }
   });
   canvasR.addEventListener('pointermove', e => {
-    if (appui && e.pointerId === appui.id) {
-      if (nbDoigtsR() > 1) { annulerAppui(); return; }
-      const bouge = Math.hypot(e.clientX - appui.x, e.clientY - appui.y);
-      if (st.finOuverte && st.curseurs.length) { st.curseurs.at(-1)[1] = aimanter(temps(e)); st.sale = true; } // la fin suit le doigt
-      if (bouge > 10) { if (st.finOuverte) armerAppui(e); else annulerAppui(); } // tenir le doigt immobile pour valider
-      return;
+    if (!geste || e.pointerId !== geste.id || nbDoigtsR() > 1) return;
+    if (!geste.trace) {
+      if (Math.abs(e.clientX - geste.x) < 6) return; // un simple toucher ne pose rien
+      geste.trace = true;
+      st.curseurs.push([geste.debut, null]); if (st.curseurs.length > 3) st.curseurs.shift();
     }
-    if (glisse && st.curseurs.length && nbDoigtsR() < 2) { st.curseurs.at(-1)[1] = aimanter(temps(e)); st.sale = true; }
+    st.curseurs.at(-1)[1] = aimanter(temps(e)); st.sale = true; // mesure affichée en continu
   });
   canvasR.addEventListener('pointerup', e => {
-    if (appui && e.pointerId === appui.id) {
-      annulerAppui();
-      if (st.finOuverte && st.curseurs.length) { st.curseurs.at(-1)[1] = null; st.sale = true; } // doigt levé trop tôt : la fin reste à poser
-      return;
-    }
-    if (glisse) mesureFaite();
-    glisse = false;
+    if (!geste || e.pointerId !== geste.id) return;
+    const g = geste; geste = null;
+    if (g.trace) { const d = st.curseurs.at(-1); if (d[1] == null || Math.abs(d[1] - d[0]) < 5) st.curseurs.pop(); else mesureFaite(); }
+    else if (g.cible >= 0) st.curseurs.splice(g.cible, 1); // toucher un compas l'enlève
+    st.sale = true;
   });
-  canvasR.addEventListener('pointercancel', annulerAppui);
-  canvasR.addEventListener('contextmenu', e => e.preventDefault()); // pas de menu contextuel sur appui long
+  canvasR.addEventListener('pointercancel', () => { if (geste?.trace) st.curseurs.pop(); geste = null; st.sale = true; });
+  canvasR.addEventListener('contextmenu', e => e.preventDefault()); // pas de menu contextuel au toucher prolongé
   // l'écran de rappel change de largeur (temps réel masqué ou affiché, rotation) : même instant au centre
   let largeurR = canvasR.clientWidth;
   if (typeof ResizeObserver === 'function') new ResizeObserver(() => {
@@ -1434,6 +1408,7 @@ export function vueSimulateur(app) {
         $('#mesures-rappel').innerHTML = '';
       } else {
         const tFin = inst.t - st.recul;
+        canvasR.dataset.compas = st.curseurs.filter(c => c[1] != null).length; // compas posés (lu par le test de fumée)
         geoR = dessinerSimu(canvasR, inst, { tFin, vitesse: r.vitesseRappel, mode: 'defilement', curseurs: st.curseurs, report: st.report, ablation: inst.ablation, ...o });
         $('#mesures-rappel').innerHTML = htmlMesures(mesures(inst, tFin));
       }

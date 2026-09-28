@@ -30,8 +30,8 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
     **pression artérielle**, montages (dont un montage réduit pour téléphone), gain par voie, bruit, filtre secteur 50 Hz et
     passe-haut des électrogrammes (parasite et dérive respiratoire quand ils sont coupés), saturation après un choc.
     L'écran en temps réel ne se fige jamais ; à côté, un **écran de rappel** affiche chaque manœuvre ou enregistrement :
-    relecture, vitesse propre (pincer pour zoomer), trois compas **aimantés** aux activations avec report (au doigt : appui
-    long de 2 s sur le début, puis appui maintenu sur la fin), comparaison avec
+    relecture, vitesse propre (pincer pour zoomer), trois compas **aimantés** aux activations avec report (poser le doigt
+    au début, glisser : mesure en continu, laissée en place au relâcher ; toucher un compas l'enlève), comparaison avec
     un rappel de référence. Chaque fin de stimulation (programmée ou arrêtée par Stop) est rappelée centrée sur le dernier
     complexe stimulé ; chaque événement du journal peut être rappelé, avec ses intervalles. Ordre des voies modifiable (▲ ou
     glisser le nom de la voie sur le tracé) ; les sites de stimulation portent le nom de la voie affichée (SC 1-2, OD lat…). Sur téléphone en paysage,
