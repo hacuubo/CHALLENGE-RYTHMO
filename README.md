@@ -83,8 +83,8 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
 - **Progression** : **courbe de l'ELO jour après jour** (avec tableau des valeurs), badges, réussite par thème et par niveau, jours consécutifs,
   historique, export/import ; une série interrompue se reprend. Tout reste sur l'appareil.
 - Raccourcis clavier (1–4 / A–D, V/F, Entrée).
-- Mode clair / sombre, affichage adapté au mobile ; **installation sur le téléphone** proposée en haut de l'accueil
-  (bouton sur Android, démarche expliquée sur iPhone et iPad).
+- Mode clair / sombre, affichage adapté au mobile ; **installation de l'application** proposée en haut de l'accueil
+  (bouton sur Android et sur ordinateur sous Chrome ou Edge, démarche expliquée sur iPhone et iPad).
 
 ## Utilisation
 
@@ -98,9 +98,10 @@ python3 -m http.server 8000     # puis ouvrir http://localhost:8000
 
 Le workflow `.github/workflows/pages.yml` valide la base de questions à chaque push et publie le site
 à chaque push sur `main`. À activer une fois dans **Settings → Pages → Source : GitHub Actions**.
-Sur téléphone, l'accueil propose d'installer l'application dans un encart : sur Android, le bouton « Installer »
-ouvre la boîte d'installation du navigateur (`beforeinstallprompt`, retenu dès l'en-tête de `index.html`) ; sur iPhone
-et iPad, la démarche est expliquée pas à pas (Partager → Sur l'écran d'accueil). L'encart disparaît une fois
+L'accueil propose d'installer l'application dans un encart : quand le navigateur sait installer (Android, Chrome ou
+Edge sur ordinateur), le bouton « Installer » ouvre sa boîte d'installation (`beforeinstallprompt`, retenu dès l'en-tête
+de `index.html`) ; sur iPhone et iPad, la démarche est expliquée pas à pas (Partager → Sur l'écran d'accueil). Rien n'est
+proposé dans un navigateur qui ne sait pas installer (Firefox, Safari sur Mac). L'encart disparaît une fois
 l'application installée ou lancée en plein écran, et pour 30 jours quand on le referme (`js/installation.js`).
 
 ### Référencement (SEO et moteurs génératifs)

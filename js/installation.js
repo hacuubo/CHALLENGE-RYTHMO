@@ -1,10 +1,10 @@
-// Installation de l'application (PWA) sur le téléphone, proposée en haut de l'accueil.
-// - Android (Chrome, Edge, Samsung Internet…) : le navigateur émet `beforeinstallprompt` ; on retient l'événement
+// Installation de l'application (PWA), proposée en haut de l'accueil.
+// - Android, et ordinateur sous Chrome ou Edge : le navigateur émet `beforeinstallprompt` ; on retient l'événement
 //   (capté dès l'en-tête de index.html, avant le chargement de ce module) et le bouton « Installer » ouvre la
 //   boîte d'installation du système.
 // - iPhone et iPad : pas d'installation automatique ; on explique la démarche (Partager → Sur l'écran d'accueil).
-// Rien n'est proposé quand l'application est déjà ouverte en plein écran (installée) ni sur ordinateur ;
-// la proposition refermée revient au bout de 30 jours.
+// Rien n'est proposé quand l'application est déjà ouverte en plein écran (installée) ni quand le navigateur ne sait
+// pas installer (Firefox, Safari sur Mac…) ; la proposition refermée revient au bout de 30 jours.
 import { t } from './i18n.js';
 import { toast } from './util.js';
 
@@ -16,7 +16,8 @@ const ecrire = o => { try { localStorage.setItem(CLE, JSON.stringify(o)); } catc
 
 // iPhone, iPod et iPad (l'iPad se présente comme un Mac tactile depuis iPadOS 13)
 export const surIOS = () => /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && typeof navigator !== 'undefined' && navigator.maxTouchPoints > 1);
-const surAndroid = () => /Android/i.test(ua);
+// téléphone ou tablette (le libellé de l'encart s'adapte : téléphone ou ordinateur)
+export const surMobile = () => surIOS() || /Android|Mobile/i.test(ua);
 // déjà lancée depuis l'icône de l'écran d'accueil
 export const dejaInstallee = () => (typeof matchMedia !== 'undefined' && matchMedia('(display-mode: standalone)').matches)
   || (typeof navigator !== 'undefined' && navigator.standalone === true) || !!lire().installee;
@@ -33,19 +34,20 @@ if (typeof window !== 'undefined') {
   });
 }
 
-// Mode de la proposition à afficher : 'android' (bouton Installer), 'ios' (démarche expliquée) ou null (rien).
+// Mode de la proposition à afficher : 'bouton' (le navigateur sait installer : Android, Chrome ou Edge sur
+// ordinateur), 'ios' (démarche expliquée sur iPhone et iPad) ou null (rien).
 export function proposition() {
   if (dejaInstallee()) return null;
   const { refusee } = lire();
   if (refusee && Date.now() - refusee < 30 * JOUR) return null;
   if (surIOS()) return 'ios';
-  if (surAndroid() && evenement) return 'android';
+  if (evenement) return 'bouton';
   return null;
 }
 export const quandInstallable = f => { abonne = f; };
 export function refuser() { ecrire({ refusee: Date.now() }); }
 
-// Ouvre la boîte d'installation du système (Android) ; renvoie true si l'utilisateur a accepté.
+// Ouvre la boîte d'installation du système ; renvoie true si l'utilisateur a accepté.
 export async function installer() {
   const e = evenement;
   if (!e) return false;

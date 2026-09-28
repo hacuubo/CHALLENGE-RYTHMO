@@ -5,7 +5,7 @@ import { resumeSauve } from '../session.js';
 import { esc, toast } from '../util.js';
 import { ICONES, LOGO } from '../icones.js';
 import { t, langue, LANGUES, definirLangue, proposerAnglais } from '../i18n.js';
-import { proposition, quandInstallable, installer, refuser, etapesIOS } from '../installation.js';
+import { proposition, quandInstallable, installer, refuser, etapesIOS, surMobile } from '../installation.js';
 
 export function vueAccueil(app, ctx) {
   const { reprendre, changerLangue } = ctx;
@@ -51,7 +51,7 @@ export function vueAccueil(app, ctx) {
   const fermer = app.querySelector('.fermer-invitation');
   if (fermer) fermer.onclick = () => { definirLangue('fr'); app.querySelector('.invitation-langue').remove(); };
   brancherInstallation(app);
-  // Android : l'événement d'installation peut arriver après l'affichage de l'accueil
+  // l'événement d'installation du navigateur peut arriver après l'affichage de l'accueil
   quandInstallable(() => {
     if (!app.querySelector('.menu-principal.centre') || app.querySelector('.installation')) return;
     (app.querySelector('.invitation-langue') || app.querySelector('.titre-accueil')).insertAdjacentHTML('afterend', encartInstallation());
@@ -59,18 +59,18 @@ export function vueAccueil(app, ctx) {
   });
 }
 
-// Encart « Installer l'application » : bouton Installer (Android) ou démarche expliquée (iPhone, iPad).
+// Encart « Installer l'application » : bouton Installer (Android, Chrome ou Edge sur ordinateur) ou démarche expliquée (iPhone, iPad).
 function encartInstallation() {
   const mode = proposition();
   if (!mode) return '';
-  const action = mode === 'android'
+  const action = mode === 'bouton'
     ? `<button type="button" class="btn" id="installer">${t('Installer', 'Install')}</button>`
     : `<button type="button" class="btn" id="installer" aria-expanded="false" aria-controls="installation-etapes">${t('Comment faire', 'How to')}</button>`;
   const etapes = mode === 'ios' ? `<ol id="installation-etapes" class="installation-etapes" hidden>${etapesIOS().map(e => `<li>${e}</li>`).join('')}</ol>` : '';
   return `<section class="installation" data-mode="${mode}" role="region" aria-label="${t('Installer l\'application', 'Install the app')}">
       <span class="installation-ico" aria-hidden="true">${ICONES.installation}</span>
-      <span class="installation-texte"><strong>${t('Installer l\'application sur votre téléphone', 'Install the app on your phone')}</strong>
-        <span>${t('Icône sur l\'écran d\'accueil, plein écran, hors connexion.', 'Home screen icon, full screen, works offline.')}</span></span>
+      <span class="installation-texte"><strong>${surMobile() ? t('Installer l\'application sur votre téléphone', 'Install the app on your phone') : t('Installer l\'application sur cet ordinateur', 'Install the app on this computer')}</strong>
+        <span>${surMobile() ? t('Icône sur l\'écran d\'accueil, plein écran, hors connexion.', 'Home screen icon, full screen, works offline.') : t('Fenêtre dédiée, icône parmi vos applications, hors connexion.', 'Own window, icon among your apps, works offline.')}</span></span>
       ${action}
       <button type="button" class="fermer-invitation fermer-installation" aria-label="${t('Ne plus proposer', 'Don\'t ask again')}" title="${t('Ne plus proposer', 'Don\'t ask again')}">✕</button>
       ${etapes}
@@ -80,7 +80,7 @@ function brancherInstallation(app) {
   const encart = app.querySelector('.installation');
   if (!encart) return;
   const bouton = encart.querySelector('#installer');
-  if (encart.dataset.mode === 'android') {
+  if (encart.dataset.mode === 'bouton') {
     bouton.onclick = async () => {
       bouton.disabled = true;
       const ok = await installer();
