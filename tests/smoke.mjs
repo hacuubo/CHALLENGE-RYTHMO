@@ -491,7 +491,7 @@ await verifier('encart d\'installation de l\'application', async () => {
   if (await page.$('.installation')) throw new Error('encart Android affiché sans proposition du navigateur');
   await proposer();
   await page.waitForSelector('.installation[data-mode=bouton] #installer');
-  if (!/téléphone/.test(await page.textContent('.installation'))) throw new Error('libellé téléphone absent');
+  if (!/Installer l'application/.test(await page.textContent('.installation'))) throw new Error('libellé du bandeau absent');
   await page.click('#installer');
   await page.waitForSelector('.installation', { state: 'detached' });
   if (!(await page.evaluate(() => window.__promptAppele))) throw new Error('boîte d\'installation non ouverte');
