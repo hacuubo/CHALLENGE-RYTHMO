@@ -51,7 +51,9 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
     sinusal (extrastimulus, rampes, TRS, para-hisien) sont refusés tant qu'une tachycardie est en cours.
   - **Sonde d'ablation** placée sur une **carte schématique** (activation locale colorée pendant la tachycardie) ; contact
     du cathéter (extrasystoles mécaniques, bloc transitoire d'une voie accessoire) ; générateur de **radiofréquence**
-    (puissance, température, impédance, lésion progressive selon l'appui) ou cryothérapie ; rythme jonctionnel sur la voie
+    (puissance, température, impédance, lésion progressive selon l'appui) ou cryothérapie ; sur l'isthme cavo-tricuspide,
+    ralentissement puis bloc de la conduction avec **doubles potentiels** de plus en plus espacés sur la sonde (stimulation
+    de l'OD latérale ou de l'ostium du SC en rythme sinusal) ; rythme jonctionnel sur la voie
     lente et alerte en cas de perte de la conduction VA ; allongement de l'AH puis bloc AV près du His.
   - Isoprénaline, atropine, adénosine, choc ; alerte d'hypotension ; **compte rendu d'EEP** généré (copiable).
   - Physiologie : conduction décrémentielle avec Wenckebach nodal, pénétration rétrograde cachée de la voie lente, freinage sinusal (TRS), branches droite et gauche
