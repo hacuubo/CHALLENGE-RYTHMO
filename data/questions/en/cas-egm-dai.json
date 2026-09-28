@@ -1,6 +1,6 @@
 {
  "cas-egmd-001": {
-  "question": "A 71-year-old man with ischaemic cardiomyopathy (LVEF 25%) has a dual-chamber ICD: VT zone 171–240 bpm (ATP then shocks), VF zone above 240 bpm. He comes to the emergency department after \"feeling his device\" several times: interrogation shows 5 treated episodes in 10 hours, 4 terminated by ATP and 1 by a shock. The most recent one is shown. He is alert, BP 112/70 mmHg, in sinus rhythm; potassium 3.2 mmol/l. What is the most appropriate initial management?",
+  "question": "A 71-year-old man with ischaemic cardiomyopathy (LVEF 25%) has a dual-chamber ICD: VT zone 171–240 bpm (ATP then shocks), VF zone above 240 bpm. He comes to the emergency department after \"feeling his device\" several times: interrogation shows 5 treated episodes in 10 hours, 4 terminated by ATP and 1 by a shock. The most recent one is shown. He is alert, BP 112/70 mmHg, in sinus rhythm; potassium 3.2 mmol/L. What is the most appropriate initial management?",
   "options": [
    "Disable all ICD therapies, with monitoring in the ED",
    "Switch off ATP, considered proarrhythmic, and keep shocks only",
@@ -163,7 +163,7 @@
   ],
   "explication": "After two sinus beats, the Vs become regular at 480 ms (125 bpm) with a different morphology on the shock EGM, while the P waves remain sinus at 800 ms: V > A with dissociation, so this is VT. It is still marked VS because its cycle length (480 ms) is longer than the VT zone boundary (400 ms): the ICD does not \"see\" it as a tachycardia. Amiodarone typically slows VT, sometimes below the programmed zone, and incessant slow VT can cause heart failure decompensation. Good habit: after starting an antiarrhythmic drug, check that the slowest zone is still below the rate of the expected VT.",
   "aRetenir": "VT slowed by amiodarone below the VT zone: no detection, no therapy, poor haemodynamic tolerance.",
-  "rappel": "An ICD detects a tachycardia only if the cycle lengths are shorter than the boundary of the slowest zone; longer cycles are treated as normal beats (VS). Class III and class I antiarrhythmic drugs (amiodarone above all) slow VT and can bring it below the programmed zone. In secondary prevention, the 2015 consensus considers it reasonable to set the slowest zone at least 10 bpm below the rate of the documented VT, and reconsidering it after any change in medication. Incessant slow VT, even if well tolerated at first, leads to heart failure.",
+  "rappel": "An ICD detects a tachycardia only if the cycle lengths are shorter than the boundary of the slowest zone; longer cycles are treated as normal beats (VS). Class III and class I antiarrhythmic drugs (amiodarone above all) slow VT and can bring it below the programmed zone. In secondary prevention, the 2015 consensus considers it reasonable to set the slowest zone at least 10 bpm below the rate of the documented VT, and to reconsider it after any change in medication. Incessant slow VT, even if well tolerated at first, leads to heart failure.",
   "legende": "Real-time EGM — dual-chamber ICD"
  },
  "cas-egmd-010": {
@@ -218,7 +218,7 @@
    "Incorrect: the episode is an atrial tachycardia with 2:1 conduction, rightly left untreated; without discriminators it would have received ATP or a shock.",
    "Correct: recurrent flutter is readily treated by ablation, which is highly effective at the cavotricuspid isthmus when the circuit is typical."
   ],
-  "explication": "After two sinus beats, the atrial EGM shows regular activity at 190 ms (≈ 315 bpm); every other wave is conducted (AS) and the other falls in the refractory period (AR), giving Vs at 380 ms (≈ 158 bpm) with the same morphology as sinus rhythm. A > V: this is atrial flutter or atrial tachycardia with 2:1 conduction, which the ICD correctly classified as SVT (SVT marker). The decision is therefore not to reprogram but to manage the atrial arrhythmia: anticoagulation according to CHA2DS2-VA (flutter follows the same rules as AF) and discussion of ablation. Good habit: therapy rightly withheld is still clinical information to act on.",
+  "explication": "After two sinus beats, the atrial EGM shows regular activity at 190 ms (≈ 315 bpm); every other wave is conducted (AS) and the intervening ones fall in the refractory period (AR), giving Vs at 380 ms (≈ 158 bpm) with the same morphology as sinus rhythm. A > V: this is atrial flutter or atrial tachycardia with 2:1 conduction, which the ICD correctly classified as SVT (SVT marker). The decision is therefore not to reprogram but to manage the atrial arrhythmia: anticoagulation according to CHA2DS2-VA (flutter follows the same rules as AF) and discussion of ablation. Good habit: therapy rightly withheld is still clinical information to act on.",
   "aRetenir": "2:1 flutter correctly withheld by the ICD: treat the flutter (anticoagulation, ablation), not the programming.",
   "rappel": "In a dual-chamber ICD, a rhythm with clearly more As than Vs (A > V) is usually classified as SVT; depending on the algorithm, ventricular cycle stability or morphology is also checked so as not to miss VT occurring during an atrial arrhythmia. Atrial flutter carries the same thromboembolic risk as AF: the 2024 ESC guidelines recommend applying the same anticoagulation criteria (CHA2DS2-VA). Cavotricuspid isthmus ablation is first-line treatment for recurrent typical flutter (ESC 2019). Remote monitoring detects these atrial episodes, which are often asymptomatic.",
   "legende": "Stored episode — dual-chamber ICD"
@@ -232,7 +232,7 @@
    "Mode switching, then pacing at the lower rate"
   ],
   "commentaires": [
-   "Incorrect: 1:1 flutter at 250 bpm exceeds the upper limit for applying discriminators; and a 1:1 relationship is never enough to classify SVT.",
+   "Incorrect: 1:1 flutter at 250 bpm exceeds the upper limit for applying discriminators; and a 1:1 relationship is never enough to classify a rhythm as SVT.",
    "Incorrect: an ICD is not an atrial antitachycardia pacemaker; some models offer it, but ventricular detection in the VF zone takes priority.",
    "Correct: a 240 ms cycle length conducted 1:1 gives 250 bpm: VF zone, above the discriminator limit, hence charging and then a shock.",
    "Incorrect: mode switching concerns pacing and in no way prevents detection and treatment in the VF zone."
@@ -457,7 +457,7 @@
    "Incorrect: shock impedance is normal and the second shock was effective; nothing suggests a fracture, and disabling therapies would be dangerous.",
    "Correct: ischaemia, electrolyte disorders and acidosis raise the defibrillation threshold and must be corrected."
   ],
-  "explication": "The episode shows VF detected (FS), a first charge and an ineffective first shock, persistent VF, then a second charge and an effective second shock followed by VVI pacing. An ineffective first shock at maximum energy calls for an explanation of why the defibrillation threshold has risen: metabolic or ischaemic factors, an antiarrhythmic drug (amiodarone, recently started, raises the defibrillation threshold), progression of the cardiomyopathy, or lead displacement. Normal shock impedance makes a break in the circuit unlikely. Depending on the findings, defibrillation testing guides any modification of the system. Good habit: an ineffective maximum-energy shock is a warning sign, not bad luck.",
+  "explication": "The episode shows VF detected (FS), a first charge and an ineffective first shock, persistent VF, then a second charge and an effective second shock followed by VVI pacing. An ineffective first shock at maximum energy calls for an explanation of why the defibrillation threshold has risen: metabolic or ischaemic factors, an antiarrhythmic drug (amiodarone, recently started, raises the defibrillation threshold), progression of the cardiomyopathy, or lead dislodgement. Normal shock impedance makes a break in the circuit unlikely. Depending on the findings, defibrillation testing guides any modification of the system. Good habit: an ineffective maximum-energy shock is a warning sign, not bad luck.",
   "aRetenir": "Ineffective maximum-energy first shock: look for a reversible cause, check the leads, discuss defibrillation testing and revision.",
   "rappel": "The defibrillation threshold can rise over time or with ischaemia, electrolyte disorders, acidosis, progression of heart disease and certain drugs (amiodarone in particular). Routine defibrillation testing at implantation is no longer recommended for a left-sided transvenous ICD (SIMPLE, NORDIC ICD), but it remains useful when shock efficacy is in doubt. Options to increase the margin include changing the shock configuration (polarity, SVC coil), adding a subcutaneous or azygos defibrillation lead, or repositioning. Shock impedance (normally about 30–100 Ω) indicates the integrity of the circuit.",
   "legende": "Stored episode — dual-chamber ICD"
@@ -503,7 +503,7 @@
  "cas-egmd-028": {
   "question": "A 71-year-old man has a CRT-D for dilated cardiomyopathy with LBBB. He has had permanent AF for a year (rate-control strategy agreed), a beta-blocker at the maximum tolerated dose, and digoxin is contraindicated. The counter shows 78% biventricular pacing and he remains in NYHA class III. In view of this recording, what is the most appropriate decision?",
   "options": [
-   "Lower rate at 90 bpm to pace more often",
+   "Lower rate raised to 90 bpm to pace more often",
    "Atrioventricular junction ablation",
    "A rate-regularisation algorithm alone, which is enough here",
    "Stop resynchronisation, which is useless in AF"
@@ -516,7 +516,7 @@
   ],
   "explication": "The atrial EGM shows AF; the Vs are irregular and conducted (VS) on most cycles, and BV pacing is delivered only after the longest cycles, when intrinsic conduction is delayed. The 78% counter probably even overestimates effective resynchronisation, since some of the counted BV beats are fusion beats. The benefit of CRT is greatest above 98% biventricular pacing (Hayes 2011). When drug-based rate control is maximal, AV junction ablation is the solution that ensures permanent pacing; the patient becomes pacing-dependent, which requires reliable pacing. Good habit: CRT in AF is judged by the percentage of effective biventricular pacing, not by the presence of the device.",
   "aRetenir": "CRT in AF with insufficient biventricular pacing despite treatment: AV junction ablation.",
-  "rappel": "The 2021 ESC pacing and CRT guidelines recommend aiming for biventricular pacing as close as possible to 100%; in patients with AF whose biventricular pacing remains incomplete (< 90–95%) because of conducted AF, AV junction ablation should be considered (class IIa). The 2024 ESC AF guidelines also propose (class IIa) AV junction ablation combined with CRT in severely symptomatic patients with permanent AF and a heart failure hospitalisation. Device counters count fusion and pseudo-fusion as pacing: Holter ECG monitoring helps estimate the true biventricular capture.",
+  "rappel": "The 2021 ESC pacing and CRT guidelines recommend aiming for biventricular pacing as close as possible to 100%; in patients with AF whose biventricular pacing remains incomplete (< 90–95%) because of conducted AF, AV junction ablation should be considered (class IIa). The 2024 ESC AF guidelines also propose (class IIa) AV junction ablation combined with CRT in severely symptomatic patients with permanent AF and a heart failure hospitalisation. Device counters count fusion and pseudofusion as pacing: Holter ECG monitoring helps estimate the true biventricular capture.",
   "legende": "Real-time EGM — CRT-D"
  },
  "cas-egmd-029": {
@@ -525,17 +525,17 @@
    "Discuss restoring sinus rhythm (cardioversion, AF ablation)",
    "Lengthen the device's sensed AV delay",
    "Strengthen rate control (beta-blocker) if tolerated",
-   "Lower the lower rate to 50 bpm"
+   "Reduce the lower rate to 50 bpm"
   ],
   "commentaires": [
    "Correct: restoring sinus rhythm re-establishes atrial-synchronous pacing, with biventricular pacing at a short AV delay.",
    "Incorrect: in AF there is no atrial tracking; the AV delay plays no role, and lengthening it in sinus rhythm would favour intrinsic conduction.",
    "Correct: slowing AV conduction leaves more long cycles, on which biventricular pacing is delivered.",
-   "Incorrect: lowering the lower rate would leave even more room for intrinsic conduction."
+   "Incorrect: reducing the lower rate would leave even more room for intrinsic conduction."
   ],
   "explication": "The recording shows AF with fast, irregular conduction: most cycles are sensed (VS), and BV pacing occurs only after long cycles. Two levers increase biventricular pacing: slowing AV conduction (beta-blocker and, as a last resort, AV junction ablation) or eliminating AF. In this patient with recent persistent AF and cardiomyopathy, a rhythm-control strategy (cardioversion after effective anticoagulation, AF ablation) should be discussed. AV delay or lower rate settings have no effect on conducted AF. Good habit: a fall in the biventricular pacing percentage should first prompt a search for AF or PVCs.",
   "aRetenir": "Loss of biventricular pacing in AF: slow AV conduction or restore sinus rhythm.",
-  "rappel": "The main causes of loss of biventricular pacing are conducted AF, frequent PVCs, an AV delay too long relative to intrinsic conduction, and sinus tachycardia above the upper tracking rate. Remote monitoring detects these falls early; they are associated with a higher risk of decompensation. In AF, options include intensified rate control, rhythm control (cardioversion, AF ablation, the latter recommended in selected heart failure patients by the 2024 ESC guidelines) and AV junction ablation.",
+  "rappel": "The main causes of loss of biventricular pacing are conducted AF, frequent PVCs, an AV delay too long relative to intrinsic conduction, and sinus tachycardia above the maximum tracking rate. Remote monitoring detects these falls early; they are associated with a higher risk of decompensation. In AF, options include intensified rate control, rhythm control (cardioversion, AF ablation, the latter recommended in selected heart failure patients by the 2024 ESC guidelines) and AV junction ablation.",
   "legende": "Transmitted episode — CRT-D"
  },
  "cas-egmd-030": {

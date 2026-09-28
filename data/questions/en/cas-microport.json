@@ -85,7 +85,7 @@
    "Correct: \"Monitor\" provides threshold trends without adjustment; \"Auto\" measures and adjusts; \"Off\" measures nothing.",
    "Incorrect: the amplitude is set at twice the threshold (100% margin), without falling below a programmable minimum value."
   ],
-  "explication": "There are two main approaches to automated threshold management: beat-to-beat capture verification, which allows an amplitude close to threshold with a backup pulse, and scheduled measurement without beat-to-beat verification, which requires a wider margin. MicroPort chose the latter with Autothreshold. Capture is recognised from the evoked response, distinguished from residual lead polarisation. Measurements take place every 6 hours (heart rate below 95 bpm); during the test, the AV delay or escape interval is shortened to avoid fusion, and a safety pulse follows every ineffective pulse. In \"Auto\", the amplitude is then set at twice the threshold, without falling below a programmable minimum; in \"Monitor\", only the measurements are stored. If fusion persists, the test is abandoned and the output is forced to a high value until the next measurement.",
+  "explication": "There are two main approaches to automated threshold management: beat-to-beat capture verification, which allows an amplitude close to threshold with a backup pulse, and scheduled measurement without beat-to-beat verification, which requires a wider margin. MicroPort chose the latter with Autothreshold. Capture is recognised from the evoked response, distinguished from residual lead polarisation. Measurements take place every 6 hours (heart rate below 95 bpm); during the test, the AV delay or escape interval is shortened to avoid fusion, and a backup pulse follows every ineffective pulse. In \"Auto\", the amplitude is then set at twice the threshold, without falling below a programmable minimum; in \"Monitor\", only the measurements are stored. If fusion persists, the test is abandoned and the output is forced to a high value until the next measurement.",
   "aRetenir": "MicroPort ventricular Autothreshold: evoked-response measurement every 6 h, amplitude at twice the threshold; no beat-to-beat verification."
  },
  "cas-mp-007": {
@@ -98,7 +98,7 @@
   ],
   "commentaires": [
    "Incorrect: pacemaker Wenckebach causes progressive AV delay prolongation at the maximum tracking rate, not unsensed P waves.",
-   "Correct: Autosensing has set a low sensitivity based on the large resting P waves; the smaller P waves during exercise fall below the sensing threshold.",
+   "Correct: Autosensing has set a high sensing threshold (low sensitivity) from the large resting P waves; the smaller P waves during exercise fall below it.",
    "Incorrect: loss of capture would show V spikes not followed by a QRS; here, unsensed P waves fail to trigger an AV delay.",
    "Incorrect: far-field sensing would produce excess atrial sensed events; here, some are missing."
   ],
@@ -275,7 +275,7 @@
    "Correct: from Platinium onwards, the magnet inhibits detection and therapies, and bradycardia pacing is not replaced by an asynchronous mode.",
    "Incorrect: this was the behaviour of earlier platforms, which paced at the magnet rate (96 bpm at beginning of life, 80 bpm at elective replacement)."
   ],
-  "explication": "In MicroPort ICDs predating Platinium, the magnet suspended therapies and imposed pacing at the magnet rate, which depended on battery depletion (96 bpm at beginning of life, 80 bpm at elective replacement). From Platinium onwards, it only inhibits arrhythmia detection and therapies; pacing is not replaced by an asynchronous mode. After a recent charge (electrical storm, lead fault), inhibition persists briefly after magnet removal, to allow time to start interrogation. On magnet removal, detection resumes and therapies restart from the beginning of each zone. During surgery with monopolar diathermy, the magnet therefore prevents an inappropriate shock, but does not protect a pacemaker-dependent patient from inhibition due to oversensing: the device must then be reprogrammed to an asynchronous mode.",
+  "explication": "In MicroPort ICDs predating Platinium, the magnet suspended therapies and imposed pacing at the magnet rate, which depended on battery depletion (96 bpm at beginning of life, 80 bpm at elective replacement). From Platinium onwards, it only inhibits arrhythmia detection and therapies; pacing is not replaced by an asynchronous mode. After a recent charge (electrical storm, lead fault), inhibition persists briefly after magnet removal, to allow time to start interrogation. On magnet removal, detection resumes and therapies restart from the beginning of each zone. During surgery with monopolar diathermy, the magnet therefore prevents an inappropriate shock, but does not protect a pacing-dependent patient from inhibition due to oversensing: the device must then be reprogrammed to an asynchronous mode.",
   "aRetenir": "MicroPort Platinium ICDs: a magnet suspends detection and therapies without switching to asynchronous pacing; in a dependent patient, the device must be reprogrammed."
  }
 }

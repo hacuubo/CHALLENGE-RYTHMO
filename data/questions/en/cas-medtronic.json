@@ -220,7 +220,7 @@
    "Incorrect: a long absolute blanking period can mask every other flutter wave (2:1 flutter) and prevent mode switching."
   ],
   "explication": "On recent platforms, PVAB can be Absolute, Partial or Partial+. In Absolute mode, nothing is sensed or displayed, as in older devices. In Partial mode, only the first 30 ms are blind (to avoid sensing the pacing pulse); a signal sensed afterwards is marked Ab, does not start an AV delay but is included in atrial arrhythmia analysis. Partial+ mode adds a temporary reduction in atrial sensitivity after the ventricular event, which often corrects far-field sensing without sacrificing sensitivity later in the cycle. The other options are less satisfactory. Reducing atrial sensitivity risks undersensing AF, whose signals are often small. A long absolute blanking period risks missing 2:1 flutter. It is in fact thanks to partial blanking that the former Blanked Flutter Search algorithm has disappeared from recent platforms.",
-  "aRetenir": "Medtronic PVAB: Ab = sensed but not tracked, counted for mode switching; \"Partial+\" often corrects far-field sensing without making the atrium deaf."
+  "aRetenir": "Medtronic PVAB: Ab = sensed but not tracked, counted for mode switching; \"Partial+\" often corrects far-field sensing without blinding the atrial channel."
  },
  "cas-mdt-014": {
   "question": "A pacing-dependent haemodialysis patient with a Medtronic pacemaker in which automatic ventricular threshold management (Capture Management) is on. True or false: the algorithm confirms capture on every beat and delivers a backup pulse if capture is lost, which protects this patient from dialysis-related threshold fluctuations.",
