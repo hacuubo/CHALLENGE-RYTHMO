@@ -31,13 +31,20 @@ const CANAUX = {
 const ANNOTATIONS_EN = { FA: 'AF', SV: 'VSP', 'Back-up': 'Backup' };
 const annotation = lab => tr(lab, ANNOTATIONS_EN[lab] || lab);
 
+// Capture : latence spike → début de l'activation (ms), puis montée sur quelques ms (pas de marche verticale).
+const LATENCE = 2;
+const montee = dt => (dt >= 8 ? 1 : (dt / 8) ** 2 * (3 - 2 * dt / 8));
+
 class Scene {
   constructor(rand, duree) {
     this.rand = rand; this.duree = duree;
     this.c = { A: { g: [], s: [], f: [] }, V: { g: [], s: [], f: [] }, FF: { g: [], s: [], f: [] } };
     this.m = []; // marqueurs {t, lab, voie: 'A' | 'V' | 'X', int}
   }
-  g(canal, c, a, s) { this.c[canal].g.push({ c, a, s }); }
+  // d (facultatif) : début de l'activation ; rien avant, montée brève juste après (capture : l'EGM suit le spike)
+  g(canal, c, a, s, d) { this.c[canal].g.push({ c, a, s, d }); }
+  // ondes d'une capture : toutes commencent juste après le spike de l'instant t
+  capture(t, ondes) { for (const [canal, c, a, s] of ondes) this.g(canal, c, a, s, t + LATENCE); }
   spike(canal, t, a = 1.3) { this.c[canal].s.push({ t, a }); }
   fn(canal, f) { this.c[canal].f.push(f); }
   mk(t, lab, voie, int) { this.m.push({ t, lab, voie, int }); }
@@ -51,7 +58,7 @@ class Scene {
   AP(t, { capture = true } = {}) {
     this.spike('A', t); this.spike('V', t, 0.25); this.spike('FF', t, 0.35);
     if (!capture) return;
-    this.g('A', t + 15, -0.9, 9); this.g('A', t + 35, 0.4, 12); this.g('FF', t + 50, 0.12, 22);
+    this.capture(t, [['A', t + 15, -0.9, 9], ['A', t + 35, 0.4, 12], ['FF', t + 50, 0.12, 22]]);
   }
   // --- activations ventriculaires ---
   ffR(t) { this.g('A', t + 30, 0.18, 12); this.g('A', t + 55, -0.1, 14); }
@@ -63,14 +70,14 @@ class Scene {
   VP(t, { capture = true } = {}) {
     this.spike('V', t); this.spike('A', t, 0.3); this.spike('FF', t, 0.5);
     if (!capture) return;
-    this.g('V', t + 30, -0.8, 18); this.g('V', t + 80, 0.35, 25); this.g('V', t + 330, 0.15, 45);
-    this.g('FF', t + 50, -0.8, 28); this.g('FF', t + 130, 0.3, 30); this.g('FF', t + 350, 0.3, 55);
+    this.capture(t, [['V', t + 30, -0.8, 18], ['V', t + 80, 0.35, 25], ['V', t + 330, 0.15, 45],
+      ['FF', t + 50, -0.8, 28], ['FF', t + 130, 0.3, 30], ['FF', t + 350, 0.3, 55]]);
     this.ffR(t + 20);
   }
   BV(t) {
     this.spike('V', t); this.spike('A', t, 0.3); this.spike('FF', t, 0.5);
-    this.g('V', t + 25, -0.6, 12); this.g('V', t + 55, 0.4, 14); this.g('V', t + 320, 0.12, 40);
-    this.g('FF', t + 40, -0.5, 18); this.g('FF', t + 80, 0.4, 20); this.g('FF', t + 320, 0.2, 45);
+    this.capture(t, [['V', t + 25, -0.6, 12], ['V', t + 55, 0.4, 14], ['V', t + 320, 0.12, 40],
+      ['FF', t + 40, -0.5, 18], ['FF', t + 80, 0.4, 20], ['FF', t + 320, 0.2, 45]]);
     this.ffR(t);
   }
   ESV(t) {
@@ -126,7 +133,10 @@ class Scene {
   valeur(canal, t) {
     const c = this.c[canal];
     let v = 0;
-    for (const { c: m, a, s } of c.g) { const d = t - m; if (d > -5 * s && d < 5 * s) v += a * Math.exp(-(d * d) / (2 * s * s)); }
+    for (const { c: m, a, s, d: debut } of c.g) {
+      if (debut != null && t < debut) continue;
+      const d = t - m; if (d > -5 * s && d < 5 * s) v += a * Math.exp(-(d * d) / (2 * s * s)) * (debut == null ? 1 : montee(t - debut));
+    }
     for (const f of c.f) v += f(t);
     return v;
   }
