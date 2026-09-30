@@ -19,6 +19,10 @@ function rng(seedStr) {
   };
 }
 
+// Complexe stimulé : latence spike → début de la dépolarisation (ms), puis montée sur quelques ms (pas de marche verticale).
+const LATENCE = 2;
+const montee = dt => (dt >= 8 ? 1 : (dt / 8) ** 2 * (3 - 2 * dt / 8));
+
 class Trace {
   constructor(rand) {
     this.g = [];        // gaussiennes {c, a, s}
@@ -26,7 +30,8 @@ class Trace {
     this.fonds = [];    // fonctions additionnelles f(t)
     this.rand = rand;
   }
-  gauss(c, a, s) { this.g.push({ c, a, s }); }
+  // d (facultatif) : début de la dépolarisation ; rien avant, montée brève juste après (complexe stimulé : le spike précède le QRS)
+  gauss(c, a, s, d) { this.g.push({ c, a, s, d }); }
   spike(t, a = 1.6) { this.spikes.push({ t, a }); }
 
   p(t, a = 0.14) { this.gauss(t + 45, a, 22); }
@@ -52,23 +57,24 @@ class Trace {
   }
   qrsStimuleVD(x, rr = 1000) {
     this.spike(x);
-    this.gauss(x + 55, -0.95, 30);
-    this.gauss(x + 130, 0.3, 30);
+    this.gauss(x + 55, -0.95, 30, x + LATENCE);
+    this.gauss(x + 130, 0.3, 30, x + LATENCE);
     this.gauss(x + this.qt(rr) - 40, 0.38, 58);
   }
   qrsBiV(x, rr = 1000) {
     this.spike(x);
-    this.gauss(x + 32, -0.6, 17);
-    this.gauss(x + 78, 0.5, 18);
+    this.gauss(x + 32, -0.6, 17, x + LATENCE);
+    this.gauss(x + 78, 0.5, 18, x + LATENCE);
     this.gauss(x + this.qt(rr) - 90, 0.22, 50);
   }
-  pStimulee(t) { this.spike(t, 1.2); this.gauss(t + 55, 0.12, 30); }
+  pStimulee(t) { this.spike(t, 1.2); this.gauss(t + 55, 0.12, 30, t + LATENCE); }
 
   value(t) {
     let v = 0;
-    for (const { c, a, s } of this.g) {
+    for (const { c, a, s, d: debut } of this.g) {
       const d = t - c;
-      if (d > -5 * s && d < 5 * s) v += a * Math.exp(-(d * d) / (2 * s * s));
+      if (debut != null && t < debut) continue;
+      if (d > -5 * s && d < 5 * s) v += a * Math.exp(-(d * d) / (2 * s * s)) * (debut == null ? 1 : montee(t - debut));
     }
     for (const f of this.fonds) v += f(t);
     return v;
