@@ -308,39 +308,27 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
       await page.waitForTimeout(200);
       if (await page.isVisible('#ecran') || !await page.isVisible('#ecran-rappel')) throw new Error('bascule vers l\'écran de rappel inopérante');
       await capture('simulateur-paysage');
-      // vignette du temps réel retirable ; compas au doigt : appui long (2 s) sur le début, appui maintenu (1 s) sur la fin
+      // vignette du temps réel retirable
       await page.click('#mini-direct');
       if (await page.isVisible('#ecran-mini')) throw new Error('la vignette du temps réel ne se retire pas');
       await page.click('#mini-direct');
-      // doigt posé sur le rappel, maintenu jusqu'à la condition (ou la durée fixée) : indépendant de la charge de la machine
-      const toucher = (x, { duree = 0, jusqua = null } = {}) => page.evaluate(async ([x, duree, jusqua]) => {
-        const cv = document.querySelector('#ecran-rappel'), b = cv.getBoundingClientRect();
-        const ev = type => new PointerEvent(type, { pointerId: 7, pointerType: 'touch', isPrimary: true, bubbles: true, clientX: b.left + b.width * x, clientY: b.top + 60 });
-        const pret = { debut: () => /Début posé/.test(document.querySelector('#message').textContent), fin: () => document.querySelector('#appui').hidden };
-        cv.dispatchEvent(ev('pointerdown'));
-        await new Promise(f => setTimeout(f, jusqua ? 100 : duree));
-        let ok = true;
-        const suivi = []; // déroulé de l'appui (bague visible ou non, titre du rappel), pour le diagnostic en cas d'échec
-        if (jusqua) {
-          const t0 = performance.now();
-          while (!(ok = pret[jusqua]()) && performance.now() - t0 < 8000) {
-            await new Promise(f => setTimeout(f, 250));
-            suivi.push(`${Math.round(performance.now() - t0)}:${document.querySelector('#appui').hidden ? 'h' : 'v'}:${document.querySelector('#rappel-titre').textContent.slice(0, 18)}`);
-          }
-        }
-        cv.dispatchEvent(ev('pointerup'));
-        window.__suiviAppui = suivi.join(' | ');
-        return ok;
-      }, [x, duree, jusqua]);
-      // le compas ne se pose que sur un tracé enregistré : on attend la fin des enregistrements en cours (tir RF juste arrêté),
-      // faute de quoi le milieu du rappel peut être encore vide et l'appui long n'y trouve aucun instant
+      // compas au doigt : poser, glisser (mesure en continu), lâcher (il reste en place) ; le toucher une fois l'enlève.
+      // Le compas se pose sur un tracé enregistré : on attend la fin des enregistrements en cours (tir RF juste arrêté).
       await page.waitForFunction(() => !document.querySelector('#journal [title="Enregistrement en cours"]'), null, { timeout: 20000 });
-      await toucher(0.5, { duree: 300 });
-      if (/Début posé/.test(await page.textContent('#message'))) throw new Error('un appui bref pose un compas');
-      const etatRappel = () => page.evaluate(() => JSON.stringify({ titre: document.querySelector('#rappel-titre').textContent.slice(0, 60), vide: document.querySelector('#rappel-vide').hidden,
-        message: document.querySelector('#message').textContent, suivi: window.__suiviAppui, largeur: document.querySelector('#ecran-rappel').clientWidth, vue: document.querySelector('.simu-baie').dataset.vue }));
-      if (!await toucher(0.5, { jusqua: 'debut' })) throw new Error(`l'appui long ne pose pas le début du compas ${await etatRappel()}`);
-      if (!await toucher(0.7, { jusqua: 'fin' })) throw new Error('l\'appui maintenu ne pose pas la fin du compas');
+      const glisser = (x0, x1) => page.evaluate(([x0, x1]) => {
+        const cv = document.querySelector('#ecran-rappel'), b = cv.getBoundingClientRect();
+        const ev = (type, x) => new PointerEvent(type, { pointerId: 7, pointerType: 'touch', isPrimary: true, bubbles: true, clientX: b.left + b.width * x, clientY: b.top + 60 });
+        cv.dispatchEvent(ev('pointerdown', x0));
+        if (x1 !== x0) for (let k = 1; k <= 5; k++) cv.dispatchEvent(ev('pointermove', x0 + (x1 - x0) * k / 5));
+        cv.dispatchEvent(ev('pointerup', x1));
+      }, [x0, x1]);
+      const compas = n => page.waitForFunction(n => document.querySelector('#ecran-rappel').dataset.compas === String(n), n, { timeout: 5000 }).then(() => true, () => false);
+      await glisser(0.5, 0.5);
+      if (!await compas(0)) throw new Error('un toucher bref pose un compas');
+      await glisser(0.4, 0.6);
+      if (!await compas(1)) throw new Error('le glisser au doigt ne laisse pas le compas en place');
+      await glisser(0.6, 0.6);
+      if (!await compas(0)) throw new Error('toucher le compas une fois ne l\'enlève pas');
       await page.click('.simu-bascule [data-vue=direct]');
       await page.setViewportSize({ width: largeur, height: hauteur });
     }
@@ -447,6 +435,59 @@ await verifier('invitation à la version anglaise', async () => {
   await page.waitForSelector('.fermer-invitation');
   await page.click('.fermer-invitation');
   if (await page.$('.invitation-langue') || await page.evaluate(() => localStorage.getItem('rythmo.langue')) !== 'fr') throw new Error('invitation non refermée');
+  await ctx.close();
+});
+
+// Encart « Installer l'application » sur l'accueil : jamais sur ordinateur, démarche expliquée sur iPhone,
+// bouton Installer sur Android dès que le navigateur propose l'installation (événement beforeinstallprompt).
+await verifier('encart d\'installation de l\'application', async () => {
+  const contexte = async ua => {
+    const ctx = await navigateur.newContext({ locale: 'fr-FR', viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, ...(ua ? { userAgent: ua } : {}) });
+    const page = await ctx.newPage();
+    await page.addInitScript(() => localStorage.setItem('rythmo.langue', 'fr'));
+    page.on('pageerror', e => erreurs.push(`installation : ${e.message}`));
+    await page.goto(url);
+    await page.waitForSelector('.menu-principal.centre');
+    return [ctx, page];
+  };
+  const proposer = () => page.evaluate(() => {
+    const e = new Event('beforeinstallprompt', { cancelable: true });
+    e.prompt = () => { window.__promptAppele = true; return Promise.resolve(); };
+    e.userChoice = Promise.resolve({ outcome: 'accepted' });
+    window.dispatchEvent(e);
+  });
+  // ordinateur : rien, même quand le navigateur propose l'installation
+  let [ctx, page] = await contexte();
+  await proposer();
+  await page.waitForTimeout(200);
+  if (await page.$('.installation')) throw new Error('encart affiché sur ordinateur');
+  await ctx.close();
+  // iPhone : démarche pas à pas, refermable et mémorisée
+  [ctx, page] = await contexte('Mozilla/5.0 (iPhone; CPU iPhone OS 26_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1');
+  await page.waitForSelector('.installation[data-mode=ios]');
+  if (await page.isVisible('#installation-etapes')) throw new Error('étapes iPhone visibles avant la demande');
+  await page.click('#installer');
+  if (!(await page.isVisible('#installation-etapes')) || !/Partager/.test(await page.textContent('#installation-etapes'))) throw new Error('étapes iPhone absentes');
+  await page.click('.fermer-installation');
+  if (await page.$('.installation')) throw new Error('encart non refermé');
+  await page.reload();
+  await page.waitForSelector('.menu-principal.centre');
+  if (await page.$('.installation')) throw new Error('encart réaffiché après refus');
+  await ctx.close();
+  // Android : pas d'encart sans proposition du navigateur ; bouton Installer dès qu'elle arrive, qui ouvre la boîte du système
+  [ctx, page] = await contexte('Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36');
+  if (await page.$('.installation')) throw new Error('encart Android affiché sans proposition du navigateur');
+  await proposer();
+  await page.waitForSelector('.installation[data-mode=bouton] #installer');
+  if (!/Installer l'application/.test(await page.textContent('.installation'))) throw new Error('libellé du bandeau absent');
+  await page.click('#installer');
+  await page.waitForSelector('.installation', { state: 'detached' });
+  if (!(await page.evaluate(() => window.__promptAppele))) throw new Error('boîte d\'installation non ouverte');
+  await page.evaluate(() => window.dispatchEvent(new Event('appinstalled')));
+  await page.reload();
+  await page.waitForSelector('.menu-principal.centre');
+  await proposer();
+  if (await page.$('.installation')) throw new Error('encart réaffiché après installation');
   await ctx.close();
 });
 

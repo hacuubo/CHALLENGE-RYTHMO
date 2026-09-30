@@ -292,10 +292,10 @@
     ],
     "commentaires": [
       "Juste : les transmissions sont lues aux heures ouvrables ; en cas de symptômes graves, le patient appelle le 15.",
-      "Faux : aucun centre n'assure une lecture 24 h/24 ; laisser croire le contraire expose le patient à attendre un rappel qui ne viendra pas à temps."
+      "Faux : la lecture n'est pas assurée 24 h/24 ; laisser croire le contraire expose le patient à attendre un rappel qui ne viendra pas à temps."
     ],
     "reponseAttendue": null,
-    "explication": "Les transmissions sont analysées aux heures ouvrables : le consensus HRS 2023 demande de traiter les alertes dans le jour ouvré, en priorisant les alertes critiques, mais aucun centre n'assure une lecture 24 h/24 et 7 j/7. Le consensus HRS 2023 insiste sur l'éducation du patient à l'inscription : ce que la télésurveillance fait, ce qu'elle ne fait pas, et la conduite à tenir en cas de symptômes (malaise, syncope, chocs répétés, douleur thoracique). En France, l'urgence vitale relève du SAMU (15). Le piège classique : un patient qui reçoit plusieurs chocs et « attend que le centre l'appelle ».",
+    "explication": "Les transmissions sont analysées aux heures ouvrables : le consensus HRS 2023 demande de traiter les alertes dans le jour ouvré, en priorisant les alertes critiques, mais la lecture n'est pas assurée 24 h/24 et 7 j/7. Le consensus HRS 2023 insiste sur l'éducation du patient à l'inscription : ce que la télésurveillance fait, ce qu'elle ne fait pas, et la conduite à tenir en cas de symptômes (malaise, syncope, chocs répétés, douleur thoracique). En France, l'urgence vitale relève du SAMU (15). Le piège classique : un patient qui reçoit plusieurs chocs et « attend que le centre l'appelle ».",
     "aRetenir": "La télésurveillance n'est pas une surveillance en temps réel : urgence = 15.",
     "rappel": "La télésurveillance des prothèses fonctionne en différé : le boîtier transmet selon un calendrier ou sur alerte, puis les données sont lues par l'équipe aux heures ouvrables, dans un délai défini par le protocole selon le niveau de priorité. Elle ne constitue donc jamais une surveillance en temps réel ni une réponse à l'urgence. Le patient doit connaître, dès l'inscription, les situations qui imposent un appel direct aux secours (en France le 15) : syncope, malaise, douleur thoracique, dyspnée aiguë, chocs répétés. Un choc isolé bien toléré relève plutôt d'un contact avec le centre selon les consignes locales.",
     "sources": [
@@ -821,10 +821,10 @@
       "Juste : l'index cumule la baisse de l'impédance mesurée entre la sonde VD et le boîtier par rapport à une référence.",
       "Faux : la fréquence respiratoire est un autre paramètre, non intégré à l'index OptiVol.",
       "Faux : le % BiV est un compteur distinct, sans lien avec l'index liquidien.",
-      "Faux : la pression pulmonaire relève de capteurs implantables dédiés, pas d'OptiVol."
+      "Faux : la pression pulmonaire relève de capteurs implantables spécifiques, pas d'OptiVol."
     ],
     "reponseAttendue": null,
-    "explication": "OptiVol repose sur la mesure répétée de l'impédance intrathoracique entre la sonde ventriculaire droite et le boîtier. Quand le liquide s'accumule dans le thorax, l'impédance baisse ; l'index liquidien cumule l'écart entre l'impédance quotidienne et une référence, et déclenche une alerte au-delà d'un seuil programmable. Yu et al. ont montré que la baisse d'impédance précédait de plusieurs jours l'hospitalisation pour IC. Il ne mesure ni la pression pulmonaire (capteurs implantables dédiés), ni la fréquence respiratoire, ni le % de stimulation BiV, qui sont d'autres paramètres.",
+    "explication": "OptiVol repose sur la mesure répétée de l'impédance intrathoracique entre la sonde ventriculaire droite et le boîtier. Quand le liquide s'accumule dans le thorax, l'impédance baisse ; l'index liquidien cumule l'écart entre l'impédance quotidienne et une référence, et déclenche une alerte au-delà d'un seuil programmable. Yu et al. ont montré que la baisse d'impédance précédait de plusieurs jours l'hospitalisation pour IC. Il ne mesure ni la pression pulmonaire (capteurs implantables spécifiques), ni la fréquence respiratoire, ni le % de stimulation BiV, qui sont d'autres paramètres.",
     "aRetenir": "OptiVol = baisse de l'impédance intrathoracique, signe indirect de congestion.",
     "rappel": "L'impédance intrathoracique se mesure en injectant de faibles courants entre la sonde ventriculaire droite et le boîtier : le liquide conduisant mieux que l'air, la congestion pulmonaire fait baisser l'impédance. L'index liquidien OptiVol cumule jour après jour l'écart entre l'impédance quotidienne et une impédance de référence qui s'adapte lentement ; il se remet à zéro quand l'impédance repasse au-dessus de la référence. Son dépassement d'un seuil programmable signale une congestion possible, mais la spécificité est limitée (infection pulmonaire, épanchement, hématome de loge). L'alerte se confronte donc toujours à la clinique.",
     "sources": [
@@ -1007,7 +1007,7 @@
       "Juste : l'alerte doit être confrontée à la clinique et aux autres paramètres ; ce n'est pas un diagnostic."
     ],
     "reponseAttendue": null,
-    "explication": "La baisse d'impédance intrathoracique est sensible mais peu spécifique : une infection pulmonaire, un épanchement pleural, une poche de boîtier récente ou un hématome, voire des variations de posture, peuvent la modifier. C'est pourquoi l'alerte doit être confrontée à la clinique et aux autres paramètres (FC nocturne, activité, charge en FA, % BiV). Les algorithmes multiparamétriques (TriageHF, HeartLogic) ont été développés pour améliorer cette spécificité. Le piège : prescrire des diurétiques à l'aveugle sur un index isolé.",
+    "explication": "La baisse d'impédance intrathoracique est sensible mais peu spécifique : une infection pulmonaire, un épanchement pleural, une loge récente ou un hématome de loge, voire des variations de posture, peuvent la modifier. C'est pourquoi l'alerte doit être confrontée à la clinique et aux autres paramètres (FC nocturne, activité, charge en FA, % BiV). Les algorithmes multiparamétriques (TriageHF, HeartLogic) ont été développés pour améliorer cette spécificité. Le piège : prescrire des diurétiques à l'aveugle sur un index isolé.",
     "aRetenir": "OptiVol isolé = signal d'alerte à vérifier, pas un diagnostic.",
     "rappel": "L'impédance intrathoracique mesurée par le boîtier reflète toute modification de la conduction électrique du thorax, pas seulement l'eau pulmonaire. Outre la congestion, elle baisse en cas d'infection pulmonaire, d'épanchement pleural ou péricardique, de maturation de la loge après implantation ou d'hématome, et elle varie avec la posture. Sa sensibilité pour la décompensation est correcte, mais sa spécificité faible, avec de nombreuses alertes sans événement. Les algorithmes multiparamétriques améliorent la valeur prédictive en l'associant à d'autres diagnostics du boîtier (FC nocturne, activité, charge en FA, % BiV).",
     "sources": [
@@ -1126,7 +1126,7 @@
       "Faux : il n'y a aucun lien entre la batterie et ce tableau.",
       "Faux : la FA est documentée par la charge et la fréquence ventriculaire ; rien n'évoque une surdétection.",
       "Faux : une perte de capture VG ne fait pas baisser le compteur, car le boîtier continue de stimuler.",
-      "Juste : les QRS spontanés conduits inhibent la stimulation BiV ; freiner, voire ablation du nœud AV, et vérifier l'anticoagulation."
+      "Juste : les QRS spontanés conduits inhibent la stimulation BiV ; ralentir la conduction, voire ablation du nœud AV, et vérifier l'anticoagulation."
     ],
     "reponseAttendue": null,
     "explication": "Quand la FA est conduite rapidement, les QRS spontanés inhibent la stimulation BiV et le pourcentage chute : c'est la cause la plus fréquente de perte de resynchronisation. Il faut vérifier l'anticoagulation (CHA2DS2-VA), la tolérance, les facteurs favorisants, et soit contrôler la fréquence (bêtabloquant, digoxine), soit restaurer le rythme sinusal, soit discuter une ablation du nœud AV qui garantit une stimulation BiV proche de 100 % (option prévue par l'ESC 2021 chez les patients resynchronisés en FA dont la stimulation BiV reste insuffisante). Une perte de capture VG ne fait pas baisser le compteur de stimulation BiV, car le boîtier continue de stimuler. Il n'y a aucun lien avec la batterie.",
@@ -1773,10 +1773,10 @@
       "Faux : une TRE donne une stimulation ventriculaire à la fréquence maximale, pas un signal atrial à couplage fixe avec un rythme régulier.",
       "Juste : un événement atrial à intervalle fixe après chaque QRS signe le far-field R, qui double la fréquence atriale apparente.",
       "Faux : un flutter donnerait des ondes F régulières indépendantes du QRS.",
-      "Faux : ces faux épisodes ne doivent surtout pas conduire à une anticoagulation."
+      "Faux : ces faux épisodes ne doivent surtout pas faire prescrire une anticoagulation."
     ],
     "reponseAttendue": null,
-    "explication": "Un événement atrial détecté à un intervalle fixe après chaque QRS, avec une activité sinusale par ailleurs régulière, signe la détection du signal ventriculaire en champ lointain par la sonde atriale. La fréquence atriale apparente double, franchit le seuil de détection de tachycardie atriale et déclenche un mode switch inapproprié et de faux épisodes de « FA ». La correction passe par l'allongement de la période de blanking atrial post-ventriculaire ou une diminution de la sensibilité atriale, sans perdre la détection de la vraie FA. Ces faux épisodes ne doivent surtout pas conduire à une anticoagulation. Le flutter 2:1 donnerait des ondes F régulières indépendantes du QRS.",
+    "explication": "Un événement atrial détecté à un intervalle fixe après chaque QRS, avec une activité sinusale par ailleurs régulière, signe la détection du signal ventriculaire en champ lointain par la sonde atriale. La fréquence atriale apparente double, franchit le seuil de détection de tachycardie atriale et déclenche un mode switch inapproprié et de faux épisodes de « FA ». La correction passe par l'allongement de la période de blanking atrial post-ventriculaire ou une diminution de la sensibilité atriale, sans perdre la détection de la vraie FA. Ces faux épisodes ne doivent surtout pas faire prescrire une anticoagulation. Le flutter 2:1 donnerait des ondes F régulières indépendantes du QRS.",
     "aRetenir": "Événement atrial à couplage fixe après chaque QRS = far-field R, pas une FA.",
     "rappel": "La sonde atriale peut détecter l'activité ventriculaire en champ lointain (far-field R), surtout si elle est proche de l'anneau tricuspide ou si la sensibilité atriale est élevée. Le signal survient à un intervalle fixe après chaque QRS, stimulé ou spontané, et fait compter deux événements atriaux par cycle : la fréquence atriale apparente double, déclenchant de faux épisodes de tachyarythmie atriale et un mode switch inapproprié. La correction repose sur la période de blanking atrial post-ventriculaire, les fonctions de rejet du far-field ou une réduction prudente de la sensibilité atriale, en préservant la détection des signaux de FA, de faible amplitude.",
     "sources": [
@@ -2212,7 +2212,7 @@
     "question": "DAI simple chambre : choc délivré sur une tachycardie irrégulière à 210/min, de morphologie identique à celle du rythme de base sur l'EGM, avec des RR très variables. Le patient est connu pour une FA paroxystique. Que concluez-vous et que faites-vous ?",
     "options": [
       "Choc approprié sur TV polymorphe : hospitalisation et amiodarone intraveineuse",
-      "Choc inapproprié sur FA rapide : freiner, vérifier l'anticoagulation, reprogrammer",
+      "Choc inapproprié sur FA rapide : ralentir, vérifier l'anticoagulation, reprogrammer",
       "Bruit de sonde : hospitalisation et révision chirurgicale de la sonde VD",
       "Surdétection de l'onde T : diminuer la sensibilité ventriculaire du DAI"
     ],

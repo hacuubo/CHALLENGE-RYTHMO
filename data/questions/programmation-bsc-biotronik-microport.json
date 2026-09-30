@@ -9,7 +9,7 @@
     "question": "Sur un stimulateur double chambre Boston Scientific, quel est le principe de l'algorithme RYTHMIQ ?",
     "options": [
       "AAI(R) avec VVI de secours plus lent, DDD(R) si la synchronie AV se perd",
-      "AAI(R) avec back-up V au cycle suivant, DDD(R) si 2 des 4 cycles A-A sont sans R",
+      "AAI(R) avec secours V au cycle suivant, DDD(R) si 2 des 4 cycles A-A sont sans R",
       "DDD(R) avec délai AV allongé périodiquement pour rechercher la conduction",
       "ADI(R) tant que la conduction est présente, DDD(R) si 3 cycles sur 8 sans conduction"
     ],
@@ -18,7 +18,7 @@
     ],
     "commentaires": [
       "Juste : RYTHMIQ fonctionne en AAI(R) avec un VVI de secours plus lent en arrière-plan et bascule en DDD(R) si la synchronisation AV est perdue.",
-      "Faux : le back-up ventriculaire au cycle suivant et le critère 2 sur 4 sont ceux du MVP de Medtronic.",
+      "Faux : la stimulation ventriculaire de secours au cycle suivant et le critère 2 sur 4 sont ceux du MVP de Medtronic.",
       "Faux : l'allongement périodique du délai AV en restant en DDD est AV Search+ (ou le VIP d'Abbott), pas RYTHMIQ lui-même.",
       "Faux : l'ADI(R) avec reprise après 3 cycles sur 8 sans conduction est Vp suppression (Biotronik)."
     ],
@@ -207,7 +207,7 @@
     "difficulte": 3,
     "question": "Sur quoi repose le capteur de ventilation-minute (MV) utilisé pour l'asservissement de fréquence chez Boston Scientific ?",
     "options": [
-      "L'accélération endocardiaque mesurée à la pointe d'une sonde dédiée",
+      "L'accélération endocardiaque mesurée à la pointe d'une sonde spécifique",
       "L'impédance transthoracique, d'où fréquence respiratoire et volume courant",
       "L'impédance intracardiaque ventriculaire, reflet de la contractilité myocardique",
       "Un accéléromètre qui mesure les vibrations liées à l'activité physique"
@@ -216,7 +216,7 @@
       1
     ],
     "commentaires": [
-      "Faux : l'accélération endocardiaque mesurée par une sonde dédiée est le capteur SonR de MicroPort, qui sert à optimiser la CRT.",
+      "Faux : l'accélération endocardiaque mesurée par une sonde spécifique est le capteur SonR de MicroPort, qui sert à optimiser la CRT.",
       "Juste : le capteur MV mesure l'impédance transthoracique ; ventilation-minute = fréquence respiratoire × volume courant.",
       "Faux : l'impédance intracardiaque, reflet de la contractilité, est le principe du Closed Loop Stimulation de Biotronik.",
       "Faux : l'accéléromètre est un autre capteur, sensible au mouvement, qui peut être associé au capteur MV."
@@ -446,7 +446,7 @@
       "Faux : la pression artérielle pulmonaire relève d'un capteur implanté dans l'artère pulmonaire, distinct de HeartLogic."
     ],
     "reponseAttendue": null,
-    "explication": "HeartLogic calcule chaque jour un index composite à partir de capteurs du boîtier : bruits cardiaques recueillis par l'accéléromètre (S1, S3), respiration (fréquence et rapport fréquence/volume courant), impédance thoracique, fréquence cardiaque nocturne et activité. L'alerte se déclenche quand l'index dépasse un seuil configurable. Le fardeau de FA fait partie du score TriageHF de Medtronic, pas de HeartLogic. La pression artérielle pulmonaire relève d'un autre dispositif (capteur implanté dans l'artère pulmonaire). En pratique, une alerte HeartLogic doit faire rechercher cliniquement une congestion (poids, dyspnée, observance, fonction rénale) et non conduire à modifier le traitement sur la seule foi de l'index.",
+    "explication": "HeartLogic calcule chaque jour un index composite à partir de capteurs du boîtier : bruits cardiaques recueillis par l'accéléromètre (S1, S3), respiration (fréquence et rapport fréquence/volume courant), impédance thoracique, fréquence cardiaque nocturne et activité. L'alerte se déclenche quand l'index dépasse un seuil configurable. Le fardeau de FA fait partie du score TriageHF de Medtronic, pas de HeartLogic. La pression artérielle pulmonaire relève d'un autre dispositif (capteur implanté dans l'artère pulmonaire). En pratique, une alerte HeartLogic doit faire rechercher cliniquement une congestion (poids, dyspnée, observance, fonction rénale) et non faire modifier le traitement sur la seule foi de l'index.",
     "aRetenir": "HeartLogic = bruits cardiaques + respiration + impédance thoracique + FC nocturne + activité.",
     "rappel": "La décompensation cardiaque est précédée de plusieurs jours à semaines de modifications physiologiques que les boîtiers implantés peuvent mesurer : baisse de l'impédance thoracique (congestion), hausse de la fréquence cardiaque nocturne, respiration plus rapide et superficielle, apparition ou majoration d'un troisième bruit, baisse de l'activité physique. Un paramètre isolé, comme l'impédance seule, est peu spécifique ; les algorithmes multiparamétriques combinent plusieurs signaux pour améliorer la performance. Une alerte ne remplace pas l'examen : elle déclenche un contact avec le patient et une évaluation clinique de la congestion.",
     "sources": [
@@ -690,10 +690,10 @@
     "marque": "Boston Scientific",
     "type": "ouverte",
     "difficulte": 6,
-    "question": "Lors du dépistage ECG pré-implantatoire d'un S-ICD (outil de dépistage manuel ou automatisé), à quelle condition le patient est-il jugé éligible ?",
+    "question": "Lors du dépistage ECG pré-implantatoire d'un S-ICD (outil de dépistage manuel ou automatisé), à quelle condition le patient est-il jugé apte à l'implantation ?",
     "reponseAttendue": "Il faut qu'au moins une dérivation de surface (correspondant à un vecteur de détection du S-ICD) soit acceptable dans toutes les positions testées : tous les QRS et ondes T évalués tiennent dans le gabarit coloré, avec une morphologie stable d'une position à l'autre.",
-    "explication": "Le dépistage reproduit les vecteurs de détection sous-cutanés avec des électrodes de surface placées selon le schéma du fabricant. Chaque dérivation est évaluée avec le gabarit coloré (outil manuel 4744) ou par l'outil automatisé AST : le QRS et l'onde T doivent rester à l'intérieur du profil choisi selon l'amplitude du QRS. Une dérivation n'est acceptable que si elle passe le test dans toutes les positions testées (par exemple couché et debout), avec une morphologie stable. Le patient est éligible si au moins une dérivation est acceptable dans toutes les positions. Un échec expose à un risque de mauvaise détection et de chocs inappropriés par surdétection de l'onde T.",
-    "aRetenir": "S-ICD : éligible si au moins un vecteur est acceptable dans toutes les positions testées.",
+    "explication": "Le dépistage reproduit les vecteurs de détection sous-cutanés avec des électrodes de surface placées selon le schéma du fabricant. Chaque dérivation est évaluée avec le gabarit coloré (outil manuel 4744) ou par l'outil automatisé AST : le QRS et l'onde T doivent rester à l'intérieur du profil choisi selon l'amplitude du QRS. Une dérivation n'est acceptable que si elle passe le test dans toutes les positions testées (par exemple couché et debout), avec une morphologie stable. Le patient est apte à l'implantation si au moins une dérivation est acceptable dans toutes les positions. Un échec expose à un risque de mauvaise détection et de chocs inappropriés par surdétection de l'onde T.",
+    "aRetenir": "S-ICD : implantation possible si au moins un vecteur est acceptable dans toutes les positions testées.",
     "rappel": "Le dépistage du S-ICD vérifie avant l'implantation que le signal sous-cutané sera correctement analysé : un QRS assez ample par rapport à l'onde T, et une morphologie stable. Les électrodes de surface, placées là où seront l'électrode parasternale et le boîtier, reproduisent les trois vecteurs de détection. Comme la posture modifie l'axe et l'amplitude du QRS et de l'onde T, l'analyse se fait dans plusieurs positions ; une épreuve d'effort peut compléter l'évaluation chez le sujet jeune et actif. Les patients à grande onde T ou à QRS variable (cardiomyopathie hypertrophique, syndrome de Brugada) échouent plus souvent : un DAI endocavitaire est alors préférable.",
     "sources": [
       {
@@ -798,7 +798,7 @@
     "options": [
       "L'impédance intracardiaque ventriculaire au cours de chaque contraction",
       "La ventilation-minute, déduite de l'impédance transthoracique respiratoire",
-      "L'accélération endocardiaque mesurée à la pointe d'une sonde dédiée",
+      "L'accélération endocardiaque mesurée à la pointe d'une sonde spécifique",
       "Un accéléromètre intégré au boîtier, sensible aux mouvements du thorax"
     ],
     "reponses": [
@@ -1345,7 +1345,7 @@
       "Faux : le stimulateur sans sonde à deux capsules est l'Aveir DR (Abbott)."
     ],
     "reponseAttendue": null,
-    "explication": "Le système DX associe un DAI dédié à une sonde ventriculaire de défibrillation qui porte, à hauteur de l'oreillette, deux électrodes flottantes (dipôle atrial). On recueille ainsi l'activité atriale avec une seule sonde. Cela permet de détecter les arythmies atriales (épisodes atriaux rapides, FA infraclinique), de mieux discriminer TV et TSV et de fonctionner en VDD. En revanche, le dipôle étant flottant, il ne permet pas de stimuler l'oreillette. Le registre MATRIX a montré qu'on peut suivre en télésurveillance les épisodes atriaux rapides selon les seuils de durée recommandés.",
+    "explication": "Le système DX associe un DAI spécifique à une sonde ventriculaire de défibrillation qui porte, à hauteur de l'oreillette, deux électrodes flottantes (dipôle atrial). On recueille ainsi l'activité atriale avec une seule sonde. Cela permet de détecter les arythmies atriales (épisodes atriaux rapides, FA infraclinique), de mieux discriminer TV et TSV et de fonctionner en VDD. En revanche, le dipôle étant flottant, il ne permet pas de stimuler l'oreillette. Le registre MATRIX a montré qu'on peut suivre en télésurveillance les épisodes atriaux rapides selon les seuils de durée recommandés.",
     "aRetenir": "DX = une seule sonde de DAI avec dipôle atrial flottant : détection atriale sans stimulation atriale.",
     "rappel": "Un dipôle atrial flottant recueille l'activité atriale par deux électrodes situées dans la cavité, sans contact avec la paroi. Le signal est plus petit et plus variable qu'avec une sonde fixée, car il dépend de la position de la sonde, de la posture et de la respiration ; il suffit pour détecter, mais pas pour stimuler l'oreillette. L'intérêt d'une information atriale sur un DAI simple sonde est double : discrimination TSV/TV fondée sur la relation A/V, et détection des épisodes atriaux rapides. Confirmés sur l'EGM, ces épisodes correspondent à une FA infraclinique, dont la durée compte dans la discussion d'une anticoagulation.",
     "sources": [
@@ -1409,7 +1409,7 @@
     "difficulte": 6,
     "question": "Chez un patient porteur d'un stimulateur Biotronik ProMRI, à quoi sert la fonction MRI AutoDetect ?",
     "options": [
-      "Une dispense de vérifier l'éligibilité des sondes si le boîtier est ProMRI",
+      "Une dispense de vérifier la compatibilité IRM des sondes si le boîtier est ProMRI",
       "Une programmation IRM manuelle avant l'examen, puis une reprogrammation après",
       "Un capteur reconnaît le champ de l'IRM et active puis désactive le programme IRM",
       "Une amplitude de stimulation portée à 7,5 V pendant l'examen puis réduite"
@@ -1418,13 +1418,13 @@
       2
     ],
     "commentaires": [
-      "Faux : l'éligibilité du système complet (boîtier et sondes, conditions d'examen) reste à vérifier selon le manuel ProMRI.",
+      "Faux : la compatibilité IRM du système complet (boîtier et sondes, conditions d'examen) reste à vérifier selon le manuel ProMRI.",
       "Faux : c'est la procédure classique que MRI AutoDetect permet d'éviter : il n'y a plus deux interrogations le jour de l'examen.",
       "Juste : activé pour 14 jours au plus, MRI AutoDetect bascule automatiquement vers le programme IRM puis revient au programme permanent.",
       "Faux : MRI AutoDetect ne modifie pas l'amplitude de lui-même ; il active un programme IRM préréglé."
     ],
     "reponseAttendue": null,
-    "explication": "Les boîtiers ProMRI disposent d'un capteur qui reconnaît le champ magnétique statique de l'IRM. Lors d'une interrogation, on active MRI AutoDetect pour une durée maximale de 14 jours : si le patient passe l'IRM pendant cette fenêtre, le boîtier active le programme IRM préréglé, puis revient automatiquement au programme permanent après l'examen. Cela évite deux interrogations le jour même, mais ne dispense pas de vérifier l'éligibilité du système complet (boîtier et sondes compatibles, conditions de l'examen) selon le manuel ProMRI. Une programmation adaptée au patient reste nécessaire (mode asynchrone chez le patient dépendant, par exemple).",
+    "explication": "Les boîtiers ProMRI disposent d'un capteur qui reconnaît le champ magnétique statique de l'IRM. Lors d'une interrogation, on active MRI AutoDetect pour une durée maximale de 14 jours : si le patient passe l'IRM pendant cette fenêtre, le boîtier active le programme IRM préréglé, puis revient automatiquement au programme permanent après l'examen. Cela évite deux interrogations le jour même, mais ne dispense pas de vérifier la compatibilité IRM du système complet (boîtier et sondes compatibles, conditions de l'examen) selon le manuel ProMRI. Une programmation adaptée au patient reste nécessaire (mode asynchrone chez le patient dépendant, par exemple).",
     "aRetenir": "MRI AutoDetect : fenêtre de 14 jours au maximum, bascule automatique aller-retour vers le programme IRM.",
     "rappel": "L'IRM chez un porteur de dispositif n'est autorisée dans le cadre de la conformité IRM que si le système complet (boîtier et sondes) est certifié compatible, sans sonde abandonnée ni adaptateur, après un délai minimal depuis l'implantation, avec des paramètres de sonde corrects et dans les conditions d'examen prévues par le fabricant. La programmation vise à éviter l'inhibition par les interférences et les thérapies inappropriées : stimulation asynchrone chez le patient dépendant, mode sans stimulation ou inhibé chez le patient non dépendant, thérapies antitachycardiques désactivées sur un DAI. La surveillance est continue pendant l'examen, et le programme habituel est restauré après.",
     "sources": [
@@ -1459,7 +1459,7 @@
       "Juste : c'est un Holter implantable purement diagnostique, télésurveillé chaque jour par Home Monitoring."
     ],
     "reponseAttendue": null,
-    "explication": "Le BIOMONITOR III est un moniteur cardiaque implantable miniaturisé, dont le vecteur de détection est long (environ 70 mm) pour améliorer la qualité du signal, en particulier la visibilité des ondes P. Il est inséré en une seule étape avec un outil dédié (durée médiane de la procédure de 4 minutes dans l'étude de Deneke et al.) et intègre le Home Monitoring quotidien automatique. Comme tout moniteur implantable, il sert uniquement au diagnostic : il ne stimule pas et ne défibrille pas, d'où la réponse « Faux ». On l'utilise dans les syncopes inexpliquées récidivantes, les palpitations rares ou la recherche de FA après AVC cryptogénique.",
+    "explication": "Le BIOMONITOR III est un moniteur cardiaque implantable miniaturisé, dont le vecteur de détection est long (environ 70 mm) pour améliorer la qualité du signal, en particulier la visibilité des ondes P. Il est inséré en une seule étape avec un outil spécifique (durée médiane de la procédure de 4 minutes dans l'étude de Deneke et al.) et intègre le Home Monitoring quotidien automatique. Comme tout moniteur implantable, il sert uniquement au diagnostic : il ne stimule pas et ne défibrille pas, d'où la réponse « Faux ». On l'utilise dans les syncopes inexpliquées récidivantes, les palpitations rares ou la recherche de FA après AVC cryptogénique.",
     "aRetenir": "BIOMONITOR = Holter implantable purement diagnostique (aucune stimulation), télésurveillé chaque jour par Home Monitoring.",
     "rappel": "Le Holter implantable enregistre en continu un ECG sous-cutané pendant plusieurs années et mémorise automatiquement les épisodes répondant à des critères programmés (pause, bradycardie, tachycardie, FA), ainsi que ceux déclenchés par le patient au moment des symptômes. Son rendement repose sur la corrélation entre symptôme et rythme. Selon l'ESC 2018, il est recommandé dans les syncopes récidivantes inexpliquées sans critère de haut risque imposant une prise en charge immédiate, et chez les patients à haut risque après un bilan non concluant. Il sert aussi aux palpitations rares et à la recherche de FA après un AVC cryptogénique. Il ne délivre aucune thérapie.",
     "sources": [
@@ -1887,7 +1887,7 @@
     "options": [
       "L'impédance intracardiaque ventriculaire, reflet de la contractilité",
       "L'intervalle AV spontané mesuré périodiquement, diminué d'un delta programmable",
-      "Les intervalles mesurés sur les EGM intracardiaques, sans capteur dédié",
+      "Les intervalles mesurés sur les EGM intracardiaques, sans capteur spécifique",
       "Un micro-accéléromètre dans la sonde atriale SonRtip, corrélé au dP/dt max"
     ],
     "reponses": [

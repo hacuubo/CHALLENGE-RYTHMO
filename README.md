@@ -30,8 +30,8 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
     **pression artérielle**, montages (dont un montage réduit pour téléphone), gain par voie, bruit, filtre secteur 50 Hz et
     passe-haut des électrogrammes (parasite et dérive respiratoire quand ils sont coupés), saturation après un choc.
     L'écran en temps réel ne se fige jamais ; à côté, un **écran de rappel** affiche chaque manœuvre ou enregistrement :
-    relecture, vitesse propre (pincer pour zoomer), trois compas **aimantés** aux activations avec report (au doigt : appui
-    long de 2 s sur le début, puis appui maintenu sur la fin), comparaison avec
+    relecture, vitesse propre (pincer pour zoomer), trois compas **aimantés** aux activations avec report (poser le doigt
+    au début, glisser : mesure en continu, laissée en place au relâcher ; toucher un compas l'enlève), comparaison avec
     un rappel de référence. Chaque fin de stimulation (programmée ou arrêtée par Stop) est rappelée centrée sur le dernier
     complexe stimulé ; chaque événement du journal peut être rappelé, avec ses intervalles. Ordre des voies modifiable (▲ ou
     glisser le nom de la voie sur le tracé) ; les sites de stimulation portent le nom de la voie affichée (SC 1-2, OD lat…). Sur téléphone en paysage,
@@ -51,7 +51,9 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
     sinusal (extrastimulus, rampes, TRS, para-hisien) sont refusés tant qu'une tachycardie est en cours.
   - **Sonde d'ablation** placée sur une **carte schématique** (activation locale colorée pendant la tachycardie) ; contact
     du cathéter (extrasystoles mécaniques, bloc transitoire d'une voie accessoire) ; générateur de **radiofréquence**
-    (puissance, température, impédance, lésion progressive selon l'appui) ou cryothérapie ; rythme jonctionnel sur la voie
+    (puissance, température, impédance, lésion progressive selon l'appui) ou cryothérapie ; sur l'isthme cavo-tricuspide,
+    ralentissement puis bloc de la conduction avec **doubles potentiels** de plus en plus espacés sur la sonde (stimulation
+    de l'OD latérale ou de l'ostium du SC en rythme sinusal) ; rythme jonctionnel sur la voie
     lente et alerte en cas de perte de la conduction VA ; allongement de l'AH puis bloc AV près du His.
   - Isoprénaline, atropine, adénosine, choc ; alerte d'hypotension ; **compte rendu d'EEP** généré (copiable).
   - Physiologie : conduction décrémentielle avec Wenckebach nodal, pénétration rétrograde cachée de la voie lente, freinage sinusal (TRS), branches droite et gauche
@@ -83,7 +85,8 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
 - **Progression** : **courbe de l'ELO jour après jour** (avec tableau des valeurs), badges, réussite par thème et par niveau, jours consécutifs,
   historique, export/import ; une série interrompue se reprend. Tout reste sur l'appareil.
 - Raccourcis clavier (1–4 / A–D, V/F, Entrée).
-- Mode clair / sombre, affichage adapté au mobile.
+- Mode clair / sombre, affichage adapté au mobile ; **installation sur le téléphone** proposée en haut de l'accueil
+  (bouton sur Android, démarche expliquée sur iPhone et iPad ; rien sur ordinateur).
 
 ## Utilisation
 
@@ -97,7 +100,11 @@ python3 -m http.server 8000     # puis ouvrir http://localhost:8000
 
 Le workflow `.github/workflows/pages.yml` valide la base de questions à chaque push et publie le site
 à chaque push sur `main`. À activer une fois dans **Settings → Pages → Source : GitHub Actions**.
-Sur mobile, ouvrir l'adresse du site puis « Ajouter à l'écran d'accueil » pour l'installer.
+Sur téléphone, l'accueil propose d'installer l'application dans un encart : sur Android, le bouton « Installer »
+ouvre la boîte d'installation du navigateur (`beforeinstallprompt`, retenu dès l'en-tête de `index.html`) ; sur iPhone
+et iPad, la démarche est expliquée pas à pas (Partager → Sur l'écran d'accueil). Rien n'est proposé sur ordinateur.
+L'encart disparaît une fois l'application installée ou lancée en plein écran, et pour 30 jours quand on le referme
+(`js/installation.js`).
 
 ### Référencement (SEO et moteurs génératifs)
 

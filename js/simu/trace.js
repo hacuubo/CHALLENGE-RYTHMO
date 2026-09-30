@@ -30,6 +30,8 @@ const FORMES = {
   large: () => ({ f: τ => 0.9 * g(τ, 0, 5) - 0.8 * g(τ, 9, 5.5) + 0.25 * g(τ, 19, 7) - 0.1 * g(τ, 30, 8), portee: [-15, 50] }),
   his: () => ({ f: τ => g(τ, 0, 1.8) - 0.75 * g(τ, 3.2, 1.8) + 0.2 * g(τ, 6, 2), portee: [-6, 12] }),
   loin: () => ({ f: τ => 0.8 * g(τ, 12, 10) - 0.45 * g(τ, 34, 12), portee: [-20, 70] }),
+  // double potentiel : composante brève et ample de part et d'autre d'une ligne de bloc (isthme cavo-tricuspide)
+  dp: () => ({ f: τ => g(τ, 0, 1.8) - 0.9 * g(τ, 3.4, 1.8) + 0.2 * g(τ, 7, 2.5), portee: [-6, 14] }),
   // unipolaire : déflexion négative (QS) à l'arrivée du front d'activation
   uni: () => ({ f: τ => -g(τ, 8, 7) + 0.25 * g(τ, 25, 10), portee: [-25, 60] }),
 };
@@ -79,6 +81,17 @@ const latence = (x, forme) => (x.o === 'stim' ? LATENCE_CAPTURE[forme] ?? (VENTR
 const ATRIUM = ['sa', 'hra', 'lath', 'latm', 'latb', 'cti', 'ras', 'cs9', 'cs7', 'cs5', 'cs3', 'cs1', 'ogs', 'oga', 'foyer'];
 const VENTRICULES = ['vsep', 'vbd', 'vps', 'rva', 'lvl'];
 const DERIV = ['I', 'II', 'aVF', 'V1', 'V6'];
+
+// Électrogrammes de la sonde d'ablation. ablation : {a, v} sites vus par la sonde ; a2 : site de l'autre côté d'une ligne
+// (isthme : bord septal) et dp (0 à 1) : lésion de la ligne. À mesure que la lésion se constitue, le potentiel local se
+// dédouble en deux potentiels nets, l'un de chaque côté de la ligne : doubles potentiels, d'autant plus espacés que la
+// conduction à travers la ligne est lente ou bloquée (stimulation d'un côté de la ligne en rythme sinusal).
+function sourcesAblation(ablation, uni) {
+  if (!ablation) return [];
+  const dp = ablation.a2 ? Math.max(0, Math.min(1, ablation.dp || 0)) : 0;
+  if (uni) return [[ablation.a, 0.6, 'uni'], ...(dp ? [[ablation.a2, 0.5 * dp, 'uni']] : []), [ablation.v, 0.8, 'uni']];
+  return [[ablation.a, 0.9 * (1 - dp), 'local'], ...(dp ? [[ablation.a, 1.1 * dp, 'dp'], [ablation.a2, 1.1 * dp, 'dp']] : []), [ablation.v, 0.9, 'large', 3]];
+}
 
 function grouper(journal, sites, t0, t1, seuil) {
   const r = [];
@@ -274,8 +287,7 @@ export function dessinerSimu(canvas, coeur, o = {}) {
     if (canal.surface) ev = surf[canal.id].map(c => ({ t: c.c - 3 * c.s, f: x => c.a * g(x, c.c, c.s), fin: c.c + 3 * c.s }));
     else {
       let src = canal.src;
-      if (canal.id === 'abld') src = ablation ? [[ablation.a, 0.9, 'local'], [ablation.v, 0.9, 'large', 3]] : [];
-      if (canal.id === 'ablu') src = ablation ? [[ablation.a, 0.6, 'uni'], [ablation.v, 0.8, 'uni']] : [];
+      if (canal.id === 'abld' || canal.id === 'ablu') src = sourcesAblation(ablation, canal.id === 'ablu');
       for (const [site, amp, forme, dec = 0] of src) {
         if (!site) continue;
         const { f, portee: [a, b] } = FORMES[forme](site);
@@ -376,6 +388,6 @@ export function evenementsCanal(id, coeur, ablation = null) {
   }
   if (canal.pression) return battementsV(j).map(t => t + 60);
   let src = canal.src;
-  if (id === 'abld' || id === 'ablu') src = ablation ? [[ablation.a, 1, 'local'], [ablation.v, 1, 'large']] : [];
+  if (id === 'abld' || id === 'ablu') src = sourcesAblation(ablation, id === 'ablu');
   return [...r, ...src.filter(x => x[0]).flatMap(([site, , forme, dec = 0]) => j.filter(x => x.s === site).map(x => x.t + dec + (forme === 'loin' ? 0 : latence(x, forme))))];
 }

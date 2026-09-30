@@ -2,9 +2,10 @@
 // En haut à droite : choix de la langue (FR | EN).
 import * as stock from '../store.js';
 import { resumeSauve } from '../session.js';
-import { esc } from '../util.js';
+import { esc, toast } from '../util.js';
 import { ICONES, LOGO } from '../icones.js';
 import { t, langue, LANGUES, definirLangue, proposerAnglais } from '../i18n.js';
+import { proposition, quandInstallable, installer, refuser, etapesIOS } from '../installation.js';
 
 export function vueAccueil(app, ctx) {
   const { reprendre, changerLangue } = ctx;
@@ -29,6 +30,7 @@ export function vueAccueil(app, ctx) {
     ${choixLangue}
     <h1 class="titre-accueil"><span class="titre-logo" aria-hidden="true">${LOGO}</span>Shock <span class="esperluette">&amp;</span> Pace</h1>
     ${invitation}
+    ${encartInstallation()}
     ${enCours ? `<button class="reprise" id="reprendre">▶ ${t('Reprendre :', 'Resume:')} ${esc(enCours.titre)} (${enCours.faites}/${enCours.total})</button>` : ''}
     <nav class="menu-principal centre" aria-label="${t('Choisir une activité', 'Choose an activity')}">
       ${tuile('simulateur', ICONES.simulateur, t('Simulateur', 'Simulator'))}
@@ -48,4 +50,50 @@ export function vueAccueil(app, ctx) {
   });
   const fermer = app.querySelector('.fermer-invitation');
   if (fermer) fermer.onclick = () => { definirLangue('fr'); app.querySelector('.invitation-langue').remove(); };
+  brancherInstallation(app);
+  // Android : l'événement d'installation peut arriver après l'affichage de l'accueil
+  quandInstallable(() => {
+    if (!app.querySelector('.menu-principal.centre') || app.querySelector('.installation')) return;
+    (app.querySelector('.invitation-langue') || app.querySelector('.titre-accueil')).insertAdjacentHTML('afterend', encartInstallation());
+    brancherInstallation(app);
+  });
+}
+
+// Encart « Installer l'application » : bandeau compact, en rouge orangé, distinct des tuiles du menu. Rien sur ordinateur.
+// Android : tout le bandeau est le bouton, un appui ouvre la boîte d'installation. iPhone, iPad : un appui déplie la démarche.
+function encartInstallation() {
+  const mode = proposition();
+  if (!mode) return '';
+  const ios = mode === 'ios';
+  const etapes = ios ? `<ol id="installation-etapes" class="installation-etapes" hidden>${etapesIOS().map(e => `<li>${e}</li>`).join('')}</ol>` : '';
+  return `<div class="installation" data-mode="${mode}" role="region" aria-label="${t('Installer l\'application', 'Install the app')}">
+      <button type="button" class="installation-action" id="installer"${ios ? ' aria-expanded="false" aria-controls="installation-etapes"' : ''}>
+        <span class="installation-ico" aria-hidden="true">${ICONES.installation}</span>
+        <span class="installation-texte">${t('Installer l\'application', 'Install the app')}</span>
+        <span class="installation-fleche" aria-hidden="true">${ios ? '▾' : '›'}</span>
+      </button>
+      <button type="button" class="fermer-invitation fermer-installation" aria-label="${t('Ne plus proposer', 'Don\'t ask again')}" title="${t('Ne plus proposer', 'Don\'t ask again')}">✕</button>
+      ${etapes}
+    </div>`;
+}
+function brancherInstallation(app) {
+  const encart = app.querySelector('.installation');
+  if (!encart) return;
+  const bouton = encart.querySelector('#installer');
+  if (encart.dataset.mode === 'bouton') {
+    bouton.onclick = async () => {
+      bouton.disabled = true;
+      const ok = await installer();
+      encart.remove(); // accepté : l'application s'installe ; refusé : on reproposera à une prochaine visite
+      if (!ok) toast(t('Installation annulée. Menu ⋮ du navigateur → « Installer l\'application » quand vous voudrez.', 'Installation cancelled. Browser menu ⋮ → “Install app” whenever you like.'), 3500);
+    };
+  } else {
+    bouton.onclick = () => {
+      const etapes = encart.querySelector('#installation-etapes');
+      const ouvert = etapes.hidden;
+      etapes.hidden = !ouvert;
+      bouton.setAttribute('aria-expanded', String(ouvert));
+    };
+  }
+  encart.querySelector('.fermer-installation').onclick = () => { refuser(); encart.remove(); };
 }

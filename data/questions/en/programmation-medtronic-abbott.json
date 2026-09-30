@@ -130,7 +130,7 @@
   "rappel": "Cardioinhibitory reflex syncope combines a vasodepressor component (fall in blood pressure) and a cardioinhibitory component (bradycardia or asystole). Pacing corrects only the latter, which explains its limited results when vasodepression predominates. Dedicated algorithms rely either on detection of a rate drop (slope and low-rate criteria) or on a physiological sensor intended to anticipate the episode, and deliver intervention pacing faster than the lower rate. Pacing for reflex syncope remains restricted to selected patients with documented asystole and severe recurrent syncope."
  },
  "prog-ma-009": {
-  "question": "In the randomised double-blind VPS II trial (pacemaker implanted in all patients, DDD with rate drop response vs ODO), pacing significantly reduced recurrence of vasovagal syncope.",
+  "question": "In the randomised double-blind VPS II trial (pacemaker implanted in all patients, DDD with Rate Drop Response vs ODO), pacing significantly reduced recurrence of vasovagal syncope.",
   "options": [
    "True",
    "False"
@@ -140,7 +140,7 @@
    "Correct: VPS II showed only a non-significant 30% relative reduction (one-sided p = 0.14), suggesting a placebo effect of implantation."
   ],
   "explication": "This is false. VPS I, an open-label trial, had shown a large benefit. However, VPS II, which was double-blind (all patients implanted, device active or not), showed only a non-significant 30% relative reduction in time to syncope recurrence (one-sided p = 0.14). This discrepancy suggests a substantial placebo effect of implantation in open-label trials. The authors concluded that pacing should not be offered as first-line therapy for recurrent vasovagal syncope. The 2018 ESC guidelines reserve it for selected patients: aged over 40, with severe syncope and documented asystole.",
-  "aRetenir": "VPS II (double-blind): no significant reduction in vasovagal syncope with rate drop response pacing.",
+  "aRetenir": "VPS II (double-blind): no significant reduction in vasovagal syncope with Rate Drop Response pacing.",
   "rappel": "Pacing trials in vasovagal syncope illustrate the importance of blinding: open-label trials, in which control patients were not implanted, overestimated the benefit, whereas trials in which all patients are implanted (pacing on or off) measure the true effect of pacing. Implantation itself has a strong placebo effect on symptoms. The vasodepressor component, which pacing does not correct, is the main pathophysiological explanation. According to the 2018 ESC guidelines, pacing may be considered in patients over 40 years of age with recurrent, severe, unpredictable syncope and documented spontaneous (or tilt-induced) asystole."
  },
  "prog-ma-010": {
@@ -250,10 +250,10 @@
    "False"
   ],
   "commentaires": [
-   "Incorrect: AdaptResponse was stopped for futility; HR 0.89 (95% CI 0.78-1.01; p = 0.077), with no significant difference.",
+   "Incorrect: AdaptResponse was stopped for futility; HR 0.89 (95% CI 0.78–1.01; p = 0.077), with no significant difference.",
    "Correct: the clinical superiority of AdaptivCRT has not been demonstrated, even though its non-inferiority had been shown in the Adaptive CRT trial."
   ],
-  "explication": "This is false. AdaptResponse (3617 patients with LBBB, LVEF ≤ 35% and PR ≤ 200 ms) was stopped for futility at the third interim analysis. The primary endpoint occurred in 23.5% vs 25.7% of patients at 60 months (HR 0.89; 95% CI 0.78-1.01; p = 0.077), with no significant difference. Event rates were low in both arms, reflecting a very good response to CRT in this population. The algorithm remains usable, since the Adaptive CRT trial had demonstrated its non-inferiority, but its clinical superiority has not been demonstrated.",
+  "explication": "This is false. AdaptResponse (3617 patients with LBBB, LVEF ≤ 35% and PR ≤ 200 ms) was stopped for futility at the third interim analysis. The primary endpoint occurred in 23.5% vs 25.7% of patients at 60 months (HR 0.89; 95% CI 0.78–1.01; p = 0.077), with no significant difference. Event rates were low in both arms, reflecting a very good response to CRT in this population. The algorithm remains usable, since the Adaptive CRT trial had demonstrated its non-inferiority, but its clinical superiority has not been demonstrated.",
   "aRetenir": "AdaptResponse: no demonstrated clinical superiority of AdaptivCRT over conventional CRT.",
   "rappel": "A non-inferiority trial shows that a strategy is not worse than a reference comparator without proving that it is better; only a superiority trial with clinical endpoints (death, hospitalisation) can establish a specific clinical benefit. Stopping for futility means that the probability of showing a difference by the end of the trial is judged too low. In CRT, the ideal population (typical LBBB, sinus rhythm, normal PR interval) already responds very well to conventional biventricular pacing, which lowers event rates and leaves little room for improvement by an optimisation algorithm. An electrical or echocardiographic gain does not guarantee a clinical benefit."
  },
@@ -267,11 +267,11 @@
   ],
   "commentaires": [
    "Incorrect: comparing the RV coil–can EGM with a template is the principle of Wavelet, an SVT–VT discriminator.",
-   "Correct: on the unipolar LV EGM, a QS or QS-r pattern indicates effective LV capture; an initial R wave indicates pseudo-fusion or loss of capture.",
+   "Correct: on the unipolar LV EGM, a QS or QS-r pattern indicates effective LV capture; an initial R wave indicates pseudofusion or loss of capture.",
    "Incorrect: endocardial acceleration measured by a dedicated lead is the SonR signal (MicroPort), used to optimise delays.",
    "Incorrect: intracardiac impedance during contraction is the signal used by Closed Loop Stimulation (Biotronik), a rate-response sensor."
   ],
-  "explication": "The biventricular pacing percentage displayed by the device often overestimates the CRT actually delivered: pseudo-fusion cycles or cycles with loss of LV capture are counted as paced. EffectivCRT analyses, beat by beat, the unipolar EGM from the LV cathode (to the can or coil). Effective LV capture produces an initial negative deflection (QS or QS-r). An initial positive R wave indicates intrinsic activation arriving before the pacing pulse (pseudo-fusion) or loss of capture. In the validation study, the algorithm correctly classified 98.2% of effective beats and 100% of LV loss-of-capture beats. Endocardial acceleration (SonR), intracardiac impedance (CLS) and the coil–can EGM (Wavelet) serve other functions.",
+  "explication": "The biventricular pacing percentage displayed by the device often overestimates the CRT actually delivered: pseudofusion cycles or cycles with loss of LV capture are counted as paced. EffectivCRT analyses, beat by beat, the unipolar EGM from the LV cathode (to the can or coil). Effective LV capture produces an initial negative deflection (QS or QS-r). An initial positive R wave indicates intrinsic activation arriving before the pacing pulse (pseudofusion) or loss of capture. In the validation study, the algorithm correctly classified 98.2% of effective beats and 100% of LV loss-of-capture beats. Endocardial acceleration (SonR), intracardiac impedance (CLS) and the coil–can EGM (Wavelet) serve other functions.",
   "aRetenir": "EffectivCRT: a QS/QS-r pattern on the unipolar LV EGM indicates effective CRT, an initial R wave ineffective CRT.",
   "rappel": "The device's biventricular pacing counter counts delivered pulses, not truly resynchronised beats. Two situations escape this counter: pseudofusion, in which intrinsic activation has already depolarised the ventricle when the pulse arrives, and loss of LV capture. They are common in AF, with PVCs or with an overly long AV delay. The unipolar EGM recorded at the LV electrode reflects local activation: when the pulse captures the myocardium under the electrode, activation moves away from it and the initial deflection is negative; an initial R wave means that activation is travelling towards the electrode from another site. The 12-lead ECG remains the reference for confirming biventricular capture."
  },
@@ -326,7 +326,7 @@
    "Incorrect: 30% is the order of magnitude seen in the very first ICD series, far above the PainFree SST rates."
   ],
   "explication": "PainFree SST (2790 patients) combined the SmartShock algorithms (PR Logic, Wavelet, T-wave discrimination, RV lead noise discrimination…) with modern programming. The 1-year inappropriate shock rate was 1.5% with dual- or triple-chamber devices and 2.5% with single-chamber devices. At 2 years, it reached 2.8% and 3.7%. The leading cause remained AF or atrial flutter. Figures of 10 to 30% correspond to older series, before long detection times and modern discriminators.",
-  "aRetenir": "With SmartShock and modern programming, 1-year inappropriate shock rates fall to 1.5-2.5%.",
+  "aRetenir": "With SmartShock and modern programming, 1-year inappropriate shock rates fall to 1.5–2.5%.",
   "rappel": "Inappropriate shocks impair quality of life and are associated with increased mortality; their main causes are rapidly conducted AF or atrial flutter, other SVTs, oversensing (T wave, lead noise, interference) and non-sustained VT. Reducing them relies on a combined strategy: a high detection zone, prolonged detection, SVT–VT discriminators active up to a high rate, ATP before shocks, and anti-oversensing algorithms. The 2015 HRS/EHRA/APHRS/SOLAECE consensus codifies this programming, which reduces both inappropriate and unnecessary therapies without increasing mortality."
  },
  "prog-ma-022": {
@@ -667,7 +667,7 @@
  },
  "prog-ma-041": {
   "question": "Abbott ICD: double counting due to T-wave oversensing with non-sustained \"VF\" episodes. The R wave measures 3 mV and the VF induced at implantation was of low amplitude. What programming strategy do you adopt, and what mistake must you avoid?",
-  "reponseAttendue": "Adjust SenseAbility: increase the post-sensing Threshold Start (e.g. from 50 to 62.5 or 75%) and/or lengthen the Decay Delay so that the threshold is still above the T wave when it occurs. Then check the markers on the real-time EGM, at rest and during manoeuvres. Mistake to avoid: globally reducing maximum sensitivity (higher mV value), which would risk undersensing low-amplitude VF. If the problem persists: look for a cause (lead, electrolytes, drugs) and consider lead revision.",
+  "reponseAttendue": "Adjust SenseAbility: increase the post-sensing Threshold Start (e.g. from 50 to 62.5 or 75%) and/or lengthen the Decay Delay so that the threshold is still above the T wave when it occurs. Then check the markers on the real-time EGM, at rest and during manoeuvres. Mistake to avoid: globally reducing maximum sensitivity (higher mV value), which would risk undersensing low-amplitude VF. If the problem persists: search for a cause (lead, electrolytes, drugs) and consider lead revision.",
   "explication": "R/T double counting doubles the measured rate and can trigger inappropriate shocks. SenseAbility makes it possible to raise the starting point of the threshold after sensing and to delay its decay: the T wave, which occurs 200 to 400 ms after the QRS, then falls below the threshold without altering maximum sensitivity. With a modest R wave and low-amplitude VF, reducing maximum sensitivity would carry a risk of VF undersensing, which is far more serious than an inappropriate shock. The result must always be checked on the real-time EGM and, if necessary, by a sensing test. A T wave that has become large should prompt a search for hyperkalaemia or a recent change in medication.",
   "aRetenir": "For T-wave oversensing in Abbott devices: Threshold Start and Decay Delay, no global reduction in maximum sensitivity when VF is of low amplitude.",
   "rappel": "R/T double counting is recognised on EGMs by regular alternation of short and long intervals and of signals of different amplitude, with a measured rate twice the true rate. It is favoured by a small R wave (automatic sensitivity then decays further), a large T wave (hyperkalaemia, drugs, ischaemia, channelopathies) and lead position. Any correction of sensing must preserve reliable detection of VF, whose signals can be very small: this is ensured by the maximum sensitivity. After reprogramming, sensing must be checked in real time and, if adjustments fail, lead revision should be considered."
@@ -709,7 +709,7 @@
   "rappel": "A dual-chamber ICD has a very powerful argument: the relationship between atrial and ventricular rates. A ventricular rate faster than the atrial rate implies a ventricular (or junctional) origin, since an SVT cannot produce more QRS complexes than P waves. When the atrium is faster, the question is whether this is conducted AF or atrial flutter, decided by regularity and morphology. With a 1:1 relationship, onset criteria (sudden or gradual, which chamber accelerates first) and morphology distinguish sinus tachycardia, 1:1 SVT and VT with 1:1 retrograde conduction. The whole analysis depends on reliable atrial sensing."
  },
  "prog-ma-044": {
-  "question": "Abbott dual-chamber ICD, VT zone from 170 bpm. In the stored episode, the atrial EGM rate exceeds 300/min, the mean ventricular rate is 180 bpm and the QRS complexes match the template. The tracing below was recorded during the episode. Which branch of the algorithm applies, and what decision is expected?",
+  "question": "Abbott dual-chamber ICD, VT zone from 170 bpm. In the stored episode, the atrial EGM rate exceeds 300 bpm, the mean ventricular rate is 180 bpm and the QRS complexes match the template. The tracing below was recorded during the episode. Which branch of the algorithm applies, and what decision is expected?",
   "options": [
    "V > A branch: ventricular origin, therapy delivered with no other criterion",
    "V = A branch: onset and morphology criteria, therapy delivered",
@@ -717,12 +717,12 @@
    "No branch: mode switching suspends ventricular arrhythmia detection"
   ],
   "commentaires": [
-   "Incorrect: the atrium (over 300/min) is faster than the ventricle (180 bpm): this is the V < A branch.",
+   "Incorrect: the atrium (over 300 bpm) is faster than the ventricle (180 bpm): this is the V < A branch.",
    "Incorrect: the A and V rates are not equal; the onset criterion is not the rule here.",
    "Correct: V < A, irregular cycles on the tracing and matching morphology: conducted AF, therapy withheld within the programmed SVT limit and timeout.",
    "Incorrect: mode switching concerns pacing only; it never suspends ventricular tachycardia detection."
   ],
-  "explication": "The atrial rate (over 300/min) exceeds the ventricular rate (180 bpm): this is the V < A branch. The tracing shows disorganised atrial activity and irregular ventricular cycles: the stability criterion and the morphology match with the template point to conducted AF, i.e. SVT, and therapy is withheld. This withholding applies only below the programmed SVT limit and until any maximum discrimination time (SVT Discrimination Timeout) has elapsed. Pitfall: VT occurring during AF would be regular and morphologically different, and would be treated. Mode switching concerns pacing only and never suspends ventricular tachycardia detection.",
+  "explication": "The atrial rate (over 300 bpm) exceeds the ventricular rate (180 bpm): this is the V < A branch. The tracing shows disorganised atrial activity and irregular ventricular cycles: the stability criterion and the morphology match with the template point to conducted AF, i.e. SVT, and therapy is withheld. This withholding applies only below the programmed SVT limit and until any maximum discrimination time (SVT Discrimination Timeout) has elapsed. Pitfall: VT occurring during AF would be regular and morphologically different, and would be treated. Mode switching concerns pacing only and never suspends ventricular tachycardia detection.",
   "aRetenir": "Rapid conducted AF = V < A branch; cycle instability and matching morphology → SVT, therapy withheld.",
   "rappel": "Rapidly conducted AF is the leading cause of inappropriate shocks. On ICD EGMs, it is recognised by rapid, disorganised atrial activity, an atrial rate faster than the ventricular rate, irregular ventricular cycles and QRS complexes with the same morphology as the baseline rhythm. Discriminators (stability, morphology) withhold therapy only below the programmed SVT limit. VT occurring during AF breaks these criteria: regular cycles and a different morphology. Preventing recurrences combines rate control (beta-blocker, antiarrhythmic drug, or even ablation) and appropriate programming; mode switching, which concerns pacing only, plays no part in ventricular detection.",
   "legende": "Tracing recorded during the episode"
@@ -780,7 +780,7 @@
    "Incorrect: extending the VF NID on oversensing or abnormal impedance is the Medtronic Lead Integrity Alert.",
    "Correct: DynamicTx detects overcurrent at the time of the shock (short circuit) and changes the configuration to deliver the therapy."
   ],
-  "explication": "DynamicTx is an over-current detection algorithm. If an abnormally high current is detected at the time of the shock, suggesting an impedance drop due to an insulation breach or a short circuit, the device automatically changes the shock configuration so that the therapy can be delivered. It is a safeguard against high-voltage lead failure, not a solution to the problem: such an alert calls for prompt lead assessment. SecureSense (lead noise), DeFT Response (waveform) and the Medtronic Lead Integrity Alert (oversensing, NID) are separate functions.",
+  "explication": "DynamicTx is an overcurrent detection algorithm. If an abnormally high current is detected at the time of the shock, suggesting an impedance drop due to an insulation breach or a short circuit, the device automatically changes the shock configuration so that the therapy can be delivered. It is a safeguard against high-voltage lead failure, not a solution to the problem: such an alert calls for prompt lead assessment. SecureSense (lead noise), DeFT Response (waveform) and the Medtronic Lead Integrity Alert (oversensing, NID) are separate functions.",
   "aRetenir": "DynamicTx automatically changes the shock vector in case of overcurrent so that therapy is delivered.",
   "rappel": "Normal ICD shock impedance typically lies between a few tens of ohms and about one hundred ohms. Very low impedance suggests an insulation failure or a short circuit between conductors (for example between the coil and the can, or between two cables), which diverts current and may prevent delivery of the shock or even damage the output circuit. Very high impedance suggests conductor fracture or a connection failure. Protection algorithms can switch configuration at the time of the shock to bypass the faulty segment, but they do not correct the problem: any abnormality of high-voltage impedance requires prompt assessment and, in most cases, lead revision."
  },

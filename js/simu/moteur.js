@@ -178,7 +178,7 @@ export class Coeur {
     for (const v of this.voies) if (v.nodale && v.id !== 'lente' && !v.coupee) {
       if (antero && v.ab && !v.ab.bloc) v.ab.d += ms;
       if (retro && v.ba && !v.ba.bloc) v.ba.d += ms;
-      if ((v.ab?.d ?? 0) > 400) { v.coupee = true; this.evenements.push({ t: this.t, type: 'bavc', texte: trad('Bloc AV complet', 'Complete heart block') }); }
+      if ((v.ab?.d ?? 0) > 400) { v.coupee = true; this.evenements.push({ t: this.t, type: 'bavc', texte: trad('Bloc AV complet', 'Complete AV block') }); }
     }
   }
   annulerStims(apres = this.t) { this.tas.filtrer(e => !(e.type === 'stim' && e.t > apres)); }

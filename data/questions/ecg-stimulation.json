@@ -204,8 +204,8 @@
       1
     ],
     "commentaires": [
-      "Non : en DDI, la réponse à la détection est l'inhibition seule ; une P détectée ne déclenche jamais de stimulation ventriculaire.",
-      "Oui : c'est le DDD (et le VDD) qui suit l'oreillette ; le DDI n'a pas de suivi atrial, d'où son usage comme mode de repli."
+      "Faux : en DDI, la réponse à la détection est l'inhibition seule ; une P détectée ne déclenche jamais de stimulation ventriculaire.",
+      "Juste : c'est le DDD (et le VDD) qui suit l'oreillette ; le DDI n'a pas de suivi atrial, d'où son usage comme mode de repli."
     ],
     "reponseAttendue": null,
     "explication": "Le mode DDI stimule et détecte dans les deux cavités, mais sa réponse à la détection est uniquement l'inhibition : une P détectée inhibe la stimulation atriale mais ne déclenche pas de stimulation ventriculaire. Il n'y a donc pas de suivi atrial ; le ventricule est stimulé à la fréquence de base (ou capteur) si aucun QRS n'est détecté. C'est ce qui en fait le mode de repli typique du mode switch en cas d'arythmie atriale. Chez un patient en BAV complet et rythme sinusal, un DDI aboutit à une dissociation AV avec perte de la synchronisation AV.",
@@ -321,8 +321,8 @@
       0
     ],
     "commentaires": [
-      "Oui : en VVI, l'oreillette se contracte à contretemps, contre des valves fermées si la conduction VA est présente : c'est le syndrome du pacemaker.",
-      "Non : la perte de synchronisation AV, maximale avec conduction rétrograde, est justement le mécanisme du syndrome du pacemaker."
+      "Juste : en VVI, l'oreillette se contracte à contretemps, contre des valves fermées si la conduction VA est présente : c'est le syndrome du pacemaker.",
+      "Faux : la perte de synchronisation AV, maximale avec conduction rétrograde, est justement le mécanisme du syndrome du pacemaker."
     ],
     "reponseAttendue": null,
     "explication": "En VVI, l'oreillette n'est ni détectée ni stimulée : chez un patient en rythme sinusal, la contraction atriale survient à n'importe quel moment du cycle ventriculaire. Lorsque la conduction rétrograde VA est préservée, l'oreillette se contracte contre des valves AV fermées, ce qui entraîne une élévation des pressions veineuses, un réflexe vasodépresseur et des symptômes (fatigue, dyspnée, pulsations cervicales, hypotension, lipothymies) : c'est le syndrome du pacemaker. Il est prévenu par une stimulation préservant la synchronisation AV (DDD/VDD). Il peut exister aussi en l'absence de conduction VA, par simple perte de synchronisation AV, mais il est surtout marqué en cas de conduction VA.",
@@ -607,8 +607,8 @@
       0
     ],
     "commentaires": [
-      "Oui : quand seul le myocarde septal reste capturé, le QRS s'élargit brutalement (aspect de stimulation septale VD).",
-      "Non : la perte de la composante hissienne fait perdre l'activation rapide par le système de conduction, donc le QRS s'élargit."
+      "Juste : quand seul le myocarde septal reste capturé, le QRS s'élargit brutalement (aspect de stimulation septale VD).",
+      "Faux : la perte de la composante hissienne fait perdre l'activation rapide par le système de conduction, donc le QRS s'élargit."
     ],
     "reponseAttendue": null,
     "explication": "En capture non sélective, le QRS résulte de l'activation simultanée du His et du myocarde septal. Si l'amplitude descend sous le seuil de capture hissienne tout en restant au-dessus du seuil myocardique, seul le myocarde septal est capturé : le QRS s'élargit brutalement (aspect de stimulation septale VD, type retard gauche). Ce changement de morphologie lors du test de seuil permet de mesurer séparément les deux seuils. Le seuil de capture hissienne pouvant être plus élevé que le seuil myocardique et augmenter au cours du suivi, cet élargissement du QRS sur un ECG de contrôle doit faire suspecter une perte de capture hissienne.",
@@ -992,7 +992,7 @@
       "Faux : en pseudo-fusion, le spike tombe dans le QRS spontané lui-même ; ici il survient après, sur le segment ST ou l'onde T."
     ],
     "reponseAttendue": null,
-    "explication": "Le stimulateur n'a pas « vu » l'activité spontanée : il se comporte comme s'il n'y avait rien et délivre ses stimulations à la fin de l'intervalle d'échappement, ce qui définit la sous-détection. Elle se manifeste par des spikes trop précoces par rapport au complexe spontané qui précède. Le risque principal au niveau ventriculaire est la chute d'un spike dans l'onde T (phénomène R sur T), rarement arythmogène mais possible. La sur-détection donne au contraire des pauses sans spike, et la perte de capture des spikes non suivis de dépolarisation en dehors de la période réfractaire. En pseudo-fusion, le spike tombe dans le QRS spontané, au moment de sa détection, et non après lui.",
+    "explication": "Le stimulateur n'a pas « vu » l'activité spontanée : il se comporte comme s'il n'y avait rien et délivre ses stimulations à la fin de l'intervalle d'échappement, ce qui définit la sous-détection. Elle se manifeste par des spikes trop précoces par rapport au complexe spontané qui précède. Le principal risque, pour le ventricule, est la chute d'un spike dans l'onde T (phénomène R sur T), rarement arythmogène mais possible. La sur-détection donne au contraire des pauses sans spike, et la perte de capture des spikes non suivis de dépolarisation en dehors de la période réfractaire. En pseudo-fusion, le spike tombe dans le QRS spontané, au moment de sa détection, et non après lui.",
     "aRetenir": "Sous-détection = spikes émis malgré une activité spontanée qui aurait dû inhiber le stimulateur.",
     "rappel": "La détection est la capacité du boîtier à reconnaître l'activité intrinsèque ; elle dépend de l'amplitude et de la pente (slew rate) de l'électrogramme local, du filtrage et de la sensibilité programmée. La sous-détection se reconnaît à des spikes émis sans tenir compte d'un complexe spontané, avec un intervalle complexe spontané-spike plus court que l'intervalle d'échappement. Ses causes principales sont un signal intrinsèque trop faible (déplacement de sonde, fibrose, infarctus, ESV de morphologie différente), une sensibilité inadaptée, une anomalie de sonde ou un fonctionnement asynchrone (aimant, fin de vie de la batterie). Un événement tombant dans une période réfractaire ou de blanking n'est pas pris en compte : c'est une sous-détection fonctionnelle, sans dysfonction.",
     "sources": [
@@ -1244,8 +1244,8 @@
       1
     ],
     "commentaires": [
-      "Non : le spike de sécurité est délivré à délai AV court, dans le QRS de l'ESV, en période réfractaire : il ne peut pas tomber sur l'onde T.",
-      "Oui : le délai volontairement court place le spike dans le QRS de l'ESV ; il protège du crosstalk sans créer de R sur T."
+      "Faux : le spike de sécurité est délivré à délai AV court, dans le QRS de l'ESV, en période réfractaire : il ne peut pas tomber sur l'onde T.",
+      "Juste : le délai volontairement court place le spike dans le QRS de l'ESV ; il protège du crosstalk sans créer de R sur T."
     ],
     "reponseAttendue": null,
     "explication": "La stimulation de sécurité est délivrée avec un délai AV court (environ 100-120 ms) après le spike atrial, c'est-à-dire dans le QRS de l'ESV qui a été détectée, donc en période réfractaire absolue du myocarde. Le spike ne peut ni capturer ni tomber sur l'onde T. C'est précisément pour cela que ce délai est volontairement court : il protège contre l'asystolie en cas de crosstalk sans créer de risque de R sur T. Ce phénomène est normal et ne doit pas être pris pour une sous-détection.",
@@ -1311,8 +1311,8 @@
       1
     ],
     "commentaires": [
-      "Non : c'est l'inverse : après un battement spontané, le boîtier attend l'intervalle d'hystérésis, plus long que l'intervalle de base.",
-      "Oui : l'intervalle QRS spontané – spike est plus long que l'intervalle spike – spike ; c'est la définition de l'hystérésis."
+      "Faux : c'est l'inverse : après un battement spontané, le boîtier attend l'intervalle d'hystérésis, plus long que l'intervalle de base.",
+      "Juste : l'intervalle QRS spontané – spike est plus long que l'intervalle spike – spike ; c'est la définition de l'hystérésis."
     ],
     "reponseAttendue": null,
     "explication": "L'affirmation inverse la définition de l'hystérésis de fréquence. Après un battement spontané, le stimulateur attend l'intervalle d'hystérésis, plus long ; une fois qu'il stimule, il continue à la fréquence de base, plus rapide. Sur l'ECG, le premier intervalle « battement spontané – spike » est donc plus long que les intervalles « spike – spike » suivants. Cette fonction ne doit pas être confondue avec une sur-détection, qui allonge aussi un intervalle mais de façon inappropriée, sans rapport fixe avec la programmation.",
@@ -1502,8 +1502,8 @@
       1
     ],
     "commentaires": [
-      "Non : quand le rythme spontané est proche de la fréquence de base, fusion et pseudo-fusion sont physiologiques, sans sous-détection ni perte de capture.",
-      "Oui : ce sont des phénomènes normaux en stimulation antibradycardique ; ils ne deviennent un problème que sous CRT."
+      "Faux : quand le rythme spontané est proche de la fréquence de base, fusion et pseudo-fusion sont physiologiques, sans sous-détection ni perte de capture.",
+      "Juste : ce sont des phénomènes normaux en stimulation antibradycardique ; ils ne deviennent un problème que sous CRT."
     ],
     "reponseAttendue": null,
     "explication": "Fusion et pseudo-fusion sont des phénomènes physiologiques quand la fréquence spontanée est proche de la fréquence de stimulation : la dépolarisation spontanée commence avant d'être détectée par la sonde, et le spike est délivré à ce moment-là. Il n'y a ni sous-détection ni perte de capture. Si ces battements sont gênants pour l'analyse, on peut abaisser la fréquence de base ou programmer une hystérésis. En revanche, sous CRT, la fusion et la pseudo-fusion sont délétères car elles réduisent la stimulation biventriculaire effective.",
@@ -1660,8 +1660,8 @@
       0
     ],
     "commentaires": [
-      "Oui : le Wenckebach n'existe qu'entre l'intervalle de la FMS et la TARP ; si la TARP est plus longue, le 2:1 survient d'emblée.",
-      "Non : sans fenêtre entre FMS et 60 000/TARP, les P tombent dans la PVARP avant que la FMS ne limite la stimulation : 2:1 direct."
+      "Juste : le Wenckebach n'existe qu'entre l'intervalle de la FMS et la TARP ; si la TARP est plus longue, le 2:1 survient d'emblée.",
+      "Faux : sans fenêtre entre FMS et 60 000/TARP, les P tombent dans la PVARP avant que la FMS ne limite la stimulation : 2:1 direct."
     ],
     "reponseAttendue": null,
     "explication": "Le Wenckebach électronique n'existe que dans la fenêtre située entre l'intervalle de la FMS et la TARP. Si la TARP est plus longue que l'intervalle de la FMS (fréquence de bloc 2:1 inférieure ou égale à la FMS), les P tombent dans la PVARP avant même que la FMS ne limite la stimulation ventriculaire : le passage se fait directement au bloc 2:1. Par exemple, avec une TARP de 500 ms (2:1 à 120/min) et une FMS de 130/min, il n'y a pas de Wenckebach. Ce comportement brutal est particulièrement mal toléré chez le sujet jeune et actif.",
@@ -1815,7 +1815,7 @@
     "marque": null,
     "type": "qcu",
     "difficulte": 5,
-    "question": "Au service d'urgences, un patient porteur d'un stimulateur DDD (FMS 130/min) présente cette tachycardie, bien tolérée, qui ne cède pas spontanément. Quel geste simple est le plus efficace pour l'interrompre immédiatement ?",
+    "question": "Aux urgences, un patient porteur d'un stimulateur DDD (FMS 130/min) présente cette tachycardie, bien tolérée, qui ne cède pas spontanément. Quel geste simple est le plus efficace pour l'interrompre immédiatement ?",
     "ecg": {
       "preset": "ttre",
       "fc": 130
@@ -1867,8 +1867,8 @@
       0
     ],
     "commentaires": [
-      "Oui : la conduction VA est le bras rétrograde obligatoire du circuit ; sans elle, aucune P rétrograde n'entretient la boucle.",
-      "Non : sans conduction VA, pas de TRE classique ; seuls d'autres mécanismes (suivi d'une tachycardie atriale, de bruit) restent possibles."
+      "Juste : la conduction VA est le bras rétrograde obligatoire du circuit ; sans elle, aucune P rétrograde n'entretient la boucle.",
+      "Faux : sans conduction VA, pas de TRE classique ; seuls d'autres mécanismes (suivi d'une tachycardie atriale, de bruit) restent possibles."
     ],
     "reponseAttendue": null,
     "explication": "La TRE est un circuit dont le bras rétrograde est obligatoirement la conduction VA du patient : sans elle, aucune P rétrograde n'est générée après le QRS stimulé et la boucle ne peut pas s'entretenir. C'est pour cela que certains stimulateurs testent la conduction VA et que la PVARP est réglée pour couvrir le temps de conduction rétrograde. D'autres arythmies liées au stimulateur existent toutefois sans conduction VA (suivi d'une tachycardie atriale, suivi de bruit ou d'ondes R lointaines sur le canal atrial) : elles peuvent donner une fréquence ventriculaire rapide mais ne sont pas des TRE.",
@@ -2067,8 +2067,8 @@
       1
     ],
     "commentaires": [
-      "Non : far-field R, bruit ou myopotentiels peuvent déclencher un mode switch : les EGM doivent être vérifiés avant toute décision.",
-      "Oui : un épisode de mode switch n'est pas synonyme de FA confirmée ; l'analyse des EGM mémorisés est indispensable."
+      "Faux : far-field R, bruit ou myopotentiels peuvent déclencher un mode switch : les EGM doivent être vérifiés avant toute décision.",
+      "Juste : un épisode de mode switch n'est pas synonyme de FA confirmée ; l'analyse des EGM mémorisés est indispensable."
     ],
     "reponseAttendue": null,
     "explication": "Les compteurs de mode switch et d'épisodes de fréquence atriale élevée (AHRE) sont très utiles pour dépister une FA infraclinique, mais ils peuvent être faussés par une sur-détection atriale (ondes R lointaines, bruit). Les recommandations (ESC 2024 sur la FA) insistent sur la nécessité de vérifier les électrogrammes mémorisés pour confirmer qu'il s'agit bien d'une arythmie atriale avant toute décision, notamment d'anticoagulation. La durée et la charge des épisodes comptent aussi dans la décision thérapeutique. Un épisode de mode switch n'est donc pas synonyme de FA confirmée.",
@@ -2145,8 +2145,8 @@
       0
     ],
     "commentaires": [
-      "Oui : à l'ERI, la plupart des stimulateurs abaissent leur fréquence aimant à une valeur propre au fabricant.",
-      "Non : la fréquence aimant sert justement d'indicateur d'usure : sa baisse signe souvent l'ERI (se référer au manuel)."
+      "Juste : à l'ERI, la plupart des stimulateurs abaissent leur fréquence aimant à une valeur propre au fabricant.",
+      "Faux : la fréquence aimant sert justement d'indicateur d'usure : sa baisse signe souvent l'ERI (se référer au manuel)."
     ],
     "reponseAttendue": null,
     "explication": "La fréquence aimant sert historiquement d'indicateur de l'état de la batterie : lorsqu'elle atteint l'ERI, la plupart des stimulateurs abaissent leur fréquence aimant à une valeur prédéfinie, propre à chaque fabricant et à chaque modèle. Avant la télésurveillance, mesurer cette fréquence (sur un ECG ou par transmission téléphonique) permettait ainsi de dépister l'usure de la batterie. Il faut toujours se référer au manuel du fabricant, car les valeurs nominales et en fin de vie diffèrent. Certains modèles modifient aussi leur mode de fonctionnement à l'ERI (par exemple passage en VVI).",
@@ -2209,7 +2209,7 @@
     "difficulte": 5,
     "question": "Comparez la réponse à l'aimant d'un stimulateur et d'un DAI, et indiquez la conséquence pratique chez un patient stimulodépendant porteur d'un DAI opéré au bistouri électrique.",
     "reponseAttendue": "Stimulateur : stimulation asynchrone (VOO/DOO) à la fréquence aimant. DAI : suspension des thérapies antitachycardiques sans modification de la stimulation. Chez un patient dépendant porteur de DAI, l'aimant ne protège pas contre l'inhibition de la stimulation par le bistouri : il faut reprogrammer le DAI (thérapies désactivées + mode asynchrone) avec surveillance.",
-    "explication": "La différence fondamentale tient au rôle de l'aimant : sur un stimulateur, il supprime la détection pour garantir la stimulation ; sur un DAI, il supprime la détection des tachyarythmies pour éviter des thérapies inappropriées. Chez un patient dépendant, les interférences du bistouri électrique peuvent inhiber la stimulation du DAI malgré l'aimant, d'où la nécessité d'une programmation asynchrone temporaire. Pendant la période sans thérapie, le patient doit être monitoré avec un défibrillateur externe à disposition. La réponse à l'aimant est parfois programmable ou désactivée selon les fabricants : il faut la vérifier.",
+    "explication": "La différence fondamentale tient au rôle de l'aimant : sur un stimulateur, il supprime la détection pour garantir la stimulation ; sur un DAI, il supprime la détection des tachyarythmies pour éviter des thérapies inappropriées. Chez un patient dépendant, les interférences du bistouri électrique peuvent inhiber la stimulation du DAI malgré l'aimant, d'où la nécessité d'une programmation asynchrone temporaire. Pendant la période sans thérapie, le patient doit être surveillé sous scope, avec un défibrillateur externe à disposition. La réponse à l'aimant est parfois programmable ou désactivée selon les fabricants : il faut la vérifier.",
     "aRetenir": "Aimant : asynchrone sur un stimulateur, thérapies suspendues sur un DAI (pas d'asynchrone).",
     "rappel": "La gestion péri-opératoire d'un dispositif implantable repose sur quelques questions : type de dispositif (stimulateur ou DAI), stimulodépendance, site de la chirurgie et risque d'interférences électromagnétiques. Le bistouri bipolaire, les salves courtes et une plaque de retour placée de façon que le trajet du courant s'éloigne du boîtier réduisent ce risque. Un stimulateur peut être protégé de l'inhibition par l'aimant ou par une programmation asynchrone. Un DAI dont les thérapies sont suspendues impose une surveillance ECG continue et des électrodes de défibrillation externe à disposition. Tout dispositif reprogrammé doit être réinterrogé et remis dans sa programmation initiale avant la fin de la surveillance.",
     "sources": [
@@ -2423,8 +2423,8 @@
       1
     ],
     "commentaires": [
-      "Non : la durée du QRS BiV dépend du site VG, des latences et du substrat ; elle peut rester large malgré une capture VG effective.",
-      "Oui : la perte de capture VG se juge sur la morphologie comparée à l'ECG de référence et sur un test de seuil VG."
+      "Faux : la durée du QRS BiV dépend du site VG, des latences et du substrat ; elle peut rester large malgré une capture VG effective.",
+      "Juste : la perte de capture VG se juge sur la morphologie comparée à l'ECG de référence et sur un test de seuil VG."
     ],
     "reponseAttendue": null,
     "explication": "La durée du QRS stimulé biventriculaire dépend du site de stimulation VG, des latences locales, du délai VV programmé et du substrat myocardique. Elle peut rester large, voire dépasser le QRS spontané, sans perte de capture VG. La réduction de la durée du QRS est un marqueur imparfait de la réponse. Pour affirmer une perte de capture VG, on compare la morphologie (V1, DI, axe) avec l'ECG de référence et on réalise un test de seuil VG. Il est donc essentiel de disposer d'ECG 12 dérivations de référence en stimulation BiV, VD seule et VG seule.",
@@ -2478,7 +2478,7 @@
     "type": "qcu",
     "difficulte": 3,
     "cadre": "clinique",
-    "question": "Sur un Holter chez un porteur de DAI, on observe une tachycardie ventriculaire rapide, puis un grand artefact de saturation de quelques centaines de millisecondes, suivi du retour d'un rythme sinusal. Qu'a-t-il délivré ?",
+    "question": "Sur un Holter chez un porteur de DAI, on observe une tachycardie ventriculaire rapide, puis un grand artefact de saturation de quelques centaines de millisecondes, suivi du retour d'un rythme sinusal. Quelle thérapie le DAI a-t-il délivrée ?",
     "options": [
       "Une stimulation antitachycardique (ATP)",
       "Une stimulation de sécurité",
@@ -2573,8 +2573,8 @@
       0
     ],
     "commentaires": [
-      "Oui : l'ATP peut modifier le circuit, accélérer la TV ou la faire dégénérer en FV ; le choc prend alors le relais.",
-      "Non : ce risque, peu fréquent mais connu, explique qu'un DAI associe toujours ATP et chocs."
+      "Juste : l'ATP peut modifier le circuit, accélérer la TV ou la faire dégénérer en FV ; le choc prend alors le relais.",
+      "Faux : ce risque, peu fréquent mais connu, explique qu'un DAI associe toujours ATP et chocs."
     ],
     "reponseAttendue": null,
     "explication": "L'accélération d'une TV par l'ATP est un risque connu mais peu fréquent : la stimulation peut modifier le circuit, accélérer la tachycardie ou dégénérer en FV. Elle est alors traitée par le choc programmé dans la zone correspondante, ce qui explique qu'un DAI associe toujours ATP et chocs. Les essais de programmation ont montré que le bénéfice de l'ATP (réduction des chocs) l'emporte largement sur ce risque. Sur un Holter, il faut savoir reconnaître une TV accélérée ou une FV succédant à une salve d'ATP, suivie d'un choc.",
@@ -2816,8 +2816,8 @@
       1
     ],
     "commentaires": [
-      "Non : un spike en période réfractaire ne peut capturer quelle que soit l'énergie : c'est une non-capture fonctionnelle.",
-      "Oui : la perte de capture ne se juge que hors période réfractaire ; ici, il faut surtout chercher pourquoi le spike a été émis (sous-détection, aimant)."
+      "Faux : un spike en période réfractaire ne peut capturer quelle que soit l'énergie : c'est une non-capture fonctionnelle.",
+      "Juste : la perte de capture ne se juge que hors période réfractaire ; ici, il faut surtout chercher pourquoi le spike a été émis (sous-détection, aimant)."
     ],
     "reponseAttendue": null,
     "explication": "Un spike délivré pendant la période réfractaire du myocarde ne peut pas le dépolariser, quelle que soit l'énergie : c'est une non-capture fonctionnelle. Le vrai problème, dans ce cas, est la raison pour laquelle le spike a été délivré à ce moment-là, souvent une sous-détection du QRS spontané ou une stimulation asynchrone (aimant). On ne parle de perte de capture que pour un spike délivré en dehors de la période réfractaire et non suivi de dépolarisation. Cette distinction oriente la conduite à tenir : ajuster la sensibilité plutôt que l'amplitude.",
@@ -3006,8 +3006,8 @@
       0
     ],
     "commentaires": [
-      "Oui : tout DAI endocavitaire intègre une fonction de stimulation antibradycardique (simple, double chambre ou CRT).",
-      "Non : les QRS stimulés d'un DAI endocavitaire relèvent bien de sa fonction antibradycardique ; seul le DAI sous-cutané n'en a pas (hors post-choc)."
+      "Juste : tout DAI endocavitaire intègre une fonction de stimulation antibradycardique (simple, double chambre ou CRT).",
+      "Faux : les QRS stimulés d'un DAI endocavitaire relèvent bien de sa fonction antibradycardique ; seul le DAI sous-cutané n'en a pas (hors post-choc)."
     ],
     "reponseAttendue": null,
     "explication": "Tout DAI endocavitaire assure aussi une fonction de stimulation antibradycardique (simple, double chambre ou resynchronisation), en plus de la détection et du traitement des tachyarythmies ventriculaires. Les spikes et les QRS stimulés visibles en dehors des épisodes de tachycardie relèvent donc de cette fonction. Le DAI sous-cutané, en revanche, n'assure qu'une stimulation antibradycardique temporaire post-choc et pas de stimulation permanente. Les dysfonctions de stimulation (perte de capture, sur-détection) s'analysent donc sur l'ECG d'un DAI comme sur celui d'un stimulateur.",
@@ -3165,7 +3165,7 @@
       "Baisse progressive de l'amplitude de l'onde R sur plusieurs mois",
       "Élévation brutale ou variations importantes de l'impédance de stimulation",
       "Deuxième marqueur de détection survenant à distance fixe de chaque QRS",
-      "Survenue des artéfacts lors des mouvements du bras ou de manipulation de la loge"
+      "Survenue des artefacts lors des mouvements du bras ou de manipulation de la loge"
     ],
     "reponses": [
       0,

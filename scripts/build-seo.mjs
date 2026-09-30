@@ -50,13 +50,13 @@ const FAQ = {
     ['À qui s\'adresse l\'application ?',
       'Aux professionnels et étudiants de la rythmologie : cardiologues et internes de cardiologie, infirmiers et techniciens de rythmologie ou de télésurveillance, et plus largement à toute personne qui suit des porteurs de stimulateur ou de défibrillateur.'],
     ['Faut-il créer un compte ?',
-      'Non. L\'application est en lecture seule : aucun compte, aucune inscription, aucune donnée transmise. La progression et le classement ELO sont enregistrés uniquement dans le navigateur de l\'utilisateur.'],
+      'Non. Aucun compte ni inscription : la progression et le classement ELO sont enregistrés uniquement dans le navigateur de l\'utilisateur. Seule une mesure d\'audience anonyme, sans cookie (GoatCounter), compte les pages vues.'],
     ['Sur quelles sources s\'appuient les questions ?',
       'Uniquement sur des sources scientifiquement validées : recommandations ESC, EHRA, HRS, ACC/AHA, documents de consensus, articles indexés (avec DOI) et manuels techniques officiels des fabricants. Chaque correction cite ses sources et indique sa date de relecture.'],
     ['Comment fonctionne le mode compétitif ?',
       'Le mode compétitif est un flux continu de questions adaptatif : chaque joueur démarre à 600 points ELO ; une bonne réponse fait monter l\'ELO et appelle des questions plus difficiles, une erreur le fait baisser et appelle des questions plus simples. On peut faire une pause à tout moment.'],
     ['Que permet le simulateur d\'électrophysiologie ?',
-      `Il reproduit une baie d'étude électrophysiologique (EEP) en temps réel : dérivations de surface, électrogrammes endocavitaires (HRA, His, sinus coronaire, VD), vitesses de défilement en mm/s, stimulation programmée (extrastimuli, rampes), manœuvres diagnostiques des tachycardies supraventriculaires, adénosine, isoprénaline et ablation. ${nbScenarios} scénarios sont disponibles (TRIN, voies accessoires, flutter, tachycardies atriales et ventriculaires…) ainsi que des cas mystères notés.`],
+      `Il reproduit une baie d'étude électrophysiologique (EEP) en temps réel : dérivations de surface, électrogrammes endocavitaires (OD haute, His, sinus coronaire, VD), vitesses de défilement en mm/s, stimulation programmée (extrastimuli, rampes), manœuvres diagnostiques des tachycardies supraventriculaires, adénosine, isoprénaline et ablation. ${nbScenarios} scénarios sont disponibles (TRIN, voies accessoires, flutter, tachycardies atriales et ventriculaires…) ainsi que des cas mystères notés.`],
     ['L\'application existe-t-elle en anglais ?',
       'Oui. Toute l\'application (interface, questions, corrections et simulateur) existe en anglais. La langue se choisit sur l\'écran d\'accueil.'],
     ['L\'application fonctionne-t-elle hors ligne ?',
@@ -70,7 +70,7 @@ const FAQ = {
     ['Who is it for?',
       'Clinicians and students in cardiac electrophysiology and devices: cardiologists and cardiology trainees, cardiac physiologists, device and EP nurses, allied professionals and industry specialists, remote monitoring teams, and anyone who follows patients with a pacemaker or ICD.'],
     ['Do I need an account?',
-      'No. There is no account or sign-up, and no data is sent anywhere: progress and the ELO rating are stored only in your browser.'],
+      'No. There is no account or sign-up: progress and the ELO rating are stored only in your browser. Only anonymous, cookie-free audience measurement (GoatCounter) counts page views.'],
     ['What sources are the questions based on?',
       'Only on scientifically validated sources: ESC, EHRA, HRS and ACC/AHA guidelines, consensus documents, indexed articles (with DOI) and official manufacturer technical manuals. Every answer cites its sources and shows its review date.'],
     ['How does the competitive mode work?',
@@ -257,6 +257,8 @@ function presentation(l, d) {
     .installer ol { padding-left: 1.3em; margin: 4px 0 8px; } .installer ol li { margin: 5px 0; }
     footer { text-align: center; color: var(--texte-2); padding: 0 16px 32px; font-size: .9rem; }
   </style>
+  <!-- mesure d'audience anonyme, sans cookie (GoatCounter) -->
+  <script data-goatcounter="https://shockandpace.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
   <header><div class="l">
@@ -391,7 +393,7 @@ function accueilAnglais(d) {
         <li>Real-time electrophysiology (EP) recording system simulator and mystery cases.</li>
         <li>Training by domain, from beginner to expert, with detailed answers and references (ESC, EHRA, HRS, ACC/AHA).</li>
         <li>Adaptive competitive mode with an ELO rating.</li>
-        <li>Works offline; no data leaves your device.</li>
+        <li>Works offline; no account, progress kept on your device.</li>
       </ul>
       <p><a href="en/presentation.html">About the app: topics, sources and frequently asked questions</a></p>
       <p class="chargement">Loading the question bank…</p>
@@ -482,7 +484,7 @@ Key facts:
 - EP simulator: ${d.nbScenarios} scenarios (${scenarios.en.join(', ')}) and scored mystery cases.
 - Sources: ESC, EHRA, HRS and ACC/AHA guidelines and consensus documents, indexed articles (DOI) and official manufacturer manuals only; every answer cites its sources.
 - Reference guidelines: ${d.recos('en').map(([r]) => r).join(', ')}.
-- Privacy: no account, no data transmitted; progress stored locally. Works offline (PWA).
+- Privacy: no account; progress stored locally; anonymous, cookie-free audience measurement (GoatCounter). Works offline (PWA).
 - Limitation: educational tool; does not replace official guidelines, manufacturers' manuals or clinical judgement.
 - Contact: ${CONTACT}
 

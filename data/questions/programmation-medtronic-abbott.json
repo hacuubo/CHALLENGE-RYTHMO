@@ -318,7 +318,7 @@
       "Juste : VPS II n'a montré qu'une réduction relative non significative de 30 % (p unilatéral = 0,14), en faveur d'un effet placebo de l'implantation."
     ],
     "reponseAttendue": null,
-    "explication": "C'est faux. VPS I, essai ouvert, avait montré un bénéfice important. Mais VPS II, en double aveugle (tous les patients implantés, boîtier actif ou non), n'a montré qu'une réduction relative non significative de 30 % du délai avant récidive de syncope (p unilatéral = 0,14). Cet écart suggère un effet placebo important de l'implantation dans les essais ouverts. Les auteurs concluent que la stimulation ne doit pas être proposée en première intention dans la syncope vasovagale récidivante. Les recommandations ESC 2018 la réservent à des patients sélectionnés : âgés de plus de 40 ans, avec des syncopes sévères et une asystolie documentée.",
+    "explication": "C'est faux. VPS I, essai ouvert, avait montré un bénéfice important. Mais VPS II, en double aveugle (tous les patients implantés, boîtier actif ou non), n'a montré qu'une réduction relative non significative de 30 % du délai avant récidive de syncope (p unilatéral = 0,14). Cet écart suggère un effet placebo important de l'implantation dans les essais ouverts. Les auteurs concluent que la stimulation ne doit pas être proposée en première intention dans la syncope vasovagale récidivante. Les recommandations ESC 2018 la réservent à des patients sélectionnés : âgés de plus de 40 ans, avec des syncopes récidivantes graves et une asystolie documentée.",
     "aRetenir": "VPS II (double aveugle) : pas de réduction significative des syncopes vasovagales avec la stimulation rate drop response.",
     "rappel": "Les essais de stimulation dans la syncope vasovagale illustrent l'importance de l'aveugle : les essais ouverts, où les patients témoins n'étaient pas implantés, ont surestimé le bénéfice, alors que les essais où tous les patients sont implantés (stimulation active ou non) mesurent l'effet propre de la stimulation. L'implantation elle-même produit un effet placebo important sur les symptômes. La composante vasodépressive, que la stimulation ne corrige pas, est l'explication physiopathologique principale. Selon l'ESC 2018, la stimulation se discute chez des patients de plus de 40 ans, aux syncopes récidivantes, sévères et imprévisibles, avec une asystolie spontanée documentée (ou induite au tilt-test).",
     "sources": [
@@ -615,7 +615,7 @@
     "options": [
       "L'EGM bobine VD – boîtier comparé à un gabarit de rythme de base",
       "La morphologie de l'EGM unipolaire VG : un aspect QS ou QS-r",
-      "L'accélération endocardiaque mesurée à la pointe d'une sonde dédiée",
+      "L'accélération endocardiaque mesurée à la pointe d'une sonde spécifique",
       "L'impédance intracardiaque VD – boîtier au cours de chaque contraction"
     ],
     "reponses": [
@@ -624,7 +624,7 @@
     "commentaires": [
       "Faux : la comparaison de l'EGM bobine VD – boîtier à un gabarit est le principe de Wavelet, un discriminateur TV/TSV.",
       "Juste : sur l'EGM unipolaire VG, un aspect QS ou QS-r signe une capture VG effective ; une onde R initiale traduit une pseudo-fusion ou une perte de capture.",
-      "Faux : l'accélération endocardiaque mesurée par une sonde dédiée est le signal du SonR (MicroPort), utilisé pour optimiser les délais.",
+      "Faux : l'accélération endocardiaque mesurée par une sonde spécifique est le signal du SonR (MicroPort), utilisé pour optimiser les délais.",
       "Faux : l'impédance intracardiaque au cours de la contraction est le signal du Closed Loop Stimulation (Biotronik), un capteur d'asservissement."
     ],
     "reponseAttendue": null,
@@ -886,7 +886,7 @@
       "L'impédance intrathoracique entre la sonde VD et le boîtier",
       "La ventilation-minute, déduite de l'impédance transthoracique",
       "Les bruits cardiaques S3 captés par l'accéléromètre du boîtier",
-      "La pression artérielle pulmonaire transmise par un capteur dédié"
+      "La pression artérielle pulmonaire transmise par un capteur implanté"
     ],
     "reponses": [
       0
@@ -1139,7 +1139,7 @@
       "Faux : les spécifications Abbott indiquent au contraire une configuration de stimulation bipolaire pour l'ACap Confirm."
     ],
     "reponseAttendue": null,
-    "explication": "Au niveau atrial, l'onde P évoquée est petite et difficile à analyser à chaque cycle : l'ACap Confirm fait donc des mesures périodiques de seuil (intervalle de recherche de 8 ou 24 h sur l'Assurity MRI) puis adapte l'amplitude. Il peut aussi fonctionner en mode « Monitor », qui mesure sans modifier la programmation. Les spécifications Abbott indiquent une configuration de stimulation bipolaire pour l'ACap Confirm. L'AutoCapture ventriculaire, lui, confirme la capture à chaque cycle. Les méthodes par conduction AV ou par réinitialisation sinusale appartiennent à l'Atrial Capture Management de Medtronic. Piège : ne pas confondre adaptation périodique et confirmation cycle par cycle, qui ne protègent pas de la même façon contre une perte de capture brutale.",
+    "explication": "Dans l'oreillette, l'onde P évoquée est petite et difficile à analyser à chaque cycle : l'ACap Confirm fait donc des mesures périodiques de seuil (intervalle de recherche de 8 ou 24 h sur l'Assurity MRI) puis adapte l'amplitude. Il peut aussi fonctionner en mode « Monitor », qui mesure sans modifier la programmation. Les spécifications Abbott indiquent une configuration de stimulation bipolaire pour l'ACap Confirm. L'AutoCapture ventriculaire, lui, confirme la capture à chaque cycle. Les méthodes par conduction AV ou par réinitialisation sinusale appartiennent à l'Atrial Capture Management de Medtronic. Piège : ne pas confondre adaptation périodique et confirmation cycle par cycle, qui ne protègent pas de la même façon contre une perte de capture brutale.",
     "aRetenir": "ACap Confirm = seuil atrial mesuré périodiquement ; AutoCapture = capture ventriculaire confirmée à chaque cycle.",
     "rappel": "Il faut distinguer deux niveaux de gestion automatique de la capture. La mesure périodique du seuil, suivie d'une adaptation de l'amplitude avec une marge de sécurité, économise la batterie mais ne protège pas d'une élévation brutale du seuil entre deux tests. La confirmation cycle par cycle, avec impulsion de secours, garantit en plus la capture à chaque battement. À l'oreillette, la faible amplitude du signal évoqué et la proximité de la post-polarisation rendent la confirmation cycle par cycle difficile : les algorithmes atriaux sont en général périodiques. Un mode « surveillance » permet de suivre le seuil sans modifier l'amplitude, utile au début ou quand la mesure est peu fiable.",
     "sources": [
@@ -1423,7 +1423,7 @@
       "Juste : les incréments (10 bpm, puis 5 bpm) ne sont pas programmables ; on règle le nombre de cycles et la fréquence maximale."
     ],
     "reponseAttendue": null,
-    "explication": "C'est faux : l'affirmation inverse les deux paramètres. D'après les spécifications officielles de l'Assurity MRI, le nombre de cycles de surentraînement se programme de 15 à 40 par pas de 5, et la fréquence maximale d'AF Suppression de 80 à 180 bpm. En revanche, les incréments de fréquence (« Lower Rate Overdrive » 10 bpm, « Upper Rate Overdrive » 5 bpm) et la récupération de fréquence sont indiqués comme non programmables. Le nombre de cycles détermine la durée du surentraînement avant que la fréquence ne redescende. La fréquence maximale d'AF Suppression est la limite à adapter à la tolérance du patient, car la stimulation atriale rapide peut être mal supportée.",
+    "explication": "C'est faux : l'affirmation inverse les deux paramètres. D'après les spécifications officielles de l'Assurity MRI, le nombre de cycles de surentraînement se programme de 15 à 40 par pas de 5, et la fréquence maximale d'AF Suppression de 80 à 180 bpm. En revanche, les incréments de fréquence (« Lower Rate Overdrive » 10 bpm, « Upper Rate Overdrive » 5 bpm) et la récupération de fréquence sont indiqués comme non programmables. Le nombre de cycles détermine la durée du surentraînement avant que la fréquence ne redescende. La fréquence maximale d'AF Suppression est la limite à adapter à la tolérance du patient, car la stimulation atriale rapide peut être mal tolérée.",
     "aRetenir": "AF Suppression : on programme le nombre de cycles de surentraînement et la fréquence maximale, pas les incréments de fréquence.",
     "rappel": "Un algorithme de surentraînement atrial se décrit par quelques grandeurs : l'incrément de fréquence appliqué quand une activité atriale spontanée est détectée, la durée (en cycles) pendant laquelle la fréquence élevée est maintenue, la vitesse de redescente et une fréquence plafond. Selon les boîtiers, certaines de ces grandeurs sont programmables et d'autres fixées par le constructeur ; les spécifications techniques du modèle font foi. En pratique, la fréquence maximale est le paramètre de tolérance essentiel, car une stimulation atriale rapide peut entraîner palpitations, conduction ventriculaire rapide ou ischémie chez le coronarien. Le nombre de cycles module la proportion de temps passé en surentraînement.",
     "sources": [
@@ -1445,7 +1445,7 @@
     "options": [
       "Éviter de stimuler l'oreillette dans sa période vulnérable après une ESA",
       "Accélérer la stimulation atriale après chaque ESA pour maintenir un surentraînement",
-      "Déclencher un repli en DDI dès la première ESA tombant dans une fenêtre dédiée",
+      "Déclencher un repli en DDI dès la première ESA tombant dans une fenêtre spécifique",
       "Raccourcir l'échappement atrial après une ESA pour supprimer la pause qui suit"
     ],
     "reponses": [
@@ -1977,10 +1977,10 @@
       "Juste : CorVue suit l'impédance thoracique ; une baisse persistante (8 à 18 jours programmables sur Gallant) déclenche l'alerte.",
       "Faux : l'index combinant bruits cardiaques et respiration est HeartLogic (Boston Scientific).",
       "Faux : la ventilation-minute est un capteur d'asservissement (Boston Scientific), pas une surveillance de la congestion.",
-      "Faux : la pression artérielle pulmonaire se mesure avec un capteur implantable dédié, distinct du DAI."
+      "Faux : la pression artérielle pulmonaire se mesure avec un capteur implantable spécifique, distinct du DAI."
     ],
     "reponseAttendue": null,
-    "explication": "CorVue est l'équivalent Abbott de l'OptiVol : il suit l'évolution de l'impédance thoracique mesurée par le boîtier. Une baisse persistante évoque une accumulation de liquide. Le seuil d'alerte s'exprime en nombre de jours consécutifs de baisse, programmable de 8 à 18 jours sur le Gallant. La pression artérielle pulmonaire se mesure avec un capteur implantable dédié, distinct du DAI, et l'index composite bruits cardiaques + respiration correspond à HeartLogic (Boston Scientific). Comme pour l'OptiVol, une alerte CorVue se confronte à la clinique (poids, signes congestifs, traitement) pour limiter les faux positifs.",
+    "explication": "CorVue est l'équivalent Abbott de l'OptiVol : il suit l'évolution de l'impédance thoracique mesurée par le boîtier. Une baisse persistante évoque une accumulation de liquide. Le seuil d'alerte s'exprime en nombre de jours consécutifs de baisse, programmable de 8 à 18 jours sur le Gallant. La pression artérielle pulmonaire se mesure avec un capteur implantable spécifique, distinct du DAI, et l'index composite bruits cardiaques + respiration correspond à HeartLogic (Boston Scientific). Comme pour l'OptiVol, une alerte CorVue se confronte à la clinique (poids, signes congestifs, traitement) pour limiter les faux positifs.",
     "aRetenir": "CorVue surveille l'impédance thoracique ; une baisse prolongée fait suspecter une congestion.",
     "rappel": "La surveillance de l'impédance thoracique repose sur un principe simple : l'eau conduit le courant, et l'accumulation de liquide intrathoracique fait baisser l'impédance mesurée entre la sonde et le boîtier. Les algorithmes diffèrent par la façon de définir l'alerte : cumul d'écarts à une référence ou nombre de jours consécutifs de baisse. Un seuil plus court rend l'alerte plus sensible mais multiplie les faux positifs (infection pulmonaire, épanchement, modification de la loge). L'alerte ne prend son sens qu'intégrée à une organisation de télésurveillance, avec un contact du patient et une confrontation aux données cliniques (poids, dyspnée, œdèmes, observance) avant toute modification thérapeutique.",
     "sources": [
@@ -2107,7 +2107,7 @@
     "options": [
       "Transmission par modem de chevet relié à la ligne téléphonique fixe",
       "Aucune télésurveillance : lecture des données en consultation seulement",
-      "Transmission quotidienne automatique par un transmetteur de chevet dédié",
+      "Transmission quotidienne automatique par un transmetteur de chevet spécifique",
       "Transmission directe par le smartphone du patient (Bluetooth)"
     ],
     "reponses": [
@@ -2116,11 +2116,11 @@
     "commentaires": [
       "Faux : la ligne téléphonique fixe correspond aux premières générations de télésurveillance.",
       "Faux : le Confirm Rx est télésurveillé ; c'est même l'un des premiers moniteurs connectés au smartphone.",
-      "Faux : le transmetteur de chevet dédié est le modèle des générations antérieures et d'autres systèmes (Home Monitoring, par exemple).",
+      "Faux : le transmetteur de chevet spécifique est le modèle des générations antérieures et d'autres systèmes (Home Monitoring, par exemple).",
       "Juste : le Confirm Rx transmet par Bluetooth basse consommation via l'application myMerlin, sans boîtier de chevet."
     ],
     "reponseAttendue": null,
-    "explication": "Le Confirm Rx a été l'un des premiers moniteurs implantables à se connecter directement au smartphone du patient par Bluetooth basse consommation, grâce à l'application dédiée. Les tracés sont transmis au centre de suivi sans boîtier de chevet. Son algorithme a ensuite été amélioré par une mise à jour logicielle (SharpSense), qui a fortement réduit les fausses détections de bradycardie et de pause. Le transmetteur de chevet et la ligne téléphonique fixe correspondent à des générations plus anciennes de télésurveillance. Piège : la transmission dépend du téléphone (batterie, Bluetooth, mises à jour de l'application), qu'il faut expliquer au patient.",
+    "explication": "Le Confirm Rx a été l'un des premiers moniteurs implantables à se connecter directement au smartphone du patient par Bluetooth basse consommation, grâce à une application spécifique (myMerlin). Les tracés sont transmis au centre de suivi sans boîtier de chevet. Son algorithme a ensuite été amélioré par une mise à jour logicielle (SharpSense), qui a fortement réduit les fausses détections de bradycardie et de pause. Le transmetteur de chevet et la ligne téléphonique fixe correspondent à des générations plus anciennes de télésurveillance. Piège : la transmission dépend du téléphone (batterie, Bluetooth, mises à jour de l'application), qu'il faut expliquer au patient.",
     "aRetenir": "Le Confirm Rx transmet via le smartphone du patient (Bluetooth), sans transmetteur de chevet.",
     "rappel": "La télésurveillance des dispositifs implantables repose sur une chaîne de transmission : le boîtier communique par radiofréquence ou Bluetooth avec un relais (transmetteur de chevet, ou application sur le smartphone du patient), qui envoie les données au serveur du constructeur, consulté par le centre de suivi. Chaque maillon peut rompre la chaîne : transmetteur débranché, téléphone éteint, Bluetooth désactivé, application non mise à jour. La connectivité doit donc être vérifiée périodiquement, et une absence de transmission traitée comme une alerte. L'éducation du patient à l'usage du dispositif de transmission fait partie intégrante de la prise en charge.",
     "sources": [

@@ -51,7 +51,7 @@
    "Incorrect: this would reduce longevity with no benefit; safety is ensured by the backup pulse, and the threshold is automatically remeasured if losses recur.",
    "Incorrect: safety pacing follows sensing in the crosstalk window after an AP; here the P wave is sensed (AS) and it is the absence of an evoked response to the first VP that triggers the second pulse."
   ],
-  "explication": "Beat-to-beat capture verification algorithms analyse the evoked response after each ventricular pulse. If none is detected, they deliver a high-output backup pulse within ~100 ms: on the EGM, the first spike is followed by no depolarisation, the second one is, and the dependent patient has no pause. This is what allows the output to be set close to threshold, to the benefit of longevity. Repeated loss of capture triggers a new threshold measurement and an amplitude adjustment. Isolated backup pulses are therefore expected and reassuring; if they become frequent, the threshold and lead should be checked, and fusion, which would distort evoked response analysis, looked for.",
+  "explication": "Beat-to-beat capture verification algorithms analyse the evoked response after each ventricular pulse. If none is detected, they deliver a high-output backup pulse within ~100 ms: on the EGM, the first spike is followed by no depolarisation, the second one is, and the dependent patient has no pause. This is what allows the output to be set close to threshold, to the benefit of longevity. Repeated loss of capture triggers a new threshold measurement and an amplitude adjustment. Isolated backup pulses are therefore expected and reassuring; if they become frequent, the threshold and lead should be checked and fusion, which would distort evoked-response analysis, excluded.",
   "aRetenir": "Isolated backup pulses with beat-to-beat capture verification: expected behaviour that protects the dependent patient; only a concern if they become frequent.",
   "rappel": "Beat-to-beat capture verification (Abbott AutoCapture and equivalent algorithms) analyses the evoked response, i.e. the myocardial depolarisation produced by the stimulus, after each ventricular pulse. If no evoked response is found, a high-amplitude backup pulse is delivered within about a hundred milliseconds, avoiding any pause in a pacemaker-dependent patient; repeated loss of capture triggers a new threshold measurement and amplitude adjustment. This allows the output to be set just above threshold, to the benefit of longevity. Its reliability depends on an adequate evoked-response signal; fusion beats can distort the analysis."
  },
@@ -64,7 +64,7 @@
    "RV lead noise triggering false VF detection"
   ],
   "commentaires": [
-   "Incorrect: after the TP burst, the tachycardia persists with shorter cycles; there is no return to sinus rhythm.",
+   "Incorrect: after the ATP burst, the tachycardia persists with shorter cycles; there is no return to sinus rhythm.",
    "Incorrect: the ventricle is beating at 360 ms, dissociated from the atrium, which remains at 800 ms (V > A): this is VT.",
    "Correct: cycles go from 360 ms to ≈ 230–250 ms with a new morphology; they fall in the VF zone (FS) and the device charges.",
    "Incorrect: the rapid signals are organised depolarisations, also visible on the shock EGM; this is not non-physiological noise confined to the RV EGM."
@@ -213,7 +213,7 @@
    "Correct: restoring sinus rhythm re-establishes AV synchrony and BiV pacing; this is an option in a symptomatic patient with recent-onset AF.",
    "Incorrect: this would further increase the proportion of intrinsic conduction, the opposite of the goal.",
    "Correct: the 2021 ESC guidelines support AV junction ablation (IIa) in AF patients whose BiV pacing remains incomplete despite treatment.",
-   "Incorrect: pacing triggered after sensing mainly produces fusion or pseudo-fusion beats, without true resynchronisation."
+   "Incorrect: pacing triggered after sensing mainly produces fusion or pseudofusion beats, without true resynchronisation."
   ],
   "explication": "On the EGM, AF is conducted rapidly and irregularly: most cycles are VS with an intrinsic QRS, and BiV pacing only occurs after the longest cycles. The BiV percentage falls, whereas at least 98% is the target to obtain the benefit of CRT. The pacing counter often overestimates true BiV capture, as it includes fusion beats. Management combines optimisation of rate control, a rhythm control strategy where feasible and, if this fails, AV junction ablation to achieve 100% BiV pacing.",
   "aRetenir": "CRT with conducted AF: insufficient %BiV; control rhythm or rate, or even ablate the AV junction.",
@@ -251,7 +251,7 @@
    "Correct: no P wave precedes the QRS complexes, whereas they are visible in false positives due to PACs.",
    "Incorrect: the algorithm is wrong in a substantial proportion of cases (PACs, noise, undersensing); every detection must be reviewed.",
    "Correct: the irregular undulation of the baseline reflects fibrillatory atrial activity.",
-   "Incorrect: AF may be slow or have a normal rate; the rate does not make the diagnosis."
+   "Incorrect: AF may be slow or have a normal rate; the rate is not diagnostic."
   ],
   "explication": "Implantable loop recorders detect AF from RR irregularity (and sometimes the absence of P waves), with an imperfect positive predictive value: PACs, noise and undersensing generate false episodes. The physician must review the subcutaneous ECG. Here, the RR intervals are irregularly irregular, no P wave precedes the QRS complexes and the baseline is fibrillatory: this is genuine AF. In a patient who has had a stroke, its confirmation leads to a discussion of anticoagulation according to the 2024 ESC guidelines.",
   "aRetenir": "AF on an implantable loop recorder: irregularly irregular RR, no P waves, fibrillatory baseline; always review the EGM before deciding.",
@@ -276,11 +276,11 @@
   "rappel": "Atrial capture is checked on the atrial EGM (evoked P wave after the spike) and, in a patient with preserved AV conduction, by its consequences: atrial capture is followed by a conducted QRS after the usual AP–VS interval, whereas loss of capture lets the paced AV delay run out and results in ventricular pacing at the end of the AV delay. In the weeks after implantation, loss of capture suggests lead dislodgement (macro or micro) or a threshold rise due to inflammation at the lead–tissue interface. Management combines threshold measurement, an adequate safety margin on amplitude and radiographic check of lead position."
  },
  "egm-116": {
-  "question": "Dual-chamber pacemaker for sinus node dysfunction with normal AV conduction (PR 180–240 ms). Sensed AV delay programmed at 200 ms, with no conduction-preserving algorithm. Ventricular pacing percentage displayed: 78%. On several cycles, the ventricular spike falls within a spontaneous QRS whose appearance is unchanged. How do you interpret these cycles?",
+  "question": "Dual-chamber pacemaker for sinus node dysfunction with normal AV conduction (PR 180–240 ms). Sensed AV delay programmed at 200 ms, with no conduction-preserving algorithm. Ventricular pacing percentage displayed: 78%. On several cycles, a ventricular spike falls within a spontaneous QRS. How do you interpret these cycles?",
   "options": [
    "Intermittent loss of capture: increase ventricular output",
    "Ventricular undersensing: spontaneous QRS complexes are missed",
-   "Pseudo-fusion: ineffective spikes, wrongly counted as pacing",
+   "Pseudofusion: ineffective spikes, wrongly counted as pacing",
    "True fusion: hybrid QRS, partly paced and partly intrinsic"
   ],
   "commentaires": [
@@ -289,8 +289,8 @@
    "Correct: the spike, delivered once the spontaneous QRS is already under way, does not alter activation; the device nevertheless counts it as pacing, hence a misleading VP percentage.",
    "Incorrect: true fusion produces a QRS of intermediate morphology; here the appearance is that of the spontaneous QRS."
   ],
-  "explication": "The intrinsic PR interval fluctuates around the programmed AV delay: depending on the cycle, the QRS is sensed (VS), paced, or a spike falls within a spontaneous QRS already under way without altering its appearance (pseudo-fusion). The spike is delivered because intrinsic activation has not yet reached the RV lead by the end of the AV delay; it falls in the refractory period and has no effect. The device nevertheless counts these pseudo-fusion beats as paced, hence a misleading VP percentage, which should not be taken as evidence of either pacemaker dependence or loss of capture. Management is to promote intrinsic conduction with a conduction-preserving algorithm (AV hysteresis, conduction search, AAI/DDD switching modes), since unnecessary RV pacing is harmful in the long term.",
-  "aRetenir": "V spike within a spontaneous QRS of unchanged appearance: pseudo-fusion, ineffective but counted as VP, which inflates the pacing percentage.",
+  "explication": "The intrinsic PR interval fluctuates around the programmed AV delay: depending on the cycle, the QRS is sensed (VS), paced, or a spike falls within a spontaneous QRS already under way without altering its appearance (pseudofusion). The spike is delivered because intrinsic activation has not yet reached the RV lead by the end of the AV delay; it falls in the refractory period and has no effect. The device nevertheless counts these pseudofusion beats as paced, hence a misleading VP percentage, which should not be taken as evidence of either pacemaker dependence or loss of capture. Management is to promote intrinsic conduction with a conduction-preserving algorithm (AV hysteresis, conduction search, AAI/DDD switching modes), since unnecessary RV pacing is harmful in the long term.",
+  "aRetenir": "V spike within a spontaneous QRS of unchanged appearance: pseudofusion, ineffective but counted as VP, which inflates the pacing percentage.",
   "rappel": "Fusion is a QRS activated both by pacing and by intrinsic conduction, with an intermediate morphology; pseudofusion is a spike delivered into an intrinsic QRS already under way, falling in the refractory period and with no effect on its morphology. Both occur when the intrinsic PR interval is close to the programmed AV delay, because intrinsic activation has not yet reached the RV lead when the AV delay ends. The device counts these cycles as paced, which inflates the ventricular pacing percentage. As unnecessary RV pacing is harmful in the long term, intrinsic conduction is favoured with a preservation algorithm (AV hysteresis, AV search, AAI/DDD switching mode)."
  },
  "egm-117": {

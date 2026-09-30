@@ -6,6 +6,8 @@
   <base href="../">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <script>try { var l = localStorage.getItem('rythmo.langue'); document.documentElement.lang = l === 'fr' || l === 'en' ? l : /\/en\/(index\.html)?$/.test(location.pathname) ? 'en' : 'fr'; } catch (e) {}</script>
+  <!-- Android : la proposition d'installation du navigateur est retenue pour l'encart de l'accueil (js/installation.js) -->
+  <script>addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); window.__installationPwa = e; });</script>
   <!--seo-->
   <title>Shock &amp; Pace · Electrophysiology simulator, cardiac rhythm quiz</title>
   <meta name="description" content="Electrophysiology simulator and cardiac rhythm quiz. Mystery cases in the EP lab, referenced answers, competitive ELO mode.">
@@ -59,7 +61,7 @@
         <li>Real-time electrophysiology (EP) recording system simulator and mystery cases.</li>
         <li>Training by domain, from beginner to expert, with detailed answers and references (ESC, EHRA, HRS, ACC/AHA).</li>
         <li>Adaptive competitive mode with an ELO rating.</li>
-        <li>Works offline; no data leaves your device.</li>
+        <li>Works offline; no account, progress kept on your device.</li>
       </ul>
       <p><a href="en/presentation.html">About the app: topics, sources and frequently asked questions</a></p>
       <p class="chargement">Loading the question bank…</p>
@@ -67,6 +69,9 @@
     </div>
     <!--/statique-->
   </main>
+  <!-- mesure d'audience anonyme, sans cookie (GoatCounter) ; chaque écran de l'application est compté par js/app.js -->
+  <script data-goatcounter="https://shockandpace.goatcounter.com/count" data-goatcounter-settings='{"no_onload": true}'
+    onload="if (window.__vueEnAttente) window.goatcounter.count({ path: window.__vueEnAttente })" async src="https://gc.zgo.at/count.js"></script>
   <script type="module" src="js/app.js"></script>
 </body>
 </html>
