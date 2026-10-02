@@ -10,7 +10,8 @@ export const pctTexte = n => t(`${n} %`, `${n}%`);
 export const decimal = x => t(String(x).replace('.', ','), String(x));
 export const pct = (a, b) => (b ? Math.round((100 * a) / b) : 0);
 export const lettre = i => String.fromCharCode(65 + i);
-export const diffBarres = d => `<span class="diff" aria-hidden="true">${Array.from({ length: 10 }, (_, i) => `<i class="${i < d ? 'on' : ''}"></i>`).join('')}</span>`;
+// jauge de difficulté : verte de 1 à 3, jaune de 4 à 6, rouge de 7 à 10
+export const diffBarres = d => `<span class="diff ${d <= 3 ? 'facile' : d <= 6 ? 'moyen' : 'difficile'}" aria-hidden="true">${Array.from({ length: 10 }, (_, i) => `<i class="${i < d ? 'on' : ''}"></i>`).join('')}</span>`;
 export const moisAnnee = aaaamm => {
   const [a, m] = String(aaaamm).split('-').map(Number);
   return a && m ? new Date(a, m - 1, 1).toLocaleDateString(locale(), { month: 'long', year: 'numeric' }) : '';

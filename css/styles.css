@@ -128,6 +128,9 @@ legend { font-weight: 700; margin-bottom: 8px; }
 .diff { display: inline-flex; gap: 2px; align-items: center; }
 .diff i { width: 6px; height: 12px; border-radius: 2px; background: var(--bord); display: inline-block; }
 .diff i.on { background: var(--accent); }
+.diff.facile i.on { background: #22a35a; }
+.diff.moyen i.on { background: #e8b100; }
+.diff.difficile i.on { background: #d93636; }
 .enonce { font-size: 1.08rem; font-weight: 600; margin: 4px 0 14px; white-space: pre-line; }
 .ecg-cadre { margin: 0 0 14px; border: 1px solid var(--bord); border-radius: 10px; overflow-x: auto; background: var(--ecg-bg); }
 .ecg-cadre canvas { display: block; }
