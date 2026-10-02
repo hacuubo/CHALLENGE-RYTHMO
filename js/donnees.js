@@ -104,6 +104,9 @@ export const DOMAINES = [
 
 // Cadre d'une question : lecture de tracé (ECG, EGM, EEP), cas clinique (situation de la vraie vie) ou connaissance de cours.
 export const cadre = q => (aTrace(q) ? 'trace' : q.cadre === 'clinique' ? 'clinique' : 'cours');
+// Famille d'une question, pour varier le mode compétitif : EGM de prothèse, ECG (tracé ou non), simulateur d'EEP,
+// questions de programmateur (programmation et télécardiologie sans tracé), électrophysiologie.
+export const famille = q => (q.egm ? 'egm' : q.ecg || q.ecg12 || q.theme === 'ecg' ? 'ecg' : q.simu || q.theme === 'electrophysio' ? 'ep' : 'programmateur');
 // Mode compétitif : on joue surtout sur des tracés et des cas cliniques ; les questions de cours y deviennent rares.
 const CADRE_COMPETITIF = { trace: 0, clinique: 0.4, cours: 2 }; // pénalité en « crans de difficulté »
 // Entraînement : même priorité aux tracés (ECG, EGM, EEP) et aux cas cliniques, plus douce qu'en compétitif pour garder
@@ -125,10 +128,16 @@ export function questionCompetitive(dejaPosees) {
   if (!pool.length) pool = base.questions.filter(q => q.type !== 'ouverte' && !dejaPosees.slice(-20).includes(q.id));
   if (!pool.length) return null;
   const cible = elo + 50;
+  // variété : on évite d'enchaîner deux questions de la même famille (EGM, ECG, programmateur, électrophysiologie)
+  const parId = new Map(base.questions.map(q => [q.id, q]));
+  const vues = [...(p.classement.recents || [])]; // questions classées, de la plus ancienne à la plus récente (sessions précédentes comprises)
+  for (const id of dejaPosees) if (!vues.includes(id)) vues.push(id);
+  const derniers = vues.slice(-2).map(id => parId.get(id)).filter(Boolean).map(famille);
+  const repetition = f => (f === derniers.at(-1) ? 1.6 : 0) + (f === derniers.at(-2) ? 0.6 : 0);
   const score = q => {
     const e = p.q[q.id];
     const ecart = Math.abs(stock.eloQuestion(q.difficulte) - cible) / 200; // 1 = un cran de difficulté
-    return ecart + CADRE_COMPETITIF[cadre(q)] + (e ? (e.dernierOk ? 0.8 : 0.3) : 0) + Math.random() * 0.9;
+    return ecart + CADRE_COMPETITIF[cadre(q)] + repetition(famille(q)) + (e ? (e.dernierOk ? 0.8 : 0.3) : 0) + Math.random() * 0.9;
   };
   return pool.reduce((m, q) => { const v = score(q); return v < m.v ? { q, v } : m; }, { q: null, v: Infinity }).q;
 }

@@ -21,6 +21,7 @@ function rng(seedStr) {
 
 // Complexe stimulé : latence spike → début de la dépolarisation (ms), puis montée sur quelques ms (pas de marche verticale).
 const LATENCE = 2;
+const DELAI_QRS = 40; // spike ventriculaire → début du QRS stimulé : 1 mm à 25 mm/s
 const montee = dt => (dt >= 8 ? 1 : (dt / 8) ** 2 * (3 - 2 * dt / 8));
 
 class Trace {
@@ -55,17 +56,20 @@ class Trace {
     this.gauss(x + 115, -0.45 * sens, 30);
     this.gauss(x + Math.min(this.qt(rr), rr * 0.55) - 30, -0.35 * sens, 55);
   }
+  // QRS stimulé : le spike (à l'instant programmé x) précède d'un millimètre (40 ms à 25 mm/s) le début de la dépolarisation
   qrsStimuleVD(x, rr = 1000) {
     this.spike(x);
-    this.gauss(x + 55, -0.95, 30, x + LATENCE);
-    this.gauss(x + 130, 0.3, 30, x + LATENCE);
-    this.gauss(x + this.qt(rr) - 40, 0.38, 58);
+    const v = x + DELAI_QRS;
+    this.gauss(v + 55, -0.95, 30, v);
+    this.gauss(v + 130, 0.3, 30, v);
+    this.gauss(v + this.qt(rr) - 40, 0.38, 58);
   }
   qrsBiV(x, rr = 1000) {
     this.spike(x);
-    this.gauss(x + 32, -0.6, 17, x + LATENCE);
-    this.gauss(x + 78, 0.5, 18, x + LATENCE);
-    this.gauss(x + this.qt(rr) - 90, 0.22, 50);
+    const v = x + DELAI_QRS;
+    this.gauss(v + 32, -0.6, 17, v);
+    this.gauss(v + 78, 0.5, 18, v);
+    this.gauss(v + this.qt(rr) - 90, 0.22, 50);
   }
   pStimulee(t) { this.spike(t, 1.2); this.gauss(t + 55, 0.12, 30, t + LATENCE); }
 
