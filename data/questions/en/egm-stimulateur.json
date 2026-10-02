@@ -246,7 +246,7 @@
   "rappel": "Crosstalk is the sensing, by the ventricular channel, of the atrial pulse or its afterpotential, wrongly interpreted as ventricular activity. It is promoted by unipolar or high-energy atrial pacing, high ventricular sensitivity and a short post-atrial ventricular blanking period. As protection, dual-chamber pacemakers open a ventricular safety window after each AP, at the end of this blanking period (of the order of 100 to 120 ms): any event sensed in this window triggers a VP at a short AV delay, labelled according to the manufacturer (SV, VSP…). This early VP ensures capture if the event was an artefact, without falling on the T wave if it was a PVC."
  },
  "egm-pm-015": {
-  "question": "Same pacing-dependent patient. What would be the main danger of this phenomenon if ventricular safety pacing were switched off?",
+  "question": "76-year-old man with complete AV block, dependent on his DDD pacemaker; unipolar atrial pacing at 5.0 V. On this tracing, some cycles are marked VSP (ventricular safety pacing). What would be the main danger of this phenomenon if ventricular safety pacing were switched off?",
   "options": [
    "Triggering pacemaker-mediated tachycardia at the maximum tracking rate",
    "Inappropriate mode switching with lasting loss of atrioventricular synchrony",
@@ -304,7 +304,7 @@
   "rappel": "Oversensing is the detection of signals other than depolarisation of the chamber concerned: myopotentials, T waves, far-field signals, electromagnetic interference or lead noise. On the ventricular channel, each sensed event resets the escape interval and inhibits pacing, causing pauses without spikes. Pectoral myopotentials are high-frequency, low-amplitude signals triggered by contraction of the muscles near the can; they mainly affect unipolar sensing or excessive sensitivity. Lead noise (fracture, insulation breach, connection fault) is more often accompanied by abnormal or variable impedance and non-physiological signals."
  },
  "egm-pm-018": {
-  "question": "Same patient (complete AV block, VVI). Bipolar ventricular sensing; at a previous check the sensitivity value was lowered to 0.9 mV \"to be safe\"; intrinsic R wave not measurable (pacing-dependent patient), recorded as 8 mV at implantation. What is the best correction?",
+  "question": "70-year-old man with complete AV block and a VVI pacemaker at 60 bpm, with near-syncope when carrying his shopping bags (pause recorded on this tracing). Bipolar ventricular sensing; at a previous check the sensitivity value was lowered to 0.9 mV \"to be safe\"; intrinsic R wave not measurable (pacing-dependent patient), recorded as 8 mV at implantation. What is the best correction?",
   "options": [
    "Raise the sensitivity value (e.g. 2.5 mV), then repeat a provocation test",
    "Lower the sensitivity to 0.5 mV to sense the patient's true QRS better",
@@ -347,7 +347,7 @@
   "rappel": "The atrial lead can sense ventricular depolarisation in the far field (far-field R wave) when it occurs after the end of the post-ventricular atrial blanking period. This signal is recognised by its short, fixed coupling to the QRS (a few tens of milliseconds) and its occurrence during ventricular depolarisation. Falling within the PVARP, it is marked as a refractory event: it is not tracked, but it contributes to the atrial rate used by mode switching and arrhythmia detection. It is distinguished from a retrograde P wave, which is later and depends on VA conduction, and from a PAC, whose coupling is variable."
  },
  "egm-pm-021": {
-  "question": "Same patient: remote monitoring transmits 350 \"AT/AF\" episodes lasting a few seconds with mode switching, with an estimated atrial arrhythmia burden of 4%. Her GP suggests anticoagulation. What do you do?",
+  "question": "74-year-old woman with a DDD pacemaker for paroxysmal AV block (sensed AV delay 250 ms), asymptomatic; this tracing shows AR markers. Remote monitoring transmits 350 \"AT/AF\" episodes lasting a few seconds with mode switching, with an estimated atrial arrhythmia burden of 4%. Her GP suggests anticoagulation. What do you do?",
   "options": [
    "Start a direct oral anticoagulant: the burden exceeds the risk threshold",
    "Review the episode EGMs: probably false episodes due to double counting",
@@ -365,7 +365,7 @@
   "rappel": "Atrial arrhythmia episodes detected by an implanted device (AHREs) are prone to false positives: far-field R waves, noise, repetitive PACs. Guidelines require each episode to be validated by reviewing the stored EGMs before any therapeutic decision, particularly anticoagulation; counters and the calculated burden are not enough. The 2023 HRS consensus on remote monitoring emphasises this systematic review. Once false episodes are identified, sensing is corrected (blanking, sensitivity) and the true burden reassessed; the discussion of thromboembolic risk under the 2024 ESC guidelines is then based on that burden."
  },
  "egm-pm-022": {
-  "question": "Still in this patient, which programming change corrects this phenomenon most specifically?",
+  "question": "74-year-old woman with a DDD pacemaker for paroxysmal AV block: brief \"AT/AF\" episodes with mode switching are caused by far-field R-wave sensing on the atrial channel (AR markers on this tracing). Which programming change corrects this phenomenon most specifically?",
   "options": [
    "Extend the PVARP so that AR events are no longer counted at all",
    "Increase atrial sensitivity to better distinguish the P wave from the R wave",
@@ -401,7 +401,7 @@
   "rappel": "The post-ventricular atrial blanking period makes the atrial channel blind for a short window after each ventricular event. During atrial flutter whose cycle length is close to the sum of the AV delay and the blanking period, every other flutter wave can fall systematically within this window: the pacemaker sees only half the true atrial rate. If this half-rate remains below the maximum tracking rate and the mode-switch threshold, the device tracks the flutter 2:1 without ever switching. The diagnosis rests on counting activations on the atrial EGM, not on the markers alone."
  },
  "egm-pm-024": {
-  "question": "Same patient. Which programming measures reduce this pitfall? (select all that apply)",
+  "question": "71-year-old man with a DDD pacemaker for AV block (maximum tracking rate 130 bpm, mode switch on), palpitations for 48 hours. On this tracing, every other atrial wave falls in a blanking period and mode switching is not triggered. Which programming measures reduce this pitfall? (select all that apply)",
   "options": [
    "Shorten post-ventricular atrial blanking, checking for far-field sensing",
    "Enable the manufacturer's blanked flutter search algorithm, if available",
@@ -421,7 +421,7 @@
   "rappel": "2:1 lock-in of atrial flutter depends on the total atrial \"blind\" period, the sum of the AV delay and the post-ventricular atrial blanking period: a flutter wave falling in this window is not seen. The risk is reduced by shortening the blanking period (checking that no far-field R wave appears) and/or the AV delay. Some manufacturers offer a blanked flutter search algorithm, which temporarily modifies the PVARP or cycle length when the tracked atrial rate is high, to unmask a hidden wave and allow mode switching. Programming does not replace treating the flutter itself: anticoagulation according to risk and consideration of cavotricuspid isthmus ablation."
  },
  "egm-pm-025": {
-  "question": "Same patient. Statement: the absence of any mode-switch marker in the device memory proves that he has had no atrial arrhythmia since the last follow-up.",
+  "question": "71-year-old man with a DDD pacemaker (mode switch on): on this tracing, every other atrial wave falls in a blanking period. Statement: the absence of any mode-switch marker in the device memory proves that he has had no atrial arrhythmia since the last follow-up.",
   "options": [
    "True",
    "False"
@@ -453,7 +453,7 @@
   "rappel": "The maximum tracking rate (MTR) sets the minimum V-V interval after which a VP can track a sensed P wave. When the sinus rate exceeds it, the VP is delayed until the end of the upper rate interval: the AS-VP interval lengthens with each cycle until a P wave falls within the PVARP and is not tracked, producing pacemaker Wenckebach. When the P-P interval becomes shorter than the total atrial refractory period (TARP, the sum of the AV delay and the PVARP), every other P wave is blocked: this is 2:1 pacemaker block, with an abrupt fall in ventricular rate. In young, active patients, the MTR should be matched to the maximum sinus rate expected on exertion."
  },
  "egm-pm-027": {
-  "question": "Same 32-year-old athletic patient. Which programming is most appropriate?",
+  "question": "32-year-old athletic man with congenital complete AV block and a DDD pacemaker (maximum tracking rate 120 bpm): sudden fatigue and a feeling of \"dropping out\" during sprints, explained by the upper-rate behaviour seen on this exercise tracing. Which programming is most appropriate?",
   "options": [
    "Lower the maximum tracking rate to avoid any rapid tracking on exertion",
    "Extend the PVARP to eliminate the AR events occurring on exertion",
@@ -507,7 +507,7 @@
   "rappel": "Pacemaker-mediated tachycardia (PMT) is a re-entrant circuit in which the pacemaker forms the antegrade limb and the patient's retrograde VA conduction forms the retrograde limb. It requires intact VA conduction and an event that dissociates atrium and ventricle: most often a PVC, but also loss of atrial capture or sensing, or an overly long AV delay. The retrograde P wave, occurring after the end of the PVARP, is sensed and tracked with a VP, which is itself conducted back to the atrium. PMT is recognised as a paced tachycardia close to the maximum tracking rate, with a fixed VP-AS interval equal to the retrograde conduction time."
  },
  "egm-pm-030": {
-  "question": "Same patient. Which measures are appropriate to prevent recurrence? (select all that apply)",
+  "question": "80-year-old woman with a DDD pacemaker for paroxysmal AV block (PVARP 220 ms, PVARP extension after PVC off, maximum tracking rate 120 bpm): sudden palpitations during the visit, with pacemaker-mediated tachycardia on this tracing. Which measures are appropriate to prevent recurrence? (select all that apply)",
   "options": [
    "Program a PVARP longer than the retrograde conduction time (here ≈ 240 ms)",
    "Enable post-PVC PVARP extension",
@@ -527,7 +527,7 @@
   "rappel": "PMT prevention aims to stop retrograde P waves from being tracked. The PVARP must be longer than the VA conduction time, which is measured on the programmer with a retrograde conduction test. PVARP extension after a PVC neutralises the most common trigger. PMT detection algorithms recognise sustained tracking close to the maximum tracking rate with a stable VP-AS interval, then break the loop by withholding one VP or lengthening the PVARP for one cycle. A very long fixed PVARP increases the TARP and lowers the 2:1 block point: in active patients, the algorithms and post-PVC extension are preferable."
  },
  "egm-pm-031": {
-  "question": "Same patient, tachycardia ongoing at the time of the tracing, programmer temporarily unavailable. Statement: applying a magnet over the generator usually terminates this tachycardia.",
+  "question": "80-year-old woman with a DDD pacemaker: pacemaker-mediated tachycardia ongoing at the time of this tracing, programmer temporarily unavailable. Statement: applying a magnet over the generator usually terminates this tachycardia.",
   "options": [
    "True",
    "False"
@@ -559,7 +559,7 @@
   "rappel": "During AF, atrial waves are rapid, irregular and of variable amplitude; the atrial channel marks them AS outside the refractory period and AR during the PVARP. All these events are counted to estimate the atrial rate. When it exceeds the detection threshold, according to a manufacturer-specific criterion (mean rate, short-cycle counter), the device switches to a non-tracking mode (DDI or VDI), stores the episode and resumes tracking once the atrial rate falls. In non-tracking mode, the ventricles are either conducted spontaneously and irregularly, or paced at the lower or sensor rate."
  },
  "egm-pm-033": {
-  "question": "Same patient: 77 years old, hypertensive and diabetic, no history of stroke, asymptomatic. Several similar episodes, including one lasting 26 hours, EGMs reviewed and confirmed. No high bleeding risk. Which management is consistent with the 2024 ESC guidelines?",
+  "question": "77-year-old patient with a DDD pacemaker for paroxysmal AV block, hypertensive and diabetic, no history of stroke, asymptomatic. Several episodes similar to the one on this tracing, including one lasting 26 hours, EGMs reviewed and confirmed. No high bleeding risk. Which management is consistent with the 2024 ESC guidelines?",
   "options": [
    "Discuss direct oral anticoagulation with the patient (shared decision-making)",
    "Offer nothing: device-detected AF never justifies anticoagulation",
