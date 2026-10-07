@@ -279,6 +279,16 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
       await page.mouse.move(b.x + b.width * 0.5, b.y + 60); await page.mouse.down(); await page.mouse.move(b.x + b.width * 0.7, b.y + 60); await page.mouse.up();
       await page.waitForTimeout(100);
       if (!await page.evaluate(() => /A-A/.test(document.querySelector('#mesures-rappel').textContent))) throw new Error('mesures du rappel absentes');
+      // l'image rappelée n'est pas figée : glisser l'échelle de temps (en bas) vers la droite remonte le temps
+      const recul = async () => parseFloat((await page.textContent('#recul-val')).replace('−', '').replace(',', '.')) || 0;
+      await page.waitForFunction(() => !document.querySelector('#journal [title="Enregistrement en cours"]'), null, { timeout: 20000 });
+      const r0 = await recul();
+      await page.locator('#ecran-rappel').evaluate(c => c.scrollIntoView({ block: 'end' })); // bas du rappel (échelle de temps) visible
+      const bt = await page.locator('#ecran-rappel').boundingBox();
+      await page.mouse.move(bt.x + bt.width * 0.4, bt.y + bt.height - 8); await page.mouse.down(); await page.mouse.move(bt.x + bt.width * 0.7, bt.y + bt.height - 8, { steps: 5 }); await page.mouse.up();
+      await page.waitForTimeout(100);
+      const r1 = await recul();
+      if (!(r1 > r0)) throw new Error(`glisser l'échelle de temps ne fait pas remonter le rappel (${r0} → ${r1} s, ${await page.textContent('#rappel-titre')})`);
     }
     await capture('simulateur');
     await page.click('#tab-medic');

@@ -30,7 +30,7 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
     **pression artérielle**, montages (dont un montage réduit pour téléphone), gain par voie, bruit, filtre secteur 50 Hz et
     passe-haut des électrogrammes (parasite et dérive respiratoire quand ils sont coupés), saturation après un choc.
     L'écran en temps réel ne se fige jamais ; à côté, un **écran de rappel** affiche chaque manœuvre ou enregistrement :
-    relecture, vitesse propre (pincer pour zoomer), trois compas **aimantés** aux activations avec report (poser le doigt
+    relecture (on remonte jusqu'à 3 s avant l'image montrée en glissant l'échelle de temps ou à deux doigts), vitesse propre (pincer pour zoomer), trois compas **aimantés** aux activations avec report (poser le doigt
     au début, glisser : mesure en continu, laissée en place au relâcher ; toucher un compas l'enlève), comparaison avec
     un rappel de référence. Chaque fin de stimulation (programmée ou arrêtée par Stop) est rappelée centrée sur le dernier
     complexe stimulé ; chaque événement du journal peut être rappelé, avec ses intervalles. Ordre des voies modifiable (▲ ou
@@ -39,7 +39,7 @@ Entièrement en français, utilisable hors ligne, installable sur téléphone ou
   - **Console de stimulation** toujours visible (en bas, à droite en paysage ou sur grand écran) : Stimuler, S2 − 10, Salve,
     Stop, Enregistrer ; pastilles de site ; onglets Programme, Protocoles, Salve, Sonde / RF, Médicaments, Journal ; réglages
     par boutons ± (appui long). Stimulateur : trains S1 à S4, sortie et largeur d'impulsion, seuil propre à chaque site
-    (loi intensité-durée, capture intermittente près du seuil), couplage à la détection, rampe, salve, nombre de S1 infini (case « ∞ » à côté de S1 : stimulation continue jusqu’à Stop). On ne stimule que
+    (loi intensité-durée, capture intermittente près du seuil), couplage à la détection, rampe, salve, nombre de S1 infini (case « ∞ » à côté de S1 : stimulation continue jusqu’à Stop), décrément automatique (S1 + S2 : trains successifs sans arrêt, S2 − 10 ms à chaque train, jusqu'à la période réfractaire, une induction ou Stop). On ne stimule que
     depuis un cathéter dont une voie est affichée ; l'électrogramme capturé suit le spike de quelques millisecondes.
   - **Protocoles automatiques** : extrastimulus atrial ou ventriculaire décrémental (PR atriale, nodale, ventriculaire,
     rétrograde, saut d'AH, induction), rampe jusqu'au Wenckebach antérograde ou rétrograde, temps de récupération sinusale,
