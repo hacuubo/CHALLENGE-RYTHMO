@@ -279,16 +279,16 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
       await page.mouse.move(b.x + b.width * 0.5, b.y + 60); await page.mouse.down(); await page.mouse.move(b.x + b.width * 0.7, b.y + 60); await page.mouse.up();
       await page.waitForTimeout(100);
       if (!await page.evaluate(() => /A-A/.test(document.querySelector('#mesures-rappel').textContent))) throw new Error('mesures du rappel absentes');
-      // l'image rappelée n'est pas figée : glisser l'échelle de temps (en bas) vers la droite remonte le temps
+      // l'image rappelée n'est pas figée : glisser d'un doigt (ici la souris) vers la droite remonte le temps
       const recul = async () => parseFloat((await page.textContent('#recul-val')).replace('−', '').replace(',', '.')) || 0;
       await page.waitForFunction(() => !document.querySelector('#journal [title="Enregistrement en cours"]'), null, { timeout: 20000 });
       const r0 = await recul();
-      await page.locator('#ecran-rappel').evaluate(c => c.scrollIntoView({ block: 'end' })); // bas du rappel (échelle de temps) visible
+      await page.locator('#ecran-rappel').evaluate(c => c.scrollIntoView({ block: 'end' })); // bas du rappel visible
       const bt = await page.locator('#ecran-rappel').boundingBox();
-      await page.mouse.move(bt.x + bt.width * 0.4, bt.y + bt.height - 8); await page.mouse.down(); await page.mouse.move(bt.x + bt.width * 0.7, bt.y + bt.height - 8, { steps: 5 }); await page.mouse.up();
+      await page.mouse.move(bt.x + bt.width * 0.4, bt.y + bt.height - 60); await page.mouse.down(); await page.mouse.move(bt.x + bt.width * 0.7, bt.y + bt.height - 60, { steps: 5 }); await page.mouse.up();
       await page.waitForTimeout(100);
       const r1 = await recul();
-      if (!(r1 > r0)) throw new Error(`glisser l'échelle de temps ne fait pas remonter le rappel (${r0} → ${r1} s, ${await page.textContent('#rappel-titre')})`);
+      if (!(r1 > r0)) throw new Error(`glisser le rappel ne le fait pas remonter dans le temps (${r0} → ${r1} s, ${await page.textContent('#rappel-titre')})`);
     }
     await capture('simulateur');
     await page.click('#tab-medic');
@@ -333,12 +333,14 @@ for (const [largeur, hauteur, appareil] of [[390, 844, 'mobile'], [1280, 900, 'b
         cv.dispatchEvent(ev('pointerup', x1));
       }, [x0, x1]);
       const compas = n => page.waitForFunction(n => document.querySelector('#ecran-rappel').dataset.compas === String(n), n, { timeout: 5000 }).then(() => true, () => false);
+      await page.click('#mesure'); // outil « Mesure » : glisser mesure au lieu de déplacer le tracé
       await glisser(0.5, 0.5);
       if (!await compas(0)) throw new Error('un toucher bref pose un compas');
       await glisser(0.4, 0.6);
       if (!await compas(1)) throw new Error('le glisser au doigt ne laisse pas le compas en place');
       await glisser(0.6, 0.6);
       if (!await compas(0)) throw new Error('toucher le compas une fois ne l\'enlève pas');
+      await page.click('#mesure');
       await page.click('.simu-bascule [data-vue=direct]');
       await page.setViewportSize({ width: largeur, height: hauteur });
     }
