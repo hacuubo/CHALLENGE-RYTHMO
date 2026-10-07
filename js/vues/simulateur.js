@@ -154,6 +154,7 @@ export function vueSimulateur(app) {
           <div class="simu-ecran">
             <canvas id="ecran-rappel" role="img" aria-label="${t('Écran de rappel : tracé de l\'événement sélectionné dans le journal, mesurable au compas', 'Review screen: tracing of the event selected in the log, measurable with callipers')}"></canvas>
             <p class="simu-rappel-vide" id="rappel-vide">${t('Aucun événement rappelé. Faites une manœuvre ou « Enregistrer », ou touchez un événement du journal.', 'No event recalled. Perform a manoeuvre or press "Record", or tap an event in the log.')}</p>
+            <span class="simu-defile" aria-hidden="true">⇆ ${t('glisser', 'drag')}</span>
             <canvas id="ecran-mini" class="simu-mini-direct" aria-label="${t('Vignette du tracé en temps réel (toucher pour y revenir)', 'Real-time tracing thumbnail (tap to return to it)')}" role="button" tabindex="0"></canvas>
           </div>
           <div class="simu-revue">
@@ -201,7 +202,7 @@ export function vueSimulateur(app) {
           <label class="simu-case simu-extras"><input type="checkbox" id="extras" ${r.extras ? 'checked' : ''}> ${t('+ extrastimulus (S2, S3, S4)', '+ extrastimuli (S2, S3, S4)')}</label>
           <div id="extras-bloc" ${r.extras ? '' : 'hidden'}>
             <div class="simu-grille-pas">${pas('s2', 'S2 (ms)', r.s2, 10, 0, 1000)}${pas('s3', 'S3', r.s3, 10, 0, 1000)}${pas('s4', 'S4', r.s4, 10, 0, 1000)}</div>
-            <label class="simu-case"><input type="checkbox" id="decrement" ${r.decrement ? 'checked' : ''}> ${t('Décrément automatique : S2 − 10 ms après chaque train', 'Automatic decrement: S2 − 10 ms after each drive train')}</label>
+            <label class="simu-case"><input type="checkbox" id="decrement" ${r.decrement ? 'checked' : ''}> ${t('Décrément automatique : les trains se suivent sans arrêt, S2 − 10 ms à chaque train (jusqu\'à la période réfractaire ou Stop)', 'Automatic decrement: drive trains follow one another without stopping, S2 − 10 ms each time (until the refractory period or Stop)')}</label>
           </div>
 `)}
         ${panneau('proto', `
@@ -279,7 +280,7 @@ export function vueSimulateur(app) {
       <summary><b>${t('Mode d\'emploi et manœuvres clés', 'User guide and key manoeuvres')}</b></summary>
       <ul>
         <li>${t(`<b>Console</b> : sous la baie (à droite en paysage sur téléphone). « Stimuler » délivre le programme (onglet Programme) ou la salve (onglet Salve : burst de durée choisie, 0 = continu, ou rampe), selon le dernier des deux onglets ouvert. Stimuler (qui devient Stop pendant une stimulation, une salve ou un protocole) et Enregistrer restent visibles ; « + extrastimulus » affiche S2, S3 et S4 ; les pastilles choisissent le site ; les onglets donnent les réglages (± : appui long pour aller vite). Touchez l'onglet ouvert pour replier la console.`, `<b>Console</b>: below the recording screen (on the right in landscape on a phone). "Pace" delivers the programme (Programme tab) or the burst (Burst tab: burst of chosen duration, 0 = continuous, or ramp), whichever of the two tabs was opened last. Pace (which becomes Stop during pacing, a burst or a protocol) and Record always remain visible; "+ extrastimuli" shows S2, S3 and S4; the chips select the pacing site; the tabs hold the settings (±: press and hold to go faster). Tap the open tab to collapse the console.`)}</li>
-        <li>${t(`<b>Baie</b> : vitesse en mm/s (25 mm/s pour une vue d'ensemble, 100 à 200 mm/s pour mesurer). L'écran en temps réel est en balayage (défilement en option) et ne se fige jamais. Choisissez un montage, puis ajoutez ou enlevez chaque voie dans « Voies affichées » ; changez leur ordre avec ▲ ou en faisant glisser le nom de la voie sur le tracé (toucher un nom change son gain). L'<b>écran de rappel</b> affiche chaque manœuvre ou enregistrement, centré sur le dernier complexe stimulé à chaque fin de stimulation, programmée ou arrêtée par Stop ; tout événement du journal peut y être rappelé. Posez le doigt (ou la souris) au début de l'intervalle et faites glisser : la mesure s'affiche en continu et reste en place quand vous lâchez (aimantée aux activations, trois compas au plus) ; touchez un compas une fois pour l'enlever. Pincez pour changer de vitesse, « Comparer » garde un rappel en référence (avant / après adénosine, avant / après ablation). Sur téléphone en paysage, un seul écran à la fois : glissez horizontalement pour passer du temps réel au rappel ; « Vignette direct » retire le temps réel à côté du rappel (sur ordinateur, le rappel prend alors toute la largeur ; sur téléphone en paysage, la vignette posée sur le rappel). On ne stimule que depuis un cathéter dont une voie est affichée : le spike et l'électrogramme capturé, juste après lui, doivent être visibles.`, `<b>Recording system</b>: sweep speed in mm/s (25 mm/s for an overview, 100 to 200 mm/s for measurements). The real-time screen uses sweep mode (scrolling as an option) and never freezes. Choose a montage, then add or remove individual channels under "Displayed channels"; reorder them with ▲ or by dragging the channel name on the tracing (tapping a name changes its gain). The <b>review screen</b> shows each manoeuvre or recording, centred on the last paced complex at every end of pacing, programmed or stopped with Stop; any event in the log can be recalled there. Put your finger (or the mouse) on the start of the interval and drag: the measurement updates as you go and stays in place when you let go (it snaps to activations, up to three callipers); tap a calliper once to remove it. Pinch to change the sweep speed; "Compare" keeps a recording as a reference (before / after adenosine, before / after ablation). On a phone in landscape, one screen at a time: swipe horizontally to switch between real time and review; "Live thumbnail" hides the real-time screen next to the review (on a computer the review then uses the full width; on a phone in landscape, the thumbnail sits over the review). You can only pace from a catheter whose channel is displayed: the spike and the captured electrogram just after it must be visible.`)}</li>
+        <li>${t(`<b>Baie</b> : vitesse en mm/s (25 mm/s pour une vue d'ensemble, 100 à 200 mm/s pour mesurer). L'écran en temps réel est en balayage (défilement en option) et ne se fige jamais. Choisissez un montage, puis ajoutez ou enlevez chaque voie dans « Voies affichées » ; changez leur ordre avec ▲ ou en faisant glisser le nom de la voie sur le tracé (toucher un nom change son gain). L'<b>écran de rappel</b> affiche chaque manœuvre ou enregistrement, centré sur le dernier complexe stimulé à chaque fin de stimulation, programmée ou arrêtée par Stop ; tout événement du journal peut y être rappelé. Posez le doigt (ou la souris) au début de l'intervalle et faites glisser : la mesure s'affiche en continu et reste en place quand vous lâchez (aimantée aux activations, trois compas au plus) ; touchez un compas une fois pour l'enlever. Pour remonter le temps (jusqu'à 3 s avant l'image montrée), faites glisser l'échelle de temps en bas de l'écran (⇆), ou glissez à deux doigts, ou utilisez la molette. Pincez pour changer de vitesse, « Comparer » garde un rappel en référence (avant / après adénosine, avant / après ablation). Sur téléphone en paysage, un seul écran à la fois : glissez horizontalement pour passer du temps réel au rappel ; « Vignette direct » retire le temps réel à côté du rappel (sur ordinateur, le rappel prend alors toute la largeur ; sur téléphone en paysage, la vignette posée sur le rappel). On ne stimule que depuis un cathéter dont une voie est affichée : le spike et l'électrogramme capturé, juste après lui, doivent être visibles.`, `<b>Recording system</b>: sweep speed in mm/s (25 mm/s for an overview, 100 to 200 mm/s for measurements). The real-time screen uses sweep mode (scrolling as an option) and never freezes. Choose a montage, then add or remove individual channels under "Displayed channels"; reorder them with ▲ or by dragging the channel name on the tracing (tapping a name changes its gain). The <b>review screen</b> shows each manoeuvre or recording, centred on the last paced complex at every end of pacing, programmed or stopped with Stop; any event in the log can be recalled there. Put your finger (or the mouse) on the start of the interval and drag: the measurement updates as you go and stays in place when you let go (it snaps to activations, up to three callipers); tap a calliper once to remove it. To move back in time (up to 3 s before the image shown), drag the time scale at the bottom of the screen (⇆), drag with two fingers, or use the mouse wheel. Pinch to change the sweep speed; "Compare" keeps a recording as a reference (before / after adenosine, before / after ablation). On a phone in landscape, one screen at a time: swipe horizontally to switch between real time and review; "Live thumbnail" hides the real-time screen next to the review (on a computer the review then uses the full width; on a phone in landscape, the thumbnail sits over the review). You can only pace from a catheter whose channel is displayed: the spike and the captured electrogram just after it must be visible.`)}</li>
         <li>${t(`<b>Protocoles</b> : extrastimulus décrémental automatique (PRE, saut d'AH, induction), rampe jusqu'au Wenckebach antérograde ou rétrograde, temps de récupération sinusale, seuil de capture, para-hisien, ESV His-réfractaire et entraînement avec arrêt automatique. Les résultats vont dans le journal et le compte rendu.`, `<b>Protocols</b>: automatic decremental extrastimulus testing (ERP, AH jump, induction), ramp to anterograde or retrograde Wenckebach, sinus node recovery time, capture threshold, para-Hisian pacing, His-refractory PVC and entrainment with automatic stop. The results go into the log and the report.`)}</li>
         <li>${t(`<b>Extrastimulus</b> : train de S1 (ex. 8 × 600 ms) puis, en cochant « + extrastimulus », S2, S3, S4 (0 = désactivé) ; diminuez S2 par pas de 10 ms (boutons ± ou décrément automatique). Saut de l'AH ≥ 50 ms pour 10 ms de raccourcissement du couplage = double voie nodale. Période réfractaire effective : du tissu stimulé quand S2 ne capture plus ; du nœud AV quand S2 capture sans être suivi d'un H.`, `<b>Extrastimulus testing</b>: S1 drive train (e.g. 8 × 600 ms) then, after ticking "+ extrastimuli", S2, S3, S4 (0 = off); decrease S2 in 10 ms steps (± buttons or automatic decrement). AH jump ≥ 50 ms for a 10 ms decrement in coupling interval = dual AV nodal physiology. Effective refractory period: of the paced tissue when S2 no longer captures; of the AV node when S2 captures but is not followed by an H.`)}</li>
         <li>${t(`<b>Stimulateur</b> : chaque site a son seuil (isthme, SC distal et cicatrice plus élevés) ; près du seuil, la capture devient intermittente ; une impulsion plus courte exige plus d'intensité (loi intensité-durée). Un stimulus sans capture est marqué « · ».`, `<b>Stimulator</b>: each site has its own threshold (higher at the isthmus, distal CS and scar); near threshold, capture becomes intermittent; a shorter pulse width requires a higher output (strength–duration relationship). A non-capturing stimulus is marked "·".`)}</li>
@@ -357,15 +358,17 @@ export function vueSimulateur(app) {
   // sites vus par la sonde ; sur une ligne (isthme), bord opposé et état de la lésion : doubles potentiels
   const lesionLigne = pos => { const v = pos?.a2 && st.coeur.voies.find(x => pos.cibles.includes(x.id)); return !v ? 0 : v.coupee ? 1 : Math.min(1, st.lesions?.[v.id] ?? 0); };
   const ablationVue = () => { const pos = positionActuelle(); return pos ? { a: pos.a, v: pos.v, a2: pos.a2, dp: lesionLigne(pos) } : null; };
+  // RECUL_AVANT : tracé gardé avant ce que montre l'écran de rappel à l'ouverture, pour pouvoir y remonter en glissant
+  const RECUL_AVANT = 3000;
   function capturer(e) {
-    const c = st.coeur, t0 = Math.max(e.debut, e.capture - 60000, 0);
+    const c = st.coeur;
+    if (e.finStim) { const l = c.stims.filter(x => x.t >= e.debut && x.t <= e.capture), d = l.filter(x => x.capture).at(-1) ?? l.at(-1); if (d) e.focus = d.t; }
+    const fen = fenetreMs(Math.max(canvasR.clientWidth, baie.clientWidth) || 300, r.vitesseRappel);
+    const debutVu = e.focus != null ? e.focus - fen / 2 : e.capture - fen;
+    const t0 = Math.max(Math.min(e.debut, debutVu - RECUL_AVANT), e.capture - 60000, 0);
     e.instantane = { t: e.capture, debut: t0, journal: c.journal.filter(x => x.t >= t0 - 8000 && x.t <= e.capture + 5),
       stims: c.stims.filter(x => x.t >= t0 - 3000 && x.t <= e.capture), chocs: c.chocs.filter(x => x >= t0 - 2000 && x <= e.capture), ablation: ablationVue() };
     e.mes = mesures(e.instantane, e.capture);
-    if (e.finStim) { // dernier stimulus ayant capturé (à défaut, le dernier délivré) de la fenêtre
-      const l = e.instantane.stims.filter(x => x.t >= e.debut), d = l.filter(x => x.capture).at(-1) ?? l.at(-1);
-      if (d) e.focus = d.t;
-    }
   }
   function rappeler(e) {
     if (!e) return;
@@ -538,6 +541,13 @@ export function vueSimulateur(app) {
     vibrer();
     const c = st.coeur, site = siteReel();
     const type = classer(site, { detection: p.detection, n: p.n, s2: p.s2 });
+    // S1 + S2 avec « Décrément automatique » : trains successifs sans arrêt, S2 − 10 ms à chaque train
+    if (p.decrement && p.s2 && !p.s3 && !p.s4 && p.n && !p.detection) {
+      toutArreter({ silencieux: true });
+      st.proto = protoDecremental(!VENTRICULAIRES.has(site), { site, s1: p.s1, n: p.n, s2: p.s2, sortie: p.sortie });
+      majBoutonStim();
+      return;
+    }
     // ESV His-réfractaire : cycle du His (égal au cycle atrial, même en cas de bloc 2:1 sous le His)
     const tcl = cycleSite(c.journal, 'his', c.t - 3000, c.t) ?? tachycardie(c).cycleV;
     let e = null;
@@ -562,7 +572,7 @@ export function vueSimulateur(app) {
       };
       c.ecouteurs.push(ecoute);
     } else lancer(c.t + 150);
-    if (p.decrement && p.s2) { $('#s2').value = Math.max(150, p.s2 - 10); reglages(); }
+    if (p.decrement && p.s2) { $('#s2').value = Math.max(150, p.s2 - 10); reglages(); } // avec S3/S4 ou couplage : S2 − 10 au train suivant
     majBoutonStim();
   }
 
@@ -623,18 +633,24 @@ export function vueSimulateur(app) {
   const choisirSite = id => choisirPuce('site', id);
   const fixer = (id, v) => { $(id).value = v; };
 
-  function protoDecremental(atrial) {
+  // manuel : programme de la console (S1, S2 de départ, site, sortie) avec « Décrément automatique » coché ; les trains se
+  // succèdent sans arrêt, S2 − 10 ms à chaque train, jusqu'à la période réfractaire, une induction ou « Stop »
+  function protoDecremental(atrial, manuel = null) {
     reglages();
-    const c = st.coeur, site = atrial ? 'hra' : 'rva';
-    choisirSite(site);
-    const s1 = r.s1, n = Math.max(1, r.n || 8), sortie = Math.max(r.sortie, 2 * seuilCapture(site, r.largeur));
-    let s2 = arrondi10(Math.min(400, s1 - 200)), attente = null, prec = null; // départ standard, quel que soit le S2 laissé par une manœuvre précédente
+    const c = st.coeur, site = manuel?.site ?? (atrial ? 'hra' : 'rva');
+    if (!manuel) choisirSite(site);
+    const s1 = manuel?.s1 ?? r.s1, n = manuel ? Math.max(1, manuel.n) : Math.max(1, r.n || 8);
+    const sortie = manuel ? manuel.sortie : Math.max(r.sortie, 2 * seuilCapture(site, r.largeur));
+    // départ standard pour le protocole, quel que soit le S2 laissé par une manœuvre précédente ; S2 de la console en manuel
+    let s2 = manuel ? manuel.s2 : arrondi10(Math.min(400, s1 - 200)), attente = null, prec = null;
     const res = { site, s1, n, pr: null, prConduction: null, saut: null, courbe: [], induction: null };
     const nom = atrial ? t('Extrastimulus atrial décrémental', 'Decremental atrial extrastimulus') : t('Extrastimulus ventriculaire décrémental', 'Decremental ventricular extrastimulus');
+    const nomTrain = manuel ? nomSite() : atrial ? t('OD haute', 'HRA') : t('VD apex', 'RV apex');
     // période réfractaire de conduction : nodale (atrial) ou rétrograde (ventriculaire)
     const libPR = () => t(`PRE ${atrial ? 'nodale' : 'rétrograde'}`, `${atrial ? 'AV nodal' : 'retrograde'} ERP`);
     faire(atrial ? 'extraA' : 'extraV');
-    noter(null, t(`Protocole : ${nom} (${n} × ${s1} ms, S2 dès ${s2} ms, ${virgule(sortie)} mA)`, `Protocol: ${nom} (${n} × ${s1} ms, S2 from ${s2} ms, ${virgule(sortie)} mA)`));
+    noter(null, manuel ? t(`${nom}, ${nomTrain} (${n} × ${s1} ms, S2 dès ${s2} ms, − 10 ms à chaque train, ${virgule(sortie)} mA)`, `${nom}, ${nomTrain} (${n} × ${s1} ms, S2 from ${s2} ms, − 10 ms each train, ${virgule(sortie)} mA)`)
+      : t(`Protocole : ${nom} (${n} × ${s1} ms, S2 dès ${s2} ms, ${virgule(sortie)} mA)`, `Protocol: ${nom} (${n} × ${s1} ms, S2 from ${s2} ms, ${virgule(sortie)} mA)`));
     const conclure = texte => {
       if (atrial) st.cr.extraA = res; else st.cr.extraV = res;
       resultat(t(`${nom} : ${texte}`, `${nom}: ${texte}`));
@@ -646,7 +662,7 @@ export function vueSimulateur(app) {
       c.stimuler(site, ts, sortie, r.largeur, `S2 ${s2}`);
       st.train = { temps: [...Array.from({ length: n }, (_, i) => t0 + i * s1), ts], n, nx: 1 };
       fixer('#s2', s2); reglages();
-      entree(t0, `${atrial ? t('OD haute', 'HRA') : t('VD apex', 'RV apex')}${t(' : ', ': ')}${n} × S1 ${s1} S2 ${s2} ms`, { debut: t0 - 1500, capture: ts + 2000, focus: ts });
+      entree(t0, `${nomTrain}${t(' : ', ': ')}${n} × S1 ${s1} S2 ${s2} ms`, { debut: t0 - 1500, capture: ts + 2000, focus: ts });
       majJournal();
       attente = { ts, s2, fin: ts + 2400 };
     };
@@ -1280,14 +1296,16 @@ export function vueSimulateur(app) {
     cv.addEventListener('pointercancel', () => { deplace = null; });
   }
   // pincer : écarter les doigts accélère le déroulement (plus de détail), les rapprocher le ralentit
-  const pincer = (cv, cle, auDebut) => {
-    const doigts = new Map(); let d0 = null;
+  const pincer = (cv, cle, auDebut, glisser) => {
+    const doigts = new Map(); let d0 = null, cx = null;
+    const centre = () => [...doigts.values()].reduce((s, p) => s + p.x, 0) / doigts.size;
     const dist = () => { const [a, b] = [...doigts.values()]; return Math.hypot(a.x - b.x, a.y - b.y); };
-    cv.addEventListener('pointerdown', e => { doigts.set(e.pointerId, { x: e.clientX, y: e.clientY }); if (doigts.size === 2) { d0 = dist(); auDebut?.(); } });
+    cv.addEventListener('pointerdown', e => { doigts.set(e.pointerId, { x: e.clientX, y: e.clientY }); if (doigts.size === 2) { d0 = dist(); cx = centre(); auDebut?.(); } });
     cv.addEventListener('pointermove', e => {
       if (!doigts.has(e.pointerId)) return;
       doigts.set(e.pointerId, { x: e.clientX, y: e.clientY });
       if (doigts.size !== 2 || !d0) return;
+      if (glisser) { const c = centre(); glisser(c - cx); cx = c; } // deux doigts glissés ensemble : déplacement dans le tracé
       const k = dist() / d0, i = VITESSES.indexOf(r[cle]);
       if (k > 1.3 || k < 0.77) {
         const j = Math.max(0, Math.min(VITESSES.length - 1, i + (k > 1 ? 1 : -1)));
@@ -1300,7 +1318,10 @@ export function vueSimulateur(app) {
   };
   canvas.addEventListener('pointerdown', e => gain(canvas, geo, e));
   pincer(canvas, 'vitesse');
-  const nbDoigtsR = pincer(canvasR, 'vitesseRappel', () => { if (geste?.trace) st.curseurs.pop(); geste = null; st.sale = true; });
+  // se déplacer dans l'enregistrement rappelé : glisser vers la droite remonte le temps (jusqu'à 3 s avant l'image montrée)
+  const deplacerRappel = dx => { if (!st.rappel || !geoR?.pxms || !dx) return; st.recul += dx / geoR.pxms; majRecul(); };
+  const nbDoigtsR = pincer(canvasR, 'vitesseRappel', () => { if (geste?.trace) st.curseurs.pop(); geste = null; st.sale = true; }, deplacerRappel);
+  canvasR.addEventListener('wheel', e => { if (!st.rappel) return; e.preventDefault(); deplacerRappel(-(Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY)); }, { passive: false });
   const temps = e => { const b = canvasR.getBoundingClientRect(); return geoR?.t0 != null ? geoR.t0 + (e.clientX - b.left - geoR.marge) / geoR.pxms : null; };
   const aimanter = t => {
     if (!r.aimant || t == null || !aimants.length || !geoR) return t;
@@ -1331,11 +1352,14 @@ export function vueSimulateur(app) {
     if (gain(canvasR, geoR, e) || !st.rappel || nbDoigtsR() > 1) return;
     const t = temps(e); if (t == null) return;
     aimantsSous(e);
-    geste = { id: e.pointerId, x: e.clientX, debut: aimanter(t), cible: compasTouche(e), trace: false };
+    // bande de l'échelle de temps, en bas de l'écran : glisser déplace le tracé au lieu de poser un compas
+    if (e.clientY - canvasR.getBoundingClientRect().top > canvasR.clientHeight - 28) geste = { id: e.pointerId, x: e.clientX, defile: true };
+    else geste = { id: e.pointerId, x: e.clientX, debut: aimanter(t), cible: compasTouche(e), trace: false };
     try { canvasR.setPointerCapture(e.pointerId); } catch { /* pointeur déjà relâché */ }
   });
   canvasR.addEventListener('pointermove', e => {
     if (!geste || e.pointerId !== geste.id || nbDoigtsR() > 1) return;
+    if (geste.defile) { deplacerRappel(e.clientX - geste.x); geste.x = e.clientX; return; }
     if (!geste.trace) {
       if (Math.abs(e.clientX - geste.x) < 6) return; // un simple toucher ne pose rien
       geste.trace = true;
@@ -1346,6 +1370,7 @@ export function vueSimulateur(app) {
   canvasR.addEventListener('pointerup', e => {
     if (!geste || e.pointerId !== geste.id) return;
     const g = geste; geste = null;
+    if (g.defile) return;
     if (g.trace) { const d = st.curseurs.at(-1); if (d[1] == null || Math.abs(d[1] - d[0]) < 5) st.curseurs.pop(); else mesureFaite(); }
     else if (g.cible >= 0) st.curseurs.splice(g.cible, 1); // toucher un compas l'enlève
     st.sale = true;
