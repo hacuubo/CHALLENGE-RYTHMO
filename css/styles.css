@@ -391,7 +391,8 @@ details.avance > summary { cursor: pointer; font-weight: 700; margin-bottom: 12p
 .simu-titre-ecran .note { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .simu-rappel { border-top: 1px solid #2c3e50; padding-top: 4px; }
 .simu-rappel .simu-barre { margin-top: 4px; }
-.simu-rappel .simu-ecran canvas { cursor: crosshair; }
+.simu-rappel .simu-ecran canvas { cursor: grab; } /* glisser déplace le tracé ; outil « Mesure » : viseur */
+.simu-rappel .simu-ecran canvas.simu-mesure { cursor: crosshair; }
 .simu-panneau:first-child canvas { cursor: default; }
 .simu-rappel-vide { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; margin: 0; padding: 16px; text-align: center; font-size: .85rem; color: var(--simu-texte); pointer-events: none; }
 .simu-rappel-vide[hidden] { display: none; }
@@ -787,5 +788,3 @@ body.sur-accueil .menu-principal.centre { gap: 16px; }
 body.sur-accueil .pied-accueil { margin-top: auto; padding-top: 32px; }
 /* bandeau du cas : une ligne (mode, scénario ou nouveau cas), contexte dessous, cellule plus fine */
 .simu-sombre.simu-tete { padding: 8px 10px; margin: 8px 0; }
-/* écran de rappel : bande de l'échelle de temps qui fait défiler le tracé */
-.simu-rappel .simu-defile { position: absolute; left: 6px; bottom: 4px; font-size: .7rem; font-weight: 600; color: var(--simu-curseur); pointer-events: none; opacity: .85; }
